@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1 - De base</string>
       <string id="AllowTelemetry_2">2 - Améliorée</string>
       <string id="AllowTelemetry_3">3 - Complète</string>
-      <string id="AllowTelemetry_Explain">Ce paramètre de stratégie détermine le niveau le plus élevé de données de diagnostic Windows envoyées à Microsoft. En configurant ce paramètre, vous n'empêchez pas les utilisateurs de modifier leurs paramètres de télémétrie. Toutefois, vous les empêchez de choisir un niveau supérieur à celui que vous avez défini pour l'organisation. Les paramètres de données de diagnostic de Windows 10 ne s'appliquent qu'au système d'exploitation Windows et aux applications incluses dans Windows. Ces paramètres ne s'appliquent pas aux applications tierces fonctionnant sous Windows 10.
+      <string id="AllowTelemetry_Explain">Lorsqu’ils configurent ce paramètres dans Windows 10, les utilisateurs finaux ne peuvent pas définir un niveau de collecte de télémétrie plus élevé que celui que vous avez défini pour votre organisation.  Cette limite concerne uniquement le système d’exploitation Windows et les applications incluses avec Windows, pas les applications tierces s’exécutant dans Windows 10.
 
-Si vous activez ce paramètre, vous pouvez décider du niveau de données de diagnostic à envoyer à Microsoft, notamment :
+Les données de diagnostics sont réparties en quatre niveaux, comme suit :
+  - 0 (Sécurité). Informations indispensables à la sécurité de Windows, Windows Server et System Center. Il s’agit de données concernant les paramètres des composants Expériences des utilisateurs connectés et télémétrie, l’Outil de suppression de logiciels malveillants et Windows Defender.
+  - 1 (Basique). Informations basiques sur les appareils, notamment : données relatives à la qualité, compatibilité des applications et données provenant du niveau Sécurité.
+  - 2 (Amélioré). Informations complémentaires, notamment : mode d’utilisation de Windows, Windows Server, System Center et des applications, données de performances, données de fiabilité avancées et données provenant des niveaux Basique et Sécurité.
+  - 3 (Complet). Toutes les données nécessaires pour identifier et aider à résoudre les problèmes, ainsi que données provenant des niveaux Basique, Sécurité et Amélioré.
 
--0 (Sécurité). Envoie seulement une quantité minimale de données à Microsoft, requis pour conserver le niveau de sécurité de Windows. Les composants de sécurité de Windows, tels que l'outil de suppression de logiciels malveillants (MSRT) et Windows Defender, peuvent envoyer des données à Microsoft à ce niveau, s'ils sont activés. La définition d'une valeur équivalent à 0 s'applique aux appareils exécutant les éditions Enterprise, Education, IoT ou Windows Server uniquement. La définition d'une valeur équivalent à 0 pour les autres éditions revient à définir une valeur de 1.
-  -1 (De base). Envoie les mêmes données qu'une valeur de 0, plus une quantité très limitée de données de diagnostic, telles que les informations de base sur l'appareil, les données relatives à la qualité et les informations de compatibilité des applications. Notez que la définition des valeurs de 0 ou 1 affectera certaines expériences sur l'appareil.
-  -2 (Amélioré). Envoie les mêmes données que pour une valeur de 1, ainsi que des données supplémentaires notamment liées à la façon dont Windows, Windows Server, System Center et des applications sont utilisés, leur mode d'exécution et les données de fiabilité avancées.
-  -3 (Complet). Envoie les mêmes données qu'une valeur de 2, plus des données de diagnostic avancées utilisées pour diagnostiquer et résoudre des problèmes liés aux appareils, y compris les fichiers et le contenu qui peuvent avoir causé un problème avec l'appareil.
-
-Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les paramètres de télémétrie peuvent être configurés individuellement dans les paramètres.
+Les options disponibles pour les utilisateurs dans l’application Paramètres peuvent être modifiées grâce à ce paramètre. Même si ces options ne sont pas définies, elles peuvent être affectées par d’autres paramètres de stratégie de groupe. Notez que si cette stratégie n’est pas configurée pour autoriser un paramètres de télémétrie de niveau Sécurité ou Basique les utilisateurs finaux ne pourront pas sélectionner un niveau plus élevé.
       </string>
 
-      <string id="TelemetryProxy">Configurer les expériences utilisateur de connexion et la télémétrie</string>
+      <string id="TelemetryProxy">Configurer Expériences des utilisateurs connectés et télémétrie</string>
       <string id="TelemetryProxy_Explain">Ce paramètre de stratégie permet de transférer les demandes d’expériences des utilisateurs connectés et de télémétrie à un serveur proxy.
 
 Si vous activez ce paramètre de stratégie, vous pouvez spécifier le nom de domaine complet ou l’adresse IP de l’appareil de destination au sein du réseau de votre organisation (et éventuellement un numéro de port si vous le souhaitez). La connexion est effectuée via une connexion SSL (Secure Sockets Layer). En cas d’échec du proxy nommé, ou si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, les données d’expériences des utilisateurs connectés et de télémétrie sont adressées à Microsoft à l’aide de la configuration du proxy par défaut.
@@ -67,14 +66,14 @@ Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le nom de 
       <string id="ConfigureTelemetryOptInSettingsUx">Configurez l'interface utilisateur de l'activation de la télémétrie.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Désactiver les paramètres d'activation de la télémétrie</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Activer les paramètres d'activation de la télémétrie</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Ce paramètre de stratégie détermine si les personnes peuvent modifier leurs propres niveaux de télémétrie dans les paramètres. Ce paramètre doit être utilisé conjointement avec les paramètres d'autorisation de la télémétrie.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Ce paramètre de stratégie détermine si un utilisateur peut modifier ses propres niveaux de télémétrie dans les paramètres.
 
-Si vous définissez ce paramètre de stratégie sur « Désactiver les paramètres d'activation de la télémétrie », les niveaux de télémétrie sont désactivés dans les paramètres, ce qui empêche les utilisateurs de les modifier.
+Si vous définissez ce paramètre de stratégie sur « Désactiver les paramètres d’activation de la télémétrie », les niveaux de télémétrie sont désactivés dans les paramètres, ce qui empêche les utilisateurs de les modifier.
 
-Si vous définissez ce paramètre de stratégie sur « Activer les paramètres d'activation de la télémétrie » ou si vous ne configurez pas ce paramètre de stratégie, les utilisateurs peuvent modifier leurs propres niveaux de télémétrie dans les paramètres.
+Si vous ne définissez pas ce paramètre de stratégie, ou si vous le définissez sur « Activer les paramètres d’activation de la télémétrie », les utilisateurs peuvent modifier le niveau de télémétrie de l’appareil dans l’application Paramètres.
 
 Remarque :
-Définissez le paramètre de stratégie de télémétrie pour empêcher les utilisateurs d'envoyer des données de diagnostic à Microsoft au-delà de la limite définie pour votre organisation.
+Pour définir une limite du niveau de données de diagnostic envoyées à Microsoft par votre organisation, utilisez le paramètre de stratégie Autoriser la télémétrie.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Configurez les notifications d'activation de la télémétrie.</string>
