@@ -45,17 +45,15 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
 
 Uwaga: przy uruchamianiu może być wymagana tylko jedna dodatkowa opcja uwierzytelniania. W przeciwnym razie wystąpi błąd zasad.
 
-Aby używać funkcji BitLocker na komputerze bez modułu TPM, należy zaznaczyć pole wyboru „Zezwalaj na używanie funkcji BitLocker bez zgodnego modułu TPM”. W tym trybie do uruchomienia potrzebne jest hasło lub dysk USB. W przypadku korzystania z klucza uruchomienia informacje klucza służące do szyfrowania dysku są przechowywane na dysku USB — tworząc klucz USB. Gdy klucz USB zostanie włożony do portu USB, nastąpi uwierzytelnienie dostępu do dysku i dysk stanie się dostępny. Jeśli klucz USB zostanie utracony, będzie niedostępny lub użytkownik zapomni hasła, w celu uzyskania dostępu do dysku trzeba będzie użyć jednej z opcji odzyskiwania funkcji BitLocker.
+Aby używać funkcji BitLocker na komputerze bez modułu TPM, zaznacz pole wyboru „Zezwalaj na używanie funkcji BitLocker bez zgodnego modułu TPM”. W tym trybie do uruchomienia potrzebne jest hasło lub dysk USB. W przypadku korzystania z klucza uruchomienia informacje klucza służące do szyfrowania dysku są przechowywane na dysku USB — tworząc klucz USB. Gdy klucz USB zostanie włożony do portu USB, nastąpi uwierzytelnienie dostępu do dysku i dysk stanie się dostępny. Jeśli klucz USB zostanie utracony, będzie niedostępny lub użytkownik zapomni hasła, w celu uzyskania dostępu do dysku trzeba będzie użyć jednej z opcji odzyskiwania funkcji BitLocker.
 
-Na komputerze ze zgodnym modułem TPM przy uruchamianiu można używać czterech typów metod uwierzytelniania, aby zapewnić dodatkową ochronę szyfrowanych danych. Podczas uruchamiania komputera do uwierzytelnienia można użyć tylko modułu TPM lub wymagać dodatkowo włożenia dysku flash USB zawierającego klucz uruchomienia, wprowadzenia osobistego numeru identyfikacyjnego (PIN) składającego się z od 4 do 20 cyfr albo wykonania wszystkich tych czynności.
+Na komputerze ze zgodnym modułem TPM przy uruchamianiu można używać czterech typów metod uwierzytelniania, aby zapewnić dodatkową ochronę szyfrowanych danych. Podczas uruchamiania komputera do uwierzytelnienia można użyć tylko modułu TPM lub wymagać dodatkowo włożenia dysku flash USB zawierającego klucz uruchomienia, wprowadzenia osobistego numeru identyfikacyjnego (PIN) składającego się z od 6 do 20 cyfr albo wykonania wszystkich tych czynności.
 
-Jeśli to ustawienie zasad zostanie włączone, użytkownicy będą mogli konfigurować zaawansowane opcje uruchamiania w Kreatorze instalacji funkcji BitLocker.
+Jeśli włączysz to ustawienie zasad, użytkownicy będą mogli konfigurować zaawansowane opcje uruchamiania w Kreatorze instalacji funkcji BitLocker.
 
-Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli konfigurować tylko podstawowe opcje na komputerach z modułem TPM.
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, użytkownicy będą mogli konfigurować tylko podstawowe opcje na komputerach z modułem TPM.
 
-Uwaga: aby wymagać użycia numeru PIN uruchomienia i dysku flash USB, należy skonfigurować ustawienia funkcji BitLocker przy użyciu narzędzia wiersza polecenia manage-bde, a nie Kreatora instalacji szyfrowania dysków funkcją BitLocker.
-
-
+Uwaga: aby wymagać użycia kodu PIN przy uruchamianiu i dysku flash USB, musisz skonfigurować ustawienia funkcji BitLocker przy użyciu narzędzia wiersza polecenia manage-bde, a nie Kreatora instalacji szyfrowania dysków funkcją BitLocker.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Zezwalaj na odblokowywanie przez sieć podczas uruchamiania</string>
@@ -287,16 +285,21 @@ Ostrzeżenie: zmiana domyślnego profilu weryfikacji platformy wpływa na zabezp
 
       <string id="PlatformValidation_BIOS_Name">Konfiguruj profil weryfikacji platformy modułu TPM dla konfiguracji oprogramowania układowego opartego na systemie BIOS</string>
 
-      <string id="PlatformValidation_UEFI_Help">To ustawienie zasad umożliwia skonfigurowanie sposobu zabezpieczenia klucza szyfrowania funkcji BitLocker przez zabezpieczenia sprzętowe modułu TPM. To ustawienie zasad nie jest stosowane, gdy komputer nie ma zgodnego modułu TPM ani gdy funkcja BitLocker została już włączona z ochroną za pomocą modułu TPM.
+      <string id="PlatformValidation_UEFI_Help">To ustawienie zasad umożliwia skonfigurowanie sposobu zabezpieczenia klucza szyfrowania funkcji BitLocker przez sprzęt zabezpieczający modułu TPM. To ustawienie zasad nie jest stosowane, gdy komputer nie ma zgodnego modułu TPM ani gdy funkcja BitLocker została już włączona z ochroną za pomocą modułu TPM.
 
-Ważne: te zasady grupy dotyczą tylko komputerów z konfiguracją natywnego oprogramowania układowego UEFI. Komputery z oprogramowaniem układowym opartym na systemie BIOS lub z oprogramowaniem układowym UEFI, na których włączono moduł CSM, przechowują różne wartości w rejestrach konfiguracji platformy (PCR). Do skonfigurowania profilu PCR modułu TPM komputerów z konfiguracjami systemu BIOS lub komputerów z oprogramowaniem układowym UEFI i włączonym modułem CSM należy użyć ustawienia zasad grupy „Konfiguruj profil weryfikacji platformy modułu TPM dla konfiguracji oprogramowania układowego opartego na systemie BIOS”.
+Ważne: Ta zasada grupy dotyczy tylko komputerów z konfiguracją natywnego oprogramowania układowego UEFI. Komputery z oprogramowaniem układowym opartym na systemie BIOS lub z oprogramowaniem układowym UEFI, na których włączono moduł CSM, przechowują różne wartości w rejestrach konfiguracji platformy (PCR). Aby skonfigurować profil PCR modułu TPM komputerów z konfiguracjami systemu BIOS lub komputerów z oprogramowaniem układowym UEFI i włączonym modułem CSM, użyj ustawienia zasad grupy „Konfiguruj profil weryfikacji platformy modułu TPM dla konfiguracji oprogramowania układowego opartego na systemie BIOS”.
 
-Jeśli to ustawienie zasad zostanie włączone przed włączeniem funkcji BitLocker, będzie można skonfigurować składniki rozruchowe, które będą weryfikowane przez moduł TPM przed odblokowaniem dostępu do dysku systemu operacyjnego szyfrowanego funkcją BitLocker. Jeśli w czasie działania ochrony funkcją BitLocker dowolne z tych składników ulegną zmianie, moduł TPM nie zwolni klucza szyfrowania w celu odblokowania dysku, a komputer wyświetli konsolę odzyskiwania funkcji BitLocker i będzie wymagał podania hasła lub klucza odzyskiwania, aby odblokować dysk.
+Jeśli włączysz to ustawienie zasad przed włączeniem funkcji BitLocker, będzie można skonfigurować składniki rozruchowe, które będą weryfikowane przez moduł TPM przed odblokowaniem dostępu do dysku systemu operacyjnego szyfrowanego funkcją BitLocker. Jeśli w czasie działania ochrony funkcją BitLocker dowolne z tych składników ulegną zmianie, moduł TPM nie zwolni klucza szyfrowania w celu odblokowania dysku, a komputer wyświetli konsolę odzyskiwania funkcji BitLocker i będzie wymagał podania hasła lub klucza odzyskiwania, aby odblokować dysk.
 
-Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, funkcja BitLocker będzie używać domyślnego profilu weryfikacji platformy lub profilu weryfikacji platformy określonego w skrypcie konfiguracyjnym. Profil weryfikacji platformy składa się z zestawu indeksów rejestru konfiguracji platformy (PCR), które przyjmują wartości od 0 do 23. Domyślny profil weryfikacji platformy zabezpiecza klucz szyfrowania przed zmianami w kodzie wykonywalnym głównego oprogramowania układowego systemu (PCR 0), rozszerzonym lub podłączanym kodzie wykonywalnym (PCR 2), menedżerze rozruchu (PCR 4) i kontroli dostępu za pomocą funkcji BitLocker (PCR 11).
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, funkcja BitLocker będzie używać domyślnego profilu weryfikacji platformy lub profilu weryfikacji platformy określonego w skrypcie konfiguracyjnym. Profil weryfikacji platformy składa się z zestawu indeksów rejestru konfiguracji platformy (PCR), które przyjmują wartości od 0 do 23. 
 
-Ostrzeżenie: zmiana domyślnego profilu weryfikacji platformy wpływa na zabezpieczenia komputera i możliwości zarządzania nim. Wrażliwość funkcji BitLocker na modyfikacje platformy (złośliwe lub autoryzowane) jest większa lub mniejsza w zależności od włączenia lub wykluczenia (odpowiednio) indeksów PCR. W szczególności skonfigurowanie tych zasad z pominięciem indeksu PCR 7 spowoduje zastąpienie zasad grupy „Zezwalaj na bezpieczny rozruch w celu zweryfikowania integralności”, co uniemożliwi funkcji BitLocker korzystanie z bezpiecznego rozruchu w celu zweryfikowania integralności platformy lub danych konfiguracji rozruchu (BCD). Ustawienie tych zasad może skutkować odzyskiwaniem funkcji BitLocker po zaktualizowaniu oprogramowania układowego. W przypadku ustawienia tych zasad z uwzględnieniem indeksu PCR 0 należy wstrzymać funkcję BitLocker przed zastosowaniem aktualizacji oprogramowania układowego.
-      
+Na komputerach, które nie obsługują stanu bezpiecznego rozruchu (PCR 7), domyślny profil weryfikacji platformy zabezpiecza klucz szyfrowania przed zmianami w kodzie wykonywalnym głównego oprogramowania układowego systemu (PCR 0), rozszerzonym lub podłączanym kodzie wykonywalnym (PCR 2), menedżerze rozruchu (PCR 4) i kontroli dostępu za pomocą funkcji BitLocker (PCR 11).
+
+Gdy jest dostępna obsługa stanu bezpiecznego rozruchu (PCR7), domyślny profil weryfikacji platformy zabezpiecza klucz szyfrowania, używając stanu bezpiecznego rozruchu (PCR 7) oraz kontroli dostępu za pomocą funkcji BitLocker (PCR 11). 
+
+Ostrzeżenie: Zmiana domyślnego profilu weryfikacji platformy wpływa na zabezpieczenia komputera i możliwości zarządzania nim. Wrażliwość funkcji BitLocker na modyfikacje platformy (złośliwe lub autoryzowane) jest większa lub mniejsza w zależności od włączenia lub wykluczenia (odpowiednio) indeksów PCR. W szczególności skonfigurowanie tych zasad z pominięciem indeksu PCR 7 spowoduje zastąpienie zasady grupy „Zezwalaj na bezpieczny rozruch w celu zweryfikowania integralności”, co uniemożliwi funkcji BitLocker korzystanie z bezpiecznego rozruchu w celu zweryfikowania integralności platformy lub danych konfiguracji rozruchu (BCD). Ustawienie tej zasady może skutkować odzyskiwaniem funkcji BitLocker po zaktualizowaniu oprogramowania układowego. W przypadku ustawienia tej zasady z uwzględnieniem indeksu PCR 0 należy wstrzymać funkcję BitLocker przed zastosowaniem aktualizacji oprogramowania układowego.
+
+Zalecane jest, aby nie konfigurować tej zasady, co umożliwi systemowi Windows wybranie profilu PCR oferującego najlepszą kombinację zabezpieczeń i użyteczności. Ten wybór będzie dokonywany na podstawie dostępnego sprzętu w każdym komputerze.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Konfiguruj profil weryfikacji platformy modułu TPM dla konfiguracji natywnego oprogramowania układowego UEFI</string>
@@ -311,6 +314,13 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
 
       </string>
       <string id="MorBehavior_Name">Zapobiegaj zastępowaniu pamięci podczas ponownego uruchamiania komputera</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">To ustawienie zasad umożliwia blokowanie bezpośredniego dostępu do pamięci (DMA) dla wszystkich podłączanych na gorąco portów transmisji do klienta PCI Thunderbolt, dopóki użytkownik nie zaloguje się do systemu Windows. Gdy użytkownik się zaloguje, system Windows wyliczy urządzenia PCI podłączone do portów PCI Thunderbolt hosta. Zawsze, gdy użytkownik zablokuje komputer, bezpośredni dostęp do pamięci będzie blokowany w podłączanych na gorąco portach PCI Thunderbolt bez urządzeń podrzędnych, dopóki użytkownik nie zaloguje się ponownie. Urządzenia, które były już wyliczone, gdy komputer został odblokowany, będą działać, dopóki nie zostaną odłączone albo system nie zostanie uruchomiony ponownie lub przejdzie do trybu hibernacji. To ustawienie zasad jest wymuszane tylko wtedy, gdy jest włączona funkcja BitLocker lub funkcja szyfrowania urządzenia.
+
+Uwaga: niektóre komputery mogą być niezgodne z tą zasadą, jeśli oprogramowanie układowe systemu będzie umożliwiać korzystanie z bezpośredniego dostępu do pamięci nowo podłączonym urządzeniom Thunderbolt, zanim te urządzenia zostaną uwidocznione w systemie Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Wyłącz nowe urządzenia DMA, gdy ten komputer jest zablokowany</string>
 
       <string id="FVEOSCategory">Dyski z systemem operacyjnym</string>
       <string id="FVEFDVCategory">Stałe dyski danych</string>
@@ -373,26 +383,25 @@ Ustawienie sterujące debugowaniem rozruchu (0x16000010) jest zawsze weryfikowan
 
 
       <string id="MinimumPINLength_Name">Konfiguruj minimalną długość numeru PIN uruchomienia</string>
-      <string id="MinimumPINLength_Help">To ustawienie zasad umożliwia skonfigurowanie minimalnej długości numeru PIN uruchomienia modułu TPM. Jest ono stosowane po włączeniu funkcji BitLocker. Minimalna długość numeru PIN uruchomienia to 4 cyfry, a maksymalna to 20 cyfr.
+      <string id="MinimumPINLength_Help">
+          To ustawienie zasad umożliwia skonfigurowanie minimalnej długości kodu PIN uruchomienia modułu TPM. Jest ono stosowane po włączeniu funkcji BitLocker. Minimalna długość kodu PIN uruchomienia to 4 cyfry, a maksymalna to 20 cyfr.
 
-Jeśli to ustawienie zasad zostanie włączone, będzie można wymagać użycia minimalnej liczby cyfr podczas ustawiania numeru PIN uruchomienia.
+          Jeśli włączysz to ustawienie zasad, będzie można wymagać użycia minimalnej liczby cyfr podczas ustawiania kodu PIN uruchomienia.
 
-Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli skonfigurować numer PIN o dowolnej długości z zakresu od 4 do 20 cyfr.
+          Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, użytkownicy będą mogli skonfigurować kod PIN uruchomienia o dowolnej długości z zakresu od 6 do 20 cyfr.
 
-      
+          UWAGA: Jeśli minimalna długość kodu PIN będzie mniejsza niż 6 cyfr, w przypadku zmiany kodu PIN system Windows podejmie próbę zaktualizowania okresu blokady modułu TPM 2.0, tak aby był dłuższy niż domyślny. W przypadku sukcesu, jeśli moduł TPM zostanie zresetowany, system Windows zresetuje tylko okres blokady modułu TPM do wartości domyślnej.
 
       </string>
 
       <string id="OSAllowDRA_Name">Zezwalaj na używanie agentów odzyskiwania danych opartych na certyfikatach</string>
 
       <string id="FDVDenyWriteAccess_Name">Odmawiaj dostępu do zapisu do dysków stałych niechronionych funkcją BitLocker</string>
-      <string id="FDVDenyWriteAccess_Help">To ustawienie zasad określa, czy ochrona funkcją BitLocker jest wymagana, aby komputer umożliwiał zapisywanie na stałych dyskach danych. Jest ono stosowane po włączeniu funkcji BitLocker.
+      <string id="FDVDenyWriteAccess_Help">To ustawienie zasad określa, czy ochrona funkcją BitLocker jest wymagana, aby komputer umożliwiał zapisywanie na stałych dyskach danych.
 
 Jeśli to ustawienie zasad zostanie włączone, wszystkie stałe dyski danych, które nie są chronione funkcją BitLocker, będą instalowane jako dyski tylko do odczytu. Dysk chroniony funkcją BitLocker zostanie zainstalowany z prawem dostępu do odczytu i zapisu.
 
 Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, wszystkie stałe dyski danych w komputerze będą instalowane z prawem dostępu do odczytu i zapisu.
-
-      
 
       </string>
 
@@ -630,49 +639,46 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
 
       <string id="RDVEDrive_Name">Konfiguruj używanie szyfrowania sprzętowego dla wymiennych dysków danych</string>
 
-      <string id="OSEDrive_Help">To ustawienie zasad umożliwia zarządzanie szyfrowaniem sprzętowym dysków z systemem operacyjnym w ramach funkcji BitLocker i określenie algorytmu szyfrowania, który ma być używany do szyfrowania sprzętowego. Zastosowanie szyfrowania sprzętowego może zwiększyć wydajność operacji, które wymagają częstego odczytywania lub zapisywania danych na dysku.
+      <string id="OSEDrive_Help">To ustawienie zasad umożliwia zarządzanie użyciem szyfrowania sprzętowego w ramach funkcji BitLocker w celu szyfrowania dysków z systemem operacyjnym i określenie algorytmów szyfrowania, które mają być używane do szyfrowania sprzętowego. Użycie szyfrowania sprzętowego może zwiększyć wydajność operacji, które wymagają częstego odczytywania lub zapisywania danych na dysku.
 
-Jeśli to ustawienie zasad zostanie włączone, można określić dodatkowe opcje, aby określić, czy na komputerach, które nie obsługują szyfrowania sprzętowego, ma być stosowane szyfrowanie za pomocą oprogramowania w ramach funkcji BitLocker oraz czy należy ograniczyć algorytmy i mechanizmy szyfrowania używane podczas szyfrowania sprzętowego.
+Jeśli włączysz to ustawienie zasad, będzie można wybrać dodatkowe opcje określające, czy na komputerach, które nie obsługują szyfrowania sprzętowego, ma być używane szyfrowanie programowe w ramach funkcji BitLocker oraz czy należy ograniczyć algorytmy i zestawy szyfrowania używane podczas szyfrowania sprzętowego.
 
-Jeśli to ustawienie zasad jest wyłączone, funkcja BitLocker nie może używać szyfrowania sprzętowego na dyskach z systemem operacyjnym, a w przypadku szyfrowania dysku domyślnie jest stosowane szyfrowanie za pomocą oprogramowania w ramach funkcji BitLocker.
+Jeśli wyłączysz to ustawienie zasad, funkcja BitLocker nie będzie mogła używać szyfrowania sprzętowego na dyskach z systemem operacyjnym, a w przypadku szyfrowania dysku domyślnie będzie używane szyfrowanie programowe w ramach funkcji BitLocker.
 
-Jeśli to ustawienie zasad nie zostanie skonfigurowane, funkcja BitLocker będzie korzystać z szyfrowania sprzętowego i z algorytmu szyfrowania ustawionego dla danego typu dysku. Jeśli szyfrowanie sprzętowe nie jest dostępne, funkcja BitLocker zastosuje szyfrowanie przy użyciu oprogramowania.
+Jeśli nie skonfigurujesz tego ustawienia zasad, funkcja BitLocker będzie używać szyfrowania programowego, niezależnie od dostępności szyfrowania sprzętowego.
 
-Uwaga: ustawienie zasad „Wybierz metodę szyfrowania dysków i siłę szyfrowania” nie ma zastosowania w przypadku szyfrowania sprzętowego. Algorytm szyfrowania sprzętowego jest ustawiany na etapie dzielenia dysku na partycje. Domyślnie do szyfrowania dysku funkcja BitLocker używa algorytmu skonfigurowanego na danym dysku. Opcja „Ogranicz algorytmy i mechanizmy szyfrowania dozwolone w ramach szyfrowania sprzętowego” umożliwia ograniczenie algorytmów szyfrowania, z których funkcja BitLocker może korzystać podczas szyfrowania sprzętowego. Jeśli algorytm ustawiony dla danego dysku jest niedostępny, funkcja BitLocker wyłączy możliwość korzystania z szyfrowania sprzętowego.
+Uwaga: Ustawienie zasad „Wybierz metodę szyfrowania dysków i siłę szyfrowania” nie ma zastosowania w przypadku szyfrowania sprzętowego. Algorytm szyfrowania sprzętowego jest ustawiany na etapie dzielenia dysku na partycje. Domyślnie do szyfrowania dysku funkcja BitLocker używa algorytmu skonfigurowanego na danym dysku. Opcja „Ogranicz algorytmy i zestawy szyfrowania dozwolone w ramach szyfrowania sprzętowego” umożliwia ograniczenie algorytmów szyfrowania, z których funkcja BitLocker może korzystać w przypadku szyfrowania sprzętowego. Jeśli algorytm ustawiony dla danego dysku będzie niedostępny, funkcja BitLocker wyłączy możliwość korzystania z szyfrowania sprzętowego.
 Algorytmy szyfrowania są określone przez identyfikatory obiektów (OID). Na przykład:
-- AES 128 w trybie CBC, OID: 2.16.840.1.101.3.4.1.2
-- AES 256 w trybie CBC, OID: 2.16.840.1.101.3.4.1.42
-      
+- Identyfikator OID algorytmu AES 128 w trybie CBC: 2.16.840.1.101.3.4.1.2
+- Identyfikator OID algorytmu AES 256 w trybie CBC: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="FDVEDrive_Help">To ustawienie zasad umożliwia zarządzanie szyfrowaniem sprzętowym stałych dysków danych w ramach funkcji BitLocker i określenie algorytmu szyfrowania, który ma być używany do szyfrowania sprzętowego. Zastosowanie szyfrowania sprzętowego może zwiększyć wydajność operacji, które wymagają częstego odczytywania lub zapisywania danych na dysku.
+      <string id="FDVEDrive_Help">To ustawienie zasad umożliwia zarządzanie użyciem szyfrowania sprzętowego w ramach funkcji BitLocker w celu szyfrowania stałych dysków danych i określenie algorytmów szyfrowania, które mają być używane do szyfrowania sprzętowego. Użycie szyfrowania sprzętowego może zwiększyć wydajność operacji, które wymagają częstego odczytywania lub zapisywania danych na dysku.
 
-Jeśli to ustawienie zasad zostanie włączone, można określić dodatkowe opcje, aby określić, czy na komputerach, które nie obsługują szyfrowania sprzętowego, ma być stosowane szyfrowanie za pomocą oprogramowania w ramach funkcji BitLocker oraz czy należy ograniczyć algorytmy i mechanizmy szyfrowania używane podczas szyfrowania sprzętowego.
+Jeśli włączysz to ustawienie zasad, będzie można wybrać dodatkowe opcje określające, czy na komputerach, które nie obsługują szyfrowania sprzętowego, ma być używane szyfrowanie programowe w ramach funkcji BitLocker oraz czy należy ograniczyć algorytmy i zestawy szyfrowania używane podczas szyfrowania sprzętowego.
 
-Jeśli to ustawienie zasad jest wyłączone, funkcja BitLocker nie może używać szyfrowania sprzętowego na dyskach z systemem operacyjnym, a w przypadku szyfrowania dysku domyślnie jest stosowane szyfrowanie za pomocą oprogramowania w ramach funkcji BitLocker.
+Jeśli wyłączysz to ustawienie zasad, funkcja BitLocker nie będzie mogła używać szyfrowania sprzętowego na dyskach z systemem operacyjnym, a w przypadku szyfrowania dysku domyślnie będzie używane szyfrowanie programowe w ramach funkcji BitLocker.
 
-Jeśli to ustawienie zasad nie zostanie skonfigurowane, funkcja BitLocker będzie korzystać z szyfrowania sprzętowego i z algorytmu szyfrowania ustawionego dla danego typu dysku. Jeśli szyfrowanie sprzętowe nie jest dostępne, funkcja BitLocker zastosuje szyfrowanie przy użyciu oprogramowania.
+Jeśli nie skonfigurujesz tego ustawienia zasad, funkcja BitLocker będzie używać szyfrowania programowego, niezależnie od dostępności szyfrowania sprzętowego.
 
-Uwaga: ustawienie zasad „Wybierz metodę szyfrowania dysków i siłę szyfrowania” nie ma zastosowania w przypadku szyfrowania sprzętowego. Algorytm szyfrowania sprzętowego jest ustawiany na etapie dzielenia dysku na partycje. Domyślnie do szyfrowania dysku funkcja BitLocker używa algorytmu skonfigurowanego na danym dysku. Opcja „Ogranicz algorytmy i mechanizmy szyfrowania dozwolone w ramach szyfrowania sprzętowego” umożliwia ograniczenie algorytmów szyfrowania, z których funkcja BitLocker może korzystać podczas szyfrowania sprzętowego. Jeśli algorytm ustawiony dla danego dysku jest niedostępny, funkcja BitLocker wyłączy możliwość korzystania z szyfrowania sprzętowego.
+Uwaga: Ustawienie zasad „Wybierz metodę szyfrowania dysków i siłę szyfrowania” nie ma zastosowania w przypadku szyfrowania sprzętowego. Algorytm szyfrowania sprzętowego jest ustawiany na etapie dzielenia dysku na partycje. Domyślnie do szyfrowania dysku funkcja BitLocker używa algorytmu skonfigurowanego na danym dysku. Opcja „Ogranicz algorytmy i zestawy szyfrowania dozwolone w ramach szyfrowania sprzętowego” umożliwia ograniczenie algorytmów szyfrowania, z których funkcja BitLocker może korzystać w przypadku szyfrowania sprzętowego. Jeśli algorytm ustawiony dla danego dysku będzie niedostępny, funkcja BitLocker wyłączy możliwość korzystania z szyfrowania sprzętowego.
 Algorytmy szyfrowania są określone przez identyfikatory obiektów (OID). Na przykład:
-- AES 128 w trybie CBC, OID: 2.16.840.1.101.3.4.1.2
-- AES 256 w trybie CBC, OID: 2.16.840.1.101.3.4.1.42
-      
+- Identyfikator OID algorytmu AES 128 w trybie CBC: 2.16.840.1.101.3.4.1.2
+- Identyfikator OID algorytmu AES 256 w trybie CBC: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="RDVEDrive_Help">To ustawienie zasad umożliwia zarządzanie szyfrowaniem sprzętowym wymiennych dysków danych w ramach funkcji BitLocker i określenie algorytmu szyfrowania, który ma być używany do szyfrowania sprzętowego. Zastosowanie szyfrowania sprzętowego może zwiększyć wydajność operacji, które wymagają częstego odczytywania lub zapisywania danych na dysku.
+      <string id="RDVEDrive_Help">To ustawienie zasad umożliwia zarządzanie użyciem szyfrowania sprzętowego w ramach funkcji BitLocker w celu szyfrowania wymiennych dysków danych i określenie algorytmów szyfrowania, które mają być używane do szyfrowania sprzętowego. Użycie szyfrowania sprzętowego może zwiększyć wydajność operacji, które wymagają częstego odczytywania lub zapisywania danych na dysku.
 
-Jeśli to ustawienie zasad zostanie włączone, można określić dodatkowe opcje, aby określić, czy na komputerach, które nie obsługują szyfrowania sprzętowego, ma być stosowane szyfrowanie za pomocą oprogramowania w ramach funkcji BitLocker oraz czy należy ograniczyć algorytmy i mechanizmy szyfrowania używane podczas szyfrowania sprzętowego.
+Jeśli włączysz to ustawienie zasad, będzie można wybrać dodatkowe opcje określające, czy na komputerach, które nie obsługują szyfrowania sprzętowego, ma być używane szyfrowanie programowe w ramach funkcji BitLocker oraz czy należy ograniczyć algorytmy i zestawy szyfrowania używane podczas szyfrowania sprzętowego.
 
-Jeśli to ustawienie zasad jest wyłączone, funkcja BitLocker nie może używać szyfrowania sprzętowego na dyskach z systemem operacyjnym, a w przypadku szyfrowania dysku domyślnie jest stosowane szyfrowanie za pomocą oprogramowania w ramach funkcji BitLocker.
+Jeśli wyłączysz to ustawienie zasad, funkcja BitLocker nie będzie mogła używać szyfrowania sprzętowego na dyskach z systemem operacyjnym, a w przypadku szyfrowania dysku domyślnie będzie używane szyfrowanie programowe w ramach funkcji BitLocker.
 
-Jeśli to ustawienie zasad nie zostanie skonfigurowane, funkcja BitLocker będzie korzystać z szyfrowania sprzętowego i z algorytmu szyfrowania ustawionego dla danego typu dysku. Jeśli szyfrowanie sprzętowe nie jest dostępne, funkcja BitLocker zastosuje szyfrowanie przy użyciu oprogramowania.
+Jeśli nie skonfigurujesz tego ustawienia zasad, funkcja BitLocker będzie używać szyfrowania programowego, niezależnie od dostępności szyfrowania sprzętowego.
 
-Uwaga: ustawienie zasad „Wybierz metodę szyfrowania dysków i siłę szyfrowania” nie ma zastosowania w przypadku szyfrowania sprzętowego. Algorytm szyfrowania sprzętowego jest ustawiany na etapie dzielenia dysku na partycje. Domyślnie do szyfrowania dysku funkcja BitLocker używa algorytmu skonfigurowanego na danym dysku. Opcja „Ogranicz algorytmy i mechanizmy szyfrowania dozwolone w ramach szyfrowania sprzętowego” umożliwia ograniczenie algorytmów szyfrowania, z których funkcja BitLocker może korzystać podczas szyfrowania sprzętowego. Jeśli algorytm ustawiony dla danego dysku jest niedostępny, funkcja BitLocker wyłączy możliwość korzystania z szyfrowania sprzętowego.
+Uwaga: Ustawienie zasad „Wybierz metodę szyfrowania dysków i siłę szyfrowania” nie ma zastosowania w przypadku szyfrowania sprzętowego. Algorytm szyfrowania sprzętowego jest ustawiany na etapie dzielenia dysku na partycje. Domyślnie do szyfrowania dysku funkcja BitLocker używa algorytmu skonfigurowanego na danym dysku. Opcja „Ogranicz algorytmy i zestawy szyfrowania dozwolone w ramach szyfrowania sprzętowego” umożliwia ograniczenie algorytmów szyfrowania, z których funkcja BitLocker może korzystać w przypadku szyfrowania sprzętowego. Jeśli algorytm ustawiony dla danego dysku będzie niedostępny, funkcja BitLocker wyłączy możliwość korzystania z szyfrowania sprzętowego.
 Algorytmy szyfrowania są określone przez identyfikatory obiektów (OID). Na przykład:
-- AES 128 w trybie CBC, OID: 2.16.840.1.101.3.4.1.2
-- AES 256 w trybie CBC, OID: 2.16.840.1.101.3.4.1.42
-      
+- Identyfikator OID algorytmu AES 128 w trybie CBC: 2.16.840.1.101.3.4.1.2
+- Identyfikator OID algorytmu AES 256 w trybie CBC: 2.16.840.1.101.3.4.1.42
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">Włącz używanie uwierzytelniania funkcji BitLocker wymagającego wprowadzenia danych wejściowych z klawiatury podczas rozruchu na komputerach typu slate</string>
@@ -689,6 +695,14 @@ Jeśli to ustawienie zasad nie jest włączone, opcje dostępne w zasadach „Wy
 - Konfiguruj klucz i numer PIN uruchomienia modułu TPM: Wymagane/Dozwolone
 - Konfiguruj używanie haseł dla dysków z systemem operacyjnym.
       
+      </string>
+
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Zezwalaj urządzeniom zgodnym z funkcją InstantGo lub interfejsem HSTI na rezygnację z przedrozruchowego kodu PIN.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">To ustawienie zasad zezwala użytkownikom urządzeń, które są zgodne z funkcją InstantGo lub interfejsem testowania zabezpieczeń sprzętu firmy Microsoft (Hardware Security Test Interface, HSTI), na nieużywanie kodu PIN na potrzeby uwierzytelniania przedrozruchowego. To ustawienie zastępuje opcje „Wymagaj startowego kodu PIN z modułem TPM” i „Wymagaj używania klucza i numeru PIN uruchomienia z modułem TPM” zasady „Wymagaj dodatkowego uwierzytelniania przy uruchamianiu” na zgodnym sprzęcie.
+
+Jeśli włączysz to ustawienie zasad, użytkownicy urządzeń zgodnych z funkcją InstantGo i interfejsem HSTI będą mieli możliwość włączenia funkcji BitLocker bez uwierzytelniania przedrozruchowego.
+
+Jeśli ta zasada nie będzie włączona, będą stosowane opcje zasady „Wymagaj dodatkowego uwierzytelniania przy uruchamianiu”.
       </string>
 
       <string id="AllowSecureBootForIntegrity_Name">Zezwalaj na bezpieczny rozruch w celu zweryfikowania integralności</string>
@@ -968,7 +982,7 @@ Uwaga: przed rozruchem nie są obsługiwane wszystkie znaki i języki. Zdecydowa
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Minimalna liczba znaków:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Minimalna liczba znaków:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

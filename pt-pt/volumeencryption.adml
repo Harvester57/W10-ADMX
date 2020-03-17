@@ -47,15 +47,13 @@ Nota: apenas uma das opções de autenticação pode ser exigida no arranque; ca
 
 Se pretender utilizar o BitLocker num computador sem um TPM, selecione a caixa de verificação "Permitir o BitLocker sem um TPM compatível". Neste modo, é necessária uma palavra-passe ou uma pen USB para o arranque. Ao utilizar uma chave de arranque, as informações de chave utilizadas para encriptar a unidade são armazenadas na pen USB, criando uma chave USB. Quando a chave USB é inserida, o acesso à unidade é autenticado e a unidade fica acessível. Se a chave USB se perder ou ficar indisponível, ou se o utilizador se esquecer da palavra-passe, será necessário utilizar uma das opções de recuperação do BitLocker para aceder à unidade.
 
-Num computador com um TPM compatível, é possível utilizar quatros tipos de método de autenticação no arranque para fornecer proteção adicional para os dados encriptados. Quando é iniciado, o computador pode utilizar apenas o TPM para autenticação, ou também pode exigir que seja inserida uma pen USB que contenha uma chave de arranque, que seja introduzido um número de identificação pessoal (PIN) de 4 a 20 dígitos, ou ambos.
+Num computador com um TPM compatível, é possível utilizar quatros tipos de método de autenticação no arranque para fornecer proteção adicional para os dados encriptados. Quando é iniciado, o computador pode utilizar apenas o TPM para autenticação, ou também pode exigir que seja inserida uma pen USB que contenha uma chave de arranque, que seja introduzido um número de identificação pessoal (PIN) de 6 a 20 dígitos, ou ambos.
 
 Se ativar esta definição de política, os utilizadores poderão configurar opções de arranque avançadas no assistente de configuração do BitLocker.
 
 Se desativar ou não configurar esta definição de política, os utilizadores poderão configurar apenas opções básicas em computadores com um TPM.
 
 Nota: se pretender exigir a utilização de um PIN de arranque e de uma pen USB, terá de configurar as definições do BitLocker utilizando a ferramenta de linha de comandos manage-bde em vez do assistente de configuração de Encriptação de Unidade BitLocker.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Permitir desbloqueio da rede no arranque</string>
@@ -287,16 +285,21 @@ Aviso: efetuar alterações a partir do perfil de validação de plataforma pred
 
       <string id="PlatformValidation_BIOS_Name">Configurar perfil de validação da plataforma TPM para configurações de firmware baseado em BIOS</string>
 
-      <string id="PlatformValidation_UEFI_Help">Esta definição de política permite configurar a forma como o hardware de segurança de TPM (Trusted Platform Module) do computador protege a chave de encriptação BitLocker. Esta definição de política não é aplicável se o computador não tiver um TPM compatível ou se o BitLocker já estiver ativado com proteção TPM.
+      <string id="PlatformValidation_UEFI_Help">Esta definição de política permite-lhe configurar a forma como o hardware de segurança Trusted Platform Module (TPM) do computador protege a chave de encriptação do BitLocker. Esta definição de política não se aplica se o computador não possuir um TPM compatível ou se o BitLocker já tiver sido ativado com proteção TPM.
 
-Importante: esta política de grupo só é aplicável a computadores com uma configuração de firmware UEFI nativo. Os computadores com BIOS ou firmware UEFI com um módulo CSM (Compatibility Service Module) ativado armazenam valores diferentes nos Registos de Configuração de Plataforma (PCRs). Utilize a definição de política de grupo "Configurar perfil de validação da plataforma TPM para configurações de firmware baseado em BIOS" para configurar o perfil PCR de TPM para computadores com configurações BIOS ou computadores com firmware UEFI com um módulo CSM ativado.
+Importante: Esta política de grupo só se aplica a computadores com uma configuração de firmware UEFI nativo. Os computadores com firmware BIOS ou UEFI que possuem um Módulo de Serviço de Compatibilidade (CSM) ativado armazenam valores diferentes nos Registos de Configuração de Plataforma (PCR). Utilize a definição de política de grupo "Configurar perfil de validação da plataforma TPM para configurações de firmware baseado em BIOS" para configurar o perfil TPM PCR para computadores com configurações de BIOS ou computadores com firmware UEFI com um CSM ativado.
 
-Se ativar esta definição de política antes de ativar o BitLocker, poderá configurar os componentes de arranque que o TPM validará antes de desbloquear o acesso à unidade de sistema operativo encriptada por BitLocker. Se qualquer um destes componentes for alterado enquanto a proteção BitLocker estiver em vigor, o TPM não libertará a chave de encriptação para desbloquear a unidade e, em vez disso, o computador apresentará a consola Recuperação BitLocker e exigirá que seja fornecida a palavra-passe ou chave de recuperação para desbloquear a unidade.
+Se ativar esta definição de política antes de ativar o BitLocker, pode configurar os componentes de arranque que o TPM irá validar antes de desbloquear o acesso à unidade do sistema operativo encriptada por BitLocker. Se algum destes componentes for alterado enquanto a proteção BitLocker estiver ativada, o TPM não libertará a chave de encriptação para desbloquear a unidade e o computador irá, em vez disso, apresentar a consola de recuperação BitLocker e exigirá a introdução da palavra-passe de recuperação ou da chave de recuperação para desbloquear a unidade.
 
-Se desativar ou não configurar esta definição de política, o BitLocker utilizará o perfil de validação de plataforma predefinido ou o perfil de validação de plataforma especificado pelo script de configuração. O perfil de validação de plataforma consiste num conjunto de índices de Registo de Configuração de Plataforma (PCR), de 0 a 23. O perfil de validação de plataforma predefinido protege a chave de encriptação contra alterações no código executável de firmware do sistema principal (PCR 0), no código executável expandido ou incorporável (PCR 2), no gestor de arranque (PCR 4) e no controlo de acesso do BitLocker (PCR 11).
+Se desativar ou não configurar esta definição de política, o BitLocker utilizará o perfil de validação de plataforma predefinido para o hardware disponível ou o perfil de validação de plataforma especificado pelo script de configuração. O perfil de validação de plataforma é composto por um conjunto de índices de Registos de Configuração de Plataforma (PCR) com um intervalo de 0 a 23. 
 
-Aviso: efetuar alterações a partir do perfil de validação de plataforma predefinido afeta a segurança e a capacidade de gestão do computador. A sensibilidade do BitLocker a modificações de plataforma (maliciosas ou autorizadas) aumenta ou diminui dependendo da inclusão ou exclusão (respetivamente) dos PCRs. Especificamente, definir esta política com PCR 7 omitido substituirá a política de grupo "Permitir Arranque Seguro para validação de integridade", impedindo o BitLocker de utilizar o Arranque Seguro para validação de integridade da plataforma ou dos Dados de Configuração de Arranque (BCD). A definição desta política poderá resultar na recuperação BitLocker quando o firmware for atualizado. Se definir esta política para incluir PCR 0, suspenda o BitLocker antes de aplicar atualizações de firmware.
-      
+Em PCs que não têm suporte de Estado de Arranque Seguro (PCR 7), o perfil de validação da plataforma predefinido protege a chave de encriptação de alterações ao código executável de firmware do sistema principal (PCR 0), código executável expandido ou incorporável (PCR 2), gestor de arranque (PCR 4) e controlo de acesso do BitLocker (PCR 11).
+
+Quando está disponível suporte de Estado de Arranque Seguro (PCR7), o perfil de validação da plataforma predefinido protege a chave de encriptação utilizando o Estado de Arranque Seguro (PCR 7) e o controlo de acesso do BitLocker (PCR 11). 
+
+Aviso: A alteração do perfil de validação da plataforma predefinido afeta a segurança e a capacidade de gestão do computador. A sensibilidade do BitLocker a modificações de plataforma (maliciosas ou autorizadas) aumenta ou diminui conforme a inclusão ou exclusão (respetivamente) de PCRs. Mais concretamente, a definição desta política com o PCR 7 omitido substituirá a política de grupo "Permitir Arranque Seguro para validação de integridade", impedindo que o BitLocker utilize o Arranque Seguro de plataforma ou a validação de integridade de Dados de Configuração de Arranque (BCD). A definição desta política pode resultar na recuperação do BitLocker quando o firmware for atualizado. Se definir esta política para incluir o PCR 0, suspenda o BitLocker antes de aplicar as atualizações de firmware.
+
+Recomenda-se que esta política não seja configurada, para permitir que o Windows selecione o perfil PCR que proporcione a melhor combinação de segurança e usabilidade com base no hardware disponível em cada PC.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configurar perfil de validação da plataforma TPM para configurações de firmware UEFI nativo</string>
@@ -311,6 +314,13 @@ Se desativar ou não configurar esta definição de política, os segredos de Bi
 
       </string>
       <string id="MorBehavior_Name">Impedir substituição da memória durante o reinício</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Esta definição de política permite bloquear o acesso direto à memória (DMA) para todas as portas PCI a jusante conectáveis de acesso frequente Thunderbolt até um utilizador iniciar sessão no Windows. Quando um utilizador inicia sessão, o Windows enumera os dispositivos PCI ligados às portas PCI Thunderbolt conectáveis anfitrião. Sempre que o utilizador bloquear o computador, o DMA é bloqueado nas portas PCI conectáveis de acesso frequente Thunderbolt com dispositivos sem subordinados, até que o utilizador inicie sessão novamente. Os dispositivos que já tinham sido enumerados quando a máquina foi desbloqueada continuam a funcionar até serem desligados ou até o sistema ser reiniciado ou colocado em estado de hibernação. Esta definição de política só é imposta quando a encriptação de dispositivo ou BitLocker está ativada.
+
+Nota: Alguns PCs podem não ser compatíveis com esta política se o firmware do sistema permitir DMA para dispositivos de Thunderbolt recentemente ligados antes de expor os novos dispositivos ao Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Desativar novos dispositivos DMA quando este computador estiver bloqueado</string>
 
       <string id="FVEOSCategory">Unidades do Sistema Operativo</string>
       <string id="FVEFDVCategory">Unidades de Dados Fixas</string>
@@ -373,26 +383,25 @@ A definição que controla a depuração do arranque (0x16000010) será sempre v
 
 
       <string id="MinimumPINLength_Name">Configurar o comprimento mínimo do PIN para o arranque</string>
-      <string id="MinimumPINLength_Help">Esta definição de política permite-lhe configurar um comprimento mínimo para um PIN de arranque do TPM (Trusted Platform Module). Esta definição de política é aplicada quando o BitLocker é ativado. O PIN de arranque tem de ter um comprimento mínimo de 4 dígitos e pode ter um comprimento máximo de 20 dígitos.
+      <string id="MinimumPINLength_Help">
+          Esta definição de política permite-lhe configurar um comprimento mínimo para um PIN de arranque do TPM (Trusted Platform Module). Esta definição de política é aplicada quando o BitLocker é ativado. O PIN de arranque tem de ter um comprimento mínimo de 4 dígitos e pode ter um comprimento máximo de 20 dígitos.
 
-Se ativar esta definição de política, poderá exigir que seja utilizado um número mínimo de dígitos aquando da definição do PIN de arranque.
+          Se ativar esta definição de política, poderá exigir que seja utilizado um número mínimo de dígitos aquando da definição do PIN de arranque.
 
-Se desativar ou não configurar esta definição de política, os utilizadores poderão configurar um PIN de arranque com qualquer comprimento entre 4 e 20 dígitos.
+          Se desativar ou não configurar esta definição de política, os utilizadores poderão configurar um PIN de arranque com qualquer comprimento entre 6 e 20 dígitos.
 
-      
+          NOTA: Se o comprimento mínimo do PIN for definido para menos de 6 dígitos, o Windows tentará atualizar o período de bloqueio do TPM 2.0 de modo a que seja superior à predefinição quando um PIN for alterado. Se for efetuado com êxito, o Windows apenas volta a repor a predefinição do período de bloqueio do TPM se o TPM for reposto.
 
       </string>
 
       <string id="OSAllowDRA_Name">Permitir agentes de recuperação de dados baseados em certificados</string>
 
       <string id="FDVDenyWriteAccess_Name">Negar acesso de escrita a unidades fixas não protegidas por BitLocker</string>
-      <string id="FDVDenyWriteAccess_Help">Esta definição de política determina se a proteção BitLocker é necessária para que seja possível escrever nas unidades de dados fixas de um computador. Esta definição de política é aplicada quando o BitLocker é ativado.
+      <string id="FDVDenyWriteAccess_Help">Esta definição de política determina se a proteção BitLocker é necessária para que seja possível escrever nas unidades de dados fixas de um computador.
 
 Se ativar esta definição de política, todas as unidades de dados fixas que não estejam protegidas por BitLocker serão montadas como só de leitura. Se a unidade estiver protegida por BitLocker, será montada com acesso de leitura e escrita.
 
 Se desativar ou não configurar esta definição de política, todas as unidades de dados fixas do computador serão montadas com acesso de leitura e escrita.
-
-      
 
       </string>
 
@@ -636,13 +645,12 @@ Se ativar esta definição de política, poderá especificar opções adicionais
 
 Se desativar esta definição de política, o BitLocker não poderá utilizar encriptação baseada em hardware com unidades de sistema operativo, sendo que a encriptação baseada em software BitLocker será utilizada por predefinição quando a unidade estiver encriptada.
 
-Se não configurar esta definição de política, o BitLocker utilizará a encriptação baseada em hardware com o algoritmo de encriptação definido para a unidade. Se a encriptação baseada em hardware não estiver disponível, será utilizada a encriptação baseada em software BitLocker.
+Se não configurar esta definição de política, o BitLocker utilizará a encriptação baseada em software independentemente da disponibilidade da encriptação baseada em hardware.
 
 Nota: a definição de política “Escolher método de encriptação da unidade e força de cifra” não é aplicável à encriptação baseada em hardware. O algoritmo de encriptação utilizado pela encriptação baseada em hardware é definido aquando da partição da unidade. Por predefinição, o BitLocker utiliza o algoritmo configurado na unidade para encriptar a unidade. A opção “Restringir algoritmos de encriptação e conjuntos de cifras permitidos para encriptação baseada em hardware” permite-lhe restringir os algoritmos de encriptação que o BitLocker pode utilizar com a encriptação de hardware. Se o algoritmo definido para a unidade não estiver disponível, o BitLocker desativará a utilização de encriptação baseada em hardware.
 Os algoritmos de encriptação são especificados por identificadores de objeto (OID). Por exemplo:
 - AES 128 em modo CBC, OID: 2.16.840.1.101.3.4.1.2
 - AES 256 em modo CBC, OID: 2.16.840.1.101.3.4.1.42
-      
       </string>
 
       <string id="FDVEDrive_Help">Esta definição de política permite gerir a utilização de encriptação baseada em hardware por parte do BitLocker em unidades de dados fixas, bem como especificar os algoritmos de encriptação que o BitLocker pode utilizar com a encriptação baseada em hardware. A utilização de encriptação baseada em hardware pode melhorar o desempenho de operações de unidade que envolvam a leitura ou escrita frequente de dados na unidade.
@@ -651,13 +659,12 @@ Se ativar esta definição de política, poderá especificar opções adicionais
 
 Se desativar esta definição de política, o BitLocker não poderá utilizar encriptação baseada em hardware com unidades de sistema operativo, sendo que a encriptação baseada em software BitLocker será utilizada por predefinição quando a unidade estiver encriptada.
 
-Se não configurar esta definição de política, o BitLocker utilizará a encriptação baseada em hardware com o algoritmo de encriptação definido para a unidade. Se a encriptação baseada em hardware não estiver disponível, será utilizada a encriptação baseada em software BitLocker.
+Se não configurar esta definição de política, o BitLocker utilizará a encriptação baseada em software independentemente da disponibilidade da encriptação baseada em hardware.
 
 Nota: a definição de política “Escolher método de encriptação da unidade e força de cifra” não é aplicável à encriptação baseada em hardware. O algoritmo de encriptação utilizado pela encriptação baseada em hardware é definido aquando da partição da unidade. Por predefinição, o BitLocker utiliza o algoritmo configurado na unidade para encriptar a unidade. A opção “Restringir algoritmos de encriptação e conjuntos de cifras permitidos para encriptação baseada em hardware” permite-lhe restringir os algoritmos de encriptação que o BitLocker pode utilizar com a encriptação de hardware. Se o algoritmo definido para a unidade não estiver disponível, o BitLocker desativará a utilização de encriptação baseada em hardware.
 Os algoritmos de encriptação são especificados por identificadores de objeto (OID). Por exemplo:
 - AES 128 em modo CBC, OID: 2.16.840.1.101.3.4.1.2
 - AES 256 em modo CBC, OID: 2.16.840.1.101.3.4.1.42
-      
       </string>
 
       <string id="RDVEDrive_Help">Esta definição de política permite gerir a utilização de encriptação baseada em hardware por parte do BitLocker em unidades de dados amovíveis, bem como especificar os algoritmos de encriptação que o BitLocker pode utilizar com a encriptação baseada em hardware. A utilização de encriptação baseada em hardware pode melhorar o desempenho de operações de unidade que envolvam a leitura ou escrita frequente de dados na unidade.
@@ -666,13 +673,12 @@ Se ativar esta definição de política, poderá especificar opções adicionais
 
 Se desativar esta definição de política, o BitLocker não poderá utilizar encriptação baseada em hardware com unidades de sistema operativo, sendo que a encriptação baseada em software BitLocker será utilizada por predefinição quando a unidade estiver encriptada.
 
-Se não configurar esta definição de política, o BitLocker utilizará a encriptação baseada em hardware com o algoritmo de encriptação definido para a unidade. Se a encriptação baseada em hardware não estiver disponível, será utilizada a encriptação baseada em software BitLocker.
+Se não configurar esta definição de política, o BitLocker utilizará a encriptação baseada em software independentemente da disponibilidade da encriptação baseada em hardware.
 
 Nota: a definição de política “Escolher método de encriptação da unidade e força de cifra” não é aplicável à encriptação baseada em hardware. O algoritmo de encriptação utilizado pela encriptação baseada em hardware é definido aquando da partição da unidade. Por predefinição, o BitLocker utiliza o algoritmo configurado na unidade para encriptar a unidade. A opção “Restringir algoritmos de encriptação e conjuntos de cifras permitidos para encriptação baseada em hardware” permite-lhe restringir os algoritmos de encriptação que o BitLocker pode utilizar com a encriptação de hardware. Se o algoritmo definido para a unidade não estiver disponível, o BitLocker desativará a utilização de encriptação baseada em hardware.
 Os algoritmos de encriptação são especificados por identificadores de objeto (OID). Por exemplo:
 - AES 128 em modo CBC, OID: 2.16.840.1.101.3.4.1.2
 - AES 256 em modo CBC, OID: 2.16.840.1.101.3.4.1.42
-      
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">Ativar utilização de autenticação BitLocker que exija introdução por teclado de pré-arranque em slates</string>
@@ -691,10 +697,18 @@ Tenha em atenção que se não ativar esta definição de política, as opções
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Permitir que os dispositivos compatíveis com InstantGo ou HSTI não utilizem PIN de pré-arranque.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Esta definição de política permite aos utilizadores de dispositivos compatíveis com InstantGo ou com a Interface de Teste de Segurança de Hardware da Microsoft (Microsoft Hardware Security Test Interface - HSTI) não ter um PIN para autenticação no pré-arranque. Isto substitui as opções "Pedir PIN de arranque com TPM" e "Exigir chave e PIN de arranque com TPM" da política "Exigir autenticação adicional durante o arranque" em hardware compatível.
+
+Se ativar esta definição de política, os utilizadores de dispositivos compatíveis com InstantGo e HSTI podem optar por ligar o BitLocker sem autenticação no pré-arranque.
+
+Se esta política não estiver ativa, aplicam-se as opções da política "Exigir autenticação adicional durante o arranque".
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Permitir Arranque Seguro para validação de integridade</string>
       <string id="AllowSecureBootForIntegrity_Help">Esta definição de política permite configurar se será permitido utilizar o Arranque Seguro como fornecedor de integridade de plataforma para unidades de sistema operativo BitLocker.
 
-O Arranque Seguro assegura que o ambiente de pré-arranque do PC apenas carrega firmware assinado digitalmente por fabricantes de software autorizados. O Arranque Seguro também fornece maior flexibilidade para gestão da configuração de pré-arranque do que as verificações de integridade BitLocker legadas.
+O Arranque Seguro assegura que o ambiente de pré-arranque do PC apenas carrega firmware assinado digitalmente por editores de software autorizados. O Arranque Seguro também fornece maior flexibilidade para gestão da configuração de pré-arranque do que as verificações de integridade BitLocker legadas.
 
 Se ativar ou não configurar esta definição de política, o BitLocker utilizará o Arranque Seguro para efeitos de integridade de plataforma, caso a plataforma tenha capacidade para validação de integração baseada em Arranque Seguro.
 
@@ -702,9 +716,9 @@ Se desativar esta definição de política, o BitLocker utilizará a validação
 
 Quando esta política estiver ativada e o hardware tiver capacidade para utilizar o Arranque Seguro para cenários BitLocker, a definição de política de grupo "Utilizar perfil de validação de Dados de Configuração de Arranque avançado" é ignorada e o Arranque Seguro verifica as definições BCD de acordo com a definição de política de Arranque Seguro, que é configurada à parte do BitLocker.
 
-Nota: se a definição de política de grupo "Configurar perfil de validação da plataforma TPM para configurações de firmware UEFI nativo" estiver ativada e PCR 7 estiver omitido, o Bitlocker será impedido de utilizar o Arranque Seguro para validação de integridade da plataforma ou de Dados de Configuração de Arranque (BCD).
+Nota: Se a definição de política de grupo "Configurar perfil de validação da plataforma TPM para configurações de firmware UEFI nativo" estiver ativada e PCR 7 estiver omitido, o Bitlocker será impedido de utilizar o Arranque Seguro para validação de integridade da plataforma ou de Dados de Configuração de Arranque (BCD).
 
-Aviso: desativar esta política poderá resultar na recuperação BitLocker quando o firmware for atualizado. Se desativar esta política, suspenda o BitLocker antes de aplicar atualizações de firmware.
+Aviso: Desativar esta política poderá resultar na recuperação BitLocker quando o firmware for atualizado. Se desativar esta política, suspenda o BitLocker antes de aplicar atualizações de firmware.
     
       </string>
       <string id="SUPPORTED_Windows8NoARM">Pelo menos o Windows Server 2012 ou o Windows 8</string>  
@@ -968,7 +982,7 @@ Nota: nem todos os carateres e idiomas são suportados no pré-arranque. É viva
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Carateres mínimos:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Carateres mínimos:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

@@ -5,7 +5,7 @@
   <description>请在此处输入描述</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">至少为 Windows 10 或 Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">至少为 Windows 10 或 Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Windows 8 或 Windows RT 及以上版本</string>
       <string id="TS_SUPPORTED_Windows8_Server">至少为 Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> 至少为 Windows 8 企业版或 Windows Server 2012</string>
@@ -143,6 +143,7 @@
       <string id="TS_CLIENT_HELP">控制远程桌面连接客户端设置</string>
       <string id="TS_CLIENT_LPT">不允许 LPT 端口重定向</string>
       <string id="TS_CLIENT_PNP">不允许受支持的即插即用设备重定向</string>
+      <string id="TS_CAMERA_REDIRECTION">不允许视频捕获重定向</string>
       <string id="TS_CLIENT_PRINTER">不允许客户端打印机重定向</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">此策略设置指定是否在远程桌面服务会话期间阻止远程计算机与客户端计算机之间的剪贴板内容共享(剪贴板重定向)。
 
@@ -197,6 +198,15 @@ c.	客户端请求的值
 如果启用此策略设置，用户将无法将其受支持的即插即用设备重定向到远程计算机。如果未配置此策略设置，则用户可以将其受支持的即插即用设备重定向到远程计算机，唯一前提是运行的是 Windows Server 2012 R2 和更早版本。
 
 注意: 通过使用“计算机配置\管理模板\系统\设备安装\设备安装限制”策略设置，可以禁用重定向受支持的特定类型的即插即用设备。
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">此策略设置允许在远程桌面服务会话中控制将视频捕获设备重定向到远程计算机的操作。
+
+默认情况下，远程桌面服务允许视频捕获设备重定向。
+
+如果启用此策略设置，用户无法将视频捕获设备重定向到远程计算机。
+
+如果禁用或不配置此策略设置，用户可以将视频捕获设备重定向到远程计算机。用户可使用“远程桌面连接”的“本地资源”选项卡上的“更多”选项选择要重定向到远程计算机的视频捕获设备。
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">使用此策略设置，可以限制用户可用于显示远程桌面服务会话的监视器数目。通过限制用于显示远程桌面服务会话的监视器数目，可以提高连接性能(尤其对于慢速链接)，还可以降低服务器负载。
@@ -320,12 +330,13 @@ c.	客户端请求的值
       <string id="TS_GATEWAY_BASIC">询问凭据，使用基本协议</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">使用本地登录凭据</string>
       <string id="TS_GATEWAY_NTLM">询问凭据，使用 NTLM 协议</string>
+      <string id="TS_GATEWAY_NEGOTIATE">询问凭据，使用协商协议</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">设置 RD 网关身份验证方法</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">指定客户端尝试通过 RD 网关服务器连接到 RD 会话主机服务器时必须使用的身份验证方法。可以强制执行此策略设置或允许用户覆盖此策略设置。默认情况下，将在启用此策略设置时强制执行。强制执行此策略设置时，用户将无法覆盖此设置，即使他们在客户端上选择了“使用这些 RD 网关服务器设置”选项也是如此。
 
-若要允许用户覆盖此策略设置，请选中“允许用户更改此设置”复选框。执行此操作时，用户可通过配置客户端上的设置或者通过使用 RDP 文件或 HTML 脚本指定备用身份验证方法。如果用户没有指定备用身份验证方法，则默认情况下，使用你在此策略设置中指定的身份验证方法。
+若要允许用户覆盖此策略设置，请选中“允许用户更改此设置”复选框。执行此操作时，用户可通过配置客户端上的设置或者通过使用 RDP 文件或 HTML 脚本指定备用身份验证方法。如果用户没有指定备用身份验证方法，则默认情况下，使用您在此策略设置中指定的身份验证方法。
 
-如果禁用或未配置此策略设置，则使用用户指定的身份验证方法(如果已指定)。如果未指定身份验证方法，则可以使用客户端或智能卡上启用的 NTLM 协议进行身份验证。</string>
+如果禁用或未配置此策略设置，则使用用户指定的身份验证方法(如果已指定)。如果未指定身份验证方法，则可以使用客户端或智能卡上启用的协商协议进行身份验证。</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">启用通过 RD 网关连接</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">如果启用此策略设置，则当远程桌面连接无法直接连接到远程计算机(RD 会话主机服务器或启用了远程桌面的计算机)时，客户端会尝试通过 RD 网关服务器连接到远程计算机。这种情况下，客户端将尝试连接到“设置 RD 网关服务器地址”策略设置中指定的 RD 网关服务器。
 
@@ -408,21 +419,24 @@ RD 会话主机服务器客户端与 RD 会话主机服务器断开连接后，R
 
 如果禁用或未配置此策略设置，则以本地管理员身份登录之后，将在 RD 会话主机服务器上显示这些通知。</string>
       <string id="TS_LICENSING_MODE">设置远程桌面授权模式</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">使用此策略设置，可以指定连接到此 RD 会话主机服务器所需的远程桌面服务客户端访问许可证(RDS CAL)的类型。
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        使用此策略设置，可以指定连接到此 RD 会话主机服务器所需的远程桌面服务客户端访问许可证(RDS CAL)的类型。
 
-可以使用此策略设置选择以下两种授权模式之一:“每用户”或“每设备”。
+        可以使用此策略设置选择以下三种授权模式之一:“每用户”、“每设备”或“每用户 AAD”。
 
-“按用户”授权模式要求连接到此 RD 会话主机服务器的每个用户帐户都有一个 RDS 每用户 CAL。
+        每用户授权模式要求连接到此 RD 会话主机服务器的每个用户帐户都有一个从 RD 授权服务器发放的 RDS - 每用户 CAL。
 
-“按设备”授权模式要求连接到此 RD 会话主机服务器的每个设备都有一个 RDS 每设备 CAL。
+        每设备授权模式要求连接到此 RD 会话主机服务器的每个设备都有一个从 RD 授权服务器发放的 RDS - 每设备 CAL。
 
-如果启用此策略设置，则远程桌面许可证服务器将不遵循指定的远程桌面许可模式。
+        每用户 AAD 授权模式要求连接到此 RD 会话主机服务器的每个用户帐户都有一项支持在 AAD 中分配的 RDS 许可证的服务计划。
+        
+        如果启用此策略设置，则远程桌面授权服务器和 RD 会话主机将遵循指定的远程桌面授权模式。
 
-如果禁用或未配置此策略设置，则在“组策略”级别上不指定许可模式。
-
-</string>
+        如果禁用或未配置此策略设置，则在“组策略”级别不指定授权模式。
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">按设备</string>
       <string id="TS_LICENSING_MODE_PER_USER">按用户</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">基于每个用户的 AAD</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">此策略设置指定是否阻止在远程桌面服务会话期间将数据重定向到客户端 LPT 端口。
 
 使用此设置可以阻止用户映射本地 LPT 端口，并且可以阻止将数据从远程计算机重定向到本地 LPT 端口外设。默认情况下，远程桌面服务允许 LPT 端口重定向。
@@ -456,12 +470,12 @@ RD 会话主机服务器客户端与 RD 会话主机服务器断开连接后，R
 如果禁用或未配置此策略设置，则不会从“关闭 Windows”对话框的列表中删除“断开连接”。
 
 注意: 此策略设置仅影响“关闭 Windows”对话框。它不会阻止用户使用其他方法断开与远程桌面服务会话的连接。此策略设置也不会阻止服务器上已断开连接的会话。可以通过配置“计算机配置\管理模板\Windows 组件\远程桌面服务\RD 会话主机\会话时间限制\设置已断开会话的时间限制”策略设置控制已断开会话在服务器上保持活动的时间。</string>
-      <string id="TS_NoSecurityMenu">从“开始”菜单删除“Windows 安全”项</string>
-      <string id="TS_NoSecurityMenu_Help">指定是否从远程桌面客户端的“设置”菜单删除“Windows 安全”项。可以使用此设置防止经验不足的用户因为疏忽而从远程桌面服务注销。
+      <string id="TS_NoSecurityMenu">从“开始”菜单删除“Windows 安全中心”项目</string>
+      <string id="TS_NoSecurityMenu_Help">指定是否从远程桌面客户端的“设置”菜单删除“Windows 安全中心”项目。可以使用此设置防止经验不足的用户不小心从远程桌面服务注销。
 
-如果将状态设置为“启用”，则“Windows 安全”不会出现在“开始”菜单的“设置”中。因此，用户必须键入诸如 Ctrl+Alt+End 的安全注意序列才能在客户端计算机上打开“Windows 安全”对话框。
+如果将状态设置为“启用”，则“Windows 安全中心”不会出现在“开始”菜单的“设置”中。因此，用户必须键入诸如 Ctrl+Alt+End 的安全注意序列才能在客户端计算机上打开“Windows 安全中心”对话框。
 
-如果将状态设置为“禁用”或“未配置”，则“Windows 安全”仍保留在“设置”菜单中。</string>
+如果将状态设置为“禁用”或“未配置”，则“Windows 安全中心”仍保留在“设置”菜单中。</string>
       <string id="TS_on_the_Local_machine">在本地计算机上</string>
       <string id="TS_On_the_Network">在网络上</string>
       <string id="TS_PASSWORD">始终在连接时提示输入密码</string>
@@ -1006,19 +1020,40 @@ RD 会话主机服务器客户端与 RD 会话主机服务器断开连接后，R
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">为远程桌面连接使用 WDDM 图形显示驱动程序</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">通过使用此策略设置，可以为远程桌面连接启用 WDDM 图形显示驱动程序。
+
+如果启用此策略设置，则远程桌面连接将使用 WDDM 图形显示驱动程序。
+
+如果禁用或未配置此策略设置，则远程桌面连接将不使用 WDDM 图形显示驱动程序。在这种情况下，远程桌面连接将使用 XDDM 图形显示驱动程序。
+
+若要使此更改生效，必须重启 Windows。
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">通过使用此策略设置，可以为远程桌面连接启用 WDDM 图形显示驱动程序。
+
+如果启用或未配置此策略设置，则远程桌面连接将使用 WDDM 图形显示驱动程序。
+
+如果禁用此策略设置，则远程桌面连接将不使用 WDDM 图形显示驱动程序。在这种情况下，远程桌面连接将使用 XDDM 图形显示驱动程序。
+
+若要使此更改生效，必须重启 Windows。
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">通过使用此策略设置，可以为远程桌面连接启用 WDDM 图形显示驱动程序。
+
+如果启用此策略设置，则远程桌面连接将使用 WDDM 图形显示驱动程序。
+
+如果禁用此策略设置，则远程桌面连接将不使用 WDDM 图形显示驱动程序。在这种情况下，远程桌面连接将使用 XDDM 图形显示驱动程序。
+
+如果未配置此策略设置，则 RD 会话主机服务器上的远程桌面连接将不使用 WDDM 图形显示驱动程序。在所有其他情况下，远程桌面连接将使用 WDDM 图形显示驱动程序。
+
+若要使此更改生效，必须重启 Windows。
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">配置远程桌面连接的 H.264/AVC 硬件编码</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">使用此策略设置可以为远程桌面连接启用 H.264/AVC 硬件编码支持。启用硬件编码时，如果出现错误，我们将尝试使用软件编码。如果禁用或未配置此策略，我们将始终使用软件编码。
-        
-如果将编码选项设置为“始终尝试”，远程桌面将始终尝试使用 H.264/AVC 硬件编码(如果可用)。请注意，对于运行 Hyper-V 时启用了 RemoteFX vGPU 的 Windows Server，必须在 Hyper-V 主机上设置此策略。
-        
-如果将编码选项设置为“仅针对 RemoteFX vGPU 虚拟机进行尝试”，请注意，对于运行 Hyper-V 时启用了 RemoteFX vGPU 的 Windows Server，必须在 Hyper-V 主机上设置此策略。
-        
-如果将编码选项设置为“仅针对非 RemoteFX vGPU 方案进行尝试”，则远程桌面将尝试对 RemoteFX vGPU 以外的所有方案使用硬件编码。
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">始终尝试</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">仅针对 RemoteFX vGPU 虚拟机进行尝试</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">仅针对非 RemoteFX vGPU 方案进行尝试</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">通过此策略设置，可以为远程桌面连接启用 H.264/AVC 硬件编码支持。启用硬件编码后，如果发生错误，我们会尝试使用软件编码。如果禁用或不配置此策略，我们将始终使用软件编码。</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">为远程桌面连接设置 H.264/AVC 444 图形模式的优先级</string>
@@ -1169,6 +1204,18 @@ RD 会话主机服务器客户端与 RD 会话主机服务器断开连接后，R
 
 如果禁用或未配置此策略设置，则可显示“开始”屏幕，且可在后台注册应用。</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">将硬件图形适配器应用于所有远程桌面服务会话</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">系统管理员可以使用此策略设置来更改所有远程桌面服务会话的图形渲染方式。
+
+如果启用此策略设置，所有远程桌面服务会话都将使用硬件图形渲染器而不是 Microsoft 基本渲染驱动程序作为默认适配器。
+
+如果禁用此策略设置，所有远程桌面服务会话都将使用 Microsoft 基本渲染驱动程序作为默认适配器。
+
+如果不配置此策略设置，RD 会话主机服务器上的远程桌面服务会话将使用 Microsoft 基本渲染驱动程序作为默认适配器。对于其他所有情况，远程桌面服务会话将默认使用硬件图形渲染器。
+
+注意: 该策略设置可以实现装有多个 GPU 的计算机上的图形处理单元(GPU)负载平衡。本地会话的 GPU 配置不受此策略设置的影响。
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">
@@ -1316,9 +1363,6 @@ RD 会话主机服务器客户端与 RD 会话主机服务器断开连接后，R
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP 压缩算法:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">首选 AVC 硬件编码:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">视觉体验:</dropdownList>

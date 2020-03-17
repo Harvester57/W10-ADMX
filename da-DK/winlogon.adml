@@ -72,12 +72,34 @@ Hvis du deaktiverer denne indstilling eller undlader at konfigurere den, ignorer
 
 Tip! Du kan finde mapperne, der angives af miljøvariablen Sti, ved at klikke på Egenskaber for system i Kontrolpanel, klikke på fanen Avanceret, klikke på knappen Miljøvariabler og derefter klikke på Sti i boksen Systemvariabler.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Log automatisk den seneste interaktive bruger på efter en systemaktiveret genstart</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Denne politikindstilling styrer, om en enhed automatisk logger seneste interaktive bruger på, når Windows Update har genstartet systemet.
+      <string id="AutomaticRestartSignOnDescription">Log automatisk på, og lås den seneste interaktive bruger efter en genstart</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Denne politikindstilling styrer, om en enhed automatisk logger på og låser den seneste interaktive bruger, efter at systemet genstartes, eller efter en lukning og koldstart.
 
-Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, gemmer enheden brugerens legitimationsoplysninger sikkert (herunder brugernavn, domæne og krypteret adgangskode) for at konfigurere automatisk logon efter en genstart af Windows Update. Efter genstart af Windows Update, logges brugeren automatisk på, og sessionen låses automatisk med alle de apps på låseskærmen, der er konfigureret for denne bruger.
+Dette sker kun, hvis den seneste interaktive bruger ikke loggede på før genstarten eller lukningen.​
 
-Hvis du deaktiverer denne politikindstilling, gemmer enheden ikke brugerens legitimationsoplysninger til automatisk logon efter en genstart af Windows Update. Apps på brugerens låseskærm genstartes ikke, efter at systemet er genstartet.</string>
+Hvis enheden er tilsluttet Active Directory eller Azure Active Directory, gælder denne politik kun for Windows Update-genstart. Ellers gælder den for både Windows Update-genstart og genstart og lukning, der igangsættes af brugeren.​
+
+Hvis du undlader at konfigurere denne politikindstilling, er den som standard aktiveret. Når politikken er aktiveret, logges brugeren automatisk på, og sessionen låses automatisk med alle låseskærmsapps konfigureret for den pågældende bruger, efter at enheden starter.​
+
+Når denne politik er aktiveret, kan du konfigurere dens indstillinger via politikken ConfigAutomaticRestartSignOn, hvilket konfigurerer tilstanden for automatisk logon og låsning af den senest interaktive bruger efter genstart eller koldstart.
+
+Hvis du deaktiverer denne politikindstilling, konfigurerer enheden ikke automatisk logon. Brugerens låseskærmsapps genstartes ikke, efter at systemet genstartes.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Konfigurer tilstanden for automatisk logon og låsning af den seneste interaktive bruger efter genstart eller koldstart</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Denne politikindstilling styrer den konfiguration, hvorunder en automatisk genstart og logon og låsning finder sted efter en genstart eller koldstart. Hvis du vælger "Deaktiveret" i politikken "Log automatisk på, og lås den seneste interaktive bruger efter en genstart", vil automatisk logon ikke finde sted, og denne politik behøver ikke blive konfigureret.
+
+Hvis du aktiverer denne politikindstilling, kan du vælge en af følgende to muligheder:
+
+1. "Aktiveret, hvis BitLocker er slået til og ikke er afbrudt" angiver, at automatisk logon og låsning kun vil finde sted, hvis BitLocker er aktiv og ikke afbrydes under genstart eller lukning. Der er adgang til personlige data på enhedens harddisk i dette tilfælde, hvis BitLocker ikke er slået til eller afbrudt under en opdatering. Afbrydelse af BitLocker fjerner midlertidigt beskyttelse for systemkomponenter og data, men kan være påkrævet under visse omstændigheder, for at bootkritiske komponenter kan opdateres.
+     BitLocker afbrydes under opdateringer, hvis:
+        - enheden ikke har TPM 2.0 og PCR7, eller
+        - enheden ikke bruger en beskytter rettet mod TPM alene
+2. "Aktiveret altid" angiver, at automatisk logon sker, hvis BitLocker er slået fra eller afbrydes under genstart eller lukning. Når BitLocker ikke er aktiveret, vil personlige data være tilgængelige på harddisken. Automatisk genstart og logon bør kun køres i denne tilstand, hvis du er sikker på, at den konfigurerede enhed befinder sig på en sikker fysisk placering.
+
+Hvis du deaktiverer eller undlader at konfigurere denne indstilling, vil automatisk logon som standard indstilles til funktionsmåden "Aktiveret, hvis BitLocker er slået til og ikke afbrydes".</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Aktiveret, hvis BitLocker er slået til og ikke afbrydes</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Altid aktiveret</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Hvis du deaktiverer denne politikindstilling, gemmer enheden ikke brugerens legi
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Angiv, hvilken software der kan generere sikkerhedstastekombinationen</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Konfigurer tilstanden for automatisk logon og låsning af den seneste interaktive bruger efter genstart eller koldstart</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

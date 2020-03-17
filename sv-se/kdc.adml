@@ -78,6 +78,22 @@ Om du aktiverar den här principinställningen begär domänkontrollanter samman
 Om du inaktiverar eller inte konfigurerar den här principinställningen returnerar domänkontrollanterna tjänstbiljetter som innehåller sammansatt autentisering varje gång klienten skickar en begäran om sammansatt autentisering, oavsett kontokonfiguration.
 
 </string>
+      <string id="PKINITFreshness">KDC-stöd för PKInit Freshness Extension</string>
+      <string id="PKINITFreshness_explain">Windows Server 2016-domänfunktionsnivå krävs för att PKInit Freshness Extension ska stödas. Om domänkontrollantens domän inte är på Windows Server 2016-domänfunktionsnivå eller senare tillämpas inte principen.
+
+Med den här principinställningen kan du konfigurera en domänkontrollant till att stöda PKInit Freshness Extension.
+
+Om du aktiverar principinställningen har du följande alternativ:
+
+Stöds: PKInit Freshness Extension stöds på begäran. Kerberos-klienter som autentiseras med PKInit Freshness Extension får ett SID för en aktuell identitet för offentlig nyckel.
+
+Krävs: PKInit Freshness Extension krävs för att autentisering ska gå att genomföra. Kerberos-klienter som inte stöder PKInit Freshness Extension kan inte autentiseras när de använder en offentlig nyckel.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen tillhandahåller domänkontrollanten aldrig PKInit Freshness Extension och den accepterar giltiga autentiseringsbegäranden utan att kontrollera aktualitet. Användarna får heller aldrig något SID för en aktuell identitet för offentlig nyckel.
+</string>
+      <string id="NoPKINITFreshness">Inaktiverat</string>
+      <string id="SupportPKINITFreshness">Stöds</string>
+      <string id="RequirePKINITFreshness">Krävs</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen returne
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Tröskelvärde för biljettstorlek</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Alternativ för PKInit Freshness Extension:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

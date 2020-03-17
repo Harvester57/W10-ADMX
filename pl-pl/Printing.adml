@@ -33,7 +33,7 @@ Uwaga:
       <string id="CplPrinters">Drukarki</string>
       <string id="CplPrinters_Help">Zarządza konfiguracją drukarek sieciowych i opcjami publikowania.</string>
       <string id="CustomizedSupportUrl">Niestandardowe adresy URL obsługi w lewym okienku folderu Drukarki</string>
-      <string id="CustomizedSupportUrl_Help">Domyślnie folder Drukarki zawiera łącze do strony pomocy technicznej firmy Microsoft w sieci Web zatytułowane „Uzyskaj pomoc dotyczącą drukowania”. Może również zawierać łącze do strony sieci Web dostawcy aktualnie wybranej drukarki.
+      <string id="CustomizedSupportUrl_Help">Domyślnie folder Drukarki zawiera łącze do strony Pomocy technicznej Microsoft w sieci Web zatytułowane „Uzyskaj pomoc dotyczącą drukowania”. Może również zawierać łącze do strony sieci Web dostawcy aktualnie wybranej drukarki.
 
           Jeśli to ustawienie zasad zostanie włączone, spowoduje to zastąpienie domyślnego łącza „Uzyskaj pomoc dotyczącą drukowania” łączem do strony sieci Web dostosowanej do przedsiębiorstwa użytkownika.
 
@@ -44,20 +44,25 @@ Uwaga:
           Zobacz też ustawienie „Aktywuj drukowanie internetowe” w tym folderze ustawień i ustawienie „Przeglądaj wspólną witrynę sieci Web w poszukiwaniu drukarek” w lokalizacji Konfiguracja użytkownika\Szablony administracyjne\Panel sterowania\Drukarki.
 
           Na widok sieci Web mają wpływ ustawienia „Włącz powłokę klasyczną” i „Nie zezwalaj na otwieranie pozycji Opcje folderów za pomocą przycisku Opcje na karcie Wyświetlanie na wstążce” w lokalizacji Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Eksplorator Windows, a także ustawienie „Włącz pulpit Active Desktop” w lokalizacji Konfiguracja użytkownika\Szablony administracyjne\Pulpit\Active Desktop.</string>
-      <string id="DomainDisplayPrinters_Help">Jeśli to ustawienie zasad zostanie włączone, to określa maksymalną liczbę drukarek każdego typu wyświetlanych przez Kreatora dodawania drukarki na komputerze w sieci zarządzanej (gdy komputer ma możliwość nawiązania połączenia z kontrolerem domeny, jak np. komputer przenośny przyłączony do domeny w sieci firmowej).
+      <string id="DomainDisplayPrinters_Help">Jeśli to włączysz to ustawienie zasad, będzie ono określać maksymalną liczbę drukarek (każdego typu) wyświetlanych przez Kreatora dodawania drukarki na komputerze w sieci zarządzanej (gdy komputer ma możliwość nawiązania połączenia z kontrolerem domeny, jak np. laptop przyłączony do domeny w sieci firmowej).
 
           Jeśli to ustawienie zasad zostanie wyłączone, strona skanowania sieci nie będzie wyświetlana.
 
-          Jeśli to ustawienie zasad nie jest skonfigurowane, Kreator dodawania drukarki wyświetla domyślną liczbę drukarek każdego typu:
+          Jeśli to ustawienie zasad nie zostanie skonfigurowane, Kreator dodawania drukarki będzie wyświetlać domyślną liczbę drukarek każdego typu:
           Drukarki w usłudze katalogowej: 20
           Drukarki TCP/IP: 0
           Drukarki w usługach sieci Web: 0
           Drukarki Bluetooth: 10
           Drukarki udostępnione: 0
 
-          Aby wyświetlić dostępne drukarki  w usługach sieci Web w sieci, należy upewnić się, że odnajdowanie sieci jest włączone. Aby włączyć odnajdowanie sieci, kliknij przycisk Start, kliknij polecenie Panel sterowania, a następnie kliknij łącze Sieć i Internet. Na stronie Sieć i Internet kliknij łącze Centrum sieci i udostępniania. Na stronie Centrum sieci i udostępniania kliknij łącze Zmień zaawansowane ustawienia udostępniania. Na stronie Zaawansowane ustawienia udostępniania kliknij strzałkę obok pozycji Domena, kliknij opcję Włącz odnajdowanie sieci, a następnie kliknij przycisk Zapisz zmiany.
+          Aby wyświetlić dostępne drukarki w usługach sieci Web w swojej sieci, upewnij się, że odnajdowanie sieci jest włączone. Aby włączyć odnajdowanie sieci, kliknij przycisk Start, kliknij polecenie Panel sterowania, a następnie kliknij link Sieć i Internet. Na stronie Sieć i Internet kliknij link Centrum sieci i udostępniania. Na stronie Centrum sieci i udostępniania kliknij link Zmień zaawansowane ustawienia udostępniania. Na stronie Zaawansowane ustawienia udostępniania kliknij strzałkę obok pozycji Domena, kliknij pozycję Włącz odnajdowanie sieci, a następnie kliknij przycisk Zapisz zmiany.
 
-          Jeśli drukarki pewnego typu nie powinny być wyświetlane, można włączyć te zasady i ustawić liczbę takich drukarek na 0.</string>
+          Jeśli nie chcesz wyświetlać drukarek określonego typu, włącz tę zasadę i ustaw liczbę wyświetlanych drukarek tego typu równą 0.
+
+          W systemie Windows 10 i nowszych w kreatorze mogą być wyświetlane tylko drukarki TCP/IP. Jeśli włączysz to ustawienie zasad, będą stosowane tylko limity dotyczące drukarek TCP/IP. W systemie Windows 10, jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, będzie stosowany limit domyślny.
+          
+          W systemie Windows 8 i nowszych drukarki Bluetooth nie są wyświetlane, więc ich limit nie ma zastosowania w tych wersjach systemu Windows.
+      </string>
       <string id="DomainPrinters">Kreator dodawania drukarki — strona skanowania sieci (sieć zarządzana)</string>
       <string id="DownlevelBrowse">Przeglądaj sieć w poszukiwaniu drukarek</string>
       <string id="DownlevelBrowse_Help">Pozwala użytkownikom korzystać z Kreatora dodawania drukarki w celu wyszukiwania w sieci drukarek udostępnionych.
@@ -129,9 +134,9 @@ Uwaga: w wyniku stosowania tych zasad istniejące sterowniki trybu jądra będą
           To ustawienie nie zapobiega uruchamianiu przez użytkowników innych programów w celu usunięcia drukarki.
 
           Jeśli te zasady zostaną wyłączone lub nie zostaną skonfigurowane, użytkownicy będą mogli usuwać drukarki, używając opisanych wyżej metod.</string>
-      <string id="NonDomainDisplayPrinters_Help">Te zasady określają maksymalną liczbę drukarek każdego typu wyświetlanych przez Kreatora dodawania drukarki na komputerze w sieci niezarządzanej (gdy komputer nie może nawiązać połączenia z kontrolerem domeny, jak np. komputer przenośny przyłączony do domeny, ale znajdujący się w sieci domowej).
+      <string id="NonDomainDisplayPrinters_Help">Ta zasada określa maksymalną liczbę drukarek (każdego typu), które Kreator dodawania drukarki będzie wyświetlał na komputerze w sieci niezarządzanej (gdy komputer nie może skontaktować się z kontrolerem domeny, na przykład przyłączony do domeny laptop w sieci domowej).
 
-Jeśli to ustawienie zostanie wyłączone, strona skanowania sieci nie będzie wyświetlana.
+Jeśli to ustawienie zostanie wyłączone, nie będzie wyświetlana strona skanowania sieci.
 
 Jeśli to ustawienie nie zostanie skonfigurowane, Kreator dodawania drukarki będzie wyświetlał domyślną liczbę drukarek każdego typu:
 Drukarki TCP/IP: 50
@@ -139,7 +144,11 @@ Drukarki w usługach sieci Web: 50
 Drukarki Bluetooth: 10
 Drukarki udostępnione: 50
 
-Jeśli drukarki pewnego typu nie powinny być wyświetlane, można włączyć te zasady i ustawić liczbę takich drukarek na 0.</string>
+Jeśli nie chcesz wyświetlać drukarek określonego typu, włącz tę zasadę i ustaw liczbę wyświetlanych drukarek równą 0.
+
+W systemie Windows 10 i nowszych w kreatorze mogą być wyświetlane tylko drukarki TCP/IP. Jeśli włączysz to ustawienie zasad, będą stosowane tylko limity dotyczące drukarek TCP/IP. W systemie Windows 10, jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, będzie stosowany limit domyślny.
+          
+W systemie Windows 8 i nowszych drukarki Bluetooth nie są wyświetlane, więc ich limit nie ma zastosowania w tych wersjach systemu Windows.</string>
       <string id="NonDomainPrinters">Kreator dodawania drukarki — strona skanowania sieci (sieć niezarządzana)</string>
       <string id="PackagePointAndPrintOnly">Wskazywanie i drukowanie wyłącznie pakietów</string>
       <string id="PackagePointAndPrintOnly_Help">Te zasady nakładają na komputery klienckie ograniczenie dopuszczające stosowanie tylko pakietowej funkcji drukowania i wskazywania.
@@ -269,11 +278,19 @@ Domyślnie wersje Ultimate, Professional i Home systemu Windows w razie potrzeby
 
         Jeśli to ustawienie zasad zostanie wyłączone lub pozostanie nieskonfigurowane, będzie można uruchamiać wszystkie zainstalowane rozszerzenia drukarek.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Zmień domyślny format wyjściowy drukarki Moduł zapisywania dokumentów XPS firmy Microsoft (MXDW) na starszy format Microsoft XPS (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">W systemach Windows 10, Windows 10 i Windows Server 2016 Technical Preview 4 drukarka Moduł zapisywania dokumentów XPS firmy Microsoft (MXDW) domyślnie generuje pliki OpenXPS (*.oxps).
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">W systemach Windows 10, Windows 10 i Windows Server 2019 drukarka Moduł zapisywania dokumentów XPS firmy Microsoft (MXDW) domyślnie generuje pliki OpenXPS (*.oxps).
 
-          Jeśli to ustawienie zasad grupy zostanie włączone, domyślnym formatem danych wyjściowych drukarki MXDW będzie starszy format Microsoft XPS (*.xps).
+          Jeśli włączysz to ustawienie zasad grupy, domyślnym formatem danych wyjściowych drukarki MXDW będzie starszy format Microsoft XPS (*.xps).
 
-          Jeśli to ustawienie zasad grupy zostanie wyłączone lub nie zostanie skonfigurowane, domyślnym formatem danych wyjściowych drukarki MXDW będzie format OpenXPS (*.oxps).</string>
+          Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, domyślnym formatem danych wyjściowych drukarki MXDW będzie format OpenXPS (*.oxps).</string>
+      <string id="SetDefaultPrinterMRUModeOff">Wyłącz zarządzanie drukarką domyślną przez system Windows</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">To ustawienie preferencji umożliwia zmianę zarządzania drukarką domyślną.
+
+Jeśli zostanie ono włączone, system Windows nie będzie zarządzać drukarką domyślną.
+ 
+Jeśli zostanie ono wyłączone, system Windows będzie zarządzać drukarką domyślną.
+
+Jeśli nie zostanie ono skonfigurowane, zarządzanie drukarką domyślną nie zmieni się. </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">

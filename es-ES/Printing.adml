@@ -33,7 +33,7 @@ Notas:
       <string id="CplPrinters">Impresoras</string>
       <string id="CplPrinters_Help">Administra la configuración de impresoras de red y las opciones de publicación.</string>
       <string id="CustomizedSupportUrl">Dirección URL de soporte en el panel izquierdo de la carpeta Impresoras</string>
-      <string id="CustomizedSupportUrl_Help">De manera predeterminada, la carpeta Impresoras incluye un vínculo a la página web de soporte de Microsoft llamada "Obtener ayuda con la impresión". También puede incluir un vínculo hacia una página web suministrada por el fabricante de la impresora seleccionada.
+      <string id="CustomizedSupportUrl_Help">De manera predeterminada, la carpeta Impresoras incluye un vínculo a la página web de Soporte técnico de Microsoft llamada "Obtener ayuda con la impresión". También puede incluir un vínculo hacia una página web suministrada por el fabricante de la impresora seleccionada.
 
           Si habilita esta configuración, se sustituye este vínculo predeterminado "Obtener ayuda con la impresión" por un vínculo a una página web personalizada para su empresa.
 
@@ -44,20 +44,25 @@ Notas:
           Consulte también la configuración "Activar la impresión desde Internet" de esta carpeta y la configuración "Buscar impresoras en un sitio web común" en Configuración del usuario\Plantillas administrativas\Panel de control\Impresoras.
 
           La vista Web se ve afectada por las opciones "Activar shell clásico" y "No permitir que se abra Opciones de carpeta desde el botón Opciones de la pestaña Ver de la cinta" de Configuración de usuario\Plantillas administrativas\Componentes de Windows\Explorador de Windows, así como por la opción "Habilitar Active Desktop" de Configuración de usuario\Plantillas administrativas\Escritorio\Active Desktop.</string>
-      <string id="DomainDisplayPrinters_Help">Si habilita esta configuración de directiva, se establece el número de impresoras (de cada tipo) que el Asistente para agregar impresoras mostrará en un equipo de una red administrada (si el equipo tiene acceso a un controlador de dominio como, por ejemplo, en el caso de un portátil unido a un dominio de una red corporativa).
+      <string id="DomainDisplayPrinters_Help">Si habilitas esta configuración de directiva, se establece el número máximo de impresoras (de cada tipo) que mostrará el asistente para agregar impresoras en un equipo que esté en una red administrada (cuando el equipo pueda alcanzar un controlador de dominio, como un portátil unido a un dominio que esté en una red corporativa).
 
-          Si esta configuración de directiva está deshabilitada, no se mostrará la página de análisis de red.
+          Si esta configuración de directiva está deshabilitada, no se mostrará la página de examen de red.
 
-          Si esta configuración de directiva no está establecida, el Asistente para agregar impresoras mostrará el número predeterminado de impresoras de cada tipo:
-Impresoras de directorio: 20
-Impresoras TCP/IP: 0
-Impresoras de servicios web: 0
-Impresoras Bluetooth: 10
-Impresoras compartidas: 0
+          Si no se establece está configuración, el asistente para agregar impresoras mostrará el número predeterminado de impresoras de cada tipo:
+          Impresoras de directorio: 20
+          Impresoras TCP/IP: 0
+          Impresoras de servicios web: 0
+          Impresoras Bluetooth: 10
+          Impresoras compartidas: 0
 
-Para poder ver las impresoras de servicios web de la red, asegúrese de que la detección de redes esté activada. Para activar la detección de redes, haga clic en "Inicio", elija "Panel de control" y, a continuación, haga clic en "Redes e Internet". En la página "Redes e Internet", haga clic en "Centro de redes y recursos compartidos". En la página "Centro de redes y recursos compartidos" haga clic en "Cambiar configuración de uso compartido avanzado". En la página Configuración de uso compartido avanzado, haga clic en la flecha situada junto a "Dominio", haga clic en "Activar la detección de redes" y, después, haga clic en "Guardar cambios".
+          Para ver las impresoras de servicios web disponibles en tu red, asegúrate de que la detección de red esté activada. Para activarla, haz clic en Inicio, Panel de control y luego en Redes e Internet. En esta página, haz clic en Centro de redes y recursos compartidos y luego en Cambiar configuración de uso compartido avanzado. En esta página, haz clic en la flecha que hay al lado de la flecha de Dominio, haz clic en Activar detección de redes y en Guardar cambios.
 
-          Si no desea que se muestren las impresoras de un determinado tipo, habilite esta directiva y asigne el valor 0 al número de impresoras que deben mostrarse.</string>
+          Si no quieres mostrar un determinado tipo de impresora, habilita esta directiva y establece el número de impresoras que se mostrarán en 0.
+
+          En Windows 10 y versiones posteriores, solo se pueden mostrar las impresoras TCP/IP en el asistente. Si habilitas esta configuración de directiva, solo se aplican los límites de impresoras TCP/IP. Solo en Windows 10, si deshabilitas o no estableces esta configuración de directiva, se aplica el límite predeterminado.
+          
+          En Windows 8 y versiones posteriores, no se muestran las impresoras Bluetooth, de modo que sus límites no se aplican en dichas versiones de Windows.
+      </string>
       <string id="DomainPrinters">Asistente para agregar impresoras: página de análisis de red (red administrada)</string>
       <string id="DownlevelBrowse">Buscar impresoras en la red</string>
       <string id="DownlevelBrowse_Help">Permite que los usuarios usen el Asistente para agregar impresoras para buscar impresoras compartidas en la red.
@@ -129,17 +134,21 @@ Nota: al aplicar esta directiva, los controladores en modo kernel ya existentes 
           Esta opción no impide que los usuarios ejecuten otros programas para eliminar una impresora.
 
           Si esta directiva está deshabilitada o sin configurar, los usuarios pueden eliminar impresoras mediante los métodos descritos anteriormente.</string>
-      <string id="NonDomainDisplayPrinters_Help">Esta directiva establece el número de impresoras (de cada tipo) que el Asistente para agregar impresoras mostrará en un equipo de una red no administrada (si el equipo no tiene acceso a un controlador de dominio como, por ejemplo, en el caso de un portátil unido a un dominio en una red doméstica).
+      <string id="NonDomainDisplayPrinters_Help">Esta directiva establece el número máximo de impresoras (de cualquier tipo) que el asistente para agregar impresoras mostrará en un equipo que esté en una red sin administrar (cuando el equipo no pueda alcanzar un controlador de dominio, como un portátil unido a un dominio que esté en una red local).
 
-Si esta configuración está deshabilitada, no se mostrará la página de análisis de red.
+Si está configuración está deshabilitada, no se mostrará la página de examen de red.
 
-Si esta configuración no está establecida, el Asistente para agregar impresoras mostrará el número predeterminado de impresoras de cada tipo:
+Si no se establece está configuración, el asistente para agregar impresoras mostrará el número predeterminado de impresoras de cada tipo:
 Impresoras TCP/IP: 50
 Impresoras de servicios web: 50
 Impresoras Bluetooth: 10
 Impresoras compartidas: 50
 
-Si no desea que se muestren las impresoras de un determinado tipo, habilite esta directiva y asigne el valor 0 al número de impresoras que deben mostrarse.</string>
+Si no quieres mostrar un determinado tipo de impresora, habilita esta directiva y establece el número de impresoras que se mostrarán en 0.
+
+En Windows 10 y versiones posteriores, solo se pueden mostrar las impresoras TCP/IP en el asistente. Si habilitas esta configuración de directiva, solo se aplican los límites de impresoras TCP/IP. Solo en Windows 10, si deshabilitas o no estableces esta configuración de directiva, se aplica el límite predeterminado.
+          
+En Windows 8 y versiones posteriores, no se muestran las impresoras Bluetooth, de modo que sus límites no se aplican en dichas versiones de Windows.</string>
       <string id="NonDomainPrinters">Asistente para agregar impresoras: página de análisis de red (red no administrada)</string>
       <string id="PackagePointAndPrintOnly">Usar solo apuntar e imprimir en paquete</string>
       <string id="PackagePointAndPrintOnly_Help">Esta directiva hace que los equipos cliente solo pueden usar apuntar e imprimir en paquete.
@@ -269,11 +278,11 @@ De forma predeterminada, en las SKU Windows Ultimate, Professional y Home se con
 
         Si deshabilita esta configuración de directiva o no la establece, todas las extensiones de impresora que se hayan instalado podrán ejecutarse.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Cambiar el formato de salida predeterminado del Escritor de documentos XPS de Microsoft (MXDW) por el formato heredado de XPS de Microsoft (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">El Escritor de documentos XPS de Microsoft (MXDW) genera archivos OpenXPS (*.oxps) de manera predeterminada en Windows 10, Windows 10 y Windows Server 2016.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Escritor de documentos XPS de Microsoft (MXDW) genera archivos OpenXPS (*.oxps) de forma predeterminada en Windows 10, Windows 10 y Windows Server 2019.
 
-          Si habilitas esta configuración de directiva de grupo, el formato de salida predeterminado de MXDW será el formato heredado de XPS de Microsoft (*.xps).
+          Si habilitas esta configuración de directiva de grupo, el formato de salida MXDW predeterminado es el formato heredado de Microsoft XPS (*.xps).
 
-          Si deshabilitas o no estableces esta configuración de directiva, el formato de salida predeterminado de MXDW será OpenXPS (*.oxps).</string>
+          Si deshabilitas o no configuras esta configuración de directiva, el formato de salida MXDW predeterminado es OpenXPS (*.oxps).</string>
       <string id="SetDefaultPrinterMRUModeOff">Desactivar la administración de la impresora predeterminada de Windows.</string>
       <string id="SetDefaultPrinterMRUModeOff_Help">Esta preferencia te permite cambiar el modo de administrar la impresora predeterminada.
 

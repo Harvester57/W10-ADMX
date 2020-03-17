@@ -59,10 +59,41 @@ Es sind keine Neustarts oder Dienstneustarts erforderlich, damit diese Richtlini
 
 
 </string>
+<string id="TroubleshootingAllowRecommendations">Problembehandlung: Benutzern den Zugriff auf die empfohlene Problembehandlung für bekannte Probleme erlauben</string>
+<string id="TroubleshootingAllowRecommendationsExplain">Durch diese Richtlinieneinstellung werden empfohlene Problembehandlungen für bekannte Probleme auf das Gerät angewendet. Außerdem können Administratoren konfigurieren, wie die Richtlinieneinstellung auf Ihre Domänen/IT-Umgebungen angewendet wird.
+Wenn die Richtlinieneinstellung nicht konfiguriert wird, kann der Benutzer festlegen, ob und wie empfohlene Problembehandlungen angewendet werden.
+
+Wenn Sie die Richtlinie aktivieren, können Sie konfigurieren, wie empfohlene Problembehandlungen auf Benutzergeräte angewendet werden. Sie können unter folgenden Werten wählen:
+0 = Dieses Feature deaktivieren
+1 = Dieses Feature deaktivieren, aber trotzdem wichtige Problembehandlungen anwenden
+2 = Benutzer benachrichtigen, wenn eine empfohlene Problembehandlung verfügbar ist, und dem Benutzer dann ermöglichen, sie auszuführen oder zu ignorieren
+3 = Empfohlene Problembehandlung automatisch ausführen und den Benutzer nach der erfolgreichen Ausführung benachrichtigen
+4 = Empfohlene Problembehandlung automatisch ausführen, ohne den Benutzer zu benachrichtigen
+5 = Dem Benutzer die Auswahl eigener Einstellungen für empfohlene Problembehandlungen ermöglichen
+
+Befolgen Sie die nachstehenden Anweisungen, um empfohlene Problembehandlungen für Geräte in Ihrer Domäne auszulösen, nachdem Sie diese neue Einstellung festgelegt haben:
+1. Erstellen Sie ein Batchskript mit folgendem Inhalt:
+Durch das folgende Batchskript werden empfohlene Problembehandlungen ausgelöst:
+C:\Windows\System32\mitigationscanner.exe
+
+2. Um eine neue sofortige Aufgabe zu erstellen, navigieren Sie zu "Gruppenrichtlinienverwaltungs-Editor &gt; Computerkonfiguration &gt; Einstellungen" und wählen "Systemsteuerungseinstellungen" aus. 
+3. Klicken Sie unter "Systemsteuerungseinstellungen" mit der rechten Maustaste auf "Geplante Aufgaben", und wählen Sie "Neu" aus. Wählen Sie "Sofortige Aufgabe (mindestens Windows 7)" aus.
+4. Geben Sie einen Namen und ggf. eine Beschreibung an, legen Sie dann unter "Sicherheitsoptionen" das Benutzerkonto auf "System" fest, und aktivieren Sie das Kontrollkästchen "Mit höchsten Berechtigungen ausführen".
+5. Erstellen Sie auf der Registerkarte "Aktionen" eine neue Aktion, wählen Sie als Typ "Programm starten" aus, und geben Sie dann die in Schritt 1 erstellte Datei ein.
+6. Konfigurieren Sie die Aufgabe für die Bereitstellung in Ihrer Domäne.</string>
+<string id="RecommendationsDropDown_DoNothing">Dieses Feature deaktivieren</string>
+<string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">Dieses Feature deaktivieren, aber trotzdem wichtige Problembehandlungen anwenden</string>
+<string id="RecommendationsDropDown_AskFirst">Benutzer benachrichtigen, wenn eine empfohlene Problembehandlung verfügbar ist, und dem Benutzer dann ermöglichen, sie auszuführen oder zu ignorieren</string>
+<string id="RecommendationsDropDown_ApplyThenNotify">Empfohlene Problembehandlung automatisch ausführen und den Benutzer nach der erfolgreichen Ausführung benachrichtigen</string>
+<string id="RecommendationsDropDown_ApplySilently">Empfohlene Problembehandlung automatisch ausführen, ohne den Benutzer zu benachrichtigen</string>
+<string id="RecommendationsDropDown_DeferToUser">Dem Benutzer die Auswahl eigener Einstellungen für empfohlene Problembehandlungen ermöglichen</string>
     </stringTable>
     <presentationTable>
       <presentation id="MsdtToolDownloadPolicy">
         <dropdownList refId="MsdtToolDownloadPolicyLevel" noSort="true" defaultItem="1">Tooldownloads zulässig</dropdownList>
+      </presentation>
+      <presentation id="TroubleshootingAllowRecommendations">
+        <dropdownList refId="TroubleshootingAllowRecommendations_Dropdown" noSort="true" defaultItem="0">Empfohlene Problembehandlung von Microsoft für bekannte Probleme zulassen</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Especificar o tempo limite de suspensão do sistema (conectado)</string>
       <string id="ACStandbyWithHiberfileEnable">Desativar suspensão híbrida (conectado)</string>
       <string id="ACSystemLidAction">Selecionar a ação da opção de limite (conectado)</string>
+      <string id="ACConnectivityInStandby">Permitir conectividade de rede durante modo de espera conectado (conectado)</string>
       <string id="BatteryDischargeAction0Explain">Esta política especifica a ação executada pelo Windows quando a capacidade da bateria atinge o nível de notificação de bateria crítica.
 
 Se você habilitar esta configuração de política, selecione uma das seguintes ações:
@@ -80,6 +81,7 @@ Se você desabilitar ou não configurar esta política, os usuários poderão v�
       <string id="DCStandbyTimeOut">Especificar o tempo limite de suspensão do sistema (bateria)</string>
       <string id="DCStandbyWithHiberfileEnable">Desativar suspensão híbrida (bateria)</string>
       <string id="DCSystemLidAction">Selecionar a ação da opção de limite (bateria)</string>
+      <string id="DCConnectivityInStandby">Permitir conectividade de rede durante modo de espera conectado (na bateria)</string>
       <string id="DiskACPowerDownTimeOut">Desativar disco rígido (conectado)</string>
       <string id="DiskDCPowerDownTimeOut">Desativar disco rígido (bateria)</string>
       <string id="DiskPowerDownTimeOutExplain">Esta política especifica o período de inatividade antes de o Windows desativar o disco rígido.
@@ -204,11 +206,11 @@ Se você desabilitar ou não configurar esta definição de política, os usuár
 Se o usuário tiver configurado uma apresentação de slides para ser executada na tela de bloqueio quando o computador estiver bloqueado, isso pode impedir a desativação da exibição.  A configuração de política "Impedir habilitação de apresentação de slides da tela de bloqueio" pode ser usada para desabilitar o recurso de apresentação de slides.</string>
       <string id="AllowStandbyStatesAC">Permitir estados de espera (S1-S3) quando em suspensão (conectado)</string>
       <string id="AllowStandbyStatesDC">Permitir estados de espera (S1-S3) quando em suspensão (bateria)</string>
-      <string id="AllowStandbyStatesExplain">Esta configuração de política controla se o Windows pode ou não usar os estados de espera ao colocar o computador em estado de de suspensão.
+      <string id="AllowStandbyStatesExplain">Esta configuração de política controla se o Windows pode ou não usar os estados de espera ao colocar o computador em estado de repouso.
 
-Se você ativar esta configuração de política, o Windows usa os estados de espera para colocar o computador em um estado de suspensão.
+Se você habilitar ou não definir esta configuração de política, o Windows usará os estados de espera para colocar o computador em um estado de repouso.
 
-Se você desabilitar ou não configurar esta definição de política, o único estado de suspensão em que um computador poderá entrar é a hibernação.</string>
+Se você desabilitar esta configuração de política, os estados de espera (S1-S3) não serão permitido.</string>
 
       <string id="AllowSystemSleepWithRemoteFilesOpenAC">Permitir suspensão automática com Arquivos de Rede Abertos (conectado)</string>
       <string id="AllowSystemSleepWithRemoteFilesOpenDC">Permitir suspensão automática com Arquivos de Rede Abertos (bateria)</string>
@@ -271,6 +273,30 @@ Se você habilitar esta configuração de política, deverá digitar um valor nu
 
 Se você desabilitar ou não configurar esta política, os usuários poderão vê-la e alterá-la.</string>
     
+      <string id="EnergySaverSettingsCat">Configurações de Economia de Energia</string>
+      <string id="EsBattThresholdAC">Limite de Bateria de Economia de Energia (conectado)</string>
+      <string id="EsBattThresholdDC">Limite de Bateria de Economia de Energia (na bateria)</string>
+      <string id="EsBattThresholdExplain">Essa configuração de política permite especificar o nível de carga da bateria em que a Economia de Energia está ativada.
+
+Se você habilitar essa configuração de política, deverá fornecer um valor de porcentagem indicando o nível de carga da bateria. A Economia de Energia será automaticamente ativada no nível (e abaixo) especificado.
+
+Se você desabilitar ou não definir essa configuração de política, os usuários controlarão essa configuração.</string>
+
+      <string id="ConnectivityInStandbyExplain">Essa configuração de política permite controlar o estado de conectividade de rede em espera em sistemas modernos compatíveis com o modo em espera.
+
+Se você habilitar essa configuração de política, a conectividade de rede será mantida em espera.
+
+Se você desabilitar essa configuração de política, a conectividade de rede em espera não estará garantida. Essa restrição de conectividade atualmente se aplica somente a redes WLAN e está sujeita à alteração.
+
+Se você não definir essa configuração de política, os usuários poderão controlar essa configuração.</string>
+
+      <string id="PowerThrottlingSettingsCat">Configurações de Limitação de Energia</string>
+      <string id="PowerThrottlingTurnOff">Desativar Limitação de Energia</string>
+      <string id="PowerThrottlingTurnOffExplain">Esta configuração de política permite desativar a Limitação de Energia.
+
+Se você habilitar esta configuração de política, a Limitação de Energia será desativada.
+
+Se você desabilitar ou não configurar esta definição de política, os usuários poderão controlar esta configuração.</string>
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -420,6 +446,9 @@ Se você desabilitar ou não configurar esta política, os usuários poderão v�
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Nível de notificação de bateria de reserva (porcentagem)</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Limite de Bateria Economia de Energia (porcentagem):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

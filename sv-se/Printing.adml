@@ -33,7 +33,7 @@ Anmärkningar:
       <string id="CplPrinters">Skrivare</string>
       <string id="CplPrinters_Help">Hanterar konfigurations- och publiceringsalternativ för skrivare.</string>
       <string id="CustomizedSupportUrl">Anpassad support-URL till vänster i mappen Skrivare</string>
-      <string id="CustomizedSupportUrl_Help">Om inget annat anges finns det en länk till sidan "Få utskriftshjälp" på Microsofts supportwebbplats i mappen Skrivare. Där kan även finnas en länk till en webbsida som tillverkaren av den valda skrivaren har angett.
+      <string id="CustomizedSupportUrl_Help">Om inget annat anges finns det en länk till sidan "Få utskriftshjälp" på webbsidan för Microsoft Support i mappen Skrivare. Där kan även finnas en länk till en webbsida som tillverkaren av den valda skrivaren har angett.
 
           Om du aktiverar den här principinställningen byter du ut standardlänken i "Få utskriftshjälp" mot en länk till en webbsida som är anpassad till ditt företag.
 
@@ -55,9 +55,14 @@ Anmärkningar:
           Bluetooth-skrivare: 10
           Delade skrivare: 0
 
-          Om du vill visa tillgängliga webbtjänstskrivare i nätverket ska du se till att du aktiverar nätverksidentifiering. Om du vill aktivera nätverksidentifiering ska du klicka på Start och Kontrollpanelen. Sedan klickar du på "Nätverk och Internet". På sidan "Nätverk och Internet" klickar du på "Nätverks- och delningscenter". På sidan "Nätverks- och delningscenter" klickar du på "Ändra avancerade delningsinställningar". På sidan "Avancerade delningsinställningar" klickar du på pilen bredvid pilen Domän, sedan på "Aktivera nätverksidentifiering" och sist på Spara ändringar.
+          Aktivera nätverksidentifiering om du vill visa tillgängliga webbtjänstskrivare i nätverket. Om du vill aktivera nätverksidentifiering klickar du på Start och Kontrollpanelen. Sedan klickar du på Nätverk och Internet. På sidan Nätverk och Internet klickar du på Nätverks- och delningscenter. På sidan Nätverks- och delningscenter klickar du på Ändra avancerade delningsinställningar. På sidan Avancerade delningsinställningar klickar du på pilen bredvid pilen Domän, sedan på Aktivera nätverksidentifiering och sist på Spara ändringar.
 
-          Om du inte vill visa en viss typ av skrivare aktiverar du principen och ställer in antalet skrivare till 0.</string>
+          Om du inte vill visa en viss typ av skrivare aktiverar du principen och ställer in antalet skrivare till 0.
+
+          I Windows 10 och senare går det endast att visa TCP/IP-skrivare i den här guiden. Om du aktiverar den här principinställningen tillämpas endast gränsen för antalet TCP/IP-skrivare. Om du inaktiverar eller låter bli att konfigurera principinställningen i Windows 10 tillämpas standardgränsen.
+          
+          I Windows 8 och senare visas inte Bluetooth-skrivare så dess maxgräns tillämpas inte för de versionerna av Windows.
+      </string>
       <string id="DomainPrinters">Guiden Lägg till skrivare - sidan för nätverkssökning (hanterat nätverk)</string>
       <string id="DownlevelBrowse">Bläddra i nätverket för att hitta skrivare</string>
       <string id="DownlevelBrowse_Help">Ger användarna möjlighet att söka igenom nätverket efter delade skrivare med guiden Lägg till skrivare.
@@ -131,7 +136,7 @@ Obs! Om den här principen aktiveras, inaktiveras befintliga drivrutiner i kerne
           Om den här principen är inaktiverad eller inte konfigureras, kan användarna ta bort skrivare med de metoder som beskrivs här ovan.</string>
       <string id="NonDomainDisplayPrinters_Help">Den här principen anger maximalt antal skrivare (av varje typ) som guiden Lägg till skrivare ska visa på en dator i ett ohanterat nätverk (när datorn inte kan kontakta en domänkontrollant, till exempel en domänansluten bärbar dator i ett hemnätverk).
 
-Om den här inställningen är inaktiverad, visas inte sidan för nätverkssökning.
+Om den här inställningen är inaktiverad visas inte sidan för nätverkssökning.
 
 Om du inte har konfigurerat den här inställningen visas standardantalet skrivare av varje typ i guiden Lägg till skrivare:
 TCP/IP-skrivare: 50
@@ -139,7 +144,11 @@ Webbtjänstskrivare: 50
 Bluetooth-skrivare: 10
 Delade skrivare: 50
 
-Om du inte vill visa skrivare av en viss typ aktiverar du den här principen och anger antalet skrivare som ska visas till 0.</string>
+Om du inte vill visa skrivare av en viss typ aktiverar du den här principen och anger antalet skrivare som ska visas till 0.
+
+I Windows 10 och senare går det endast att visa TCP/IP-skrivare i den här guiden. Om du aktiverar den här principinställningen tillämpas endast gränsen för antalet TCP/IP-skrivare. Om du inaktiverar eller låter bli att konfigurera principinställningen i Windows 10 tillämpas standardgränsen.
+          
+I Windows 8 och senare visas inte Bluetooth-skrivare så dess maxgräns tillämpas inte för de versionerna av Windows.</string>
       <string id="NonDomainPrinters">Guiden Lägg till skrivare - sidan för nätverkssökning (ohanterat nätverk)</string>
       <string id="PackagePointAndPrintOnly">Använd endast paketering av Peka och skriv ut</string>
       <string id="PackagePointAndPrintOnly_Help">Den här principen gör att klientdatorer endast kan använda paketering av Peka och skriv ut.
@@ -269,11 +278,19 @@ Som standard fortsätter Windows Ultimate, Professional och Home att söka efter
 
         Om du inaktiverar eller låter bli att konfigurera den här principinställningen får alla tillägg för skrivare som installerats lov att köras.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Ändra formatet för standardutdata i MXDW (Microsoft XPS Document Writer) så att det överensstämmer med det äldre Microsoft XPS-formatet (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">MXDW (Microsoft XPS Document Writer) genererar OpenXPS-filer (*.oxps) som standard i Windows 10 och Windows Server 2016 Technical Preview 4.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">MXDW (Microsoft XPS Document Writer) genererar OpenXPS-filer (*.oxps) som standard i Windows 10, Windows 10 Server och Windows Server 2019.
 
-          Om du aktiverar den här grupprincipinställningen används det äldre Microsoft XPS-formatet (*.xps) som standardutdataformat i MXDW.
+          Om du aktiverar den här grupprincipinställningen används det äldre Microsoft XPS-formatet (*.xps) som standard för utdata i MXDW.
 
-          Om du inaktiverar eller låter bli att konfigurera principinställningen blir standardutdataformatet i MXDW OpenXPS (*.oxps).</string>
+          Om du inaktiverar eller låter bli att konfigurera principinställningen används OpenXPS (*.oxps) som standard för utdata i MXDW.</string>
+      <string id="SetDefaultPrinterMRUModeOff">Inaktivera Windows hantering av standardskrivare</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">Med den här inställningen kan du ändra hanteringen av standardskrivare.
+
+Om du aktiverar inställningen hanterar Windows inte standardskrivaren.
+ 
+Om du inaktiverar inställningen hanterar Windows standardskrivaren.
+
+Om du inte konfigurerar inställningen ändras inte hanteringen av standardskrivare. </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">

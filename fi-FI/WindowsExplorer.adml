@@ -267,14 +267,14 @@ Huomautus: Määritettyjen asemien kuvakkeet näkyvät edelleen Oma tietokone -i
  Tämä asetus ei estä käyttäjiä käyttämästä paikallisia asemia ja verkkoasemia ohjelmien avulla. Asetus ei myöskään estä heitä tarkastelemasta ja muuttamasta asemien ominaisuuksia levynhallintalaajennuksen avulla.
 
 Katso myös Piilota määritetyt asemat Oma tietokone -kansiossa -asetusta.</string>
-      <string id="NoWindowsHotKeys">Poista Windows-näppäimen pikavalinnat käytöstä</string>
-      <string id="NoWindowsHotKeys_Help">Poistaa Windows-näppäimen avulla suoritettavat pikavalinnat käytöstä.
+      <string id="NoWindowsHotKeys">Poista käytöstä Windows-näppäimen pikavalinnat</string>
+      <string id="NoWindowsHotKeys_Help">Poista käytöstä Windows-näppäimen pikavalinnat.
 
-Jos näppäimistössä on Windows-näppäin, käyttäjät voivat käynnistää helposti useita Windows-käyttöliittymän ominaisuuksia. Esimerkiksi näppäinyhdistelmä Windows+R avaa Suorita-valintaikkunan ja näppäinyhdistelmä Windows+E avaa Resurssienhallinnan. Tämän asetuksen avulla voidaan poistaa tällaiset Windows-näppäimeen liittyvät pikavalinnat käytöstä.
+Jos näppäimistössä on Windows-näppäin, käyttäjät voivat käynnistää helposti useita Windows-käyttöliittymän ominaisuuksia. Näppäinyhdistelmä Windows+R avaa esimerkiksi Suorita-valintaikkunan ja näppäinyhdistelmä Windows+E avaa Resurssienhallinnan. Tämän asetuksen avulla voit poistaa käytöstä tällaiset Windows-näppäimen pikavalinnat.
 
-Jos tämä asetus otetaan käyttöön, Windows-näppäimen avulla valittavia pikavalintoja ei voi käyttää.
+Jos otat tämän asetuksen käyttöön, Windows-näppäimen pikavalintoja ei voi käyttää.
 
-Jos tämä asetus poistetaan käytöstä tai sitä ei määritetä, Windows-näppäimen avulla valittavat pikavalinnat ovat käytettävissä.</string>
+Jos poistat tämän asetuksen käytöstä tai et määritä sitä, Windows-näppäimen pikavalinnat ovat käytettävissä.</string>
       <string id="NoWorkgroupContents">Ei lähitietokoneita Verkkosijainneissa</string>
       <string id="NoWorkgroupContents_Help">Tämän käytäntöasetuksen avulla voit poistaa kaikki käyttäjän työryhmän ja toimialueen tietokoneet verkkoresurssiluettelosta, joka näkyy Resurssienhallinnassa ja Verkkosijainneissa.
 
@@ -458,21 +458,26 @@ Jos otat tämän käytäntöasetuksen käyttöön, järjestelmänvalvojat voivat
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, oletuskirjaston määritystiedostojen sijaintiin ei tehdä muutoksia.
       
       </string>
-      <string id="EnableSmartScreen">Määritä Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Tämän käytäntöasetuksen avulla voit hallita Windows SmartScreenin toimintaa. Windows SmartScreen lisää tietokoneiden turvallisuutta varoittamalla käyttäjiä ennen Internetistä ladattujen tuntemattomien ohjelmien suorittamista. Kun tämä toiminto on käytössä, tietokoneessa suoritetuista tiedostoista ja ohjelmista lähetetään joitakin tietoja Microsoftille.
+      <string id="EnableSmartScreen">Määritä Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">Varoita ja estä ohittaminen</string>
+      <string id="SmartScreen_Warn">Varoita</string>
+      <string id="EnableSmartScreen_Help">Tämän käytäntöasetuksen avulla voit ottaa Windows Defender SmartScreenin käyttöön tai poistaa sen käytöstä. SmartScreen suojaa tietokonetta varoittamalla käyttäjiä, ennen kuin he suorittavat Internetistä ladattuja tunnistamattomia ohjelmia. Varoitus näytetään erillisessä valintaikkunassa ennen Internetistä ladatun tunnistamattoman tai haitalliseksi tiedetyn sovelluksen suorittamista. Valintaikkunaa ei näytetä suoritettaessa sovelluksia, jotka eivät vaikuta epäilyttäviltä.
 
-Jos otat tämän käytäntöasetuksen käyttöön, Windows SmartScreenin toimintaa voi hallita ottamalla käyttöön yhden seuraavista asetuksista:
+Microsoftille lähetetään joitain tietoja tiedostoista ja ohjelmista, joita suoritetaan tietokoneissa, joissa tämä ominaisuus on käytössä.
 
-• Varoita käyttäjää ennen ladatun tuntemattoman ohjelmiston suorittamista
-• Poista SmartScreen käytöstä.
+Jos tämä käytäntö otetaan käyttöön, SmartScreen on käytössä kaikkien käyttäjien kohdalla. Sen toimintaa voi ohjata seuraavilla asetuksilla:
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, järjestelmänvalvojat hallitsevat tietokoneen Windows SmartScreenin toimintaa Suojauksen ja ylläpidon Windows SmartScreen -asetuksilla.
+• Varoita ja estä ohittaminen
+• Varoita
 
-Asetukset:
-• Varoita käyttäjää ennen ladatun tuntemattoman ohjelmiston suorittamista
-• Poista SmartScreen käytöstä.
+Jos otat tämän käytäntöasetuksen käyttöön ja määrität Varoita ja estä ohittaminen -asetuksen, SmartScreenin valintaikkunat eivät anna käyttäjälle vaihtoehtoa, jolla voi jättää varoituksen huomiotta ja suorittaa sovelluksen. SmartScreen näyttää varoituksen uudelleen seuraavilla sovelluksen suoritusyrityksillä.
 
-</string>
+Jos otat tämän käytäntöasetuksen käyttöön ja määrität Varoita-asetuksen, SmartScreenin valintaikkunat varoittavat käyttäjää epäilyttäviltä vaikuttavista sovelluksista, mutta sallii käyttäjän ohittaa varoituksen ja suorittaa sovelluksen siitä huolimatta. SmartScreen ei varoita käyttäjää uudelleen kyseisestä sovelluksesta, jos käyttäjä kehottaa SmartScreeniä suorittamaan sovelluksen.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, SmartScreen poistetaan käytöstä kaikilta käyttäjiltä. Käyttäjät eivät saa varoitusta, jos he yrittävät suorittaa epäilyttäviä sovelluksia Internetistä.
+
+Jos et määritä tätä käytäntöä, SmartScreen on käytössä oletusarvon mukaan, mutta käyttäjät voivat muuttaa asetuksia.
+      </string>
       <string id="ShowLockOption">Näytä lukko käyttäjäruutuvalikossa</string>
       <string id="ShowLockOption_Help">Näyttää tai piilottaa lukon käyttäjäruutuvalikossa.
 Jos otat käyttöön tämän käytäntöasetuksen, lukkoasetus näytetään käyttäjäruutuvalikossa.
@@ -619,6 +624,9 @@ Jos käytäntö otetaan käyttöön tai poistetaan käytöstä tai sitä ei mä�
         <textBox refId="DefaultLibrariesLocation">
           <label>Oletuskirjastojen määrityssijainti</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Valitse yksi seuraavista asetuksista:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

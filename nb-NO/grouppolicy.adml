@@ -11,31 +11,31 @@
       <string id="FontMitigation_On">Blokker uklarerte skrifter og logg hendelser</string>
       <string id="FontMitigation_Off">Ikke blokker uklarerte skrifter</string>
       <string id="FontMitigation_Audit">Logg hendelser uten å blokkere uklarerte skrifter</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Behandle reduksjonsalternativer</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Denne sikkerhetsfunksjonen tilbyr en måte å overstyre enkeltprosessinnstillinger for MitigationOptions. Dette kan brukes til å fremtvinge en rekke sikkerhetspolicyer som er spesifikke for programmer. Programnavnet er angitt som verdinavn, inkludert filtypen. Verdien er angitt som et bitfelt med en rekke flagg i bestemt posisjoner. Biter kan angis til enten 0 (innstillingen fjernes), 1 (innstillingen fremtvinges), eller ? (innstillingen beholder sin eksisterende verdi før GPO-evaluering). De gjenkjente bitplasseringene er:
+        Med denne sikkerhetsfunksjonen kan man overstyre individuelle MitigationOptions-prosessinnstillinger. Dette kan brukes til å håndheve en rekke sikkerhetspolicyer som er spesifikke for apper. Appnavnet er oppgitt som verdinavn pluss filtype. Verdien er oppgitt som et bitfelt med en rekke flagg i bestemte posisjoner. Biter kan settes til enten 0 (innstillingen fjernes), 1 (innstillingen fremtvinges) eller ? (innstillingen beholder sin eksisterende verdi før GPO-evaluering). Følgende bitplasseringer er gyldige:
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
-        Aktiverer datakjøringsforhindring (DEP) for den underordnede prosessen
+        Aktiverer datakjøringsforhindring (DEP) for den underordnede prosessen.
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Aktiverer thunk-emulering for DEP-ATL for den underordnede prosessen. Thunk-emulering for DEP ATL fører til at systemet fanger opp NX-feil som er hentet fra thunk-laget for Active Template Library (ATL). 
+        Aktiverer thunk-emulering for DEP-ATL for den underordnede prosessen. Thunk-emulering for DEP-ATL fører til at systemet fanger opp NX-feil som stammer fra thunk-laget for Active Template Library (ATL).
 
         PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
         Aktiverer SEHOP (Structured Exception Handler Overwrite Protection) for den underordnede prosessen. SEHOP blokkerer utnyttelser som bruker overskrivingsteknikken SEH (Structured Exception Handler).
 
         PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
-        Fremtvingningspolicyen ASLR (Address Space Layout Randomization) oppretter en ny basis for bilder som ikke er dynamisk basiskompatible ved å fungere som om en bildebasiskollisjon oppstod ved innlasting. Hvis det kreves omplasseringer, lastes ikke bilder som ikke har en grunnleggende omplasseringsdel.
+        Fremtvingningspolicyen ASLR (Address Space Layout Randomization) oppretter en ny basis for avbildninger som ikke er kompatible med den dynamiske basisen, ved å late som om en avbildningsbasiskollisjon oppstod ved innlasting. Hvis det kreves omplasseringer, lastes ikke avbildninger som ikke har en del for basisomplassering.
 
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
-        Den tilfeldige policyen som fungerer nedenfra og opp, som inkluderer tilfeldige alternativer for stakk, fører til at en tilfeldig plassering brukes som laveste brukeradresse.
+        Nedenfra-og-opp-randomiseringspolicyen, som omfatter alternativer for stakkrandomisering, gjør at en tilfeldig plassering brukes som laveste brukeradresse.
 
-        Hvis du for eksempel vil aktivere PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE og PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, deaktiverer du PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, og for å beholde standardverdiene for alle andre alternativer, angir du verdien:
+        Hvis du for eksempel vil aktivere PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE og PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, deaktiverer du PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF. Og hvis du vil beholde standardverdiene for alle andre alternativer, oppgir du verdien
         ???????????????0???????1???????1
 
-        Angivelse av flagg som ikke er angitt her, til en annen verdi enn ?, resulterer i udefinert virkemåte.	  
+        Settes flagg som ikke er oppgitt her, til en annen verdi enn ?, resulterer dette i udefinert atferd.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Aktiver synkronisering av AD-/DFS-domenekontroller under oppdatering av policy</string>
@@ -50,42 +50,60 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Fortsett opplevelser på denne enheten</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Denne policyinnstillingen angir om Windows-enheten har tillatelse til å delta i opplevelser på tvers av enheter (kontinuerlige opplevelser).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Hvis du aktiverer denne policyinnstillingen, er Windows-enheten synlig for andre Windows-enheter som tilhører samme bruker, og den kan delta i opplevelser på tvers av enheter.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Hvis du deaktiverer denne policyinnstillingen, kan ikke Windows-enheten oppdages av andre enheter, og den kan dermed ikke delta i opplevelser på tvers av enheter.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Hvis du ikke konfigurerer denne policyinnstillingen, avhenger standardvirkemåten av Windows-versjonen. Endringer i policyen trer i kraft ved omstart.
+      </string>
+      <string id="EnableMMX">Kobling av telefon og PC på denne enheten</string>
+      <string id="EnableMMX_Help">
+Ved hjelp av denne policyen kan IT-administratorer deaktivere muligheten til å koble en telefon med en PC for å fortsette å lese, bruke e-post og gjøre andre ting som krever kobling mellom telefon og PC.
+
+Hvis du aktiverer denne policyinnstillingen, kan Windows-enheten bruke funksjoner for kobling av telefon og PC samt delta i Fortsett på PC-opplevelser.
+
+Hvis du deaktiverer denne policyinnstillingen, kan Windows-enheten ikke kobles med telefoner og kan ikke delta i Fortsett på PC-opplevelser. I tillegg fjernes den fra enhetslisten på alle koblede telefoner.
+
+Hvis du ikke konfigurerer denne policyinnstillingen, avhenger standard virkemåte av Windows-utgaven. Endringer i denne policyen trer i kraft etter omstart.
+      </string>
+      <string id="EnableAppUriHandlers">Konfigurere web til app-kobling med URI-behandlingsprogrammer for appen</string>
+      <string id="EnableAppUriHandlers_Help">
+Denne policyinnstillingen fastslår om Windows har støtte for web til app-kobling med URI-behandlingsprogrammer for appen.
+
+Hvis du aktiverer denne policyinnstillingen, aktiveres web til app-kobling, slik at apper kan startes med en http(s)-URI.
+
+Hvis du deaktiverer denne policyen, deaktiveres web til app-kobling og http(s)-URI-er åpnes i standard nettleser i stedet for å starte den tilknyttede appen.
+
+Hvis du ikke konfigurerer denne policyinnstillingen, avhenger standardvirkemåten av Windows-versjonen. Endringer i policyen trer i kraft ved omstart.
       </string>
       <string id="Fonts">Skrifter</string>
       <string id="EnableFontProviders">Aktiver skriftleverandører</string>
       <string id="EnableFontProviders_Help">
-        Denne policyinnstillingen avgjør om Windows har tillatelse til å laste ned skrifter og skriftkatalogdata fra en nettbasert skriftleverandør.
-        
-        Hvis du aktiverer denne policyinnstillingen, sender Windows periodevise spørringer til en nettbasert skriftleverandør for å avgjøre om en ny skriftkatalog er tilgjengelig. Windows kan også komme til å laste ned skriftdata etter behov for å formatere eller gjengi tekst.
-        
-        Hvis du deaktiverer denne policyinnstillingen, kobles ikke Windows til en nettbasert skriftleverandør, og bruker bare lokalt installerte skrifttyper.
-      
-        Hvis du ikke konfigurerer denne policyinnstillingen, avhenger standardatferden av hvilken Windows-utgave du bruker. Endringer i denne policyen trer i kraft når datamaskinen startes på nytt.
+        Denne policyinnstillingen bestemmer om Windows kan laste ned skrifter og skriftkatalogdata fra en skriftleverandør på nettet.
+
+        Hvis du aktiverer denne policyinnstillingen, sender Windows periodevise forespørsler til en skriftleverandør på nettet for å finne ut om en ny skriftkatalog er tilgjengelig. Windows kan også laste ned skriftdata etter behov for å formatere eller gjengi tekst.
+
+        Hvis du deaktiverer denne policyinnstillingen, kobles ikke Windows til noen skriftleverandør på nettet, men bruker bare skrifttyper som er installert lokalt.
+
+        Hvis du ikke konfigurerer denne policyinnstillingen, avhenger standard virkemåte av Windows-utgaven. Endringer i denne policyen trer i kraft etter omstart.
       </string>
       <string id="EnableLogonOptimization">Konfigurere hurtigbufring av Gruppepolicy</string>
       <string id="EnableLogonOptimization_Help">
-        
-        Med denne policyinnstillingen kan du konfigurere virkemåten for hurtigbufring av Gruppepolicy.
-        
-        Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, hurtigbufrer Gruppepolicy policyinformasjon etter hver økt som kjører i bakgrunnen. Denne hurtigbufferen lagrer aktuelle GPOer og innstillingene i dem. Når Gruppepolicy kjører i synkront forgrunnsmodus, refererer Gruppepolicy til denne hurtigbufferen, noe som gjør at den kjører raskere. Når hurtigbufferen leses, forsøker Gruppepolicy å kontakte en domenekontroller for pålogging for å fastslå koblingshastigheten. Når Gruppepolicy kjører i bakgrunnsmodus eller asynkront forgrunnsmodus, fortsetter Gruppepolicy å laste ned den nyeste versjonen av policyinformasjonen, og en båndbreddeberegning brukes til å fastslå langsomme koblingsterskler. (Se policyinnstillingen Konfigurer gjenkjenning av langsom gruppepolicytilkobling for å konfigurere asynkron forgrunnsvirkemåte.)
-        
+        Ved hjelp av denne policyinnstillingen kan du konfigurere virkemåten for hurtigbufring av Gruppepolicy.
+
+        Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, hurtigbufrer Gruppepolicy policyinformasjon etter hver økt som kjører i bakgrunnen. Denne hurtigbufferen lagrer aktuelle GPO-er og innstillingene i dem. Når Gruppepolicy kjører i synkron forgrunnsmodus, refererer Gruppepolicy til denne hurtigbufferen, som gjør at den kjører raskere. Når hurtigbufferen leses, forsøker Gruppepolicy å kontakte en domenekontroller for pålogging for å fastslå koblingshastigheten. Når Gruppepolicy kjører i bakgrunnsmodus eller asynkron forgrunnsmodus, fortsetter Gruppepolicy å laste ned den nyeste versjonen av policyinformasjonen, og en båndbreddeberegning brukes til å fastslå langsomme koblingsterskler. (Se policyinnstillingen Konfigurer gjenkjenning av langsom gruppepolicytilkobling for å konfigurere asynkron forgrunnsvirkemåte.)
+
         Verdien for den langsomme koblingen som er definert i denne policyinnstillingen, fastslår hvor lenge Gruppepolicy venter på svar fra domenekontrolleren før koblingshastigheten rapporteres som langsom. Standardverdien er 500 millisekunder.
-        
-        Tidsavbruddsverdien som er definert i denne policyinnstillingen, fastslår hvor lenge Gruppepolicy venter på svar fra domenekontrolleren før det fastslås at ingen nettverkstilkobling eksisterer. Dette stopper kjøringen av gjeldende gruppepolicy. Gruppepolicy kjører i bakgrunnen neste gang det opprettes en tilkobling til en domenekontroller. Hvis du angir en for høy verdi, kan det føre til lengre ventetid for brukeren ved oppstart eller pålogging. Standardverdien er 5 000 millisekunder.
-        
-        Hvis du deaktiverer denne policyinnstillingen, hurtigbufrer ikke Gruppepolicy-klienten aktuelle GPOer eller innstillinger i GPOene. Når Gruppepolicy kjører synkront, lastes den nyeste versjonen av policyen ned fra nettverket, og båndbreddeberegninger brukes til å fastslå langsomme koblingsterskler. (Se policyinnstillingen Konfigurer gjenkjenning av langsom gruppepolicytilkobling for å konfigurere asynkron forgrunnsvirkemåte.)
-      
+
+        Tidsavbruddsverdien som er definert i denne policyinnstillingen, fastslår hvor lenge Gruppepolicy venter på svar fra domenekontrolleren før det fastslås at ingen nettverkstilkobling eksisterer. Dette stopper kjøringen av gjeldende gruppepolicy. Gruppepolicy kjører i bakgrunnen neste gang det opprettes en tilkobling til en domenekontroller. Hvis du oppgir en for høy verdi, kan det føre til lengre ventetid for brukeren ved oppstart eller pålogging. Standardverdien er 5000 millisekunder.
+
+        Hvis du deaktiverer denne policyinnstillingen, hurtigbufrer ikke Gruppepolicy-klienten aktuelle GPO-er eller innstillinger i GPO-ene. Når Gruppepolicy kjører synkront, lastes den nyeste versjonen av policyen ned fra nettverket, og båndbreddeberegninger brukes til å fastslå langsomme koblingsterskler. (Se policyinnstillingen Konfigurer gjenkjenning av langsom gruppepolicytilkobling for å konfigurere asynkron forgrunnsvirkemåte.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Aktiver hurtigbufring av gruppepolicy for servere</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,53 +114,48 @@ If you do not configure this policy setting, the default behavior depends on the
         Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, hurtigbufrer ikke Gruppepolicy-klienten aktuelle GPOer eller innstillinger i GPOene. Når Gruppepolicy kjører synkront, lastes den nyeste versjonen av policyen ned fra nettverket, og båndbreddeberegninger brukes til å fastslå langsomme koblingsterskler. (Se policyinnstillingen Konfigurer gjenkjenning av langsom gruppepolicytilkobling for å konfigurere asynkron forgrunnsvirkemåte.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Konfigurere forsinkelse for påloggingsskript</string>
       <string id="LogonScriptDelay_Help">
-        
-        Angi 0 for å deaktivere forsinkelse for påloggingsskript.
-        
-        Ved hjelp av denne policyinnstillingen kan du konfigurere hvor lenge Gruppepolicy-klienten skal vente etter pålogging før skriptene kjøres.
-        
-        Gruppepolicy-klienten venter som standard fem minutter før påloggingsskriptene kjøres. Dette bidrar til å opprette et responderende skrivebordsmiljø ved å hindre diskkonflikt.
-        
-        Hvis du aktiverer denne policyinnstillingen, venter Gruppepolicy den angitte tiden før påloggingsskriptene kjøres.
-        
-        Hvis du deaktiverer denne policyinnstillingen, kjører Gruppepolicy skriptene umiddelbart etter pålogging.
-        
-        Hvis du ikke konfigurerer denne policyinnstillingen, venter Gruppepolicy fem minutter før påloggingsskriptene kjøres.
-      
+        Oppgi 0 for å deaktivere forsinkelse for påloggingsskript.
+
+        Ved hjelp av denne policyinnstillingen kan du konfigurere hvor lenge Gruppepolicy-klienten skal vente etter pålogging før skript kjøres.
+
+        Gruppepolicy-klienten venter som standard i fem minutter før påloggingsskript kjøres. Dette bidrar til å skape et responsivt skrivebordsmiljø ved å hindre diskkonflikt.
+
+        Hvis du aktiverer denne policyinnstillingen, venter Gruppepolicy den oppgitte tiden før påloggingsskript kjøres.
+
+        Hvis du deaktiverer denne policyinnstillingen, kjører Gruppepolicy skript umiddelbart etter pålogging.
+
+        Hvis du ikke konfigurerer denne policyinnstillingen, venter Gruppepolicy i fem minutter før påloggingsskript kjøres.
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Konfigurer Direct Access-tilkoblinger som en hurtig nettverkstilkobling</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Med denne policyinnstillingen kan en administrator angi at Direct Access-tilkoblingen skal regnes som en hurtig nettverkstilkobling for bruk og oppdatering av gruppepolicy. 
- 
-Når gruppepolicy oppdager båndbreddehastigheten til en Direct Access-tilkobling, kan det hende at gjenkjenningen ikke gir informasjon om båndbreddehastigheten. Hvis gruppepolicy oppdager en båndbreddehastighet, vil den følge de vanlige reglene for evaluering hvis Direct Access-tilkoblingen er en hurtig eller langsom nettverkstilkobling. Hvis det ikke blir oppdaget noen båndbreddehastighet, får gruppepolicy som standard en langsom nettverkstilkobling. Denne policyinnstillingen gir administratoren mulighet til å overstyre standardverdien langsom nettverkstilkobling, og i stedet sette som standard at det skal brukes en hurtig nettverkstilkobling dersom det ikke er fastsatt båndbreddehastighet for nettverket.
- 
-Obs!  Hvis gruppepolicy oppdager en langsom nettverkstilkobling, vil den bare behandle de klientsideutvidelsene som er konfigurert for behandling over en langsom kobling (langsom nettverkstilkobling).  
- 
-Hvis du aktiverer denne policyinnstillingen vil gruppepolicy evaluere nettverkstilkoblingen som en hurtig kobling og behandle alle klientsideutvidelsene, hvis gruppepolicy ikke kan fastsette båndbreddehastigheten via Direct Access.
- 
-Hvis du deaktiverer denne innstillingen eller ikke konfigurerer den, vil gruppepolicy evaluere nettverkstilkoblingen som en langsom kobling og bare behandle de klientsideutvidelsene som er konfigurert til å behandles over en langsom kobling.
-          
-      
-          
+      <string id="SlowLinkDefaultForDirectAccess_Help">Ved hjelp av denne policyinnstillingen kan en administrator definere at Direct Access-tilkoblingen skal regnes som en hurtig nettverkstilkobling for bruk og oppdatering av Gruppepolicy.
+
+Når Gruppepolicy registrerer båndbreddehastigheten til en Direct Access-tilkobling, kan det hende at dette ikke gir informasjon om båndbreddehastigheten. Hvis Gruppepolicy registrerer en båndbreddehastighet, vil de vanlige reglene følges for å fastslå om Direct Access-tilkoblingen er en hurtig eller langsom nettverkstilkobling. Hvis det ikke blir registrert noen båndbreddehastighet, bruker Gruppepolicy som standard en langsom nettverkstilkobling. Denne policyinnstillingen gir administratoren mulighet til å overstyre standardverdien langsom nettverkstilkobling og i stedet sette som standard at det skal brukes en hurtig nettverkstilkobling dersom båndbreddehastighet ikke er fastslått for nettverket.
+
+Obs! Hvis Gruppepolicy registrerer en langsom nettverkstilkobling, vil Gruppepolicy bare behandle de klientsideutvidelsene som er konfigurert for behandling over en langsom kobling (langsom nettverkstilkobling).
+
+Hvis du aktiverer denne policyinnstillingen, vil Gruppepolicy regne nettverkstilkoblingen som en hurtig kobling og behandle alle klientsideutvidelsene hvis Gruppepolicy ikke kan fastslå båndbreddehastigheten via Direct Access.
+
+Hvis du deaktiverer denne innstillingen eller ikke konfigurerer den, vil Gruppepolicy regne nettverkstilkoblingen som en langsom kobling og bare behandle de klientsideutvidelsene som er konfigurert for behandling over en langsom kobling.
+
       </string>
      <string id="SlowlinkDefaultToAsync">Endre gruppepolicybehandling til å kjøre asynkront når det blir oppdaget en langsom nettverkstilkobling.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Denne policyen angir at gruppepolicybehandling skal hoppe over behandling av alle klientsideutvidelser som krever synkron behandling (det vil si at datamaskiner venter til nettverket er fullstendig initialisert ved oppstart og brukerpålogging) når en langsom nettverkstilkobling blir oppdaget.  
- 
-Hvis du aktiverer denne policyinnstillingen, vil gruppepolicybehandling alltid kjøres asynkront når det blir oppdaget en langsom nettverksforbindelse.
-Klientdatamaskiner vil ikke vente på at nettverket er fullstendig initialisert ved oppstart og pålogging. Eksisterende brukere vil bli logget på ved hjelp av hurtigbufret legitimasjon, 
-som vil føre til raskere pålogging. Gruppepolicyen vil bli brukt i bakgrunnen når nettverket blir tilgjengelig.   
-Vær oppmerksom på at siden dette er en bakgrunnsoppdatering, vil ikke utvidelser som krever synkron behandling, som for eksempel programvareinstallasjon, mappeomadressering og preferanseutvidelse for stasjonskart, tre i kraft.
- 
-Obs!  Det er to forhold som vil føre til at gruppepolicy blir behandlet synkront selv om denne policyinnstillingen er aktivert:
-1 – Ved første oppstart av datamaskinen etter at klientdatamaskinen har blitt tilknyttet domenet.
-2 – Hvis policyinnstillingen "Vent alltid på nettverket ved start av datamaskinen og pålogging" er aktivert.
- 
-Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vil gjenkjenning av en langsom nettverkstilkobling ikke påvirke om gruppepolicybehandlingen blir synkron eller asynkron.
+      <string id="SlowlinkDefaultToAsync_Help">Denne policyen angir at gruppepolicybehandling skal hoppe over behandling av alle klientsideutvidelser som krever synkron behandling (det vil si at datamaskiner venter til nettverket er fullstendig initialisert ved oppstart og brukerpålogging) når en langsom nettverkstilkobling registreres.
 
-      
+Hvis du aktiverer denne policyinnstillingen, vil gruppepolicybehandling alltid kjøres asynkront når det registreres en langsom nettverksforbindelse.
+Klientdatamaskiner vil ikke vente til nettverket er fullstendig initialisert ved oppstart og pålogging. Eksisterende brukere blir logget på ved hjelp av hurtigbufret legitimasjon,
+noe som vil føre til raskere pålogging. Gruppepolicyen brukes i bakgrunnen når nettverket blir tilgjengelig.
+Vær oppmerksom på at siden dette er en bakgrunnsoppdatering, vil ikke utvidelser som krever synkron behandling, for eksempel programvareinstallasjon, mappeomadressering
+og preferanseutvidelse for stasjonskart, tre i kraft.
+
+Obs! Det er to forhold som vil føre til at gruppepolicyen blir behandlet synkront selv om denne policyinnstillingen er aktivert:
+1. Ved første oppstart av datamaskinen etter at klientdatamaskinen har blitt tilknyttet domenet.
+2. Hvis policyinnstillingen Vent alltid på nettverket ved datamaskinoppstart og pålogging er aktivert.
+
+Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vil registrering av en langsom nettverkstilkobling ikke påvirke om gruppepolicybehandlingen blir synkron eller asynkron.
 
       </string>
       <string id="DisableLGPOProcessing">Deaktiver behandling av lokale gruppepolicyobjekter</string>
@@ -163,7 +176,7 @@ Obs!  For datamaskiner som er tilknyttet et domene, anbefaler vi at du bare ko
 Hvis du aktiverer denne policyinnstillingen, bruker gruppepolicyen denne administrativt konfigurerte maksimumsventetiden og overstyrer en eventuell standardventetid eller systemberegnet ventetid.
 
 Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, bruker gruppepolicyen standardventetiden på 30 sekunder på datamaskiner som kjører operativsystemet Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Tillat krysskogbrukerpolicy og sentrale brukerprofiler</string>

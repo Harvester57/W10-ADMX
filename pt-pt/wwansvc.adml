@@ -38,6 +38,34 @@ Se desativar ou não configurar esta definição de política, o custo das liga�
       <string id="Cost_DropDownList_Unrestricted">Sem Restrições</string>
       <string id="Cost_DropDownList_Fixed">Fixo</string>
       <string id="Cost_DropDownList_Variable">Variável</string>
+      <string id="UISettings_Category">Definições da IU WWAN</string>
+      <string id="ShowAppCellularAccessUI">Definir visibilidade na IU do Acesso à Rede Móvel por Aplicação</string>
+      <string id="ShowAppCellularAccessUI_Help">Esta definição de política configura a visibilidade da ligação para página de controlo de acesso à rede móvel por aplicação na definição UX da rede móvel.
+
+Se esta definição de política estiver ativada, ficará ativa uma caixa de lista pendente que apresenta os valores possíveis. Selecione "Ocultar" ou "Mostrar" para ocultar ou mostrar a ligação para página de controlo de acesso à rede móvel por aplicação.
+Se esta definição de política estiver desativada ou se não estiver configurada, a ligação para a página de controlo de acesso à rede móvel por aplicação é apresentada por predefinição.
+      </string>
+      <string id="ShowAppCellularAccessUI_Option_Hide">Ocultar</string>
+      <string id="ShowAppCellularAccessUI_Option_Show">Mostrar</string>
+      <string id="CellularDataAccess">Acesso a Dados Via Rede Móvel</string>
+      <string id="UserInControl">O controlo está a cargo do utilizador</string>
+      <string id="ForceAllow">Forçar Permissão</string>
+      <string id="ForceDeny">Forçar Negação</string>
+      <string id="LetAppsAccessCellularData_Name">Permitir que as aplicações do Windows acedam a dados via rede móvel</string>
+      <string id="LetAppsAccessCellularData_Explain">Esta definição de política especifica se as aplicações do Windows podem aceder a dados via rede móvel.
+
+Pode especificar uma predefinição para todas as aplicações ou uma definição por aplicação especificando um Nome da Família de Pacotes. Pode obter o Nome da Família de Pacotes para uma aplicação utilizando o cmdlet do Windows PowerShell Get-AppPackage. Uma definição por aplicação substitui a predefinição.
+
+Caso escolha a opção "O controlo está a cargo do utilizador", os funcionários da sua organização podem decidir se as aplicações do Windows podem aceder a dados via rede móvel utilizando Definições &gt; Rede - Internet &gt; Rede Móvel no dispositivo.
+
+Se escolher a opção "Forçar Permissão", as aplicações do Windows podem aceder a dados via rede móvel, mas os funcionários da sua organização não podem fazer alterações.
+
+Caso escolha a opção "Forçar Negação", as aplicações do Windows não podem aceder a dados via rede móvel e os funcionários da sua organização não podem fazer alterações.
+
+Se desativar esta definição de política ou não a configurar, os funcionários da sua organização podem decidir se as aplicações do Windows podem aceder a dados via rede móvel utilizando Definições &gt; Rede - Internet &gt; Rede Móvel no dispositivo.
+
+Caso uma aplicação esteja aberta quando este objeto de Política de Grupo for aplicado a um dispositivo, os funcionários têm de reiniciar a aplicação ou o dispositivo para que as alterações de política sejam aplicadas à aplicação.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="SetCost3G_Presentation">
@@ -45,6 +73,18 @@ Se desativar ou não configurar esta definição de política, o custo das liga�
       </presentation>
       <presentation id="SetCost4G_Presentation">
         <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Selecione um valor de custo de ligação 4G a definir:</dropdownList>
+      </presentation>
+      <presentation id="ShowAppCellularAccessUI_Presentation">
+        <dropdownList refId="ShowAppCellularAccessUI_Option" defaultItem="1">Selecione uma opção para definir:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessCellularData">
+        <dropdownList refId="LetAppsAccessCellularData_Enum" noSort="true" defaultItem="0">Predefinição para todas as aplicações:</dropdownList>
+        <text>Dar ao utilizador o controlo destas aplicações específicas (utilizar Nomes da Família de Pacotes):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_UserInControlOfTheseApps_List"/>
+        <text>Forçar a permissão destas aplicações específicas (utilizar Nomes da Família de Pacotes):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceAllowTheseApps_List"/>
+        <text>Forçar a negação destas aplicações específicas (utilizar Nomes da Família de Pacotes):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

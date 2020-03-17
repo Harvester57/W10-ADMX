@@ -267,10 +267,10 @@ Nota: le icone che rappresentano le unità specificate verranno comunque visuali
  Questa impostazione dei criteri non impedisce inoltre agli utenti di utilizzare programmi per l'accesso a unità locali e di rete e lo snap-in Gestione disco per visualizzare e modificare le caratteristiche delle unità.
 
 Vedere anche l'impostazione "Nascondi le unità specificate in Risorse del computer".</string>
-      <string id="NoWindowsHotKeys">Disattiva combinazioni tasto logo Windows</string>
+      <string id="NoWindowsHotKeys">Disattiva combinazioni tasto di Windows</string>
       <string id="NoWindowsHotKeys_Help">Disabilita le combinazioni con il tasto logo Windows.
 
-Le tastiere dotate di tale tasto consentono agli utenti di accedere rapidamente a funzionalità della shell di frequente utilizzo. La combinazione tasto logo Windows+R consente ad esempio di visualizzare la finestra di dialogo Esegui, mentre la combinazione tasto logo Windows+E consente di visualizzare Esplora file. Mediante questa impostazione è possibile disabilitare tali combinazioni.
+Le tastiere dotate di tale tasto consentono agli utenti di accedere rapidamente a funzionalità della shell di frequente utilizzo. La combinazione tasto logo Windows+R consente, ad esempio, di visualizzare la finestra di dialogo Esegui, mentre la combinazione tasto logo Windows+E consente di visualizzare Esplora file. Mediante questa impostazione è possibile disabilitare tali combinazioni.
 
 Se si abilita questa impostazione, le combinazioni con il tasto logo Windows non saranno disponibili.
 
@@ -458,21 +458,26 @@ Se si abilita questa impostazione dei criteri, gli amministratori possono specif
 Se si disabilita o non si configura questa impostazione dei criteri, al percorso dei file di definizione delle raccolte predefinite non verrà apportata alcuna modifica.
       
       </string>
-      <string id="EnableSmartScreen">Configura Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Questa impostazione dei criteri consente di gestire il comportamento di Windows SmartScreen. Windows SmartScreen facilita la protezione dei PC visualizzando agli utenti un avviso prima di eseguire programmi non riconosciuti scaricati da Internet. Se questa funzionalità è attivata, vengono inviate a Microsoft alcune informazioni su file e programmi eseguiti sui PC.
+      <string id="EnableSmartScreen">Configura Windows Defender SmartScreen </string>
+      <string id="SmartScreen_PreventBypass">Avvisa e impedisci bypass</string>
+      <string id="SmartScreen_Warn">Avvisa</string>
+      <string id="EnableSmartScreen_Help">Questa impostazione dei criteri consente di abilitare o disabilitare Windows Defender SmartScreen. SmartScreen consente di proteggere i PC avvertendo gli utenti prima di eseguire programmi potenzialmente dannosi scaricati da Internet. Questo avviso viene mostrato come finestra di dialogo intermedia visualizzata prima di eseguire un'app che è stata scaricata da Internet e che non è riconosciuta o è nota come dannosa. Non vengono visualizzate finestre di dialogo per app che non sembrano sospette.
 
-Se si abilita questa impostazione dei criteri, il comportamento di Windows SmartScreen può essere controllato impostando una delle opzioni seguenti:
+A Microsoft vengono inviate alcune informazioni relative ai file e ai programmi eseguiti su PC con questa funzionalità abilitata.
 
-• Visualizza avviso prima di eseguire software sconosciuto scaricato
-• Disattiva SmartScreen
+Se si abilita questo criterio, SmartScreen verrà abilitato per tutti gli utenti. Il suo comportamento può essere controllato con le opzioni seguenti:
 
-Se si disabilita o non si configura questa impostazione dei criteri, il comportamento di Windows SmartScreen verrà gestito dagli amministratori del PC usando le impostazioni di Windows SmartScreen in Sicurezza e manutenzione.
+• Avvisa e impedisci bypass
+• Avvisa
 
-Opzioni:
-• Visualizza avviso prima di eseguire software sconosciuto scaricato
-• Disattiva SmartScreen
+Se si abilita questo criterio con l'opzione "Avvisa e impedisci bypass", le finestre di dialogo di SmartScreen non mostreranno agli utenti l'opzione per ignorare l'avviso ed eseguire l'app. SmartScreen continuerà a visualizzare l'avviso nei successivi tentativi di eseguire l'app.
 
-</string>
+Se si abilita questo criterio con l'opzione "Avvisa", le finestre di dialogo di SmartScreen avviseranno l'utente che l'app è sospetta, ma consentiranno all'utente di ignorare l'avviso ed eseguire comunque l'app. SmartScreen non avviserà di nuovo l'utente per quell'app se l'utente indica a SmartScreen di eseguirla.
+
+Se si disabilita questo criterio, SmartScreen verrà disabilitato per tutti gli utenti. Non verranno più visualizzati avvisi se gli utenti tentano di eseguire app sospette scaricate da Internet.
+
+Se non si configura questo criterio, SmartScreen sarà abilitato per impostazione predefinita, ma gli utenti possono modificare le relative impostazioni.
+      </string>
       <string id="ShowLockOption">Mostra opzione Blocca nel menu dell'icona utente</string>
       <string id="ShowLockOption_Help">Mostra o nasconde l'opzione Blocca nel menu dell'icona utente.
 Se si abilita questa impostazione dei criteri, nel menu dell'icona utente verrà visualizzata l'opzione Blocca.
@@ -619,6 +624,9 @@ Se il criterio è abilitato, disabilitato o non configurato, gli utenti potranno
         <textBox refId="DefaultLibrariesLocation">
           <label>Percorso definizione raccolte predefinite</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Seleziona una delle impostazioni seguenti:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

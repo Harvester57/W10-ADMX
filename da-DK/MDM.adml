@@ -14,7 +14,26 @@ Hvis du ikke konfigurerer denne politikindstilling, aktiveres MDM-registrering.
 Hvis du aktiverer denne politikindstilling, deaktiveres MDM-registrering for alle brugere. Eksisterende MDM-registreringer bliver ikke afregistreret.
 
 Hvis du deaktiverer denne politikindstilling, aktiveres MDM-registrering for alle brugere.
-</string>
+      </string>
+      <string id="MDM_JoinMDM_DisplayName">Aktivér automatisk MDM-tilmelding via Azure AD-standardlegitimationsoplysninger</string>
+      <string id="MDM_JoinMDM_Help">
+            Denne politikindstilling angiver, om enheden automatisk skal tilmeldes i MDM-tjenesten (Mobile Device Management), der er konfigureret i AD Azure (Azure Active Directory). Hvis tilmeldingen lykkes, vil enheden blive fjernadministreret af MDM-tjenesten.
+
+            Vigtigt: Enheden skal være registreret i Azure AD, for at tilmeldingen kan fungere.
+
+            Hvis du ikke konfigurerer denne politikindstilling, startes automatisk MDM-tilmelding ikke.
+
+            Hvis du aktiverer denne politikindstilling, oprettes der en opgave for at starte tilmelding af enheden til den MDM-tjeneste, der er angivet i Azure AD.
+
+            Hvis du deaktiverer denne politikindstilling, fjernes MDM-tilmeldingen.
+      </string>
+      <string id="UserCredential">Legitimationsoplysninger for bruger</string>
+      <string id="DeviceCredential">Legitimationsoplysninger for enhed</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="AutoEnrollMDM">
+        <dropdownList refId="UseAADCredentialTypeDrop" defaultItem="1">Vælg den legitimationstype, der skal bruges:</dropdownList>
+      </presentation>
+    </presentationTable>	
   </resources>
 </policyDefinitionResources>

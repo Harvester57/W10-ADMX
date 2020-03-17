@@ -143,6 +143,7 @@ Jos et määritä tätä käytäntöasetusta, asiakkaan aseman ja leikepöydän 
       <string id="TS_CLIENT_HELP">Hallitsee etätyöpöytäyhteyden asiakasohjelman asetuksia</string>
       <string id="TS_CLIENT_LPT">Älä salli LPT-portin uudelleenohjausta</string>
       <string id="TS_CLIENT_PNP">Älä salli tuettujen Plug and Play -laitteiden uudelleenohjausta</string>
+      <string id="TS_CAMERA_REDIRECTION">Älä salli videosieppauksen uudelleenohjausta</string>
       <string id="TS_CLIENT_PRINTER">Älä salli asiakkaan tulostimen uudelleenohjausta</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Tämän käytäntöasetuksen avulla voit määrittää, estetäänkö leikepöydän sisällön jakaminen (leikepöydän uudelleenohjaus) etätietokoneen ja asiakastietokoneen välillä etätyöpöytäpalveluiden istunnon aikana.
 
@@ -197,6 +198,15 @@ Jos poistat tämän käytäntöasetuksen käytöstä, käyttäjät voivat ohjata
 Jos otat tämän käytäntöasetuksen käyttöön, käyttäjät eivät pysty uudelleenohjaamaan tuettuja Plug and Play -laitteita etätietokoneeseen. Jos et määritä tätä käytäntöasetusta, käyttäjät voivat ohjata tuetut Plug and Play -laitteensa etätietokoneeseen vain, jos siinä on käytössä Windows Server 2012 R2 tai aiempi versio.
 
 Huomautus: voit poistaa tietyn tyyppisten tuettujen Plug and Play -laitteiden ohjauksen käytöstä käyttämällä Tietokoneasetukset\Hallintamallit\Järjestelmä\Laiteasennus\Laiteasennuksen rajoitukset -käytäntöasetuksia.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Tämän käytäntöasetuksen avulla voit hallita videosieppauslaitteiden  uudelleenohjausta etätietokoneeseen etätyöpöytäpalveluiden istunnossa. 
+
+Etätyöpöytäpalvelut sallivat videosieppauslaitteiden uudelleenohjauksen oletusarvoisesti.
+
+Jos otat tämän käytäntöasetuksen käyttöön, käyttäjät eivät pysty ohjaamaan videosieppauslaitteitaan etätietokoneeseen. 
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjät voivat ohjata videosieppauslaitteensa etätietokoneeseen. Käyttäjät voivat etätyöpöytäyhteyden Paikalliset resurssit -välilehden Lisää-vaihtoehdon avulla valita videosieppauslaitteet, jotka ohjataan etätietokoneeseen.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Tämän käytäntöasetuksen avulla voit rajoittaa niiden näyttöjen määrää, joita käyttäjä voi käyttää etätyöpöytäpalveluiden istunnon näyttämiseen. Etätyöpöytäpalveluiden istunnon näyttämiseen käytettävien näyttöjen määrän rajoittaminen voi parantaa yhteyden toimintaa etenkin silloin, kun yhteys on hidas, ja pienentää palvelimen kuormitusta.
@@ -320,12 +330,13 @@ Huomautus: Konsoli-istuntoa kutsutaan myös istunnoksi 0. Konsolia voi käyttä�
       <string id="TS_GATEWAY_BASIC">Pyydä tunnistetiedot käyttämällä perusprotokollaa</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Käytä paikallisen käyttäjän tunnistetietoja</string>
       <string id="TS_GATEWAY_NTLM">Pyydä tunnistetiedot käyttämällä NTLM-protokollaa</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Pyydä tunnistetiedot käyttämällä Negotiate-protokollaa</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Määritä etätyöpöydän yhdyskäytävän todennusmenetelmä</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Määrittää todennusmenetelmän, jota asiakkaiden on käytettävä, kun ne yrittävät muodostaa yhteyden etätyöpöytäistunnon isäntäpalvelimeen etätyöpöydän yhdyskäytäväpalvelimen kautta. Voit pakottaa tämän käytäntöasetuksen tai sallia käyttäjien korvata sen. Kun otat tämän käytäntöasetuksen käyttöön, se pakotetaan oletusarvon mukaan. Kun tämä käytäntöasetus pakotetaan, käyttäjät eivät voi korvata tätä asetusta, vaikka he valitsisivat asiakkaassa Käytä näitä etätyöpöydän yhdyskäytäväpalvelimen asetuksia -asetuksen.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Määrittää todennusmenetelmän, jota asiakkaiden on käytettävä, kun ne yrittävät muodostaa yhteyden etätyöpöytäistunnon isäntäpalvelimeen etätyöpöydän yhdyskäytäväpalvelimen kautta. Voit pakottaa tämän käytäntöasetuksen tai sallia käyttäjien korvata sen. Kun otat tämän käytäntöasetuksen käyttöön, se pakotetaan oletusarvon mukaan. Kun tämä käytäntöasetus pakotetaan, käyttäjät eivät voi korvata tätä asetusta, vaikka he valitsevat asiakkaassa Käytä näitä etätyöpöydän yhdyskäytäväpalvelimen asetuksia -asetuksen.
 
-Jos haluat sallia käyttäjien korvata tämän käytäntöasetuksen, valitse Salli käyttäjien muuttaa tätä asetusta -valintaruutu. Kun teet tämän, käyttäjät voivat määrittää vaihtoehtoisen todennusmenetelmän määrittämällä asiakkaan asetukset RDP-tiedoston tai HTML-komentosarjan avulla. Jos käyttäjät eivät määritä vaihtoehtoista todennusmenetelmää, käytetään oletusarvon mukaan tässä käytäntöasetuksessa määrittämääsi todennusmenetelmää.
+Jos haluat sallia käyttäjien korvata tämän käytäntöasetuksen, valitse Salli käyttäjien muuttaa tätä asetusta -valintaruutu. Kun teet tämän, käyttäjät voivat määrittää vaihtoehtoisen todentamismenetelmän määrittämällä asiakkaan asetukset RDP-tiedoston tai HTML-komentosarjan avulla. Jos käyttäjät eivät määritä vaihtoehtoista todentamismenetelmää, oletusarvon mukaan käytetään tässä käytäntöasetuksessa määritettyä todennusmenetelmää.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käytetään käyttäjän määrittämää todennusmenetelmää, jos sellainen on määritetty. Jos todennusmenetelmää ei määritetä, todennukseen voidaan käyttää asiakkaassa käytössä olevaa NTLM-protokollaa tai älykorttia.</string>
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käytetään käyttäjän määrittämää todentamismenetelmää, mikäli sellainen on määritetty. Jos todentamismenetelmää ei määritetä, todentamiseen voidaan käyttää asiakkaassa käyttöönotettua Negotiate-protokollaa tai älykorttia.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Ota etätyöpöydän yhdyskäytävän kautta muodostettava yhteys käyttöön</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Jos otat tämän käytäntöasetuksen käyttöön ja etätyöpöytäyhteys ei pysty muodostamaan yhteyttä suoraan etätietokoneeseen (etätyöpöytäistunnon isäntäpalvelimeen tai tietokoneeseen, jossa on etätyöpöytä käytössä), asiakkaat yrittävät muodostaa yhteyden etätietokoneeseen etätyöpöydän yhdyskäytäväpalvelimen kautta. Tässä tapauksessa asiakkaat yrittävät muodostaa yhteyden etätyöpöydän yhdyskäytäväpalvelimeen, joka on määritetty Määritä etätyöpöydän yhdyskäytäväpalvelimen osoite -käytäntöasetuksessa.
 
@@ -408,21 +419,24 @@ Jos otat tämän käytäntöasetuksen käyttöön, näitä ilmoituksia ei näyte
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, nämä ilmoitukset näytetään etätyöpöytäistunnon isäntäpalvelimessa sen jälkeen, kun olet kirjautunut sisään paikallisena järjestelmänvalvojana.</string>
       <string id="TS_LICENSING_MODE">Määritä etätyöpöydän käyttöoikeuksien myöntämisen tila</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">Tämän käytäntöasetuksen avulla voit määrittää, minkä tyyppistä etätyöpöytäpalveluiden Client Access -käyttöoikeutta (RDS CAL) tarvitaan yhteyden muodostamiseen tähän etätyöpöytäistunnon isäntäpalvelimeen.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        Tämän käytäntöasetuksen avulla voit määrittää etätyöpöytäpalveluiden Client Access -käyttöoikeuden (RDS CAL) tyypin, joka tarvitaan muodostettaessa yhteyttä tähän etätyöpöytäistunnon isäntäpalvelimeen.
 
-Tämän käytäntöasetuksen avulla voit valita toisen kahdesta käyttöoikeuksien myöntämistilasta: käyttäjäkohtainen tai laitekohtainen.
+        Tämän käytäntöasetuksen avulla voit valita jonkin kolmesta käyttöoikeustilasta: Käyttäjäkohtainen, Laitekohtainen tai Käyttäjäkohtainen AAD.
 
-Käyttäjäkohtainen käyttöoikeuksien myöntämistila edellyttää, että kaikilla tähän etätyöpöytäistunnon isäntäpalvelimeen yhteyden muodostavilla käyttäjillä on oltava etätyöpöytäpalveluiden käyttäjäkohtainen Client Access -käyttöoikeus.
+        Käyttäjäkohtainen-käyttöoikeustila edellyttää, että kullakin tähän etätyöpöytäistunnon isäntäpalvelimeen yhteyden muodostavalla käyttäjätilillä on etätyöpöydän käyttöoikeuspalvelimesta myönnetty etätyöpöytäpalvelujen käyttäjäkohtainen CAL-käyttöoikeus.
 
-Laitekohtainen käyttöoikeuksien myöntämistila edellyttää, että kaikilla tähän etätyöpöytäistunnon isäntäpalvelimeen yhteyden muodostavilla laitteilla on oltava etätyöpöytäpalveluiden laitekohtainen Client Access -käyttöoikeus.
+        Laitekohtainen-käyttöoikeustila edellyttää, että kullakin tähän etätyöpöytäistunnon isäntäpalvelimeen yhteyden muodostavalla laitteella on etätyöpöydän käyttöoikeuspalvelimesta myönnetty etätyöpöytäpalvelujen laitekohtainen CAL-käyttöoikeus.
 
-Jos otat tämän käytäntöasetuksen käyttöön, etätyöpöydän käyttöoikeuspalvelin käyttää määrittämääsi etätyöpöydän käyttöoikeusmallia.
+        Käyttäjäkohtainen AAD -käyttöoikeustila edellyttää, että kullakin tähän etätyöpöytäistunnon isäntäpalvelimeen yhteyden muodostavalla käyttäjätilillä on palvelumalli, joka tukee AAD-palvelussa määritettyjä etätyöpöytäpalveluiden käyttöoikeuksia.
+        
+        Jos otat tämän käytäntöasetuksen käyttöön, etätyöpöydän käyttöoikeuspalvelin ja etätyöpöytäistunnon isäntä käyttävät määrittämääsi etätyöpöydän käyttöoikeustilaa.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttöoikeusmallia ei määritetä ryhmäkäytäntötasolla.
-
-</string>
+        Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttöoikeustilaa ei määritetä ryhmäkäytäntötasolla.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Laitekohtainen</string>
       <string id="TS_LICENSING_MODE_PER_USER">Käyttäjäkohtainen</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">Käyttäjäkohtainen AAD</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">Tämän käytäntöasetuksen avulla voit määrittää, estetäänkö tietojen uudelleenohjaus asiakkaan LPT-portteihin etätyöpöytäpalveluiden istunnossa.
 
 Tämän asetuksen avulla voit estää käyttäjiä yhdistämästä paikallisia LPT-portteja ja ohjaamasta etätietokoneen tietoja paikallisiin LPT-portteihin liitettyihin laitteisiin. Oletusarvon mukaan etätyöpöytäpalvelut sallivat uudelleenohjauksen LPT-portteihin.
@@ -1006,19 +1020,40 @@ Jos poistat tämän käytäntöasetuksen käytöstä, tästä etätyöpöytäist
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">Käytä etätyöpöytäyhteyksissä WDDM-näytönohjainta</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">Tämän käytäntöasetuksen avulla voit ottaa käyttöön WDDM-näytönohjaimen etätyöpöytäyhteyksissä.
+
+Jos otat tämän käytäntöasetuksen käyttöön, etätyöpöytäyhteyksissä käytetään WDDM-näytönohjainta.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, etätyöpöytäyhteyksissä EI käytetä WDDM-näytönohjainta. Tällöin etätyöpöytäyhteyksissä käytetään XDDM-näytönohjainta.
+
+Tämä muutos tulee voimaan vasta, kun Windows on käynnistetty uudelleen.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">Tämän käytäntöasetuksen avulla voit ottaa käyttöön WDDM-näytönohjaimen etätyöpöytäyhteyksissä.
+
+Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, etätyöpöytäyhteyksissä käytetään WDDM-näytönohjainta.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, etätyöpöytäyhteyksissä EI käytetä WDDM-näytönohjainta. Tällöin etätyöpöytäyhteyksissä käytetään XDDM-näytönohjainta.
+
+Tämä muutos tulee voimaan vasta, kun Windows on käynnistetty uudelleen.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">Tämän käytäntöasetuksen avulla voit ottaa käyttöön WDDM-näytönohjaimen etätyöpöytäyhteyksissä.
+
+Jos otat tämän käytäntöasetuksen käyttöön, etätyöpöytäyhteyksissä käytetään WDDM-näytönohjainta.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, etätyöpöytäyhteyksissä EI käytetä WDDM-näytönohjainta. Tällöin etätyöpöytäyhteyksissä käytetään XDDM-näytönohjainta.
+
+Jos et määritä tätä käytäntöasetusta, etätyöpöytäistunnon isäntäpalvelimen etätyöpöytäyhteyksissä EI käytetä WDDM-näytönohjainta. Kaikissa muissa tapauksissa etätyöpöytäyhteyksissä käytetään WDDM-näytönohjainta.
+
+Tämä muutos tulee voimaan vasta, kun Windows on käynnistetty uudelleen.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Määritä H.264/AVC-laitteistokoodaus etätyöpöytäyhteyksille</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Tämän käytäntöasetuksen avulla voit ottaa käyttöön H.264/AVC-laitteistokoodauksen tuen etätyöpöytäyhteyksille. Kun laitteistokoodaus on otettu käyttöön, virheen tapahtuessa yritetään käyttää ohjelmistokoodausta. Jos poistat tämän käytännön käytöstä tai et määritä sitä, ohjelmistokoodausta käytetään aina.
-        
-Jos määrität koodausasetukseksi Yritä aina, etätyöpöytä yrittää aina käyttää H.264/AVC-laitteistokoodausta, kun se on käytettävissä. Huomaa, että Windows Server -järjestelmässä, jossa on käytössä Hyper-V ja RemoteFX vGPU, tämä käytäntö on määritettävä Hyper-V-isäntäkoneessa.
-        
-Jos määrität koodausasetukseksi Yritä vain RemoteFX vGPU -virtuaalikoneille, huomaa, että Windows Server -järjestelmässä, jossa on käytössä Hyper-V ja RemoteFX vGPU, tämä käytäntö on määritettävä Hyper-V-isäntäkoneessa.
-        
-Jos määrität koodausasetukseksi Yritä vain muille kuin RemoteFX vGPU -skenaarioille, etätyöpöytä yrittää käyttää laitteistokoodausta kaikille skenaarioille paitsi RemoteFX vGPU -skenaarioille.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Yritä aina</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Yritä vain RemoteFX vGPU -virtuaalikoneille</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Yritä vain muille kuin RemoteFX vGPU -skenaarioille</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Tämän käytäntöasetuksen avulla voit ottaa käyttöön H.264/AVC-laitteistokoodauksen tuen etätyöpöytäyhteyksille. Kun laitteistokoodaus on otettu käyttöön, virheen tapahtuessa yritetään käyttää ohjelmistokoodausta. Jos poistat tämän käytännön käytöstä tai et määritä sitä, ohjelmistokoodausta käytetään aina.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Priorisoi H.264/AVC 444 -grafiikkatilaa etätyöpöytäyhteyksille</string>
@@ -1169,16 +1204,16 @@ Jos otat tämän käytäntöasetuksen käyttöön, käyttäjän kirjautuminen on
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, aloitusnäyttö näytetään ja sovellukset rekisteröidään taustalla.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Käytä laitteiston oletusnäyttösovitinta kaikille etätyöpöytäpalveluiden istunnoille</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Tämän käytäntöasetuksen avulla järjestelmänvalvojat voivat muuttaa grafiikan hahmontamisen kaikissa etätyöpöytäpalveluiden istunnoissa.
+      <string id="TS_DX_USE_FULL_HWGPU">Käytä laitteiston grafiikkasovitinta kaikissa etätyöpöytäpalveluiden istunnoissa</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Tämän käytäntöasetuksen avulla järjestelmänvalvojat voivat muuttaa grafiikan hahmontamista kaikissa etätyöpöytäpalveluiden istunnoissa.
 
 Jos otat tämän käytäntöasetuksen käyttöön, kaikki etätyöpöytäpalveluiden istunnot käyttävät oletussovittimena laitteiston grafiikkahahmonninta Microsoft-perushahmonnusohjaimen sijaan.
 
 Jos poistat tämän käytäntöasetuksen käytöstä, kaikki etätyöpöytäpalveluiden istunnot käyttävät oletussovittimena Microsoft-perushahmonnusohjainta.
 
-Jos jätät tämän käytäntöasetuksen määrittämättä, etätyöpöytäpalveluiden istunnot etätyöpöytäistunnon isäntäpalvelimessa käyttävät oletussovittimena Microsoft-perushahmonnusohjainta. Muissa tapauksissa etätyöpöytäpalveluiden istunnot käyttävät oletusarvon mukaan laitteiston grafiikkahahmonninta.
+Jos jätät tämän käytäntöasetuksen määrittämättä, etätyöpöytäpalveluiden istunnot etätyöpöytäistunnon isäntäpalvelimessa käyttävät oletussovittimena Microsoft-perushahmonnusohjainta. Muissa tapauksissa etätyöpöytäpalveluiden istunnot käyttävät oletusarvoisesti laitteiston grafiikkahahmonninta.
 
-Huomautus: Jos tietokoneeseen on asennettu useita grafiikkasuorittimia, käytäntöasetus vaikuttaa vain oletusgrafiikkasuorittimeen. Kaikkia muita grafiikkasuorittimia käsitellään toissijaisina sovittimina ja niitä käytetään laitteistohahmontimina. Tämä käytäntöasetus ei vaikuta paikallisen istunnon grafiikkasuoritinkokoonpanoon.
+Huomautus: Jos tietokoneessa on useita grafiikkasuorittimia asennettuina, käytäntöasetus ottaa käyttöön grafiikkasuorittimien kuormituksen tasauksen. Tämä käytäntöasetus ei vaikuta paikallisen istunnon grafiikkasuoritinkokoonpanoon.
 </string>
       
     </stringTable>
@@ -1328,9 +1363,6 @@ Huomautus: Jos tietokoneeseen on asennettu useita grafiikkasuorittimia, käytän
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-pakkausalgoritmi:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">AVC-laitteistokoodaus ensisijainen:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Visuaalinen vaikutelma:</dropdownList>

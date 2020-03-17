@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Au minimum Windows Server 2008 R2 ou Windows 7. Non pris en charge sur Windows 10 ou version ultérieure</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 et Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Effacer la liste des programmes récents pour les nouveaux utilisateurs</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Si ce paramètre de stratégie est activé, la liste des programmes récents dans le menu Démarrer est vide pour les nouveaux utilisateurs.
 
@@ -170,6 +171,12 @@ Si ce paramètre de stratégie est activé, le bouton Arrêter l’ordinateur et
 Si ce paramètre de stratégie est désactivé ou n’est pas configuré, le bouton Arrêter l’ordinateur et les commandes Arrêter, Redémarrer, Mettre en veille et Mettre en veille prolongée sont disponibles dans le menu Démarrer. Le bouton Arrêter l’ordinateur est également disponible dans l’écran Sécurité Windows.
 
 Remarque : des programmes tiers compatibles avec Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP ou Windows 2000 Professionnel sont nécessaires à la prise en charge de ce paramètre de stratégie.</string>
+      <string id="HidePowerOptions">Supprimer et empêcher l’accès aux commandes Arrêter, Redémarrer, Mettre en veille et Mettre en veille prolongée</string>
+      <string id="HidePowerOptions_Help">Ce paramètre de stratégie empêche les utilisateurs d’exécuter les commandes suivantes à partir de l’écran Sécurité Windows, de l'écran de connexion ou du menu Démarrer : Arrêter, Redémarrer, Mettre en veille et Mettre en veille prolongée. Ce paramètre de stratégie n’empêche pas les utilisateurs d’utiliser des programmes Windows qui exécutent ces fonctions.
+
+Si ce paramètre de stratégie est activé, les commandes Arrêter, Redémarrer, Mettre en veille et Mettre en veille prolongée sont supprimés du menu Démarrer. Le bouton Marche/Arrêt est également supprimé de l’écran Sécurité Windows, qui s’affiche lorsque vous appuyez sur Ctrl+Alt+Suppr, et de l'écran de connexion.
+
+Si ce paramètre de stratégie est désactivé ou n’est pas configuré, le bouton Marche/Arrêt et les commandes Arrêter, Redémarrer, Mettre en veille et Mettre en veille prolongée sont disponibles dans le menu Démarrer. Le bouton Marche/Arrêt est également disponible dans l’écran Sécurité Windows et l'écran de connexion.</string>
       <string id="NoCommonGroups">Supprimer le groupe de programmes communs du menu Démarrer</string>
       <string id="NoCommonGroups_Help">Supprime les éléments du profil Tous les utilisateurs dans l’élément Programmes du menu Démarrer.
 
@@ -222,12 +229,22 @@ Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas,
 Consultez également les paramètres de stratégie associés suivants : Supprimer la liste de programmes fréquents du menu Démarrer et Désactiver les menus personnalisés.
 
 Ce paramètre de stratégie n’empêche pas les utilisateurs d’épingler les programmes dans le menu Démarrer ou la Barre des tâches. Consultez les paramètres de stratégie Supprimer la liste de programmes en attente du menu Démarrer et Ne pas autoriser l’épinglage des programmes dans la Barre des tâches.</string>
+
       <string id="NoMoreProgramsList">Supprimer la liste Tous les programmes du menu Démarrer</string>
-      <string id="NoMoreProgramsList_Help">Ce paramètre de stratégie vous permet de supprimer la liste Tous les programmes du menu Démarrer..
+      <string id="NoMoreProgramsList_Help">Si vous activez ce paramètre, le menu Démarrer réduit ou supprime la liste de toutes les applications du menu Démarrer.
 
-Si vous activez ce paramètre de stratégie, l’élément Tous les programmes est supprimé du menu Démarrer simple.  L’écran de démarrage affiche la vue Toutes les applications, mais contient uniquement les éléments épinglés dans Démarrage.
+La sélection de Réduire n'affiche pas la liste des applications à côté des vignettes épinglées dans Démarrer. Un bouton Toutes les applications apparaît dans Démarrer et permet d'ouvrir la liste de toutes les applications. Il a le même effet que la définition de Afficher la liste des applications dans le menu Démarrer dans les paramètres sur Désactivé.
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, l’élément Tous les programmes demeure dans le menu Démarrer simple.</string>
+La sélection de Réduire et désactiver le paramètre a le même effet que l'option Réduire et la désactivation de Afficher la liste des applications dans le menu Démarrer dans les paramètres, c'est-à-dire que les utilisateurs ne peuvent pas l'activer.
+
+La sélection de Supprimer et désactiver le paramètre supprime la liste de toutes les applications de Démarrer et désactive Afficher la liste des applications dans le menu Démarrer dans les paramètres, empêchant les utilisateurs de l'activer. Sélectionnez cette option pour la compatibilité avec les versions précédentes de Windows.
+
+Si vous désactivez ou ne configurez pas ce paramètre, la liste de toutes les applications est visible par défaut et l'utilisateur peut modifier Afficher la liste des applications dans le menu Démarrer dans les paramètres.</string>
+      <string id="APPLIST_NONE">Aucun</string>
+      <string id="APPLIST_COLLAPSE">Réduire</string>
+      <string id="APPLIST_COLLAPSESETTING">Réduire et désactiver le paramètre</string>
+      <string id="APPLIST_REMOVESETTING">Supprimer et désactiver le paramètre</string>    
+
       <string id="NoNetAndDialupConnect">Supprimer les Connexions réseau du menu Démarrer</string>
       <string id="NoNetAndDialupConnect_Help">Ce paramètre de stratégie vous permet de supprimer Connexions réseau du menu Démarrer.
 
@@ -515,6 +532,18 @@ Si ce paramètre de stratégie n’est pas configuré, les utilisateurs peuvent 
 Si vous activez ce paramètre de stratégie, le menu Démarrer n’affiche pas de lien vers le dossier Téléchargement.
 
 Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, le lien Téléchargement est disponible dans le menu Démarrer.</string>
+      <string id="NoStartMenuExplorerPlace">Supprimer le lien Explorateur de fichiers de la barre Emplacement du menu Démarrer</string>
+      <string id="NoStartMenuExplorerPlace_Help">Ce paramètre de stratégie vous permet de supprimer le lien Explorateur de fichiers de la barre Emplacement du menu Démarrer.
+
+Si vous activez ce paramètre de stratégie, le lien Explorateur de fichiers n'apparaîtra pas dans la liste Emplacement du menu Démarrer.
+
+Si vous désactivez ou si vous ne configurez pas ce paramètre de stratégie, le lien Explorateur de fichiers pourra s'afficher dans la liste Emplacement du menu Démarrer.</string>
+      <string id="NoStartMenuSettingsPlace">Supprimer le lien Paramètres de la barre Emplacement du menu Démarrer</string>
+      <string id="NoStartMenuSettingsPlace_Help">Ce paramètre de stratégie vous permet de supprimer le lien Paramètres de la barre Emplacement du menu Démarrer.
+
+Si vous activez ce paramètre de stratégie, le lien Paramètres n'apparaîtra pas dans la liste Emplacement du menu Démarrer.
+
+Si vous désactivez ou si vous ne configurez pas ce paramètre de stratégie, le lien Paramètres pourra s'afficher dans la liste Emplacement du menu Démarrer.</string>
       <string id="NoStartMenuRecordedTV">Supprimer le lien TV enregistrée du menu Démarrer</string>
       <string id="NoStartMenuRecordedTV_Help">Ce paramètre de stratégie vous permet de supprimer le lien TV enregistrée du menu Démarrer.
 
@@ -575,8 +604,23 @@ Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas,
 Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Windows va sélectionner automatiquement la taille en fonction du facteur de forme matérielle et les utilisateurs ne pourront pas modifier la taille de démarrage dans les paramètres.</string>
       <string id="ForceLauncherSize_Collapsed">Menu Démarrer</string>
       <string id="ForceLauncherSize_Expanded">Plein écran de démarrage</string>
+      <string id="HidePeopleBar_DisplayName">Supprimer la barre Contacts de la barre des tâches</string>
+      <string id="HidePeopleBar_ExplainText">Cette stratégie vous permet de supprimer la barre Contacts de la barre des tâches et désactive l'expérience Mes Contacts.
+
+Si vous activez cette stratégie, l'icône des contacts est supprimée de la barre des tâches, la bascule des paramètres correspondante est supprimée de la page des paramètres de la barre des tâches et les utilisateurs ne peuvent pas épingler de contacts à la barre des tâches.</string>
+      <string id="HideRecentlyAddedApps">Supprimer la liste « Récemment ajoutées » du menu Démarrer</string>
+      <string id="HideRecentlyAddedApps_Help">Cette stratégie vous permet d’empêcher le menu Démarrer d’afficher la liste des applications installées récemment.
+
+Si vous activez cette stratégie, le menu Démarrer n'affichera plus la liste « Récemment ajoutées ». Le paramètre correspondant sera également désactivé dans Paramètres.</string>
+      <string id="DisableContextMenusInStart">Désactiver les menus contextuels dans le menu Démarrer</string>
+      <string id="DisableContextMenusInStart_Help">Cette stratégie vous permet d’empêcher les utilisateurs d’ouvrir des menus contextuels dans le menu Démarrer.
+
+Si vous activez cette stratégie, les appels de menus contextuels dans le menu Démarrer seront ignorés.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Choisir l’une des actions suivantes</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Choisir l’une des actions suivantes</dropdownList>
       </presentation>

@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">Sovellusten Internet-välityspalvelimet</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  Tämä asetus ei koske työpöytäsovelluksia.
 	
@@ -20,7 +19,8 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittä
 
 Esimerkki: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">Sovellusten intranet-välityspalvelimet</string>
@@ -36,10 +36,12 @@ Tätä asetusta EI pidä käyttää Internet-välityspalvelimien määrittämise
 
 Esimerkki: [3efe:3022::1000]; 18.0.0.1; 18.0.0.2
 
-Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
-	<!--Define subnet addresses-->	
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">Yksityisverkkoalueet sovelluksia varten</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">Tämä asetus ei koske työpöytäsovelluksia.
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> Tämä asetus ei koske työpöytäsovelluksia.
 				
 Pilkuin eroteltu luettelo IP-osoitealueista, jotka ovat yritysverkossa.
 
@@ -53,12 +55,12 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittä
 
 Esimerkki: 3efe:1092::/96,18.1.1.1/10 
 
-Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-				
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">Välityspalvelinmääritykset ovat määrääviä</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">Tämä asetus ei koske työpöytäsovelluksia.
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> Tämä asetus ei koske työpöytäsovelluksia.
 				
 Poistaa käytöstä Windowsin verkon eristämisen automaattisen välityspalvelimen etsimisen toimialueen yritysympäristössä.
 
@@ -66,11 +68,12 @@ Jos otat käyttöön tämän käytäntöasetuksen, Windowsin verkon eristämisen
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, Windowsin verkon eristäminen yrittää löytää välityspalvelinosoitteet automaattisesti.  
 
-Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-		<!--Subnet definitions are authoritative-->	
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">Aliverkkomääritykset ovat määrääviä</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">Tämä asetus ei koske työpöytäsovelluksia.
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> Tämä asetus ei koske työpöytäsovelluksia.
 				
 Poistaa käytöstä Windowsin verkon eristämisen automaattisen yksityisverkon isäntien etsimisen toimialueen yritysympäristössä.
 
@@ -78,10 +81,35 @@ Jos otat käyttöön tämän käytäntöasetuksen, Windowsin verkon eristämisen
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, Windowsin verkon eristäminen yrittää löytää toimialueen yritysympäristössä olevat yksityisverkon isännät automaattisesti. 
 				
-Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-	
-	
-     </stringTable>
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">Pilvessä isännöidyt yritysresurssien toimialueet</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> Tämä asetus ei koske työpöytäsovelluksia.
+
+Pystyviivoin eroteltu luettelo toimialueen pilviresursseista. Jokainen pilviresurssi voidaan määrittää valinnaisesti myös sisäisen välityspalvelimen pariksi lisäämällä pilviresurssin loppuun pilkku ja välityspalvelimen osoite.
+
+Sisältää luettelon pilvessä isännöidyistä yritysresurssien toimialueista. Yhteyksiä näihin resursseihin pidetään yhteyksinä yritysverkkoihin.
+
+Jos välityspalvelin on liitetty pariksi pilviresurssin kanssa, liikenne pilviresurssiin reititetään yritysverkon ja ilmaistun välityspalvelimen kautta (portissa 80). Tähän tarkoitukseen käytetty välityspalvelin on määritettävä myös sovelluskäytännön intranet-välityspalvelimien avulla.
+
+Esimerkki: [pilviresurssi]|[pilviresurssi]|[pilviresurssi],[välityspalvelin]|[pilviresurssi]|[pilviresurssi],[välityspalvelin]|
+
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043. </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">Työ- ja henkilökohtaiseen käyttöön luokitellut toimialueet</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> Tämä asetus ei koske työpöytäsovelluksia.
+
+Pilkuin eroteltu luettelo niiden toimialueiden nimistä, joita voi käyttää sekä työ- että henkilökohtaisena resurssina.
+
+Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043. </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@ Lisätietoja on osoitteessa http://go.microsoft.com/fwlink/p/?LinkId=234043</str
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>Yksityiset aliverkot  </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>Yrityksen pilviresurssit </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>Neutraalit resurssit </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

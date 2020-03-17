@@ -506,11 +506,11 @@ Obs! Om ett tillägg anges i inställningen Lista över tillägg kan funktionen 
 Om du aktiverar den här principinställningen undersöks funktioner i Windows XP Professional Service Pack 1 och i tidigare version vid en krasch i Internet Explorer, för att anropa felrapporteringstjänsten i Windows. Alla principinställningar för felrapporteringstjänsten fortsätter att tillämpas.
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen aktiveras identifiering av krascher för tilläggskomponenter.</string>
-      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Du kan använda den här principinställningen för att bestämma om användare kan tillåta och neka tilläggskomponenter via Hantera tilläggskomponenter.
+      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Med den här principinställningen anger du om användare kan tillåta eller neka tillägg via Hantera tillägg.
 
-Om du aktiverar den här principinställningen kan inte användare aktivera och inaktivera tilläggskomponenter via Hantera tilläggskomponenter. Det enda undantaget är om ett tillägg uttryckligen har lagts till i inställningen Lista över tillägg med det värde som tillåter att användare kontrollerar tillägget. I detta fall kan användaren ändå hantera tilläggskomponenter via Hantera tilläggskomponenter.
+Om du aktiverar den här principinställningen kan användarna inte aktivera eller inaktivera tillägg via Hantera tillägg.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen är de aktuella kontrollerna i Hantera tilläggskomponenter tillgängliga för användaren.</string>
+Om du inaktiverar eller låter bli att konfigurera principinställningen är kontrollerna för att aktivera eller inaktivera tillägg tillgängliga för användarna i Hantera tillägg.</string>
       <string id="IE_ExplainAddSearchProvider">Med den här principinställningen kan du lägga till en lista med sökleverantörer i användarens standardlista över sökleverantörer. Sökleverantörer kan vanligtvis läggas till från verktygsfält från tredje part eller i installationsprogrammet. Användaren kan också lägga till en sökleverantör från leverantörens webbplats.
 
 Om du aktiverar den här principinställningen kan användaren lägga till och ta bort sökleverantörer, men bara från den uppsättning med sökleverantörer som anges i listan med principregisternycklar för sökleverantörer (under [HKCU eller HKLM\Software\policies\Microsoft\Internet Explorer\SearchScopes]). Obs! Den här listan kan skapas från en anpassad administrationsmallfil. Information om hur du skapar den här anpassade administrationsmallfilen finns i dokumentationen om sökleverantörer i Internet Explorer.
@@ -601,7 +601,7 @@ Inaktivera ändring av anslutningsinställningar
 Förhindra ändring av proxyinställningar
 
 Inaktivera ändring av inställningarna för Automatisk konfigurering</string>
-      <string id="IE_ExplainControlPanel_RestrictContentTab">Om du aktiverar den här principen hindras användare från att visa och ändra inställningar för klassificeringar, certifikat, funktionen Komplettera automatiskt, Wallet och Profilassistenten.
+      <string id="IE_ExplainControlPanel_RestrictContentTab">Om du aktiverar den här principen hindras användare från att visa och ändra inställningar för klassificeringar, certifikat, funktionen Komplettera automatiskt, Plånbok och Profilassistenten.
 
 Om du inaktiverar den här principen eller låter bli att konfigurera den kan användare visa och ändra de här inställningarna.</string>
       <string id="IE_ExplainControlPanel_RestrictGeneralTab">Tar bort fliken Allmänt från gränssnittet i dialogrutan Internetalternativ.
@@ -727,10 +727,10 @@ Om du inaktiverar den här principinställningen, aktiveras stöd för geolokali
 
 Om du inte konfigurerar den här principinställningen kan användaren aktivera eller inaktivera stöd för geolokalisering i webbläsaren på fliken Sekretess under Internetalternativ.</string>
       <string id="IE_ExplainDisableFlashInIE">Med den här principinställningen inaktiveras Adobe Flash i Internet Explorer och program hindras från att använda tekniken i Internet Explorer för att instantiera Flash-objekt.
- 
-Om du aktiverar den här principinställningen inaktiveras Flash i Internet Explorer och program hindras från att använda tekniken i Internet Explorer för att instantiera Flash-objekt. I dialogrutan Hantera tillägg är statusen för Flash Inaktiveras och användarna kan inte aktivera Flash. Om du aktiverar den här principinställningen ignoreras inställningarna för Adobe Flash i Internet Explorer via principinställningarna Lista över tillägg och Blockera alla tillägg förutom de som uttryckligen anges i Lista över tillägg.  
- 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen aktiveras Flash i Internet Explorer och program kan använda tekniken i Internet Explorer för att instantiera Flash-objekt. Användarna kan aktivera eller inaktivera Flash i dialogrutan Hantera tillägg. 
+
+Om du aktiverar den här principinställningen inaktiveras Flash i Internet Explorer och program hindras från att använda tekniken i Internet Explorer för att instantiera Flash-objekt. I dialogrutan Hantera tillägg är statusen för Flash Inaktiverat och användarna kan inte aktivera Flash. Om du aktiverar den här principinställningen ignoreras inställningarna för Adobe Flash i Internet Explorer via principinställningarna Lista över tillägg och Blockera alla tillägg förutom de som uttryckligen anges i Lista över tillägg.
+
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen aktiveras Flash i Internet Explorer och program kan använda tekniken i Internet Explorer för att instantiera Flash-objekt. Användarna kan aktivera eller inaktivera Flash i dialogrutan Hantera tillägg.
 
 Observera att Adobe Flash fortfarande kan inaktiveras via principinställningarna Lista över tillägg och Blockera alla tillägg förutom de som uttryckligen anges i Lista över tillägg även om den här principinställningen är inaktiverad eller inte konfigurerad. Men om Adobe Flash inaktiveras via principinställningarna Lista över tillägg och Blockera alla tillägg förutom de som uttryckligen anges i Lista över tillägg och inte via den här principinställningen kan alla program som använder tekniken i Internet Explorer för att instantiera Flash-objekt göra det. Mer information finns i avsnittet Grupprincipinställningar i Internet Explorer 10 i TechNet-biblioteket om Internet Explorer.</string>
       <string id="IE_ExplainFile_NoBrowserClose">Hindrar användaren från att stänga Internet Explorer och Utforskaren.
@@ -2035,6 +2035,12 @@ Om du inte konfigurerar den här principinställningen kan användaren välja om
 Om du aktiverar den här principinställningen tillfrågas användaren innan ActiveX-kontroller kan köras från webbplatser i den här zonen. Användaren kan välja att tillåta att kontrollen körs från den aktuella platsen eller från alla platser.
 
 Om du inaktiverar den här principinställningen visas inte ActiveX-meddelandet för varje enskild plats och ActiveX-kontroller kan köras från alla platser i zonen.</string>
+<string id="IZ_PolicyAllowTDCControl">Tillåt endast godkända domäner att använda TDC ActiveX-kontrollen</string>
+      <string id="IZ_EXPLAIN_PolicyAllowTDCControl">Den här principinställningen bestämmer om en användare får köra TDC ActiveX-kontrollen på webbplatser.
+
+Om du aktiverar principinställningen körs inte TDC ActiveX-kontrollen från webbplatser i den här zonen.
+
+Om du inaktiverar principinställningen körs TDC Active X-kontrollen från alla webbplatser i den här zonen.</string>
       <string id="IZ_Policy_AllowDynsrcPlayback">Tillåt video och animeringar på en webbsida som använder en äldre mediespelare</string>
       <string id="IZ_Policy_AllowDynsrcPlayback_Explain">Med den här principinställningen kan video och animeringar spelas upp i äldre mediespelare i de angivna zonerna. Uppspelning av video och animeringar via objekttaggen kan fortfarande tillåtas eftersom externa kontroller eller mediespelare används i detta fall.
 
@@ -2361,11 +2367,11 @@ Om du aktiverar den här principinställningen kan du bestämma om Internet Expl
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användarna välja om de vill rendera filter i den här zonen eller inte. Användarna kan ändra den här inställningen på fliken Säkerhet i dialogrutan Internetalternativ. Som standard renderas inte filer i den här zonen.</string>
 
-      <string id="IZ_PolicyRenderLegacyFilters_ExplainDefaultEnable">Den här principinställningen anger om Internet Explorer ska rendera gamla visuella filter i den här zonen. 
+      <string id="IZ_PolicyRenderLegacyFilters_ExplainDefaultEnable">Den här principinställningen anger om Internet Explorer ska rendera gamla visuella filter i den här zonen.
 
-Om du aktiverar den här principinställningen kan du bestämma om Internet Explorer ska rendera gamla filter eller inte genom att välja Aktivera eller Inaktivera under Alternativ i grupprincipredigeraren.
+Om du aktiverar principinställningen kan du bestämma om Internet Explorer ska rendera gamla filter eller inte genom att välja Aktivera eller Inaktivera under Alternativ i grupprincipredigeraren.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användarna välja om de vill rendera filter i den här zonen eller inte. Användarna kan ändra den här inställningen på fliken Säkerhet i dialogrutan Internetalternativ. Som standard renderas filer i den här zonen.</string>
+Om du inaktiverar eller låter bli att konfigurera principinställningen kan användarna välja om de vill rendera filter i den här zonen eller inte. Användarna kan ändra den här inställningen på fliken Säkerhet i dialogrutan Internetalternativ. Som standard renderas filer i den här zonen.</string>
 
       <string id="IZ_PolicyFileDownload">Tillåt hämtning av filer</string>
       <string id="IZ_PolicyFileDownload_ExplainDefaultDisable">Du kan använda den här inställningen för att bestämma om filhämtningar ska tillåtas från zonen. Det här alternativet bestäms av den zon som sidan med länken till filen tillhör, inte av den zon filen kommer från.
@@ -2694,19 +2700,19 @@ Om du inaktiverar den här inställningen tillåts inte interaktion med skript.
 Om du inte konfigurerar den här inställningen tillåts interaktion med skript automatiskt utan att användaren tillfrågas.</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls">Kör inga program mot skadlig kod mot ActiveX-kontroller</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls_ExplainDefaultEnable">Den här principinställningen bestämmer om Internet Explorer kör program mot skadlig kod mot ActiveX-kontroller för att kontrollera att det är säkert att läsa in dem på sidor.
-      
-Om du aktiverar den här principinställningen kontrollerar Internet Explorer inte med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
 
-Om du inaktiverar den här principinställningen kontrollerar Internet Explorer alltid med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
+Om du aktiverar principinställningen kontrollerar Internet Explorer inte med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
 
-Om du inte konfigurerar den här principinställningen kontrollerar Internet Explorer alltid med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen. Användarna kan aktivera och inaktivera beteendet via säkerhetsinställningarna i Internet Explorer.</string>
+Om du inaktiverar principinställningen kontrollerar Internet Explorer alltid med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
+
+Om du inte konfigurerar principinställningen kontrollerar Internet Explorer alltid med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen. Användarna kan aktivera och inaktivera beteendet via säkerhetsinställningarna i Internet Explorer.</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls_ExplainDefaultDisable">Den här principinställningen bestämmer om Internet Explorer kör program mot skadlig kod mot ActiveX-kontroller för att kontrollera att det är säkert att läsa in dem på sidor.
-      
-Om du aktiverar den här principinställningen kontrollerar Internet Explorer inte med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
 
-Om du inaktiverar den här principinställningen kontrollerar Internet Explorer alltid med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
+Om du aktiverar principinställningen kontrollerar Internet Explorer inte med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
 
-Om du inte konfigurerar den här principinställningen kontrollerar Internet Explorer inte med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen. Användarna kan aktivera och inaktivera beteendet via säkerhetsinställningarna i Internet Explorer.</string>
+Om du inaktiverar principinställningen kontrollerar Internet Explorer alltid med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen.
+
+Om du inte konfigurerar principinställningen kontrollerar Internet Explorer inte med programmet mot skadlig kod om det är säkert att skapa en instans av ActiveX-kontrollen. Användarna kan aktivera och inaktivera beteendet via säkerhetsinställningarna i Internet Explorer.</string>
       <string id="IZ_PolicyScriptActiveXNotMarkedSafe">Initiera och kör skript på ActiveX-kontroller som inte är säkra</string>
       <string id="IZ_PolicyScriptActiveXNotMarkedSafe_ExplainDefaultDisable">Med den här principinställningen kan du hantera ActiveX-kontroller som inte har markerats som säkra.
 
@@ -2884,6 +2890,34 @@ Om du aktiverar den här principinställningen kan webbplatser i mindre privileg
 Om du inaktiverar den här principinställningen förhindras navigering som kan vara riskabel. Säkerhetsfunktionen är aktiverad enligt inställningen för Skydd från zonförhöjning.
 
 Om du inte konfigurerar den här inställningen visas en varning om att en navigering som eventuellt kan vara skadlig kommer att ske.</string>
+      <string id="IZ_PolicyAllowVBScript">Tillåt körning av VBScript i Internet Explorer</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultDisable">Med den här principinställningen anger du om körning av VBScript tillåts på sidor från angiven zon i Internet Explorer.
+
+Om du väljer Aktivera i listrutan tillåts körning av VBScript utan att fråga användarna.
+
+Om du väljer Fråga i listrutan uppmanas användarna välja om de vill tillåta körning av VBScript.
+
+Om du väljer Inaktivera i listrutan hindras VBScript från att köras.
+
+Om du inte konfigurerar eller inaktiverar principinställningen hindras VBScript från att köras.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultEnable">Med den här principinställningen anger du om körning av VBScript tillåts på sidor från angiven zon i Internet Explorer.
+
+Om du väljer Aktivera i listrutan tillåts körning av VBScript utan att fråga användarna.
+
+Om du väljer Fråga i listrutan uppmanas användarna välja om de vill tillåta körning av VBScript.
+
+Om du väljer Inaktivera i listrutan hindras VBScript från att köras.
+
+Om du inte konfigurerar eller inaktiverar principinställningen körs VBScript utan att fråga användarna.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultPrompt">Med den här principinställningen anger du om körning av VBScript tillåts på sidor från angiven zon i Internet Explorer.
+
+Om du väljer Aktivera i listrutan tillåts körning av VBScript utan att fråga användarna.
+
+Om du väljer Fråga i listrutan uppmanas användarna välja om de vill tillåta körning av VBScript.
+
+Om du väljer Inaktivera i listrutan hindras VBScript från att köras.
+
+Om du inte konfigurerar eller inaktiverar principinställningen uppmanas användarna välja om de vill tillåta körning av VBScript.</string>
       <string id="IZ_ProxyByPass">Intranätsplatser: Inkludera alla platser som inte använder en proxyserver</string>
       <string id="IZ_RestrictedSitesZone">Zonen Ej betrodda platser</string>
       <string id="IZ_RestrictedSitesZoneLockdown">Låsning av zonen Ej betrodda platser</string>
@@ -3007,7 +3041,7 @@ Om du inte konfigurerar den här principinställningen kan användaren aktivera 
       <string id="RestrictCalendarContact">Inaktivera ändring av inställningar för kalender och kontakt</string>
       <string id="RestrictCertificates">Inaktivera ändring av certifikatinställningar</string>
       <string id="RestrictCheckBrowser">Inaktivera ändring av kontroll av standardwebbläsare</string>
-      <string id="NotifyNotDefaultBrowser">Meddela användarna om Internet Explorer inte är standardwebbläsare</string>  
+      <string id="NotifyNotDefaultBrowser">Meddela användarna om Internet Explorer inte är standardwebbläsare</string>
       <string id="RestrictColors">Inaktivera ändring av färginställningar</string>
       <string id="RestrictConnectionSettings">Inaktivera ändring av anslutningsinställningar</string>
       <string id="RestrictConnectionWizard">Inaktivera giden Internetanslutning</string>
@@ -3086,13 +3120,21 @@ Om du inaktiverar den här principinställningen aktiveras smart bildrastrering.
 
 Om du inte konfigurerar den här principinställningen kan användaren aktivera eller inaktivera smart bildrastrering.</string>
       <string id="SmoothScrolling">Inaktivera mjuk rullning</string>
-      <string id="SmoothScrolling_Explain">Du kan använda den här principinställningen för att bestämma om mjuk rullning ska användas för visning av innehåll, med en fördefinierad hastighet.
+      <string id="SmoothScrolling_Explain">Du kan använda den här principinställningen för att bestämma om mjuk skrollning ska användas för visning av innehåll, med en fördefinierad hastighet.
 
-Om du aktiverar den här principinställningen inaktiveras mjuk rullning. Användaren kan inte aktivera mjuk rullning.
+Om du aktiverar den här principinställningen inaktiveras mjuk skrollning. Användaren kan inte aktivera mjuk skrollning.
 
-Om du inaktiverar den här principinställningen aktiveras mjuk rullning. Användaren kan inte inaktivera mjuk rullning.
+Om du inaktiverar den här principinställningen aktiveras mjuk skrollning. Användaren kan inte inaktivera mjuk skrollning.
 
-Om du inte konfigurerar den här principinställningen kan användaren aktivera eller inaktivera mjuk rullning.</string>
+Om du inte konfigurerar den här principinställningen kan användaren dölja eller visa knappen som öppnar Microsoft Edge från Internet Explorer.</string>
+      <string id="HideNewEdgeButton">Dölj knappen (bredvid knappen Ny flik) som öppnar Microsoft Edge</string>
+      <string id="HideNewEdgeButton_Explain">Med den här principinställningen kan du ange om knappen (bredvid knappen Ny flik) som öppnar Microsoft Edge ska visas för användare.
+
+Om du aktiverar principinställningen döljs knappen som öppnar Microsoft Edge från Internet Explorer.
+
+Om du inaktiverar principinställningen visas knappen som öppnar Microsoft Edge från Internet Explorer.
+
+Om du låter bli att konfigurera principinställningen kan användaren konfigurera knappen som öppnar Microsoft Edge från Internet Explorer.</string>
       <string id="SpecificSearchProvider">Begränsa sökleverantörer till en specifik lista</string>
       <string id="SQM_DisableCEIP">Förhindra deltagande i CEIP (Customer Experience Improvement Program)</string>
       <string id="SUPPORTED_IE4ONLY">Endast Internet Explorer 4.0</string>
@@ -3120,9 +3162,14 @@ Om du inte konfigurerar den här principinställningen kan användaren aktivera 
       <string id="SUPPORTED_IE8">Minst Internet Explorer 8.0</string>
       <string id="SUPPORTED_IE8ONLY">Endast Internet Explorer 8.0</string>
       <string id="SUPPORTED_IE9">Minst Internet Explorer 9.0</string>
+      <string id="SUPPORTED_IE9_IE11NONWIN10">Endast i Internet Explorer 9.0 till 11.0. Stöds inte på Windows 10</string>
       <string id="SUPPORTED_IE10">Minst Internet Explorer 10.0</string>
       <string id="SUPPORTED_IE10WIN8">Minst Internet Explorer 10.0 i Windows 8</string>
       <string id="SUPPORTED_IE11WIN8">Minst Internet Explorer 11.0 på Windows 8.1</string>
+      <string id="SUPPORTED_IE11WIN8ONLY">Endast Internet Explorer 11.0 på Windows 8.1</string>
+      <string id="SUPPORTED_IE11WIN10">Minst Internet Explorer 11.0 på Windows 10</string>
+      <string id="SUPPORTED_IE11WIN10_1607">Minst Internet Explorer 11.0 på Windows 10 version 1607 eller senare</string>
+      <string id="SUPPORTED_IE11WIN10_1703">Minst Internet Explorer 11.0 på Windows 10 version 1703 eller senare</string>
       <string id="SUPPORTED_IE11">Minst Internet Explorer 11.0</string>
       <string id="SUPPORTED_IE7_NONVISTA">Minst Internet Explorer 7.0. Stöds inte i Windows Vista</string>
       <string id="SUPPORTED_IE7VISTA">Minst Internet Explorer 7.0 och Windows Vista</string>
@@ -3174,6 +3221,16 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
       <string id="UTF8URLQuery_Intranet">Koda frågesträngar i UTF-8 enbart i intranät-URL:er</string>
       <string id="UTF8URLQuery_Never">Koda aldrig frågesträngar i UTF-8</string>
       <string id="UTF8URLQuery_NonIntranet">Koda frågesträngar i UTF-8 enbart i icke-intranät-URL:er</string>
+      <string id="TopResult0">Inaktivera sökning med bästa resultat</string>
+      <string id="TopResult1">Aktivera sökning med bästa resultat</string>
+      <string id="TopResultPol">Tillåt inte konfiguration av sökning med bästa resultat i Adressfältet</string>
+      <string id="TopResultPol_Explain">Med den här principinställningen kan du ange om en användare kan visa webbsidan med bästa resultat när sökning i Adressfältet är aktiverat. Möjliga alternativ:
+    • Inaktivera sökning med bästa resultat: När en användare gör en sökning i Adressfältet visas ett sökresultat från den valda sökleverantören i huvudfönstret.
+    • Aktivera sökning med bästa resultat: När en användare gör en sökning i Adressfältet omdirigeras användaren till en extern webbsida med bästa resultat enligt sökleverantören, om den finns.
+
+Om du aktiverar principinställningen kan du välja vart användaren ska dirigeras efter en sökning i Adressfältet: till en webbsida med bästa resultat eller till en webbsida med sökresultat i huvudfönstret.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen kan användaren välja beteendet. Att visa webbsidan med bästa resultat är standard.</string>
       <string id="UseHomePage">Gå direkt till startsidan</string>
       <string id="UseHoverColor">Aktivera alternativet för hovringsfärg</string>
       <string id="UseHoverColor_Explain">Den här principinställningen gör att hyperlänkar ändrar färg när muspekaren placeras över dem.
@@ -3312,18 +3369,18 @@ Om du inaktiverar den här principinställningen tas InPrivate-filtreringsdata b
 
 Om du inte konfigurerar den här principinställningen kan användaren välja om InPrivate-filtreringsdata ska tas bort eller bevaras när han eller hon klickar på Ta bort.</string>
       <string id="IE_ExplainDBHDisableDeleteInPrivateDataV9">I Internet Explorer 9 och Internet Explorer 10:
-Den här principinställningen hindrar användare att ta bort data för ActiveX-filtrering och spårningsskydd, vilket omfattar listan med webbplatser som användaren har valt att inaktivera ActiveX-filtrering eller spårningsskydd för. Dessutom samlas data för spårningsskydd också in om användare aktiverar Anpassad spårningsskyddslista, som blockerar tredjepartsobjekt när användaren surfar på webben.
+Den här principinställningen hindrar användare från att ta bort data för ActiveX-filtrering och spårningsskydd, vilket omfattar listan med webbplatser som användaren har valt att inaktivera ActiveX-filtrering eller spårningsskydd för. Dessutom samlas data för spårningsskydd också in om användare aktiverar Anpassad spårningsskyddslista, som blockerar tredjepartsobjekt när användaren surfar på webben.
 
 Med minst Internet Explorer 11:
-Den här principinställningen hindrar användare att ta bort data för ActiveX-filtrering och spårningsskydd samt Do Not Track-undantag som har lagrats för besökta webbplatser. 
+Den här principinställningen hindrar användare från att ta bort data för ActiveX-filtrering och spårningsskydd samt Do Not Track-undantag som har lagrats för besökta webbplatser.
 
 Funktionen finns tillgänglig i dialogrutan Ta bort webbhistorik.
 
-Om du aktiverar den här principinställningen bevaras data för ActiveX-filtrering, spårningsskydd och Do Not Track när användaren klickar på Ta bort.
+Om du aktiverar principinställningen bevaras data för ActiveX-filtrering, spårningsskydd och Do Not Track när användaren klickar på Ta bort.
 
-Om du inaktiverar den här principinställningen tas data för ActiveX-filtrering, spårningsskydd och Do Not Track bort när användaren klickar på Ta bort.
+Om du inaktiverar principinställningen raderas data för ActiveX-filtrering, spårningsskydd och Do Not Track när användaren klickar på Ta bort.
 
-Om du inte konfigurerar den här principinställningen kan användare aktivera och inaktivera funktionen, för att välja om data för ActiveX-filtrering, spårningsskydd och Do Not Track ska tas bort när han eller hon klickar på Ta bort.</string>
+Om du inte konfigurerar principinställningen kan användare aktivera och inaktivera funktionen för att välja om data för ActiveX-filtrering, spårningsskydd och Do Not Track ska tas bort när han eller hon klickar på Ta bort.</string>
       <string id="IE_ExplainDBHDisableKeepFavorites">Den här principinställningen hindrar användaren från att ta bort favoritdata. Funktionen finns tillgänglig i dialogrutan Ta bort webbhistorik.
 
 Om du aktiverar den här principinställningen bevaras favoritdata när användaren klickar på Ta bort.
@@ -3398,6 +3455,7 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
       <string id="Advanced_FallbackNonProtected">Webbplatser som inte körs i kernelläge</string>
       <string id="Advanced_FallbackAll">Alla webbplatser</string>
       <string id="Advanced_FallbackNone">Inga webbplatser</string>
+      <string id="Advanced_EnableSPDY3_0">Tillåt att Internet Explorer använder nätverksprotokollet SPDY/3</string>
       <string id="Advanced_EnableHTTP2">Tillåt att Internet Explorer använder nätverksprotokollet HTTP2</string>
       <string id="Advanced_SetWinInetProtocols">Inaktivera stöd för kryptering</string>
       <string id="NoPrinting">Inaktivera skriv ut-menyn</string>
@@ -3451,6 +3509,13 @@ Om du aktiverar den här principinställningen använder Internet Explorer HTTP 
 Om du inaktiverar den här principinställningen använder Internet Explorer inte HTTP 1.1 via proxyanslutningar.
 
 Om du inte konfigurerar den här principinställningen kan användaren välja om Internet Explorer ska använda HTTP 1.1 via proxyanslutningar eller inte.</string>
+      <string id="Advanced_ExplainEnableSPDY3_0">Den här principinställningen bestämmer om Internet Explorer ska använda nätverksprotokollet SPDY/3. SPDY/3 fungerar med HTTP-begäranden för att optimera fördröjningen av nätverksbegäranden genom komprimering, multiplexering och prioritering.
+
+Om du aktiverar principinställningen använder Internet Explorer nätverksprotokollet SPDY/3.
+
+Om du inaktiverar principinställningen använder Internet Explorer inte SPDY/3.
+
+Om du låter bli att konfigurera principinställningen kan användarna aktivera eller inaktivera beteendet via Internet Explorers avancerade Internetalternativ. Principinställningen är som standard aktiverad.</string>
       <string id="Advanced_ExplainEnableHTTP2">Den här principinställningen bestämmer om Internet Explorer ska använda nätverksprotokollet HTTP2. HTTP2-begäranden hjälper till att optimera fördröjningen av nätverksbegäranden genom komprimering, multiplexering och prioritering.
 
 Om du aktiverar den här principinställningen använder Internet Explorer nätverksprotokollet HTTP2.
@@ -3466,13 +3531,13 @@ Den här principen påverkar inte vilka säkerhetsprotokoll som är aktiverade.
 
 Om du inaktiverar principen används systemets standardinställningar.
 </string>
-      <string id="Advanced_ExplainSetWinInetProtocols">Du kan använda den här principinställningen för att stänga av stödet för Transport Layer Security (TLS) 1.0, TLS 1.1, TLS 1.2, Secure Sockets Layer (SSL) 2.0 och SSL 3.0 i webbläsaren. TLS och SSL är protokoll som skyddar kommunikationen mellan webbläsaren och målservern. När webbläsaren försöker skapa en säker anslutning till målservern kommer webbläsaren och servern att besluta vilket protokoll och vilken version de ska använda. Webbläsaren och servern försöker matcha varandras listor över protokoll och versioner som stöds och väljer den bästa matchningen.
+      <string id="Advanced_ExplainSetWinInetProtocols">Du kan använda den här principinställningen för att stänga av stödet för Transport Layer Security (TLS) 1.0, TLS 1.1, TLS 1.2, Secure Sockets Layer (SSL) 2.0 och SSL 3.0 i webbläsaren. TLS och SSL är protokoll som skyddar kommunikationen mellan webbläsaren och målservern. När webbläsaren försöker skapa en säker anslutning till målservern kommer webbläsaren och servern att förhandla om vilket protokoll och vilken version de ska använda. Webbläsaren och servern försöker matcha varandras listor över protokoll och versioner som stöds och väljer den bästa matchningen.
 
 Om du aktiverar den här principinställningen kommer webbläsaren att förhandla eller inte förhandla om en krypteringstunnel med hjälp av de krypteringsmetoder som du väljer i listrutan.
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användaren välja vilken krypteringsmetod som ska stödas av webbläsaren.
 
-Obs! SSL 2.0 är inaktiverat som standard. SSL 2.0 är ett omodernt säkerhetsprotokoll och om du aktiverar SSL 2.0 kommer det leda till försämrade prestanda och sämre funktionalitet för TLS 1.0.</string>
+Obs! SSL 2.0 är inaktiverat som standard och stöds inte längre från och med Windows 10 version 1607. SSL 2.0 är ett omodernt säkerhetsprotokoll och om du aktiverar SSL 2.0 kommer det att leda till försämrade prestanda och sämre funktionalitet för TLS 1.0.</string>
       <string id="IE_ExplainNoPrinting">Den här principinställningen ger dig möjlighet att kontrollera om användare kan komma åt Skriv ut-menyn. Från och med Windows 8 kan du med den här principinställningen ange om användare ska få tillgång till den utfällbara Skriv ut-menyn för Internet Explorer och skrivare under snabbknappen Enheter.
 
 Om du aktiverar den här principinställningen kommer Skriv ut-menyn i Internet Explorer inte att vara tillgänglig. Från och med Windows 8 är den utfällbara Skriv ut-menyn för Internet Explorer inte tillgänglig och användare kommer inte att se skrivare under snabbknappen Enheter.
@@ -3505,11 +3570,13 @@ För minst Internet Explorer 11:
 Om du inaktiverar den här principinställningen skickar Internet Explorer endast Do Not Track-huvud om läget InPrivate-surfning används.
 
 Om du inte konfigurerar den här principinställningen kan användare välja alternativet Skicka alltid Do Not Track-huvud i inställningarna för Internet Explorer. När du väljer det här alternativet skickar Internet Explorer ett DNT:1-huvud med alla HTTP- och HTTPS-begäranden, såvida du inte beviljar ett webbplatsspecifikt undantag. Internet Explorer skickar ett DNT:0-huvud till alla webbplatser som har beviljats ett undantag. Alternativet är aktiverat som standard.</string>
-      <string id="Content_ExplainShowContentAdvisor">Den här principinställningen visar inställningen Klassificering av innehåll på fliken Innehåll i dialogrutan Internetalternativ.
+      <string id="Content_ExplainShowContentAdvisor">Den här principinställningen visar inställningen Klassificering av innehåll.
 
 Om du aktiverar den här principinställningen visas inställningen Klassificering av innehåll på fliken Innehåll i dialogrutan Internetalternativ i Internet Explorer. Användare kan ändra inställningar för Klassificering av innehåll.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen visas inte inställningen Klassificering av innehåll på fliken Innehåll i dialogrutan Internetalternativ i Internet Explorer.</string>
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen visas inte inställningen Klassificering av innehåll.
+
+Obs! Den här principen stöds inte längre från och med Windows 10 version 1607.</string>
       <string id="Protocols_None">Använd inte säkra protokoll</string>
       <string id="Protocols_SSL2">Använd endast SSL 2.0</string>
       <string id="Protocols_SSL3">Använd endast SSL 3.0</string>
@@ -3547,6 +3614,7 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
       <string id="NewTab_AboutBlank">about:blank</string>
       <string id="NewTab_AboutTabs">Ny fliksida</string>
       <string id="NewTab_Homepage">Startsida</string>
+      <string id="NewTab_AboutNewsFeed">Sidan Ny flik med min nyhetsfeed</string>
       <string id="NewTabAction">Ange standardbeteende för en ny flik</string>
       <string id="SecondaryHomePages">Inaktivera funktionen att ställa in en andra startsida</string>
       <string id="SetCommandLabels">Anpassa kommandoetiketter</string>
@@ -3589,9 +3657,9 @@ Om du inaktiverar den här principinställningen placeras knapparna Stoppa och U
 Om du inte konfigurerar den här principinställningen placeras knapparna Stoppa och Uppdatera bredvid adressfältet som standard och användaren kan välja att flytta dem.</string>
       <string id="IE_ExplainNewTabAction">Med den här principinställningen kan du ange vad som visas när användaren öppnar en ny flik.
 
-Om du aktiverar den här principinställningen kan du välja vilken sida som ska visas när användaren öppnar en ny flik: en tom sida (about:blank), den första startsidan eller en ny fliksida.
+Om du aktiverar den här principinställningen kan du välja vilken sida som ska visas när användaren öppnar en ny flik: en tom sida (about:blank), den första startsidan, sidan Ny flik eller sidan Ny flik med min nyhetsfeed.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användaren välja inställning för det här beteendet. Standardinställningen är den nya fliksidan.</string>
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användaren välja inställning.</string>
       <string id="IE_ExplainSecondaryHomePages">Sekundära startsidor är webbplatser som Internet Explorer som standard läser in när det startas, men i separata flikar. Den här principinställningen gör det möjligt att ställa in vilka sekundära startsidor som ska vara standard.
 
 Om du aktiverar den här principinställningen kan du ange vilka startsidor som ska läsas in som sekundära startsidor. Användaren kan inte anpassa de sekundära startsidorna.
@@ -3839,6 +3907,34 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
 Om du aktiverar principinställningen kan användarna se och använda alternativet Företagsläge på Verktyg-menyn. Om du aktiverar inställningen men inte anger någon rapportplats är alternativet Företagsläge fortfarande tillgängligt för användarna, men du får inga rapporter.
 
 Om du inaktiverar eller inte konfigurerar principinställningen visas inte menyalternativet och användarna kan inte köra webbplatser i företagsläget.</string>
+      <string id="RestrictInternetExplorer">Skicka alla webbplatser som inte ingår i listan över webbplatser i företagsläge till Microsoft Edge.</string>
+      <string id="IE_ExplainRestrictInternetExplorer">Med den här principinställningen kan du ange om alla webbplatser som inte ingår i listan över webbplatser i företagsläge ska öppnas i Microsoft Edge. Om du använder den här principinställningen måste du även aktivera principinställningen Administrativa mallar\Windows-komponenter\Internet Explorer\Använd listan över webbplatser i företagsläget, och du måste lägga till minst en webbplats i den listan.
+
+Om du aktiverar den här inställningen öppnas alla webbplatser som inte ingår i listan över webbplatser i företagsläge i Microsoft Edge.
+
+Om du inaktiverar eller låter bli att konfigurera den öppnas alla webbplatser baserat på den webbläsare som är aktiv.
+
+Obs! Om du även aktiverar principinställningen Administrativa mallar\Windows-komponenter\Microsoft Edge\Skicka alla intranätplatser till Internet Explorer 11 fortsätter alla intranätplatser att öppnas i Internet Explorer 11.</string>
+      <string id="ShowMessageWhenOpeningSitesInMicrosoftEdge">Visa ett meddelande när webbplatser i Microsoft Edge öppnas i företagsläge</string>
+      <string id="IE_ExplainShowMessageWhenOpeningSitesInMicrosoftEdge">Med den här principinställningen anger du om en extra sida i Internet Explorer 11 ska visas för anställda som indikerar att en webbplats har öppnats med Microsoft Edge i företagsläge.
+
+Om du aktiverar inställningen visas en extra sida i Internet Explorer 11 som indikerar att en webbplats har öppnats med Microsoft Edge i företagsläge.
+
+Om du inaktiverar eller låter bli att konfigurera inställningen visas ingen extra sida.</string>
+      <string id="KeepIntranetSitesInInternetExplorer">Behåll alla intranätplatser i Internet Explorer</string>
+      <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Förhindrar att webbplatser öppnas i andra webbläsare än Internet Explorer. Observera att den här principen har ingen verkan om principen Skicka alla webbplatser som inte ingår i listan över webbplatser i företagsläge till Microsoft Edge (RestrictIE) inte är aktiverad.
+
+Om du aktiverar den här principen öppnas alla intranätplatser i Internet Explorer 11. De enda undantagen är webbplatserna i listan över webbplatser i företagsläge.
+
+Om du inaktiverar eller låter bli att konfigurera den här principen öppnas alla intranätplatser automatiskt i Microsoft Edge.
+
+Vi rekommenderar att du håller den här principen i synk med principen Skicka alla intranätplatser till Internet Explorer (SendIntranetToInternetExplorer). Det är också bäst att bara aktivera den här principen om dina intranätplatser har kända kompatibilitetsproblem med Microsoft Edge.
+
+Relaterade principer:
+- Skicka alla intranätplatser till Internet Explorer (SendIntranetToInternetExplorer)
+- Skicka alla webbplatser som inte ingår i listan över webbplatser i företagsläge till Microsoft Edge (RestrictIE)
+
+Mer information om hur du använder den här principen ihop med andra relaterade principer för att skapa den optimala konfigurationen för din organisation hittar du i https://go.microsoft.com/fwlink/?linkid=2094210.</string>
       <string id="VerMgmtDisable">Inaktivera blockering av inaktuella ActiveX-kontroller för Internet Explorer</string>
       <string id="IE_ExplainVerMgmtDisable">Den här principinställningen anger om Internet Explorer blockerar specifika inaktuella ActiveX-kontroller. Inaktuella ActiveX-kontroller blockeras aldrig i zonen Intranät.
 
@@ -3979,9 +4075,11 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
 
 Om du aktiverar den här principinställningen aktiveras automatiska uppgraderingar av Internet Explorer.
 
-Om du inaktiverar den här principinställningen inaktiveras automatiska uppgraderingar av Internet Explorer.
+Om du inaktiverar principinställningen inaktiveras automatiska uppgraderingar av Internet Explorer.
 
-Om du inte konfigurerar den här principinställningen kan användaren aktivera eller inaktivera automatiska uppdateringar i dialogrutan Om Internet Explorer.</string>
+Om du inte konfigurerar principinställningen kan användaren aktivera eller inaktivera automatiska uppdateringar i dialogrutan Om Internet Explorer.
+
+Obs! Den här principen är inaktuell från och med Windows 10 version 1703.</string>
       <string id="TurnOffFormatDetectionPhone">Inaktivera identifiering av telefonnummer</string>
       <string id="TurnOffFormatDetectionPhone_Explain">Den här principinställningen bestämmer om telefonnummer identifieras och görs om till hyperlänkar som kan användas för att anropa systemets standardtelefonprogram.
 
@@ -4023,13 +4121,21 @@ För att ange vilka zoner som omfattas av webbplatsidentifieringsfunktionen bild
 	• 1 - Zonen Betrodda platser
 	• 1 - Zonen Lokalt intranät
 	• 0 - Zonen Lokal dator
-• 22 - Endast zonerna Betrodda platser, Intranät och Ej betrodda platser 
+• 22 - Endast zonerna Betrodda platser, Intranät och Ej betrodda platser
   Binär representation - 10110
 	• 1 - Zonen Ej betrodda platser
 	• 0 - Zonen Internet
 	• 1 - Zonen Betrodda platser
 	• 1 - Zonen Lokalt intranät
 	• 0 - Zonen Lokal dator</string>
+      <string id="VersionListAutomaticDownloadDisable">Inaktivera automatisk nedladdning av ActiveX VersionList</string>
+      <string id="IE_Explain_VersionListAutomaticDownloadDisable">Den här inställningen anger om IE automatiskt laddar ned uppdaterade versioner av Microsofts VersionList.XML. IE använder den här filen för att avgöra om en ActiveX-kontroll ska hindras från att läsas in.
+
+Om du aktiverar inställningen stoppar IE nedladdningen av uppdaterade versioner av VersionList.XML. När automatisk nedladdning inaktiveras blockeras inte inaktuella ActiveX-kontroller på grund av att versionslistan inte uppdateras med nya inaktuella kontroller. Detta kan potentiellt utgöra en säkerhetsrisk för datorn.
+
+Om du inaktiverar eller låter bli att konfigurera inställningen fortsätter IE ladda ned uppdaterade versioner av VersionList.XML.
+
+Mer information finns på sidan Out-of-date ActiveX control blocking i TechNet-biblioteket för Internet Explorer.</string>
     </stringTable>
     <presentationTable>
       <presentation id="VerMgmtDomainAllowlist_1">
@@ -4129,6 +4235,12 @@ För att ange vilka zoner som omfattas av webbplatsidentifieringsfunktionen bild
       </presentation>
       <presentation id="IZ_PolicyOnlyAllowApprovedDomainsToUseActiveXWithoutPrompt_DefaultOff">
         <dropdownList refId="IZ_Partname120b" noSort="true" defaultItem="1">Tillåt endast godkända domäner att använda ActiveX-kontroller utan varning</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowTDCControl_DefaultOn">
+        <dropdownList refId="IZ_Partname120c" noSort="true" defaultItem="0">Tillåt endast godkända domäner att använda TDC ActiveX-kontrollen</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowTDCControl_DefaultOff">
+        <dropdownList refId="IZ_Partname120c" noSort="true" defaultItem="1">Tillåt endast godkända domäner att använda TDC ActiveX-kontrollen</dropdownList>
       </presentation>
       <presentation id="IZ_Policy_AllowDynsrcPlayback_1">
         <dropdownList refId="IZ_Partname120A" noSort="true" defaultItem="0">Tillåt video och animeringar på en webbsida som använder en äldre mediespelare</dropdownList>
@@ -4457,6 +4569,15 @@ För att ange vilka zoner som omfattas av webbplatsidentifieringsfunktionen bild
       <presentation id="IZ_PolicyZoneElevationURLaction_5">
         <dropdownList refId="IZ_Partname2101" noSort="true" defaultItem="2">Webbplatser i zoner med lägre privilegier kan navigera till den här zonen</dropdownList>
       </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_1">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="0">Tillåt körning av VBScript i Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_2">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="1">Tillåt körning av VBScript i Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_3">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="2">Tillåt körning av VBScript i Internet Explorer</dropdownList>
+      </presentation>
       <presentation id="IZ_Zonemaps_1">
         <listBox refId="IZ_ZonemapPrompt">Ange zontilldelning här.</listBox>
       </presentation>
@@ -4584,6 +4705,9 @@ För att ange vilka zoner som omfattas av webbplatsidentifieringsfunktionen bild
         <checkBox refId="Btn_Paste">Visa knappen Klistra in</checkBox>
         <checkBox refId="Btn_Encoding">Visa knappen Kodning</checkBox>
       </presentation>
+      <presentation id="TopResultPol">
+        <dropdownList refId="TopResult" noSort="true" defaultItem="0">Vid sökning från Adressfältet:</dropdownList>
+      </presentation>
       <presentation id="UnderlineLinksPol">
         <dropdownList refId="UnderlineLinks" noSort="true" defaultItem="0">Stryk under länkar</dropdownList>
       </presentation>
@@ -4613,7 +4737,7 @@ För att ange vilka zoner som omfattas av webbplatsidentifieringsfunktionen bild
         <dropdownList refId="Advanced_EnableSSL3FallbackOptions" noSort="true" defaultItem="0">Tillåt användning av osäkert alternativ i reserv:</dropdownList>
       </presentation>
       <presentation id="NewTabAction_1">
-        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="2">Nytt flikbeteende</dropdownList>
+        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="0">Nytt flikbeteende</dropdownList>
       </presentation>
       <presentation id="SecondaryHomePages">
         <listBox refId="SecondaryHomePagesList">Sekundära startsidor</listBox>

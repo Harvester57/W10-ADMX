@@ -72,12 +72,34 @@ Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, syste
 
 Porada: aby znaleźć foldery wskazane przez zmienną środowiskową Path, należy kliknąć ikonę System w Panelu sterowania, kliknąć kartę Zaawansowane, kliknąć przycisk Zmienne środowiskowe, a następnie w polu Zmienne systemowe kliknąć zmienną Path.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Automatycznie zaloguj ostatniego użytkownika interakcyjnego po ponownym uruchomieniu zainicjowanym przez system</string>
-      <string id="AutomaticRestartSignOnDescription_Help">To ustawienie zasad steruje tym, czy urządzenie automatycznie zaloguje ostatniego użytkownika interakcyjnego po ponownym uruchomieniu systemu przez usługę Windows Update.
+      <string id="AutomaticRestartSignOnDescription">Automatycznie zaloguj i zablokuj ostatniego użytkownika interakcyjnego po ponownym uruchomieniu</string>
+      <string id="AutomaticRestartSignOnDescription_Help">To ustawienie zasad określa, czy urządzenie będzie automatycznie logować i blokować ostatniego użytkownika interakcyjnego po ponownym uruchomieniu systemu albo po zamknięciu systemu i wykonaniu zimnego rozruchu.
 
-Jeśli to ustawienie zasad zostanie włączone lub nie zostanie skonfigurowane, urządzenie bezpiecznie zapisze poświadczenia użytkownika (w tym nazwę użytkownika, domenę i zaszyfrowane hasło) w celu skonfigurowania automatycznego logowania po ponownym uruchomieniu systemu przez usługę Windows Update. Po ponownym uruchomieniu systemu Windows użytkownik zostanie automatycznie zalogowany i sesja zostanie automatycznie zablokowana ze wszystkimi aplikacjami ekranu blokady skonfigurowanymi dla tego użytkownika.
+Ma to miejsce tylko wtedy, gdy ostatni użytkownik interakcyjny nie wylogował się przed ponownym uruchomieniem lub zamknięciem systemu.
 
-Jeśli to ustawienie zasad zostanie wyłączone, urządzenie nie zapisze poświadczeń użytkownika na potrzeby automatycznego logowania po ponownym uruchomieniu systemu przez usługę Windows Update. Aplikacje ekranu blokady użytkownika nie zostaną ponownie uruchomione po ponownym uruchomieniu systemu.</string>
+Jeśli urządzenie jest dołączone do usługi Active Directory lub Azure Active Directory, ta zasada jest stosowana tylko w przypadku ponownych uruchomień zainicjowanych przez usługę Windows Update. W przeciwnym razie będzie stosowana zarówno do ponownych uruchomień zainicjowanych przez usługę Windows Update, jak i do ponownych uruchomień i zamknięć systemu zainicjowanych przez użytkownika.
+
+Jeśli nie skonfigurujesz tego ustawienia zasad, będzie ono włączone domyślnie. Gdy ta zasada będzie włączona, po rozruchu urządzenia użytkownik będzie automatycznie logowany, a sesja będzie automatycznie blokowana ze wszystkimi aplikacjami ekranu blokady skonfigurowanymi dla tego użytkownika.
+
+Po włączeniu tej zasady możesz skonfigurować jej ustawienia, używając zasady ConfigAutomaticRestartSignOn, która umożliwia skonfigurowanie trybu automatycznego logowania i blokowania ostatniego użytkownika interakcyjnego po ponownym uruchomieniu lub zimnym rozruchu.
+
+Jeśli wyłączysz to ustawienie zasad, urządzenie nie skonfiguruje automatycznego logowania. Aplikacje ekranu blokady użytkownika nie będą uruchamiane ponownie po ponownym uruchomieniu systemu.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Konfiguruj tryb automatycznego logowania i blokowania ostatniego użytkownika interakcyjnego po ponownym uruchomieniu lub zimnym rozruchu</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">To ustawienie zasad określa konfigurację, zgodnie z którą po ponownym uruchomieniu lub zimnym rozruchu jest wykonywane logowanie i blokowanie. Jeśli wybierzesz wartość „Wyłączone” w zasadzie „Automatycznie zaloguj i zablokuj ostatniego użytkownika interakcyjnego po ponownym uruchomieniu”, automatyczne logowanie nie będzie wykonywane i nie trzeba będzie konfigurować tej zasady.
+
+Jeśli włączysz to ustawienie zasad, będziesz mieć możliwość wybrania jednej z następujących dwóch opcji:
+
+1. Wartość „Włączone, jeśli funkcja BitLocker jest włączona i nie wstrzymano jej działania” określa, że automatyczne logowanie i blokowanie będzie wykonywane tylko wtedy, gdy funkcja BitLocker będzie aktywna, a jej działanie nie będzie wstrzymane podczas ponownego rozruchu lub zamknięcia systemu. W tym czasie można uzyskać dostęp do danych osobistych na dysku twardym urządzenia, jeśli funkcja BitLocker nie jest włączona lub jej działanie nie jest wstrzymane podczas aktualizacji. Wstrzymanie działania funkcji BitLocker powoduje tymczasowe usunięcie ochrony składników systemu i danych, ale może być wymagane w pewnych okolicznościach w celu pomyślnego zaktualizowania składników niezbędnych do przeprowadzenia rozruchu.
+     Działanie funkcji BitLocker jest wstrzymywane podczas aktualizacji, jeśli:
+       - urządzenie nie ma modułu TPM 2.0 i funkcji PCR7 lub
+       - urządzenie nie używa funkcji ochrony opartej wyłącznie na module TPM
+2. Wartość „Zawsze włączone” określa, że automatyczne logowanie będzie wykonywane, nawet jeśli funkcja BitLocker będzie wyłączona lub jej działanie będzie wstrzymane podczas ponownego rozruchu lub zamknięcia systemu. Gdy funkcja BitLocker nie jest włączona, dane osobiste są dostępne na dysku twardym. Automatyczne ponowne uruchamianie oraz logowanie powinno być wykonywane tylko wtedy, gdy masz pewność, że skonfigurowane urządzenie znajduje się w bezpiecznej lokalizacji.
+
+Jeśli wyłączysz to ustawienia albo go nie skonfigurujesz, funkcja automatycznego logowania będzie mieć domyślnie zachowanie „Włączone, jeśli funkcja BitLocker jest włączona i nie wstrzymano jej działania”.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Włączone, jeśli funkcja BitLocker jest włączona i nie wstrzymano jej działania</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Zawsze włączone</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Jeśli to ustawienie zasad zostanie wyłączone, urządzenie nie zapisze poświa
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Określ, jakie oprogramowanie może generować sekwencję SAS</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Konfiguruj tryb automatycznego logowania i blokowania ostatniego użytkownika interakcyjnego po ponownym uruchomieniu lub zimnym rozruchu</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

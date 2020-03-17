@@ -45,7 +45,7 @@ Note: Only one of the additional authentication options can be required at start
 
 If you want to use BitLocker on a computer without a TPM, select the "Allow BitLocker without a compatible TPM" check box. In this mode either a password or a USB drive is required for start-up. When using a startup key, the key information used to encrypt the drive is stored on the USB drive, creating a USB key. When the USB key is inserted the access to the drive is authenticated and the drive is accessible. If the USB key is lost or unavailable or if you have forgotten the password then you will need to use one of the BitLocker recovery options to access the drive.
 
-On a computer with a compatible TPM, four types of authentication methods can be used at startup to provide added protection for encrypted data. When the computer starts, it can use only the TPM for authentication, or it can also require insertion of a USB flash drive containing a startup key, the entry of a 4-digit to 20-digit personal identification number (PIN), or both.
+On a computer with a compatible TPM, four types of authentication methods can be used at startup to provide added protection for encrypted data. When the computer starts, it can use only the TPM for authentication, or it can also require insertion of a USB flash drive containing a startup key, the entry of a 6-digit to 20-digit personal identification number (PIN), or both.
 
 If you enable this policy setting, users can configure advanced startup options in the BitLocker setup wizard.
 
@@ -274,9 +274,15 @@ Important: This group policy only applies to computers with a native UEFI firmwa
 
 If you enable this policy setting before turning on BitLocker, you can configure the boot components that the TPM will validate before unlocking access to the BitLocker-encrypted operating system drive. If any of these components change while BitLocker protection is in effect, the TPM will not release the encryption key to unlock the drive and the computer will instead display the BitLocker Recovery console and require that either the recovery password or recovery key be provided to unlock the drive.
 
-If you disable or do not configure this policy setting, BitLocker uses the default platform validation profile or the platform validation profile specified by the setup script. A platform validation profile consists of a set of Platform Configuration Register (PCR) indices ranging from 0 to 23. The default platform validation profile secures the encryption key against changes to the core system firmware executable code (PCR 0), extended or pluggable executable code (PCR 2), boot manager (PCR 4), and the BitLocker access control (PCR 11).
+If you disable or do not configure this policy setting, BitLocker uses the default platform validation profile for the available hardware or the platform validation profile specified by the setup script. A platform validation profile consists of a set of Platform Configuration Register (PCR) indices ranging from 0 to 23. 
+
+On PCs that lack Secure Boot State (PCR 7) support, the default platform validation profile secures the encryption key against changes to the core system firmware executable code (PCR 0), extended or pluggable executable code (PCR 2), boot manager (PCR 4), and the BitLocker access control (PCR 11).
+
+When Secure Boot State (PCR7) support is available, the default platform validation profile secures the encryption key using Secure Boot State (PCR 7) and the BitLocker access control (PCR 11). 
 
 Warning: Changing from the default platform validation profile affects the security and manageability of your computer. BitLocker's sensitivity to platform modifications (malicious or authorized) is increased or decreased depending upon inclusion or exclusion (respectively) of the PCRs. Specifically, setting this policy with PCR 7 omitted, will override the "Allow Secure Boot for integrity validation" group policy, preventing BitLocker from using Secure Boot for platform or Boot Configuration Data (BCD) integrity validation. Setting this policy may result in BitLocker recovery when firmware is updated. If you set this policy to include PCR 0, suspend BitLocker prior to applying firmware updates.
+
+It is recommended to not configure this policy, to allow Windows to select the PCR profile for the best combination of security and usability based on the available hardware on each PC.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configure TPM platform validation profile for native UEFI firmware configurations</string>
@@ -289,6 +295,13 @@ If you disable or do not configure this policy setting, BitLocker secrets are re
 
       </string>
       <string id="MorBehavior_Name">Prevent memory overwrite on restart</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">This policy setting allows you to block direct memory access (DMA) for all Thunderbolt hot pluggable PCI downstream ports until a user logs into Windows. Once a user logs in, Windows will enumerate the PCI devices connected to the host Thunderbolt PCI ports. Every time the user locks the machine, DMA will be blocked on hot plug Thunderbolt PCI ports with no children devices, until the user logs in again. Devices which were already enumerated when the machine was unlocked will continue to function until unplugged or the system is rebooted or hibernated. This policy setting is only enforced when BitLocker or device encryption is enabled.
+
+Note: Some PCs may not be compatible with this policy if the system firmware enables DMA for newly attached Thunderbolt devices before exposing the new devices to Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Disable new DMA devices when this computer is locked</string>
 
       <string id="FVEOSCategory">Operating System Drives</string>
       <string id="FVEFDVCategory">Fixed Data Drives</string>
@@ -346,11 +359,14 @@ The setting that controls boot debugging (0x16000010) will always be validated a
 
 
       <string id="MinimumPINLength_Name">Configure minimum PIN length for startup</string>
-      <string id="MinimumPINLength_Help">This policy setting allows you to configure a minimum length for a Trusted Platform Module (TPM) startup PIN. This policy setting is applied when you turn on BitLocker. The startup PIN must have a minimum length of 4 digits and can have a maximum length of 20 digits.
+      <string id="MinimumPINLength_Help">
+          This policy setting allows you to configure a minimum length for a Trusted Platform Module (TPM) startup PIN. This policy setting is applied when you turn on BitLocker. The startup PIN must have a minimum length of 4 digits and can have a maximum length of 20 digits.
 
-If you enable this policy setting, you can require a minimum number of digits to be used when setting the startup PIN.
+          If you enable this policy setting, you can require a minimum number of digits to be used when setting the startup PIN.
 
-If you disable or do not configure this policy setting, users can configure a startup PIN of any length between 4 and 20 digits.
+          If you disable or do not configure this policy setting, users can configure a startup PIN of any length between 6 and 20 digits.
+
+          NOTE: If minimum PIN length is set below 6 digits, Windows will attempt to update the TPM 2.0 lockout period to be greater than the default when a PIN is changed. If successful, Windows will only reset the TPM lockout period back to default if the TPM is reset.
 
       </string>
 
@@ -579,7 +595,7 @@ If you enable this policy setting, you can specify additional options that contr
 
 If you disable this policy setting, BitLocker cannot use hardware-based encryption with operating system drives and BitLocker software-based encryption will be used by default when the drive is encrypted.
 
-If you do not configure this policy setting, BitLocker will use hardware-based encryption with the encryption algorithm set for the drive. If hardware-based encryption is not available BitLocker software-based encryption will be used instead.
+If you do not configure this policy setting, BitLocker will use software-based encryption irrespective of hardware-based encryption availability.
 
 Note: The “Choose drive encryption method and cipher strength” policy setting does not apply to hardware-based encryption. The encryption algorithm used by hardware-based encryption is set when the drive is partitioned. By default, BitLocker uses the algorithm configured on the drive to encrypt the drive. The “Restrict encryption algorithms and cipher suites allowed for hardware-based encryption” option enables you to restrict the encryption algorithms that BitLocker can use with hardware encryption. If the algorithm set for the drive is not available, BitLocker will disable the use of hardware-based encryption.
 Encryption algorithms are specified by object identifiers (OID). For example:
@@ -593,7 +609,7 @@ If you enable this policy setting, you can specify additional options that contr
 
 If you disable this policy setting, BitLocker cannot use hardware-based encryption with operating system drives and BitLocker software-based encryption will be used by default when the drive is encrypted.
 
-If you do not configure this policy setting, BitLocker will use hardware-based encryption with the encryption algorithm set for the drive. If hardware-based encryption is not available BitLocker software-based encryption will be used instead.
+If you do not configure this policy setting, BitLocker will use software-based encryption irrespective of hardware-based encryption availability.
 
 Note: The “Choose drive encryption method and cipher strength” policy setting does not apply to hardware-based encryption. The encryption algorithm used by hardware-based encryption is set when the drive is partitioned. By default, BitLocker uses the algorithm configured on the drive to encrypt the drive. The “Restrict encryption algorithms and cipher suites allowed for hardware-based encryption” option enables you to restrict the encryption algorithms that BitLocker can use with hardware encryption. If the algorithm set for the drive is not available, BitLocker will disable the use of hardware-based encryption.
 Encryption algorithms are specified by object identifiers (OID). For example:
@@ -607,7 +623,7 @@ If you enable this policy setting, you can specify additional options that contr
 
 If you disable this policy setting, BitLocker cannot use hardware-based encryption with operating system drives and BitLocker software-based encryption will be used by default when the drive is encrypted.
 
-If you do not configure this policy setting, BitLocker will use hardware-based encryption with the encryption algorithm set for the drive. If hardware-based encryption is not available BitLocker software-based encryption will be used instead.
+If you do not configure this policy setting, BitLocker will use software-based encryption irrespective of hardware-based encryption availability.
 
 Note: The “Choose drive encryption method and cipher strength” policy setting does not apply to hardware-based encryption. The encryption algorithm used by hardware-based encryption is set when the drive is partitioned. By default, BitLocker uses the algorithm configured on the drive to encrypt the drive. The “Restrict encryption algorithms and cipher suites allowed for hardware-based encryption” option enables you to restrict the encryption algorithms that BitLocker can use with hardware encryption. If the algorithm set for the drive is not available, BitLocker will disable the use of hardware-based encryption.
 Encryption algorithms are specified by object identifiers (OID). For example:
@@ -628,6 +644,14 @@ Note that if you do not enable this policy setting, options in the "Require addi
 - Configure TPM startup PIN: Required/Allowed
 - Configure TPM startup key and PIN: Required/Allowed
 - Configure use of passwords for operating system drives.
+      </string>
+
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Allow devices compliant with InstantGo or HSTI to opt out of pre-boot PIN.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">This policy setting allows users on devices that are compliant with InstantGo or Microsoft Hardware Security Test Interface (HSTI) to not have a PIN for pre-boot authentication. This overrides the "Require startup PIN with TPM" and "Require startup key and PIN with TPM" options of the "Require additional authentication at startup" policy on compliant hardware.
+
+If you enable this policy setting, users on InstantGo and HSTI compliant devices will have the choice to turn on BitLocker without pre-boot authentication.
+
+If this policy is not enabled, the options of "Require additional authentication at startup" policy apply.
       </string>
 
       <string id="AllowSecureBootForIntegrity_Name">Allow Secure Boot for integrity validation</string>
@@ -906,7 +930,7 @@ Note: Not all characters and languages are supported in pre-boot. It is strongly
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Minimum characters:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Minimum characters:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

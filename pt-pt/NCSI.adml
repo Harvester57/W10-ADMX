@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Esta definição de política permite-lhe especificar o URL HTTPS do Web site empresarial que os clientes utilizam para determinar a localização de domínio atual (isto é, se o computador está dentro ou fora da rede empresarial). A acessibilidade do destino do URL indica que a localização do cliente está dentro da rede empresarial, caso contrário, está fora da rede.</string>
       <string id="NCSI_PassivePolling">Especifique consulta passiva</string>
       <string id="NCSI_PassivePolling_Help">Esta definição de política permite-lhe especificar um comportamento de consulta passiva. O NCSI consulta várias medidas na pilha de rede com um intervalo frequente para determinar se houve perda da conectividade de rede.  Utilize as opções para controlar o comportamento de consulta passiva.</string>
+      <string id="NCSI_GlobalDns">Especificar DNS global</string>
+      <string id="NCSI_GlobalDns_Help">Esta definição de política permite-lhe especificar o comportamento de vínculo DNS. O NCSI irá restringir por predefinição as pesquisas de DNS na interface que está a pesquisar atualmente. Caso ative esta definição, o NCSI permitirá as pesquisas de DNS em qualquer interface.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>A seguinte caixa de verificação desativa o mecanismo de consulta passiva no NCSI.   Isto pode melhorar a carga de trabalho da CPU nos servidores ou noutros computadores cuja conectividade de rede seja estática.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Desativar consulta passiva</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>A seguinte caixa de verificação desativa o vínculo de interfaces durante pesquisas de DNS no NCSI. Isto pode fazer com que o NCSI funcione melhor com configurações de rede especiais, tais como um servidor DNS a ser executado em localhost.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Utilizar DNS global</checkBox>
       </presentation>
     </presentationTable>
   </resources>

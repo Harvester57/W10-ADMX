@@ -506,11 +506,11 @@ Obs!  Hvis et tillegg er oppført i policyinnstillingen Liste over tillegg, kan 
 Hvis du aktiverer denne policyen, vil et krasj i Internet Explorer behandles på samme måte som i Windows XP Professional Service Pack 1 eller tidligere, ved at Windows-feilrapportering startes. Alle policyinnstillinger for Windows-feilrapportering vil fortsatt være aktive.
 
 Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vil funksjonen for krasjgjenkjenning være aktivert.</string>
-      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Denne policyinnstillingen lar deg angi om brukerne skal kunne tillate eller blokkere tillegg via Behandling av tillegg.
+      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Denne policyinnstillingen lar deg administrere om brukere har muligheten til å tillate eller nekte tillegg via behandling av tillegg.
 
-Hvis du aktiverer denne policyinnstillingen, kan ikke brukerne aktivere eller deaktivere tillegg via Behandling av tillegg. Det eneste unntaket er hvis et tillegg har blitt angitt spesifikt i policyinnstillingen Liste over tillegg for å tillate brukerne å fortsette å behandle tillegget. Brukerne kan i dette tilfellet behandle tillegget via Behandling av tillegg.
+Hvis du aktiverer denne policyinnstillingen, kan brukere aktivere eller deaktivere tillegg via behandling av tillegg.
 
-Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vil de aktuelle kontrollene i Behandling av tillegg ikke være tilgjengelige for brukeren.</string>
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vil respektive kontroller i behandling av tillegg blir tilgjengelig for brukeren.</string>
       <string id="IE_ExplainAddSearchProvider">Med denne policyinnstillingen kan du legge til en bestemt liste over søkeleverandører i brukerens standardliste over søkeleverandører. Søkeleverandører kan vanligvis legges til fra tredjeparters verktøylinjer eller i Installasjon. Brukeren kan også legge til en søkeleverandør fra leverandørens webområde.
 
 Hvis du aktiverer denne policyinnstillingen, kan brukeren legge til og fjerne søkeleverandører, men bare fra søkeleverandørsettet som er spesifisert i listen over policynøkler for søkeleverandører (finnes under [HKCU eller HKLM\Software\Policies\Microsoft\Internet Explorer\SearchScopes]). Obs!  Denne listen kan opprettes via en egendefinert administrativ malfil. Hvis du vil ha informasjon om oppretting av denne egendefinerte administrative malfilen, kan du se dokumentasjon om søkeleverandører i Internet Explorer.
@@ -2850,20 +2850,20 @@ Hvis du deaktiverer denne policyinnstillingen, kan ikke brukerne beholde informa
 
 Hvis du ikke konfigurerer denne policyinnstillingen, kan brukerne beholde informasjon i leserens logg, i favoritter, i et XML-lager eller direkte i en webside lagret på disken.</string>
       <string id="IZ_PolicyWindowsRestrictionsURLaction">Tillat skriptstartede vinduer uten størrelses- eller posisjonsbegrensninger</string>
-      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultDisable">Denne policyinnstillingen lar deg administrere begrensninger for skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer.
+      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultDisable">Med denne policyinnstillingen kan du administrere begrensninger for skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer.
 
 Hvis du aktiverer denne policyinnstillingen, vil Windows begrensningssikkerhet ikke være aktivert i denne sonen. Sikkerhetssonen kjører uten den ekstra sikkerheten denne sikkerhetsfunksjonen tilbyr.
 
 Hvis du deaktiverer denne policyinnstillingen, kan potensielle farlige handlinger i skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer, ikke kjøres. Denne sikkerhetsfunksjonen for Internet Explorer vil være aktivert i denne sonen som angitt i sikkerhetsbegrensningskontrollen for skriptede vinduer for prosessen.
 
 Hvis du ikke konfigurerer denne policyinnstillingen, kan potensielle farlige handlinger i skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer, ikke kjøres. Denne sikkerhetsfunksjonen for Internet Explorer vil være aktivert i denne sonen som angitt i sikkerhetsbegrensningskontrollen for skriptede vinduer for prosessen.</string>
-      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultEnable">Denne policyinnstillingen lar deg administrere begrensninger for skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer.
+      <string id="IZ_PolicyWindowsRestrictionsURLaction_ExplainDefaultEnable">Med denne policyinnstillingen kan du administrere begrensninger for skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer.
 
-Hvis du aktiverer denne policyinnstillingen, vil Windows begrensningssikkerhet ikke være aktivert i denne sonen. Sikkerhetssonen kjører uten den ekstra sikkerheten denne sikkerhetsfunksjonen tilbyr.
+Hvis du aktiverer denne policyinnstillingen, vil ikke Windows begrensningssikkerhet være aktivert i denne sonen. Sikkerhetssonen kjører uten den ekstra sikkerheten denne sikkerhetsfunksjonen tilbyr.
 
 Hvis du deaktiverer denne policyinnstillingen, kan potensielle farlige handlinger i skriptstartede popup-vinduer og vinduer som inneholder tittel- og statuslinjer, ikke kjøres. Denne sikkerhetsfunksjonen for Internet Explorer vil være aktivert i denne sonen som angitt i sikkerhetsbegrensningskontrollen for skriptede vinduer for prosessen.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, vil Windows begrensningssikkerhet ikke være aktivert i denne sonen. Sikkerhetssonen kjører uten den ekstra sikkerheten denne sikkerhetsfunksjonen tilbyr.</string>
+Hvis du ikke konfigurerer denne policyinnstillingen, vil ikke Windows begrensningssikkerhet være aktivert i denne sonen. Sikkerhetssonen kjører uten den ekstra sikkerheten denne sikkerhetsfunksjonen tilbyr.</string>
       <string id="IZ_PolicyZoneElevationURLaction">Webområder i mindre privilegerte soner kan navigere til denne sonen</string>
       <string id="IZ_PolicyZoneElevationURLaction_ExplainDefaultDisable">Med denne policyinnstillingen kan du bestemme om webområder fra mindre privilegerte soner, for eksempel Internett-områder, kan navigere til denne sonen.
 
@@ -2886,6 +2886,34 @@ Hvis du aktiverer denne policyinnstillingen, kan webområder fra mindre privileg
 Hvis du deaktiverer denne policyinnstillingen, kan potensielt skadelig navigasjon ikke skje. Sikkerhetsfunksjonen for Internet Explorer vil være aktivert i denne sonen, som angitt av funksjonskontrollen Beskyttelse mot soneheving.
 
 Hvis du ikke konfigurerer denne policyinnstillingen, vil brukeren bli advart om at potensielt farlig navigasjon er i ferd med å skje.</string>
+      <string id="IZ_PolicyAllowVBScript">Tillat VBScript å kjøre i Internet Explorer</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultDisable">Denne policyinnstillingen lar deg styre om VBScript kan kjøres på sider fra den angitte sonen i Internet Explorer.
+
+Hvis du valgte Aktiver i rullegardinlisten, kan VBScript kjøre uten brukertilsyn.
+
+Hvis du valgte Spør i rullegardinlisten, bes brukere om å velge om de vil tillate at VBScript kjører.
+
+Hvis du valgte Deaktiver i rullegardinlisten, kan ikke VBScript kjøre.
+
+Hvis du ikke konfigurerer eller deaktiverer denne policyinnstillingen, kan ikke VBScript kjøre.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultEnable">Denne policyinnstillingen lar deg styre om VBScript kan kjøres på sider fra den angitte sonen i Internet Explorer.
+
+Hvis du valgte Aktiver i rullegardinlisten, kan VBScript kjøre uten brukertilsyn.
+
+Hvis du valgte Spør i rullegardinlisten, bes brukere om å velge om de vil tillate at VBScript kjører.
+
+Hvis du valgte Deaktiver i rullegardinlisten, kan ikke VBScript kjøre.
+
+Hvis du ikke konfigurerer eller deaktiverer denne policyinnstillingen, vil VBScript kjøre uten brukertilsyn.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultPrompt">Denne policyinnstillingen lar deg styre om VBScript kan kjøres på sider fra den angitte sonen i Internet Explorer.
+
+Hvis du valgte Aktiver i rullegardinlisten, kan VBScript kjøre uten brukertilsyn.
+
+Hvis du valgte Spør i rullegardinlisten, bes brukere om å velge om de vil tillate at VBScript kjører.
+
+Hvis du valgte Deaktiver i rullegardinlisten, kan ikke VBScript kjøre.
+
+Hvis du ikke konfigurerer eller deaktiverer denne policyinnstillingen, bes brukere om å velge om de vil tillate at VBScript kjører.</string>
       <string id="IZ_ProxyByPass">Intranettområder: Inkluder alle områder som ikke bruker proxy-server</string>
       <string id="IZ_RestrictedSitesZone">Sonen Begrensede områder</string>
       <string id="IZ_RestrictedSitesZoneLockdown">Sonen Låste begrensede områder</string>
@@ -3094,7 +3122,15 @@ Hvis du aktiverer denne policyinnstillingen, deaktiveres jevn rulling. Brukeren 
 
 Hvis du deaktiverer denne policyinnstillingen, aktiveres jevn rulling. Brukeren kan ikke deaktivere jevn rulling.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, kan brukeren aktivere eller deaktivere jevn rulling.</string>
+Hvis du ikke konfigurerer denne policyinnstillingen, kan brukeren skjule eller vise knappen for å åpne Microsoft Edge fra Internet Explorer.</string>
+      <string id="HideNewEdgeButton">Skjul knappen (ved siden av Ny fane-knappen) som åpner Microsoft Edge</string>
+      <string id="HideNewEdgeButton_Explain">Denne policyinnstillingen lar deg styre om brukere kan se knappen (ved siden av Ny fane-knappen) som åpner Microsoft Edge.
+
+Hvis du aktiverer denne policyinnstillingen, skjules knappen for å åpne Microsoft Edge fra Internet Explorer.
+
+Hvis du deaktiverer denne policyinnstillingen, vises knappen for å åpne Microsoft Edge fra Internet Explorer.
+
+Hvis du ikke konfigurerer denne policyinnstillingen, kan knappen for å åpne Microsoft Edge fra Internet Explorer konfigureres av brukeren.</string>
       <string id="SpecificSearchProvider">Begrens søkeleverandører til en angitt liste</string>
       <string id="SQM_DisableCEIP">Hindre deltagelse i Program for forbedret kundeopplevelse</string>
       <string id="SUPPORTED_IE4ONLY">Bare Internet Explorer 4.0</string>
@@ -3128,6 +3164,8 @@ Hvis du ikke konfigurerer denne policyinnstillingen, kan brukeren aktivere eller
       <string id="SUPPORTED_IE11WIN8">Minst Internet Explorer 11.0 i Windows 8.1</string>
       <string id="SUPPORTED_IE11WIN8ONLY">Bare Internet Explorer 11.0 i Windows 8.1</string>
       <string id="SUPPORTED_IE11WIN10">Minst Internet Explorer 11.0 i Windows 10</string>
+      <string id="SUPPORTED_IE11WIN10_1607">Minst Internet Explorer 11.0 på Windows 10, versjon 1607 eller nyere</string>
+      <string id="SUPPORTED_IE11WIN10_1703">Minst Internet Explorer 11.0 på Windows 10, versjon 1703 eller nyere</string>
       <string id="SUPPORTED_IE11">Minst Internet Explorer 11.0</string>
       <string id="SUPPORTED_IE7_NONVISTA">Minst Internet Explorer 7.0. Støttes ikke på Windows Vista.</string>
       <string id="SUPPORTED_IE7VISTA">Minst Internet Explorer 7.0 i Windows Vista</string>
@@ -3330,15 +3368,15 @@ Hvis du ikke konfigurerer denne policyinnstillingen, kan brukeren selv velge å 
 Denne policyinnstillingen hindrer at brukere kan slette data for ActiveX-filtrering og Sporingsbeskyttelse, som inkluderer listen over nettsteder som brukeren har valgt å deaktivere ActiveX-filtrering eller Sporingsbeskyttelse for. I tillegg samles også data fra Sporingsbeskyttelse inn hvis brukeren aktiverer den personlige sporingsbeskyttelseslisten, som blokkerer tredjepartselementer når brukeren besøker nettsteder.
 
 Med Internet Explorer 11 eller nyere:
-Denne policyinnstillingen hindrer at brukere sletter data for ActiveX-filtrering og Sporingsbeskyttelse og Do Not Track-unntak for besøkte nettsteder.
+Denne policyinnstillingen hindrer at brukere sletter data for ActiveX-filtrering og Sporingsbeskyttelse og Ikke spor-unntak for besøkte nettsteder.
 
 Denne funksjonen er tilgjengelig i dialogboksen Slett leserlogg.
 
-Hvis du aktiverer denne policyinnstillingen, blir data for ActiveX-filtrering, Sporingsbeskyttelse og Do Not Track bevart når brukeren trykker Slett.
+Hvis du aktiverer denne policyinnstillingen, blir data for ActiveX-filtrering, Sporingsbeskyttelse og Ikke spor bevart når brukeren trykker Slett.
 
-Hvis du deaktiverer denne policyinnstillingen, blir data for ActiveX-filtrering, Sporingsbeskyttelse og Do Not Track slettet når brukeren trykker Slett.
+Hvis du deaktiverer denne policyinnstillingen, blir data for ActiveX-filtrering, Sporingsbeskyttelse og Ikke spor slettet når brukeren trykker Slett.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, kan brukere slå denne funksjonen på og av. Dermed fastslås det om data for ActiveX-filtrering, Sporingsbeskyttelse og Do Not Track skal slettes når brukeren klikker Slett.</string>
+Hvis du ikke konfigurerer denne policyinnstillingen, kan brukere slå denne funksjonen på og av. Dermed fastslås det om data for ActiveX-filtrering, Sporingsbeskyttelse og Ikke spor skal slettes når brukeren klikker Slett.</string>
       <string id="IE_ExplainDBHDisableKeepFavorites">Denne policyinnstillingen hindrer brukeren i å slette data om favorittområder. Denne funksjonen er tilgjengelig i dialogboksen Slett leserlogg.
 
 Hvis du aktiverer denne policyinnstillingen, blir data om favorittområder bevart når brukeren trykker Slett.
@@ -3527,7 +3565,14 @@ Hvis du deaktiverer denne policyinnstillingen, sender Internet Explorer bare Ikk
 For Internet Explorer 11 eller nyere:
 Hvis du deaktiverer denne policyinnstillingen, sender Internet Explorer Ikke spor-overskriften hvis InPrivate-lesermodusen brukes.
 
-Hvis du ikke konfigurerer policyinnstillingen, kan brukerne velge alternativet Send alltid Ikke spor-overskrift i innstillingene for Internet Explorer. Hvis du velger dette alternativet, sender Internet Explorer en DNT:1-overskrift med alle HTTP- og HTTPS-forespørsler, såfremt brukeren ikke tildeler et områdespesifikt unntak. Internet Explorer sender en DNT:0-overskrift til alle webområder som fikk tildelt et unntak. Dette alternativet er som standard aktivert.</string>
+Hvis du ikke konfigurerer policyinnstillingen, kan brukerne velge alternativet Send alltid Ikke spor-overskrift i innstillingene for Internet Explorer. Hvis du velger dette alternativet, sender Internet Explorer en DNT:1-overskrift med alle HTTP- og HTTPS-forespørsler, såfremt brukeren ikke tildeler et områdespesifikt unntak. Internet Explorer sender en DNT:0-overskrift til alle nettsteder som fikk tildelt et unntak. Dette alternativet er som standard aktivert.</string>
+      <string id="Content_ExplainShowContentAdvisor">Denne policyinnstillingen viser innstillingen for Internett-sensur i kategorien Innhold i dialogboksen Alternativer for Internett.
+
+Hvis du aktiverer denne policyinnstillingen, vises innstillingen for Internett-sensur i kategorien Innhold i dialogboksen Alternativer for Internett i Internet Explorer. Brukerne kan endre innstillingene for Internett-sensur.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vises ikke innstillingen for Internett-sensur i kategorien Innhold i dialogboksen Alternativer for Internett i Internet Explorer.
+
+Obs! Denne policyen støttes ikke lenger fra og med Windows 10 versjon 1607.</string>
       <string id="Protocols_None">Ikke bruk noen sikre protokoller</string>
       <string id="Protocols_SSL2">Bruk bare SSL 2.0</string>
       <string id="Protocols_SSL3">Bruk bare SSL 3.0</string>
@@ -3565,6 +3610,7 @@ Hvis du ikke konfigurerer policyinnstillingen, kan brukerne velge alternativet S
       <string id="NewTab_AboutBlank">about:blank</string>
       <string id="NewTab_AboutTabs">Ny faneside</string>
       <string id="NewTab_Homepage">Startside</string>
+      <string id="NewTab_AboutNewsFeed">Ny faneside med nyhetsoppdatering</string>
       <string id="NewTabAction">Spesifiser standardvirkemåte for en ny fane</string>
       <string id="SecondaryHomePages">Deaktiver endring av sekundære startsideinnstillinger</string>
       <string id="SetCommandLabels">Tilpass kommandoetiketter</string>
@@ -3607,9 +3653,9 @@ Hvis du aktiverer denne policyinnstillingen, vil Stopp-knappen og Oppdater-knapp
 Hvis du ikke konfigurer denne policyinnstillingen, vil Stopp-knappen og Oppdater-knappen være låst ved siden av adresselinjen som standard, og brukeren kan velge å flytte dem.</string>
       <string id="IE_ExplainNewTabAction">Denne policyinnstillingen lar deg spesifisere hva som vises når brukeren åpner en ny fane.
 
-Hvis du aktiverer denne policyinnstillingen, kan du velge hvilken side som skal vises når brukeren åpner en ny fane: Tom side (about:blank), første startside eller ny faneside.
+Hvis du aktiverer denne policyinnstillingen, kan du velge hvilken side som skal vises når brukeren åpner en ny fane: Tom side (about:blank), første startside, ny faneside eller ny faneside med nyhetsfeed.
 
-Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, kan brukeren selv velge innstillinger for denne virkemåten. Standardinnstillingen er ny faneside.</string>
+Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, kan brukeren selv velge innstillinger for denne virkemåten.</string>
       <string id="IE_ExplainSecondaryHomePages">Sekundære startsider er standardwebsider som lastes inn i egne faner i tillegg til startsiden når Internet Explorer åpnes. Med denne policyinnstillingen kan du angi standard sekundærstartsider.
 
 Hvis du aktiverer denne policyinnstillingen, kan du angi hvilke standardstartsider som skal lastes inn som sekundære startsider. Brukeren kan ikke angi egendefinerte sekundære startsider.
@@ -3871,6 +3917,20 @@ Obs!  Hvis du også har aktivert policyinnstillingen Administrative maler\Window
 Hvis du aktiverer denne innstillingen, ser de ansatte en tilleggsside i Internet Explorer 11 der det står at et område er åpnet med Microsoft Edge i organisasjonsmodus.
 
 Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, brukes standard virkemåte for appen, og ingen tilleggsside vises.</string>
+      <string id="KeepIntranetSitesInInternetExplorer">Behold alle intranettområder i Internet Explorer</string>
+      <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Hindrer at intranettområder åpnes i andre nettlesere enn Internet Explorer. Vær imidlertid oppmerksom på at hvis policyen Send alle områder som ikke er inkludert i listen over nettstedsplasseringer for Organisasjonsmodus, til Microsoft Edge (RestrictIE) ikke er aktivert, har ikke denne policyen noen innvirkning.
+
+Hvis du aktiverer denne policyen, åpnes alle intranettområder i Internet Explorer 11. De eneste unntakene er oppført i nettstedslisten for organisasjonsmodus.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyen, åpnes alle intranettområder automatisk i Microsoft Edge.
+
+Vi anbefaler på det sterkeste at denne policyen er synkronisert med policyen Send alle intranettområder til Internet Explorer (SendIntranetToInternetExplorer). I tillegg er det best å aktivere denne policyen bare hvis intranettområdene har kjente kompatibilitetsproblemer med Microsoft Edge.
+
+Tilknyttede policyer:
+– Send alle intranettområder til Internet Explorer (SendIntranetToInternetExplorer)
+– Send alle områder som ikke er inkludert i listen over nettstedsplasseringer for Organisasjonsmodus, til Microsoft Edge (RestrictIE)
+
+Hvis du vil ha mer informasjon om bruk av denne policyen sammen med andre tilknyttede policyer for å opprette den optimale konfigurasjonen for organisasjonen, kan du se https://go.microsoft.com/fwlink/?linkid=2094210.</string>
       <string id="VerMgmtDisable">Deaktiver blokkering av utdaterte ActiveX-kontroller for Internet Explorer</string>
       <string id="IE_ExplainVerMgmtDisable">Denne policyinnstillingen fastslår om Internet Explorer blokkerer angitte, utdaterte ActiveX-kontroller. Utdaterte ActiveX-kontroller blir aldri blokkert i det lokale intranettet.
 
@@ -4013,7 +4073,9 @@ Hvis du aktiverer denne policyinnstillingen, vil automatisk oppgradering av Inte
 
 Hvis du deaktiverer denne policyinnstillingen, vil automatisk oppgradering av Internet Explorer slås av.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, kan brukerne aktivere og deaktivere automatiske oppdateringer fra dialogboksen Om Internet Explorer.</string>
+Hvis du ikke konfigurerer denne policyinnstillingen, kan brukerne aktivere og deaktivere automatiske oppdateringer fra dialogboksen Om Internet Explorer.
+
+Obs! Denne policyen er avskrevet fra og med versjon 1703 av Windows 10.</string>
       <string id="TurnOffFormatDetectionPhone">Deaktivere telefonnummergjenkjenning</string>
       <string id="TurnOffFormatDetectionPhone_Explain">Denne policyinnstillingen fastslår om telefonnumre gjenkjennes og gjøres om til hyperkoblinger. Dermed kan de brukes til å starte den standard telefonapplikasjonen i systemet.
 
@@ -4503,6 +4565,15 @@ Hvis du vil ha mer informasjon, kan du se Out-of-date ActiveX control blocking (
       <presentation id="IZ_PolicyZoneElevationURLaction_5">
         <dropdownList refId="IZ_Partname2101" noSort="true" defaultItem="2">Webområder i mindre privilegerte soner kan navigere til denne sonen</dropdownList>
       </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_1">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="0">Tillat VBScript å kjøre i Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_2">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="1">Tillat VBScript å kjøre i Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_3">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="2">Tillat VBScript å kjøre i Internet Explorer</dropdownList>
+      </presentation>
       <presentation id="IZ_Zonemaps_1">
         <listBox refId="IZ_ZonemapPrompt">Angi sonetilordninger her.</listBox>
       </presentation>
@@ -4662,7 +4733,7 @@ Hvis du vil ha mer informasjon, kan du se Out-of-date ActiveX control blocking (
         <dropdownList refId="Advanced_EnableSSL3FallbackOptions" noSort="true" defaultItem="0">Tillat usikkert tilbakefall for:</dropdownList>
       </presentation>
       <presentation id="NewTabAction_1">
-        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="2">Ny funksjon for faner</dropdownList>
+        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="0">Ny funksjon for faner</dropdownList>
       </presentation>
       <presentation id="SecondaryHomePages">
         <listBox refId="SecondaryHomePagesList">Sekundære startsider</listBox>

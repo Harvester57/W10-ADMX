@@ -7,31 +7,47 @@
     <stringTable>
       <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Ota käyttöön virtualisointiin perustuva suojaus</string>
-      <string id="VirtualizationBasedSecurityHelp">Määrittää, onko virtualisointiin perustuva suojaus käytössä
+      <string id="VirtualizationBasedSecurityHelp">Määrittää, onko virtualisointiin perustuva suojaus käytössä.
 
-Virtualisointiin perustuva suojaus tarjoaa Windows Hypervisorin avulla tuen suojauspalveluille. Virtualisointiin perustuva suojaus edellyttää suojattua käynnistystä ja voidaan valinnaisesti ottaa käyttöön DMA-suojausten avulla. DMA-suojaukset edellyttävät laitteistotukea ja otetaan käyttöön vain oikein määritetyille laitteille.
+Virtualisointiin perustuva suojaus tarjoaa Windows Hypervisorin avulla tuen suojauspalveluille. Virtualisointiin perustuva suojaus edellyttää suojattua käynnistystä, ja suojaus voidaan ottaa valinnaisesti käyttöön DMA-suojausten avulla. DMA-suojaukset edellyttävät laitteistotukea, ja ne otetaan käyttöön vain oikein määritetyille laitteille.
 
 Koodin eheyden virtualisointiin perustuva suojaus
 
-Tämä asetus ottaa käyttöön ydintilan koodin eheyden virtualisointiin perustuvan suojauksen. Kun tämä on käytössä, ydintilan muistinsuojaukset pakotetaan ja virtualisointiin perustuva suojaus suojaa koodin eheyden vahvistuspolkua.
+Tämä asetus ottaa käyttöön ydintilan koodin eheyden virtualisointiin perustuvan suojauksen. Kun asetus on käytössä, ydintilan muistinsuojaukset pakotetaan ja virtualisointiin perustuva suojaus suojaa koodin eheyden vahvistuspolkua.
 
-Kun asetus on Ei käytössä, Credential Guard poistetaan käytöstä etäyhteyden avulla, jos se oli aiemmin otettu käyttöön käyttäen Käytössä ilman lukitusta -asetusta.
+Kun asetus on Ei käytössä, koodin eheyden virtualisointiin perustuva suojaus poistetaan käytöstä etäyhteyden kautta, jos se on aiemmin otettu käyttöön Käytössä ilman lukitusta -asetusta käyttäen.
  
-Käytössä käyttäen UEFI-lukitusta -asetus varmistaa, että koodin eheyden virtualisointiin perustuvaa suojausta ei voi poistaa käytöstä etäyhteyden avulla. Jos haluat poistaa tämän ominaisuuden käytöstä, sinun on määritettävä ryhmäkäytännön asetukseksi Ei käytössä ja poistettava suojaustoiminnot jokaisesta tietokoneesta fyysisesti tietokoneen ääressä olevan käyttäjän avulla, jotta voit poistaa pysyvän UEFI-määrityksen.
+Käytössä käyttäen UEFI-lukitusta -asetus varmistaa, että koodin eheyden virtualisointiin perustuvaa suojausta ei voi poistaa käytöstä etäyhteyden kautta. Jos haluat poistaa tämän ominaisuuden käytöstä, sinun on määritettävä ryhmäkäytännön asetukseksi Ei käytössä ja fyysisesti tietokoneen ääressä olevan käyttäjän on poistettava suojaustoiminnot jokaisesta tietokoneesta, jotta pysyvän UEFI-määrityksen voi poistaa.
  
-Käytössä ilman lukitusta -asetus sallii koodin eheyden virtualisointiin perustuvan suojauksen poistamisen käytöstä etäyhteyden avulla käyttäen ryhmäkäytäntöä. 
+Käytössä ilman lukitusta -asetus sallii koodin eheyden virtualisointiin perustuvan suojauksen poistamisen käytöstä etäyhteyden kautta ryhmäkäytännön avulla.
 
-Varoitus: kaikkien järjestelmässä olevien ohjainten on oltava yhteensopivia tämän ominaisuuden kanssa, tai järjestelmä saattaa kaatua. Varmista, että tämä käytäntöasetus otetaan käyttöön vain tietokoneille, jotka tiedetään yhteensopiviksi. 
+Jos valitset Ei määritetty -asetuksen, käytäntöasetusta ei määritetä. Ryhmäkäytäntö ei kirjoita käytäntöasetusta rekisteriin, joten se ei vaikuta tietokoneisiin tai käyttäjiin. Jos rekisterissä on määritettynä jokin aiempi asetus, asetusta ei muokata.
+
+Vaadi UEFI-muistimääritetaulukkoa -asetus ottaa koodin eheyden virtualisointiin perustuvan suojauksen käyttöön vain sellaisissa laitteissa, joiden laiteohjelmisto tukee muistimääritetaulukkoa. Laitteissa, joissa ei ole UEFI-muistimääritetaulukkoa, laiteohjelmisto ei ehkä tue koodin eheyden virtualisointiin perustuvaa suojausta, mikä voi joissakin tapauksissa johtaa kaatumisiin, tietojen menettämiseen tai yhteensopimattomuuteen tiettyjen laajennuskorttien kanssa. Jos tätä asetusta ei oteta käyttöön, kohdelaitteet on testattava yhteensopivuuden varmistamiseksi.
+
+Varoitus: Kaikkien järjestelmässä olevien ohjainten on oltava yhteensopivia tämän ominaisuuden kanssa, tai järjestelmä saattaa kaatua. Varmista, että tämä käytäntöasetus otetaan käyttöön vain tietokoneille, jotka ovat yhteensopivia.
 
 Credential Guard
 
-Tämän asetuksen avulla voit päättää, voivatko käyttäjät ottaa käyttöön Credential Guardin virtualisointiin perustuvan suojauksen auttaakseen suojaamaan tunnistetietoja.
+Tämän asetuksen avulla voit päättää, voivatko käyttäjät ottaa käyttöön Credential Guardin ja virtualisointiin perustuvan suojauksen tunnistetietojen suojaamista varten.
 
-Kun asetus on Ei käytössä, Credential Guard poistetaan käytöstä etäyhteyden avulla, jos se oli aiemmin otettu käyttöön käyttäen Käytössä ilman lukitusta -asetusta.
+Kun asetus on Ei käytössä, Credential Guard poistetaan käytöstä etäyhteyden kautta, jos se on aiemmin otettu käyttöön Käytössä ilman lukitusta -asetusta käyttäen.
 
-Käytössä käyttäen UEFI-lukitusta -asetus varmistaa, että Credential Guardia ei voi poistaa käytöstä etäyhteyden avulla. Jos haluat poistaa tämän ominaisuuden käytöstä, sinun on määritettävä ryhmäkäytännön asetukseksi Ei käytössä ja poistettava suojaustoiminnot jokaisesta tietokoneesta fyysisesti tietokoneen ääressä olevan käyttäjän avulla, jotta voit poistaa pysyvän UEFI-määrityksen.
+Käytössä käyttäen UEFI-lukitusta -asetus varmistaa, että Credential Guardia ei voi poistaa käytöstä etäyhteyden kautta. Jos haluat poistaa tämän ominaisuuden käytöstä, sinun on määritettävä ryhmäkäytännön asetukseksi Ei käytössä ja fyysisesti tietokoneen ääressä olevan käyttäjän on poistettava suojaustoiminnot jokaisesta tietokoneesta, jotta pysyvän UEFI-määrityksen voi poistaa.
 
-Käytössä ilman lukitusta -asetus sallii Credential Guardin poistamisen käytöstä etäyhteyden avulla käyttäen ryhmäkäytäntöä. Tätä asetusta käyttävissä laitteissa on oltava vähintään Windows 10 (versio 1511).
+Käytössä ilman lukitusta -asetus sallii Credential Guardin poistamisen käytöstä etäyhteyden kautta ryhmäkäytännön avulla. Tätä asetusta käyttävissä laitteissa on oltava vähintään Windows 10 (versio 1511).
+
+Jos valitset Ei määritetty -asetuksen, käytäntöasetusta ei määritetä. Ryhmäkäytäntö ei kirjoita käytäntöasetusta rekisteriin, joten se ei vaikuta tietokoneisiin tai käyttäjiin. Jos rekisterissä on määritettynä jokin aiempi asetus, asetusta ei muokata.
+      
+Suojattu käynnistys
+
+Tämä asetus asettaa suojatun käynnistyksen määrityksen käynnistysketjun suojaamiseksi.
+
+Oletusasetuksena on Ei määritetty. Kun tämä asetus on valittuna, järjestelmänvalvojat saavat muokata ominaisuutta.
+
+Käytössä-asetus ottaa suojatun käynnistyksen käyttöön tuetussa laitteistossa.
+
+Ei käytössä -asetus poistaa suojatun käynnistyksen käytöstä laitteistotuesta riippumatta.
       </string>
       <string id="SecureBoot">Suojattu käynnistys</string>
       <string id="SecureBootAndDmaProtection">Suojattu käynnistys ja DMA-suojaus</string>
@@ -39,26 +55,29 @@ Käytössä ilman lukitusta -asetus sallii Credential Guardin poistamisen käyt�
       <string id="Enabled">Käytössä</string>
       <string id="EnabledWithoutLock">Käytössä ilman lukitusta</string>
       <string id="EnabledWithUefiLock">Käytössä käyttäen UEFI-lukitusta</string>
-      <string id="ConfigCIPolicy">Ota käyttöön koodin eheyden käytäntö</string>
-      <string id="ConfigCIPolicyHelp">Ota käyttöön koodin eheyden käytäntö
+      <string id="NotConfigured">Ei määritetty</string>
+      <string id="ConfigCIPolicy">Ota Windows Defenderin sovellushallinta käyttöön</string>
+      <string id="ConfigCIPolicyHelp">Ota Windows Defenderin sovellushallinta käyttöön
 
-Tämän käytäntöasetuksen avulla voit ottaa käyttöön koodin eheyden käytännön laitteeseen määrittämään, mitä kyseisessä laitteessa sallitaan suorittaa.
+Tämän käytäntöasetuksen avulla voit ottaa koodin eheyden käytännön laitteessa käyttöön ja määrittää, mitä kyseisessä laitteessa voidaan suorittaa.
 
-Jos otat käyttöön koodin eheyden käytännön, Windows rajoittaa sitä, mitä voidaan suorittaa sekä ydintilassa ja Windowsin työpöydällä käytännön perusteella. Tämän käytännön käyttöönotto edellyttää laitteen uudelleenkäynnistämistä. 
+Jos otat koodin eheyden käytännön käyttöön, Windows rajoittaa käytännön perusteella, mitä ydintilassa ja Windowsin työpöydällä voidaan suorittaa. Tämän käytännön käyttöönotto edellyttää laitteen uudelleenkäynnistämistä. 
 
-Tiedostopolun on oltava UNC-polku (esimerkiksi \\PalvelimenNimi\JaetunResurssinNimi\SIPolicy.p7b) tai paikallisesti kelvollinen polku (esimerkiksi C:\KansionNimi\SIPolicy.p7b). Paikallisen laitteen tilillä (PAIKALLINEN JÄRJESTELMÄ) on oltava käyttöoikeudet käytäntötiedostoon.
+Tiedostopolun on oltava UNC-polku (esimerkiksi \\PalvelimenNimi\JaetunResurssinNimi\SIPolicy.p7b) tai paikallisesti kelvollinen polku (esimerkiksi C:\KansionNimi\SIPolicy.p7b). Paikallisen laitteen tilillä (PAIKALLINEN JÄRJESTELMÄ) on oltava oikeudet käytäntötiedoston käyttöön.
  
-Jos käytetään allekirjoitettua ja suojattua käytäntöä, tämän käytäntöasetuksen poistaminen käytöstä ei poista ominaisuutta tietokoneessa. Sen sijaan sinun on joko
+Allekirjoitettua ja suojattua käytäntöä käytettäessä tämän käytäntöasetuksen poistaminen käytöstä ei poista ominaisuutta tietokoneessa. Sen sijaan sinun on joko
 
    1) ensin päivitettävä käytäntö suojaamattomaksi käytännöksi ja poistettava asetus käytöstä tai
-   2) poista asetus käytöstä ja poista käytäntö sitten jokaisesta tietokoneesta fyysisesti läsnä olevan käyttäjän avulla.
+   2) poistettava asetus käytöstä ja poistettava käytäntö sitten jokaisesta tietokoneesta fyysisesti läsnä olevan käyttäjän avulla.
       </string>
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
         <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Valitse ympäristön suojaustaso:</dropdownList>
-        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Koodin eheyden virtualisointiin perustuva suojaus:</dropdownList>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Credential Guardin määritys:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="3">Koodin eheyden virtualisointiin perustuva suojaus:</dropdownList>        
+        <checkBox refId="CheckboxMAT">Vaadi UEFI-muistimääritetaulukkoa</checkBox>        
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="3">Credential Guardin määritys:</dropdownList>
+        <dropdownList refId="SystemGuardDrop" defaultItem="2">Suojatun käynnistyksen kokoonpano:</dropdownList>                
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

@@ -1,11 +1,15 @@
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/Policysecurity intelligence">
 <displayName>ange visningsnamn här</displayName>
 <description>ange beskrivning här</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Windows Defender Antivirus</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Undantag</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Minskning av attackytan</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Reglerad mappåtkomst</string>
+    <string id="ExploitGuard_NetworkProtection">Nätverksskydd</string>
     <string id="NetworkRealtimeInspection">Kontrollsystem för nätverk</string>
     <string id="NetworkRealtimeInspection_Exclusions">Undantag</string>
     <string id="Quarantine">Karantän</string>
@@ -13,10 +17,11 @@
     <string id="Remediation">Reparation</string>
     <string id="Reporting">Rapportering</string>
     <string id="Scan">Genomsökning</string>
-    <string id="SignatureUpdate">Signaturuppdateringar</string>
+    <string id="SignatureUpdate">Uppdateringar av säkerhetsinsikter</string>
     <string id="Spynet">MAPS</string>
     <string id="Threats">Hot</string>
     <string id="ClientInterface">Klientgränssnitt</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Tillåt att tjänsten för program mot skadlig kod startar med normal prioritet</string>
     <string id="AllowFastServiceStartup_Explain">Den här principinställningen styr inläsningsprioriteten för tjänsten för program mot skadlig kod. Om inläsningsprioriteten ökas startar tjänsten snabbare, men prestanda kan påverkas.
 
@@ -25,7 +30,18 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen läses 
 Om du inaktiverar den här inställningen läses tjänsten för program mot skadlig kod in som en aktivitet med låg prioritet.</string>
 
     <string id="DisableAutoExclusions">Inaktivera automatiska undantag</string>
-    <string id="DisableAutoExclusions_Explain">Tillåter att en administratör kan ange om automatiska undantag för server-SKU:er ska inaktiveras.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Tillåter att en administratör kan ange om automatiska undantag för server-SKU:er ska inaktiveras.
+
+        Inaktiverad (standard):
+        Windows Defender undantar den fördefinierade listan med sökvägar från att genomsökas för att förbättra prestanda.
+
+        Aktiverad:
+        Windows Defender undantar inte den fördefinierade listan med sökvägar från att genomsökas. Detta kan påverka datorns prestanda i vissa scenarier.
+
+        Inte konfigurerad:
+        Samma som Inaktiverad.
+    </string>
     <string id="DisableAntiSpyware">Inaktivera Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Med den här principinställningen inaktiveras Endpoint Protection.
 
@@ -33,12 +49,16 @@ Om du aktiverar den här principinställningen körs inte Endpoint Protection oc
 
 Om du inaktiverar eller inte konfigurerar den här principinställningen körs Endpoint Protection som standard och datorn genomsöks efter skadlig kod och annan oönskad programvara.
     </string>
-    <string id="DisableAntiSpywareDefender">Inaktivera Endpoint Protection</string>
-    <string id="DisableAntiSpywareDefender_Explain">Med den här principinställningen inaktiveras Endpoint Protection.
+    <string id="DisableAntiSpywareDefender">Inaktivera Windows Defender Antivirus</string>
+    <string id="DisableAntiSpywareDefender_Explain">Med den här principinställningen inaktiveras Windows Defender Antivirus.
+    
+    Om du aktiverar principinställningen körs inte Windows Defender Antivirus och dina datorer genomsöks inte efter skadlig kod eller oönskad programvara.
 
-    Om du aktiverar den här principinställningen körs inte Endpoint Protection och datorn genomsöks inte efter skadlig kod eller annan potentiellt skadlig programvara.
+    Om du inaktiverar principinställningen körs Windows Defender Antivirus oavsett om du har någon annan antivirusprodukt installerad.
 
-    Om du inaktiverar eller inte konfigurerar den här principinställningen körs Endpoint Protection som standard och datorn genomsöks efter skadlig kod och annan potentiellt skadlig programvara.</string>
+    Om du låter bli att konfigurera den här principinställningen hanteras Windows Defender Antivirus av Windows. Om du installerar ett annat antivirusprogram så inaktiveras Windows Defender Antivirus av Windows. Annars söker Windows Defender Antivirus igenom dina datorer efter skadlig kod och oönskad programvara.
+
+    Om du aktiverar eller inaktiverar den här principen kan det leda till oväntat beteende. Vi rekommenderar att du låter bli att konfigurera den här principinställningen.</string>
     <string id="DisableLocalAdminMerge">Konfigurera lokal administratörs sammanslagningsbeteende för listor</string>
     <string id="DisableLocalAdminMerge_Explain">Den här principinställningen styr om komplexa listinställningar som har konfigurerats av en lokal administratör ska slås samman med grupprincipinställningar. Inställningen gäller till exempel listor med hot och undantag.
 
@@ -47,45 +67,74 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen kommer 
 Om du inaktiverar den här inställningen används bara objekt som har definierats i grupprincipen i den resulterande gällande principen. Grupprincipinställningarna åsidosätter prioritetsinställningarna som har konfigurerats av den lokala administratören.</string>
     <string id="DisableRoutinelyTakingAction">Inaktivera rutinreparation</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Med den här principinställningen kan du ange om Endpoint Protection ska vidta åtgärder automatiskt för alla identifierade hot. Den åtgärd som vidtas för ett specifikt hot bestäms av en kombination av den principdefinierade åtgärden, den användardefinierade åtgärden och den signaturdefinierade åtgärden.
+    Med den här principinställningen kan du ange om Windows Defender Antivirus ska vidta åtgärder automatiskt för alla identifierade hot. Den åtgärd som vidtas för ett specifikt hot bestäms av en kombination av den principdefinierade åtgärden, den användardefinierade åtgärden och den signaturdefinierade åtgärden.
 
-    Om du aktiverar den här principinställningen vidtar Endpoint Protection inte automatiskt någon åtgärd för identifierade hot, men uppmanar användarna att välja bland de tillgängliga åtgärderna för respektive hot.
+    Om du aktiverar principinställningen vidtar Windows Defender Antivirus inte automatiskt någon åtgärd för identifierade hot, men uppmanar användarna att välja bland de tillgängliga åtgärderna för respektive hot.
 
-    Om du inaktiverar eller inte konfigurerar principinställningen vidtar Endpoint Protection automatiskt åtgärder för alla identifierade hot efter en fördröjning på cirka fem sekunder (denna fördröjning kan inte ändras).</string>
+    Om du inaktiverar eller låter bli att konfigurera principinställningen vidtar Windows Defender Antivirus automatiskt åtgärder för alla identifierade hot efter en fördröjning på cirka fem sekunder (denna fördröjning kan inte ändras).</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Med den här principinställningen kan du ange om Endpoint Protection ska vidta åtgärder automatiskt för alla identifierade hot. Den åtgärd som vidtas för ett specifikt hot bestäms av en kombination av den principdefinierade åtgärden, den användardefinierade åtgärden och den signaturdefinierade åtgärden.
 
         Om du aktiverar den här principinställningen vidtar Endpoint Protection inte automatiskt någon åtgärd för identifierade hot, men uppmanar användarna att välja bland de tillgängliga åtgärderna för respektive hot.
 
         Om du inaktiverar eller inte konfigurerar principinställningen vidtar Endpoint Protection automatiskt åtgärder för alla identifierade hot efter en fördröjning på cirka fem sekunder (denna fördröjning kan inte ändras).
-    </string>
+    </string>      
     <string id="ProxyBypass">Definiera adresser som ska kringgå proxyservern</string>
     <string id="ProxyBypass_Explain">Om den här principen definieras förhindrar den att program mot skadlig kod använder den konfigurerade proxyservern vid kommunikation med de angivna IP-adresserna. Adressvärdet ska anges som en giltig URL.
 
 Om du aktiverar den här inställningen kringgås proxyservern för de angivna adresserna.
 
 Om du inaktiverar eller låter bli att konfigurera den här inställningen kringgås inte proxyservern för de angivna adresserna.</string>
+    <string id="ProxyPacUrl">Definiera PAC-fil (automatisk konfiguration av proxy) för att ansluta till nätverket</string>
+    <string id="ProxyPacUrl_Explain">Med den här principinställningen definierar du URL:en för en PAC-fil (automatisk konfiguration av proxy) som ska användas när klienten försöker ansluta till nätverket för uppdateringar av säkerhetsinsikter och MAPS-rapportering. Om den automatiska konfigurationen av proxyn (PAC) misslyckas, eller om ingen PAC har angetts, använder klienten följande alternativ (i ordning):
+      1. Proxyserver (om angiven)
+      2. PAC-URL (om angiven)
+      3. Ingen
+      4. Proxyinställningar för Internet Explorer
+      5. Identifiera automatiskt
+
+      Om du aktiverar den här inställningen används angiven PAC för proxyn enligt ordningen ovan.
+
+      Om du inaktiverar eller låter bli att konfigurera den här inställningen hoppar proxyn över det här steget.</string>
     <string id="ProxyServer">Konfigurera proxyserver för anslutning till nätverket</string>
-    <string id="ProxyServer_Explain">Med den här principinställningen kan du konfigurera den namngivna proxy som ska användas när klienten försöker ansluta till nätverket för definitionsuppdateringar och MAPS-rapportering. Om den namngivna proxyn misslyckas eller om ingen proxy har angetts används följande inställningar (i nummerordning):
-1. Proxyinställningar för Internet Explorer
-2. Identifiera automatiskt
-3. Ingen
+    <string id="ProxyServer_Explain">Med den här principinställningen kan du konfigurera den namngivna proxy som ska användas när klienten försöker ansluta till nätverket för uppdateringar av säkerhetsinsikter och MAPS-rapportering. Om den namngivna proxyn misslyckas eller om ingen proxy har angetts används följande alternativ (i ordning):
+      1. Proxyserver (om angiven)
+      2. PAC-URL (om angiven)
+      3. Ingen
+      4. Proxyinställningar för Internet Explorer
+      5. Identifiera automatiskt
 
-Om du aktiverar den här inställningen anges den angivna URL:en för proxyn.
+      Om du aktiverar den här inställningen används den angivna URL:en för proxyn enligt ordningen ovan. URL:en ska inledas med http:// eller https://.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen ställs proxyn in i den ordning som anges ovan.</string>
+      Om du inaktiverar eller låter bli att konfigurera den här inställningen hoppar proxyn över det här steget.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Slumpgenerera tider för schemalagda aktiviteter</string>
-    <string id="RandomizeScheduleTaskTimes_Explain">Med den här principinställningen kan du aktivera och inaktivera slumpgenerering av starttiden för den schemalagda sökningen och starttiden för den schemalagda definitionsuppdateringen. Den här inställningen används för att fördela sökningens inverkan på resurserna. Den kan till exempel användas i virtuella gästdatorer som delar värd för att förhindra att flera virtuella gästdatorer samtidigt genomför diskkrävande åtgärder.
+    <string id="RandomizeScheduleTaskTimes_Explain">Med den här principinställningen kan du aktivera och inaktivera slumpgenerering av starttiden för den schemalagda genomsökningen och starttiden för den schemalagda uppdateringen av säkerhetsinsikter. Den här inställningen används för att fördela genomsökningens resursinverkan. Den kan till exempel användas i virtuella gästdatorer som har samma värddator för att förhindra att flera virtuella gästdatorer samtidigt utför diskkrävande åtgärder.
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen startar schemalagda aktiviteter vid slumpmässiga tidpunkter med ett intervall på 30 minuter före eller efter den angivna starttiden.
+    Om du aktiverar eller låter bli att konfigurera den här inställningen startar schemalagda aktiviteter vid slumpmässiga tidpunkter inom ett intervall på 30 minuter före eller efter den angivna starttiden.
 
-Om du inaktiverar inställningen startar schemalagda aktiviteter på den angivna starttiden.</string>
+    Om du inaktiverar inställningen startar schemalagda aktiviteter på den angivna starttiden.</string>
     <string id="ServiceKeepAlive">Tillåt att tjänsten för program mot skadlig kod alltid körs</string>
-    <string id="ServiceKeepAlive_Explain">Med den här principinställningen kan du ange om tjänsten för program mot skadlig kod ska fortsätta att köras när definitioner för antivirus- och antispionprogam inaktiveras. Du rekommenderas att låta inställningen förbli inaktiverad.
+    <string id="ServiceKeepAlive_Explain">Med den här principinställningen kan du ange om tjänsten för program mot skadlig kod ska fortsätta köra när säkerhetsinsikter för antivirus- och antispionprogram inaktiveras. Vi rekommenderar att du låter inställningen vara inaktiverad.
 
-Om du aktiverar den här inställningen fortsätter tjänsten för program mot skadlig kod att köras även om definitioner för både antivirus- och antispionprogram inaktiveras.
+    Om du aktiverar den här inställningen fortsätter tjänsten för program mot skadlig kod att köras även om säkerhetsinsikter för både antivirus- och antispionprogram inaktiveras.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen stoppas tjänsten för program mot skadlig kod när definitioner för både antivirus- och antispionprogram inaktiveras. Om datorn startas om startas tjänsten om ifall den är inställd för automatisk start. När tjänsten har startats görs en kontroll för att se om definitionerna för antivirus- och antispionprogram har aktiverats. Om minst en har aktiverats fortsätter tjänsten att köras. Om båda har inaktiverats stoppas tjänsten.</string>
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen stoppas tjänsten för program mot skadlig kod när säkerhetsinsikter för både antivirus- och antispionprogram inaktiveras. Om datorn startas om startas tjänsten om, om den är inställd på automatisk start. Efter att tjänsten har startats görs en kontroll för att se om säkerhetsinsikter för antivirus- och antispionprogram har aktiverats. Om minst en har aktiverats fortsätter tjänsten att köras. Om båda har inaktiverats stoppas tjänsten.</string>
+    <string id="Root_PUAProtection">Konfigurera identifiering av potentiellt oönskade program</string>
+    <string id="Root_PUAProtection_Explain">
+        Aktivera eller inaktivera identifiering av potentiellt oönskade program. Du kan välja att blockera, granska eller tillåta potentiellt oönskad programvara som laddas ned eller försöker installera sig själv på datorn.
+
+        Aktiverad:
+        Ange ett läge i avsnittet Alternativ:
+        -Blockera: Potentiellt oönskad programvara blockeras.
+        -Granska: Potentiellt oönskad programvara blockeras inte, men en händelse loggas i händelseloggarna om programvaran skulle ha blockerats med läget Blockera.
+
+        Inaktiverad:
+        Potentiellt oönskad programvara blockeras inte.
+
+        inte konfigurerad:
+        Samma som Inaktiverad.
+    </string>
     <string id="Exclusions_Extensions">Undantag för tillägg</string>
     <string id="Exclusions_Extensions_Explain">Du kan använda den här principinställningen för att ange en lista med filtyper som ska undantas från schemalagd och anpassad genomsökning samt genomsökning i realtid. Filtyper ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av filnamnstillägget (exempelvis "obj" eller "lib"). Värdet används inte och du rekommenderas att ange det som 0.</string>
     <string id="Exclusions_Paths">Undantag för sökvägar</string>
@@ -99,27 +148,13 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen aktiver
 
 Om du inaktiverar den här inställningen inaktiveras protokolligenkänning.</string>
     <string id="Nis_Consumers_IPS_DisableSignatureRetirement">Aktivera tillbakadragning av definitioner</string>
-    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Med den här principinställningen kan du konfigurera tillbakadragning av definitioner för nätverksskydd mot kända säkerhetsrisker. Tillbakadragning av definitioner kontrollerar om en dator har de säkerhetsuppdateringar som krävs för att skydda den mot en viss säkerhetsrisk. Om systemet är skyddat mot säkerhetsrisken som identifieras av en definition dras den definitionen tillbaka. Om alla definitioner för ett visst protokoll har dragits tillbaka parsas inte protokollet längre. Aktivering av den här funktionen hjälper till att förbättra prestanda. På en dator som har alla de senaste säkerhetsuppdateringarna påverkar inte nätverksskyddet nätverkets prestanda.
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Med den här principinställningen kan du konfigurera tillbakadragning av definitioner för nätverksskydd mot kända säkerhetsrisker. Tillbakadragning av definitioner kontrollerar om en dator har de säkerhetsuppdateringar som krävs för att skydda den mot en viss säkerhetsrisk. Om systemet är skyddat mot säkerhetsrisken som identifieras av en definition dras den definitionen tillbaka. Om alla säkerhetsinsikter för ett visst protokoll dras tillbaka så parsas inte det protokollet längre. Om du aktiverar den här funktionen hjälper det till att förbättra prestanda. På en dator som har alla de senaste säkerhetsuppdateringarna påverkar inte nätverksskyddet nätverkets prestanda.
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras tillbakadragning av definitioner.
+    Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras tillbakadragning av definitioner.
 
-Om du inaktiverar den här inställningen inaktiveras tillbakadragning av definitioner.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definiera hur ofta identifieringshändelser loggas</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Den här principinställningen begränsar hur ofta identifieringshändelser för nätverksskydd mot kända säkerhetsrisker loggas. Loggningen begränsas till inte oftare än en händelse per det definierade intervallet. Intervallvärdet definieras i minuter. Standardintervallet är 60 minuter.
-
-Om du aktiverar den här inställningen loggas identifieringshändelser inte om det finns fler än en liknande rapport (per definitions-GUID) under det angivna antalet minuter.
-
-Om du inaktiverar eller låter bli att konfigurera den här inställningen loggas identifieringshändelser med standardfrekvensen.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Undantag för IP-adressintervall</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Den här principen förhindrar, om den definieras, att nätverksskydd mot kända säkerhetsrisker inspekterar de angivna IP-adresserna. IP-adresser ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett IP-adressintervall. Ett intervall kan till exempel definieras som: 157.1.45.123-60.1.1.1. Värdet används inte och du rekommenderas att ange det som 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Undantag för portnummer</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Den här principinställningen definierar en lista med TCP-portnummer som inspektion av nätverkstrafik inaktiveras för. Portnummer ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett TCP-portnummer. Ett intervall kan till exempel definieras som: 8080. Värdet används inte och du rekommenderas att ange det som 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Processundantag för utgående trafik</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Den här principinställningen definierar processer vars utgående nätverkstrafik inte inspekteras.  Processnamn ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av sökväg och namn för en process. En process kan till exempel definieras som: "C:\Windows\System32\App.exe". Värdet används inte och du rekommenderas att ange det som 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Undantag för hot-ID</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Den här principinställningen definierar hot som ska undantas från identifiering vid inspektion av nätverkstrafiken. Hot ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett hot-ID. Ett hot-ID kan till exempel definieras som: 2925110632. Värdet används inte och du rekommenderas att ange det som 0.</string>
+    Om du inaktiverar den här inställningen inaktiveras tillbakadragning av definitioner.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Ange ytterligare definitionsuppsättningar för inspektion av nätverkstrafik</string>
-    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Den här principinställningen definierar ytterligare definitionsuppsättningar som ska aktiveras för inspektion av nätverkstrafiken. GUID:er för definitionsuppsättningar ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett definitionsuppsättnings-GUID. Exempelvis definieras definitionsuppsättnings-GUID för att aktivera testdefinitioner som: ”{b54b6ac9-a737-498e-9120-6616ad3bf590}”. Värdet används inte och du rekommenderas att ange det som 0.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Den här principinställningen definierar ytterligare definitionsuppsättningar som ska aktiveras för inspektion av nätverkstrafiken. GUID:er för definitionsuppsättningar ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett definitionsuppsättnings-GUID. Exempelvis definieras definitionsuppsättnings-GUID för att aktivera testsäkerhetsinsikter som: ”{b54b6ac9-a737-498e-9120-6616ad3bf590}”. Värdet används inte och du rekommenderas att sätta det till 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurera lokal åsidosättningsinställning för borttagning av objekt från mappen Karantän</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">Den här principinställningen konfigurerar en lokal åsidosättning för konfigurationen av antalet dagar som objekt ska behållas i mappen Karantän innan de tas bort. Inställningen kan bara göras av grupprincip.
 
@@ -138,18 +173,6 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen behå
 Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras beteendeövervakning.
 
 Om du inaktiverar den här inställningen inaktiveras beteendeövervakningen.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Aktivera IPC (Information Protection Control)</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Med den här principinställningen kan du konfigurera IPC (Information Protection Control).
-
-Om du aktiverar den här inställningen aktiveras IPC.
-
-Om du inaktiverar eller låter bli att konfigurera den här inställningen inaktiveras IPC.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Aktivera nätverksskydd mot kända säkerhetsrisker</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Med den här principinställningen kan du konfigurera nätverksskydd mot kända säkerhetsrisker.
-
-Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras nätverksskyddet.
-
-Om du inaktiverar den här principinställningen inaktiveras nätverksskyddet.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Genomsök alla nedladdade filer och bilagor</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Med den här principinställningen kan du konfigurera genomsökning för alla nedladdade filer och bilagor.
 
@@ -169,13 +192,13 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen aktiver
 
 Om du inaktiverar den här inställningen inaktiveras meddelanden om raw-skrivning.</string>
     <string id="DisableRealtimeMonitoring">Inaktivera realtidsskydd</string>
-    <string id="DisableRealtimeMonitoringDefender_Explain">Med den här principinställningen inaktiveras realtidsmeddelandena om känd skadlig kod som identifieras.
+    <string id="DisableRealtimeMonitoringDefender_Explain">Med den här principinställningen inaktiveras realtidsuppmaningarna om att åtgärda känd skadlig kod som identifieras.
 
-    Endpoint Protection varnar när skadlig kod eller annan potentiellt skadlig programvara försöker installeras eller köras automatiskt på datorn.
+    Windows Defender Antivirus varnar när skadlig kod eller annan potentiellt skadlig programvara försöker installeras eller köras automatiskt på datorn.
 
-Om du aktiverar den här principinställningen uppmanar inte Endpoint Protection användarna att vidta åtgärder när skadlig kod identifieras.
+    Om du aktiverar principinställningen uppmanar inte Windows Defender Antivirus användarna att vidta åtgärder när skadlig kod identifieras.
 
-    Om du inaktiverar eller låter bli att konfigurera den här principinställningen uppmanar Endpoint Protection användarna att vidta åtgärder när skadlig kod identifieras.</string>
+    Om du inaktiverar eller låter bli att konfigurera principinställningen uppmanar Windows Defender Antivirus användarna att vidta åtgärder när skadlig kod identifieras.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Med den här principinställningen inaktiveras realtidsmeddelandena om känd skadlig kod som identifieras.
 
@@ -205,12 +228,6 @@ Om du aktiverar den här inställningen får den lokala inställningen högre pr
 Om du inaktiverar eller låter bli att konfigurera den här inställningen får grupprincipen högre prioritet än den lokala inställningen.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Konfigurera lokal åsidosättningsinställning för övervakning av fil- och programaktivitet på datorn</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Den här principinställningen konfigurerar en lokal åsidosättning för övervakning av fil- och programaktivitet på datorn. Inställningen kan bara göras av grupprincip.
-
-Om du aktiverar den här inställningen får den lokala inställningen högre prioritet än grupprincipen.
-
-Om du inaktiverar eller låter bli att konfigurera den här inställningen får grupprincipen högre prioritet än den lokala inställningen.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Konfigurera lokal åsidosättningsinställning för att inaktivera Intrusion Prevention System</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Den här principinställningen konfigurerar en lokal åsidosättning för konfigurationen av nätverksskydd mot kända säkerhetsrisker. Inställningen kan bara göras av grupprincip.
 
 Om du aktiverar den här inställningen får den lokala inställningen högre prioritet än grupprincipen.
 
@@ -307,13 +324,21 @@ Om du inaktiverar den här inställningen skickas Watson-händelser inte.</strin
     <string id="Reporting_WppTracingComponents_Explain">Den här principen konfigurerar WPP-komponenterna (Windows software trace preprocessor).</string>
     <string id="Reporting_WppTracingLevel">Konfigurera WPP-spårningsnivå</string>
     <string id="Reporting_WppTracingLevel_Explain">Med den här principen konfigurerar du spårningsnivåer för WPP (Windows software trace preprocessor). 
+    Spårningsnivåerna definieras som:
+    1 - Fel
+    2 - Varning
+    3 - Info
+    4 - Felsökning</string>
+    <string id="Reporting_DisableEnhancedNotifications">Inaktivera utökade meddelanden</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Använd den här principinställningen om du vill att utökade Windows Defender Antivirus-meddelanden ska visas på klienter.
+      
+      Om du inaktiverar eller låter bli att konfigurera inställningen visas utökade Windows Defender Antivirus-meddelanden på klienter.
+      
+      Om du aktiverar inställningen visas inte utökade Windows Defender Antivirus-meddelanden på klienter.
+    </string>
 
-Spårningsnivåerna definieras som:
-1 - Fel
-2 - Varning
-3 - Info
-4 - Felsök</string>
-    <string id="Scan_AllowPause">Tillåt att användarna pausar genomsökningen</string>
+      <string id="Scan_AllowPause">Tillåt att användarna pausar genomsökningen</string>
     <string id="Scan_AllowPause_Explain">Med den här principinställningen kan du styra om slutanvändare kan pausa en pågående genomsökning.
 
 Om du aktiverar eller låter bli att konfigurera den här inställningen läggs en ny snabbmeny till i aktivitetsfältsikonen där användaren kan pausa genomsökningen.
@@ -337,14 +362,14 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen genom
 Om du aktiverar den här inställningen överstiger processoranvändningen inte den angivna procentandelen.
 
 Om du inaktiverar eller låter bli att konfigurera inställningen överstiger processoranvändningen inte standardvärdet.</string>
-    <string id="CheckForSignaturesBeforeRunningScan">Sök efter de senaste virus- och spionprogramsdefinitionerna innan en schemalagd genomsökning körs</string>
-    <string id="CheckForSignaturesBeforeRunningScan_Explain">Med den här principinställningen kan du styra om en sökning efter nya virus- och spionprogramsdefinitioner ska göras innan en genomsökning körs. 
+    <string id="CheckForSignaturesBeforeRunningScan">Kontrollera om det finns nya säkerhetsinsikter för virus och spionprogram innan en schemalagd genomsökning körs</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">Med den här principinställningen kan du ange att en kontroll ska göras för att se om det finns nya säkerhetsinsikter för virus och spionprogram innan en genomsökning körs. 
 
-Den här inställningen gäller schemalagda genomsökningar och kommandoraden "mpcmdrun -SigUpdate", men påverkar inte genomsökningar som startas manuellt från användargränssnittet.
+    Den här inställningen gäller schemalagda genomsökningar och kommandoraden "mpcmdrun -SigUpdate", men den påverkar inte genomsökningar som startas manuellt från användargränssnittet.
 
-Om du aktiverar inställningen görs en sökning efter nya definitioner innan en genomsökning körs.
+    Om du aktiverar inställningen görs en kontroll för att se om det finns nya säkerhetsinsikter innan en genomsökning körs.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen startar genomsökningen med de befintliga definitionerna.</string>
+    Om du inaktiverar eller låter bli att konfigurera inställningen startar genomsökningen med de befintliga säkerhetsinsikterna.</string>
     <string id="Scan_DisableArchiveScanning">Genomsök arkivfiler</string>
     <string id="Scan_DisableArchiveScanning_Explain">Med den här principinställningen kan du konfigurera genomsökningar efter skadliga och oönskade program i arkivfiler som ZIP- och CAB-filer.
 
@@ -514,79 +539,91 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen körs
     Om du aktiverar den här inställningen görs en komma ifatt-sökning när angivet antal på varandra följande schemalagda genomsökningar missas.
 
     Om du inaktiverar eller låter bli att konfigurera den här inställningen görs en komma ifatt-sökning efter 2 på varandra följande missade schemalagda genomsökningar.</string>
-    <string id="SignatureUpdate_ASSignatureDue">Definiera antalet dagar innan spionprogramsdefinitioner anses vara inaktuella</string>
-    <string id="SignatureUpdate_ASSignatureDue_Explain">Med den här principinställningen kan du definiera antalet dagar som måste passera innan spionprogramsdefinitioner anses vara inaktuella. Om definitionerna anses vara inaktuella kan det här läget utlösa flera ytterligare åtgärder, till exempel att återgå till en alternativ uppdateringskälla eller att visa en varningsikon i användargränssnittet. Som standard anges värdet till 14 dagar.
+    <string id="Scan_LowCpuPriority">Konfigurera låg CPU-prioritet för schemalagda sökningar</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Med den här principinställningen kan du aktivera eller inaktivera låg CPU-prioritet för schemalagda sökningar.
 
-Om du aktiverar inställningen anses spionprogramsdefinitioner vara inaktuella när det antal dagar som har angetts har passerat utan en uppdatering.
+        Om du aktiverar inställningen används låg CPU-prioritet vid schemalagda sökningar.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen anses spionprogramsdefinitioner vara inaktuella när standardantalet dagar har passerat utan en uppdatering.</string>
-    <string id="SignatureUpdate_AVSignatureDue">Definiera antalet dagar innan virusdefinitioner anses vara inaktuella</string>
-    <string id="SignatureUpdate_AVSignatureDue_Explain">Med den här principinställningen kan du definiera antalet dagar som måste passera innan virusdefinitioner anses vara inaktuella. Om definitionerna anses vara inaktuella kan det här läget utlösa flera ytterligare åtgärder, till exempel att återgå till en alternativ uppdateringskälla eller att visa en varningsikon i användargränssnittet. Som standard anges värdet till 14 dagar.
+        Om du inaktiverar eller låter bli att konfigurera inställningen görs ingen ändring av CPU-prioriteten för schemalagda sökningar.
+    </string>
+    <string id="SignatureUpdate_ASSignatureDue">Definiera antalet dagar innan säkerhetsinsikter för spionprogram anses vara inaktuella</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">Med den här principinställningen kan du definiera antalet dagar som måste passera innan säkerhetsinsikter för spionprogram anses vara inaktuella. Om säkerhetsinsikterna anses vara inaktuella kan det utlösa flera ytterligare åtgärder, som att använda en alternativ uppdateringskälla eller att visa en varningsikon i användargränssnittet. Som standard anges värdet till 14 dagar.
 
-Om du aktiverar inställningen anses virusdefinitioner vara inaktuella när det antal dagar som har angetts har passerat utan en uppdatering.
+    Om du aktiverar inställningen anses säkerhetsinsikterna för spionprogram vara inaktuella när det antal dagar som har angetts har passerat utan en uppdatering.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen anses virusdefinitioner vara inaktuella när standardantalet dagar har passerat utan en uppdatering.</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definiera filresurser för nedladdning av definitionsuppdateringar</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Med den här principinställningen kan du konfigurera UNC-filresurser för nedladdning av definitionsuppdateringar. Källorna måste kontaktas i den angivna ordningen. Värdet på inställningen ska anges som en pipe-separerad sträng som räknar upp källorna till definitionsuppdateringarna. Exempel: "{\\unc1 | \\unc2 }". Som standard är listan tom.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen anses säkerhetsinsikterna för spionprogram vara inaktuella när standardantalet dagar har passerat utan en uppdatering.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Definiera antalet dagar innan säkerhetsinsikter för virus anses vara inaktuella</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">Med den här principinställningen kan du definiera antalet dagar som måste passera innan säkerhetsinsikter för virus anses vara inaktuella. Om säkerhetsinsikterna anses vara inaktuella kan det utlösa flera ytterligare åtgärder, som att använda en alternativ uppdateringskälla eller att visa en varningsikon i användargränssnittet. Som standard anges värdet till 14 dagar.
 
-Om du aktiverar den här inställningen kontaktas de angivna källorna för definitionsuppdateringar. När definitionsuppdateringarna har laddats ned från en angiven källa kontaktas inte de återstående källorna i listan.
+    Om du aktiverar inställningen anses säkerhetsinsikterna för virus vara inaktuella när det antal dagar som har angetts har passerat utan en uppdatering.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen förblir listan tom som standard och inga källor kontaktas.</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate">Aktivera genomsökning efter signaturuppdatering</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Med den här principinställningen kan du konfigurera den automatiska genomsökning som startar när en definitionsuppdatering har inträffat.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen anses säkerhetsinsikterna för virus vara inaktuella när standardantalet dagar har passerat utan en uppdatering.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definiera filresurser för nedladdning av uppdateringar för säkerhetsinsikter</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Med den här principinställningen kan du konfigurera UNC-filresurskällor för nedladdning av uppdateringar för säkerhetsinsikter. Källorna kontaktas i den ordning som anges. Värdet på inställningen ska anges som en pipe-avgränsad sträng som räknar upp uppdateringskällorna för säkerhetsinsikter. Exempel: "{\\unc1 | \\unc2 }". Listan är tom som standard.
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen startar en genomsökning när en definitionsuppdatering har inträffat.
+    Om du aktiverar den här inställningen kontaktas de angivna källorna för uppdateringar av säkerhetsinsikter. När uppdateringar väl har laddats ned från en källa kontaktas inte de återstående källorna i listan.
 
-Om du inaktiverar den här inställningen startar ingen genomsökning när en definitionsuppdatering har inträffat.</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Tillåt definitionsuppdateringar vid batteridrift</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Med den här principinställningen kan du konfigurera definitionsuppdateringar när datorn körs på batteri.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen förblir listan tom som standard och inga källor kontaktas.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation">Definiera platsen för säkerhetsinsikter för VDI-klienter.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation_Explain">Med den här principinställningen kan du definiera platsen för säkerhetsinsikter för VDI-konfigurerade datorer. 
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen inträffar definitionsuppdateringar som vanligt oavsett energitillstånd.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen används säkerhetsinsikter från den lokala standardkällan.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Aktivera genomsökning efter uppdatering av säkerhetsinsikter</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Med den här principinställningen kan du konfigurera den automatiska genomsökning som startar när en uppdatering av säkerhetsinsikter har gjorts.
 
-Om du inaktiverar den här inställningen stängs definitionsuppdateringar av när datorn körs på batteri.</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Initiera definitionsuppdatering vid start</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Med den här principinställningen kan du konfigurera definitionsuppdateringar vid start när det inte finns någon skyddsmotor mot skadlig kod.
+    Om du aktiverar eller låter bli att konfigurera den här inställningen startar en genomsökning efter att en uppdatering av säkerhetsinsikter har gjorts.
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen initieras definitionsuppdateringar vid start när det inte finns någon skyddsmotor mot skadlig kod.
+    Om du inaktiverar den här inställningen startar ingen genomsökning efter att en uppdatering av säkerhetsinsikter har gjorts.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Tillåt att säkerhetsinsikter uppdateras vid batteridrift</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Med den här principinställningen kan du konfigurera uppdateringar av säkerhetsinsikter när datorn körs på batteri.
 
-Om du inaktiverar den här inställningen initieras inga definitionsuppdateringar vid start när det inte finns någon skyddsmotor mot skadlig kod.</string>
-    <string id="SignatureUpdate_FallbackOrder">Definiera källordningen för nedladdning av definitionsuppdateringar</string>
-    <string id="SignatureUpdate_FallbackOrder_Explain">Med den här principinställningen kan du definiera i vilken ordning olika källor för definitionsuppdateringar ska kontaktas. Värdet på inställningen ska anges som en pipe-separerad sträng som räknar upp källorna till definitionsuppdateringarna i ordning. Möjliga värden är: “InternalDefinitionUpdateServer”, “MicrosoftUpdateServer”, “MMPC” och “FileShares”
+    Om du aktiverar eller låter bli att konfigurera den här inställningen görs uppdateringar av säkerhetsinsikter som vanligt oavsett energiläge.
 
-Exempel: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
+    Om du inaktiverar den här inställningen stänger det av uppdateringar av säkerhetsinsikter när datorn körs på batteri.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Initiera uppdatering av säkerhetsinsikter vid start</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Med den här principinställningen kan du konfigurera uppdatering av säkerhetsinsikter vid start när det inte finns någon skyddsmotor mot skadlig kod.
 
-Om du aktiverar den här inställningen kontaktas källor till definitionsuppdateringar i den angivna ordningen. När definitionsuppdateringarna har laddats ned från en angiven källa kontaktas inte de återstående källorna i listan.
+    Om du aktiverar eller låter bli att konfigurera den här inställningen initieras uppdatering av säkerhetsinsikter vid start när det inte finns någon skyddsmotor mot skadlig kod.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen kontaktas källorna till definitionsuppdateringar i standardordningen.</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU">Tillåt definitionsuppdateringar från Microsoft Update</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Med den här principinställningen kan du ladda ned definitionsuppdateringar från Microsoft Update även om standardservern för automatiska uppdateringar har konfigurerats till en annan nedladdningskälla, till exempel Windows Update.
+    Om du inaktiverar den här inställningen initieras inte uppdatering av säkerhetsinsikter vid start när det inte finns någon skyddsmotor mot skadlig kod.</string>
+    <string id="SignatureUpdate_FallbackOrder">Definiera källordningen för nedladdning av uppdateringar för säkerhetsinsikter</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">Med den här principinställningen kan du definiera i vilken ordning olika uppdateringskällor för säkerhetsinsikter ska kontaktas. Värdet på inställningen ska anges som en pipe-avgränsad sträng som räknar upp uppdateringskällorna för säkerhetsinsikter i ordning. Möjliga värden är: ”InternalDefinitionUpdateServer”, ”MicrosoftUpdateServer”, ”MMPC” och ”FileShares”
 
-Om du aktiverar den här inställningen laddas definitionsuppdateringar ned från Microsoft Update.
+    Exempel: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen laddas definitionsuppdateringar ned från den konfigurerade nedladdningskällan.</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery">Tillåt definitionsuppdateringar i realtid baserade på rapporter till Microsoft MAPS</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Med den här principinställningen kan du aktivera definitionsuppdateringar i realtid som svar på rapporter som skickats till Microsoft MAPS. Om tjänsten rapporterar en fil som okänd och Microsoft MAPS upptäcker att den senaste definitionsuppdateringen har definitioner för ett hot som gäller den filen tar tjänsten omedelbart emot alla de senaste definitionerna för hotet. Du måste ha konfigurerat datorn att gå med i Microsoft MAPS för att funktionen ska fungera.
+    Om du aktiverar den här inställningen kontaktas uppdateringskällor för säkerhetsinsikter i den angivna ordningen. När uppdateringar väl har laddats ned från en källa kontaktas inte de återstående källorna i listan.
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras definitionsuppdateringar i realtid.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen kontaktas uppdateringskällorna enligt standardordningen.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Tillåt uppdateringar av säkerhetsinsikter från Microsoft Update</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Med den här principinställningen kan du ladda ned uppdateringar av säkerhetsinsikter från Microsoft Update även om standardservern för automatiska uppdateringar är inställd på en annan nedladdningskälla, till exempel Windows Update.
 
-Om du inaktiverar den här inställningen inaktiveras definitionsuppdateringar i realtid.</string>
-    <string id="SignatureUpdate_ScheduleDay">Ange en veckodag att söka efter definitionsuppdateringar</string>
-    <string id="SignatureUpdate_ScheduleDay_Explain">Med den här principinställningen kan du ange en veckodag att söka efter definitionsuppdateringar. Sökningen kan också konfigureras att köras varje dag eller att aldrig köras.
+    Om du aktiverar den här inställningen laddas uppdateringar av säkerhetsinsikter ned från Microsoft Update.
 
-Inställningen kan konfigureras med följande ordningstal:
-(0x0) Varje dag (standard)
-(0x1) Söndag 
-(0x2) Måndag
-(0x3) Tisdag
-(0x4) Onsdag
-(0x5) Torsdag
-(0x6) Fredag
-(0x7) Lördag
-(0x8) Aldrig
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen laddas uppdateringar av säkerhetsinsikter ned från den konfigurerade nedladdningskällan.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">Tillåt uppdateringar av säkerhetsinsikter i realtid baserat på rapporter till Microsoft MAPS</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Med den här principinställningen kan du aktivera uppdateringar av säkerhetsinsikter i realtid som svar på rapporter som skickas till Microsoft MAPS. Om tjänsten rapporterar en fil som okänd och Microsoft MAPS upptäcker att den senaste uppdateringen har säkerhetsinsikter för ett hot som gäller den filen tar tjänsten omedelbart emot alla de senaste säkerhetsinsikterna för det hotet. Du måste ha konfigurerat datorn så att den är ansluten till Microsoft MAPS för att den här funktionen ska fungera.
 
-Om du aktiverar inställningen görs en sökning efter definitionsuppdateringar med det angivna intervallet.
+    Om du aktiverar eller låter bli att konfigurera den här inställningen görs uppdateringar av säkerhetsinsikter i realtid.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen sker sökningen efter definitionsuppdateringar med standardintervallet.</string>
+    Om du inaktiverar den här inställningen så inaktiveras uppdateringar av säkerhetsinsikter i realtid.</string>
+    <string id="SignatureUpdate_ScheduleDay">Ange vilken veckodag du vill kontrollera om det finns uppdateringar av säkerhetsinsikter</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">Med den här principinställningen kan du ange vilken veckodag du vill kontrollera om det finns uppdateringar av säkerhetsinsikter. Kontrollen kan också konfigureras att köras varje dag eller att aldrig köras.
+
+    Inställningen kan konfigureras med följande värden:
+    (0x0) Varje dag (standard)
+    (0x1) Söndag 
+    (0x2) Måndag
+    (0x3) Tisdag
+    (0x4) Onsdag
+    (0x5) Torsdag
+    (0x6) Fredag
+    (0x7) Lördag
+    (0x8) Aldrig
+
+    Om du aktiverar inställningen görs en kontroll för att se om det finns uppdateringar av säkerhetsinsikter enligt det angivna intervallet.
+
+    Om du inaktiverar eller låter bli att konfigurera inställningen görs kontrollen för att se om det finns uppdateringar av säkerhetsinsikter enligt standardintervallet.</string>
     <string id="SignatureUpdate_ScheduleDay_0">Aldrig</string>
     <string id="SignatureUpdate_ScheduleDay_1">Varje dag</string>
     <string id="SignatureUpdate_ScheduleDay_2">Söndag</string>
@@ -596,24 +633,24 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen sker 
     <string id="SignatureUpdate_ScheduleDay_6">Torsdag</string>
     <string id="SignatureUpdate_ScheduleDay_7">Fredag</string>
     <string id="SignatureUpdate_ScheduleDay_8">Lördag</string>
-    <string id="SignatureUpdate_ScheduleTime">Ange tidpunkten för att söka efter definitionsuppdateringar</string>
-    <string id="SignatureUpdate_ScheduleTime_Explain">Med den här principinställningen kan du ange tiden på dagen för att söka efter definitionsuppdateringar. Tidsvärdet representeras som antalet minuter efter midnatt (00:00).  Exempelvis är 120 (0x78) lika med 02:00. Som standard är inställningen konfigurerad för att söka efter definitionsuppdateringar 15 minuter före den schemalagda genomsökningstiden. Schemat baseras på den lokala tiden i datorn där sökningen görs.
+    <string id="SignatureUpdate_ScheduleTime">Ange vilken tid du vill kontrollera om det finns uppdateringar av säkerhetsinsikter</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">Med den här principinställningen kan du ange vilken tid på dagen du vill kontrollera om det finns uppdateringar av säkerhetsinsikter. Tidsvärdet representeras som antalet minuter efter midnatt (00:00). Exempelvis är 120 (0x78) lika med 02:00. Som standard är inställningen konfigurerad till att kontrollera om det finns uppdateringar 15 minuter före den schemalagda tiden för genomsökning. Schemat baseras på den lokala tiden på datorn där kontrollen görs.
 
-Om du aktiverar den här inställningen inträffar sökningen efter definitionsuppdateringar vid den angivna tiden på dagen.
+    Om du aktiverar den här inställningen görs kontrollen för att se om det finns uppdateringar av säkerhetsinsikter den angivna tiden på dagen.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen sker sökningen efter definitionsuppdateringar vid standardtidpunkten.</string>
-    <string id="SignatureUpdate_SignatureDisableNotification">Tillåt meddelanden att inaktivera definitioner baserat på rapporter till Microsoft MAPS</string>
-    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Med den är principinställningen kan du konfigurera tjänsten för program mot skadlig kod att ta emot meddelanden om att inaktivera enskilda definitioner som svar på rapporter som den skickar till Microsoft MAPS. Microsoft MAPS använder meddelandena för att inaktivera definitioner som orsakar falska positiva rapporter som kan ignoreras. Du måste ha konfigurerat datorn att gå med i Microsoft MAPS för att funktionen ska fungera.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen görs kontrollen vid standardtidpunkten.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Tillåt meddelanden om att inaktivera säkerhetsinsikter baserat på rapporter till Microsoft MAPS</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Med den här principinställningen kan du konfigurera tjänsten för program mot skadlig kod att ta emot meddelanden om att inaktivera enskilda säkerhetsinsikter som svar på rapporter som den skickar till Microsoft MAPS. Microsoft MAPS använder meddelandena för att inaktivera säkerhetsinsikter som orsakar rapporter med falsk positiv identifiering. Du måste ha konfigurerat datorn så att den är ansluten till Microsoft MAPS för att den här funktionen ska fungera.
 
-Om du aktiverar eller låter bli att konfigurera den här inställningen tar tjänsten för program mot skadlig kod emot meddelanden om att inaktivera definitioner.
+    Om du aktiverar eller låter bli att konfigurera den här inställningen tar tjänsten för program mot skadlig kod emot meddelanden om att inaktivera säkerhetsinsikter.
 
-Om du inaktiverar den här inställningen tar tjänsten för program mot skadlig kod inte emot meddelanden om att inaktivera definitioner.</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definiera efter hur många dagar en komma ifatt-definitionsuppdatering krävs</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Med den här principinställningen kan du definiera efter hur många dagar en komma ifatt-definitionsuppdatering kommer att krävas. Standardvärdet för den här inställningen är 1 dag.
+    Om du inaktiverar inställningen tar tjänsten för program mot skadlig kod inte emot meddelanden om att inaktivera säkerhetsinsikter.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Ange antalet dagar innan en samlad uppdatering av säkerhetsinsikter krävs</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Med den här principinställningen kan du definiera efter hur många dagar en komma ifatt-uppdatering av säkerhetsinsikter kommer att krävas. Standardvärdet för den här inställningen är 1 dag.
 
-Om du aktiverar den här inträffar en komma ifatt-definitionsuppdatering efter det angivna antalet dagar.
+    Om du aktiverar den här inställningen görs en komma ifatt-uppdatering av säkerhetsinsikter efter det angivna antalet dagar.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen krävs en komma ifatt-definitionsuppdatering efter det antal dagar som är standard.</string>
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen krävs en komma ifatt-uppdatering av säkerhetsinsikter efter det antal dagar som är standard.</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Ange intervall för förfallomeddelanden</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
     Med den här principinställningen kan du ange ett intervall (i dagar) för när förfallomeddelanden ska skickas.
@@ -621,18 +658,28 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen kräv
 
     Värdet ska vara större än noll för att principen ska aktiveras.
     </string>
-    <string id="SignatureUpdate_SignatureUpdateInterval">Ange intervallet för att söka efter definitionsuppdateringar</string>
-    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Med den här principinställningen kan du ange ett intervall för att söka efter definitionsuppdateringar. Tidsvärdet representeras som antalet minuter mellan uppdateringssökningar. Giltiga värdeintervall är från 1 (varje timme) till 24 (en gång per dygn).
+    <string id="SignatureUpdate_SignatureUpdateInterval">Ange med vilket intervall du vill kontrollera om det finns uppdateringar av säkerhetsinsikter</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Med den här principinställningen kan du ange med vilket intervall du vill kontrollera om det finns uppdateringar av säkerhetsinsikter. Tidsvärdet representeras som antalet timmar mellan uppdateringskontroller. Giltiga värdeintervall är från 1 (varje timme) till 24 (en gång per dag).
 
-Om du aktiverar den här inställningen inträffar sökningar efter definitionsuppdateringar med det angivna intervallet.
+    Om du aktiverar den här inställningen görs en kontroll för att se om det finns uppdateringar av säkerhetsinsikter enligt det angivna intervallet.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen sker sökningarna efter definitionsuppdateringar med standardintervallet.</string>
-    <string id="SignatureUpdate_UpdateOnStartup">Sök efter de senaste virus- och spionprogramsdefinitionerna vid start</string>
-    <string id="SignatureUpdate_UpdateOnStartup_Explain">Med den här principinställningen kan du styra om en sökning efter nya virus- och spionprogramsdefinitioner ska göras omedelbart när tjänsten har startats.
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen görs kontrollen för att se om det finns uppdateringar av säkerhetsinsikter enligt standardintervallet.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">Kontrollera om det finns nya säkerhetsinsikter för virus och spionprogram vid start</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">Med den här principinställningen kan du ange om en kontroll ska göras för att se om det finns nya säkerhetsinsikter för virus och spionprogram omedelbart efter att tjänsten har startats.
 
-Om du aktiverar inställningen görs en sökning efter nya definitioner efter att tjänsten har startats.
+    Om du aktiverar inställningen görs kontrollen omedelbart efter att tjänsten har startats.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen görs ingen sökning efter nya definitioner när tjänsten har startats.</string>
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen görs inte kontrollen omedelbart efter att tjänsten har startats.</string>
+    <string id="DisableBlockAtFirstSeen">Konfigurera funktionen Blockera när det först påträffas</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Den här funktionen säkerställer att enheten gör en kontroll i realtid med Microsoft Active Protection Service (MAPS) innan visst innehåll tillåts köras eller användas. Om den här funktionen är inaktiverad görs ingen kontroll vilket innebär att enheten får en lägre skyddsstatus.
+    Aktiverad – funktionen ”Blockera när det först påträffas” är aktiverad.
+    Inaktiverad – funktionen ”Blockera när det först påträffas” är inaktiverad.
+    
+    För den här funktionen krävs att dessa grupprincipinställningar anges enligt följande:
+    MAPS -&gt; ”Gå med i Microsoft MAPS” måste vara aktiverad annars fungerar inte funktionen ”Blockera när det först påträffas”.
+    MAPS -&gt; ”Skicka filprover när vidare analys krävs” ska ha värdet 1 (Skicka säkra prover) eller 3 (Skicka alla prover). Om du anger värdet till 0 (Fråga alltid) får enheten en lägre skyddsstatus. Om du anger värdet 2 (Skicka aldrig) fungerar inte funktionen ”Blockera när det först påträffas”.
+    Realtidsskydd -&gt; Principen ”Genomsök alla nedladdade filer och bilagor” måste vara aktiverad annars fungerar inte funktionen ”Blockera när det först påträffas”.
+    Realtidsskydd -&gt; Principen ”Inaktivera realtidsskydd” får inte vara aktiverad annars fungerar inte funktionen ”Blockera när det först påträffas”.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurera lokal åsidosättningsinställning för rapportering till Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Med den här principinställningen konfigureras en lokal åsidosättning för konfigurationen att gå med i Microsoft MAPS. Inställningen kan bara göras av grupprincip.
 
@@ -647,7 +694,7 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen får 
         (0x0) Fråga alltid
         (0x1) Skicka säkra prover automatiskt
         (0x2) Skicka aldrig
-        (0x2) Skicka alla prover automatiskt
+        (0x3) Skicka alla prover automatiskt
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Fråga alltid</string>
@@ -656,22 +703,24 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen får 
     <string id="SubmitSamplesConsent_Send_All">Skicka alla prover</string>
 
     <string id="SpynetReporting">Gå med i Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Med den här principinställningen kan du bli medlem i Microsoft MAPS. Microsoft MAPS är en nätgrupp där du kan få hjälp med att hantera potentiella hot. Gruppen hjälper även till med att stoppa spridningen av nya skadliga programvaror.
+    <string id="SpynetReporting_Explain">Med den här principinställningen kan du bli medlem i Microsoft MAPS. Microsoft MAPS är en community där du kan få hjälp med att hantera potentiella hot. Communityn hjälper även till med att stoppa spridningen av nya skadliga programvaror.
 
-Du kan välja att skicka grundläggande eller ytterligare information om identifierade program. Ytterligare information hjälper Microsoft att skapa nya definitioner och dig att skydda din dator. Uppgifterna kan omfatta sådant som var de identifierade objekten fanns på datorn om något skadligt program togs bort. Informationen samlas in och skickas automatiskt. I vissa fall kan personlig information oavsiktligt skickas till Microsoft. Microsoft använder dock inte dessa uppgifter för att identifiera eller kontakta dig.
+    Du kan välja att skicka grundläggande eller ytterligare information om identifierade program. Ytterligare information hjälper Microsoft att skapa nya säkerhetsinsikter som bättre skyddar din dator. Informationen kan omfatta sådant som var de identifierade objekten fanns på datorn om någon skadlig programvara togs bort. Informationen samlas in och skickas automatiskt. I vissa fall kan personlig information oavsiktligt skickas till Microsoft. Microsoft använder dock inte den här informationen för att identifiera eller kontakta dig.
 
-Möjliga alternativ är:
-(0x0) Inaktiverat (standard)
-(0x1) Grundläggande medlemskap
-(0x2) Avancerat medlemskap 
+    Möjliga alternativ är:
+    (0x0) Inaktiverad (standard)
+    (0x1) Grundläggande medlemskap
+    (0x2) Avancerat medlemskap
 
-Grundläggande medlemskap skickar grundläggande uppgifter om programmen som identifieras till Microsoft, bland annat om varifrån programmet kom, de åtgärder du vidtar eller som vidtas automatiskt och huruvida åtgärderna lyckades.
+    Grundläggande medlemskap skickar grundläggande information om programvaran som identifieras till Microsoft, bland annat om varifrån programvaran kom, de åtgärder du vidtar eller som vidtas automatiskt och huruvida åtgärderna lyckades.
 
-Avancerat medlemskap skickar utöver grundläggande uppgifter mer information till Microsoft om skadlig kod, spionprogram och potentiellt oönskade program, bland annat var programmet finns, filnamn, hur programmet fungerar och hur det har påverkat din dator.
+    Avancerat medlemskap skickar utöver grundläggande information mer information om skadlig programvara, spionprogram och potentiellt oönskad programvara till Microsoft, bland annat var programvaran finns, filnamn, hur programvaran fungerar och hur den har påverkat din dator.
 
-Om du aktiverar den här inställningen går du med i Microsoft MAPS med det angivna medlemskapet.
+    Om du aktiverar den här inställningen går du med i Microsoft MAPS med det angivna medlemskapet.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen går du inte med i Microsoft MAPS.</string>
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen går du inte med i Microsoft MAPS.
+  
+    I Windows 10 är Grundläggande medlemskap inte längre tillgängligt. Det innebär att om du anger värdet 1 eller 2 registreras enheten med Avancerat medlemskap.</string>
     <string id="SpynetReporting_Disabled">Inaktiverad</string>
     <string id="SpynetReporting_Basic">Grundläggande MAPS</string>
     <string id="SpynetReporting_Advanced">Avancerat MAPS</string>
@@ -706,28 +755,225 @@ Giltiga värden för reparationsåtgärder är:
 
       Om du aktiverar den här inställningen visas inte omstartsmeddelanden.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Visa meddelanden för klienter när de måste vidta åtgärder</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Med den här principinställningen kan du konfigurera om meddelanden ska visas för klienter när de måste vidta de angivna åtgärderna:
-Kör en fullständig genomsökning
-Ladda ned de senaste virus- och spionprogramsdefinitionerna
-Ladda ned Standalone System Sweeper
+    <string id="UX_Configuration_Notification_Suppress">Visa inga meddelanden</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Använd den här principinställningen om du vill att Windows Defender Antivirus-meddelanden ska visas på klienter.
+      Om du inaktiverar eller låter bli att konfigurera inställningen visas Windows Defender Antivirus-meddelanden på klienter.
 
-
-Om du aktiverar eller låter bli att konfigurera den här inställningen visas meddelanden för klienter när de måste vidta de angivna åtgärderna.
-
-Om du inaktiverar den här inställningen visas inte meddelanden för klienter när de måste vidta de angivna åtgärderna.</string>
+      Om du aktiverar inställningen visas inte Windows Defender Antivirus-meddelanden på klienter.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Visa ytterligare text för klienter när de måste vidta en åtgärd</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Med den här principinställningen kan du konfigurera om ytterligare text ska visas för klienter när de måste vidta en åtgärd. Texten som visas är en anpassad administratörsdefinierad sträng. Exempelvis telefonnumret till företagets supportavdelning. Klientgränssnittet visar maximalt 1 024 tecken. Längre strängar trunkeras före visning.
 
 Om du aktiverar den här inställningen visas den ytterligare text som har angetts.
 
 Om du inaktiverar eller låter bli att konfigurera den här inställningen visas ingen ytterligare text.</string>
+    <string id="MpCloudBlockLevel">Välj molnskyddsnivå</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Den här principinställningen bestämmer hur aggressivt Windows Defender Antivirus blockerar och söker igenom misstänkta filer.
+
+      Om den här inställningen är på är Windows Defender Antivirus mer aggressiv med att blockera och söka igenom misstänkta filer. Om den är av är Windows Defender Antivirus inte lika aggressiv och blockerar och söker därför inte igenom misstänkta filer lika ofta. 
+      
+      Mer information om vilka värden som stöds finns på dokumentationswebbplatsen för Windows Defender Antivirus.
+
+      Obs! För att den här inställningen ska fungera måste inställningen "Gå med i Microsoft MAPS" aktiveras.
+
+      Möjliga alternativ är:
+      (0x0) Standardblockeringsnivå i Windows Defender
+      (0x2) Hög blockeringsnivå – blockerar aggressivt okända filer samtidigt som prestanda optimeras (större risk för falsk positiv identifiering)
+      (0x4) Hög+ blockeringsnivå – blockerar aggressivt okända filer och vidtar ytterligare säkerhetsåtgärder (kan påverka prestanda)
+      (0x6) Nolltolerans – blockerar alla okända körbara filer
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Standardblockeringsnivå i Windows Defender Antivirus</string>
+    <string id="MpCloudBlockLevel_High_Level">Hög blockeringsnivå</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Hög+ blockeringsnivå</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nolltolerans</string>
+    <string id="MpBafsExtendedTimeout">Konfigurera extra molnkontroll</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Den här funktionen gör att Windows Defender Antivirus kan blockera en misstänkt fil i upp till 60 sekunder och söka igenom den i molnet för att försäkra sig om att den är säker att använda.
+      
+      Standardtiden för en kontroll i molnet är 10 sekunder. Om du vill aktivera funktionen för extra molnkontroll anger du ytterligare tid i sekunder för kontrollen (upp till 50 sekunder).
+
+      Ange till exempel 50 sekunder i den här inställningen om du vill att tiden för kontrollen ska vara i 60 sekunder. Då aktiveras funktionen för extra molnkontroll och den sammanlagda kontrolltiden blir 60 sekunder.
+
+      Obs! För att den här funktionen ska fungera måste följande tre MAPS-inställningar aktiveras: "Konfigurera funktionen Blockera när det först påträffas", "Gå med i Microsoft MAPS" och "Skicka filprover när vidare analys krävs".
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Hindra användare och appar från att gå till farliga webbplatser</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Aktivera eller inaktivera Windows Defender Exploit Guard-nätverksskyddet för att hindra användare och program från att ansluta till farliga domäner som kan hysa nätfiskekod, webbplatser som utnyttjar sårbarheter och annat skadligt innehåll på Internet.
+
+    Aktiverad:
+    Ange ett läge i avsnittet Alternativ:
+    - Blockera: Användare och program kan inte ansluta till farliga domäner.
+    - Granska: Användare och program kan ansluta till farliga domäner, men en händelse loggas i händelseloggarna om anslutningen skulle ha blockerats med läget Blockera.
+
+    Inaktiverad:
+    Användare och program hindras inte från att ansluta till farliga domäner.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Undanta filer och sökvägar från regler för minskning av attackytan (ASR-regler)</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Undanta filer och sökvägar från regler för minskning av attackytan (ASR-regler).
+
+    Aktiverad:
+    Ange mappar eller filer och resurser som ska undantas från ASR-regler i avsnittet Alternativ.
+    Ange varje regel på en ny rad i form av ett namn/värde-par:
+    - Kolumnen Namn: Ange en mappsökväg eller ett fullständigt resursnamn. Exempel: ""C:\Windows"" undantar alla filer i den mappen. ""C:\Windows\App.exe"" undantar endast den specifika filen i den angivna mappen.
+    - Kolumnen Värde: Ange ""0"" för alla poster.
+
+    Inaktiverad:
+    Inga undantag tillämpas i ASR-reglerna.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+
+    Du kan konfigurera ASR-regler i grupprincipinställningen Konfigurera regler för minskning av attackytan.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Konfigurera regler för minskning av attackytan</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Ange tillståndet för varje regel för minskning av attackytan (ASR-regel).
+
+    När du aktiverar den här inställningen kan du sätta varje regel till följande lägen i avsnittet Alternativ:
+    - Blockera: Regeln tillämpas.
+    - Granska: Regeln tillämpas inte, men en händelse loggas i de fall då regeln skulle ha tillämpats med läget Blockera.
+    - Av: Regeln tillämpas inte.
+
+    Aktiverad:
+    Ange tillståndet för varje ASR-regel under avsnittet Alternativ för den här inställningen.
+    Ange varje regel på en ny rad i form av ett namn/värde-par:
+    - Kolumnen Namn: Ange ett giltigt ID för ASR-regeln.
+    - Kolumnen Värde: Ange status-ID:t som relaterar till tillståndet du vill specificera för den associerade regeln.
+
+    Följande status-ID:n kan användas i kolumnen Värde:
+    - 1 (Blockera)
+    - 0 (Av)
+    - 2 (Granska)
+    
+    Exempel:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Inaktiverad:
+    Inga ASR-regler konfigureras.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+
+    Du kan undanta mappar eller filer i grupprincipen Undanta filer och sökvägar från regler för minskning av attackytan (ASR-regler).
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Konfigurera reglerad mappåtkomst</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Aktivera eller inaktivera reglerad mappåtkomst för icke betrodda program. Du kan välja att blockera, granska eller tillåta följande för icke betrodda program:
+    - Ändra eller ta bort filer i skyddade mappar, t.ex. mappen Dokument
+    - Skriva till disksektorer
+
+    Du kan också välja att endast blockera eller granska skrivningar till disksektorer, och tillåta att filer i skyddade mappar ändras eller tas bort.
+
+    Windows Defender Antivirus fastställer automatiskt vilka program som är betrodda. Du kan lägga till ytterligare betrodda program i grupprincipinställningen Konfigurera tillåtna program.
+    Standardsystemmappar skyddas automatiskt, men du kan lägga till ytterligare mappar i grupprincipinställningen Konfigurera skyddade mappar.
+
+    Blockera:
+    Följande blockeras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Alla försök som blockeras loggas av Windows-händelseloggen under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123.
+
+
+    Inaktiverad:
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Dessa försök loggas inte av Windows-händelseloggen.
+
+
+    Granska:
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Dessa försök loggas av Windows-händelseloggen under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124.
+
+
+    Blockera endast diskändringar:
+    Följande blockeras:
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Dessa försök loggas av Windows-händelseloggen under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123.
+
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    Dessa försök loggas inte av Windows-händelseloggen.
+
+
+    Granska endast diskändringar:
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    Endast försök att skriva till skyddade disksektorer loggas av Windows-händelseloggen (under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124).
+    Försök att ändra eller ta bort filer i skyddade mappar loggas inte.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Inaktivera (standard)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Blockera</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Granska</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Blockera endast diskändringar</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Granska endast diskändringar</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Konfigurera tillåtna program</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Lägg till ytterligare program som ska betraktas som betrodda av reglerad mappåtkomst.
+
+    De här programmen tillåts ändra eller ta bort filer i mappar som skyddas av reglerad mappåtkomst.
+
+    Windows Defender Antivirus fastställer automatiskt vilka program som är betrodda. Du kan lägga till ytterligare betrodda program i den här inställningen.
+
+    Aktiverad: 
+    Ange ytterligare program som du vill tillåta i avsnittet Alternativ.
+
+    Inaktiverad:
+    Inga ytterligare program läggs till i listan över betrodda program.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+
+    Du kan aktivera reglerad mappåtkomst i grupprincipinställningen Konfigurera reglerad mappåtkomst.
+
+    Standardsystemmappar skyddas automatiskt, men du kan lägga till ytterligare mappar i grupprincipinställningen Konfigurera skyddade mappar.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Konfigurera skyddade mappar</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Ange ytterligare mappar som ska skyddas av funktionen Reglerad mappåtkomst.
+
+    Program som inte är betrodda kan inte ändra eller ta bort filer i de här mapparna.
+
+    Standardsystemmappar skyddas automatiskt. Du kan lägga till ytterligare mappar i den här inställningen. 
+    Listan över standardsystemmappar som skyddas kan ses i Windows-säkerhet.
+
+    Aktiverad:
+    Ange ytterligare mappar som ska skyddas i sektionen Alternativ.
+
+    Inaktiverad:
+    ytterligare mappar skyddas.
+
+    Inte konfigurerad:
+    Samma som inaktiverad.
+
+    Du kan aktivera reglerad mappåtkomst i grupprincipinställningen Konfigurera reglerad mappåtkomst.
+
+    Windows Defender Antivirus fastställer automatiskt vilka program som är betrodda. Du kan lägga till ytterligare betrodda program i grupprincipinställningen Konfigurera tillåtna program.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
     <textBox refId="ProxyBypass">
         <label>Definiera adresser som ska kringgå proxyservern</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definiera PAC-fil (automatisk konfiguration av proxy) för att ansluta till nätverket</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +988,6 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen visas
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Undantag för processer</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definiera hur ofta identifieringshändelser loggas</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Undantag för IP-adressintervall</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Undantag för portnummer</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Processundantag för utgående trafik</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Undantag för hot-ID</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Ange ytterligare definitionsuppsättningar för inspektion av nätverkstrafik</listBox>
@@ -825,32 +1056,37 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen visas
     <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Ange den tid på dagen då en schemalagd genomsökning ska köras</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_ASSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definiera antalet dagar innan spionprogramsdefinitioner anses vara inaktuella</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definiera antalet dagar innan säkerhetsinsikter för spionprogram anses vara inaktuella</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_AVSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definiera antalet dagar innan virusdefinitioner anses vara inaktuella</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definiera antalet dagar innan säkerhetsinsikter för virus anses vara inaktuella</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
     <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
-        <label>Definiera filresurser för nedladdning av definitionsuppdateringar</label>
+        <label>Definiera filresurser för nedladdning av uppdateringar för säkerhetsinsikter</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SharedSignaturesLocation">
+    <textBox refId="SignatureUpdate_SharedSignaturesLocation">
+        <label>Definiera filresurs för nedladdning av uppdateringar för säkerhetsinsikter i virtuella miljöer</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_FallbackOrder">
     <textBox refId="SignatureUpdate_FallbackOrder">
-        <label>Definiera källordningen för nedladdning av definitionsuppdateringar</label>
+        <label>Definiera källordningen för nedladdning av uppdateringar för säkerhetsinsikter</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleDay">
-    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Ange en veckodag att söka efter definitionsuppdateringar</dropdownList>
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Ange vilken veckodag du vill kontrollera om det finns uppdateringar av säkerhetsinsikter</dropdownList>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleTime">
-    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Ange tidpunkten för att söka efter definitionsuppdateringar</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Ange vilken tid du vill kontrollera om det finns uppdateringar av säkerhetsinsikter</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definiera efter hur många dagar en komma ifatt-definitionsuppdatering krävs</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Ange antalet dagar innan en samlad uppdatering av säkerhetsinsikter krävs</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Ange intervallet för att söka efter definitionsuppdateringar</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Ange med vilket intervall du vill kontrollera om det finns uppdateringar av säkerhetsinsikter</decimalTextBox>
     </presentation>
     <presentation id="SpynetReporting">
     <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Gå med i Microsoft MAPS</dropdownList>
@@ -872,6 +1108,33 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen visas
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Ange intervall för förfallomeddelanden</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Välj molnblockeringsnivå</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Ange tiden i sekunder för den extra molnkontrollen</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Konfigurera funktionen för att skydda dina mappar</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Undantag från ASR-regler:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Ange tillstånd för varje ASR-regel:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Ange programmen som ska anses vara betrodda:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Ange mapparna som ska skyddas:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

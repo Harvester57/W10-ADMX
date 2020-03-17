@@ -33,7 +33,7 @@
       <string id="CplPrinters">印表機</string>
       <string id="CplPrinters_Help">管理網路印表機設定及發佈選項。</string>
       <string id="CustomizedSupportUrl">在印表機資料夾左窗格中的自訂支援 URL</string>
-      <string id="CustomizedSupportUrl_Help">根據預設，[印表機] 資料夾中含有 Microsoft 支援網頁的連結，名為 [取得關於列印的說明]。其中也可能包含由目前所選印表機的供應商所提供之網頁的連結。
+      <string id="CustomizedSupportUrl_Help">根據預設，[印表機] 資料夾中含有 Microsoft 支援服務網頁的連結，名為 [取得關於列印的說明]。其中也可能包含由目前所選印表機的供應商所提供之網頁的連結。
 
           如果您啟用這個原則設定，可將預設連結 [取得關於列印的說明] 取代為您針對本身企業所自訂之網頁的連結。
 
@@ -44,20 +44,25 @@
           另請參閱此設定資料夾中的 [啟動網際網路列印] 設定，以及位於 [使用者設定\系統管理範本\控制台\印表機] 中的 [瀏覽一般網站來尋找印表機] 設定。
 
           網頁檢視會受到 [使用者設定\系統管理範本\Windows 元件\Windows 檔案總管] 中的 [啟動傳統殼層] 和 [不允許從功能區 [檢視] 索引標籤的 [選項] 按鈕開啟資料夾選項] 設定，以及 [使用者設定\系統管理範本\桌面\Active Desktop] 中的 [啟用 Active Desktop] 設定所影響。</string>
-      <string id="DomainDisplayPrinters_Help">如果您啟用這個原則設定，它會設定新增印表機精靈將在受管理網路的電腦上顯示的每一類印表機數量上限 (當電腦能夠與網域控制站連線時，例如，公司網路上已加入網域的膝上型電腦)。
+      <string id="DomainDisplayPrinters_Help">若您啟用此原則設定，其會設定 [新增印表機精靈] 在受管理的網路 (電腦可連上網域控制站，例如公司網路中網域聯結的膝上型電腦) 電腦上，會顯示的每種類型之印表機數目上限。
 
-          如果您停用這個原則設定，就不會顯示網路掃描頁。
+          若停用了此原則設定，就不會顯示網路掃描頁面。
 
-          如果您未設定這個原則設定，則新增印表機精靈會顯示每一類印表機的預設數量:
-          目錄印表機: 20 台
-          TCP/IP 印表機: 0 台
-          Web 服務印表機: 0 台
-          Bluetooth 印表機: 10 台
-          共用印表機: 0 台
+          若未設定此原則設定，[新增印表機精靈] 將會顯示每種類型之印表機的預設數目:
+          目錄印表機: 20
+          TCP/IP 印表機: 0
+          Web 服務印表機: 0
+          藍牙印表機: 10
+          共用的印表機: 0
 
-          若要檢視網路上可用的 Web 服務印表機，務必開啟網路探索。若要開啟網路探索，請依序按一下 [開始]、[控制台] 及 [網路和網際網路]。在 [網路和網際網路] 頁面上，按一下 [網路和共用中心]。在 [網路和共用中心] 頁面上，按一下 [變更進階共用設定]。在 [進階共用設定] 頁面上，按一下 [網域] 箭頭旁的箭頭，並按一下 [開啟網路探索]，然後按一下 [儲存變更]。
+          若要檢視網路上可用的 Web 服務印表機，請務必要開啟網路探索。 若要開啟網路探索，請依序按一下 [開始]、[控制台] 以及 [網路和網際網路]。在 [網路和網際網路] 頁面上，按一下 [網路和共用中心]。在 [網路和共用中心] 頁面上，按一下 [變更進階共用設定]。在 [變更進階共用設定] 頁面上，按一下 [網域] 箭頭旁的箭頭，再按一下 [開啟網路探索]，然後按一下 [儲存變更]。
 
-          如果不想顯示特定類型的印表機，請啟用這個原則，並將要顯示的印表機數量設為 0。</string>
+          若不希望顯示特定類型的印表機，請啟用此原則，並將印表機的顯示數目設定為 0。
+
+          在 Windows 10 及後續版本中，精靈內只可顯示 TCP/IP 印表機。若啟用了此原則設定，就只適用 TCP/IP 印表機限制。只有在 Windows 10 中，若停用或未設定此原則設定，才適用預設限制。
+          
+          在 Windows 8 及後續版本中，不會顯示藍牙印表機，所以其限制不適用這些版本的 Windows。
+      </string>
       <string id="DomainPrinters">新增印表機精靈 - 網路掃描頁 (受管理網路)</string>
       <string id="DownlevelBrowse">瀏覽網路來尋找印表機</string>
       <string id="DownlevelBrowse_Help">可讓使用者利用 [新增印表機精靈] 搜尋網路中的共用印表機。
@@ -129,17 +134,21 @@
           此設定不會禁止使用者透過執行其他程式來刪除印表機。
 
           如果停用或沒有設定此原則，使用者即可使用上述方法來刪除印表機。</string>
-      <string id="NonDomainDisplayPrinters_Help">這個原則可設定新增印表機精靈將在未受管理網路的電腦上顯示的每一類印表機數量上限 (當電腦無法與網域控制站連線時，例如，家用網路上已加入網域的膝上型電腦)。
+      <string id="NonDomainDisplayPrinters_Help">此原則會設定 [新增印表機精靈] 在未受管理的網路 (電腦無法連上網域控制站，例如，家中網路中網域聯結的膝上型電腦) 中電腦上，顯示的每種類型之印表機數目上限。
 
-如果停用這個設定，就不會顯示網路掃描頁。
+若停用了此設定，就不會顯示網路掃描頁面。
 
-如果未做這個設定，則新增印表機精靈會顯示每一類印表機的預設數量:
-TCP/IP 印表機: 50 台
-Web 服務印表機: 50 台
-Bluetooth 印表機: 10 台
-共用印表機: 50 台
+若未設定此設定，[新增印表機精靈] 將會顯示每種類型之印表機的預設數目:
+TCP/IP 印表機: 50
+Web 服務印表機: 50
+藍牙印表機: 10
+共用的印表機: 50
 
-如果不想顯示特定類型的印表機，請啟用這個原則，並將要顯示的印表機數量設為 0。</string>
+若不希望顯示特定類型的印表機，請啟用此原則並將要顯示的印表機數目設定為 0。
+
+在 Windows 10 及後續版本中，精靈內只可顯示 TCP/IP 印表機。若啟用了此原則設定，就只適用 TCP/IP 印表機限制。只有在 Windows 10 中，若停用或未設定此原則設定，才適用預設限制。
+          
+在 Windows 8 及後續版本中，不會顯示藍牙印表機，所以其限制不適用這些版本的 Windows。</string>
       <string id="NonDomainPrinters">新增印表機精靈 - 網路掃描頁 (未受管理網路)</string>
       <string id="PackagePointAndPrintOnly">僅使用封裝指向並列印</string>
       <string id="PackagePointAndPrintOnly_Help">這個原則會限制用戶端電腦只能使用封裝指向並列印。
@@ -269,11 +278,19 @@ Windows Vista 和更新版本的用戶端在封裝指向並列印連線失敗時
 
         如果您停用或未設定這個原則設定，則允許執行所有已安裝的印表機延伸。</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">將 Microsoft XPS Document Writer (MXDW) 預設輸出格式變更為傳統 Microsoft XPS 格式 (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">在 Windows 10、Windows 10 與 Windows Server 2016 Technical Preview 4 中，Microsoft XPS Document Writer (MXDW) 預設會產生 OpenXPS (*.oxps) 檔案。
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">在 Windows 10、Windows 10 與 Windows Server 2019 中，Microsoft XPS Document Writer (MXDW) 預設會產生 OpenXPS (*.oxps) 檔案。
 
           若啟用此群組原則設定，預設的 MXDW 輸出格式為傳統 Microsoft XPS (*.xps)。
 
-          若停用或未設定此原則設定，預設的 MXDW 的輸出格式為 OpenXPS (*.oxps)。</string>
+          若停用或未設定此原則設定，預設的 MXDW 輸出格式為 OpenXPS (*.oxps)。</string>
+      <string id="SetDefaultPrinterMRUModeOff">關閉 Windows 預設印表機管理</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">此喜好設定可讓您變更預設印表機管理。
+
+若啟用此設定，Windows 將不會管理預設印表機。
+ 
+若停用此設定，Windows 將會管理預設印表機。
+
+若未設定此設定，將不會變更預設印表機管理。 </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">

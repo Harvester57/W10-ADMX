@@ -72,12 +72,34 @@ Hvis du deaktiverer denne innstillingen eller lar være å konfigurere den, igno
 
 Tips! Hvis du vil finne mappene som vises av miljøvariabelen Bane, klikker du Systemegenskaper i Kontrollpanel, klikker kategorien Avansert, Miljøvariabler, og klikker deretter Bane i boksen Systemvariabler.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Logge på den sist interaktive brukeren automatisk etter en systemgenerert omstart</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Denne policyinnstillingen kontrollerer om en enhet automatisk logger på den sist interaktive brukeren etter at Windows Update starter systemet på nytt.
+      <string id="AutomaticRestartSignOnDescription">Logg på og lås den siste interaktive brukeren automatisk etter en omstart</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Denne policyinnstillingen styrer om en enhet automatisk logger på og låser den siste interaktive brukeren etter at systemet har startet på nytt, eller etter en avslutning og kald oppstart.
 
-Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, lagrer enheten brukerens legitimasjon (inkludert brukernavnet, domenet og det krypterte passordet) på en sikker måte for å konfigurere automatisk pålogging etter en Windows Update-omstart. Etter Windows Update-omstarten logges brukeren automatisk på, og økten låses automatisk med alle låseskjermappene konfigurert for den brukeren.
+Dette skjer bare hvis den siste interaktive brukeren ikke logget av før omstarten eller avslutningen.
 
-Hvis du deaktiverer denne policyinnstillingen, lagrer ikke enheten brukerens legitimasjon for automatisk pålogging etter en Windows Update-omstart. Brukerens låseskjermapper startes ikke på nytt etter systemomstarten.</string>
+Hvis enheten blir koblet til Active Directory eller Azure Active Directory, gjelder denne policyinnstillingen bare når Windows Update startes på nytt. Hvis ikke gjelder dette for Windows Update og brukerinitierte omstarter og avslutninger.
+
+Hvis du ikke konfigurerer denne policyinnstillingen, er den aktivert som standard. Når policyen er aktivert, logges brukeren automatisk på, og økten låses automatisk med alle låseskjermapper som er konfigurert for brukeren, etter at enheten starter på nytt.
+
+Når du har aktivert denne policyen, kan du konfigurere innstillingene via ConfigAutomaticRestartSignOn-policyen, som konfigurerer modusen for automatisk pålogging og låsing av den siste interaktive brukeren etter en omstart eller kald oppstart.
+
+Hvis du deaktiverer denne policyinnstillingen, konfigurerer ikke enheten automatisk pålogging. Brukernes låseskjermapper startes ikke på nytt etter at systemet har startet på nytt.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Konfigurer modusen for automatisk pålogging og låsing av siste interaktive bruker etter omstart eller kald oppstart</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Denne policyinnstillingen styrer konfigurasjonen for en automatisk omstart og pålogging og låsing som skjer etter omstart eller kald oppstart. Hvis du valgte Deaktivert i boksen Logg på og lås den siste interaktive brukeren automatisk etter en omstart, vil ikke automatisk pålogging skje, og denne policyen trenger ikke å konfigureres.
+
+Hvis du aktiverer denne policyinnstillingen, kan du velge ett av følgende to alternativer:
+
+1. Aktivert hvis BitLocker er aktivert og ikke avbrytes angir at automatisk pålogging og låsing bare skal skje hvis BitLocker er aktiv og ikke avbrytes under omstart eller avslutning. Det er mulig å få tilgang til personlige data på enhetens harddisk nå hvis BitLocker ikke er aktivert eller er avbrutt under en oppdatering. BitLocker-deaktivering fjerner midlertidig beskyttelse for systemkomponenter og data, men kan være nødvendig i enkelte tilfeller for å oppdatere oppstartskritiske komponenter.
+     BitLocker er deaktivert under oppdateringer hvis:
+        – Enheten ikke har TPM 2.0 og PCR7, eller
+        – Enheten ikke bruker en TPM-beskytter
+2. Alltid aktivert angir at automatisk pålogging vil skje selv om BitLocker er deaktivert eller avbrutt under omstart eller avslutning. Hvis BitLocker ikke er aktivert, er personlige data tilgjengelige på harddisken. Automatisk omstart og pålogging bør brukes i denne situasjonen bare dersom du er trygg på at den konfigurerte enheten befinner seg på et trygt fysisk sted.
+
+Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vil automatisk pålogging som standard bli satt til virkemåten Aktivert hvis BitLocker er aktivert og ikke avbrytes.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Aktivert hvis BitLocker er påslått og ikke har blitt deaktivert</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Alltid aktivert</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Hvis du deaktiverer denne policyinnstillingen, lagrer ikke enheten brukerens leg
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Angi hvilken programvare som har tillatelse til å generere SAS (Secure Attention Sequence)</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Konfigurer modusen for automatisk pålogging og låsing av siste interaktive bruker etter omstart eller kald oppstart</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

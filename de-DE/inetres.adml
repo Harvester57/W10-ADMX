@@ -506,11 +506,11 @@ Hinweis: Wenn ein Add-On in der Richtlinieneinstellung "Add-On-Liste" aufgeführ
 Wenn Sie diese Richtlinieneinstellung aktivieren, führt ein Absturz von Internet Explorer zu dem aus Windows XP Professional Service Pack 1 und früher bekannten Verhalten, die Windows-Fehlerberichterstattung aufzurufen. Alle Richtlinieneinstellung für die Windows-Fehlerberichterstattung bleiben bestehen.
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, bleibt die Absturzermittlungsfunktion für die Add-On-Verwaltung in Funktion.</string>
-      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Mit dieser Richtlinieneinstellung können Sie festlegen, ob Benutzer Add-Ons über die Add-On-Verwaltung zulassen oder sperren dürfen.
+      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Mit dieser Richtlinieneinstellung können Sie steuern, ob Benutzer Add-Ons über den Add-On-Manager zulassen oder verweigern können.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, können die Benutzer Add-Ons über die Add-On-Verwaltung weder zulassen noch sperren. Die einzige Ausnahme tritt dann auf, wenn ein Add-On ausdrücklich so in der Richtlinieneinstellung "Add-On-Liste" eingegeben wurde, dass Benutzer das Add-On weiterhin verwalten können. In diesem Fall können die Benutzer das Add-On weiterhin über die Add-On-Verwaltung verwalten.
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Benutzer Add-Ons nicht über den Add-On-Manager aktivieren oder deaktivieren.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, stehen die entsprechenden Steuerelemente dem Benutzer in der Add-On-Verwaltung zur Verfügung.</string>
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, kann der Benutzer auf die entsprechenden Steuerelemente im Add-On-Manager zugreifen.</string>
       <string id="IE_ExplainAddSearchProvider">Mithilfe dieser Richtlinieneinstellung können Sie der Standardliste an Suchanbietern des Benutzers eine spezielle Suchanbieterliste hinzufügen. Normalerweise lassen sich Suchanbieter über Symbolleisten von Drittanbietern oder in Setup hinzufügen. Es ist aber auch möglich, dass die Benutzer sie von der Website des Suchanbieters aus hinzufügen.
 
 Wenn Sie diese Richtlinieneinstellung aktivieren, können die Benutzer Suchanbieter hinzufügen und entfernen. Dies gilt jedoch nur für Suchanbieter, die in der Anbieterliste der Richtlinienschlüssel angegeben sind (zu finden unter "HKCU oder HKLM\Software\policies\Microsoft\Internet Explorer\SearchScopes"). Hinweis: Diese Liste kann mit einer benutzerdefinierten administrativen Vorlagendatei erstellt werden. Informationen zum Erstellen dieser benutzerdefinierten, administrativen Vorlagendatei finden Sie in der Internet Explorer-Dokumentation zu Suchanbietern.
@@ -2886,6 +2886,34 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, können Websites von Zonen mit
 Wenn Sie diese Richtlinieneinstellung deaktivieren, werden möglicherweise schädliche Wechsel verhindert. Die Internet Explorer-Sicherheitsfunktion wird in dieser Zone aktiviert, wie in der Funktion zum Schutz vor Zonenanhebung festgelegt.
 
 Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, wird eine Warnung angezeigt, die den Benutzer über diese potenziell gefährliche Aktion informiert.</string>
+      <string id="IZ_PolicyAllowVBScript">VBScript-Ausführung in Internet Explorer zulassen</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultDisable">Mit dieser Richtlinieneinstellung können Sie festlegen, ob VBScript auf Seiten der angegebenen Zone in Internet Explorer ausgeführt werden kann.
+
+Wenn Sie im Dropdownfeld "Aktivieren" auswählen, kann VBScript ohne Benutzereingriff ausgeführt werden.
+
+Wenn Sie im Dropdownfeld "Bestätigen" auswählen, werden Benutzer gefragt, ob VBScript ausgeführt werden darf.
+
+Wenn Sie im Dropdownfeld "Deaktivieren" auswählen, wird die Ausführung von VBScript verhindert.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren oder deaktivieren, wird die Ausführung von VBScript verhindert.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultEnable">Mit dieser Richtlinieneinstellung können Sie festlegen, ob VBScript auf Seiten der angegebenen Zone in Internet Explorer ausgeführt werden kann.
+
+Wenn Sie im Dropdownfeld "Aktivieren" auswählen, kann VBScript ohne Benutzereingriff ausgeführt werden.
+
+Wenn Sie im Dropdownfeld "Bestätigen" auswählen, werden Benutzer gefragt, ob VBScript ausgeführt werden darf.
+
+Wenn Sie im Dropdownfeld "Deaktivieren" auswählen, wird die Ausführung von VBScript verhindert.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren oder deaktivieren, wird VBScript ohne Benutzereingriff ausgeführt.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultPrompt">Mit dieser Richtlinieneinstellung können Sie festlegen, ob VBScript auf Seiten der angegebenen Zone in Internet Explorer ausgeführt werden kann.
+
+Wenn Sie im Dropdownfeld "Aktivieren" auswählen, kann VBScript ohne Benutzereingriff ausgeführt werden.
+
+Wenn Sie im Dropdownfeld "Bestätigen" auswählen, werden Benutzer gefragt, ob VBScript ausgeführt werden darf.
+
+Wenn Sie im Dropdownfeld "Deaktivieren" auswählen, wird die Ausführung von VBScript verhindert.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren oder deaktivieren, werden Benutzer gefragt, ob sie die VBScript-Ausführung zulassen möchten.</string>
       <string id="IZ_ProxyByPass">Intranetsites: Alle Sites, die den Proxyserver umgehen, einbeziehen</string>
       <string id="IZ_RestrictedSitesZone">Zone eingeschränkter Sites</string>
       <string id="IZ_RestrictedSitesZoneLockdown">Sperrung der Zone eingeschränkter Sites</string>
@@ -3088,13 +3116,21 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, wird die Kantenglättung von
 
 Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können die Benutzer die Kantenglättung von Bildern ein- und ausschalten.</string>
       <string id="SmoothScrolling">Optimierten Bildlauf deaktivieren</string>
-      <string id="SmoothScrolling_Explain">Mit dieser Richtlinieneinstellung können Sie angeben, ob der optimierte Bildlauf zur Anzeige von Inhalten mit vordefinierter Geschwindigkeit verwendet werden soll.
+      <string id="SmoothScrolling_Explain">Mit dieser Richtlinieneinstellung geben Sie an, ob der optimierte Bildlauf zur Anzeige von Inhalten mit vordefinierter Geschwindigkeit verwendet wird.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, wird der optimierte Bildlauf ausgeschaltet. Die Benutzer können den optimierten Bildlauf nicht einschalten.
+Wenn Sie diese Richtlinieneinstellung aktivieren, ist der optimierte Bildlauf deaktiviert. Benutzer können den optimierten Bildlauf nicht aktivieren.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren, wird der optimierte Bildlauf eingeschaltet. Die Benutzer können den optimierten Bildlauf nicht ausschalten.
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist der optimierte Bildlauf aktiviert. Benutzer können den optimierten Bildlauf nicht deaktivieren.
 
-Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können die Benutzer den optimierten Bildlauf ein- und ausschalten.</string>
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer die Schaltfläche zum Öffnen von Microsoft Edge von Internet Explorer aus ausblenden oder einblenden.</string>
+      <string id="HideNewEdgeButton">Schaltfläche zum Öffnen von Microsoft Edge (neben der Schaltfläche "Neue Registerkarte") ausblenden</string>
+      <string id="HideNewEdgeButton_Explain">Mit dieser Richtlinieneinstellung können Sie festlegen, ob Benutzer die Schaltfläche zum Öffnen von Microsoft Edge (neben der Schaltfläche "Neue Registerkarte") anzeigen können.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, wird die Schaltfläche, mit der Microsoft Edge von Internet Explorer aus geöffnet werden kann, ausgeblendet.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren, wird die Schaltfläche, mit der Microsoft Edge von Internet Explorer aus geöffnet werden kann, angezeigt.
+
+Wenn Sie die Richtlinieneinstellung nicht konfigurieren, kann die Schaltfläche zum Öffnen von Microsoft Edge von Internet Explorer aus vom Benutzer konfiguriert werden.</string>
       <string id="SpecificSearchProvider">Suchanbieter auf spezielle Liste einschränken</string>
       <string id="SQM_DisableCEIP">Teilnahme am Programm zur Verbesserung der Benutzerfreundlichkeit verhindern</string>
       <string id="SUPPORTED_IE4ONLY">Nur Internet Explorer 4.0</string>
@@ -3128,6 +3164,8 @@ Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können die Benutzer 
       <string id="SUPPORTED_IE11WIN8">Mindestens Internet Explorer 11.0 unter Windows 8.1</string>
       <string id="SUPPORTED_IE11WIN8ONLY">Nur Internet Explorer 11.0 unter Windows 8.1</string>
       <string id="SUPPORTED_IE11WIN10">Mindestens Internet Explorer 11.0 unter Windows 10</string>
+      <string id="SUPPORTED_IE11WIN10_1607">Mindestens Internet Explorer 11.0 unter Windows 10, Version 1607 oder höher</string>
+      <string id="SUPPORTED_IE11WIN10_1703">Mindestens Internet Explorer 11.0 unter Windows 10, Version 1703 oder höher</string>
       <string id="SUPPORTED_IE11">Mindestens Internet Explorer 11.0</string>
       <string id="SUPPORTED_IE7_NONVISTA">Mindestens Internet Explorer 7.0. Nicht von Windows Vista unterstützt</string>
       <string id="SUPPORTED_IE7VISTA">Mindestens Internet Explorer 7.0 in Windows Vista</string>
@@ -3528,6 +3566,13 @@ Mindestens Internet Explorer 11:
 Wenn Sie diese Richtlinieneinstellung deaktivieren, wird der Do Not Track-Header von Internet Explorer nur gesendet, sofern InPrivate-Browsen verwendet wird.
 
 Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer in den Einstellungen von Internet Explorer die Option "Header "Do Not Track" (nicht nachverfolgen) immer senden" aktivieren. Wenn diese Option aktiviert wird, wird von Internet Explorer ein DNT:1-Header zusammen mit allen HTTP- und HTTPS-Anforderungen gesendet, es sei denn, Benutzer richten für eine Website eine Ausnahme ein. Von Internet Explorer wird ein DNT:0-Header an alle Sites gesendet, für die eine Ausnahme besteht. Standardmäßig ist diese Einstellung aktiviert.</string>
+      <string id="Content_ExplainShowContentAdvisor">Mit dieser Richtlinieneinstellung aktivieren Sie die Einstellung "Inhaltsratgeber" auf der Registerkarte "Inhalt" im Dialogfeld "Internetoptionen".
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, wird in Internet Explorer im Dialogfeld "Internetoptionen" auf der Registerkarte "Inhalte" die Einstellung "Inhaltsratgeber" angezeigt. Benutzer können die Einstellungen für "Inhaltsratgeber" ändern.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird in Internet Explorer im Dialogfeld "Internetoptionen" auf der Registerkarte "Inhalte" die Einstellung "Inhaltsratgeber" nicht angezeigt.
+
+Hinweis: Diese Richtlinie wird ab Windows 10 Version 1607 nicht mehr unterstützt.</string>
       <string id="Protocols_None">Keine sicheren Protokolle verwenden</string>
       <string id="Protocols_SSL2">Nur SSL 2.0 verwenden</string>
       <string id="Protocols_SSL3">Nur SSL 3.0 verwenden</string>
@@ -3565,6 +3610,7 @@ Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer in d
       <string id="NewTab_AboutBlank">about:blank</string>
       <string id="NewTab_AboutTabs">Neue Registerkartenseite</string>
       <string id="NewTab_Homepage">Startseite</string>
+      <string id="NewTab_AboutNewsFeed">Seite "Neue Registerkarte" mit meinem Newsfeed</string>
       <string id="NewTabAction">Standardverhalten für eine neue Registerkarte festlegen</string>
       <string id="SecondaryHomePages">Änderung der Einstellungen der sekundären Startseite deaktivieren</string>
       <string id="SetCommandLabels">Befehlsbezeichnungen anpassen</string>
@@ -3605,11 +3651,11 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, werden die Schaltflächen "Sto
 Wenn Sie diese Richtlinieneinstellung deaktivieren, werden die Schaltflächen "Stopp" und "Aktualisieren" neben der Adressleiste positioniert und können vom Benutzer nicht mehr verschoben werden.
 
 Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, werden die Schaltflächen "Stopp" und "Aktualisieren" standardmäßig neben der Adressleiste angezeigt und können vom Benutzer verschoben werden.</string>
-      <string id="IE_ExplainNewTabAction">Mithilfe dieser Registerkarteneinstellung können Sie festlegen, was angezeigt wird, wenn ein Benutzer eine neue Registerkarte öffnet.
+      <string id="IE_ExplainNewTabAction">Mithilfe dieser Richtlinieneinstellung können Sie festlegen, was angezeigt wird, wenn der Benutzer eine neue Registerkarte öffnet.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die beim Öffnen neuer Registerkarten anzuzeigende Seite aus einer Liste auswählen: Leere Seite (about:blank), die erste Startseite oder die neue Registerkartenseite.
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die beim Öffnen neuer Registerkarten anzuzeigende Seite auswählen: Leere Seite (about:blank), die erste Startseite, die Seite "Neue Registerkarte" oder die Seite "Neue Registerkarte" mit dem Newsfeed des Benutzers.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können die Benutzer die zu öffnende Seite selbst festlegen. Die neue Registerkartenseite ist die Standardeinstellung.</string>
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer die anzuzeigende Seite selbst auswählen.</string>
       <string id="IE_ExplainSecondaryHomePages">Sekundäre Startseiten sind die Standardwebseiten, die von Internet Explorer in separaten Registerkarten geladen werden, wenn der Browser ausgeführt wird. Mithilfe dieser Richtlinieneinstellung können Sie standardmäßige sekundäre Startseiten festlegen.
 
 Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie festlegen, welche Standardstartseiten als sekundäre Startseiten geladen werden sollen. Der Benutzer kann keine benutzerdefinierten standardmäßigen sekundären Startseiten festlegen.
@@ -3871,6 +3917,20 @@ Hinweis: Wenn Sie zusätzlich die Richtlinieneinstellung "Administrative Vorlage
 Wenn Sie diese Einstellung aktivieren, wird Mitarbeitern in Internet Explorer 11 eine zusätzliche Seite mit dem Hinweis angezeigt, dass eine Website unter Verwendung von Microsoft Edge im Unternehmensmodus geöffnet wurde.
 
 Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, verhält sich die App gemäß der Standardeinstellung, und es wird keine zusätzliche Seite angezeigt.</string>
+      <string id="KeepIntranetSitesInInternetExplorer">Alle Intranetsites in Internet Explorer beibehalten</string>
+      <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Verhindert, dass Intranetsites in jedem Browser, mit Ausnahme von Internet Explorer, geöffnet werden. Beachten Sie jedoch, dass diese Richtlinie keine Auswirkungen hat, wenn die Richtlinie ‘Alle Websites, die nicht in der Enterprise Mode Site List enthalten sind, an Microsoft Edge senden’ (‘RestrictIE’) nicht aktiviert ist.
+
+Wenn Sie diese Richtlinie aktivieren, werden alle Intranetsites in Internet Explorer 11 geöffnet. Hiervon ausgenommen sind lediglich die in der Enterprise Mode Site List aufgeführten Sites.
+
+Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, werden alle Intranetsites automatisch in Microsoft Edge geöffnet.
+
+Es wird dringend empfohlen, diese Richtlinie mit der Richtlinie ‘Alle Intranetsites an Internet Explorer senden’ (‘SendIntranetToInternetExplorer’) synchron zu halten. Außerdem sollte diese Richtlinie nur dann aktiviert werden, wenn bei Ihren Intranetsites Kompatibilitätsprobleme mit Microsoft Edge vorliegen.
+
+Verwandte Richtlinien:
+- Alle Intranetsites an Internet Explorer senden (‘SendIntranetToInternetExplorer’)
+- Alle Websites, die nicht in der Enterprise Mode Site List enthalten sind, an Microsoft Edge senden (‘RestrictIE’)
+
+Weitere Informationen dazu, wie diese Richtlinie mit anderen verwandten Richtlinien zum Erstellen der optimalen Konfiguration für Ihre Organisation verwendet wird, finden Sie unter https://go.microsoft.com/fwlink/?linkid=2094210.</string>
       <string id="VerMgmtDisable">Blockieren von veralteten ActiveX-Steuerelementen für Internet Explorer ausschalten</string>
       <string id="IE_ExplainVerMgmtDisable">Mit dieser Richtlinieneinstellung wird bestimmt, ob Internet Explorer spezifische veraltete ActiveX-Steuerelemente blockiert. Veraltete ActiveX-Steuerelemente werden in der Intranetzone nie blockiert.
 
@@ -4013,7 +4073,9 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, wird das automatische Upgrade 
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren, wird das automatische Upgrade von Internet Explorer deaktiviert.
 
-Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, kann der Benutzer das automatische Upgrade im Dialogfeld "Info" aktivieren oder deaktivieren.</string>
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, kann der Benutzer das automatische Upgrade im Dialogfeld "Info" aktivieren oder deaktivieren.
+
+Hinweis: Die Richtlinie wird ab Windows 10, Version 1703, nicht mehr fortgeführt.</string>
       <string id="TurnOffFormatDetectionPhone">Finden von Telefonnummern deaktivieren</string>
       <string id="TurnOffFormatDetectionPhone_Explain">Mit dieser Richtlinieneinstellung wird bestimmt, ob Telefonnummern erkannt und in Hyperlinks konvertiert werden, um auf dem System die standardmäßige Telefonanwendung aufzurufen.
 
@@ -4503,6 +4565,15 @@ Weitere Informationen finden Sie in der Internet Explorer TechNet-Bibliothek unt
       <presentation id="IZ_PolicyZoneElevationURLaction_5">
         <dropdownList refId="IZ_Partname2101" noSort="true" defaultItem="2">Websites, die sich in Webinhaltzonen niedriger Berechtigung befinden, können in diese Zone navigieren.</dropdownList>
       </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_1">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="0">VBScript-Ausführung in Internet Explorer zulassen</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_2">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="1">VBScript-Ausführung in Internet Explorer zulassen</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_3">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="2">VBScript-Ausführung in Internet Explorer zulassen</dropdownList>
+      </presentation>
       <presentation id="IZ_Zonemaps_1">
         <listBox refId="IZ_ZonemapPrompt">Geben Sie die Zonenzuweisungen hier ein.</listBox>
       </presentation>
@@ -4662,7 +4733,7 @@ Weitere Informationen finden Sie in der Internet Explorer TechNet-Bibliothek unt
         <dropdownList refId="Advanced_EnableSSL3FallbackOptions" noSort="true" defaultItem="0">Unsicheres Fallback zulassen für:</dropdownList>
       </presentation>
       <presentation id="NewTabAction_1">
-        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="2">Verhalten für neue Registerkarten</dropdownList>
+        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="0">Verhalten für neue Registerkarten</dropdownList>
       </presentation>
       <presentation id="SecondaryHomePages">
         <listBox refId="SecondaryHomePagesList">Sekundäre Startseiten</listBox>

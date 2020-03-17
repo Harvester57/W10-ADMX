@@ -19,11 +19,11 @@
 如果您停用這個原則設定，選取要安裝的驅動程式時，Microsoft Windows Publisher 憑證所簽署的驅動程式會比其他 Authenticode 憑證所簽署的驅動程式優先。</string>
       <string id="DeviceInstall_Category">裝置安裝</string>
       <string id="DeviceInstall_Classes_Allow">允許使用符合這些裝置安裝類別的驅動程式安裝裝置</string>
-      <string id="DeviceInstall_Classes_Allow_Help">這個原則設定可以讓您為 Windows 可安裝的裝置驅動程式指定裝置安裝類別全域唯一識別碼 (GUID) 清單。這個原則設定只用在已啟用「防止安裝未由其他原則設定描述的裝置」原則設定時。其他防止裝置安裝的原則設定都比這個原則設定優先。
+      <string id="DeviceInstall_Classes_Allow_Help">此原則設定可讓您在允許安裝 Windows 的裝置驅動程式上，指定「裝置安裝類別全域唯一識別碼 (GUID) 」清單。僅在啟用「防止安裝其他原則設定未描述的裝置」原則設定時才使用此原則設定。防止裝置安裝的其他原則設定優先於此設定。
 
-如果您啟用這個原則設定，Windows 可安裝或更新其裝置安裝類別 GUID 列在您建立之清單中的裝置驅動程式，除非有其他原則設定明確禁止安裝 (例如「防止安裝符合任何裝置識別碼的裝置」原則設定、「防止安裝這些裝置類別的裝置」原則設定或「防止安裝抽取式裝置」原則設定)。如果在遠端桌面伺服器上啟用這個原則設定，這個原則設定會影響指定的裝置從遠端桌面用戶端到遠端桌面伺服器的重新導向。
+如果啟用此原則設定，則允許 Windows 安裝或更新任何出現在您建立的「隨插即用硬體識別碼和相容識別碼」清單上的裝置，除非另一個原則設定特別防止安裝 (例如「防止安裝與這些裝置識別碼相符的裝置」原則設定、「防止安裝這些裝置類別的裝置」原則設定、「防止安裝與這些裝置執行個體識別碼相符的裝置」原則設定，或「防止安裝抽取式裝置」原則設定)。如果在遠端桌面伺服器上啟用此原則設定，則原則設定會影響從遠端桌面用戶端到遠程桌面伺服器的指定裝置重新導向功能。
 
-如果您停用或未設定這個原則設定，而且沒有其他原則設定描述該裝置，則由「防止安裝未由其他原則設定描述的裝置」原則設定決定能否安裝該裝置。</string>
+如果停用或未設定此原則設定，且沒有其他原則設定描述該裝置，則以「防止安裝其他原則設定未描述的裝置」原則設定決定能否安裝該裝置。</string>
       <string id="DeviceInstall_Classes_Deny">防止使用符合這些裝置安裝類別的驅動程式安裝裝置</string>
       <string id="DeviceInstall_Classes_Deny_Help">這個原則設定可以讓您為 Windows 不可安裝的裝置驅動程式指定裝置安裝類別全域唯一識別碼 (GUID) 清單。這個原則設定的優先順序高於其他允許 Windows 安裝裝置的任何原則設定。
  
@@ -32,23 +32,35 @@
 如果您停用或未設定這個原則設定，則 Windows 可依照其他原則設定所允許或防止的方式安裝和更新裝置。</string>
       <string id="DeviceInstall_Help">控制安裝裝置的原則設定。</string>
       <string id="DeviceInstall_IDs_Allow">允許安裝符合這些裝置識別碼的裝置</string>
-      <string id="DeviceInstall_IDs_Allow_Help">這個原則設定可以讓您為 Windows 可安裝的裝置指定隨插即用硬體識別碼和相容識別碼清單。這個原則設定只用在已啟用「防止安裝未由其他原則設定描述的裝置」原則設定時。其他防止裝置安裝的原則設定都比這個原則設定優先。
+      <string id="DeviceInstall_IDs_Allow_Help">此原則設定可讓您在允許安裝 Windows 的裝置上，指定「隨插即用硬體識別碼和相容識別碼」清單。僅在啟用「防止安裝其他原則設定未描述的裝置」原則設定時才使用此原則設定。防止裝置安裝的其他原則設定優先於此設定。
 
-如果您啟用這個原則設定，Windows 可安裝或更新其隨插即用硬體識別碼或相容識別碼列在您建立之清單中的裝置，除非有其他原則設定明確禁止安裝 (例如「防止安裝符合這些裝置識別碼的裝置」原則設定、「防止安裝這些裝置類別的裝置」原則設定或「防止安裝抽取式裝置」原則設定)。如果在遠端桌面伺服器上啟用這個原則設定，這個原則設定會影響指定的裝置從遠端桌面用戶端到遠端桌面伺服器的重新導向。
+如果啟用此原則設定，則允許 Windows 安裝或更新任何出現在您建立的「隨插即用硬體識別碼和相容識別碼」清單上的裝置，除非另一個原則設定特別防止安裝 (例如「防止安裝與這些裝置識別碼相符的裝置」原則設定、「防止安裝這些裝置類別的裝置」原則設定、「防止安裝與這些裝置執行個體識別碼相符的裝置」原則設定，或「防止安裝抽取式裝置」原則設定)。如果在遠端桌面伺服器上啟用此原則設定，則原則設定會影響從遠端桌面用戶端到遠程桌面伺服器的指定裝置重新導向功能。
 
-如果您停用或未設定這個原則設定，而且沒有其他原則設定描述該裝置，則由「防止安裝未由其他原則設定描述的裝置」原則設定決定能否安裝該裝置。</string>
+如果停用或未設定此原則設定，且沒有其他原則設定描述該裝置，則以「防止安裝其他原則設定未描述的裝置」原則設定決定能否安裝該裝置。</string>
       <string id="DeviceInstall_IDs_Deny">防止安裝符合下列任何裝置識別碼的裝置</string>
       <string id="DeviceInstall_IDs_Deny_Help">這個原則設定可以讓您為 Windows 不可安裝的裝置指定隨插即用硬體識別碼和相容識別碼清單。這個原則設定的優先順序高於其他允許 Windows 安裝裝置的任何原則設定。
 
 如果您啟用這個原則設定，Windows 不可安裝其硬體識別碼或相容識別碼列在您建立之清單中的裝置。如果在遠端桌面伺服器上啟用這個原則設定，這個原則設定會影響指定的裝置從遠端桌面用戶端到遠端桌面伺服器的重新導向。
 
 如果您停用或未設定這個原則設定，則可以依照其他原則設定所允許或防止的方式安裝和更新裝置。</string>
+      <string id="DeviceInstall_Instance_IDs_Allow">允許安裝與這些裝置執行個體識別碼相符的裝置</string>
+      <string id="DeviceInstall_Instance_IDs_Allow_Help">此原則設定可讓您在允許安裝 Windows 的裝置上，指定「隨插即用裝置執行個體識別碼」清單。僅在啟用「防止安裝其他原則設定未描述的裝置」原則設定時才使用此原則設定。防止裝置安裝的其他原則設定優先於此設定。
+
+如果啟用此原則設定，則允許 Windows 安裝或更新任何出現在您建立的「隨插即用硬體識別碼和相容識別碼」清單上的裝置，除非另一個原則設定特別防止安裝 (例如「防止安裝與這些裝置識別碼相符的裝置」原則設定、「防止安裝這些裝置類別的裝置」原則設定、「防止安裝與這些裝置執行個體識別碼相符的裝置」原則設定，或「防止安裝抽取式裝置」原則設定)。如果在遠端桌面伺服器上啟用此原則設定，則原則設定會影響從遠端桌面用戶端到遠程桌面伺服器的指定裝置重新導向功能。
+
+如果停用或未設定此原則設定，且沒有其他原則設定描述該裝置，則以「防止安裝其他原則設定未描述的裝置」原則設定決定能否安裝該裝置。</string>
+      <string id="DeviceInstall_Instance_IDs_Deny">防止安裝與這些裝置執行個體識別碼相符的裝置</string>
+      <string id="DeviceInstall_Instance_IDs_Deny_Help">此原則設定可讓您在不可安裝 Windows 的裝置上，指定「隨插即用裝置執行個體識別碼」清單。此原則設定優先於其他允許 Windows 安裝裝置的原則設定。
+
+如果啟用此原則設定，則 Windows 不可安裝出現在您建立的「裝置執行個體識別碼」清單上的裝置。如果在遠端桌面伺服器上啟用此原則設定，則原則設定會影響從遠端桌面用戶端到遠程桌面伺服器的指定裝置重新導向功能。
+
+如果停用或未設定此原則設定，則可以在其他原則設定允許或不允許的情況下安裝及更新裝置。</string>
       <string id="DeviceInstall_InstallTimeout">設定裝置安裝逾時</string>
       <string id="DeviceInstall_InstallTimeout_Help">這個原則設定可以讓您設定 Windows 等待裝置安裝工作完成的秒數。
 
 如果您啟用這個原則設定，Windows 會在終止安裝之前等待您指定的秒數。
 
-如果您停用或未設定這個原則設定，則 Windows 會在終止安裝前等待 300 秒，讓裝置安裝工作完成。</string>
+如果您停用或未設定這個原則設定，則 Windows 會在終止安裝前等待 240 秒，讓裝置安裝工作完成。</string>
       <string id="DeviceInstall_Removable_Deny">防止安裝抽取式裝置</string>
       <string id="DeviceInstall_Removable_Deny_Help">這個原則設定可以讓您防止 Windows 安裝抽取式裝置。如果連接裝置的驅動程式表示該裝置為抽取式時，系統就視該裝置為抽取式。例如，通用序列匯流排 (USB) 裝置就由連接該裝置的 USB 集線器之驅動程式報告為抽取式。這個原則設定的優先順序高於其他允許 Windows 安裝裝置的任何原則設定。
 
@@ -70,11 +82,11 @@
 	  
 如果您停用或未設定這個原則設定，則不允許從遠端連線到隨插即用介面。</string>
       <string id="DeviceInstall_Unspecified_Deny">防止安裝未由其他原則設定描述的裝置</string>
-      <string id="DeviceInstall_Unspecified_Deny_Help">這個原則設定可以讓您防止安裝其他原則設定皆未明確描述的裝置。
+      <string id="DeviceInstall_Unspecified_Deny_Help">此原則設定可防止您安裝未由其他原則設定明確描述的裝置。
 
-如果您啟用這個原則設定，凡是未在 [允許安裝符合這些裝置識別碼的裝置] 或 [允許安裝這些裝置類別的裝置] 原則設定中描述的裝置，Windows 都無法安裝或更新其裝置驅動程式。
+如果啟用此策略設定，Windows 將無法在沒有描述「允許安裝與這些裝置識別碼相符的裝置」、「允許安裝這些裝置類別的裝置」或「允許安裝與這些裝置執行個體識別碼相符的裝置」等原則設定的裝置上，安裝或更新裝置驅動程式。
 
-如果您停用或未設定這個原則設定，則凡是未在 [防止安裝符合這些裝置識別碼的裝置]、[防止安裝這些裝置類別的裝置] 或 [防止安裝抽取式裝置] 原則設定中描述的裝置，Windows 都可以安裝或更新其裝置驅動程式。</string>
+如果停用或未設定此原則設定，則允許 Windows在沒有描述「防止安裝與這些裝置識別碼相符的裝置」、「防止安裝這些裝置類別的裝置」、「防止安裝與這些裝置執行個體識別碼相符的裝置」，或「防止安裝抽取式裝置」等原則設定的裝置上，安裝或更新裝置驅動程式。</string>
       <string id="DeviceInstall_DeniedPolicy_SimpleText">在原則設定防止裝置安裝時顯示自訂訊息標題</string>
       <string id="DeviceInstall_DeniedPolicy_SimpleText_Help">這個原則設定可以讓您在嘗試安裝裝置卻因原則設定而無法安裝時，在通知中顯示自訂的訊息標題。
 
@@ -147,6 +159,19 @@
         <text>輸入隨插即用硬體識別碼或相容識別碼</text>
         <text>(例如，gendisk、USB\COMPOSITE、USB\Class_ff)。</text>
         <checkBox refId="DeviceInstall_IDs_Deny_Retroactive">也適用於已安裝的對應裝置。</checkBox>
+      </presentation>
+      <presentation id="DeviceInstall_Instance_IDs_Allow">
+        <listBox refId="DeviceInstall_Instance_IDs_Allow_List">允許安裝與這些裝置執行個體識別碼相符的裝置:</listBox>
+        <text>若要建立裝置清單，請按一下 [顯示]。在 [顯示內容] 對話方塊的 [值] 欄中，</text>
+        <text>輸入隨插即用裝置執行個體識別碼</text>
+        <text>(例如 USB\VID_045E&amp;&amp;PID_0123\01234567890123456789)。</text>
+      </presentation>
+      <presentation id="DeviceInstall_Instance_IDs_Deny">
+        <listBox refId="DeviceInstall_Instance_IDs_Deny_List">防止安裝與這些裝置執行個體識別碼相符的裝置:</listBox>
+        <text>若要建立裝置清單，請按一下 [顯示]。在 [顯示內容] 對話方塊的 [值] 欄中，</text>
+        <text>輸入隨插即用裝置執行個體識別碼</text>
+        <text>(例如 USB\VID_045E&amp;&amp;PID_0123\01234567890123456789)。</text>
+        <checkBox refId="DeviceInstall_Instance_IDs_Deny_Retroactive">也適用於已安裝的對應裝置。</checkBox>
       </presentation>
       <presentation id="DeviceInstall_InstallTimeout">
         <decimalTextBox refId="DeviceInstall_InstallTimeout_Time" defaultValue="300" spinStep="15">裝置安裝逾時 (秒)</decimalTextBox>

@@ -78,6 +78,22 @@ Jeśli to ustawienie zasad zostanie włączone, kontrolery domeny będą żąda�
 Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, kontrolery domeny będą zwracać bilety usług zawierające uwierzytelnianie złożone za każdym razem, gdy klient wyśle żądanie uwierzytelniania złożonego niezależnie od konfiguracji konta.
 
 </string>
+      <string id="PKINITFreshness">Obsługa centrum dystrybucji kluczy dla rozszerzenia aktualności PKInit</string>
+      <string id="PKINITFreshness_explain">Obsługa rozszerzenia aktualności PKInit wymaga poziomu funkcjonalności domeny systemu Windows Server 2016. Jeśli kontroler domeny nie ma poziomu funkcjonalności domeny systemu Windows Server 2016 lub wyższego, to ustawienie zasad nie zostanie zastosowane.
+
+To ustawienie zasad umożliwia skonfigurowanie obsługi rozszerzenia aktualności PKInit na kontrolerze domeny.
+
+Jeśli to ustawienie zasad zostanie włączone, będą obsługiwane następujące opcje:
+
+Obsługiwane: rozszerzenie aktualności PKInit jest obsługiwane na żądanie. Klienci Kerberos pomyślnie przechodzący uwierzytelnienie przy użyciu rozszerzenia aktualności PKInit uzyskają aktualny identyfikator SID tożsamości klucza publicznego.
+
+Wymagane: rozszerzenie aktualności PKInit jest wymagane do pomyślnego uwierzytelnienia. W przypadku klientów Kerberos bez obsługi rozszerzenia aktualności PKInit użycie poświadczeń z kluczami publicznymi będzie zawsze kończyć się niepowodzeniem.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, kontroler domeny nigdy nie będzie oferował rozszerzenia aktualności PKInit i będzie akceptował prawidłowe żądania uwierzytelniania bez sprawdzania aktualności. Użytkownicy nigdy nie będą otrzymywać aktualnego identyfikatora SID tożsamości klucza publicznego.
+</string>
+      <string id="NoPKINITFreshness">Wyłączone</string>
+      <string id="SupportPKINITFreshness">Obsługiwane</string>
+      <string id="RequirePKINITFreshness">Wymagane</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Próg rozmiaru biletu</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Opcje rozszerzenia aktualności PKInit:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

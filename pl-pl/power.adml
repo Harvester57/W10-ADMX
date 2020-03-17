@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Określ limit czasu uśpienia systemu (podłączony zasilacz)</string>
       <string id="ACStandbyWithHiberfileEnable">Wyłącz uśpienie hybrydowe (podłączony zasilacz)</string>
       <string id="ACSystemLidAction">Wybierz akcję przełącznika pokrywy (podłączony zasilacz)</string>
+      <string id="ACConnectivityInStandby">Zezwalaj na łączność z siecią w stanie wstrzymania przy zachowaniu połączenia (zasilanie sieciowe)</string>
       <string id="BatteryDischargeAction0Explain">To ustawienie zasad określa akcję wykonywaną przez system Windows, gdy pojemność baterii osiągnie stan, w którym jest generowane powiadomienie o krytycznym poziomie energii baterii.
 
 Jeśli to ustawienie zasad zostanie włączone, należy wybrać jedną z następujących akcji:
@@ -82,6 +83,7 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
       <string id="DCStandbyTimeOut">Określ limit czasu uśpienia systemu (zasilanie z baterii)</string>
       <string id="DCStandbyWithHiberfileEnable">Wyłącz uśpienie hybrydowe (zasilanie z baterii)</string>
       <string id="DCSystemLidAction">Wybierz akcję przełącznika pokrywy (zasilanie z baterii)</string>
+      <string id="DCConnectivityInStandby">Zezwalaj na łączność z siecią w stanie wstrzymania przy zachowaniu połączenia (zasilanie bateryjne)</string>
       <string id="DiskACPowerDownTimeOut">Wyłącz dysk twardy (podłączony zasilacz)</string>
       <string id="DiskDCPowerDownTimeOut">Wyłącz dysk twardy (zasilanie z baterii)</string>
       <string id="DiskPowerDownTimeOutExplain">To ustawienie zasad określa czas braku aktywności, po upływie którego system Windows wyłącza dysk twardy.
@@ -205,9 +207,9 @@ Jeśli użytkownik skonfigurował pokaz slajdów, który ma zostać uruchomiony 
       <string id="AllowStandbyStatesDC">Zezwalaj na stany wstrzymania (S1-S3) podczas uśpienia (zasilanie z baterii)</string>
       <string id="AllowStandbyStatesExplain">To ustawienie zasad pozwala zdecydować, czy system Windows może korzystać ze stanów wstrzymania podczas przełączania komputera do stanu uśpienia.
 
-Jeśli to ustawienie zasad zostanie włączone, system Windows będzie korzystać ze stanów wstrzymania w celu przełączenia komputera do stanu uśpienia.
+Jeśli to ustawienie zasad zostanie włączone lub nie zostanie skonfigurowane, system Windows będzie korzystać ze stanów wstrzymania w celu przełączenia komputera do stanu uśpienia.
 
-Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, jedynym stanem uśpienia, do jakiego będzie można przełączyć komputer, będzie stan hibernacji.</string>
+Jeśli to ustawienie zasad zostanie wyłączone, stany wstrzymania (S1–S3) nie będą dozwolone.</string>
 
       <string id="AllowSystemSleepWithRemoteFilesOpenAC">Zezwalaj na automatyczne uśpienie przy otwartych plikach sieciowych (podłączony zasilacz)</string>
       <string id="AllowSystemSleepWithRemoteFilesOpenDC">Zezwalaj na automatyczne uśpienie przy otwartych plikach sieciowych (zasilanie z baterii)</string>
@@ -270,6 +272,30 @@ Jeżeli to ustawienie zasad zostanie włączone, należy podać wartość liczbo
 
 Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli wyświetlać i zmieniać to ustawienie.</string>
     
+      <string id="EnergySaverSettingsCat">Ustawienia oszczędzania energii</string>
+      <string id="EsBattThresholdAC">Próg naładowania baterii dla funkcji oszczędzania energii (zasilanie sieciowe)</string>
+      <string id="EsBattThresholdDC">Próg naładowania baterii dla funkcji oszczędzania energii (zasilanie bateryjne)</string>
+      <string id="EsBattThresholdExplain">To ustawienie zasad umożliwia określenie poziomu naładowania baterii, przy którym ma zostać włączona funkcja oszczędzania energii.
+
+Jeśli to ustawienie zasad zostanie włączone, należy podać wartość procentową oznaczającą poziom naładowania baterii. Przy tym poziomie (i poniżej) nastąpi automatyczne włączenie funkcji oszczędzania energii.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli kontrolować to ustawienie.</string>
+
+      <string id="ConnectivityInStandbyExplain">To ustawienie zasad umożliwia kontrolowanie stanu łączności z siecią w stanie wstrzymania w nowoczesnych systemach z funkcją wstrzymania.
+
+Jeśli to ustawienie zasad zostanie włączone, w stanie wstrzymania będzie zachowana łączność z siecią.
+
+Jeśli to ustawienie zasad zostanie wyłączone, łączność z siecią w stanie wstrzymania nie będzie gwarantowana. To ograniczenie łączności dotyczy obecnie tylko sieci WLAN i może się zmienić.
+
+Jeśli to ustawienie zasad nie zostanie skonfigurowane, użytkownicy będą mogli kontrolować to ustawienie.</string>
+
+      <string id="PowerThrottlingSettingsCat">Ustawienia ograniczanie zasilania</string>
+      <string id="PowerThrottlingTurnOff">Wyłącz opcję ograniczenia zasilania</string>
+      <string id="PowerThrottlingTurnOffExplain">To ustawienie zasad umożliwia wyłączenie opcji ograniczenia zasilania.
+
+Jeśli to ustawienie zasad zostanie włączone, funkcja ograniczenia zasilania zostanie wyłączona.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli kontrolować to ustawienie.</string>
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +445,9 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Poziom powiadamiania o rezerwowym poziomie energii baterii (w procentach):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Próg naładowania baterii dla funkcji oszczędzania energii (procent):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

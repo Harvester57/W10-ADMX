@@ -1,11 +1,15 @@
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/Policysecurity intelligence">
 <displayName>tutaj wprowadź nazwę wyświetlaną</displayName>
 <description>tutaj wprowadź opis</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Windows Defender</string>
+    <string id="AntiSpywareDefender">Program antywirusowy Windows Defender</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Wykluczenia</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Zmniejszanie obszaru ataków</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Kontrolowany dostęp do folderu</string>
+    <string id="ExploitGuard_NetworkProtection">Ochrona sieci</string>
     <string id="NetworkRealtimeInspection">System inspekcji sieci</string>
     <string id="NetworkRealtimeInspection_Exclusions">Wykluczenia</string>
     <string id="Quarantine">Kwarantanna</string>
@@ -13,10 +17,11 @@
     <string id="Remediation">Korygowanie</string>
     <string id="Reporting">Raportowanie</string>
     <string id="Scan">Skanowanie</string>
-    <string id="SignatureUpdate">Aktualizacje podpisów</string>
+    <string id="SignatureUpdate">Aktualizacje analiz zabezpieczeń</string>
     <string id="Spynet">MAPS</string>
     <string id="Threats">Zagrożenia</string>
     <string id="ClientInterface">Interfejs klienta</string>
+    <string id="MpEngine">Aparat MP</string>
     <string id="AllowFastServiceStartup">Zezwalaj na uruchamianie usługi ochrony przed złośliwym kodem z normalnym priorytetem</string>
     <string id="AllowFastServiceStartup_Explain">To ustawienie zasad kontroluje priorytet ładowania usługi ochrony przed złośliwym kodem. Podwyższenie priorytetu ładowania umożliwia szybsze uruchamianie usługi, ale może obniżyć wydajność.
 
@@ -25,7 +30,18 @@
     Jeśli wyłączysz to ustawienie, usługa ochrony przed złośliwym kodem będzie ładowana jako zadanie z niskim priorytetem.</string>
 
     <string id="DisableAutoExclusions">Wyłącz automatyczne wykluczenia</string>
-    <string id="DisableAutoExclusions_Explain">Umożliwia administratorowi określenie, czy należy wyłączyć funkcję automatycznych wykluczeń dla wersji serwera.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Umożliwia administratorowi określenie, czy należy wyłączyć funkcję automatycznych wykluczeń dla wersji serwera.
+
+        Wyłączone (wartość domyślna):
+        Usługa Windows Defender będzie wykluczać ze skanowania wstępnie zdefiniowaną listę ścieżek w celu zwiększenia wydajności.
+
+        Włączone:
+        Usługa Windows Defender nie będzie wykluczać ze skanowania wstępnie zdefiniowanej listy ścieżek. W pewnych sytuacjach może to mieć wpływ na wydajność komputera.
+
+        Nieskonfigurowane:
+        Takie samo działanie jak w przypadku wartości Wyłączone.
+    </string>
     <string id="DisableAntiSpyware">Wyłącz usługę Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">To ustawienie zasad powoduje wyłączenie usługi Endpoint Protection.
 
@@ -33,12 +49,16 @@
 
     Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Endpoint Protection będzie domyślnie uruchamiana, a komputery będą skanowane w poszukiwaniu złośliwego oprogramowania lub innego potencjalnie niechcianego oprogramowania.
     </string>
-    <string id="DisableAntiSpywareDefender">Wyłącz usługę Windows Defender</string>
-    <string id="DisableAntiSpywareDefender_Explain">To ustawienie zasad powoduje wyłączenie usługi Windows Defender.
+    <string id="DisableAntiSpywareDefender">Wyłącz Program antywirusowy Windows Defender</string>
+    <string id="DisableAntiSpywareDefender_Explain">To ustawienie zasad powoduje wyłączenie Programu antywirusowego Windows Defender.
+    
+    Jeśli włączysz to ustawienie zasad, Program antywirusowy Windows Defender nie będzie uruchamiany, a komputery nie będą skanowane w poszukiwaniu złośliwego oprogramowania lub innego potencjalnie niechcianego oprogramowania.
 
-    Jeśli to ustawienie zasad zostanie włączone, usługa Windows Defender nie będzie uruchamiana, a komputery nie będą skanowane w poszukiwaniu złośliwego oprogramowania lub innego potencjalnie niechcianego oprogramowania.
+    Jeśli wyłączysz to ustawienie zasad, Program antywirusowy Windows Defender będzie uruchamiany niezależnie od innych zainstalowanych produktów antywirusowych.
 
-    Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Windows Defender będzie domyślnie uruchamiana, a komputery będą skanowane w poszukiwaniu złośliwego oprogramowania lub innego potencjalnie niechcianego oprogramowania.</string>
+    Jeśli nie skonfigurujesz tego ustawienia zasad, system Windows będzie wewnętrznie zarządzał Programem antywirusowym Windows Defender. Jeśli zainstalujesz inny program antywirusowy, system Windows automatycznie wyłączy Program antywirusowy Windows Defender. W przeciwnym razie Program antywirusowy Windows Defender będzie skanował komputery w poszukiwaniu złośliwego oprogramowania lub innego potencjalnie niechcianego oprogramowania.
+
+    Włączenie lub wyłączenie tej zasady może spowodować nieoczekiwane lub nieobsługiwane zachowanie. Zalecane jest pozostawienie tego ustawienia zasad nieskonfigurowanego.</string>
     <string id="DisableLocalAdminMerge">Konfiguruj zachowanie scalania dotyczące administratora lokalnego dla list</string>
     <string id="DisableLocalAdminMerge_Explain">To ustawienie zasad określa, czy ustawienia list złożonych skonfigurowane przez administratora lokalnego mają być scalane z ustawieniami zasad grupy. To ustawienie dotyczy list takich jak zagrożenia i wykluczenia.
 
@@ -47,45 +67,74 @@
     Jeśli wyłączysz to ustawienie, w obowiązujących zasadach będą używane tylko elementy zdefiniowane przez zasady grupy. Ustawienia zasad grupy zastępują ustawienia preferencji skonfigurowane przez administratora lokalnego.</string>
     <string id="DisableRoutinelyTakingAction">Wyłącz korygowanie procedur</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    To ustawienie zasad umożliwia określenie, czy usługa Windows Defender ma automatycznie podejmować akcję dla wszystkich wykrytych zagrożeń. Akcja podejmowana w przypadku określonego zagrożenia jest ustalana na podstawie kombinacji akcji zdefiniowanej przez zasady, akcji zdefiniowanej przez użytkownika i akcji zdefiniowanej przez sygnaturę.
+    To ustawienie zasad umożliwia określenie, czy Program antywirusowy Windows Defender ma automatycznie podejmować akcję dla wszystkich wykrytych zagrożeń. Akcja podejmowana w przypadku określonego zagrożenia jest ustalana na podstawie kombinacji akcji zdefiniowanej przez zasady, akcji zdefiniowanej przez użytkownika i akcji zdefiniowanej przez sygnaturę.
 
-    Jeśli to ustawienie zasad zostanie włączone, usługa Windows Defender nie będzie automatycznie podejmować akcji dla wykrytych zagrożeń, ale będzie monitować użytkowników o wybranie jednej z akcji dostępnych dla danego zagrożenia.
+    Jeśli włączysz to ustawienie zasad, Program antywirusowy Windows Defender nie będzie automatycznie podejmować akcji dla wykrytych zagrożeń, ale będzie monitować użytkowników o wybranie jednej z akcji dostępnych dla danego zagrożenia.
 
-    Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Windows Defender będzie automatycznie podejmować akcję dla wszystkich wykrytych zagrożeń po około pięciu sekundach (tego czasu nie można zmienić).</string>
+    Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, Program antywirusowy Windows Defender będzie automatycznie podejmować akcję dla wszystkich wykrytych zagrożeń po około pięciu sekundach (tego czasu nie można zmienić).</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         To ustawienie zasad umożliwia określenie, czy usługa Endpoint Protection ma automatycznie podejmować akcję dla wszystkich wykrytych zagrożeń. Akcja podejmowana w przypadku określonego zagrożenia jest ustalana na podstawie kombinacji akcji zdefiniowanej przez zasady, akcji zdefiniowanej przez użytkownika i akcji zdefiniowanej przez sygnaturę.
 
         Jeśli to ustawienie zasad zostanie włączone, usługa Endpoint Protection nie będzie automatycznie podejmować akcji dla wykrytych zagrożeń, ale będzie monitować użytkowników o wybranie jednej z akcji dostępnych dla danego zagrożenia.
 
         Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Endpoint Protection będzie automatycznie podejmować akcję dla wszystkich wykrytych zagrożeń po około pięciu sekundach (tego czasu nie można zmienić).
-    </string>
+    </string>      
     <string id="ProxyBypass">Zdefiniuj adresy w celu pominięcia serwera proxy</string>
     <string id="ProxyBypass_Explain">Ta zasada (jeśli została zdefiniowana) uniemożliwia oprogramowaniu chroniącemu przed złośliwym kodem komunikowanie się z określonymi adresami IP za pomocą skonfigurowanego serwera proxy. Wprowadzoną wartością adresu powinien być prawidłowy adres URL.
 
     Jeśli włączysz to ustawienie, serwer proxy będzie pomijany przez określone adresy.
 
     Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, serwer proxy nie będzie pomijany przez określone adresy.</string>
+    <string id="ProxyPacUrl">Zdefiniuj plik autokonfiguracji serwera proxy (PAC) na potrzeby połączenia z siecią</string>
+    <string id="ProxyPacUrl_Explain">To ustawienie zasad umożliwia zdefiniowanie adresu URL pliku PAC serwera proxy, który ma być używany, gdy klient będzie próbował nawiązać połączenie z siecią w celu wyszukania aktualizacji analiz zabezpieczeń oraz na potrzeby raportowania MAPS. W przypadku niepowodzenia autokonfiguracji serwera proxy lub nieokreślenia tej autokonfiguracji na kliencie zostaną użyte następujące opcje alternatywne (w przedstawionej kolejności):
+      1. Serwer proxy (jeśli został określony)
+      2. Adres URL pliku PAC serwera proxy (jeśli został określony)
+      3. Brak
+      4. Ustawienia serwera proxy przeglądarki Internet Explorer
+      5. Wykrywanie automatyczne
+
+      Jeśli włączysz to ustawienie, dla serwera proxy zostanie ustawiony plik PAC wybrany zgodnie z określoną powyżej kolejnością.
+
+      Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, serwer proxy pominie ten krok rezerwowy zgodnie z określoną powyżej kolejnością.</string>
     <string id="ProxyServer">Zdefiniuj serwer proxy na potrzeby połączenia z siecią</string>
-    <string id="ProxyServer_Explain">To ustawienie zasad umożliwia skonfigurowanie nazwanego serwera proxy, który ma być używany, gdy klient próbuje nawiązać połączenie z siecią w celu wyszukania aktualizacji definicji i na potrzeby raportowania społeczności MAPS. W przypadku wystąpienia błędu nazwanego serwera proxy lub braku określonego serwera proxy zostaną użyte następujące ustawienia (w przedstawionej kolejności):
-    1. Ustawienia serwera proxy programu Internet Explorer
-    2. Autowykrywanie
-    3. Brak
+    <string id="ProxyServer_Explain">To ustawienie zasad umożliwia skonfigurowanie nazwanego serwera proxy, który ma być używany, gdy klient będzie próbował nawiązać połączenie z siecią w celu wyszukania aktualizacji analiz zabezpieczeń i na potrzeby raportowania MAPS. W przypadku niepowodzenia użycia nazwanego serwera proxy lub nieokreślenia tego serwera na kliencie zostaną użyte następujące opcje alternatywne (w przedstawionej kolejności):
+      1. Serwer proxy (jeśli został określony)
+      2. Adres URL pliku PAC serwera proxy (jeśli został określony)
+      3. Brak
+      4. Ustawienia serwera proxy przeglądarki Internet Explorer
+      5. Wykrywanie automatyczne
 
-    Jeśli to ustawienie zostanie włączone, dla serwera proxy zostanie ustawiony określony adres URL.
+      Jeśli włączysz to ustawienie, dla serwera proxy zostanie ustawiony adres URL określony zgodnie z podaną powyżej kolejnością. Adres URL musi być poprzedzony ciągiem http:// lub https://.
 
-    Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, serwer proxy zostanie skonfigurowany zgodnie z powyższymi ustawieniami w przedstawionej kolejności.</string>
+      Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, serwer proxy pominie ten krok rezerwowy zgodnie z określoną powyżej kolejnością.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Losowy czas zaplanowanych zadań</string>
-    <string id="RandomizeScheduleTaskTimes_Explain">To ustawienie zasad umożliwia włączenie lub wyłączenie losowego ustawiania czasu rozpoczęcia zaplanowanego skanowania i czasu rozpoczęcia zaplanowanej aktualizacji definicji. To ustawienie pozwala rozłożyć wpływ skanowania na zasoby. Można go na przykład używać na maszynach wirtualnych gościa współużytkujących hosta w celu uniemożliwienia jednoczesnego wykonania operacji, która znacznie obciąża dysk, przez wiele maszyn wirtualnych gościa.
+    <string id="RandomizeScheduleTaskTimes_Explain">To ustawienie zasad umożliwia włączenie lub wyłączenie losowego ustawiania godziny rozpoczęcia zaplanowanego skanowania i godziny rozpoczęcia zaplanowanej aktualizacji analiz zabezpieczeń. To ustawienie służy do rozkładania wpływu skanowania na zasoby. Można go na przykład używać na maszynach wirtualnych gościa współużytkujących hosta w celu uniemożliwienia jednoczesnego wykonywania operacji, która znacznie obciąża dysk, przez wiele maszyn wirtualnych gościa.
 
-    Jeśli włączysz to ustawienie lub go nie skonfigurujesz, zaplanowane zadania będą rozpoczynać się w losowym czasie w odstępie 30 minut przed określonym czasem rozpoczęcia i po nim.
+    Jeśli włączysz to ustawienie albo go nie skonfigurujesz, zaplanowane zadania będą rozpoczynać się o losowo wybranej godzinie w odstępie 30 minut przed określoną godziną rozpoczęcia i po niej.
 
-    Jeśli wyłączysz to ustawienie, zaplanowane zadania będą rozpoczynać się w określonym czasie.</string>
+    Jeśli wyłączysz to ustawienie, zaplanowane zadania będą rozpoczynać się o określonej godzinie.</string>
     <string id="ServiceKeepAlive">Zawsze zezwalaj na działanie usługi ochrony przed złośliwym kodem</string>
-    <string id="ServiceKeepAlive_Explain">To ustawienie zasad umożliwia określenie, czy usługa ochrony przed złośliwym kodem ma pozostać uruchomiona, gdy definicje oprogramowania antywirusowego i antyszpiegowskiego są wyłączone. Zaleca się pozostawienie tego ustawienia wyłączonego.
+    <string id="ServiceKeepAlive_Explain">To ustawienie zasad umożliwia określenie, czy usługa ochrony przed złośliwym kodem ma pozostać uruchomiona, gdy analizy zabezpieczeń oprogramowania antywirusowego i antyszpiegowskiego są wyłączone. Zalecane jest pozostawienie tego ustawienia wyłączonego.
 
-Jeśli włączysz to ustawienie, usługa ochrony przed złośliwym kodem będzie zawsze uruchomiona — nawet jeśli definicje oprogramowania antywirusowego i antyszpiegowskiego będą wyłączone.
+    Jeśli włączysz to ustawienie, usługa ochrony przed złośliwym kodem będzie zawsze uruchomiona, nawet jeśli analizy zabezpieczeń oprogramowania antywirusowego i antyszpiegowskiego będą wyłączone.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, usługa ochrony przed złośliwym kodem zostanie zatrzymana, gdy definicje oprogramowania antywirusowego i antyszpiegowskiego będą wyłączone. W przypadku ponownego uruchomienia komputera usługa zostanie uruchomiona, jeśli ustawiono w niej tryb automatycznego uruchamiania. Po uruchomieniu usługi zostanie przeprowadzona kontrola w celu sprawdzenia, czy definicje oprogramowania antywirusowego i antyszpiegowskiego są włączone. Jeśli będą włączone definicje co najmniej jednego typu, usługa pozostanie uruchomiona. Jeśli oba typy definicji będą wyłączone, usługa zostanie zatrzymana.</string>
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, usługa ochrony przed złośliwym kodem zostanie zatrzymana, gdy analizy zabezpieczeń oprogramowania antywirusowego i antyszpiegowskiego będą wyłączone. W przypadku ponownego uruchomienia komputera usługa zostanie uruchomiona, jeśli została skonfigurowana do automatycznego uruchamiania. Po uruchomieniu usługi nastąpi sprawdzenie, czy analizy zabezpieczeń oprogramowania antywirusowego i antyszpiegowskiego są włączone. Jeśli będzie włączona co najmniej jedna analiza zabezpieczeń, usługa pozostanie uruchomiona. Jeśli obie będą wyłączone, usługa zostanie zatrzymana.</string>
+    <string id="Root_PUAProtection">Konfiguruj wykrywanie potencjalnie niechcianych aplikacji</string>
+    <string id="Root_PUAProtection_Explain">
+        Włącz lub wyłącz wykrywanie potencjalnie niechcianych aplikacji. Możesz wybrać opcję blokowania, inspekcji lub zezwalania, gdy potencjalnie niechciane oprogramowanie będzie pobierane lub będzie samo próbować zainstalować się na Twoim komputerze.
+
+        Włączone:
+        Określ tryb w sekcji Opcje:
+        - Blokuj: potencjalnie niechciane oprogramowanie będzie blokowane.
+        - Tryb inspekcji: potencjalnie niechciane oprogramowanie nie będzie blokowane, ale jeśli ta funkcja zablokowałaby dostęp, gdyby była ustawiona wartość Blokuj, to takie zdarzenie zostanie zarejestrowane w dzienniku zdarzeń.
+
+        Wyłączone:
+        potencjalnie niechciane oprogramowanie nie będzie blokowane.
+
+        Nieskonfigurowane:
+        takie samo działanie jak w przypadku wartości Wyłączone.
+    </string>
     <string id="Exclusions_Extensions">Wykluczenia rozszerzeń</string>
     <string id="Exclusions_Extensions_Explain">To ustawienie zasad umożliwia określenie listy typów plików, które mają zostać wykluczone z zaplanowanego lub niestandardowego skanowania albo skanowania w czasie rzeczywistym. Typy plików można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa powinna być reprezentacją ciągu rozszerzenia typu pliku (np. „obj” lub „lib”). Wartość nie jest używana i zaleca się ustawienie wartości 0.</string>
     <string id="Exclusions_Paths">Wykluczenia ścieżek</string>
@@ -99,27 +148,13 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, usługa ochrony prze
 
     Jeśli wyłączysz to ustawienie, rozpoznawanie protokołu zostanie wyłączone.</string>
     <string id="Nis_Consumers_IPS_DisableSignatureRetirement">Włącz zwalnianie definicji</string>
-    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">To ustawienie zasad umożliwia skonfigurowanie zwalniania definicji na potrzeby ochrony sieci przed znanymi zagrożeniami. Zwalnianie definicji polega na sprawdzeniu, czy na komputerze znajdują się aktualizacje zabezpieczeń niezbędne do zapewnienia ochrony przed określonym zagrożeniem. Jeśli system nie jest podatny na zagrożenie wykryte przez definicję, ta definicja zostanie zwolniona. W przypadku zwolnienia wszystkich definicji dla danego protokołu ten protokół nie jest już analizowany. Włączenie tej funkcji pozwala zwiększyć wydajność. W przypadku komputera zawierającego wszystkie najnowsze aktualizacje zabezpieczeń ochrona sieci nie ma wpływu na wydajność sieci.
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">To ustawienie zasad umożliwia skonfigurowanie wycofywania definicji na potrzeby ochrony sieci przed znanymi zagrożeniami. Wycofywanie definicji polega na sprawdzeniu, czy na komputerze znajdują się aktualizacje zabezpieczeń niezbędne do zapewnienia ochrony przed określonym zagrożeniem. Jeśli system nie jest podatny na zagrożenie wykrywane przy użyciu danej definicji, ta definicja zostanie wycofana. W przypadku wycofania wszystkich analiz zabezpieczeń dla danego protokołu ten protokół nie będzie już analizowany. Włączenie tej funkcji pomaga zwiększyć wydajność. W przypadku komputera zawierającego wszystkie najnowsze aktualizacje zabezpieczeń ochrona sieci nie ma wpływu na wydajność sieci.
 
-    Jeśli włączysz to ustawienie lub go nie skonfigurujesz, zwalnianie definicji zostanie włączone.
+    Jeśli włączysz to ustawienie lub go nie skonfigurujesz, wycofywanie definicji zostanie włączone.
 
-    Jeśli wyłączysz to ustawienie, zwalnianie definicji zostanie wyłączone.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Zdefiniuj częstotliwość rejestrowania zdarzeń wykrywania</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">To ustawienie zasad umożliwia ograniczenie częstotliwości rejestrowania zdarzeń wykrywania związanych z ochroną sieci przed znanymi zagrożeniami. Rejestrowanie zostanie ograniczone do maksymalnie jednego zdarzenia na zdefiniowany interwał. Wartość interwału jest określona w minutach. Interwał domyślny to 60 minut.
-
-    Jeśli włączysz to ustawienie, zdarzenia wykrywania nie będą rejestrowane w przypadku wystąpienia więcej niż jednego podobnego raportu (według identyfikatora GUID definicji) w określonym czasie (w minutach).
-
-    Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, zdarzenia wykrywania będą rejestrowane z domyślną częstotliwością.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Wykluczenia zakresów adresów IP</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Ta zasada (jeśli zostanie zdefiniowana) umożliwia wykluczenie określonych adresów IP z inspekcji funkcji ochrony sieci przed znanymi zagrożeniami. Adresy IP można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa powinna być reprezentacją ciągu zakresu adresów IP. Na przykład zakres może mieć postać 157.1.45.123-60.1.1.1. Wartość nie jest używana i zaleca się ustawienie wartości 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Wykluczenia numerów portów</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">To ustawienie zasad umożliwia zdefiniowanie listy numerów portów TCP, dla których ma zostać wyłączona inspekcja ruchu sieciowego. Numery portów można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa powinna być reprezentacją ciągu numeru portu TCP. Na przykład zakres może mieć postać 8080. Wartość nie jest używana i zaleca się ustawienie wartości 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Wykluczenia procesów dla ruchu wychodzącego</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">To ustawienie zasad umożliwia zdefiniowanie procesów, dla których ma zostać wyłączona inspekcja wychodzącego ruchu sieciowego.  Nazwy procesów można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa powinna być reprezentacją ciągu ścieżki i nazwy procesu. Proces może mieć na przykład postać „C:\Windows\System32\Aplikacja.exe”. Wartość nie jest używana i zaleca się ustawienie wartości 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Wykluczenia identyfikatorów zagrożeń</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">To ustawienie zasad umożliwia zdefiniowanie zagrożeń, które nie mają być wykrywane podczas inspekcji ruchu sieciowego. Zagrożenia można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa powinna być reprezentacją ciągu identyfikatora zagrożenia. Na przykład identyfikator zagrożenia może mieć postać 2925110632. Wartość nie jest używana i zaleca się ustawienie wartości 0.</string>
+    Jeśli wyłączysz to ustawienie, wycofywanie definicji zostanie wyłączone.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Określ dodatkowe zestawy definicji na potrzeby inspekcji ruchu sieciowego</string>
-    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">To ustawienie zasad umożliwia zdefiniowanie dodatkowych zestawów definicji na potrzeby inspekcji ruchu sieciowego. Identyfikatory GUID definicji można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa powinna być reprezentacją ciągu identyfikatora GUID zestawu definicji. Na przykład identyfikator GUID zestawu definicji umożliwiający włączenie definicji testowych ma postać „{b54b6ac9-a737-498e-9120-6616ad3bf590}”. Wartość nie jest używana i zaleca się ustawienie wartości 0.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">To ustawienie zasad umożliwia zdefiniowanie dodatkowych zestawów definicji na potrzeby inspekcji ruchu sieciowego. Identyfikatory GUID zestawów definicji można dodać w obszarze Opcje tego ustawienia. Każdy wpis musi mieć postać pary nazwa-wartość, w której nazwa musi być reprezentacją ciągu identyfikatora GUID zestawu definicji. Na przykład identyfikator GUID zestawu definicji umożliwiający włączenie testowych analiz zabezpieczeń ma postać  „{b54b6ac9-a737-498e-9120-6616ad3bf590}”. Wartość nie jest używana i zalecane jest ustawienie wartości 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Skonfiguruj zastępowanie lokalne ustawień dotyczące usuwania elementów z folderu kwarantanny</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">To ustawienie zasad umożliwia skonfigurowanie zastępowania lokalnego konfiguracji liczby dni, po upływie której elementy mają zostać usunięte z folderu kwarantanny. To ustawienie można skonfigurować tylko jako zasady grupy.
 
@@ -138,18 +173,6 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, usługa ochrony prze
     Jeśli włączysz to ustawienie lub go nie skonfigurujesz, monitorowanie zachowania zostanie włączone.
 
     Jeśli wyłączysz to ustawienie, monitorowanie zachowania zostanie wyłączone.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Włącz kontrolę ochrony informacji</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">To ustawienie zasad umożliwia skonfigurowanie kontroli ochrony informacji (IPC).
-
-    Jeśli włączysz to ustawienie, kontrola ochrony informacji zostanie włączona.
-
-    Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, kontrola ochrony informacji zostanie wyłączona.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Włącz ochronę sieci przed znanymi zagrożeniami</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">To ustawienie zasad umożliwia skonfigurowanie ochrony sieci przed znanymi zagrożeniami.
-
-    Jeśli włączysz to ustawienie lub go nie skonfigurujesz, ochrona sieci zostanie włączona.
-
-    Jeśli wyłączysz to ustawienie, ochrona sieci zostanie wyłączona.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Skanuj wszystkie pobierane pliki i załączniki</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">To ustawienie zasad umożliwia skonfigurowanie skanowania wszystkich pobieranych plików i załączników.
 
@@ -171,11 +194,11 @@ Jeśli wyłączysz to ustawienie, powiadomienia o zapisie bez przetwarzania zost
     <string id="DisableRealtimeMonitoring">Wyłącz ochronę w czasie rzeczywistym</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">To ustawienie zasad umożliwia wyłączenie monitów ochrony w czasie rzeczywistym dotyczących wykrywania znanego złośliwego oprogramowania.
 
-    Usługa Windows Defender ostrzega użytkownika, gdy złośliwe oprogramowanie lub inne potencjalnie niechciane oprogramowanie próbuje zainstalować się lub uruchomić na komputerze.
+    Program antywirusowy Windows Defender ostrzega użytkownika, gdy złośliwe oprogramowanie lub inne potencjalnie niechciane oprogramowanie próbuje zainstalować się lub uruchomić na komputerze.
 
-    Jeśli to ustawienie zasad zostanie włączone, usługa Windows Defender nie będzie monitować użytkowników o podjęcie odpowiednich czynności w związku z wykryciem złośliwego oprogramowania.
+    Jeśli włączysz to ustawienie zasad, Program antywirusowy Windows Defender nie będzie monitować użytkowników o wykonanie odpowiednich czynności w związku z wykryciem złośliwego oprogramowania.
 
-    Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Windows Defender będzie monitować użytkowników o podjęcie czynności w związku z wykryciem złośliwego oprogramowania.</string>
+    Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, Program antywirusowy Windows Defender będzie monitować użytkowników o wykonanie czynności w związku z wykryciem złośliwego oprogramowania.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     To ustawienie zasad umożliwia wyłączenie monitów ochrony w czasie rzeczywistym dotyczących wykrywania znanego złośliwego oprogramowania.
 
@@ -205,12 +228,6 @@ Jeśli włączysz to ustawienie, lokalne ustawienie preferencji będzie mieć pr
 Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, zasady grupy będą mieć priorytet przed lokalnym ustawieniem preferencji.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Skonfiguruj zastępowanie lokalne ustawień dotyczące monitorowania aktywności plików i programów na komputerze</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">To ustawienie zasad umożliwia skonfigurowanie zastępowania lokalnego konfiguracji monitorowania aktywności plików i programów na komputerze. To ustawienie można skonfigurować tylko jako zasady grupy.
-
-Jeśli włączysz to ustawienie, lokalne ustawienie preferencji będzie mieć priorytet przed zasadami grupy.
-
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, zasady grupy będą mieć priorytet przed lokalnym ustawieniem preferencji.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Skonfiguruj zastępowanie lokalne ustawień dotyczące wyłączania systemu ochrony przed intruzami</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">To ustawienie zasad umożliwia skonfigurowanie zastępowania lokalnego konfiguracji ochrony sieci przed znanymi zagrożeniami. To ustawienie można skonfigurować tylko jako zasady grupy.
 
 Jeśli włączysz to ustawienie, lokalne ustawienie preferencji będzie mieć priorytet przed zasadami grupy.
 
@@ -307,13 +324,21 @@ Jeśli wyłączysz to ustawienie, zdarzenia programu Watson nie będą wysyłane
     <string id="Reporting_WppTracingComponents_Explain">Ta zasada umożliwia skonfigurowanie składników preprocesora śledzenia oprogramowania systemu Windows (śledzenie oprogramowania WPP).</string>
     <string id="Reporting_WppTracingLevel">Skonfiguruj poziom śledzenia WPP</string>
     <string id="Reporting_WppTracingLevel_Explain">Ta zasada umożliwia skonfigurowanie poziomów śledzenia dla preprocesora śledzenia oprogramowania systemu Windows (śledzenie oprogramowania WPP). 
+    Poziomy śledzenia mają następujące wartości:
+    1 — błąd
+    2 — ostrzeżenie
+    3 — informacje
+    4 — debugowanie</string>
+    <string id="Reporting_DisableEnhancedNotifications">Wyłącz powiadomienia rozszerzone</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      To ustawienie zasad umożliwia określenie, czy powiadomienia rozszerzone Programu antywirusowego Windows Defender mają być wyświetlane na klientach.
+      
+      Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, powiadomienia rozszerzone Programu antywirusowego Windows Defender będą wyświetlane na klientach.
+      
+      Jeśli włączysz to ustawienie, powiadomienia rozszerzone Programu antywirusowego Windows Defender nie będą wyświetlane na klientach.
+    </string>
 
-Poziomy śledzenia mają następujące wartości:
-1 — błąd
-2 — ostrzeżenie
-3 — informacje
-4 — debugowanie</string>
-    <string id="Scan_AllowPause">Zezwalaj użytkownikom na wstrzymywanie skanowania</string>
+      <string id="Scan_AllowPause">Zezwalaj użytkownikom na wstrzymywanie skanowania</string>
     <string id="Scan_AllowPause_Explain">To ustawienie zasad umożliwia określenie, czy użytkownicy końcowi mogą wstrzymywać trwające skanowanie.
 
 Jeśli włączysz to ustawienie lub go nie skonfigurujesz, do ikony na pasku zadań zostanie dodane nowe menu kontekstowe umożliwiające użytkownikowi wstrzymanie skanowania.
@@ -337,14 +362,14 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, pliki archiwum będ�
 Jeśli włączysz to ustawienie, procentowe użycie procesora nie przekroczy określonej wartości.
 
 Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, użycie procesora nie przekroczy wartości domyślnej.</string>
-    <string id="CheckForSignaturesBeforeRunningScan">Wyszukaj najnowsze definicje wirusów i programów szpiegujących przed rozpoczęciem zaplanowanego skanowania</string>
-    <string id="CheckForSignaturesBeforeRunningScan_Explain">To ustawienie zasad umożliwia określenie, czy przed rozpoczęciem skanowania mają być wyszukiwane nowe definicje wirusów i programów szpiegujących. 
+    <string id="CheckForSignaturesBeforeRunningScan">Wyszukaj najnowsze analizy zabezpieczeń dotyczące wirusów i programów szpiegujących przed uruchomieniem zaplanowanego skanowania</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">To ustawienie zasad umożliwia określenie, czy przed rozpoczęciem skanowania mają być wyszukiwane nowe analizy zabezpieczeń dotyczące wirusów i programów szpiegujących. 
 
-    To ustawienie jest stosowane do zaplanowanego skanowania oraz w wierszu polecenia „mpcmdrun -SigUpdate”, ale nie ma wpływu na skanowanie rozpoczynane ręcznie z poziomu interfejsu użytkownika.
+    To ustawienie jest stosowane do zaplanowanych operacji skanowania oraz w wierszu polecenia „mpcmdrun -SigUpdate”, ale nie ma wpływu na operacje skanowanie inicjowane ręcznie z poziomu interfejsu użytkownika.
 
-    Jeśli włączysz to ustawienie, przed rozpoczęciem skanowania będą wyszukiwane nowe definicje.
+    Jeśli włączysz to ustawienie, przed rozpoczęciem skanowania będą wyszukiwane nowe analizy zabezpieczeń.
 
-    Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, podczas skanowania będą używane istniejące definicje.</string>
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, podczas skanowania będą używane istniejące analizy zabezpieczeń.</string>
     <string id="Scan_DisableArchiveScanning">Skanuj pliki archiwum</string>
     <string id="Scan_DisableArchiveScanning_Explain">To ustawienie zasad umożliwia skonfigurowanie skanowania w poszukiwaniu złośliwego i niechcianego oprogramowania w plikach archiwum, takich jak ZIP lub CAB.
 
@@ -514,79 +539,91 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, zaplanowane skanowan
     Jeśli to ustawienie zostanie włączone, skanowanie uzupełniające nastąpi po określonej liczbie pominiętych kolejnych zaplanowanych skanowań.
 
     Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, skanowanie uzupełniające nastąpi po 2 pominiętych kolejnych zaplanowanych skanowaniach.</string>
-    <string id="SignatureUpdate_ASSignatureDue">Zdefiniuj liczbę dni, po upływie której definicje programów szpiegujących będą uznawane za nieaktualne</string>
-    <string id="SignatureUpdate_ASSignatureDue_Explain">To ustawienie zasad umożliwia zdefiniowanie liczby dni, po upływie której definicje programów szpiegujących będą uznawane za nieaktualne. Uznanie definicji za nieaktualne może wyzwolić dodatkowe akcje, łącznie z powrotem do alternatywnego źródła aktualizacji lub wyświetleniem ikony ostrzeżenia w interfejsie użytkownika. Wartość domyślna to 14 dni.
+    <string id="Scan_LowCpuPriority">Konfiguruj niski priorytet procesora CPU dla zaplanowanych skanowań</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        To ustawienie zasad umożliwia włączenie lub wyłączenie niskiego priorytetu procesora CPU dla zaplanowanych skanowań.
 
-Jeśli włączysz to ustawienie, definicje programów szpiegujących będą uznawane za nieaktualne po upływie określonej liczby dni bez aktualizacji.
+        Jeśli włączysz to ustawienie, podczas zaplanowanych skanowań będzie używany niski priorytet procesora CPU.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, definicje programów szpiegujących będą uznawane za nieaktualne po upływie domyślnej liczby dni bez aktualizacji.</string>
-    <string id="SignatureUpdate_AVSignatureDue">Zdefiniuj liczbę dni, po upływie której definicje wirusów będą uznawane za nieaktualne</string>
-    <string id="SignatureUpdate_AVSignatureDue_Explain">To ustawienie zasad umożliwia zdefiniowanie liczby dni, po upływie której definicje wirusów będą uznawane za nieaktualne. Uznanie definicji za nieaktualne może wyzwolić dodatkowe akcje, łącznie z powrotem do alternatywnego źródła aktualizacji lub wyświetleniem ikony ostrzeżenia w interfejsie użytkownika. Wartość domyślna to 14 dni.
+        Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, nie zostaną wprowadzone zmiany priorytetu procesora CPU dla zaplanowanych skanowań.
+    </string>
+    <string id="SignatureUpdate_ASSignatureDue">Zdefiniuj liczbę dni, po upływie której analizy zabezpieczeń dotyczące programów szpiegujących będą uznawane za nieaktualne</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">To ustawienie zasad umożliwia zdefiniowanie liczby dni, po upływie której analizy zabezpieczeń dotyczące programów szpiegujących będą uznawane za nieaktualne. Uznanie analizy zabezpieczeń za nieaktualną może wyzwolić dodatkowe akcje, łącznie z powrotem do alternatywnego źródła aktualizacji lub wyświetleniem ikony ostrzeżenia w interfejsie użytkownika. Domyślna wartość tego ustawienia to 14 dni.
 
-Jeśli włączysz to ustawienie, definicje wirusów będą uznawane za nieaktualne po upływie określonej liczby dni bez aktualizacji.
+    Jeśli włączysz to ustawienie, analizy zabezpieczeń dotyczące programów szpiegujących będą uznawane za nieaktualne po upływie określonej liczby dni bez aktualizacji.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, definicje wirusów będą uznawane za nieaktualne po upływie domyślnej liczby dni bez aktualizacji.</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Zdefiniuj udziały plików na potrzeby pobierania aktualizacji definicji</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">To ustawienie zasad umożliwia skonfigurowanie źródeł udziałów plików UNC na potrzeby pobierania aktualizacji definicji. Połączenie ze źródłami będzie nawiązywane w określonej kolejności. Wartość tego ustawienia powinna być ciągiem wartości oddzielonych znakami potoku wyliczającymi źródła aktualizacji definicji. Przykład: {\\unc1 | \\unc2 }. Lista jest domyślnie pusta.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, analizy zabezpieczeń dotyczące programów szpiegujących będą uznawane za nieaktualne po upływie domyślnej liczby dni bez aktualizacji.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Zdefiniuj liczbę dni, po upływie których analiza zabezpieczeń dotycząca wirusów będzie uznawana za nieaktualną</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">To ustawienie zasad umożliwia zdefiniowanie liczby dni, po upływie której analizy zabezpieczeń dotyczące wirusów będą uznawane za nieaktualne. Uznanie analizy zabezpieczeń za nieaktualną może wyzwolić dodatkowe akcje, łącznie z powrotem do alternatywnego źródła aktualizacji lub wyświetleniem ikony ostrzeżenia w interfejsie użytkownika. Domyślna wartość tego ustawienia to 14 dni.
 
-Jeśli włączysz to ustawienie, aktualizacje definicji będą wyszukiwane w określonych źródłach. Po pomyślnym pobraniu aktualizacji definicji z jednego z określonych źródeł pozostałe źródła na liście nie będą używane.
+    Jeśli włączysz to ustawienie, analizy zabezpieczeń dotyczące wirusów będą uznawane za nieaktualne po upływie określonej liczby dni bez aktualizacji.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, lista pozostanie domyślnie pusta i nie będzie nawiązywane połączenie z żadnymi źródłami.</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate">Włącz skanowanie po zaktualizowaniu podpisów</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">To ustawienie zasad umożliwia skonfigurowanie automatycznego skanowania, które ma być przeprowadzane po zaktualizowaniu definicji.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, analizy zabezpieczeń dotyczące wirusów będą uznawane za nieaktualne po upływie domyślnej liczby dni bez aktualizacji.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Zdefiniuj udziały plików na potrzeby pobierania aktualizacji analiz zabezpieczeń</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">To ustawienie zasad umożliwia skonfigurowanie źródeł udziałów plików UNC na potrzeby pobierania aktualizacji analiz zabezpieczeń. Połączenie ze źródłami będzie nawiązywane w określonej kolejności. Wartość tego ustawienia musi być ciągiem wartości oddzielonych znakami potoku wyliczającymi źródła aktualizacji analiz zabezpieczeń. Na przykład: „{\\unc1 | \\unc2 }”. Domyślnie ta lista jest pusta.
 
-Jeśli włączysz to ustawienie lub go nie skonfigurujesz, po zaktualizowaniu definicji będzie przeprowadzane skanowanie.
+    Jeśli włączysz to ustawienie, aktualizacje analiz zabezpieczeń będą wyszukiwane w określonych źródłach. Po pomyślnym pobraniu aktualizacji analiz zabezpieczeń z jednego z określonych źródeł pozostałe źródła na liście nie będą używane.
 
-Jeśli wyłączysz to ustawienie, po zaktualizowaniu definicji nie będzie przeprowadzane skanowanie.</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Zezwalaj na aktualizowanie definicji przy zasilaniu z baterii</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">To ustawienie zasad umożliwia skonfigurowanie aktualizacji definicji, gdy komputer jest zasilany z baterii.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, lista pozostanie domyślnie pusta i nie będzie nawiązywane połączenie z żadnymi źródłami.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation">Definiowanie lokalizacji analizy zabezpieczeń dla klientów infrastruktury VDI.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation_Explain">To ustawienie zasad umożliwia zdefiniowanie lokalizacji analiz zabezpieczeń dla komputerów skonfigurowanych do korzystania z infrastruktury VDI. 
 
-Jeśli włączysz to ustawienie lub go nie skonfigurujesz, definicje będą aktualizowane normalnie, niezależnie od stanu zasilania.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, analizy zabezpieczeń będą pobierane z domyślnego źródła lokalnego.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Włącz skanowanie po aktualizacji analiz zabezpieczeń</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">To ustawienie zasad umożliwia skonfigurowanie automatycznego skanowania, które będzie rozpoczynać się po zaktualizowaniu analiz zabezpieczeń.
 
-Jeśli wyłączysz to ustawienie, aktualizacje definicji zostaną wyłączone, gdy komputer będzie zasilany z baterii.</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Aktualizuj definicje przy uruchamianiu</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">To ustawienie zasad umożliwia skonfigurowanie aktualizacji definicji przy uruchamianiu w przypadku braku aparatu ochrony przed złośliwym kodem.
+    Jeśli włączysz to ustawienie albo go nie skonfigurujesz, po zaktualizowaniu analiz zabezpieczeń będzie wykonywane skanowanie.
 
-Jeśli włączysz to ustawienie lub go nie skonfigurujesz, definicje będą aktualizowane przy uruchamianiu w przypadku braku aparatu ochrony przed złośliwym kodem.
+    Jeśli wyłączysz to ustawienie, po zaktualizowaniu analiz zabezpieczeń nie będzie wykonywane skanowanie.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Zezwalaj na aktualizowanie analiz zabezpieczeń podczas zasilania z baterii</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">To ustawienie zasad umożliwia skonfigurowanie aktualizacji analiz zabezpieczeń, gdy komputer jest zasilany z baterii.
 
-Jeśli wyłączysz to ustawienie, definicje nie będą aktualizowane przy uruchamianiu w przypadku braku aparatu ochrony przed złośliwym kodem.</string>
-    <string id="SignatureUpdate_FallbackOrder">Zdefiniuj kolejność źródeł na potrzeby pobierania aktualizacji definicji</string>
-    <string id="SignatureUpdate_FallbackOrder_Explain">To ustawienie zasad umożliwia określenie kolejności nawiązywania połączenia ze źródłami aktualizacji definicji. Wartość tego ustawienia powinna być ciągiem wartości oddzielonych znakami potoku wyliczającymi źródła aktualizacji definicji w odpowiedniej kolejności. Do obsługiwanych wartości należą: „InternalDefinitionUpdateServer”, „MicrosoftUpdateServer”, „MMPC” i „FileShares”
+    Jeśli włączysz to ustawienie albo go nie skonfigurujesz, analizy zabezpieczeń będą aktualizowane normalnie, niezależnie od stanu zasilania.
 
-Przykład: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
+    Jeśli wyłączysz to ustawienie, aktualizacje analiz zabezpieczeń zostaną wyłączone, gdy komputer będzie zasilany z baterii.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Inicjuj aktualizację analiz zabezpieczeń przy uruchamianiu</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">To ustawienie zasad umożliwia skonfigurowanie aktualizacji analiz zabezpieczeń przy uruchamianiu w przypadku braku aparatu ochrony przed złośliwym kodem.
 
-Jeśli włączysz to ustawienie, połączenie ze źródłami aktualizacji definicji będzie nawiązywane w określonej kolejności. Po pomyślnym pobraniu aktualizacji definicji z jednego z określonych źródeł pozostałe źródła na liście nie będą używane.
+    Jeśli włączysz to ustawienie albo go nie skonfigurujesz, analizy zabezpieczeń będą aktualizowane przy uruchamianiu w przypadku braku aparatu ochrony przed złośliwym kodem.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, połączenie ze źródłami aktualizacji definicji będzie nawiązywane w domyślnej kolejności.</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU">Zezwalaj na aktualizacje z witryny Microsoft Update</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">To ustawienie zasad umożliwia zezwolenie na pobieranie aktualizacji definicji z witryny Microsoft Update nawet wtedy, gdy jako serwer domyślny funkcji Aktualizacje automatyczne jest skonfigurowane inne źródło pobierania, na przykład witryna Windows Update.
+    Jeśli wyłączysz to ustawienie, analizy zabezpieczeń nie będą aktualizowane przy uruchamianiu w przypadku braku aparatu ochrony przed złośliwym kodem.</string>
+    <string id="SignatureUpdate_FallbackOrder">Zdefiniuj kolejność źródeł pobierania aktualizacji analizy zabezpieczeń</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">To ustawienie zasad umożliwia zdefiniowanie kolejności nawiązywania połączenia ze źródłami aktualizacji analiz zabezpieczeń. Wartość tego ustawienia musi być ciągiem wartości oddzielonych znakami potoku wyliczającymi źródła aktualizacji analiz zabezpieczeń. Możliwe wartości: InternalDefinitionUpdateServer, MicrosoftUpdateServer, MMPC oraz FileShares.
 
-Jeśli włączysz to ustawienie, aktualizacje definicji będą pobierane z witryny Microsoft Update.
+    Na przykład: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, aktualizacje definicji będą pobierane ze skonfigurowanego źródła pobierania.</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery">Zezwalaj na aktualizacje definicji w czasie rzeczywistym na podstawie raportów społeczności Microsoft MAPS</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">To ustawienie zasad umożliwia włączenie aktualizacji definicji w czasie rzeczywistym w ramach odpowiedzi na raporty wysyłane do społeczności Microsoft MAPS. Jeśli usługa zgłosi plik jako nieznany i społeczność Microsoft MAPS wykryje, że najnowsza aktualizacja definicji obejmuje definicje zagrożenia dotyczące tego pliku, usługa natychmiast otrzyma wszystkie najnowsze definicje tego zagrożenia. Do działania tej funkcji jest konieczne skonfigurowanie komputera w celu dołączania do społeczności Microsoft MAPS.
+    Jeśli włączysz to ustawienie, połączenie ze źródłami aktualizacji analiz zabezpieczeń będzie nawiązywane w określonej kolejności. Po pomyślnym pobraniu aktualizacji analiz zabezpieczeń z jednego z określonych źródeł pozostałe źródła na liście nie będą używane.
 
-Jeśli to ustawienie zostanie włączone lub nie zostanie skonfigurowane, aktualizacje definicji w czasie rzeczywistym zostaną włączone.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, połączenie ze źródłami aktualizacji definicji będzie nawiązywane w domyślnej kolejności.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Zezwalaj na aktualizacje analizy zabezpieczeń z witryny Microsoft Update</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">To ustawienie zasad umożliwia zezwolenie na pobieranie aktualizacji analiz zabezpieczeń z usługi Microsoft Update nawet wtedy, gdy jako serwer domyślny funkcji Aktualizacje automatyczne jest skonfigurowane inne źródło pobierania, na przykład usługa Windows Update.
 
-Jeśli to ustawienie zostanie wyłączone, aktualizacje definicji w czasie rzeczywistym zostaną wyłączone.</string>
-    <string id="SignatureUpdate_ScheduleDay">Określ dzień tygodnia, w którym mają być wyszukiwane aktualizacje definicji</string>
-    <string id="SignatureUpdate_ScheduleDay_Explain">To ustawienie zasad umożliwia określenie dnia tygodnia, w którym mają być wyszukiwane aktualizacje definicji. Wyszukiwanie aktualizacji można również skonfigurować tak, aby było przeprowadzane codziennie lub nie było przeprowadzane nigdy.
+    Jeśli włączysz to ustawienie, aktualizacje analiz zabezpieczeń będą pobierane z usługi Microsoft Update.
 
-To ustawienie można skonfigurować za pomocą następujących wartości liczb porządkowych:
-(0x0) Codziennie (wartość domyślna)
-(0x1) Niedziela
-(0x2) Poniedziałek
-(0x3) Wtorek
-(0x4) Środa
-(0x5) Czwartek
-(0x6) Piątek
-(0x7) Sobota
-(0x8) Nigdy
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, aktualizacje analiz zabezpieczeń będą pobierane ze skonfigurowanego źródła pobierania.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">Zezwalaj na aktualizacje analiz zabezpieczeń w czasie rzeczywistym na podstawie raportów społeczności Microsoft MAPS</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">To ustawienie zasad umożliwia włączenie aktualizacji analiz zabezpieczeń w czasie rzeczywistym w ramach odpowiedzi na raporty wysyłane do społeczności Microsoft MAPS. Jeśli usługa zgłosi plik jako nieznany, a usługa Microsoft MAPS wykryje, że najnowsza aktualizacja analiz zabezpieczeń obejmuje analizy zabezpieczeń dotyczące zagrożenia związanego z tym plikiem, usługa natychmiast otrzyma wszystkie najnowsze analizy zabezpieczeń dotyczące tego zagrożenia. Do działania tej funkcji jest konieczne skonfigurowanie komputera do dołączenia do społeczności Microsoft MAPS.
 
-Jeśli włączysz to ustawienie, aktualizacje definicji będą wyszukiwane z określoną częstotliwością.
+    Jeśli włączysz to ustawienie albo go nie skonfigurujesz, aktualizacje analiz zabezpieczeń w czasie rzeczywistym będą włączone.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, aktualizacje definicji będą wyszukiwane z domyślną częstotliwością.</string>
+    Jeśli wyłączysz to ustawienie, aktualizacje analiz zabezpieczeń w czasie rzeczywistym będą wyłączone.</string>
+    <string id="SignatureUpdate_ScheduleDay">Określ dzień tygodnia, w którym mają być wyszukiwane aktualizacje analizy zabezpieczeń</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">To ustawienie zasad umożliwia określenie dnia tygodnia, w którym mają być wyszukiwane aktualizacje analiz zabezpieczeń. Wyszukiwanie aktualizacji można również skonfigurować tak, aby było wykonywane codziennie lub nigdy.
+
+    To ustawienie można skonfigurować za pomocą następujących wartości liczb porządkowych:
+    (0x0) Codziennie (wartość domyślna)
+    (0x1) Niedziela 
+    (0x2) Poniedziałek
+    (0x3) Wtorek
+    (0x4) Środa
+    (0x5) Czwartek
+    (0x6) Piątek
+    (0x7) Sobota
+    (0x8) Nigdy
+
+    Jeśli włączysz to ustawienie, aktualizacje analiz zabezpieczeń będą wyszukiwane z określoną częstotliwością.
+
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, aktualizacje analiz zabezpieczeń będą wyszukiwane z domyślną częstotliwością.</string>
     <string id="SignatureUpdate_ScheduleDay_0">Nigdy</string>
     <string id="SignatureUpdate_ScheduleDay_1">Codziennie</string>
     <string id="SignatureUpdate_ScheduleDay_2">Niedziela</string>
@@ -596,24 +633,24 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, aktualizacje definic
     <string id="SignatureUpdate_ScheduleDay_6">Czwartek</string>
     <string id="SignatureUpdate_ScheduleDay_7">Piątek</string>
     <string id="SignatureUpdate_ScheduleDay_8">Sobota</string>
-    <string id="SignatureUpdate_ScheduleTime">Określ godzinę, o której mają być wyszukiwane aktualizacje definicji</string>
-    <string id="SignatureUpdate_ScheduleTime_Explain">To ustawienie zasad umożliwia określenie godziny, o której mają być wyszukiwane aktualizacje definicji. Wartość godziny ma postać liczby minut po północy (00:00).  Na przykład wartość 120 (0x78) odpowiada godzinie 02:00. Domyślnie to ustawienie jest skonfigurowane tak, aby aktualizacje definicji były wyszukiwane 15 minut przed rozpoczęciem zaplanowanego skanowania. Harmonogram jest oparty na czasie lokalnym komputera, na którym są wyszukiwane aktualizacje.
+    <string id="SignatureUpdate_ScheduleTime">Określ godzinę, o której mają być wyszukiwane aktualizacje analiz zabezpieczeń</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">To ustawienie zasad umożliwia określenie godziny w ciągu dnia, o której mają być wyszukiwane aktualizacje analiz zabezpieczeń. Wartość godziny ma postać liczby minut po północy (00:00). Na przykład wartość 120 (0x78) odpowiada godzinie 02:00. Domyślnie to ustawienie jest skonfigurowane tak, aby aktualizacje analiz zabezpieczeń były wyszukiwane 15 minut przed rozpoczęciem zaplanowanego skanowania. Harmonogram jest oparty na czasie lokalnym komputera, na którym są wyszukiwane aktualizacje.
 
-Jeśli włączysz to ustawienie, aktualizacje definicji będą wyszukiwane o określonej godzinie.
+    Jeśli włączysz to ustawienie, aktualizacje analiz zabezpieczeń będą wyszukiwane o określonej godzinie.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, aktualizacje definicji będą wyszukiwane o domyślnej godzinie.</string>
-    <string id="SignatureUpdate_SignatureDisableNotification">Zezwalaj na powiadomienia dotyczące wyłączania definicji na podstawie raportów społeczności Microsoft MAPS</string>
-    <string id="SignatureUpdate_SignatureDisableNotification_Explain">To ustawienie zasad umożliwia skonfigurowanie usługi ochrony przed złośliwym kodem tak, aby odbierała powiadomienia dotyczące wyłączania poszczególnych definicji w ramach odpowiedzi na raporty wysyłane do społeczności Microsoft MAPS. Społeczność Microsoft MAPS używa tych powiadomień do wyłączania definicji powodujących generowanie raportów z fałszywie dodatnim wynikiem. Do działania tej funkcji jest konieczne skonfigurowanie komputera w celu dołączania do społeczności Microsoft MAPS.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, aktualizacje analiz zabezpieczeń będą wyszukiwane o domyślnej godzinie.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Zezwalaj na powiadomienia dotyczące wyłączania raportów opartych na analizie zabezpieczeń do Microsoft MAPS</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">To ustawienie zasad umożliwia skonfigurowanie usługi ochrony przed złośliwym kodem tak, aby odbierała powiadomienia dotyczące wyłączania poszczególnych analiz zabezpieczeń w ramach odpowiedzi na raporty wysyłane do społeczności Microsoft MAPS. Społeczność Microsoft MAPS używa tych powiadomień do wyłączania analiz zabezpieczeń powodujących generowanie raportów z fałszywie dodatnim wynikiem. Do działania tej funkcji jest konieczne skonfigurowanie komputera do dołączenia do społeczności Microsoft MAPS.
 
-Jeśli to ustawienie zostanie włączone lub nie zostanie skonfigurowane, usługa ochrony przed złośliwym kodem będzie odbierać powiadomienia dotyczące wyłączania definicji.
+    Jeśli włączysz to ustawienie albo go nie skonfigurujesz, usługa ochrony przed złośliwym kodem będzie odbierać powiadomienia dotyczące wyłączania analiz zabezpieczeń.
 
-Jeśli to ustawienie zostanie wyłączone, usługa ochrony przed złośliwym kodem nie będzie odbierać powiadomień dotyczących wyłączania definicji.</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Zdefiniuj liczbę dni, po upływie której będzie wymagana uzupełniająca aktualizacja definicji</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">To ustawienie zasad umożliwia zdefiniowanie liczby dni, po upływie której będzie wymagana uzupełniająca aktualizacja definicji. Wartość domyślna tego ustawienia to 1 dzień.
+    Jeśli wyłączysz to ustawienie, usługa ochrony przed złośliwym kodem nie będzie odbierać powiadomień dotyczących wyłączania analiz zabezpieczeń.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Zdefiniuj liczbę dni, po upływie których będzie wymagana uzupełniająca aktualizacja analizy zabezpieczeń</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">To ustawienie zasad umożliwia zdefiniowanie liczby dni, po upływie której będzie wymagana uzupełniająca aktualizacja analiz zabezpieczeń. Domyślna wartość tego ustawienia to 1 dzień.
 
-Jeśli włączysz to ustawienie, uzupełniająca aktualizacja definicji będzie przeprowadzana po upływie określonej liczby dni.
+    Jeśli włączysz to ustawienie, uzupełniająca aktualizacja analiz zabezpieczeń będzie wykonywana po upływie określonej liczby dni.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, uzupełniająca aktualizacja definicji będzie wymagana po upływie domyślnej liczby dni.</string>
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, uzupełniająca aktualizacja analiz zabezpieczeń będzie wykonywana po upływie domyślnej liczby dni.</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Określ interwał powiadomień o wygaśnięciu</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
     To ustawienie zasad umożliwia określenie interwału (w dniach) powiadomień o wygaśnięciu.
@@ -621,18 +658,28 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, uzupełniająca aktu
 
     Aby to ustawienie zasad było aktywne, wartość powinna być większa od zera.
     </string>
-    <string id="SignatureUpdate_SignatureUpdateInterval">Określ interwał wyszukiwania aktualizacji definicji</string>
-    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">To ustawienie zasad umożliwia określenie interwału wyszukiwania aktualizacji definicji. Wartość czasu ma postać liczby godzin między wyszukiwaniami aktualizacji. Prawidłowe wartości mieszczą się w zakresie od 1 (co godzinę) do 24 (raz dziennie).
+    <string id="SignatureUpdate_SignatureUpdateInterval">Określ interwał wyszukiwania aktualizacji analiz zabezpieczeń</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">To ustawienie zasad umożliwia określenie interwału wyszukiwania aktualizacji analiz zabezpieczeń. Wartość czasu ma postać liczby godzin między wyszukiwaniami aktualizacji. Prawidłowe wartości należą do zakresu od 1 (co godzinę) do 24 (raz dziennie).
 
-Jeśli włączysz to ustawienie, aktualizacje definicji będą wyszukiwane zgodnie z określonym interwałem.
+    Jeśli włączysz to ustawienie, aktualizacje analiz zabezpieczeń będą wyszukiwane zgodnie z określonym interwałem.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, aktualizacje definicji będą wyszukiwane zgodnie z domyślnym interwałem.</string>
-    <string id="SignatureUpdate_UpdateOnStartup">Wyszukuj najnowsze definicje wirusów i programów szpiegujących przy uruchamianiu</string>
-    <string id="SignatureUpdate_UpdateOnStartup_Explain">To ustawienie zasad umożliwia określenie, czy natychmiast po uruchomieniu usługi mają być wyszukiwane nowe definicje wirusów i programów szpiegujących.
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, aktualizacje analiz zabezpieczeń będą wyszukiwane zgodnie z interwałem domyślnym.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">Wyszukuj najnowsze analizy zabezpieczeń dotyczące wirusów i programów szpiegujących przy uruchamianiu</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">To ustawienie zasad umożliwia określenie, czy natychmiast po uruchomieniu usługi mają być wyszukiwane nowe analizy zabezpieczeń dotyczące wirusów i programów szpiegujących.
 
-Jeśli włączysz to ustawienie, nowe definicje będą wyszukiwane po uruchomieniu usługi.
+    Jeśli włączysz to ustawienie, nowe analizy zabezpieczeń będą wyszukiwane po uruchomieniu usługi.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, nowe definicje nie będą wyszukiwane po uruchomieniu usługi.</string>
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, nowe analizy zabezpieczeń nie będą wyszukiwane po uruchomieniu usługi.</string>
+    <string id="DisableBlockAtFirstSeen">Skonfiguruj funkcję „Blokuj przy pierwszym napotkaniu”</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Ta funkcja gwarantuje, że urządzenie będzie sprawdzało w czasie rzeczywistym przy użyciu usługi Microsoft Active Protection (MAPS), czy można uruchomić lub otworzyć daną zawartość. Jeśli ta funkcja zostanie wyłączona, sprawdzanie nie będzie wykonywane, co spowoduje obniżenie poziomu ochrony urządzenia.
+    Włączone — ustawienie Blokowanie przy pierwszym napotkaniu jest włączone.
+    Wyłączone — ustawienie Blokowanie przy pierwszym napotkaniu jest wyłączone.
+    
+    Ta funkcja wymaga następującej konfiguracji tych ustawień zasad grupy:
+    MAPS -&gt; Aby funkcja Blokowanie przy pierwszym napotkaniu działała, musi być włączone ustawienie Dołącz do społeczności Microsoft MAPS.
+    MAPS -&gt; Ustawienie Wysyłaj próbki plików, jeśli potrzebna jest dalsza analiza musi mieć wartość 1 (Wyślij bezpieczne próbki) lub 3 (Wyślij wszystkie próbki). Wartość 0 (Zawsze monituj) obniża poziom ochrony urządzenia. Wartość 2 (Nigdy nie wysyłaj) spowoduje, że funkcja Blokowanie przy pierwszym napotkaniu nie będzie działać.
+    Ochrona w czasie rzeczywistym -&gt; Aby funkcja Blokowanie przy pierwszym napotkaniu działała, musi być włączona zasada Skanuj wszystkie pobierane pliki i załączniki.
+    Ochrona w czasie rzeczywistym -&gt; Aby funkcja Blokowanie przy pierwszym napotkaniu działała, nie włączaj zasady Wyłącz ochronę w czasie rzeczywistym.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Skonfiguruj zastępowanie lokalne ustawień dotyczące raportowania społeczności Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">To ustawienie zasad umożliwia skonfigurowanie zastępowania lokalnego konfiguracji dołączania do społeczności Microsoft MAPS. To ustawienie można skonfigurować tylko za pomocą zasad grupy.
 
@@ -641,13 +688,13 @@ Jeśli włączysz to ustawienie, lokalne ustawienie preferencji będzie mieć pr
 Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, zasady grupy będą mieć priorytet przed lokalnym ustawieniem preferencji.</string>
     <string id="SubmitSamplesConsent">Wysyłaj próbki plików, jeśli potrzebna jest dalsza analiza</string>
     <string id="SubmitSamplesConsent_Explain">
-        To ustawienie zasad określa zachowanie podczas wysyłania próbek, gdy włączono telemetrię MAPS.
+        To ustawienie zasad określa zachowanie podczas przesyłania próbek, gdy włączono telemetrię MAPS.
 
         Dostępne opcje:
         (0x0) Zawsze monituj
         (0x1) Automatycznie wyślij bezpieczne próbki
         (0x2) Nigdy nie wysyłaj
-        (0x2) Automatycznie wyślij wszystkie próbki
+        (0x3) Automatycznie wyślij wszystkie próbki
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Zawsze monituj</string>
@@ -656,22 +703,24 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, zasady grupy będą 
     <string id="SubmitSamplesConsent_Send_All">Wyślij wszystkie próbki</string>
 
     <string id="SpynetReporting">Dołącz do społeczności Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">To ustawienie zasad umożliwia dołączenie do społeczności Microsoft MAPS. Microsoft MAPS to społeczność online pomagająca wybierać odpowiednie reakcje na potencjalne zagrożenia. Społeczność ta pomaga też w powstrzymywaniu rozprzestrzeniania się nowych infekcji spowodowanych złośliwym oprogramowaniem.
+    <string id="SpynetReporting_Explain">To ustawienie zasad umożliwia dołączenie do społeczności Microsoft MAPS. Microsoft MAPS to społeczność online pomagająca wybierać odpowiednie reakcje na potencjalne zagrożenia. Ta społeczność pomaga też w powstrzymywaniu rozprzestrzeniania się nowych infekcji złośliwym oprogramowaniem.
 
-Możliwe jest określenie, czy o wykrytym oprogramowaniu mają być wysyłane informacje podstawowe, czy informacje dodatkowe. Informacje dodatkowe umożliwiają firmie Microsoft tworzenie nowych definicji i pomagają w ochronie komputerów. Te informacje mogą zawierać na przykład lokalizację wykrytych elementów na komputerze, jeśli szkodliwe oprogramowanie zostało usunięte. Informacje te będą automatycznie zbierane i wysyłane. Czasami do firmy Microsoft mogą mimowolnie zostać przesłane dane osobowe. Firma Microsoft nie będzie ich jednak używać w celu zidentyfikowania użytkownika ani skontaktowania się z nim.
+    Możesz określić, czy chcesz wysyłać informacje podstawowe, czy informacje dodatkowe o wykrytym oprogramowaniu. Informacje dodatkowe umożliwiają firmie Microsoft tworzenie nowych analiz zabezpieczeń i pomagają chronić Twój komputer. Te informacje mogą zawierać na przykład lokalizację wykrytych elementów na komputerze, jeśli szkodliwe oprogramowanie zostało usunięte. Ta informacje będą automatycznie zbierane i wysyłane. Czasami do firmy Microsoft mogą zostać przypadkowo wysłane dane osobowe. Firma Microsoft nie będzie ich jednak używać w celu zidentyfikowania Cię lub skontaktowania się z Tobą.
 
-Oto dostępne opcje:
-(0x0) — wyłączone (wartość domyślna)
-(0x1) — członkostwo podstawowe
-(0x2) — członkostwo zaawansowane
+    Możliwe opcje:
+    (0x0) Wyłączone (wartość domyślna)
+    (0x1) Członkostwo podstawowe
+    (0x2) Członkostwo zaawansowane
 
-W ramach członkostwa podstawowego do firmy Microsoft są wysyłane podstawowe informacje dotyczące wykrytego oprogramowania, łącznie z pochodzeniem oprogramowania, akcjami stosowanymi przez użytkownika lub stosowanymi automatycznie oraz informacjami o powodzeniu akcji.
+    W ramach członkostwa podstawowego do firmy Microsoft są wysyłane podstawowe informacje dotyczące wykrytego oprogramowania, łącznie z pochodzeniem oprogramowania, akcjami stosowanymi przez Ciebie lub stosowanymi automatycznie oraz informacjami o powodzeniu akcji.
 
-W ramach członkostwa zaawansowanego oprócz informacji podstawowych do firmy Microsoft są wysyłane dodatkowe informacje na temat złośliwego oprogramowania, programów szpiegujących i innego potencjalnie niechcianego oprogramowania, takie jak lokalizacja oprogramowania, nazwy plików, sposób działania oprogramowania oraz jego wpływ na pracę komputera.
+    W ramach członkostwa zaawansowanego oprócz informacji podstawowych do firmy Microsoft są wysyłane dodatkowe informacje na temat złośliwego oprogramowania, programów szpiegujących i innego potencjalnie niechcianego oprogramowania, takie jak lokalizacja oprogramowania, nazwy plików, sposób działania oprogramowania oraz jego wpływ na pracę komputera.
 
-Jeśli włączysz to ustawienie, będziesz dołączać do społeczności Microsoft MAPS w ramach określonego członkostwa.
+    Jeśli włączysz to ustawienie, dołączysz do społeczności Microsoft MAPS w ramach określonego członkostwa.
 
-Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, nie będziesz dołączać do społeczności Microsoft MAPS.</string>
+    Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, nie dołączysz do społeczności Microsoft MAPS.
+  
+    W systemie Windows 10 członkostwo podstawowe nie jest już dostępne, więc ustawienie wartości 1 lub 2 powoduje zarejestrowanie urządzenia z zastosowaniem członkostwa zaawansowanego.</string>
     <string id="SpynetReporting_Disabled">Wyłączone</string>
     <string id="SpynetReporting_Basic">MAPS — członkostwo podstawowe</string>
     <string id="SpynetReporting_Advanced">MAPS — członkostwo zaawansowane</string>
@@ -706,28 +755,220 @@ Oto prawidłowe wartości akcji korygowania:
 
       Jeśli to ustawienie zostanie włączone, interfejs użytkownika AM nie będzie wyświetlać powiadomień o ponownym rozruchu.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Wyświetlaj powiadomienia, gdy klienci muszą wykonać akcje</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">To ustawienie zasad umożliwia określenie, czy mają być wyświetlane powiadomienia, gdy klienci muszą wykonać następujące akcje:
-Przeprowadzenie pełnego skanowania
-Pobranie najnowszych definicji wirusów i programów szpiegujących
-Pobranie autonomicznego programu do czyszczenia systemu
+    <string id="UX_Configuration_Notification_Suppress">Pomijaj wszystkie powiadomienia</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">To ustawienie zasad umożliwia określenie, czy powiadomienia Programu antywirusowego Windows Defender mają być wyświetlane na klientach.
+      Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, powiadomienia Programu antywirusowego Windows Defender będą wyświetlane na klientach.
 
-
-Jeśli włączysz to ustawienie lub go nie skonfigurujesz, klienci będą otrzymywać powiadomienia w przypadku konieczności wykonania określonych akcji.
-
-Jeśli wyłączysz to ustawienie, klienci nie będą otrzymywać powiadomień w przypadku konieczności wykonania określonych akcji.</string>
+      Jeśli włączysz to ustawienie, powiadomienia Programu antywirusowego Windows Defender nie będą wyświetlane na klientach.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Wyświetlaj dodatkowy tekst, gdy klienci muszą wykonać akcję</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">To ustawienie zasad umożliwia określenie, czy ma być wyświetlany dodatkowy tekst, gdy klienci muszą wykonać akcję. Wyświetlany tekst ma postać niestandardowego ciągu zdefiniowanego przez administratora. Może to być na przykład numer telefonu pomocy technicznej firmy. W interfejsie klienta może być wyświetlany tekst o maksymalnej długości 1024 znaków. Dłuższe ciągi są obcinane przed wyświetleniem.
 
 Jeśli włączysz to ustawienie, będzie wyświetlany określony dodatkowy tekst.
 
 Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, dodatkowy tekst nie będzie wyświetlany.</string>
+    <string id="MpCloudBlockLevel">Wybierz poziom ochrony w chmurze</string>
+    <string id="MpCloudBlockLevel_Explain">
+      To ustawienie zasad umożliwia określenie, jak agresywnie Program antywirusowy Windows Defender będzie blokować i skanować podejrzane pliki.
+
+      Jeśli to ustawienie będzie włączone, Program antywirusowy Windows Defender będzie agresywniej identyfikować podejrzane pliki do blokowania i skanowania; w przeciwnym razie będzie działać mniej agresywnie, przez co blokowanie i skanowanie będzie odbywać się rzadziej. 
+      
+      Aby uzyskać więcej informacji dotyczących konkretnych obsługiwanych wartości, zobacz witrynę z dokumentacją Programu antywirusowego Windows Defender.
+
+      Uwaga: do działania tej funkcji wymagane jest włączenie ustawienia Dołącz do społeczności Microsoft MAPS.
+
+      Dostępne opcje:
+      (0x0) Domyślny poziom blokowania usługi Windows Defender.
+      (0x2) Wysoki poziom blokowania — agresywne blokowanie nieznanych plików przy jednoczesnej optymalizacji wydajności klienta (większa szansa fałszywych trafień).
+      (0x4) Bardzo wysoki poziom blokowania — agresywne blokowanie nieznanych plików i stosowanie dodatkowych środków ochrony (możliwy wpływ na wydajność klienta).
+      (0x6) Poziom blokowania „Zero tolerancji” — blokowanie wszystkich nieznanych plików wykonywalnych.
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Domyślny poziom blokowania Programu antywirusowego Windows Defender</string>
+    <string id="MpCloudBlockLevel_High_Level">Wysoki poziom blokowania</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Bardzo wysoki poziom blokowania</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Poziom blokowania „Zero tolerancji”</string>
+    <string id="MpBafsExtendedTimeout">Konfiguruj rozszerzone sprawdzanie w chmurze</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Ta funkcja umożliwia Programowi antywirusowemu Windows Defender zablokowanie podejrzanego pliku na maksymalnie 60 sekund i przeskanowanie go w chmurze w celu zagwarantowania, że jest bezpieczny.
+      
+      Typowy limit czasu sprawdzania w chmurze wynosi 10 sekund. Aby włączyć funkcję rozszerzonego sprawdzania w chmurze, określ rozszerzony czas w sekundach (maksymalnie 50 dodatkowych sekund).
+
+      Na przykład jeśli wymagany limit czasu wynosi 60 sekund, określ w tym ustawieniu wartość 50 sekund, co spowoduje włączenie funkcji rozszerzonego sprawdzania w chmurze i zwiększy łączny czas do 60 sekund.
+
+      Uwaga: ta funkcja zależy od trzech innych ustawień usługi MAPS — Skonfiguruj funkcję „Blokuj przy pierwszym napotkaniu”, Dołącz do społeczności Microsoft MAPS oraz Wysyłaj próbki plików, jeśli potrzebna jest dalsza analiza — które muszą być włączone.
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Uniemożliwia użytkownikom i aplikacjom dostęp do niebezpiecznych witryn internetowych</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Włącz lub wyłącz ochronę sieci za pomocą funkcji Windows Defender Exploit Guard, aby uniemożliwić pracownikom użycie jakiejkolwiek aplikacji w celu uzyskania dostępu do niebezpiecznych domen, w których mogą być hostowane fałszywe witryny wyłudzające informacje, witryny zawierające programy wykorzystujące luki oraz inna złośliwa zawartość internetowa.
+
+        Włączone:
+        Określ tryb w sekcji Opcje:
+        - Blokuj: użytkownicy i aplikacje nie będą mogli uzyskiwać dostępu do niebezpiecznych domen.
+        - Inspekcja: użytkownicy i aplikacje mogą łączyć się z niebezpiecznymi domenami, ale jeśli ta funkcja zablokowałaby dostęp, gdyby to ustawienie miało wartość Blokuj, rekord tego zdarzenia będzie widoczny w usłudze Windows Defender Security Center.
+
+        Wyłączone:
+        Użytkownicy i aplikacje będą mogli uzyskiwać dostęp do niebezpiecznych domen.
+
+        Nieskonfigurowane:
+        Takie samo działanie jak w przypadku wartości Wyłączone.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Wyklucz pliki i ścieżki z reguł funkcji Zmniejszanie obszaru ataków</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Wyklucz pliki i ścieżki z reguł funkcji Zmniejszanie obszaru ataków (ASR).
+
+        Włączone:
+        W sekcji Opcje określ foldery lub pliki i zasoby, które mają być wykluczane z reguł funkcji ASR.
+        Każda reguła w nowym wierszu jako para nazwa-wartość:
+        - Kolumna nazw: Wprowadź ścieżkę do folderu lub w pełni kwalifikowaną nazwę zasobu. Na przykład wartość „"C:\Windows"” spowoduje wykluczenie wszystkich plików w tym katalogu, a wartość „"C:\Windows\Aplikacja.exe"” spowoduje tylko wykluczenie konkretnego pliku w tym folderze.
+        - Kolumna wartości: wprowadź wartość „"0"” dla każdego elementu.
+
+        Wyłączone:
+        Do reguł funkcji ASR nie będą stosowane wykluczenia.
+
+        Nieskonfigurowane:
+        Takie samo działanie jak w przypadku wartości Wyłączone.
+
+        Reguły funkcji ASR można skonfigurować w ustawieniu zasad grupy Konfiguruj reguły zmniejszania obszaru ataków.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Konfiguruj reguły funkcji Zmniejszanie obszaru ataków</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Ustaw stan każdej reguły funkcji Zmniejszanie obszaru ataków (ASR).
+
+        Po włączeniu tego ustawienia w sekcji Opcje możesz ustawić dla każdej reguły jeden z poniższych stanów:
+        - Blokuj: reguła będzie stosowana.
+        - Inspekcja: jeśli reguła normalnie spowodowałaby powstanie zdarzenia, zostanie ono zarejestrowane (mimo że reguła nie zostanie w rzeczywistości zastosowana).
+        - Wyłączona: reguła nie zostanie zastosowana.
+
+        Włączone:
+        Określ stan każdej reguły funkcji ASR w sekcji Opcje tego ustawienia.
+        Wprowadź każdą regułę w nowym wierszu jako parę nazwa-wartość:
+        - Kolumna nazw: wprowadź prawidłowy identyfikator reguły funkcji ASR.
+        - Kolumna wartości: wprowadź identyfikator stanu, który chcesz określić dla skojarzonej reguły.
+
+        W kolumnie wartości można używać następujących identyfikatorów stanu:
+        - XXXXX (Blokuj)
+        - YYYYY (Wyłączona)
+        - ZZZZZ (Inspekcja)
+
+        Wyłączone:
+        Nie będą konfigurowane reguły funkcji ASR.
+
+        Nieskonfigurowane:
+        Takie samo działanie jak w przypadku wartości Wyłączone.
+
+        Foldery lub pliki i zasoby można wykluczać w ustawieniu zasad grupy Wyklucz foldery lub pliki i zasoby.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Konfiguruj kontrolowany dostęp do folderu</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Włącz lub wyłącz kontrolowany dostęp do folderu dla niezaufanych aplikacji. Możesz określić, że podejmowane przez niezaufane aplikacje próby wykonania wymienionych poniżej operacji mają być blokowane, poddawane inspekcji lub dozwolone.
+    - Modyfikowanie lub usuwanie plików w folderach chronionych, takich jak folder Dokumenty.
+    - Zapisywanie w sektorach dysku.
+
+    Możesz także określić, że tylko operacje zapisu w sektorach dysku mają być blokowane lub poddawane inspekcji, a modyfikowanie lub usuwanie plików w folderach chronionych ma być dozwolone.
+
+    Program antywirusowy Windows Defender automatycznie ustala, które aplikacje można traktować jako zaufane. Możesz dodać kolejne zaufane aplikacje, używając ustawienia zasad grupy Konfiguruj dozwolone aplikacje.
+    Domyślne foldery systemu są chronione automatycznie, ale możesz dodać foldery, używając ustawienia zasad grupy Konfiguruj chronione foldery.
+
+    Blokuj:
+    Będą blokowane następujące operacje:
+    - Podejmowane przez niezaufane aplikacje próby modyfikowania lub usuwania plików w folderach chronionych.
+    - Podejmowane przez niezaufane aplikacje próby wykonywania zapisów w sektorach dysków.
+    Te zdarzenia blokowania będą rejestrowane w dzienniku zdarzeń systemu Windows w obszarze Dzienniki aplikacji i usług &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operacyjne &gt; Identyfikator 1123.
+
+
+    Wyłączone:
+    Wymienione poniżej operacje nie będą blokowane i będzie można je wykonywać:
+    - Podejmowane przez niezaufane aplikacje próby modyfikowania lub usuwania plików w folderach chronionych.
+    - Podejmowane przez niezaufane aplikacje próby wykonywania zapisów w sektorach dysków.
+    Te próby nie będą rejestrowane w dzienniku zdarzeń systemu Windows.
+
+
+    Tryb inspekcji:
+    Wymienione poniżej operacje nie będą blokowane i będzie można je wykonywać:
+    - Podejmowane przez niezaufane aplikacje próby modyfikowania lub usuwania plików w folderach chronionych.
+    - Podejmowane przez niezaufane aplikacje próby wykonywania zapisów w sektorach dysków.
+    Te próby będą rejestrowane w dzienniku zdarzeń systemu Windows w obszarze Dzienniki aplikacji i usług &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operacyjne &gt; Identyfikator 1124.
+
+
+    Blokuj tylko modyfikacje dysku:
+    Będą blokowane następujące operacje:
+    - Podejmowane przez niezaufane aplikacje próby wykonywania zapisów w sektorach dysków.
+    Te próby będą rejestrowane w dzienniku zdarzeń systemu Windows w obszarze Dzienniki aplikacji i usług &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operacyjne &gt; Identyfikator 1123.
+
+    Wymienione poniżej operacje nie będą blokowane i będzie można je wykonywać:
+    - Podejmowane przez niezaufane aplikacje próby modyfikowania lub usuwania plików w folderach chronionych.
+    Te próby nie będą rejestrowane w dzienniku zdarzeń systemu Windows.
+
+
+    Poddawaj inspekcji tylko modyfikacje dysku:
+    Wymienione poniżej operacje nie będą blokowane i będzie można je wykonywać:
+    - Podejmowane przez niezaufane aplikacje próby wykonywania zapisów w sektorach dysków.
+    - Podejmowane przez niezaufane aplikacje próby modyfikowania lub usuwania plików w folderach chronionych.
+    Tylko próby zapisu w chronionych sektorach dysku będą rejestrowane w dzienniku zdarzeń systemu Windows (w obszarze Dzienniki aplikacji i usług &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operacyjne &gt; Identyfikator 1124).
+    Próby modyfikowania lub usuwania plików w folderach chronionych nie będą rejestrowane.
+
+    Nieskonfigurowane:
+    Takie samo działanie jak w przypadku wartości Wyłączone.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Wyłącz (domyślne)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Zablokuj</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Tryb inspekcji</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Blokuj tylko modyfikacje dysku</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Poddawaj inspekcji tylko modyfikacje dysku</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Konfiguruj dozwolone aplikacje</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Dodaj kolejne aplikacje, które mają być traktowane jako „zaufane” przez funkcję kontrolowanego dostępu do folderu.
+
+        Te aplikacje mogą modyfikować i usuwać pliki w folderach chronionych przez funkcję kontrolowanego dostępu do folderu.
+
+        Program antywirusowy Windows Defender automatycznie ustala, które aplikacje mają być zaufane. Możesz skonfigurować to ustawienie, aby dodać więcej aplikacji.
+
+        Włączone:
+        Określ dodatkowe dozwolone aplikacje w sekcji Opcje.
+
+        Wyłączone:
+        Do listy zaufanych aplikacji nie zostaną dodane żadne dodatkowe aplikacje.
+
+        Nieskonfigurowane:
+        Takie samo działanie jak w przypadku wartości Wyłączone.
+
+        Funkcję kontrolowanego dostępu do folderu możesz włączyć w ustawieniu zasad grupy Konfiguruj kontrolowany dostęp do folderu.
+
+        Domyślne foldery systemu są chronione automatycznie, ale możesz dodać foldery, używając ustawienia zasad grupy Konfiguruj chronione foldery.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Konfiguruj chronione foldery</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Określ dodatkowe foldery, które mają być chronione przez funkcję Kontrolowany dostęp do folderu.
+
+    Niezaufane aplikacje nie mogą modyfikować ani usuwać plików w tych folderach.
+
+    Domyślne foldery systemu są chronione automatycznie. Możesz skonfigurować to ustawienie w celu dodania kolejnych folderów. 
+    Lista domyślnych folderów systemu, które są chronione, jest widoczna w usłudze Zabezpieczenia Windows.
+
+    Włączone:
+    W sekcji Opcje określ dodatkowe foldery, które mają być chronione.
+
+    Wyłączone:
+    Nie będą chronione żadne dodatkowe foldery.
+
+    Nieskonfigurowane:
+    Takie samo działanie jak w przypadku wartości Wyłączone.
+
+    Funkcję Kontrolowany dostęp do folderu możesz włączyć w ustawieniu zasad grupy Konfiguruj kontrolowany dostęp do folderu.
+
+    Program antywirusowy Windows Defender automatycznie ustala, które aplikacje można traktować jako zaufane. Możesz dodać kolejne zaufane aplikacje, używając ustawienia zasad grupy Konfiguruj dozwolone aplikacje.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
     <textBox refId="ProxyBypass">
         <label>Zdefiniuj adresy w celu pominięcia serwera proxy</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Zdefiniuj plik autokonfiguracji serwera proxy (PAC) na potrzeby połączenia z siecią</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +983,6 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, dodatkowy tekst nie 
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Wykluczenia procesów</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Zdefiniuj częstotliwość rejestrowania zdarzeń wykrywania</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Wykluczenia zakresów adresów IP</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Wykluczenia numerów portów</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Wykluczenia procesów dla ruchu wychodzącego</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Wykluczenia identyfikatorów zagrożeń</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Określ dodatkowe zestawy definicji na potrzeby inspekcji ruchu sieciowego</listBox>
@@ -825,32 +1051,37 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, dodatkowy tekst nie 
     <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Określ godzinę, o której ma być przeprowadzane zaplanowane skanowanie</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_ASSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Zdefiniuj liczbę dni, po upływie której definicje programów szpiegujących będą uznawane za nieaktualne</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Zdefiniuj liczbę dni, po upływie której analizy zabezpieczeń dotyczące programów szpiegujących będą uznawane za nieaktualne</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_AVSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Zdefiniuj liczbę dni, po upływie której definicje wirusów będą uznawane za nieaktualne</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Zdefiniuj liczbę dni, po upływie których analiza zabezpieczeń dotycząca wirusów będzie uznawana za nieaktualną</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
     <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
-        <label>Zdefiniuj udziały plików na potrzeby pobierania aktualizacji definicji</label>
+        <label>Zdefiniuj udziały plików na potrzeby pobierania aktualizacji analiz zabezpieczeń</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SharedSignaturesLocation">
+    <textBox refId="SignatureUpdate_SharedSignaturesLocation">
+        <label>Zdefiniuj udział plików na potrzeby pobierania aktualizacji analiz zabezpieczeń w środowiskach wirtualnych</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_FallbackOrder">
     <textBox refId="SignatureUpdate_FallbackOrder">
-        <label>Zdefiniuj kolejność źródeł na potrzeby pobierania aktualizacji definicji</label>
+        <label>Zdefiniuj kolejność źródeł pobierania aktualizacji analizy zabezpieczeń</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleDay">
-    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Określ dzień tygodnia, w którym mają być wyszukiwane aktualizacje definicji</dropdownList>
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Określ dzień tygodnia, w którym mają być wyszukiwane aktualizacje analizy zabezpieczeń</dropdownList>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleTime">
-    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Określ godzinę, o której mają być wyszukiwane aktualizacje definicji</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Określ czas sprawdzania aktualizacji analizy zabezpieczeń</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Zdefiniuj liczbę dni, po upływie której będzie wymagana uzupełniająca aktualizacja definicji</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Zdefiniuj liczbę dni, po upływie których będzie wymagana uzupełniająca aktualizacja analizy zabezpieczeń</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Określ interwał wyszukiwania aktualizacji definicji</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Określ interwał sprawdzania aktualizacji analizy zabezpieczeń</decimalTextBox>
     </presentation>
     <presentation id="SpynetReporting">
     <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Dołącz do społeczności Microsoft MAPS</dropdownList>
@@ -872,6 +1103,33 @@ Jeśli wyłączysz to ustawienie lub go nie skonfigurujesz, dodatkowy tekst nie 
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Określ interwał powiadomień o wygaśnięciu</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Wybierz poziom blokowania w chmurze</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Określ czas rozszerzonego sprawdzania w chmurze (w sekundach)</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Konfiguruj funkcję ochrony folderów</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Wykluczenia z reguł funkcji ASR:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Ustaw stan każdej reguły funkcji ASR:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Wprowadź aplikacje, które mają być traktowane jako zaufane:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Wprowadź foldery, które mają być chronione:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

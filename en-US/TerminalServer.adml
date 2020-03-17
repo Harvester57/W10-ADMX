@@ -139,6 +139,7 @@ If you do not configure this policy setting, client drive redirection and Clipbo
       <string id="TS_CLIENT_HELP">Controls Remote Desktop Connection client settings</string>
       <string id="TS_CLIENT_LPT">Do not allow LPT port redirection</string>
       <string id="TS_CLIENT_PNP">Do not allow supported Plug and Play device redirection</string>
+      <string id="TS_CAMERA_REDIRECTION">Do not allow video capture redirection</string>
       <string id="TS_CLIENT_PRINTER">Do not allow client printer redirection</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">This policy setting specifies whether to prevent the sharing of Clipboard contents (Clipboard redirection) between a remote computer and a client computer during a Remote Desktop Services session.
 
@@ -190,6 +191,15 @@ If you disable this policy setting, users can redirect their supported Plug and 
 If you enable this policy setting, users cannot redirect their supported Plug and Play devices to the remote computer.If you do not configure this policy setting, users can redirect their supported Plug and Play devices to the remote computer only if it is running Windows Server 2012 R2 and earlier versions.
 
 Note: You can disable redirection of specific types of supported Plug and Play devices by using Computer Configuration\Administrative Templates\System\Device Installation\Device Installation Restrictions policy settings.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">This policy setting lets you control the redirection of video capture devices to the remote computer in a Remote Desktop Services session. 
+
+By default, Remote Desktop Services allows redirection of video capture devices.
+
+If you enable this policy setting, users cannot redirect their video capture devices to the remote computer. 
+
+If you disable or do not configure this policy setting, users can redirect their video capture devices to the remote computer. Users can use the More option on the Local Resources tab of Remote Desktop Connection to choose the video capture devices to redirect to the remote computer.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">This policy setting allows you to limit the number of monitors that a user can use to display a Remote Desktop Services session. Limiting the number of monitors to display a Remote Desktop Services session can improve connection performance, particularly over slow links, and reduce server load.
@@ -310,12 +320,13 @@ Note: The console session is also known as Session 0. Console access can be obta
       <string id="TS_GATEWAY_BASIC">Ask for credentials, use Basic protocol</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Use locally logged-on credentials</string>
       <string id="TS_GATEWAY_NTLM">Ask for credentials, use NTLM protocol</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Ask for credentials, use Negotiate protocol</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Set RD Gateway authentication method</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Specifies the authentication method that clients must use when attempting to connect to an RD Session Host server through an RD Gateway server. You can enforce this policy setting or you can allow users to overwrite this policy setting. By default, when you enable this policy setting, it is enforced. When this policy setting is enforced, users cannot override this setting, even if they select the "Use these RD Gateway server settings" option on the client.
 
 To allow users to overwrite this policy setting, select the "Allow users to change this setting" check box. When you do this, users can specify an alternate authentication method by configuring settings on the client, using an RDP file, or using an HTML script. If users do not specify an alternate authentication method, the authentication method that you specify in this policy setting is used by default.
 
-If you disable or do not configure this policy setting, the authentication method that is specified by the user is used, if one is specified. If an authentication method is not specified, the NTLM protocol that is enabled on the client or a smart card can be used for authentication.</string>
+If you disable or do not configure this policy setting, the authentication method that is specified by the user is used, if one is specified. If an authentication method is not specified, the Negotiate protocol that is enabled on the client or a smart card can be used for authentication.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Enable connection through RD Gateway</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">If you enable this policy setting, when Remote Desktop Connection cannot connect directly to a remote computer (an RD Session Host server or a computer with Remote Desktop enabled), the clients will attempt to connect to the remote computer through an RD Gateway server. In this case, the clients will attempt to connect to the RD Gateway server that is specified in the "Set RD Gateway server address" policy setting.
 
@@ -395,20 +406,24 @@ If you enable this policy setting, these notifications will not be displayed on 
 
 If you disable or do not configure this policy setting, these notifications will be displayed on the RD Session Host server after you log on as a local administrator.</string>
       <string id="TS_LICENSING_MODE">Set the Remote Desktop licensing mode</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">This policy setting allows you to specify the type of Remote Desktop Services client access license (RDS CAL) that is required to connect to this RD Session Host server.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        This policy setting allows you to specify the type of Remote Desktop Services client access license (RDS CAL) that is required to connect to this RD Session Host server.
 
-You can use this policy setting to select one of two licensing modes: Per User or Per Device.
+        You can use this policy setting to select one of three licensing modes: Per User , Per Device and AAD Per User .
 
-Per User licensing mode requires that each user account connecting to this RD Session Host server have an RDS Per User CAL.
+        Per User licensing mode requires that each user account connecting to this RD Session Host server have an RDS Per User CAL issued from an RD Licensing server.
 
-Per Device licensing mode requires that each device connecting to this RD Session Host server have an RDS Per Device CAL.
+        Per Device licensing mode requires that each device connecting to this RD Session Host server have an RDS Per Device CAL issued from an RD Licensing server.
 
-If you enable this policy setting, the Remote Desktop licensing mode that you specify is honored by the Remote Desktop license server.
+        AAD Per User licensing mode requires that each user account connecting to this RD Session Host server have a service plan that supports RDS licenses assigned in AAD.
+        
+        If you enable this policy setting, the Remote Desktop licensing mode that you specify is honored by the Remote Desktop license server and RD Session Host.
 
-If you disable or do not configure this policy setting, the licensing mode is not specified at the Group Policy level.
-</string>
+        If you disable or do not configure this policy setting, the licensing mode is not specified at the Group Policy level.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Per Device</string>
       <string id="TS_LICENSING_MODE_PER_USER">Per User</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">AAD Per User</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">This policy setting specifies whether to prevent the redirection of data to client LPT ports during a Remote Desktop Services session.
 
 You can use this setting to prevent users from mapping local LPT ports and redirecting data from the remote computer to local LPT port peripherals. By default, Remote Desktop Services allows LPT port redirection.
@@ -964,19 +979,40 @@ If you disable this policy setting, RemoteApp programs published from this RD Se
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">Use WDDM graphics display driver for Remote Desktop Connections</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">This policy setting lets you enable WDDM graphics display driver for Remote Desktop Connections.
+
+If you enable this policy setting, Remote Desktop Connections will use WDDM graphics display driver.
+
+If you disable or do not configure this policy setting, Remote Desktop Connections will NOT use WDDM graphics display driver. In this case, the Remote Desktop Connections will use XDDM graphics display driver.
+
+For this change to take effect, you must restart Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">This policy setting lets you enable WDDM graphics display driver for Remote Desktop Connections.
+
+If you enable or do not configure this policy setting, Remote Desktop Connections will use WDDM graphics display driver.
+
+If you disable this policy setting, Remote Desktop Connections will NOT use WDDM graphics display driver. In this case, the Remote Desktop Connections will use XDDM graphics display driver.
+
+For this change to take effect, you must restart Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">This policy setting lets you enable WDDM graphics display driver for Remote Desktop Connections.
+
+If you enable this policy setting, Remote Desktop Connections will use WDDM graphics display driver.
+
+If you disable this policy setting, Remote Desktop Connections will NOT use WDDM graphics display driver. In this case, the Remote Desktop Connections will use XDDM graphics display driver.
+
+If you do not configure this policy setting, Remote Desktop Connections on the RD Session Host server will NOT use WDDM graphics display driver. In all other cases, Remote Desktop Connections will use WDDM graphics display driver.
+
+For this change to take effect, you must restart Windows.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Configure H.264/AVC hardware encoding for Remote Desktop Connections</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">This policy setting lets you enable H.264/AVC hardware encoding support for Remote Desktop Connections. When you enable hardware encoding, if an error occurs, we will attempt to use software encoding. If you disable or do not configure this policy, we will always use software encoding.
-        
-If you set the encoding option to “Always Attempt”, Remote Desktop will always try to use H.264/AVC hardware encoding when available, be aware that, for Windows Server running Hyper-V with RemoteFX vGPU enabled, the policy has to be set on the Hyper-V host machine.
-        
-If you set the encoding option to “Attempt only for RemoteFX vGPU virtual machines” be aware that, for Windows Server running Hyper-V with RemoteFX vGPU enabled, the policy has to be set on the Hyper-V host machine.
-        
-If you set the encoding option to “Attempt only for non-RemoteFX vGPU scenarios”, Remote Desktop attempts to use hardware encoding for all scenarios except RemoteFX vGPU.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Always attempt</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Attempt only for RemoteFX vGPU virtual machines</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Attempt only for non-RemoteFX vGPU scenarios</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">This policy setting lets you enable H.264/AVC hardware encoding support for Remote Desktop Connections. When you enable hardware encoding, if an error occurs, we will attempt to use software encoding. If you disable or do not configure this policy, we will always use software encoding.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Prioritize H.264/AVC 444 graphics mode for Remote Desktop Connections</string>
@@ -1117,7 +1153,7 @@ If you enable this policy setting, user sign-in is blocked for up to 6 minutes t
 
 If you disable or do not configure this policy setting, the Start screen is shown and apps are registered in the background.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Use the hardware default graphics adapter for all Remote Desktop Services sessions</string>
+      <string id="TS_DX_USE_FULL_HWGPU">Use hardware graphics adapters for all Remote Desktop Services sessions</string>
       <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">This policy setting enables system administrators to change the graphics rendering for all Remote Desktop Services sessions.
 
 If you enable this policy setting, all Remote Desktop Services sessions use the hardware graphics renderer instead of the Microsoft Basic Render Driver as the default adapter.
@@ -1126,7 +1162,7 @@ If you disable this policy setting, all Remote Desktop Services sessions use the
 
 If you do not configure this policy setting, Remote Desktop Services sessions on the RD Session Host server use the Microsoft Basic Render Driver as the default adapter. In all other cases, Remote Desktop Services sessions use the hardware graphics renderer by default.
 
-NOTE: The policy setting affects only the default graphics processing unit (GPU) on a computer with more than one GPU installed. All additional GPUs are considered secondary adapters and used as hardware renderers. The GPU configuration of the local session is not affected by this policy setting.
+NOTE: The policy setting enables load-balancing of graphics processing units (GPU) on a computer with more than one GPU installed. The GPU configuration of the local session is not affected by this policy setting.
 </string>
       
     </stringTable>
@@ -1276,9 +1312,6 @@ NOTE: The policy setting affects only the default graphics processing unit (GPU)
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP compression algorithm:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Prefer AVC hardware encoding:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Visual experience:</dropdownList>

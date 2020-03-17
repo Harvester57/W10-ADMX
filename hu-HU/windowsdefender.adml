@@ -1,11 +1,15 @@
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/Policysecurity intelligence">
 <displayName>itt adja meg a megjelenítendő nevet</displayName>
 <description>itt adja meg a leírást</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Windows Defender</string>
+    <string id="AntiSpywareDefender">Windows Defender víruskereső</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Kizárások</string>
+    <string id="ExploitGuard">Windows Defender – biztonsági rés kiaknázása elleni védelem</string>
+    <string id="ExploitGuard_ASR">Támadási felület csökkentése</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Mappákhoz való hozzáférés szabályozása</string>
+    <string id="ExploitGuard_NetworkProtection">Hálózati védelem</string>
     <string id="NetworkRealtimeInspection">Hálózatvizsgáló rendszer</string>
     <string id="NetworkRealtimeInspection_Exclusions">Kivételek</string>
     <string id="Quarantine">Karantén</string>
@@ -13,10 +17,11 @@
     <string id="Remediation">Szervizelés</string>
     <string id="Reporting">Jelentéskészítés</string>
     <string id="Scan">Ellenőrzés</string>
-    <string id="SignatureUpdate">Aláírás-frissítések</string>
+    <string id="SignatureUpdate">Biztonságiintelligencia-frissítések</string>
     <string id="Spynet">MAPS</string>
     <string id="Threats">Veszélyforrások</string>
     <string id="ClientInterface">Ügyféloldali felület</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">A kártevőirtó szolgáltatás normál prioritással való indításának engedélyezése</string>
     <string id="AllowFastServiceStartup_Explain">Ez a házirend-beállítás szabályozza a kártevőirtó szolgáltatás betöltési prioritását. A betöltési prioritás értékének növelésével gyorsítható a szolgáltatás indítása, de ez negatív hatással lehet a teljesítményre.
 
@@ -25,7 +30,18 @@ Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a kártevőirtó szo
 Ha letiltja a beállítást, a kártevőirtó szolgáltatás alacsony prioritású feladatként töltődik be.</string>
 
     <string id="DisableAutoExclusions">Automatikus kizárások kikapcsolása</string>
-    <string id="DisableAutoExclusions_Explain">Lehetővé teszi a rendszergazda számára annak megadását, hogy ki kell-e kapcsolni a Server termékváltozatokban az Automatikus kizárások funkciót.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Lehetővé teszi a rendszergazdák számára annak megadását, hogy ki kell-e kapcsolni az Automatikus kizárások funkciót a Server termékváltozatokban.
+
+        Letiltva (alapértelmezés):
+        A Windows Defender a teljesítmény növelése érdekében kihagyja az elérési utak előre definiált listáját a vizsgálatból.
+
+        Engedélyezve:
+        A Windows Defender nem hagyja ki az elérési utak előre definiált listáját a vizsgálatból. Ez bizonyos esetekben hatással lehet a gép teljesítményére.
+
+        Nincs konfigurálva:
+        Ugyanaz, mint a Letiltva beállítás.
+    </string>
     <string id="DisableAntiSpyware">Az Endpoint Protection kikapcsolása</string>
     <string id="DisableAntiSpyware_Explain">Ezzel a házirend-beállítással kikapcsolható az Endpoint Protection szolgáltatás.
 
@@ -33,12 +49,16 @@ Ha letiltja a beállítást, a kártevőirtó szolgáltatás alacsony prioritás
 
     Ha letiltja vagy nem konfigurálja a házirend-beállítást, az Endpoint Protection alapértelmezés szerint elindul, és megvizsgálja, hogy található-e kártevő vagy egyéb, vélhetően nemkívánatos szoftver a számítógépeken.
     </string>
-    <string id="DisableAntiSpywareDefender">A Windows Defender kikapcsolása</string>
-    <string id="DisableAntiSpywareDefender_Explain">Ez a házirend-beállítás kikapcsolja a Windows Defender szolgáltatást.
+    <string id="DisableAntiSpywareDefender">A Windows Defender víruskereső kikapcsolása</string>
+    <string id="DisableAntiSpywareDefender_Explain">Ez a házirend-beállítás kikapcsolja a Windows Defender víruskeresőt.
+    
+    Ha engedélyezi a házirend-beállítást, a Windows Defender víruskereső nem fut, és nem vizsgálja meg, hogy vannak-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.
 
-    A házirend-beállítás engedélyezése esetén a Windows Defender nem fut, és nem vizsgálja meg, nincsenek-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.
+    Ha letiltja a házirend-beállítást, a Windows Defender víruskereső az egyéb telepített víruskereső termékektől függetlenül futni fog.
 
-    Ha a házirend-beállítás le van tiltva vagy nincs konfigurálva, a Windows Defender alapértelmezés szerint fut, és megvizsgálja, hogy vannak-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.</string>
+    Ha nem konfigurálja a házirend-beállítást, a Windows belsőleg kezeli a Windows Defender víruskeresőt. Ha egy másik víruskereső programot telepít, a Windows automatikusan letiltja a Windows Defender víruskeresőt. Egyéb esetben a Windows Defender víruskereső megvizsgálja, hogy vannak-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.
+
+    A házirend engedélyezése vagy letiltása váratlan vagy nem támogatott működéshez vezethet. Javasoljuk, hogy ne konfigurálja ezt a házirend-beállítást.</string>
     <string id="DisableLocalAdminMerge">A helyi rendszergazda által megadott listabeállítások és a csoportházirend egyesítése</string>
     <string id="DisableLocalAdminMerge_Explain">Ez a házirend-beállítás a helyi rendszergazda által megadott összetett listabeállítások és a csoportházirend-beállítások egyesítését szabályozza. Ez a beállítás többek között a veszélyforrások és a kizárások listáját érinti.
 
@@ -47,11 +67,11 @@ Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a csoportházirendbe
 Ha letiltja a beállítást, az érvényes eredő házirend csak a csoportházirendben definiált elemeket fogja használni. A csoportházirend-beállítások felülírják a helyi rendszergazda által konfigurált beállításokat.</string>
     <string id="DisableRoutinelyTakingAction">A rutinszerű szervizelés kikapcsolása</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Ez a házirend-beállítás lehetővé teszi annak konfigurálását, hogy a Windows Defender eltávolítsa-e automatikusan az összes észlelt veszélyforrást. Az adott veszélyforrással kapcsolatban elvégzendő művelet függ a házirend, a felhasználó és az aláírás által definiált művelettől.
+    Ezzel a házirend-beállítással konfigurálhatja, hogy a Windows Defender víruskereső automatikusan intézkedjen-e az összes észlelt veszélyforrással szemben. Az adott veszélyforrással kapcsolatban elvégzendő művelet a házirend, a felhasználó és az aláírás által definiált művelettől függ.
 
-    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender nem távolítja el automatikusan az észlelt veszélyforrásokat, hanem megkéri a felhasználót, hogy az egyes veszélyforrásokra vonatkozóan válassza ki a kívánt műveletet az elérhető műveletek közül.
+    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender víruskereső nem intézkedik automatikusan az észlelt veszélyforrásokkal szemben, hanem minden egyes veszélyforrás esetében megkéri a felhasználót, hogy válasszon az elérhető műveletek közül.
 
-    Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a Windows Defender kb. öt másodperc múlva automatikusan elkezdi eltávolítani az összes észlelt veszélyforrást (a késleltetés nem konfigurálható).</string>
+    Ha letiltja, vagy nem konfigurálja ezt a házirend-beállítást, a Windows Defender víruskereső kb. öt másodperc késleltetés után (amely nem konfigurálható) automatikusan megteszi a szükséges intézkedéseket az összes észlelt veszélyforrással szemben.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Ezzel a házirend-beállítással konfigurálható, hogy az Endpoint Protection automatikusan reagáljon-e az összes észlelt veszélyforrásra. Egy adott veszélyforrás esetén az elvégzendő műveletet a házirend által definiált művelet, a felhasználó által definiált művelet és az aláírás által definiált művelet kombinációja határozza meg.
 
@@ -66,40 +86,55 @@ Ha engedélyezi a beállítást, a szolgáltatás a megadott címek esetében me
 
 Ha letiltja vagy nem konfigurálja a beállítást, a szolgáltatás a megadott címek esetében nem mellőzi a proxykiszolgáló használatát.</string>
     <string id="ProxyPacUrl">A hálózati csatlakozáshoz használt automatikus proxykonfiguráció (.pac) megadása</string>
-    <string id="ProxyPacUrl_Explain">Ez a házirend-beállítás az ügyfél  hálózati csatlakozási próbálkozásaihoz és a MAPS-jelentésekhez használatos .pac fájlnak az URL-címét adja meg. Ha a proxy automatikus konfigurációja sikertelen, vagy nincs megadva automatikus proxykonfiguráció, az ügyfél (sorrendben) a következő lehetőségekkel próbálkozik:
+    <string id="ProxyPacUrl_Explain">Ezzel a házirend-beállítással meghatározhatja annak a proxy .pac-fájljának az URL-címét, amely akkor használandó, amikor az ügyfél megpróbál csatlakozni a hálózathoz a biztonságiintelligencia-frissítésekhez és a MAPS-jelentésekhez. Ha a proxy automatikus konfigurációja sikertelen, vagy nincs megadva automatikus proxykonfiguráció, az ügyfél (sorrendben) az alábbi lehetőségekkel próbálkozik:
       1. Proxykiszolgáló (ha meg van adva)
-      2. Proxy .pac URL-cím (ha meg van adva)
-      3. Semmi
+      2. Proxy .pac-fájljának URL-címe (ha meg van adva)
+      3. Nincs
       4. Az Internet Explorer proxybeállításai
-5. Automatikus
+      5. Automatikus észlelés
 
-      Ha engedélyezi ezt a beállítást, a proxy a megadott .pac fájl használatára lesz beállítva a fenti sorrendnek megfelelően.
+      Ha engedélyezi ezt a beállítást, a proxy a megadott .pac-fájl használatára lesz beállítva a fenti sorrendnek megfelelően.
 
-      Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően kihagyja ezt a pótlási lépést.</string>
+      Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően kihagyja ezt a visszatérési lépést.</string>
     <string id="ProxyServer">Proxykiszolgáló definiálása a hálózathoz való csatlakozáshoz</string>
-    <string id="ProxyServer_Explain">Ez a házirend-beállítás lehetővé teszi annak a nevesített proxynak a beállítását, amelyet a definíciófrissítéseket letöltő és a MAPS-jelentéseket elküldő ügyfeleknek használniuk kell a hálózathoz való csatlakozáskor. Ha a nevesített proxy nem érhető el, vagy nincs megadva proxy, az ügyfél (sorrendben) az alábbi lehetőségekkel próbálkozik:
-1. Proxykiszolgáló (ha meg van adva)
-      2. Proxy .pac URL-cím (ha meg van adva)
-      3. Semmi
+    <string id="ProxyServer_Explain">Ezzel a házirend-beállítással konfigurálhatja az elnevezett proxyt, amely akkor használandó, amikor az ügyfél megpróbál csatlakozni a hálózathoz a biztonságiintelligencia-frissítésekhez és a MAPS-jelentésekhez. Ha az elnevezett proxy nem érhető el, vagy nincs megadva proxy, az ügyfél (sorrendben) az alábbi lehetőségekkel próbálkozik:
+      1. Proxykiszolgáló (ha meg van adva)
+      2. Proxy .pac-fájljának URL-címe (ha meg van adva)
+      3. Nincs
       4. Az Internet Explorer proxybeállításai
-5. Automatikus
+      5. Automatikus észlelés
 
-      Ha engedélyezi ezt a beállítást, a proxy a megadott URL-címre lesz beállítva a fenti sorrendnek megfelelően. Az URL-nek a http:// vagy a https:// előtaggal kell kezdődnie.
+      Ha engedélyezi ezt a beállítást, a proxy a megadott URL-címre lesz beállítva a fenti sorrendnek megfelelően. Az URL-címnek a http:// vagy a https:// előtaggal kell kezdődnie.
 
-      Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően kihagyja ezt a pótlási lépést.
+      Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően kihagyja ezt a visszatérési lépést.
     </string>
     <string id="RandomizeScheduleTaskTimes">Véletlenszerű feladat-végrehajtási időpontok</string>
-    <string id="RandomizeScheduleTaskTimes_Explain">Ezzel a házirend-beállítással engedélyezheti vagy letilthatja az ütemezett ellenőrzések és definíciófrissítések véletlenszerű időpontokban való végrehajtását. Ez a beállítás az ellenőrzéssel járó erőforrás-terhelés elosztására szolgál. Ezzel a beállítással például az egyazon gazdagépen futtatott vendég virtuális gépek esetében megakadályozhatja, hogy több virtuális gép egyszerre hajtson végre intenzív lemezhasználatot igénylő műveleteket.
+    <string id="RandomizeScheduleTaskTimes_Explain">Ezzel a házirend-beállítással engedélyezheti vagy letilthatja az ütemezett ellenőrzések és biztonságiintelligencia-frissítések véletlenszerű időpontokban való indítását. Ez a beállítás az ellenőrzéssel járó erőforrás-terhelés elosztására szolgál. Ezzel a beállítással például az egyazon gazdagépen futtatott vendég virtuális gépek esetében megakadályozhatja, hogy több vendég virtuális gép egyszerre hajtson végre intenzív lemezhasználatot igénylő műveleteket.
 
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, az ütemezett feladatok végrehajtása véletlenszerűen kiválasztott időpontban kezdődik a megadott kezdési időpont előtti és utáni 30 perces időtartamon belül.
+    Ha engedélyezi vagy nem konfigurálja ezt a beállítást, az ütemezett feladatok végrehajtása véletlenszerűen kiválasztott időpontban kezdődik a megadott kezdési időpont előtti és utáni 30 perces időtartamon belül.
 
-Ha letiltja a beállítást, az ütemezett feladatok végrehajtása a megadott időpontban kezdődik.</string>
+    Ha letiltja a beállítást, az ütemezett feladatok végrehajtása a megadott időpontban kezdődik.</string>
     <string id="ServiceKeepAlive">A kártevőírtó szolgáltatás mindig fut</string>
-    <string id="ServiceKeepAlive_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy a kártevőirtó szolgáltatás a vírus- és kémprogram-definíciók letiltása után továbbra is fusson-e. Azt javasoljuk, hogy hagyja letiltva a beállítást.
+    <string id="ServiceKeepAlive_Explain">Ezzel a házirend-beállítással konfigurálhatja, hogy a kártevőirtó szolgáltatás továbbra is fusson-e, ha a víruskereső és a kémprogram-elhárító biztonsági intelligencia le van tiltva. Javasoljuk, hogy hagyja letiltva ezt a beállítást.
 
-Ha engedélyezi a beállítást, a kártevőirtó szolgáltatás a vírus- és kémprogram-definíciók letiltása után továbbra is futni fog.
+    Ha engedélyezi ezt a beállítást, a kártevőirtó szolgáltatás akkor is futni fog, ha a víruskereső és a kémprogram-elhárító biztonsági intelligencia egyaránt le van tiltva.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a kártevőirtó szolgáltatás a vírus- és kémprogram-definíciók letiltásakor leáll. Ha újraindítja a számítógépet, a szolgáltatás elindul, ha automatikus indításra van beállítva. Miután elindult, a szolgáltatás ellenőrzi, hogy a vírus- és kémprogram-definíciók engedélyezve vannak-e. Ha ezek legalább egyike engedélyezve van, a szolgáltatás továbbra is futni fog. Ha mindkét definíciótípus le van tiltva, a szolgáltatás leáll.</string>
+    Ha letiltja vagy nem konfigurálja ezt a beállítást, a kártevőirtó szolgáltatás leáll, amikor a víruskereső és a kémprogram-elhárító biztonsági intelligencia le van tiltva. Ha újraindítja a számítógépet, a szolgáltatás elindul, ha automatikus indításra van beállítva. A szolgáltatás elindítása után a rendszer ellenőrzi, hogy engedélyezve van-e a víruskereső és a kémprogram-elhárító biztonsági intelligencia. Ha legalább az egyik engedélyezve van, a szolgáltatás továbbra is futni fog. Ha mindkettő le van tiltva, a szolgáltatás leáll.</string>
+    <string id="Root_PUAProtection">Vélhetően nemkívánatos alkalmazások észlelésének beállítása</string>
+    <string id="Root_PUAProtection_Explain">
+        Engedélyezheti vagy letilthatja a nemkívánatos alkalmazások észlelését. Letilthatja, naplózhatja vagy engedélyezheti, ha vélhetően nemkívánatos szoftverek letöltődnek, vagy megkísérlik telepíteni magukat a számítógépen.
+
+        Engedélyezve:
+        Adja meg az üzemmódot a Beállítások szakaszban:
+        – Letiltás: A vélhetően nemkívánatos szoftverek le lesznek tiltva.
+        – Naplózási mód: A vélhetően nemkívánatos szoftverek nem lesznek letiltva, ha azonban ez a szolgáltatás letiltotta volna a hozzáférést a Letiltás beállítás megadása esetén, akkor az esemény rekordja szerepelni fog az eseménynaplókban.
+
+        Letiltva:
+        A vélhetően nemkívánatos szoftverek nem lesznek letiltva.
+
+        Nincs konfigurálva:
+        A letiltott állapottal azonos.
+    </string>
     <string id="Exclusions_Extensions">Kiterjesztéskizárások</string>
     <string id="Exclusions_Extensions_Explain">Ezzel a házirend-beállítással megadhatja az ütemezett, egyéni és valós idejű ellenőrzésekből kizárandó fájltípusok listáját. A fájltípusokat a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott fájltípus-kiterjesztést (például „obj” vagy „lib”) azonosító karakterláncnak kell lennie. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
     <string id="Exclusions_Paths">Elérésiút-kizárások</string>
@@ -113,13 +148,13 @@ Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a protokollfelismer�
 
 Ha kikapcsolja a beállítást, a protokollfelismerés le lesz tiltva.</string>
     <string id="Nis_Consumers_IPS_DisableSignatureRetirement">A definíció-visszavonás bekapcsolása</string>
-    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Ez a házirend-beállítás lehetővé teszi az ismert biztonsági rések kihasználása elleni hálózatvédelem definíció-visszavonási funkciójának konfigurálását. A definíció-visszavonás ellenőrzi, hogy a számítógép rendelkezik-e azokkal a kötelező biztonsági frissítésekkel, amelyekre azért van szükség, hogy a számítógép védett legyen egy adott biztonsági réssel szemben. Ha a számítógép nincs kitéve annak a biztonsági kockázatnak, amelyet egy adott definíció észlelt, a rendszer „visszavonja” a definíciót. Ha a rendszer egy adott protokoll összes definícióját visszavonja, azt követően többé már nem elemzi a protokollt. E funkció engedélyezésével teljesítményjavulást érhet el. Ha a számítógépen minden új biztonsági frissítés telepítve van, a hálózatvédelemnek nincs negatív hatása a hálózat teljesítményére.
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Ezzel a házirend-beállítással konfigurálhatja az ismert biztonsági rések kihasználása elleni hálózatvédelem definíció-visszavonási funkcióját. A definíció-visszavonás ellenőrzi, hogy a számítógép rendelkezik-e azokkal a kötelező biztonsági frissítésekkel, amelyekre azért van szükség, hogy a számítógép védett legyen egy adott biztonsági réssel szemben. Ha a számítógép nincs kitéve annak a biztonsági kockázatnak, amelyet egy adott definíció észlelt, a rendszer „visszavonja” a definíciót. Ha a rendszer egy adott protokoll teljes biztonsági intelligenciáját visszavonja, azt követően többé már nem elemzi a protokollt. E funkció engedélyezésével teljesítményjavulást érhet el. Ha a számítógépen minden új biztonsági frissítés telepítve van, a hálózatvédelemnek nincs negatív hatása a hálózat teljesítményére.
 
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a definíció-visszavonás engedélyezve lesz.
+    Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a definíció-visszavonás engedélyezve lesz.
 
-Ha kikapcsolja a beállítást, a definíció-visszavonás le lesz tiltva.</string>
+    Ha letiltja a beállítást, a definíció-visszavonás le lesz tiltva.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">További definíciókészletek megadása a hálózati forgalom vizsgálatához</string>
-    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Ezzel a házirend-beállítással további definíciókészletek használatát teheti lehetővé a hálózati forgalom vizsgálata során. A definíciókészletek azonosítóit a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott definíciókészlet GUID azonosítóját megadó karakterláncnak kell lennie. Példa tesztdefiníciók használatát lehetővé tevő definíciókészlet GUID azonosítójára: {b54b6ac9-a737-498e-9120-6616ad3bf590}. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Ezzel a házirend-beállítással további definíciókészletek használatát teheti lehetővé a hálózati forgalom vizsgálata során. A definíciókészletek GUID azonosítóit fel kell venni a házirend-beállítás Beállítások területén. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott definíciókészlet GUID azonosítóját megadó sztringként kell szerepelnie. Példa a teszt biztonsági intelligencia használatát lehetővé tévő definíciókészlet GUID azonosítójára: „{b54b6ac9-a737-498e-9120-6616ad3bf590}”. Az értéket nem használja a rendszer, ezért célszerű 0 értékre állítani.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">A Quarantine (Karantén) mappában lévő elemekre vonatkozó eltávolítási konfiguráció felülbírálása helyi beállítással</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">Ezzel a házirend-beállítással helyileg felülbírálhatja azt a konfigurációt, amely meghatározza, hogy a rendszer hány nap után távolítsa el a Quarantine mappában lévő elemeket. Ez a beállítás csak a csoportházirend használatával adható meg.
 
@@ -159,11 +194,11 @@ Ha kikapcsolja a beállítást, a nyerskötet írásával kapcsolatos értesít�
     <string id="DisableRealtimeMonitoring">Valós idejű védelem kikapcsolása</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">Ez a házirend-beállítás kikapcsolja a valós idejű védelemre vonatkozó kérdéseket ismert kártevő észlelésekor.
 
-    A Windows Defender riasztást jelenít meg, amikor kártevő vagy egyéb, vélhetően nemkívánatos szoftver megkísérli magát telepíteni vagy futtatni a számítógépen.
+    A Windows Defender víruskereső riasztást jelenít meg, amikor kártevő vagy vélhetően nemkívánatos szoftver megkísérli telepíteni vagy futtatni magát a számítógépen.
 
-    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender nem fogja megkérdezni, hogy eltávolítsa-e az észlelt kártevőket.
+    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender víruskereső nem kérdezi meg a felhasználót, hogy intézkedjen-e az észlelt kártevőkkel szemben.
 
-    Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows Defender meg fogja kérdezni, hogy eltávolítsa-e az észlelt kártevőket.</string>
+    Ha letiltja, vagy nem konfigurálja ezt a házirend-beállítást, a Windows Defender víruskereső megkérdezi a felhasználót, hogy intézkedjen-e az észlelt kártevőkkel szemben.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Ezzel a házirend-beállítással kikapcsolhatók a valós idejű védelem ismert kártevők észlelését jelző értesítései.
 
@@ -289,13 +324,21 @@ Ha letiltja a beállítást, a rendszer nem küldi el a Watson-eseményeket.</st
     <string id="Reporting_WppTracingComponents_Explain">Ez a házirend a Windows-szoftverek nyomkövetési előfeldolgozójának (WPP-szoftvernyomkövetés) összetevőit konfigurálja.</string>
     <string id="Reporting_WppTracingLevel">WPP-myomkövetési szint konfigurálása</string>
     <string id="Reporting_WppTracingLevel_Explain">Ez a házirend-beállítással a Windows-szoftverek nyomkövetési előfeldolgozójának (WPP-szoftvernyomkövetés) nyomkövetési szintjeit konfigurálhatja. 
+    Az alábbi szinteket definiálhatja:
+    1 - Hiba
+    2 - Figyelmeztetés
+    3 - Információ
+    4 - Hibakeresés</string>
+    <string id="Reporting_DisableEnhancedNotifications">Bővített értesítések kikapcsolása</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Ezzel a házirend-beállítással megadhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender víruskereső bővített értesítései.
+      
+      Ha letiltja, vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender víruskereső bővített értesítései.
+      
+      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender víruskereső bővített értesítései.
+    </string>
 
-Az alábbi szinteket definiálhatja:
-1 - Hiba
-2 - Figyelmeztetés
-3 - Információ
-4 - Hibakeresés</string>
-    <string id="Scan_AllowPause">Az ellenőrzés szüneteltetésének engedélyezése a felhasználóknak</string>
+      <string id="Scan_AllowPause">Az ellenőrzés szüneteltetésének engedélyezése a felhasználóknak</string>
     <string id="Scan_AllowPause_Explain">Ezzel a házirend-beállítással azt szabályozhatja, hogy a végfelhasználók szüneteltethessék-e a folyamatban lévő ellenőrzéseket.
 
 Ha engedélyezi vagy nem konfigurálja ezt a beállítást, egy új parancs jelenik meg a feladat tálcaikonjának helyi menüjében, amely lehetővé teszi, hogy a felhasználó szüneteltesse az ellenőrzést.
@@ -319,14 +362,14 @@ Ha letiltja vagy nem konfigurálja a beállítást, az archív fájlok az alapé
 Ha engedélyezi ezt a beállítást, a processzorkihasználtság nem fogja túllépni a megadott értéket.
 
 Ha letiltja vagy nem konfigurálja a beállítást, a processzorkihasználtság nem fogja túllépni az alapértelmezett értéket.</string>
-    <string id="CheckForSignaturesBeforeRunningScan">Vírus- és kémprogram-definíciók keresése az ütemezett ellenőrzések előtt</string>
-    <string id="CheckForSignaturesBeforeRunningScan_Explain">Ezzel a házirend-beállítással azt szabályozhatja, hogy a rendszer keressen-e frissített vírus- és kémprogram-definíciókat az ellenőrzések előtt. 
+    <string id="CheckForSignaturesBeforeRunningScan">A legújabb vírusokra és kémprogramokra vonatkozó biztonsági intelligencia keresése az ütemezett vizsgálatok előtt</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">Ezzel a házirend-beállítással szabályozhatja, hogy a rendszer keressen-e új vírusokra és kémprogramokra vonatkozó biztonsági intelligenciát a vizsgálatok előtt. 
 
-Ez a beállítás az ütemezett keresésekre és az „mpcmdrun -SigUpdate” parancssori parancsra vonatkozik, a felhasználói felületről manuálisan indított ellenőrzésekre azonban nincs hatása.
+    Ez a beállítás az ütemezett vizsgálatokra és az „mpcmdrun -SigUpdate” parancssori parancsra vonatkozik, a felhasználói felületről manuálisan indított vizsgálatokra azonban nincs hatása.
 
-Ha engedélyezi a beállítást, a rendszer új definíciókat keres az ellenőrzések előtt.
+    Ha engedélyezi a beállítást, a rendszer új biztonsági intelligenciát keres a vizsgálatok előtt.
 
-Ha letiltja vagy nem konfigurálja a beállítást, az ellenőrzések a meglévő definíciókat használják.</string>
+    Ha letiltja vagy nem konfigurálja a beállítást, a vizsgálat a meglévő biztonsági intelligencia használatával kezdődik meg.</string>
     <string id="Scan_DisableArchiveScanning">Archív fájlok vizsgálata</string>
     <string id="Scan_DisableArchiveScanning_Explain">Ezzel a házirend-beállítással megadhatja, hogy a kártevő és a nemkívánatos szoftverek keresése az archív (például .ZIP vagy .CAB) fájlokra is terjedjen ki.
 
@@ -496,79 +539,91 @@ Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmeze
     E házirend-beállítás engedélyezése esetén a megadott számú egymást követő ütemezett ellenőrzés elmaradása esetén a program pótlólagos ellenőrzést fog futtatni.
 
     Ha letiltja vagy nem konfigurálja ezt a beállítást, akkor 2 egymást követő ütemezett ellenőrzés elmaradása esetén a program pótlólagos ellenőrzést fog futtatni.</string>
-    <string id="SignatureUpdate_ASSignatureDue">A kémprogram-definíciók elavulási idejének megadása napban kifejezve</string>
-    <string id="SignatureUpdate_ASSignatureDue_Explain">Ezzel a házirend-beállítással megadhatja, hogy a kémprogram-definíciókat hány nap után kell elavultnak tekinteni. A definíciók „elavult” állapota számos további művelet kiváltója lehet, beleértve a másodlagos frissítési forrásra való visszalépést vagy egy figyelmeztető ikon megjelenítését a felhasználói felületen. Az alapértelmezett érték 14 nap.
+    <string id="Scan_LowCpuPriority">Alacsony CPU-prioritás beállítása az ütemezett ellenőrzésekhez</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Ezzel a házirend-beállítással engedélyezheti vagy letilthatja az alacsony CPU-prioritást az ütemezett ellenőrzésekhez.
 
-Ha engedélyezi ezt a beállítást, a rendszer a megadott számú, frissítés nélkül eltelt nap után elavultnak tekinti a kémprogram-definíciókat.
+        Ha engedélyezi ezt a beállítást, a rendszer az alacsony CPU-prioritást használja az ütemezett ellenőrzések során.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett számú, frissítés nélkül eltelt nap után elavultnak tekinti a kémprogram-definíciókat.</string>
-    <string id="SignatureUpdate_AVSignatureDue">A vírusdefiníciók elavulási idejének megadása napban kifejezve</string>
-    <string id="SignatureUpdate_AVSignatureDue_Explain">Ezzel a házirend-beállítással megadhatja, hogy a vírusdefiníciókat hány nap után kell elavultnak tekinteni. A definíciók „elavult” állapota számos további művelet kiváltója lehet, beleértve a másodlagos frissítési forrásra való visszalépést vagy egy figyelmeztető ikon megjelenítését a felhasználói felületen. Az alapértelmezett érték 14 nap.
+        Ha letiltja vagy nem konfigurálja ezt a beállítást, nem módosul az ütemezett ellenőrzésekhez megadott CPU-prioritás.
+    </string>
+    <string id="SignatureUpdate_ASSignatureDue">Kémprogramokra vonatkozó biztonsági intelligencia elavulási idejének megadása napban kifejezve</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">Ezzel a házirend-beállítással megadhatja, hogy a kémprogramokra vonatkozó biztonsági intelligenciát hány nap után kell elavultnak tekinteni. A biztonsági intelligencia elavult állapota számos további művelet kiváltója lehet, beleértve a másodlagos frissítési forrásra való visszalépést vagy egy figyelmeztető ikon megjelenítését a felhasználói felületen. Az alapértelmezett érték 14 nap.
 
-Ha engedélyezi ezt a beállítást, a rendszer a megadott számú, frissítés nélkül eltelt nap után elavultnak tekinti a vírusdefiníciókat.
+    Ha engedélyezi ezt a beállítást, a rendszer a megadott számú, frissítés nélkül eltelt nap után elavultnak tekinti a kémprogramokra vonatkozó biztonsági intelligenciát.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett számú, frissítés nélkül eltelt nap után elavultnak tekinti a kémprogram-definíciókat.</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definíciófrissítések letöltésére szolgáló fájlmegosztások megadása</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Ez a házirend-beállítás lehetővé teszi a definíciófrissítések letöltésére szolgáló fájlmegosztási UNC-források megadását. A rendszer a megadott sorrendben létesít kapcsolatot a forrásokkal. A beállítás értékét a felsorolt definíciófrissítési forrásokat függőleges vonallal elválasztó karakterláncként kell megadni. Példa: {\\unc1 | \\unc2 }. Alapértelmezés szerint a lista üres.
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett számú, frissítés nélkül eltelt nap után elavultnak tekinti a kémprogramokra vonatkozó biztonsági intelligenciát.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Vírusokra vonatkozó biztonsági intelligencia elavulási idejének megadása napban kifejezve</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">Ezzel a házirend-beállítással megadhatja, hogy a vírusokra vonatkozó biztonsági intelligenciát hány nap után kell elavultnak tekinteni. A biztonsági intelligencia elavult állapota számos további művelet kiváltója lehet, beleértve a másodlagos frissítési forrásra való visszalépést vagy egy figyelmeztető ikon megjelenítését a felhasználói felületen. Az alapértelmezett érték 14 nap.
 
-Ha engedélyezi ezt a beállítást, a rendszer kapcsolatot létesít a megadott forrásokkal a definíciófrissítések letöltése céljából. Ha egy megadott forrásból sikerül letöltenie a definíciófrissítéseket, a többi forrással már nem létesít kapcsolatot.
+    Ha engedélyezi ezt a beállítást, a rendszer a megadott számú, frissítés nélkül eltelt nap után elavultnak tekinti a vírusokra vonatkozó biztonsági intelligenciát.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a lista alapértelmezés szerint üres marad, és a rendszer nem létesít kapcsolatot a forrásokkal.</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate">Definíciófrissítés utáni ellenőrzés bekapcsolása</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Ez a házirendbeállítás lehetővé teszi a definíciófrissítések után elinduló automatikus ellenőrzés konfigurálását.
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett számú, frissítés nélkül eltelt nap után elavultnak tekinti a vírusokra vonatkozó biztonsági intelligenciát.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Biztonságiintelligencia-frissítések letöltéséhez használt fájlmegosztások megadása</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Ez a házirend-beállítás lehetővé teszi a biztonságiintelligencia-frissítések letöltésére szolgáló UNC fájlmegosztási források konfigurálását. A rendszer a megadott sorrendben létesít kapcsolatot a forrásokkal. A beállítás értékét a felsorolt biztonságiintelligencia-frissítési forrásokat függőleges vonallal elválasztó sztringként kell megadni. Példa: „{\\unc1 | \\unc2 }”. Alapértelmezés szerint a lista üres.
 
-Ha engedélyezi vagy nem konfigurálja a beállítást, a definíciófrissítések után elindul az ellenőrzés.
+    Ha engedélyezi ezt a beállítást, a rendszer kapcsolatot létesít a megadott forrásokkal a biztonságiintelligencia-frissítések letöltése céljából. Ha egy megadott forrásból sikerül letöltenie a biztonságiintelligencia-frissítéseket, a többi forrással már nem létesít kapcsolatot.
 
-Ha letiltja a beállítást, a definíciófrissítések után nem indul el az ellenőrzés.</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Definíciófrissítések engedélyezése akkumulátorról való működés esetén</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer futtassa-e a definíciófrissítéseket, ha a számítógép akkumulátorról működik.
+    Ha letiltja vagy nem konfigurálja a beállítást, a lista alapértelmezés szerint üres marad, és a rendszer nem létesít kapcsolatot a forrásokkal.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation">A biztonsági intelligencia helyének megadása a VDI-ügyfelek számára.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation_Explain">Ezzel a házirend-beállítással meghatározhatja a biztonsági intelligencia helyét a VDI által konfigurált számítógépek számára. 
 
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a rendszer a szokásos módon, az energiafelvételi állapottól függetlenül, futtatja a definíciófrissítéseket.
+    Ha letiltja vagy nem konfigurálja ezt a beállítást, a biztonsági intelligencia az alapértelmezett helyi forrásból fog megjelenni.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Vizsgálat bekapcsolása a biztonsági intelligencia frissítése után</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Ez a házirend-beállítás lehetővé teszi a biztonsági intelligencia frissítése után elinduló automatikus vizsgálat konfigurálását.
 
-Ha letiltja a beállítást, és a számítógép akkumulátorról működik, a rendszer kikapcsolja a definíciófrissítést.</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Definíciófrissítés indításkor</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Ezzel a házirend-beállítással megadhatja, hogy a szolgáltatás az indításakor futtassa a definíciófrissítést, ha nincs jelen kártevőirtó modul.
+    Ha engedélyezi vagy nem konfigurálja a beállítást, a vizsgálat elindul a biztonsági intelligencia frissítése után.
 
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a szolgáltatás az indításakor futtatja a definíciófrissítést, ha nincs jelen kártevőirtó modul.
+    Ha letiltja a beállítást, a vizsgálat nem indul el a biztonsági intelligencia frissítése után.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Biztonsági intelligenciával kapcsolatos frissítések engedélyezése akkumulátoros üzem esetén</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer végezzen-e biztonságiintelligencia-frissítéseket, amikor a számítógép akkumulátorról működik.
 
-Ha letiltja a beállítást, a szolgáltatás az indításakor nem futtatja a definíciófrissítést, ha nincs jelen kártevőirtó modul.</string>
-    <string id="SignatureUpdate_FallbackOrder">A definíciófrissítési források sorrendjének meghatározása</string>
-    <string id="SignatureUpdate_FallbackOrder_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer milyen sorrendben létesítsen kapcsolatot a definíciófrissítési forrásokkal. A beállítás értékét a felsorolt definíciófrissítési forrásokat függőleges vonallal elválasztó karakterláncként kell megadni. A lehetséges értékek a következők: InternalDefinitionUpdateServer, MicrosoftUpdateServer, MMPC és FileShares
+    Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a rendszer a szokásos módon, az energiafelvételi állapottól függetlenül, végez biztonságiintelligencia-frissítéseket.
 
-Példa: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
+    Ha letiltja a beállítást, a rendszer kikapcsolja a biztonságiintelligencia-frissítéseket, amikor a számítógép akkumulátorról működik.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Biztonságiintelligencia-frissítés kezdeményezése indításkor</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer végezzen-e biztonságiintelligencia-frissítéseket indításkor, ha nincs jelen kártevőirtó motor.
 
-Ha engedélyezi a beállítást, a rendszer a megadott sorrendben kapcsolatot létesít a definíciófrissítési forrásokkal. Ha egy megadott forrásból sikerül letöltenie a definíciófrissítéseket, a többi forrással már nem létesít kapcsolatot.
+    Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a rendszer biztonságiintelligencia-frissítéseket végez indításkor, ha nincs jelen kártevőirtó motor.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett sorrendben létesít kapcsolatot a definíciófrissítési forrásokkal.</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU">Definíciófrissítés a Microsoft Update webhelyről</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Ezzel a házirend-beállítással lehetővé teheti a definíciófrissítések letöltését a Microsoft Update webhelyről még abban az esetben is, ha az automatikus frissítések alapértelmezett kiszolgálója egy másik frissítési forrásra, például a Windows Update webhelyre van beállítva.
+    Ha letiltja a beállítást, a rendszer nem végez biztonságiintelligencia-frissítéseket indításkor, ha nincs jelen kártevőirtó motor.</string>
+    <string id="SignatureUpdate_FallbackOrder">Biztonságiintelligencia-frissítések letöltéséhez használt források sorrendjének meghatározása</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer milyen sorrendben létesítsen kapcsolatot a különböző biztonságiintelligencia-frissítési forrásokkal. A beállítás értékét a felsorolt biztonságiintelligencia-frissítési forrásokat függőleges vonallal elválasztó sztringként kell megadni. A lehetséges értékek a következők: InternalDefinitionUpdateServer, MicrosoftUpdateServer, MMPC és FileShares”
 
-Ha engedélyezi ezt a beállítást, a rendszer a Microsoft Update webhelyről tölti le a definíciófrissítéseket.
+    Példa: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer a konfigurált letöltési forrásból tölti le a definíciófrissítéseket.</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery">A Microsoft MAPS közösségnek küldött jelentéseken alapuló valós idejű definíciófrissítések engedélyezése</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösségnek küldött jelentésekre válaszul érkező definíciófrissítések engedélyezését. Ha a szolgáltatás ismeretlenként jelent egy fájlt, és a Microsoft MAPS a legújabb definíciófrissítés alapján veszélyforrásként azonosítja a fájlt, a szolgáltatás azonnal megkapja az adott veszélyforrás legújabb definícióit. E funkció eléréséhez a számítógépet be kell állítania a Microsoft MAPS közösséghez való csatlakozásra.
+    Ha engedélyezi a beállítást, a rendszer a megadott sorrendben kapcsolatot létesít a biztonságiintelligencia-frissítési forrásokkal. Ha egy megadott forrásból sikerül letöltenie a biztonságiintelligencia-frissítéseket, a többi forrással már nem létesít kapcsolatot.
 
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a valós idejű definíciófrissítések engedélyezve lesznek.
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett sorrendben létesít kapcsolatot a biztonságiintelligencia-frissítési forrásokkal.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Biztonsági intelligenciával kapcsolatos frissítések engedélyezése a Microsoft Update szolgáltatásból</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Ezzel a házirend-beállítással lehetővé teheti a biztonságiintelligencia-frissítések letöltését a Microsoft Update webhelyről még abban az esetben is, ha az Automatikus frissítések alapértelmezett kiszolgálója egy másik letöltési forrásra, például a Windows Update webhelyre van beállítva.
 
-Ha kikapcsolja a beállítást, a definíciófrissítések le lesznek tiltva.</string>
-    <string id="SignatureUpdate_ScheduleDay">Heti ütemezésű definíciófrissítések keresése a megadott napon</string>
-    <string id="SignatureUpdate_ScheduleDay_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer a hét mely napján keressen definíciófrissítéseket. Azt is megadhatja, hogy a rendszer minden nap, illetve soha ne keressen.
+    Ha engedélyezi ezt a beállítást, a rendszer a Microsoft Update webhelyről tölti le a biztonságiintelligencia-frissítéseket.
 
-A beállítás az alábbi sorszámértékekkel adható meg:
-(0x0) minden nap
-(0x1) vasárnap
-(0x2) hétfő
-(0x3) kedd
-(0x4) szerda
-(0x5) csütörtök
-(0x6) péntek
-(0x7) szombat
-(0x8) soha (alapértelmezés)
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer a konfigurált letöltési forrásból tölti le a biztonságiintelligencia-frissítéseket.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">A valós idejű biztonsági adatvédelmi frissítések engedélyezése a Microsoft MAPS jelentései alapján</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösségnek küldött jelentésekre válaszul érkező valós idejű biztonságiintelligencia-frissítések engedélyezését. Ha a szolgáltatás ismeretlenként jelent egy fájlt, és a Microsoft MAPS a legújabb biztonságiintelligencia-frissítés alapján veszélyforrásként azonosítja a fájlt, a szolgáltatás azonnal megkapja az adott veszélyforrásra vonatkozó legújabb biztonsági intelligenciát. A funkció működéséhez a számítógépet be kell állítania a Microsoft MAPS közösséghez való csatlakozásra.
 
-Ha engedélyezi ezt a beállítást, a rendszer a megadott gyakorisággal keres definíciófrissítéseket.
+    Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a valós idejű biztonságiintelligencia-frissítések engedélyezve lesznek.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett gyakorisággal keres definíciófrissítéseket.</string>
+    Ha kikapcsolja a beállítást, a valós idejű biztonságiintelligencia-frissítések le lesznek tiltva.</string>
+    <string id="SignatureUpdate_ScheduleDay">A hét napjának megadása a biztonságiintelligencia-frissítések kereséséhez</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer a hét mely napján keressen biztonságiintelligencia-frissítéseket. Azt is megadhatja, hogy a rendszer minden nap vagy soha ne végezzen keresést.
+
+    A beállítás az alábbi sorszámértékekkel adható meg:
+    (0x0) Minden nap (alapértelmezett)
+    (0x1) Vasárnap 
+    (0x2) Hétfő
+    (0x3) Kedd
+    (0x4) Szerda
+    (0x5) Csütörtök
+    (0x6) Péntek
+    (0x7) Vasárnap
+    (0x8) Soha
+
+    Ha engedélyezi ezt a beállítást, a rendszer a megadott gyakorisággal keres biztonságiintelligencia-frissítéseket.
+
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett gyakorisággal keres biztonságiintelligencia-frissítéseket.</string>
     <string id="SignatureUpdate_ScheduleDay_0">Soha</string>
     <string id="SignatureUpdate_ScheduleDay_1">Minden nap</string>
     <string id="SignatureUpdate_ScheduleDay_2">Vasárnap</string>
@@ -578,24 +633,24 @@ Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmeze
     <string id="SignatureUpdate_ScheduleDay_6">Csütörtök</string>
     <string id="SignatureUpdate_ScheduleDay_7">Péntek</string>
     <string id="SignatureUpdate_ScheduleDay_8">Szombat</string>
-    <string id="SignatureUpdate_ScheduleTime">Definíciófrissítések keresése a megadott időpontban</string>
-    <string id="SignatureUpdate_ScheduleTime_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer naponta mely időpontban keressen definíciófrissítéseket. Az időértéket az éjfél után eltelt percek számával (00:00) kell megadni.  A 120 (0x78) érték például a 02:00 de. időpontnak felel meg. Alapértelmezés szerint a beállítás úgy van megadva, hogy a rendszer 15 perccel az ütemezett ellenőrzés előtt kezdi el a definíciófrissítések keresését. Az ütemezés a keresést futtató számítógép helyi idején alapul.
+    <string id="SignatureUpdate_ScheduleTime">Biztonságiintelligencia-frissítések keresési időpontjának megadása</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer naponta mely időpontban keressen biztonságiintelligencia-frissítéseket. Az időértéket az éjfél (00:00) után eltelt percek számával kell megadni. A 120 (0x78) érték például a hajnali 2 órának felel meg. Alapértelmezés szerint a beállítás úgy van megadva, hogy a rendszer 15 perccel az ütemezett vizsgálat előtt megkezdi a biztonságiintelligencia-frissítések keresését. Az ütemezés a keresést futtató számítógép helyi idején alapul.
 
-Ha engedélyezi ezt a beállítást, a rendszer a megadott időpontban keres definíciófrissítéseket.
+    Ha engedélyezi ezt a beállítást, a rendszer a megadott időpontban keres biztonságiintelligencia-frissítéseket.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett időpontban keres definíciófrissítéseket.</string>
-    <string id="SignatureUpdate_SignatureDisableNotification">Értesítések engedélyezése a Microsoft MAPS közösségnek küldött jelentéseken alapuló definíciók letiltása céljából</string>
-    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Ezzel a házirend-beállítással megadhatja, hogy a kártevőirtó szolgáltatás fogadja azokat az értesítéseket, amelyek révén a Microsoft MAPS közösségnek küldött jelentésekre válaszul érkező definíciók közül egyesek letilthatók. Ezek a Microsoft MAPS-értesítések a vakriasztásnak bizonyuló jelentéseket kiváltó definíciók letiltására szolgálnak. E funkció eléréséhez a számítógépet be kell állítania a Microsoft MAPS közösséghez való csatlakozásra.
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett időpontban keres biztonságiintelligencia-frissítéseket.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Értesítések engedélyezése a Microsoft MAPS közösségnek küldött biztonságiintelligencia-alapú jelentések letiltására</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Ezzel a házirend-beállítással megadhatja, hogy a kártevőirtó szolgáltatás fogadja azokat az értesítéseket, amelyek révén a Microsoft MAPS közösségnek küldött jelentésekre válaszul érkező egyes biztonságiintelligencia-elemek letilthatók. A Microsoft MAPS ezeket az értesítéseket a téves riasztásnak bizonyuló jelentéseket kiváltó biztonsági intelligencia letiltására használja. A funkció működéséhez a számítógépet be kell állítania a Microsoft MAPS közösséghez való csatlakozásra.
 
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a kártevőirtó szolgáltatás fogadja a definíciók letiltására szolgáló értesítéseket.
+    Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a kártevőirtó szolgáltatás fogadja a biztonsági intelligencia letiltására szolgáló értesítéseket.
 
-Ha letiltja a beállítást, a kártevőirtó szolgáltatás nem fogadja a definíciók letiltására szolgáló értesítéseket.</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Pótlólagos definíciófrissítés időkorlátjának megadása napban kifejezve</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Ezzel a házirend-beállítással meghatározhatja, hogy hány napnak kell eltelnie ahhoz, hogy a rendszer pótlólagos definíciófrissítést indítson el. A beállítás alapértelmezett értéke 1 nap.
+    Ha letiltja a beállítást, a kártevőirtó szolgáltatás nem fogadja a biztonsági intelligencia letiltására szolgáló értesítéseket.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Pótlólagos biztonságiintelligencia-frissítés időkorlátjának megadása napban kifejezve</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Ezzel a házirend-beállítással meghatározhatja, hogy hány napnak kell eltelnie ahhoz, hogy a rendszer pótlólagos biztonságiintelligencia-frissítést végezzen. A beállítás alapértelmezett értéke 1 nap.
 
-Ha engedélyezi a beállítást, a rendszer a megadott számú nap letelte után pótlólagos definíciófrissítést indít el.
+    Ha engedélyezi a beállítást, a rendszer a megadott számú nap letelte után pótlólagos biztonságiintelligencia-frissítést végez.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett számú nap letelte után indítja el a pótlólagos definíciófrissítést.</string>
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett számú nap letelte után pótlólagos biztonságiintelligencia-frissítést végez.</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Adja meg a lejárati értesítések időközét</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
     Ezzel a házirend-beállítással megadhatja a lejárati értesítések időközét (napban).
@@ -603,28 +658,28 @@ Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmeze
 
     Az értéknek nullánál nagyobbnak kell lennie ahhoz, hogy a házirend aktív legyen.
     </string>
-    <string id="SignatureUpdate_SignatureUpdateInterval">Definíciófrissítések keresési időközének megadása</string>
-    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer milyen időközönként keressen definíciófrissítéseket. Az időértéket az éjfél után eltelt percek számával (00:00) kell megadni. 1 (minden órában) és 24 (naponta egyszer) közötti érték adható meg.
+    <string id="SignatureUpdate_SignatureUpdateInterval">Biztonságiintelligencia-frissítések keresési időközének megadása</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Ezzel a házirend-beállítással megadhatja, hogy a rendszer milyen időközönként keressen biztonságiintelligencia-frissítéseket. Az időértéket a frissítéskeresések között eltelt órák számával kell megadni. 1 (minden órában) és 24 (naponta egyszer) közötti érték adható meg.
 
-Ha engedélyezi ezt a beállítást, a rendszer a megadott időközönként keres definíciófrissítéseket.
+    Ha engedélyezi ezt a beállítást, a rendszer a megadott időközönként keres biztonságiintelligencia-frissítéseket.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett időközönként keres definíciófrissítéseket.</string>
-    <string id="SignatureUpdate_UpdateOnStartup">A legújabb vírus- és kémprogram-definíciók keresése indításkor</string>
-    <string id="SignatureUpdate_UpdateOnStartup_Explain">Ezzel a házirend-beállítással azt szabályozhatja, hogy a rendszer keressen-e új vírus- és kémprogram-definíciókat a szolgáltatás elindítása után.
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmezett időközönként keres biztonságiintelligencia-frissítéseket.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">A legújabb vírusokra és kémprogramokra vonatkozó biztonsági intelligencia keresése indításkor</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">Ezzel a házirend-beállítással szabályozhatja, hogy a rendszer keressen-e új vírusokra és kémprogramokra vonatkozó biztonsági intelligenciát közvetlenül a szolgáltatás elindítása után.
 
-Ha engedélyezi a beállítást, a rendszer új definíciókat keres a szolgáltatás elindítása után.
+    Ha engedélyezi a beállítást, a rendszer új biztonsági intelligenciát keres a szolgáltatás elindítása után.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a rendszer nem keres új definíciókat a szolgáltatás elindítása után.</string>
+    Ha letiltja vagy nem konfigurálja a beállítást, a rendszer nem keres új biztonsági intelligenciát a szolgáltatás elindítása után.</string>
     <string id="DisableBlockAtFirstSeen">A Blokkolás első látásra funkció konfigurálása</string>
-    <string id="DisableBlockAtFirstSeen_Explain">Ezzel a funkcióval állítható be, hogy bizonyos tartalmak futtatásának vagy használatának engedélyezése előtt az eszköz valós időben kérjen engedélyt a Microsoft Active Protection Service (MAPS) szolgáltatástól. Ha le van tiltva ez a funkció, nem kér engedélyt az eszköz, így védtelenebb lesz a veszélyforrásokkal szemben.
-	Engedélyezve: a Blokkolás első látásra beállítás be van kapcsolva.
-	Letiltva: a Blokkolás első látásra beállítás nincs bekapcsolva.
-	
-	A funkció használatához meg kell adni az alábbi csoportházirend-beállításokat és azok megfelelő értékeit:
-	MAPS -&gt; Engedélyezni kell a Csatlakozás a Microsoft MAPS közösséghez beállítást, mert a Blokkolás első látásra funkció csak így fog működni.
-	MAPS -&gt; A Fájlminták küldése további elemzési igény esetén beállítás értékét 1-re (A biztonságos minták elküldése) vagy 3-ra (Minden minta elküldése) kell állítani. Ha a 0 értéket (Mindig rákérdez) adja meg, kevésbé lesz védett az eszköz. Amennyiben 2-re állítja a beállítás értékét (Nincs küldés), a Blokkolás első látásra funkció nem fog működni.
-	Valós idejű védelem -&gt; Az összes letöltött fájl és csatolmány vizsgálata nevű házirendet engedélyezni kell, mert csak így fog működni a Blokkolás első látásra funkció.
-	Valós idejű védelem -&gt; A Valós idejű védelem kikapcsolása nevű házirendet nem szabad engedélyezni, mert a Blokkolás első látásra funkció nem fog működni.</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Ezzel a funkcióval megadhatja, hogy a Microsoft Active Protection Service (MAPS) végezzen-e valós idejű ellenőrzéseket az eszközön bizonyos tartalmak futtatásának vagy használatának engedélyezése előtt. Ha le van tiltva ez a funkció, a program nem végez ellenőrzést, és az eszköz kevésbé lesz védett.
+    Engedélyezve – a Blokkolás első látásra beállítás be van kapcsolva.
+    Letiltva – a Blokkolás első látásra beállítás ki van kapcsolva.
+    
+    A funkció használatához meg kell adni az alábbi csoportházirend-beállításokat és azok megfelelő értékeit:
+    MAPS –&gt; Engedélyezni kell a Csatlakozás a Microsoft MAPS közösséghez beállítást, mert a Blokkolás első látásra funkció csak így fog működni.
+    MAPS –&gt; A Fájlminták küldése további elemzési igény esetén beállításban az 1 (A biztonságos minták elküldése) vagy a 3 (Minden minta elküldése) értéket kell megadni. Ha a 0 értéket (Mindig rákérdez) adja meg, kevésbé lesz védett az eszköz. Amennyiben a 2 értéket adja meg (Nincs küldés), a Blokkolás első látásra funkció nem fog működni.
+    Valós idejű védelem –&gt; Engedélyezni kell Az összes letöltött fájl és melléklet vizsgálata nevű házirendet, mert csak így fog működni a Blokkolás első látásra funkció.
+    Valós idejű védelem –&gt; A Valós idejű védelem kikapcsolása nevű házirendet nem szabad engedélyezni, mert a Blokkolás első látásra funkció nem fog működni.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">A Microsoft MAPS-jelentésekre vonatkozó konfiguráció felülbírálása helyi beállítással</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösséghez való csatlakozás konfigurációjának helyi beállítással való felülbírálását. Ez a beállítás csak a csoportházirend használatával adható meg.
 
@@ -648,9 +703,9 @@ Ha letiltja vagy nem konfigurálja a beállítást, a csoportházirend felülbí
     <string id="SubmitSamplesConsent_Send_All">Minden minta elküldése</string>
 
     <string id="SpynetReporting">Csatlakozás a Microsoft MAPS közösséghez</string>
-    <string id="SpynetReporting_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösséghez való csatlakozást. A Microsoft MAPS egy online közösség, amely segítséget nyújt annak eldöntésében, hogy miként reagáljon egy adott fenyegetésre. A közösség emellett a kártevők terjedését is segít meggátolni.
+    <string id="SpynetReporting_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösséghez való csatlakozást. A Microsoft MAPS egy online közösség, amely segítséget nyújt annak eldöntésében, hogy miként reagáljon egy adott fenyegetésre. A közösség emellett az új kártevő szoftverek terjedését is segít meggátolni.
 
-    Megadhatja, hogy az észlelt szoftverekről alapszintű vagy kiegészítő információkat kíván-e küldeni. A kiegészítő információk segítséget nyújtanak a Microsoftnak abban, hogy új definíciós listák készítésével fokozza a számítógépek védettségét. Ezek az információk tartalmazhatják például az észlelt elemek helyét, ha kártékony szoftvert távolított el a számítógépéről. Ezeket az információkat a rendszer automatikusan gyűjti össze és küldi el. Bizonyos esetekben a rendszer véletlenül személyes információkat is küldhet a Microsoftnak. A Microsoft azonban ezeket nem használja azonosításra és kapcsolatfelvételre.
+    Megadhatja, hogy az észlelt szoftverekről alapszintű vagy kiegészítő információkat kíván-e küldeni. A kiegészítő információk segítséget nyújtanak a Microsoftnak abban, hogy új biztonsági intelligencia létrehozásával fokozza a számítógépek védelmét. Ezek az információk tartalmazhatják például az észlelt elemek helyét a számítógépen, ha kártékony szoftvert távolított el a gépről. Ezeket az információkat a rendszer automatikusan gyűjti össze és küldi el. Bizonyos esetekben a rendszer véletlenül személyes információkat is küldhet a Microsoftnak. A Microsoft azonban ezeket nem használja fel azonosításra és kapcsolatfelvételre.
 
     Az alábbi értékeket adhatja meg:
     (0x0) Letiltva (alapértelmezett)
@@ -661,11 +716,11 @@ Ha letiltja vagy nem konfigurálja a beállítást, a csoportházirend felülbí
 
     Kiemelt tagság esetén a rendszer az alapvető adatok mellett további információkat is küld a Microsoftnak a kártevő szoftverekről, a kémprogramokról és a potenciálisan nemkívánatos szoftverekről, beleértve a szoftverek helyét és működési módját, a számítógépre gyakorolt hatásukat, valamint a fájlneveket.
 
-    Ha engedélyezi ezt a beállítást, a megadott tagsági szinten csatlakozni fog a Microsoft MAPS közösséghez.
+    Ha engedélyezi a beállítást, a megadott tagsági szinten csatlakozni fog a Microsoft MAPS közösséghez.
 
     Ha letiltja vagy nem konfigurálja a beállítást, nem fog csatlakozni a Microsoft MAPS közösséghez.
   
-    A Windows 10 rendszerben az alapszintű tagság már nem érhető el, ezért az érték 1-re vagy 2-re állításakor is a kiemelt tagság lép érvénybe az eszközön.</string>
+    A Windows 10-ben már nem érhető el az alapszintű tagság, ezért az 1 vagy a 2 érték megadásakor is a kiemelt tagság lép érvénybe az eszközön.</string>
     <string id="SpynetReporting_Disabled">Letiltva</string>
     <string id="SpynetReporting_Basic">Basic MAPS-tagság</string>
     <string id="SpynetReporting_Advanced">Kiemelt MAPS-tagság</string>
@@ -701,10 +756,10 @@ A szervizelési műveletként megadható értékek a következők:
       A beállítás engedélyezése esetén nem jelennek meg az újraindítási értesítések az AM felhasználói felületén.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Az összes értesítés elrejtése</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender értesítései.
-      Ha letiltja vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender értesítései.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Ezzel a házirend-beállítással megadhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender víruskereső értesítései.
+      Ha letiltja, vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender víruskereső értesítései.
 
-      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender értesítései.
+      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender víruskereső értesítései.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Kiegészítő szöveg megjelenítése, ha az ügyfélnek műveleteket kell végrehajtania</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjen-e kiegészítő szöveg, ha az ügyfélnek műveletet kell végrehajtania. A megjelenített szöveg egy rendszergazda által megadott egyéni karakterlánc, például a vállalat ügyfélszolgálatának telefonszáma. Az ügyfél kezelőfelülete csak legfeljebb 1024 karaktert tud megjeleníteni. Az ennél hosszabb karakterláncok csonkolva jelennek meg.
@@ -712,6 +767,201 @@ A szervizelési műveletként megadható értékek a következők:
 Ha engedélyezi a beállítást, megjelenik a megadott kiegészítő szöveg.
 
 Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészítő szöveg.</string>
+    <string id="MpCloudBlockLevel">Felhővédelem szintjének kiválasztása</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Ezzel a házirend-beállítással megadhatja, hogy a Windows Defender víruskereső mennyire agresszíven blokkolja és vizsgálja meg a gyanús fájlokat.
+
+      Ha a beállítás engedélyezve van, a Windows Defender víruskereső agresszívebben végzi a blokkolandó és vizsgálandó gyanús fájlok azonosítását; ellenkező esetben kevésbé lesz agresszív, vagyis ritkábban végez blokkolást és vizsgálatot. 
+      
+      A támogatott értékekről a Windows Defender víruskereső dokumentációs webhelyén olvashat további információt.
+
+      Megjegyzés: A funkció működéséhez engedélyezni kell a „Csatlakozás a Microsoft MAPS közösséghez” beállítást.
+
+      A lehetséges beállítások:
+      (0x0) A Windows Defender alapértelmezett blokkolási szintje
+      (0x2) Magas blokkolási szint – az ismeretlen elemek agresszív blokkolása és az ügyfél teljesítményének optimalizálása (nagyobb esély a téves riasztásokra)
+      (0x4) Magas+ blokkolási szint – az ismeretlen elemek agresszív blokkolása és további védelmi intézkedések foganatosítása (hatással lehet az ügyfél teljesítményére)
+      (0x6) Nulla tolerancia blokkolási szint – az összes ismeretlen végrehajtható fájl blokkolása
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">A Windows Defender víruskereső alapértelmezett blokkolási szintje</string>
+    <string id="MpCloudBlockLevel_High_Level">Magas blokkolási szint</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Magas+ blokkolási szint</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nulla tolerancia blokkolási szint</string>
+    <string id="MpBafsExtendedTimeout">Felhőben történő bővített vizsgálat konfigurálása</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Ez a funkció lehetővé teszi, hogy a Windows Defender víruskereső akár 60 másodpercig blokkolja a gyanús fájlokat, és a felhőben vizsgálja meg, hogy biztonságosak-e.
+      
+      A felhőben történő vizsgálat jellemzően 10 másodpercet vesz igénybe. A felhőben történő bővített ellenőrzés engedélyezéséhez adja meg a bővített ellenőrzés idejét másodpercben (legfeljebb 50 másodperc).
+
+      Ha például 60 másodperc időtúllépést szeretne beállítani, adjon meg 50 másodpercet ebben a beállításban, amivel engedélyezi a felhőben történő bővített vizsgálatot, és a teljes vizsgálati időt 60 másodpercre növeli.
+
+      Megjegyzés: Ez a funkció három másik MAPS-beállítástól függ: a működéséhez engedélyezni kell a „Blokkolás első látásra funkció konfigurálása”, a „Csatlakozás a Microsoft MAPS közösséghez”, valamint a „Fájlminták küldése további elemzési igény esetén” beállítást.
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Annak megakadályozása, hogy a felhasználók és az alkalmazások veszélyes webhelyeket érjenek el</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Engedélyezi vagy letiltja a Windows Defender – biztonsági rés kiaknázása elleni védelem nevű hálózatvédelmet, amely megakadályozza az alkalmazottakat abban, hogy bármilyen alkalmazás használatával olyan, veszélyes tartományokat érjenek el, amelyek adathalász csalások, biztonsági réseket kiaknázó webhelyek vagy egyéb kártékony internetes tartalmak futtatására vagy tárolására szolgálhatnak.
+
+    Engedélyezve:
+    Adja meg az üzemmódot a Beállítások szakaszban:
+    – Blokkolás: A felhasználók és az alkalmazások nem érhetik el a veszélyes tartományokat.
+        – Naplózás: A felhasználók és az alkalmazások csatlakozhatnak veszélyes tartományokhoz, ha azonban a funkció Blokkolás üzemmód esetén letiltotta volna a hozzáférést, akkor az eseményt rögzítő rekord megjelenik a Windows Defender biztonsági központban.
+
+    Letiltva:
+    Nem lesz letiltva a veszélyes tartományokhoz való csatlakozás a felhasználók és alkalmazások számára.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Fájlok és elérési utak kizárása a támadási felület csökkentésére szolgáló szabályok alól</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Fájlokat és elérési utakat zár ki a támadási felület csökkentésére szolgáló (ASR-) szabályok alól.
+
+    Engedélyezve:
+    A Beállítások szakaszban adja meg azokat a mappákat, illetve fájlokat és erőforrásokat, amelyeket ki szeretne zárni az ASR-szabályok alól.
+    Mindegyik szabályt új sorban adja meg név-érték párként:
+    – Név oszlop: Adja meg egy mappa elérési útját vagy egy erőforrás teljes nevét. A „C:\Windows” érték például az adott mappában levő összes fájlt kizárja. A „C:\Windows\App.exe” érték csak az adott mappában levő adott fájlt zárja ki.
+    – Érték oszlop: Mindegyik elemhez írja be a „0” értéket.
+
+    Letiltva:
+    Nem lesznek kivételek az ASR-szabályok alól.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    Az ASR-szabályok A támadási felület csökkentésére szolgáló szabályok konfigurálása nevű csoportházirend-beállításban állíthatók be.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">A támadási felület csökkentésére szolgáló szabályok konfigurálása</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Beállítja a támadási felület csökkentésére szolgáló (ASR-) szabályok állapotát.
+
+    A beállítás engedélyezése után a következő állapotokat adhatja meg az egyes szabályokhoz a Beállítások szakaszban:
+    – Letiltás: a rendszer alkalmazza a szabályt.
+    – Naplózási mód: ha a szabály normális esetben eseményt váltana ki, akkor a rendszer rögzíti az eseményt (de nem alkalmazza ténylegesen a szabályt).
+    – Kikapcsolva: a rendszer nem alkalmazza a szabályt.
+
+        Engedélyezve:
+    Ehhez a beállításhoz adja meg mindegyik ASR-szabály állapotát a Beállítások szakaszban.
+        Mindegyik szabályt új sorban adja meg név-érték párként:
+    – Név oszlop: Adja meg egy ASR-szabály érvényes azonosítóját.
+    – Érték oszlop: Adja meg a társított szabályhoz megadni kívánt állapothoz tartozó állapotazonosítót.
+
+    A következő állapotazonosítók adhatók meg az Érték oszlopban:
+    – 1 (Letiltás)
+    – 0 (Kikapcsolva)
+    – 2 (Naplózás)
+    
+    Példa:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Letiltva:
+    Nem lesznek konfigurálva ASR-szabályok.
+
+        Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    Kizárhat mappákat vagy fájlokat a „Fájlok és elérési utak kizárása a támadási felület csökkentésére szolgáló szabályok alól” csoportházirend-beállításban.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Mappákhoz való hozzáférés szabályozásának konfigurálása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Engedélyezi vagy letiltja a mappákhoz való hozzáférés szabályozását a nem megbízható alkalmazásokra vonatkozóan. Letilthatja, naplózhatja vagy engedélyezheti a nem megbízható alkalmazások kísérleteit a következő műveletek végrehajtására:
+    – Fájlok módosítása vagy törlése a védett mappákban, például a Dokumentumok mappában
+    – Írás a lemezszektorokra
+
+    Megadhatja, hogy csak a lemezszektorokra való írás legyen letiltva vagy naplózva, míg a védett mappákban lévő fájlok módosítása vagy törlése továbbra is engedélyezve legyen.
+
+    A Windows Defender víruskereső automatikusan meghatározza, hogy mely alkalmazások tekinthetők megbízhatónak. Felvehet további megbízható alkalmazásokat is az Engedélyezett alkalmazások konfigurálása csoportházirend-beállításban.
+    Az alapértelmezett rendszermappák automatikusan védve vannak, azonban felvehet mappákat a Védett mappák konfigurálása csoportházirend-beállításban.
+
+    Tiltás:
+    A következő műveletek lesznek letiltva:
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    A Windows-eseménynapló az Alkalmazás- és szolgáltatásnaplók&gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1123 területen naplózza ezeket a kísérleteket.
+
+
+    Letiltva:
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    Ezeket a kísérleteket a rendszer nem rögzíti a Windows-eseménynaplóban.
+
+
+    Naplózás mód:
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+    – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    A Windows-eseménynapló az Alkalmazás- és szolgáltatásnaplók&gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1124 területen naplózza ezeket a kísérleteket.
+
+
+    Csak a lemezmódosítás letiltása:
+    A következő műveletek le lesznek tiltva:
+   – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    A Windows-eseménynapló az Alkalmazás- és szolgáltatásnaplók&gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1123 területen naplózza ezeket a kísérleteket.
+
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    Ezeket a kísérleteket a rendszer nem rögzíti a Windows-eseménynaplóban.
+
+
+    Csak a lemezmódosítás naplózása:
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+   – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    A rendszer csak a védett lemezszektorokra való írásra vonatkozó kísérleteket rögzíti a Windows-eseménynaplóban (az Alkalmazás- és szolgáltatásnaplók &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1124 területen).
+    A rendszer nem rögzíti a védett mappákban lévő fájlok módosítására vagy törlésére vonatkozó kísérleteket.
+
+    Nincs konfigurálva:
+    A letiltott állapottal azonos.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Letiltás (alapértelmezés)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Letiltás</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Naplózási mód</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Csak a lemezmódosítás letiltása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Csak a lemezmódosítás naplózása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Engedélyezett alkalmazások konfigurálása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Felvehet további alkalmazásokat, amelyeket a mappákhoz való hozzáférést szabályozó funkció „megbízhatónak” tekint.
+
+    Ezek az alkalmazások módosíthatják vagy törölhetik a szabályozott hozzáférésű mappákban levő fájlokat.
+
+    A Windows Defender víruskereső automatikusan határozza meg, hogy mely alkalmazások tekinthetők megbízhatónak. E beállítás konfigurálásával további alkalmazásokat vehet fel.
+
+    Engedélyezve:
+    Adjon meg további engedélyezett alkalmazásokat a Beállítások szakaszban.
+
+    Letiltva:
+    A szoftver nem vesz fel további alkalmazásokat a megbízható alkalmazások listájára.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    A mappákhoz való hozzáférés szabályozása a Mappákhoz való hozzáférés szabályozásának konfigurálása csoportházirend-beállításban engedélyezhető.
+
+    A szoftver automatikusan védi az alapértelmezett rendszermappákat, de felvehet további mappákat is a Védett mappák konfigurálása csoportházirend-beállításban.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Védett mappák konfigurálása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Megadhat további mappákat, amelyeket védeni kíván a Mappákhoz való hozzáférés szabályozása funkcióval.
+
+        A nem megbízható alkalmazások nem módosíthatják és nem törölhetik az ezekben a mappákban levő fájlokat.
+
+        A szoftver automatikusan védi az alapértelmezett rendszermappákat. E beállítás konfigurálásával felvehet további mappákat.
+    A védelem alatt álló alapértelmezett rendszermappák listája a Windows biztonság szolgáltatásban tekinthető meg.
+
+    Engedélyezve:
+    Adjon meg további védendő mappákat a Beállítások szakaszban.
+
+    Letiltva:
+    Nem lesznek további védett mappák.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    A mappákhoz való hozzáférés szabályozása a Mappákhoz való hozzáférés szabályozásának konfigurálása csoportházirend-beállításban engedélyezhető.
+
+    A Windows Defender víruskereső automatikusan meghatározza, hogy mely alkalmazások tekinthetők megbízhatónak. További megbízható alkalmazásokat az Engedélyezett alkalmazások konfigurálása csoportházirend-beállításban vehet fel.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -805,32 +1055,37 @@ Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészít�
     <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Napi ütemezésű ellenőrzés időpontjának megadása</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_ASSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">A kémprogram-definíciók elavulási idejének megadása napban kifejezve</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Kémprogramokra vonatkozó biztonsági intelligencia elavulási idejének megadása napban kifejezve</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_AVSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">A vírusdefiníciók elavulási idejének megadása napban kifejezve</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Vírusokra vonatkozó biztonsági intelligencia elavulási idejének megadása napban kifejezve</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
     <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
-        <label>Definíciófrissítések letöltésére szolgáló fájlmegosztások megadása</label>
+        <label>Biztonságiintelligencia-frissítések letöltéséhez használt fájlmegosztások megadása</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SharedSignaturesLocation">
+    <textBox refId="SignatureUpdate_SharedSignaturesLocation">
+        <label>Virtuális környezetekben a biztonságiintelligencia-frissítések letöltéséhez használt fájlmegosztás megadása</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_FallbackOrder">
     <textBox refId="SignatureUpdate_FallbackOrder">
-        <label>A definíciófrissítési források sorrendjének meghatározása</label>
+        <label>Biztonságiintelligencia-frissítések letöltéséhez használt források sorrendjének meghatározása</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleDay">
-    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Heti ütemezésű definíciófrissítések keresése a megadott napon</dropdownList>
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">A hét napjának megadása a biztonságiintelligencia-frissítések kereséséhez</dropdownList>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleTime">
-    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Definíciófrissítések keresése a megadott időpontban</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Biztonságiintelligencia-frissítések keresési időpontjának megadása</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Pótlólagos definíciófrissítés időkorlátjának megadása napban kifejezve</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Pótlólagos biztonságiintelligencia-frissítés időkorlátjának megadása napban kifejezve</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Definíciófrissítések keresési időközének megadása</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Biztonságiintelligencia-frissítések keresési időközének megadása</decimalTextBox>
     </presentation>
     <presentation id="SpynetReporting">
     <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Csatlakozás a Microsoft MAPS közösséghez</dropdownList>
@@ -852,6 +1107,33 @@ Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészít�
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Adja meg a lejárati értesítések időközét</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Felhő blokkolási szintjének kiválasztása</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Adja meg a felhőben történő bővített ellenőrzés idejét másodpercben</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">A mappavédelmi funkció konfigurálása</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Az ASR-szabályok alóli kivételek:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Az egyes ASR-szabályok állapotának beállítása:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">A megbízhatónak tekintendő alkalmazások megadása:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">A védendő mappák megadása:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

@@ -110,18 +110,17 @@
 
 注意: 此设置不会阻止 Windows 显示用户已明确附加到跳转列表的远程文件。请参阅“不允许在跳转列表中附加项目”策略设置。</string>
       <string id="NoPinningToTaskbar">不允许将程序附加到任务栏</string>
-      <string id="NoPinningToTaskbar_Help">使用此策略设置，可以控制向任务栏附加程序。
+      <string id="NoPinningToTaskbar_Help">使用此策略设置，可以控制向任务栏固定程序。
 
-如果启用此策略设置，则用户无法更改当前已附加到任务栏的程序。如果程序已附加到任务栏，则这些程序将继续显示在任务栏中。但是，用户无法去除已附加到任务栏的程序，也无法将新程序附加到任务栏。
+如果启用此策略设置，则用户无法更改当前已固定到任务栏的程序。如果程序已固定到任务栏，则这些程序将继续显示在任务栏中。但是，用户无法取消已固定到任务栏的程序，也无法将新程序固定到任务栏。
 
-如果禁用或未配置此策略设置，则用户可以更改当前附加到任务栏上的程序。</string>
+如果禁用或未配置此策略设置，则用户可以更改当前固定到任务栏上的程序。</string>
       <string id="NoPinningToDestinations">不允许在跳转列表中附加项目</string>
-      <string id="NoPinningToDestinations_Help">使用此策略设置，可以控制在跳转列表中附加项目。
+      <string id="NoPinningToDestinations_Help">使用此策略设置，可以控制在跳转列表中固定项目。
 
-如果启用此策略设置，则用户无法将文件、文件夹、网站或其他项目附加到“开始”菜单和任务栏中的相应跳转列表。用户也无法去除已附加到跳转列表的现有项目。已附加到其跳转列表的现有项目将会继续显示。
+如果启用此策略设置，则用户无法将文件、文件夹、网站或其他项目固定到“开始”菜单和任务栏中的相应跳转列表。用户也无法取消已固定到跳转列表的现有项目。已固定到其跳转列表的现有项目将会继续显示。
 
-如果禁用或未配置此策略设置，则用户可以将文件、文件夹、网站和其他项目附加到程序的跳转列表，以便这些项目始终出现在此菜单中。
-
+如果禁用或未配置此策略设置，则用户可以将文件、文件夹、网站和其他项目固定到程序的跳转列表，以便这些项目始终出现在此菜单中。
 </string>
       <string id="TaskbarNoMultimon">不允许任务栏多处显示</string>
       <string id="TaskbarNoMultimon_Help">使用此策略设置，可以阻止任务栏显示在多个监视器上。
@@ -148,13 +147,28 @@
 如果禁用或未配置此策略设置，则通知、安全和维护将显示在任务栏中。
 
 需要重新启动，此策略设置才能生效。</string>
-      <string id="NoPinningStoreToTaskbar">不允许将应用商店应用固定到任务栏</string> 
+      <string id="NoPinningStoreToTaskbar">不允许将 Microsoft Store 应用固定到任务栏</string> 
       <string id="NoPinningStoreToTaskbar_Help">
-使用此策略设置，可以控制将应用商店应用固定到任务栏。
+使用此策略设置，可以控制将 Microsoft Store 应用固定到任务栏。
 
-如果启用此策略设置，则用户不能将应用商店应用固定到任务栏。如果应用商店应用已固定到任务栏，则下次登录时将从任务栏中将其删除。
+如果启用此策略设置，则用户不能将 Microsoft Store 应用固定到任务栏。如果 Microsoft Store 应用已固定到任务栏，则下次登录时将从任务栏中将其删除。
 
-如果禁用或未配置此策略设置，则用户可以将应用商店应用固定到任务栏。</string>
+如果禁用或未配置此策略设置，则用户可以将 Microsoft Store 应用固定到任务栏。</string>
+      <string id="ConfigureTaskbarCalendar">显示其他日历</string>
+      <string id="ConfigureTaskbarCalendar_Help">默认情况下，将根据操作系统的区域设置来设备日历，并且用户可以显示其他日历。针对 zh-CN 和 zh-SG 区域设置，默认情况下，其他日历将以简体中文(农历)显示农历月份和日期，以及节假日名称。针对 zh-TW、zh-HK 和 zh-MO 区域设备，默认情况下，其他日历将以繁体中文(农历)显示农历月份和日期，以及节假日名称。
+
+如果启用此策略设置，用户可以简体中文(农历)或繁体中文(农历)显示其他日历，不管区域设置如何。
+
+如果禁用此策略设置，用户将无法显示其他日历，不管区域设置如何。
+
+如果未配置此策略设置，则将根据默认逻辑设置日历。</string>
+      <string id="ConfigureTaskbarCalendar_SimplifiedChinese">简体中文(农历)</string>
+      <string id="ConfigureTaskbarCalendar_TraditionalChinese">繁体中文(农历)</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="ConfigureTaskbarCalendar">
+        <dropdownList refId="ConfigureTaskbarCalendar_Dropdown" defaultItem="0">日历:</dropdownList>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

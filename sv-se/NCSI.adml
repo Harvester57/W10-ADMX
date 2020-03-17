@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Den här principinställningen gör att du kan ange HTTPS-adressen till företagswebbplatsen som klienterna använder för att avgöra den nuvarande domänplatsen (det vill säga om datorn är innanför eller utanför företagets nätverk). Om det går att nå måladressen innebär det att klienten befinner sig innanför företagets nätverk. Om det inte går är den utanför nätverket.</string>
       <string id="NCSI_PassivePolling">Ange passiv avsökning</string>
       <string id="NCSI_PassivePolling_Help">Den här principinställningen gör att du kan ange förfarande för passiv avsökning. NCSI söker av olika mätvärden via nätverksstacken ofta för att avgöra om nätverksanslutningen har avbrutits.  Använd alternativen om du vill styra förfarandet för passiv avsökning.</string>
+      <string id="NCSI_GlobalDns">Ange global DNS</string>
+      <string id="NCSI_GlobalDns_Help">Med den här policyinställningen kan du ange hur DNS-bindningen ska fungera. NCSI begränsar som standard DNS-sökningar till gränssnittet som avsöks. Om du aktiverar den här inställningen kan DNS-sökningar utföras i alla gränssnitt.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>Följande kryssruta inaktiverar passiv avsökning i NCSI.   Det kan minska processorbelastningen för servrar eller andra datorer med statisk nätverksanslutning.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Inaktivera passiv avsökning</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Följande kryssruta inaktiverar gränssnittsbindning vid DNS-sökningar i NCSI. Detta kan innebära att NCSI fungerar bättre med speciella nätverkskonfigurationer, som en DNS-server som körs på en lokal värd.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Använd global DNS</checkBox>
       </presentation>
     </presentationTable>
   </resources>

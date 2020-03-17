@@ -33,13 +33,15 @@ Om du inaktiverar eller inte anger den här principinställningen används endas
 Om du aktiverar den här principinställningen tillåts användarna logga in med ett företagskonto i stället på Windows Store-appar som normalt kräver ett Microsoft-konto.
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen måste användarna logga in med ett Microsoft-konto.</string>
-      <string id="AppxRuntimeBlockHostedAppAccessWinRT">Blockera start av Windows Store-appar med Windows Runtime API-åtkomst från värdbaserat innehåll.</string>
+      <string id="AppxRuntimeBlockHostedAppAccessWinRT">Blockera start av universella Windows-appar med Windows Runtime API-åtkomst från värdbaserat innehåll.</string>
       <string id="AppxRuntimeBlockHostedAppAccessWinRTExplanation">
-        Med den här principinställningen kan du ange om det går att starta Windows Store-appar med Windows Runtime API-åtkomst direkt från webbinnehåll.
+        Med den här principinställningen kan du ange om det går att starta universella Windows-appar med Windows Runtime API-åtkomst direkt från webbinnehåll.
 
-        Om du aktiverar den här principinställningen går det inte att starta Windows Store-appar med Windows Runtime API-åtkomst direkt från webbinnehåll. Windows Store-appar utan Windows Runtime API-åtkomst från webbinnehåll påverkas inte.
+        Om du aktiverar principinställningen går det inte att starta universella Windows-appar som deklarerar Windows Runtime API-åtkomst i avsnittet ApplicationContentUriRules i manifestet. Universella Windows-appar utan deklarerad Windows Runtime API-åtkomst i manifestet påverkas inte.
 
-        Om du inaktiverar eller låter bli att konfigurera principinställningen kan alla Windows Store-appar startas.
+        Om du inaktiverar eller låter bli att konfigurera principinställningen kan alla universella Windows-appar startas.
+
+        Du bör inte aktivera den här principen såvida inte Microsoft rekommenderar det med anledning av ett säkerhetsproblem eftersom det kan orsaka allvarliga problem med appkompatibilitet.
       </string>
     </stringTable>
     <presentationTable>

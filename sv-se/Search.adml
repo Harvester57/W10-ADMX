@@ -67,17 +67,19 @@ Om du aktiverar den här principinställningen använder Sök inte användarens 
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen använder Sök användarens aktuella plats när sökresultat tillhandahålls.</string>
       <string id="SafeSearch">Ange inställningen för Säker sökning för Sök</string>
-      <string id="ExplainSafeSearch">Med den här principinställningen kan du styra den inställning för Säker sökning som används när en fråga utförs i Sök. 
+      <string id="ExplainSafeSearch">Med den här principinställningen kan du styra den inställning för Säker sökning som används när en sökfråga körs i Sök. 
 
 Om du aktiverar den här principinställningen kan du ange en av tre inställningar för Säker sökning, som användarna inte kan ändra:
 
     -Strikt: Filtrera bort text, bilder och videoklipp med innehåll som är olämpligt för barn från sökresultat;
 
-    -Mellan: Filtrera bort bilder och video med innehåll som är olämpligt för barn men inte text från sökresultat;
+    -Mellan: Filtrera bort bilder och videoklipp med innehåll som är olämpligt för barn men inte text från sökresultat;
 
-    -Av: Filtrera inte bort innehåll som är olämpligt för barn från sökresultat.
+    -Av: Filtrera inte bort något innehåll från sökresultat.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användarna ange inställning för Säker sökning.</string>
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användarna välja inställning för Säker sökning.
+
+Windows 10-användare bör använda Search/DoNotUseWebResults</string>
       <string id="SharePrivacyAllAndLocation">Användarinfo och plats</string>
       <string id="SharePrivacyAll">Endast användarinfo</string>
       <string id="SharePrivacyAnonymous">Anonym info</string>
@@ -272,11 +274,26 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
  
 Om du aktiverar eller låter bli att konfigurera den här principinställningen tillåts Cortana på enheten. Om du inaktiverar inställningen stängs Cortana av. 
  
-Användarna kan fortfarande söka efter och hitta saker på enheten och Internet även om Cortana är avstängd.</string>
+Användarna kan fortfarande söka efter och hitta saker på enheten även om Cortana är avstängd.</string>
+      <string id="AllowCortanaAboveLock">Tillåt Cortana när systemet är låst</string>
+      <string id="ExplainAllowCortanaAboveLock">Den här principinställningen anger om användaren kan interagera med Cortana genom att tala när systemet är låst.
+
+Om du aktiverar eller låter bli att konfigurera inställningen kan användaren interagera med Cortana genom att tala när systemet är låst.
+
+Om du inaktiverar inställningen måste systemet låsas upp innan användaren kan interagera med Cortana genom att tala.</string>
       <string id="AllowSearchToUseLocation">Tillåt att sökfunktionen och Cortana får använda din position</string>
       <string id="ExplainAllowSearchToUseLocation">Den här principinställningen anger om sökfunktionen och Cortana kan tillhandahålla positionsbaserade sökresultat och Cortana-resultat.
  
 Om den aktiveras får sökfunktionen och Cortana tillgång till positionsinformation.</string>
+      <string id="AllowCloudSearch">Tillåt molnsökning</string>
+      <string id="AllowCortanaInAADPathOOBE">Tillåt Cortana-sidan i välkomstprogrammet i ett AAD-konto</string>
+      <string id="ExplainAllowCloudSearch">Tillåt att sökfunktionen och Cortana söker i molnkällor som OneDrive och SharePoint</string>
+      <string id="ExplainCortanaAAD">Tillåt Cortana-registreringssidan i välkomstprogrammet för Windows-installationen</string>
+      <string id="AllowCloudSearchDisabled">Inaktivera molnsökning</string>
+      <string id="AllowCortanainAADDisabled">Inaktivera Cortana-sidan i AAD</string>
+      <string id="AllowCortanainAADEnabled">Aktivera Cortana-sidan i AAD</string>
+      <string id="AllowCloudSearchEnabled">Aktivera molnsökning</string>
+      <string id="AllowCloudSearchControlledByUser">Användarvald</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ Om den aktiveras får sökfunktionen och Cortana tillgång till positionsinforma
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Standardinställning för Säker sökning</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Inställning för molnsökning</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Inställning för Cortana i AAD</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

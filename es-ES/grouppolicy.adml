@@ -11,31 +11,31 @@
       <string id="FontMitigation_On">Bloquear fuentes y eventos de registro que no son de confianza</string>
       <string id="FontMitigation_Off">No bloquear fuentes que no son de confianza</string>
       <string id="FontMitigation_Audit">Eventos de registro sin bloqueo de fuentes que no son de confianza</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Opciones de mitigación de procesos</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Esta característica de seguridad proporciona un medio para reemplazar la configuración del proceso individual MitigationOptions. Esto puede usarse para imponer un número de directivas de seguridad específicos de aplicaciones. El nombre de la aplicación se especifica como el nombre de valor, incluido la extensión. El valor se especifica como campo de bits con una serie de marcas en posiciones particulares. Se pueden establecer bits en 0 (la configuración no está forzada), 1 (la configuración está forzada), o ? (la configuración conserva su valor existente antes de la evaluación de GPO). Las ubicaciones de bits reconocidas son:
+        Esta característica de seguridad proporciona un medio para reemplazar la configuración de MitigationOptions de cada proceso. Esto se puede usar para aplicar una serie de directivas de seguridad específicas a las aplicaciones. El nombre de la aplicación se especifica como el nombre del valor, incluida la extensión. El valor se especifica como un campo de bits con una serie de marcas en determinadas posiciones. Los bits se pueden establecer en 0 (se fuerza la desactivación del ajuste), 1 (se fuerza la activación del ajuste) o ? (el ajuste conserva su valor existente antes de la evaluación de Objeto de directiva de grupo [GPO]). Las ubicaciones de bits reconocidas son:
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
-        Habilita la prevención de ejecución de datos (DEP) para el proceso secundario
+        Permite la Prevención de ejecución de datos (DEP) para el proceso secundario.
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Habilita la emulación del código thunk de DEP-ATL para el proceso secundario. La emulación del código thunk de DEP-ATL hace que el sistema intercepte errores NX originados desde la capa de código thunk de Active Template Library (ATL). 
+        Permite la emulación de código thunk de ATL de DEP para el proceso secundario. Dicha emulación de código thunk de ATL de DEP hace que el sistema intercepte los errores de NX que se originan en la capa de Active Template Library (ATL).
 
         PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
-        Habilita la protección de sobrescritura del controlador de excepciones estructurado (SEHOP) para el proceso secundario. SEHOP bloquea vulnerabilidades que usan la técnica de sobrescritura del controlador de excepciones estructurado (SEH).
+        Habilita la protección de sobrescritura del controlador de excepciones estructurado (SEHOP) para el proceso secundario. SEHOP bloquea las vulnerabilidades que usan la técnica de sobrescritura del controlador de excepciones estructurado (SEH).
 
         PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
-        La directiva de forzar la selección aleatoria del diseño del espacio de direcciones (ASLR) fuerza a reajustar imágenes que no son compatibles con base dinámica actuando como si hubiera ocurrido una colisión de base de imagen durante el tiempo de carga. Si se necesitaran reubicaciones, no se cargarán las imágenes que no tienen una sección de reubicación base.
+        La directiva Forzar selección aleatoria del diseño del espacio de direcciones (ASLR) fusiona obligadamente mediante cambio de base las imágenes que no son compatibles con bases dinámicas al funcionar como si una colisión de base de imágenes ocurriera en el momento de la carga. Si se requieren reubicaciones, las imágenes que no tengan una sección de reubicación de base no se cargarán.
 
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
-        La directiva de selección aleatoria de abajo a arriba, que incluye opciones de selección aleatoria de la pila, hace que se use una ubicación aleatoria como dirección de usuario más baja.
+        La directiva Aleatorización de abajo hacia arriba, que incluye opciones de aleatorización de pila, hace que se utilice una ubicación aleatoria como la dirección de usuario más baja.
 
-        Por ejemplo, para habilitar PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE y PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, deshabilita PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF y, para dejar todas las demás opciones con sus valores predeterminados, especifica un valor de:
+        Por ejemplo, para habilitar PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE y PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, es necesario deshabilitar PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, dejar todas las demás opciones en sus valores predeterminados y especificar un valor de:
         ???????????????0???????1???????1
 
-        Establecer marcas que no se especifiquen aquí en cualquier valor que no sea ? produce un comportamiento indefinido.	  
+        Las marcas de configuración que no se establezcan aquí en un valor distinto de ? tendrán como resultado un comportamiento indefinido.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Habilitar la sincronización del controlador de dominio de AD/DFS durante la actualización de directivas</string>
@@ -50,42 +50,60 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Continuar experiencias en este dispositivo</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Esta configuración de directiva determina si el dispositivo Windows puede participar en experiencias de dispositivos cruzados (continuar experiencias).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Si se habilita esta configuración de directiva, el dispositivo de Windows será reconocido por otros dispositivos de Windows que pertenecen al mismo usuario y podrá participar en experiencias de dispositivos cruzados.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Si se deshabilita esta configuración de directiva, el dispositivo de Windows no estará accesible para otros dispositivos y no podrá participar en experiencias de dispositivos cruzados.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Si no se establece esta configuración de directiva, el comportamiento predeterminado depende de la edición de Windows. Los cambios en esta directiva surten efecto al reiniciar la próxima vez.
+      </string>
+      <string id="EnableMMX">Vinculación de teléfono y PC en este dispositivo</string>
+      <string id="EnableMMX_Help">
+Esta directiva permite a los administradores de TI desactivar la posibilidad de vincular un teléfono a un PC para continuar la lectura, el envío de correos electrónicos y otras tareas que requieren la vinculación entre el teléfono y el equipo.
+
+Si habilitas esta configuración de directiva, el dispositivo Windows podrá inscribirse en la característica de vinculación de teléfono y PC, y participar en las experiencias Continuar en PC.
+
+Si la deshabilitas, no se permitirá que el dispositivo Windows se vincule a teléfonos, se lo eliminará automáticamente de la lista de dispositivos de cualquier teléfono vinculado y no podrá participar en las experiencias Continuar en PC.
+
+Si no configuras esta configuración de directiva, el comportamiento predeterminado depende de la edición de Windows. Los cambios en esta directiva tienen efecto tras el reinicio.
+      </string>
+      <string id="EnableAppUriHandlers">Configurar la vinculación de web a aplicación con controladores de URI de aplicación</string>
+      <string id="EnableAppUriHandlers_Help">
+Esta configuración de directiva determina si Windows es compatible con la vinculación de web a aplicación con controladores de URI de aplicación.
+
+Si activas esta configuración de directiva, se habilita la vinculación de web a aplicación para que las aplicaciones se puedan iniciar con URI HTTP o HTTPS.
+
+Si desactivas esta directiva, se deshabilita el vínculo de web a aplicación y los URI HTTP o HTTPS se abrirán en el explorador predeterminado, en lugar de iniciar la aplicación asociada.
+
+Si no estableces esta configuración de directiva, el comportamiento predeterminado depende de la edición de Windows. Los cambios en esta directiva se aplican al reiniciar.
       </string>
       <string id="Fonts">Fuentes</string>
       <string id="EnableFontProviders">Habilitar Proveedores de fuentes</string>
       <string id="EnableFontProviders_Help">
-        Esta configuración de directiva determina si permite a Windows descargar fuentes y datos del catálogo de fuentes desde un proveedor de fuentes en línea.
-       
-        Si habilitas esta configuración de directiva, Windows consulta periódicamente un proveedor de fuentes en línea para determinar si está disponible un nuevo catálogo de fuentes. Windows también puede descargar datos de fuentes si fuera necesario formatear o representar texto.
-       
-        Si deshabilitas esta configuración de directiva, Windows no se conectará a un proveedor de fuentes en línea y solo enumera las fuentes instaladas localmente.
-     
-        Si no estableces esta configuración de directiva, el comportamiento predeterminado depende de la edición de Windows. Los cambios en esta directiva surgen efecto en el próximo reinicio.
+        Esta configuración de directiva determina si Windows puede descargar fuentes y datos de catálogo de fuentes de un proveedor de fuentes en línea.
+
+        Si habilitas esta configuración de directiva, Windows consulta periódicamente a un proveedor de fuentes en línea para determinar si hay un nuevo catálogo de fuentes disponible. Windows también podría descargar datos de fuentes si es necesario para dar formato al texto o presentarlo.
+
+        Si deshabilitas esta configuración de directiva, Windows no se conecta a ningún proveedor de fuentes en línea y solo enumera las fuentes instaladas localmente.
+
+        Si no configuras esta configuración de directiva, el comportamiento predeterminado depende de la edición de Windows. Los cambios en esta directiva tienen efecto tras el reinicio.
       </string>
       <string id="EnableLogonOptimization">Configurar almacenamiento en caché de directiva de grupo</string>
       <string id="EnableLogonOptimization_Help">
-        
-        Esta directiva permite configurar el comportamiento de almacenamiento en caché de la directiva de grupo.
-        
-        Si habilita o no establece esta configuración de directiva, la directiva de grupo almacena en caché la información de directiva después de cada sesión de procesamiento en segundo plano. En esta memoria caché se guardan los GPO aplicables y las configuraciones que estos contienen. Cuando la directiva de grupo se ejecuta en primer plano sincrónico, hace referencia a esta memoria caché, lo que le permite ejecutarse con mayor rapidez. Al leer la memoria caché, la directiva de grupo trata de ponerse en contacto con un controlador de dominio de inicio de sesión para averiguar la velocidad de vínculo. Cuando la directiva de grupo se ejecuta en segundo plano o en primer plano asincrónico, sigue descargando la versión más reciente de la información de directiva y emplea una estimación de ancho de banda para averiguar los umbrales de vínculo lento. (Consulte la configuración de directiva “Configurar detección de vínculo de baja velocidad de la directiva de grupo” para configurar el comportamiento en primer plano asincrónico.)
-        
-        El valor de vínculo lento definido en esta configuración de directiva determina la cantidad de tiempo que la directiva de grupo va a esperar una respuesta del controlador de dominio antes de considerar la velocidad del vínculo como lenta. El valor predeterminado es de 500 milisegundos.
-        
-        El valor de tiempo de espera definido en esta configuración de directiva determina la cantidad de tiempo que la directiva de grupo va a esperar una respuesta del controlador de dominio antes de constatar que no hay conectividad de red. Esto detiene el procesamiento de directiva de grupo actual. La directiva de grupo se ejecutará en segundo plano la próxima vez que se establezca una conexión con un controlador de dominio. Si este valor se establece en un número muy alto, las esperas podrían ser excesivamente largas a la hora de arrancar o iniciar sesión. El valor predeterminado es de 5000 milisegundos.
-        
-        Si deshabilita esta configuración de directiva, el Cliente de directiva de grupo no almacenará en caché los GPO o configuraciones aplicables que haya en los GPO. Cuando la directiva de grupo se ejecuta de forma sincrónica, descarga la versión más reciente de la directiva de la red y emplea estimaciones de ancho de banda para averiguar los umbrales de vínculo lento. (Consulte la configuración de directiva “Configurar detección de vínculo de baja velocidad de la directiva de grupo” para configurar el comportamiento en primer plano asincrónico.)
-      
+        Esta configuración de directiva permite configurar el comportamiento de almacenamiento en caché de la directiva de grupo.
+
+        Si habilitas o no configuras esta configuración de directiva, la directiva de grupo almacena en caché la información de la directiva después de cada sesión de procesamiento en segundo plano. Esta memoria caché guarda los objetos de directiva de grupo (GPO) aplicables y los ajustes incluidos en ellos. Cuando la directiva de grupo se ejecuta en el modo de primer plano sincrónico, hace referencia a esta memoria caché, que le permite ejecutarse más rápido. Cuando se lee la caché, la directiva de grupo intenta ponerse en contacto con un controlador de dominio de inicio de sesión para determinar la velocidad del vínculo. Cuando la directiva de grupo se ejecuta en el modo de segundo plano o en el modo de primer plano asincrónico, continúa descargando la última versión de la información de la directiva y usa una estimación de ancho de banda para determinar los umbrales de vínculo de baja velocidad. (Consulta la configuración de directiva "Configurar detección de vínculo de baja velocidad de la directiva de grupo" para establecer el comportamiento de primer plano asincrónico).
+
+        El valor de vínculo de baja velocidad que se define en esta configuración de directiva determina la cantidad de tiempo que la directiva de grupo esperará una respuesta del controlador de dominio antes de notificar la velocidad del vínculo como baja. El valor predeterminado es 500 milisegundos.
+
+        El valor de tiempo de espera definido en esta configuración de directiva determina la cantidad de tiempo que la directiva de grupo esperará una respuesta del controlador de dominio antes de determinar que no hay conectividad de red. Esto detiene el procesamiento de la directiva de grupo actual. La directiva de grupo se ejecutará en segundo plano la próxima vez que se establezca una conexión con un controlador de dominio. Si se establece este valor en un número demasiado alto, podría resultar en una espera más prolongada para el usuario durante el arranque o el inicio sesión. El valor predeterminado es 5000 milisegundos.
+
+        Si deshabilitas esta configuración de directiva, el cliente de directiva de grupo no guardará en caché los GPO o los ajustes incluidos en ellos. Cuando la directiva de grupo se ejecuta de forma sincrónica, descarga la última versión de la directiva desde la red y usa estimaciones de ancho de banda para determinar los umbrales de vínculo de baja velocidad. (Consulta la configuración de directiva "Configurar detección de vínculo de baja velocidad de la directiva de grupo" para establecer el comportamiento de primer plano asincrónico).
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Habilitar almacenamiento en caché de la directiva de grupo para servidores</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,52 +114,48 @@ If you do not configure this policy setting, the default behavior depends on the
         Si deshabilita o no establece esta configuración de directiva, el Cliente de directiva de grupo no almacenará en caché los GPO o configuraciones aplicables que haya en los GPO. Cuando la directiva de grupo se ejecuta de forma sincrónica, descarga la versión más reciente de la directiva de la red y emplea estimaciones de ancho de banda para averiguar los umbrales de vínculo lento. (Consulte la configuración de directiva “Configurar detección de vínculo de baja velocidad de la directiva de grupo” para configurar el comportamiento en primer plano asincrónico.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Configurar retraso de script de inicio de sesión</string>
       <string id="LogonScriptDelay_Help">
-        
-        Escriba “0” para deshabilitar el retraso de script de inicio de sesión.
-        
-        Esta configuración de directiva permite configurar la cantidad de tiempo que el Cliente de directiva de grupo espera tras el inicio de sesión y antes de ejecutar scripts.
-        
-        El Cliente de directiva de grupo espera cinco minutos de forma predeterminada antes de ejecutar scripts de inicio de sesión. Esto contribuye a crear un entorno de escritorio que responde adecuadamente, en tanto se evita la contención de disco.
-        
-        Si habilita esta configuración de directiva, la directiva de grupo esperará la cantidad de tiempo especificada antes de ejecutar scripts de inicio de sesión.
-        
-        Si deshabilita esta configuración de directiva, la directiva de grupo ejecutará scripts inmediatamente después del inicio de sesión.
-        
-        Si no establece esta configuración de directiva, la directiva de grupo esperará cinco minutos antes de ejecutar scripts de inicio de sesión.
-      
+        Escribe "0" para deshabilitar el retraso de script de inicio de sesión.
+
+        Esta configuración de directiva permite definir el tiempo que el cliente de directiva de grupo espera después del inicio de sesión antes de ejecutar scripts.
+
+        De forma predeterminada, el cliente de directiva de grupo espera cinco minutos antes de ejecutar scripts de inicio de sesión. Esto ayuda a crear un entorno de escritorio sensible al evitar la contención del disco.
+
+        Si habilitas esta configuración de directiva, la directiva de grupo esperará la cantidad de tiempo especificada antes de ejecutar scripts de inicio de sesión.
+
+        Si deshabilitas esta configuración de directiva, la directiva de grupo ejecutará scripts inmediatamente después de iniciar la sesión.
+
+        Si no configuras esta configuración de directiva, la directiva de grupo esperará cinco minutos antes de ejecutar scripts de inicio de sesión.
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Configurar las conexiones de Direct Access como una conexión de red rápida</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Esta configuración de directiva permite que un administrador defina la conexión de Direct Access para que se le considere una conexión de red rápida a la hora de aplicar y actualizar la directiva de grupo. 
- 
-Cuando la directiva de grupo detecta la velocidad de banda ancha de una conexión de Direct Access, la detección puede fallar a veces al proporcionar la información de velocidad de la banda ancha. Si la directiva de grupo detecta una velocidad de banda ancha, la directiva de grupo seguirá las reglas habituales para evaluar si la conexión de Direct Access es una conexión de red rápida o lenta. Si no se detecta la velocidad de banda ancha, la directiva de grupo determinará de forma predeterminada que se trata de una conexión de red lenta. Esta configuración de directiva ofrece al administrador la posibilidad de invalidar la opción predeterminada por la que se considera una conexión de red lenta y, en su lugar, poder utilizar la conexión de red rápida como opción predeterminada en el caso de que no se determine la velocidad de ancho de banda de la red.
- 
-Nota: cuando la directiva de grupo detecta una conexión de red lenta, la directiva de grupo solo procesará aquellas extensiones del lado cliente que estén configuradas para ser procesadas a través de un vínculo de baja velocidad (conexión de red lenta).  
- 
-Si habilita esta directiva, cuando la directiva de grupo no pueda determinar la velocidad de ancho de banda a través de Direct Access, la directiva de grupo evaluará la conexión de red como un vínculo de alta velocidad y procesará todas las extensiones del lado cliente.
- 
-Si deshabilita o no establece esta configuración, la directiva de grupo evaluará la conexión de red como un vínculo de baja velocidad y solo procesará las extensiones del lado cliente que estén configuradas para ser procesadas sobre un vínculo de baja velocidad.
-          
-      
-          
+      <string id="SlowLinkDefaultForDirectAccess_Help">Esta configuración de directiva permite que un administrador defina la conexión de Acceso directo para que se considere una conexión de red rápida con el fin de aplicar y actualizar la directiva de grupo.
+
+Cuando la directiva de grupo detecta la velocidad de ancho de banda de una conexión de Acceso directo, la detección a veces no puede proporcionar información sobre la velocidad del ancho de banda. Si la directiva de grupo detecta una velocidad de ancho de banda, la directiva de grupo seguirá las reglas normales para evaluar si la conexión de Acceso directo es una conexión de red rápida o lenta. Si no se detecta velocidad de ancho de banda, la directiva de grupo se establecerá en un valor predeterminado de conexión de red lenta. Esta configuración de directiva ofrece al administrador la posibilidad de reemplazar el valor predeterminado de red lenta por una conexión de red rápida en caso de que no se determine la velocidad de ancho de banda de red.
+
+Nota: Cuando la directiva de grupo detecte una conexión de red lenta, la directiva de grupo solo procesará aquellas extensiones del lado cliente que estén configuradas para ser procesadas a través de un vínculo de baja velocidad (conexión de red lenta).
+
+Si habilitas esta directiva, cuando la directiva de grupo no pueda determinar la velocidad de ancho de banda a través de Acceso directo, la directiva de grupo evaluará la conexión de red como un vínculo de alta velocidad y procesará todas las extensiones del lado del cliente.
+
+Si deshabilitas esta configuración o no la configuras, la directiva de grupo evaluará la conexión de red como un vínculo de baja velocidad y solo procesará las extensiones del lado cliente que estén configuradas para ser procesadas a través un vínculo de baja velocidad.
+
       </string>
      <string id="SlowlinkDefaultToAsync">Cambie el procesamiento de la directiva de grupo para que se ejecute de forma asincrónica cuando se detecte una conexión de red lenta.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Esta directiva dirige el procesamiento de la directiva de grupo para que omita el procesamiento de las extensiones del lado cliente que requieran un procesamiento sincrónico (es decir, si los equipos esperan a que la red se inicialice por completo durante el inicio del equipo y el inicio de sesión del usuario) cuando se detecta una conexión de red de baja velocidad.  
- 
-Si habilita esta configuración de directiva, cuando se detecte una conexión de red lenta, el procesamiento de la directiva de grupo se ejecutará siempre de forma asincrónica.
-Los equipos cliente no esperarán a que la red se inicialice por completo durante el inicio del equipo y el inicio de sesión. Los usuarios existentes iniciarán sesión con credenciales almacenadas en caché, lo que ayudará a reducir el tiempo que se tarda en iniciar sesión. La directiva de grupo se aplicará en segundo plano una vez que la red está disponible.   
-Tenga en cuenta que, como se trata de una actualización en segundo plano, las extensiones que necesitan un procesamiento sincrónico (como la extensión de preferencias de Instalación de software, Redirección de carpetas y Asignaciones de unidades) no se aplicarán.
- 
-Nota: hay dos condiciones que provocarán que la directiva de grupo se procese de forma sincrónica incluso si esta configuración de directiva está habilitada:
-1 - En el primer inicio del equipo después de que el equipo cliente se haya unido al dominio.
-2 - Si la configuración de directiva "Esperar siempre la detección de red al inicio del equipo y de sesión" está habilitada.
- 
-Si deshabilita o no establece esta configuración de directiva, la detección de una conexión de red lenta no afectará al hecho de si el procesamiento de la directiva de grupo es sincrónica o asincrónica.
+      <string id="SlowlinkDefaultToAsync_Help">Esta directiva dirige el procesamiento de directiva de grupo para que se omita el procesamiento de cualquier extensión del lado del cliente que requiera un procesamiento sincrónico (es decir, si los equipos esperan que la red se inicialice por completo durante el inicio del equipo y el inicio de sesión del usuario) cuando se detecta una conexión de red lenta.
 
-      
+Si habilitas esta configuración de directiva, cuando se detecte una conexión de red lenta, el procesamiento de directiva de grupo siempre se ejecutará de forma asincrónica.
+Los equipos cliente no esperarán que la red se inicialice completamente durante el inicio del equipo y el inicio de sesión. Los usuarios existentes iniciarán sesión con credenciales almacenadas en caché,
+lo que resultará en tiempos de inicio de sesión más cortos. La directiva de grupo se aplicará en segundo plano una vez que la red esté disponible.
+Ten en cuenta que, como se trata de una actualización en segundo plano, no se aplicarán las extensiones que necesitan un procesamiento sincrónico (como la extensión de preferencias Instalación de software, Redirección de carpetas
+y Asignaciones de unidades).
+
+Nota: Hay dos condiciones que provocarán que la directiva de grupo se procese de forma sincrónica incluso si esta configuración de directiva está habilitada:
+1 - En el primer inicio del equipo después de que el equipo cliente se haya unido al dominio.
+2 - Si se habilita la configuración de directiva "Esperar siempre a que se inicialice la red en el inicio del equipo y el inicio de sesión".
+
+Si deshabilitas o no configuras esta configuración de directiva, la detección de una conexión de red lenta no afectará al hecho de que el procesamiento de la directiva de grupo sea sincrónico o asincrónico.
 
       </string>
       <string id="DisableLGPOProcessing">Desactivar el procesamiento de objetos de directiva de grupo local</string>
@@ -162,7 +176,7 @@ Nota: en el caso de los equipos unidos a un dominio, se recomienda establecer so
 Si habilita esta configuración de directiva, la directiva de grupo usará este tiempo de espera máximo configurado de forma administrativa e invalidará cualquier tiempo de espera predeterminado o calculado por el sistema.
 
 Si deshabilita o no establece esta configuración de directiva, la directiva de grupo usará el tiempo de espera predeterminado de 30 segundos en los equipos que ejecuten el sistema operativo Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Permitir directiva de usuarios entre bosques y perfiles de usuarios móviles</string>

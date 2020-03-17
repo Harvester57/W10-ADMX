@@ -72,12 +72,34 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird die Einst
 
 Tipp: Klicken Sie in der Systemsteuerung auf "Systemeigenschaften", klicken Sie auf die Registerkarte "Erweitert", klicken Sie auf die Schaltfläche "Umgebungsvariablen", und klicken Sie im Feld "Systemvariablen" auf "Pfad", um die Ordner zu ermitteln, auf die die Pfadumgebungsvariable verweist.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Automatisches Anmelden des letzten interaktiven Benutzers nach einem vom System initiierten Neustart</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Mit dieser Richtlinieneinstellung wird gesteuert, ob der letzte interaktive Benutzer auf einem Gerät automatisch wieder angemeldet wird, nachdem Windows Update das System neu gestartet hat.
+      <string id="AutomaticRestartSignOnDescription">Nach Neustart automatisch anmelden und letzten interaktiven Benutzer sperren</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Über diese Richtlinieneinstellung wird gesteuert, ob sich ein Gerät automatisch anmeldet und den letzten interaktiven Benutzer sperrt, nachdem das System neu gestartet, heruntergefahren oder ein Kaltstart durchgeführt wurde.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren oder nicht konfigurieren, werden die Anmeldeinformationen des Benutzers (Benutzername, Domäne, und verschlüsseltes Kennwort) auf dem Gerät sicher gespeichert, um die automatische Anmeldung nach einem Neustart durch Windows Update zu konfigurieren. Nach dem Neustart durch Windows Update wird der Benutzer automatisch angemeldet, und die Sitzung wird automatisch mit allen für diesen Benutzer konfigurierten Sperrbildschirm-Apps gesperrt.
+Dies passiert nur, wenn sich der letzte interaktive Benutzer vor dem Neu- oder Kaltstart nicht abgemeldet hat.​
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren, werden die Anmeldeinformationen des Benutzers nicht für eine automatische Anmeldung nach einem Neustart durch Windows Update auf dem Gerät gespeichert. Die Apps auf dem Sperrbildschirm des Benutzers werden nach einem Neustart des Systems nicht neu gestartet.</string>
+Wenn das Gerät Active Directory oder Azure Active Directory beitritt, gilt diese Richtlinie nur für Windows Update-Neustarts. Ansonsten gilt sie sowohl für Windows Update-Neustarts als auch für vom Benutzer initiiertes Neustarten und Herunterfahren.​
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, ist sie standardmäßig aktiviert. Wenn die Richtlinie aktiviert ist, wird der Benutzer automatisch angemeldet und die Sitzung wird automatisch mit allen Sperrbildschirm-Apps gesperrt, die für diesen Benutzer nach Geräteneustarts konfiguriert sind.​
+
+Nach Aktivierung dieser Richtlinie können Sie die zugehörigen Einstellungen über die Richtlinie ConfigAutomaticRestartSignOn vornehmen, die den Modus der automatischen Anmeldung und Sperrung des letzten interaktiven Benutzers nach einem Neu- oder Kaltstart konfiguriert.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, konfiguriert das Gerät nicht die automatische Anmeldung. Die Sperrbildschirm-Apps des Benutzers werden nach dem Neustart des Systems nicht neu gestartet.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Modus der automatischen Anmeldung und Sperrung des letzten interaktiven Benutzers nach Neu- oder Kaltstart konfigurieren</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Diese Richtlinieneinstellung steuert die Konfiguration, mit der ein automatischer Neustart und eine automatische Anmeldung und Sperrung nach einem Neu- oder Kaltstart erfolgt. Wenn Sie in der Richtlinie "Nach Neustart automatisch anmelden und letzten interaktiven Benutzer sperren" die Option "Deaktiviert" wählen, erfolgt keine automatische Anmeldung und diese Richtlinie muss nicht konfiguriert werden.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie eine der folgenden zwei Optionen wählen:
+
+1. "Aktiviert, wenn BitLocker aktiv ist und nicht angehalten wird" gibt an, dass eine automatische Anmeldung und Sperrung nur erfolgt, wenn BitLocker aktiv ist und während des Neustarts oder Herunterfahrens nicht angehalten wird. Zu diesem Zeitpunkt kann auf persönliche Daten auf der Festplatte des Geräts zugegriffen werden, wenn BitLocker nicht aktiv ist und nicht bei einer Aktualisierung angehalten wird. Durch ein vorübergehendes Anhalten von BitLocker wird der Schutz von Systemkomponenten und -daten vorübergehend entfernt, dies kann aber unter bestimmten Umständen erforderlich sein, um startkritische Komponenten erfolgreich aktualisieren zu können.
+     BitLocker wird bei Aktualisierungen angehalten, wenn:
+        - Das Gerät nicht über TPM 2.0 und PCR7 verfügt oder
+        - Das Gerät keine TPM-Schlüsselschutzvorrichtung verwendet
+2. "Immer aktiviert" gibt an, dass die automatische Anmeldung auch dann erfolgt, wenn BitLocker deaktiviert ist oder während eines Neustarts oder Herunterfahrens angehalten wird. Wenn BitLocker nicht aktiviert ist, können persönliche Daten auf der Festplatte aufgerufen werden. Der automatische Neustart und die automatische Anmeldung sollten nur unter dieser Bedingung ausgeführt werden, wenn Sie genau wissen, dass das konfigurierte Gerät sich an einem sicheren physischen Standort befindet.
+
+Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird für die automatische Anmeldung standardmäßig das Verhalten "Aktiviert, wenn BitLocker aktiv ist und nicht angehalten wird" angewendet.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Aktiviert, wenn BitLocker eingeschaltet und nicht gesperrt ist.</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Immer aktiviert</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, werden die Anmeldeinformatio
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Software festlegen, die den Sicherheitsaufruf generieren darf</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Modus der automatischen Anmeldung und Sperrung des letzten interaktiven Benutzers nach Neu- oder Kaltstart konfigurieren</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

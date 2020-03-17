@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Toto nastavení zásad umožňuje zadat adresu URL podnikového webu v protokolu HTTPS, kterou klienti používají k určení aktuálního umístění domény (tzn. zda je daný počítač uvnitř nebo vně podnikové sítě). Dostupnost cílového místa adresy URL znamená, že se klient nachází uvnitř podnikové sítě; v opačném případě se nachází mimo síť.</string>
       <string id="NCSI_PassivePolling">Určit pasivní dotazování</string>
       <string id="NCSI_PassivePolling_Help">Toto nastavení zásad umožňuje určit chování při pasivním dotazování. Indikátor NCSI provádí v krátkých pravidelných intervalech různá měření v rámci celé sady síťových protokolů, aby se zjistilo, zda nedošlo ke ztrátě připojení k síti.  Prostřednictvím příslušných možností lze ovládat chování při pasivním dotazování.</string>
+      <string id="NCSI_GlobalDns">Určit globální DNS</string>
+      <string id="NCSI_GlobalDns_Help">Tato zásada umožňuje určit chování vazby DNS. NCSI ve výchozím nastavení omezí vyhledávání DNS na rozhraní, u kterého aktuálně provádí testování. Pokud toto nastavení povolíte, NCSI umožní, aby vyhledávání DNS probíhala na libovolném rozhraní.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>Pokud je následující políčko zaškrtnuté, vypne se mechanismus pasivního dotazování v rámci NCSI.   Tím se může snížit zatížení CPU na serverech nebo jiných počítačích se statickým připojením k síti.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Zakázat pasivní dotazování</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Zaškrtnutím tohoto políčka zakážete vazbu rozhraní při provádění vyhledávání DNS v NCSI. To může pro NCSI umožnit lepší vyhledávání při zvláštních síťových konfiguracích, jako je server DNS běžící na místním hostiteli.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Použít globální DNS</checkBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">使用此策略设置，可以指定客户端用于确定当前域位置的企业网站的 HTTPS URL (如计算机是在企业网络中还是在企业网络外)。可访问该 URL 目标表明该客户端位置位于企业网络内；否则位于企业网络外。</string>
       <string id="NCSI_PassivePolling">指定被动轮询</string>
       <string id="NCSI_PassivePolling_Help">使用此策略设置，可以指定被动轮询行为。NCSI 通过网络堆栈频繁轮询各种度量标准，以确定网络连接是否已断开。 使用这些选项控制被动轮询行为。</string>
+      <string id="NCSI_GlobalDns">指定全局 DNS</string>
+      <string id="NCSI_GlobalDns_Help">此策略设置使你能够指定 DNS 绑定行为。NCSI 默认情况下会将 DNS 查找局限于它当前正在探测的接口。如果启用此设置，则 NCSI 将允许在任何接口上进行 DNS 查找。</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>以下复选框禁用 NCSI 中的被动轮询机制。  这可以改善服务器上的 CPU 工作负荷或其网络连接处于静态状态的其他机器。</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">禁用被动轮询</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>在 NCSI 中进行 DNS 查找时，以下复选框将禁用接口绑定。这可以使 NCSI 能够更好地使用特殊网络配置，如在 localhost 上运行的 DNS 服务器。</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">使用全局 DNS</checkBox>
       </presentation>
     </presentationTable>
   </resources>

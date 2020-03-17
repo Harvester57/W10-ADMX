@@ -10,9 +10,9 @@
       <string id="ABOnly">仅限制驱动器 A 和 B</string>
       <string id="ALLDrives">限制所有驱动器</string>
       <string id="ClassicShell">启用经典外观</string>
-      <string id="ClassicShell_Help">此设置允许管理员将特定的 Windows Shell 行为还原到经典 Shell 行为。
+      <string id="ClassicShell_Help">此设置允许管理员将特定的 Windows Shell 行为还原为经典 Shell 行为。
 
-如果启用此设置，则用户无法将其系统配置为通过单击(如“控制面板”中的“鼠标”)打开项目。这样，用户界面的外观和操作就与 Windows NT 4.0 界面类似，而且用户无法还原新的功能。
+如果启用此设置，则用户无法将其系统配置为通过单击打开项目(例如无法在控制面板的“鼠标”中进行此类操作)。这样，用户界面的外观和操作就与 Windows NT 4.0 界面类似，而且用户无法还原新的功能。
 启用此策略还将关闭预览窗格，并将文件资源管理器的文件夹选项设置为使用经典文件夹视图并禁止用户更改这些选项。
 
 如果禁用或未配置此策略，则对用户应用默认的文件资源管理器行为。
@@ -37,7 +37,7 @@
 对于已由管理员批准的，并且计算机所有用户都可用的外壳扩展，下列位置必须存在注册表项: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved。
 
 对于按用户运行的外壳扩展，下列位置必须存在注册表项: HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved。</string>
-      <string id="LinkResolveIgnoreLinkInfo">漫游时不跟踪外壳程序快捷方式</string>
+      <string id="LinkResolveIgnoreLinkInfo">漫游时禁止跟踪外壳程序快捷方式</string>
       <string id="LinkResolveIgnoreLinkInfo_Help">此策略设置可确定当 Windows 在用户系统中找不到目标时是否要跟踪快捷方式以找到快捷方式源。
 
 快捷方式文件通常包括原始目标文件的绝对路径以及当前目标文件的相对路径。当系统在当前目标路径中找不到该文件时，默认情况下，会在原始路径中搜索该目标。如果快捷方式已经被复制到其他计算机上，原始路径可能会指向一台包括外部资源的网络计算机，例如 Internet 服务器。
@@ -170,13 +170,13 @@
 
 注意: 在 Windows Vista 中，此策略设置仅适用于使用 Windows XP 公共对话框样式的应用程序。此策略设置不适用于新的 Windows Vista 公共对话框样式。对于具有 Windows 2000 或更新版本证书的第三方应用程序，要求遵循此设置。</string>
       <string id="NoFolderOptions">不允许从彩带的“视图”选项卡上的“选项”按钮中打开文件夹选项</string>
-      <string id="NoFolderOptions_Help">使用此策略设置，可以阻止用户通过文件资源管理器中功能区上的“视图”选项卡访问“文件夹选项”。
+      <string id="NoFolderOptions_Help">使用此策略设置，可以阻止用户通过文件资源管理器的功能区中的“视图”选项卡访问“文件夹选项”。
 
 使用“文件夹选项”，用户可以更改文件和文件夹的打开方式、导航窗格中的显示内容以及其他高级视图设置。
 
-如果启用此策略设置，则用户将在点击或单击“选项”按钮或选择更改文件夹并搜索选项命令时收到错误消息，且用户将无法打开“文件夹选项”。
+如果启用此策略设置，则用户将在点击或单击“选项”按钮或选择“更改文件夹和搜索选项”命令时收到错误消息，因此无法打开“文件夹选项”。
 
-如果禁用或未配置此策略设置，则用户可以从彩带上的“视图”选项卡中打开“文件夹选项”。</string>
+如果禁用或未配置此策略设置，则用户可以从功能区中的“视图”选项卡打开“文件夹选项”。</string>
       <string id="NoHardwareTab">删除“硬件”选项卡</string>
       <string id="NoHardwareTab_Help">删除“硬件”选项卡。
 
@@ -267,14 +267,14 @@
  同时，此设置不会防止用户使用程序来访问本地驱动器和网络驱动器。也不会防止他们使用“磁盘管理”管理单元查看并更改驱动器特性。
 
 请参阅“隐藏‘我的电脑’中的这些指定的驱动器”设置。</string>
-      <string id="NoWindowsHotKeys">关闭 Windows+X 热键</string>
-      <string id="NoWindowsHotKeys_Help">关闭 Windows+X 热键。
+      <string id="NoWindowsHotKeys">关闭 Windows 键热键</string>
+      <string id="NoWindowsHotKeys_Help">关闭 Windows 键热键。
 
-带有 Windows 键的键盘为用户提供了启用常见的外壳程序功能的快捷方式。例如，按组合键 Windows+R 可打开“运行”对话框；按 Windows+E 可启动文件资源管理器。使用此设置可禁用这些 Windows+X 快捷键。
+带有 Windows 键的键盘为用户提供了启用常见的 shell 功能的快捷方式。例如，按组合键 Windows+R 可打开“运行”对话框；按 Windows+E 可启动文件资源管理器。使用此设置可禁用这些 Windows 键热键。
 
-如果启用此设置，则 Windows+X 快捷键不可用。
+如果启用此设置，则 Windows 键热键将不可用。
 
-如果禁用或没有配置此设置，则 Windows+X 快捷键可用。</string>
+如果禁用或未配置此设置，则 Windows 键热键将可用。</string>
       <string id="NoWorkgroupContents">“网络位置”中没有“我附近的计算机”</string>
       <string id="NoWorkgroupContents_Help">使用此策略设置，可以从文件资源管理器和“网络位置”中的网络资源列表删除用户工作组和域中的计算机。
 
@@ -302,7 +302,7 @@
 
 5) 公共外壳文件夹。
 
-可以指定的公共外壳文件夹的列表为:
+可以指定的公共外壳文件夹包括:
 
 “桌面”、“最近访问的位置”、“文档”、“图片”、“音乐”、“最近的更改”、“附件”及“已保存的搜索”。
 
@@ -354,11 +354,11 @@
       <string id="CheckSameSourceAndTargetForFRAndDFS_DisplayName">在重定向之前验证新旧文件夹重定向目标是否指向相同的网络共享</string>
       <string id="CheckSameSourceAndTargetForFRAndDFS_ExplainText">在更改文件夹重定向的目标位置，而新旧目标指向同一网络共享但网络路径不同时，使用此策略设置可以防止数据丢失。
 
-如果启用此策略设置，则文件夹重定向在旧位置创建一个临时文件，以便验证新旧位置是否指向同一网络共享。如果新旧位置指向同一网络共享，则更新目标路径，并且不复制或删除文件。 临时文件将被删除。
- 
-如果禁用或未配置此策略设置，则文件夹重定向不创建临时文件，并将网络路径不同的情况视同新旧位置指向不同的网络共享。
+如果启用此策略设置，则文件夹重定向将在旧位置创建一个临时文件，以便验证新旧位置是否指向同一网络共享。如果新旧位置指向同一网络共享，则将更新目标路径，并且不复制或删除文件。临时文件将被删除。
 
-注意: 如果路径指向不同的网络共享，则不需要此策略设置。 如果路径指向同一网络共享，且未启用此策略设置，则重定向文件夹中包含的所有数据都将被删除。</string>
+如果禁用或未配置此策略设置，则文件夹重定向将不创建临时文件，并将网络路径不同的情况视同新旧位置指向不同的网络共享。
+
+注意: 如果路径指向不同的网络共享，则不需要此策略设置。如果路径指向同一网络共享，且未启用此策略设置，则重定向文件夹中包含的所有数据都将被删除。</string>
 
       <string id="DisableIndexedLibraryExperience_DisplayName">关闭依赖于索引文件数据的 Windows 库功能</string>
       <string id="DisableIndexedLibraryExperience_ExplainText">使用此策略设置可关闭需要索引文件元数据才能正确运行的 Windows 库功能。 如果启用此策略，则关闭某些 Windows 库功能，以便更好地处理库中已被重定向到非索引网络位置的文件夹。
@@ -392,11 +392,9 @@
       </string>
       <string id="NoStrCmpLogical_DisplayName">关闭文件资源管理器中的数值排序</string>
       <string id="NoStrCmpLogical_ExplainText">
-
 使用此策略设置，可不按数值顺序而按逐字位的顺序对文件名进行排序(与 Windows 2000 及更低版本相同)。
-如果启用此策略设置，则文件资源管理器将按文件名中的每个数字位对文件名排序(例如 111 &lt; 22 &lt; 3)。
+如果启用此策略设置，则文件资源管理器将按文件名中每个数字位对文件名排序(例如 111 &lt; 22 &lt; 3)。
 如果禁用或未配置此策略设置，则文件资源管理器将按照数值升序对文件名排序(例如 3 &lt; 22 &lt; 111)。
-      
       </string>
       <string id="IZ_OpenSearchQuery">允许文件资源管理器中的 OpenSearch 查询</string>
       <string id="IZ_Explain_OpenSearchQuery">
@@ -460,49 +458,49 @@
 如果禁用或未配置此策略设置，将不会对默认库定义文件的位置进行更改。
       
       </string>
-      <string id="EnableSmartScreen">配置 Windows SmartScreen 筛选器</string>
-      <string id="SmartScreen_Off">关闭 SmartScreen</string>
-      <string id="SmartScreen_Prompt">在用户运行已下载的不明软件前对其给予警告</string>
-      <string id="SmartScreen_RequireAdmin">在运行已下载的不明软件之前必须得到管理员的批准</string>
-      <string id="EnableSmartScreen_Help">使用此策略设置，可以管理 Windows SmartScreen 筛选器的行为。Windows SmartScreen 筛选器通过在用户运行从 Internet 下载的不明程序之前向其提出警告，来提高个人计算机的安全性。启用此功能后，有关在个人计算机上运行的文件和程序的一些信息会发送到 Microsoft。
+      <string id="EnableSmartScreen">配置 Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">警告并防止绕过</string>
+      <string id="SmartScreen_Warn">警告</string>
+      <string id="EnableSmartScreen_Help">可通过此策略打开或关闭 Windows Defender SmartScreen。SmartScreen 会在用户运行从 Internet 下载的潜在恶意程序之前向用户发送警告，从而保护电脑。如果无法识别从 Internet 下载的应用，或已知其为恶意应用，在运行该应用之前会以插入对话框的形式显示此类警告。如果应用毫无可疑之处，则不会显示对话框。
 
-如果启用此策略设置，可通过设置下列任一选项控制 Windows SmartScreen 筛选器的行为:
+启用此功能后，电脑上运行的文件和程序的某些相关信息将发送到 Microsoft。
 
-• 在运行已下载的不明软件之前必须得到管理员的批准
-• 在用户运行已下载的不明软件前对其给予警告
-• 关闭 SmartScreen 筛选器
+如果你启用此策略，对于所有用户都将会启用 SmartScreen。其行为可由以下选项进行控制:
 
-如果禁用或未配置此策略设置，则 Windows SmartScreen 筛选器的行为将由电脑管理员通过操作中心的“Windows SmartScreen 筛选器设置”进行管理。
+• 警告并防止绕过
+• 警告
 
-选项:
-• 在运行已下载的不明软件之前必须得到管理员的批准
-• 在用户运行已下载的不明软件前对其给予警告
-• 关闭 SmartScreen 筛选器
+如果你启用此策略时选择“警告并防止绕过”选项，SmartScreen 的对话框将不会向用户提供忽略此警告并运行应用的选项。如果随后仍尝试运行此应用，SmartScreen 会继续显示此警告。
 
-</string>
+如果你启用此策略时选择“警告”选项， SmartScreen 的对话框将警告用户此应用很可疑，但仍允许用户忽略警告并运行应用。如果用户告诉 SmartScreen 可以运行此应用，SmartScreen 将不会再次针对此应用警告用户。
+
+如果你禁用此策略，对于所有用户都将会关闭 SmartScreen。用户在尝试运行来自 Internet 的可疑应用时不会受到警告。
+
+如果你没有配置此策略，默认将启用 SmartScreen，但用户可以更改其设置。
+      </string>
       <string id="ShowLockOption">在用户磁贴菜单中显示锁定</string>
-      <string id="ShowLockOption_Help">在用户磁贴菜单显示或隐藏锁定。
+      <string id="ShowLockOption_Help">在用户磁贴菜单中显示或隐藏锁定。
 如果启用此策略设置，则锁定选项将显示在“用户磁贴”菜单中。
 
-如果禁用此策略设置，则锁定选项将永远不会显示在“用户磁贴”菜单中。
+如果禁用此策略设置，则锁定选项将不会显示在“用户磁贴”菜单中。
 
-如果未配置此策略设置，用户可以通过“控制面板”中的“电源选项”来选择是否显示锁定。</string>
+如果未配置此策略设置，用户可以通过“电源选项”控制面板来选择是否显示锁定。</string>
       <string id="ShowSleepOption">在电源选项菜单中显示睡眠</string>
-      <string id="ShowSleepOption_Help">在电源选项菜单显示或隐藏睡眠。
+      <string id="ShowSleepOption_Help">在电源选项菜单中显示或隐藏睡眠。
 
 如果启用此策略设置，睡眠选项将显示在“电源选项”菜单中(只要计算机的硬件支持)。
 
-如果禁用此策略设置，睡眠选项将永远不会显示在“电源选项”菜单中。
+如果禁用此策略设置，睡眠选项将不会显示在“电源选项”菜单中。
 
-如果未配置此策略设置，则用户可以通过“控制面板”中的“电源选项”来选择是否显示睡眠。</string>
+如果未配置此策略设置，则用户可以通过“电源选项”控制面板来选择是否显示睡眠。</string>
       <string id="ShowHibernateOption">在电源选项菜单中显示休眠</string>
-      <string id="ShowHibernateOption_Help">在电源选项菜单显示或隐藏休眠。
+      <string id="ShowHibernateOption_Help">在电源选项菜单中显示或隐藏休眠。
 
 如果启用此策略设置，休眠选项将显示在“电源选项”菜单中(只要计算机的硬件支持)。
 
-如果禁用此策略设置，休眠选项将永远不会显示在“电源选项”菜单中。
+如果禁用此策略设置，休眠选项将不会显示在“电源选项”菜单中。
 
-如果未配置此策略设置，则用户可以通过“控制面板”中的“电源选项”来选择是否显示休眠。</string>
+如果未配置此策略设置，则用户可以通过“电源选项”控制面板来选择是否显示休眠。</string>
       <string id="NoNewAppAlert">不显示“安装了新应用程序”通知</string>
       <string id="NoNewAppAlert_Help">此策略设置将删除对针对新应用程序关联的最终用户通知。这些关联基于文件类型(例如 *.txt)或协议(例如 http:)
 
@@ -522,7 +520,7 @@
 
 注意: 允许使用文件快捷方式图标中的远程路径会使用户的计算机面临安全风险。</string>
       <string id="DefaultAssociationsConfiguration">设置默认关联配置文件</string>
-      <string id="DefaultAssociationsConfiguration_Help">此策略指定包含文件类型和协议默认应用程序关联的文件(例如，本地存储的或网络位置中的文件)的路径。可以使用 DISM 工具创建此文件。
+      <string id="DefaultAssociationsConfiguration_Help">此策略指定包含文件类型和协议默认应用程序关联的文件(例如，存储在本地或网络位置中的文件)的路径。可以使用 DISM 工具创建此文件。
 
 例如:
 Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
@@ -531,9 +529,9 @@ Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
 
 如果启用此组策略并且客户端计算机已加入到域中，则系统将在用户登录时处理文件并应用默认关联。
 
-如果未配置或禁用此组策略，或者客户端计算机不再位于域中，则用户登录时将不会应用任何默认关联。
+如果未配置此组策略或禁用此组策略，或者客户端计算机未加入到域中，则用户登录时将不会应用任何默认关联。
 
-如果启用、禁用或未配置此策略，用户仍然能够替代默认文件类型和协议关联。</string>
+不管是启用、禁用还是未配置此策略，用户都能够替代默认文件类型和协议关联。</string>
     </stringTable>
     <presentationTable>
       <presentation id="MaxRecentDocs">
@@ -567,7 +565,7 @@ Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
         </textBox>
         <textBox refId="OpenSearch4">
           <label>站点 URL 5</label>
-        </textBox>      
+        </textBox>
         <textBox refId="OpenSearchLabel4">
           <label>站点名称 5</label>
         </textBox>
@@ -588,7 +586,7 @@ Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
         </textBox>
         <textBox refId="Library4">
           <label>位置 5</label>
-        </textBox>      
+        </textBox>
       </presentation>
       <presentation id="NoDrives">
         <dropdownList refId="NoDrivesDropdown" noSort="true" defaultItem="5">选择下列组合中的一个</dropdownList>
@@ -628,13 +626,13 @@ Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
         </textBox>
       </presentation>
       <presentation id="EnableSmartScreen">
-        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">选择下列任一设置</dropdownList>
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">选择下列任一设置:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">
           <label>默认关联配置文件</label>
 	      <defaultValue>c:\windows\system32\defaultassociations.xml</defaultValue>
-        </textBox>	    
+        </textBox>
       </presentation>
       <presentation id="ExplorerRibbonStartsMinimized">
         <dropdownList refId="ExplorerRibbonStartsMinimizedDropdown" noSort="true" defaultItem="0">选择下列任一设置</dropdownList>

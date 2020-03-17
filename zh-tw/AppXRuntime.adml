@@ -33,13 +33,15 @@
 如果您啟用這個原則設定，通常需要 Microsoft 帳戶登入的 Windows 市集應用程式，將允許使用者改用企業帳戶登入。
 
 如果您停用或未設定這個原則設定，則使用者必須使用 Microsoft 帳戶登入。</string>
-      <string id="AppxRuntimeBlockHostedAppAccessWinRT">封鎖啟動含有可從託管內容存取的 Windows 執行階段 API 的 Windows 市集應用程式。</string>
+      <string id="AppxRuntimeBlockHostedAppAccessWinRT">封鎖啟動含有可從託管內容存取的 Windows 執行階段 API 的通用 Windows 應用程式。</string>
       <string id="AppxRuntimeBlockHostedAppAccessWinRTExplanation">
-        這個原則控制含有可直接存取網路內容的 Windows 執行階段 API 的 Windows 市集應用程式是否可啟動。
+        此原則設定控制是否可以啟動含有可直接從 Web 內容存取的 Windows 執行階段 API 的通用 Windows app。
 
-        如果您啟用這個原則設定，含有可直接從網路內容存取的 Windows 執行階段 API 的 Windows 市集應用程式將無法啟動; 未含有從網路內容存取的Windows 執行階段 API 的 Windows 市集應用程式則不受影響。
+        如果您啟用此原則設定，在資訊清單的 ApplicationContentUriRules 區段中宣告 Windows 執行階段 API 存取的通用 Windows app 就無法啟動；未在資訊清單中宣告 Windows 執行階段 API 存取的通用 Windows app 則不受影響。
 
-        如果您停用或是未設定這個原則設定，所有的市集應用程式都可啟動。
+        如果您停用或未設定此原則設定，就可以啟動所有的通用 Windows app。
+
+        除非 Microsoft 建議做為安全性回應，否則不應啟用此原則，因為可能導致嚴重的應用程式相容性問題。
       </string>
     </stringTable>
     <presentationTable>

@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">アプリ用のインターネット プロキシ サーバー</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  この設定はデスクトップ アプリには適用されません。
 	
@@ -20,7 +19,8 @@
 
 例: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。</string> 
+詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">アプリ用のイントラネット プロキシ サーバー</string>
@@ -36,10 +36,12 @@
 
 例: [3efe:3022::1000]; 18.0.0.1; 18.0.0.2
 
-詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。</string> 
-	<!--Define subnet addresses-->	
+詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">アプリのプライベート ネットワークの範囲</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">この設定はデスクトップ アプリには適用されません。
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> この設定はデスクトップ アプリには適用されません。
 				
 社内ネットワークのコンマで区切られた IP アドレス範囲の一覧です。
 
@@ -53,12 +55,12 @@ Windows ネットワーク分離はプライベート ネットワーク ホス�
 
 例: 3efe:1092::/96,18.1.1.1/10 
 
-詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。</string>
-				
-				
+詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">プロキシ定義を優先する</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">この設定はデスクトップ アプリには適用されません。
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> この設定はデスクトップ アプリには適用されません。
 				
 ドメイン企業環境での Windows ネットワーク分離によるプロキシの自動検出を無効にします。
 
@@ -66,11 +68,12 @@ Windows ネットワーク分離はプライベート ネットワーク ホス�
 
 このポリシー設定を無効にした場合、または構成しない場合、Windows ネットワーク分離はプロキシ サーバーのアドレスを自動的に検出しようとします。 
 
-詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。</string>
-				
-		<!--Subnet definitions are authoritative-->	
+詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">サブネット定義を優先する</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">この設定はデスクトップ アプリには適用されません。
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> この設定はデスクトップ アプリには適用されません。
 				
 ドメイン企業環境での Windows ネットワーク分離によるプライベート ネットワーク ホストの自動検出を無効にします。
 
@@ -78,10 +81,35 @@ Windows ネットワーク分離はプライベート ネットワーク ホス�
 
 このポリシー設定を無効にした場合、または構成しない場合、Windows ネットワーク分離はドメイン企業環境でプライベート ネットワーク ホストを自動的に検出しようとします。
 				
-詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。</string>
-	
-	
-     </stringTable>
+詳細については、http://go.microsoft.com/fwlink/p/?LinkId=234043 を参照してください。 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">クラウドでホストされるエンタープライズ リソース ドメイン</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> この設定はデスクトップ アプリには適用されません。
+
+ドメイン クラウド リソースのパイプ区切りの一覧です。各クラウド リソースは、末尾にコンマとプロキシ アドレスを追加することで、内部プロキシとペアリングすることもできます。
+
+クラウドでホストされるエンタープライズ リソース ドメインの一覧が含まれています。これらのリソースへの接続は、エンタープライズ ネットワークへの接続と見なされます。
+
+プロキシがクラウド リソースとペアリングされている場合、クラウド リソースへのトラフィックは、指定されたプロキシ サーバー (ポート 80 上) を経由したエンタープライズ ネットワークを通じてルーティングされます。また、この目的に使用されるプロキシ サーバーは、アプリ ポリシー用のインターネット プロキシ サーバーを使用して構成される必要があります。
+
+例: [cloudresource]|[cloudresource]|[cloudresource],[proxy]|[cloudresource]|[cloudresource],[proxy]|
+
+詳細は、次のページを参照してください: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">職場用と個人用に分類されたドメイン</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> この設定はデスクトップ アプリには適用されません。
+
+職場用または個人用のリソースとして使用できるドメイン名の、コンマ区切りの一覧です。
+
+詳細は、次のページを参照してください: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@ Windows ネットワーク分離はプライベート ネットワーク ホス�
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>プライベート サブネット </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>エンタープライズ クラウド リソース </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>ニュートラル リソース </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

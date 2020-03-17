@@ -59,10 +59,41 @@ Ezen házirend-beállítás érvénybe lépéséhez nincs szükség a számító
 
 
 </string>
+<string id="TroubleshootingAllowRecommendations">Hibaelhárítás: ismert problémák esetén a felhasználók elérhetik az ajánlott hibaelhárítást</string>
+<string id="TroubleshootingAllowRecommendationsExplain">Ez a házirend-beállítás az eszköz ismert problémáira ajánlott hibaelhárítási lépéseket alkalmazza, és lehetővé teszi, hogy a rendszergazdák megadják, hogyan kívánják alkalmazni a beállítást a saját tartományaikra és informatikai környezeteikre.
+Ha nem konfigurálja ezt a házirend-beállítást, akkor a felhasználó megadhatja, hogy a rendszer mikor és hogyan alkalmazza az ajánlott hibaelhárítási lépéseket.
+
+A házirend engedélyezésével megadhatja, hogy a rendszer hogyan alkalmazza az ajánlott hibaelhárítási lépéseket a felhasználó eszközén. Az alábbi értékek közül választhat:
+0 = A funkció kikapcsolása.
+1 = A funkció kikapcsolása, de a fontos hibaelhárítási lépések további alkalmazása.
+2 = A felhasználó értesítése, ha elérhetők az ajánlott hibaelhárítási lépések, majd annak engedélyezése, hogy a felhasználó futtassa vagy mellőzze a szolgáltatást.
+3 = Az ajánlott hibaelhárítási lépések automatikus futtatása és a felhasználó értesítése a sikeres futtatásról.
+4 = Az ajánlott hibaelhárítási lépések automatikus futtatása a felhasználó értesítése nélkül.
+5 = Annak engedélyezése, hogy a felhasználó kiválassza a saját ajánlott hibaelhárítási beállításait.
+
+Az új beállítás megadása után a tartományban lévő eszközökre vonatkozó ajánlott hibaelhárítási lépések megjelenítéséhez kövesse az alábbi utasításokat:
+1. Hozzon létre .bat parancsfájlt az alábbi tartalommal:
+rem Az alábbi kötegfájl elindítja az Ajánlott hibaelhárítási lépések szolgáltatást
+C:\Windows\System32\mitigationscanner.exe
+
+2. Új azonnali feladat létrehozásához navigáljon a Csoportházirend-felügyeleti szerkesztő &gt; Számítógép konfigurációja &gt; Beállítások menüpontra, és válassza a Vezérlőpult-beállítások elemet. 
+3. A Vezérlőpult beállításai területen kattintson a jobb gombbal az Ütemezett feladatok lehetőségre, és válassza az Új lehetőséget. Válassza az Azonnali feladat lehetőséget (legalább Windows 7).
+4. Adja meg a megfelelő nevet és leírást, majd a Biztonsági beállítások csoportban állítsa be a felhasználói fiókhoz a Rendszer értéket, és jelölje be a Futtatás a legmagasabb jogosultságszinten jelölőnégyzetet.
+5. A Műveletek lapon hozzon létre egy új műveletet, a művelet típusaként válassza ki a Program indítása lehetőséget, majd adja meg az 1. lépésben létrehozott fájlt.
+6. Konfigurálja a feladatot a tartományában történő központi telepítésre.</string>
+<string id="RecommendationsDropDown_DoNothing">A funkció kikapcsolása</string>
+<string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">A funkció kikapcsolása, de a fontos hibaelhárítási lépések további alkalmazása.</string>
+<string id="RecommendationsDropDown_AskFirst">A felhasználó értesítése, ha elérhetők az ajánlott hibaelhárítási lépések, majd annak engedélyezése, hogy a felhasználó futtassa vagy mellőzze a szolgáltatást.</string>
+<string id="RecommendationsDropDown_ApplyThenNotify">Az ajánlott hibaelhárítási lépések automatikus futtatása és a felhasználó értesítése a sikeres futtatásról.</string>
+<string id="RecommendationsDropDown_ApplySilently">Az ajánlott hibaelhárítási lépések automatikus futtatása a felhasználó értesítése nélkül.</string>
+<string id="RecommendationsDropDown_DeferToUser">Annak engedélyezése, hogy a felhasználó kiválassza a saját ajánlott hibaelhárítási beállításait.</string>
     </stringTable>
     <presentationTable>
       <presentation id="MsdtToolDownloadPolicy">
         <dropdownList refId="MsdtToolDownloadPolicyLevel" noSort="true" defaultItem="1">Eszközletöltés engedélyezve</dropdownList>
+      </presentation>
+      <presentation id="TroubleshootingAllowRecommendations">
+        <dropdownList refId="TroubleshootingAllowRecommendations_Dropdown" noSort="true" defaultItem="0">Ismert problémák esetén a Microsoft által ajánlott hibaelhárítás engedélyezése</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -56,13 +56,42 @@ Om du inte konfigurerar den här principinställningen är supportläget i MSDT 
 
 Varken datorn eller några tjänster behöver startas om för att den här principinställningen ska börja gälla. Ändringarna börjar gälla direkt.
 
-
-
 </string>
+<string id="TroubleshootingAllowRecommendations">Felsökning: Tillåt användare att använda rekommenderad felsökning för kända problem</string>
+<string id="TroubleshootingAllowRecommendationsExplain">Den här principinställningen tillämpar rekommenderad felsökning för kända problem och låter administratörer konfigurera hur den ska tillämpas i sina domäner/IT-miljöer.
+Om du inte konfigurerar den här principinställningen tillåts användarna konfigurera rekommenderad felsökning.
+
+Om du aktiverar den här principen kan du konfigurera hur rekommenderad felsökning tillämpas på användarnas enheter. Du kan välja något av följande värden:
+0 = Inaktivera den här funktionen.
+1 = Inaktivera den här funktionen men kör fortfarande felsökning för kritiska problem.
+2 = Meddela användarna när rekommenderad felsökning är tillgänglig och låt sedan användarna välja att köra eller ignorera den.
+3 = Kör rekommenderad felsökning automatiskt och meddela användarna när den är klar.
+4 = Kör rekommenderad felsökning automatiskt utan att meddela användarna.
+5 = Låt användarna välja inställningar för rekommenderad felsökning.
+
+När du har konfigurerat den här nya inställningen följer du anvisningarna nedan för att utlösa rekommenderad felsökning för enheter i din domän:
+1. Skapa ett bat-skript med följande innehåll:
+rem Följande batchskript utlöser rekommenderad felsökning.
+C:\Windows\System32\mitigationscanner.exe
+
+2. om du vill skapa en ny omedelbar aktivitet går du till Redigeraren för grupprinciphantering &gt; Datorkonfiguration &gt; Inställningar och väljer Kontrollpanelsinställningar. 
+3. Högerklicka på Schemalagda aktiviteter under Kontrollpanelsinställningar och välj Ny. Välj Omedelbar aktivitet (Windows 7 och senare).
+4. Ange ett lämpligt namn och en beskrivning. Sätt sedan användarkontot till System under Säkerhetsalternativ och markera kryssrutan Kör med högsta behörighet.
+5. Skapa en ny åtgärd på fliken Åtgärder, välj Starta ett program som typ och ange filen som skapades i steg 1.
+6. Konfigurera aktiviteten för distribution i din domän.</string>
+<string id="RecommendationsDropDown_DoNothing">Inaktivera den här funktionen</string>
+<string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">Inaktivera den här funktionen men kör fortfarande felsökning för kritiska problem.</string>
+<string id="RecommendationsDropDown_AskFirst">Meddela användarna när rekommenderad felsökning är tillgänglig och låt sedan användarna välja att köra eller ignorera den.</string>
+<string id="RecommendationsDropDown_ApplyThenNotify">Kör rekommenderad felsökning automatiskt och meddela användarna när den är klar.</string>
+<string id="RecommendationsDropDown_ApplySilently">Kör rekommenderad felsökning automatiskt utan att meddela användarna.</string>
+<string id="RecommendationsDropDown_DeferToUser">Låt användarna välja inställningar för rekommenderad felsökning.</string>
     </stringTable>
     <presentationTable>
       <presentation id="MsdtToolDownloadPolicy">
         <dropdownList refId="MsdtToolDownloadPolicyLevel" noSort="true" defaultItem="1">Hämtning av verktyg tillåts</dropdownList>
+      </presentation>
+      <presentation id="TroubleshootingAllowRecommendations">
+        <dropdownList refId="TroubleshootingAllowRecommendations_Dropdown" noSort="true" defaultItem="0">Tillåt rekommenderad felsökning från Microsoft för kända problem</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

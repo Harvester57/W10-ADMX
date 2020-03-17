@@ -267,14 +267,14 @@ Bemærk! De ikoner, der repræsenterer de angivne drev, vises stadig i Denne com
  Indstillingen forhindrer heller ikke brugerne i at benytte programmer til at få adgang til lokale drev og netværksdrev. Og den forhindrer ikke brugerne i at benytte snap-in-programmet Diskadministration til at få vist og ændre drevegenskaber.
 
 Se også indstillingen Skjul disse angivne drev i Denne computer.</string>
-      <string id="NoWindowsHotKeys">Slå Windows+X-genveje fra</string>
-      <string id="NoWindowsHotKeys_Help">Slår Windows+X-genveje fra.
+      <string id="NoWindowsHotKeys">Slå genvejstaster for Windows-tasten fra</string>
+      <string id="NoWindowsHotKeys_Help">Slå genvejstaster for Windows-tasten fra.
 
-Tastaturer med Windows-tasten giver brugerne adgang til almindelige funktioner på brugergrænsefladen. Hvis du f.eks. trykker på tastekombinationen Windows+R, åbnes dialogboksen Kør, og hvis du trykker på Windows+E, åbnes Stifinder. Du kan bruge denne indstilling til at deaktivere Windows+X-genvejstasterne.
+Tastaturer med Windows-tasten giver brugerne adgang til almindelige funktioner i brugergrænsefladen. Hvis du f.eks. trykker på tastekombinationen Windows+R, åbnes dialogboksen Kør, og hvis du trykker på Windows+E, åbnes Stifinder. Du kan bruge denne indstilling til at deaktivere genvejstasterne for Windows-tasten.
 
-Hvis du aktiverer indstillingen, er Windows+X-genvejstasterne ikke tilgængelige.
+Hvis du aktiverer indstillingen, er genvejstasterne for Windows-tasten ikke tilgængelige.
 
-Hvis du deaktiverer eller ikke konfigurerer indstillingen, er Windows+X-genvejstasterne tilgængelige.</string>
+Hvis du deaktiverer eller undlader at konfigurere indstillingen, er genvejstasterne for Windows-tasten tilgængelige.</string>
       <string id="NoWorkgroupContents">Vis ikke Computere i nærheden i Netværksplaceringer</string>
       <string id="NoWorkgroupContents_Help">Med denne politikindstilling kan du fjerne computere i brugerens arbejdsgruppe og domæne fra listerne over netværksressourcer i Stifinder og Netværksplaceringer.
 
@@ -458,21 +458,26 @@ Hvis du aktiverer denne politikindstilling, kan administratorer angive en sti, h
 Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, foretages der ingen ændringer til placeringen af ​​standardbiblioteksdefinitionsfilerne.
       
       </string>
-      <string id="EnableSmartScreen">Konfigurer Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Denne politikindstilling giver dig mulighed for at styre funktionaliteten af Windows SmartScreen. Windows SmartScreen hjælper med at holde pc'er sikrere ved at advare brugerne, før der køres ukendte programmer, der er hentet fra internettet. Der sendes nogle oplysninger til Microsoft om filer og programmer, der er kørt på pc'er med denne funktion aktiveret.
+      <string id="EnableSmartScreen">Konfigurer Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">Advar og undgå tilsidesættelse</string>
+      <string id="SmartScreen_Warn">Advar</string>
+      <string id="EnableSmartScreen_Help">Denne politik, kan du slå Windows Defender SmartScreen til eller fra. SmartScreen hjælper med at beskytte pc'er ved at give brugerne en advarsel, før de kører potentielt skadelige programmer, der er downloadet fra internettet. Denne advarsel vises som en dialogboks, der vises, før man kører en app, der er blevet downloadet fra internettet og er ukendt eller kendt for at være skadelig. Der vises ingen dialogboks for apps, der ikke er mistænkelige.
 
-Hvis du aktiverer denne politikindstilling, kan adfærden af Windows SmartScreen styres ved at vælge en af følgende indstillinger:
+Nogle oplysninger sendes til Microsoft om filer og programmer, der kører på pc'er med denne funktion slået til.
 
-• Advar brugeren, før der køres ukendt software, der er downloadet
-• Deaktiver SmartScreen
+Hvis du slår denne politik til, bliver SmartScreen slået til for alle brugere. Funktionsmåden kan styres med følgende indstillinger:
 
-Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, styres funktionaliteten af Windows SmartScreen af administratorer på pc'en ved hjælp af indstillingerne for Windows SmartScreen i Sikkerhed og vedligeholdelse.
+• Advar og undgå tilsidesættelse
+• Advar
 
-Indstillinger:
-• Advar brugeren, før der køres ukendt software, der er downloadet
-• Deaktiver SmartScreen
+Hvis du slår denne politik til med indstillingen "Advar og undgå tilsidesættelse", giver Smartscreens dialogbokse ikke brugeren med mulighed for at ignorere advarslen og køre appen. SmartScreen fortsætter med at vise advarslen på efterfølgende forsøg på at køre appen.
 
-</string>
+Hvis du slår denne politik til med indstillingen "Advar", advarer Smartscreens dialogbokse brugeren om, at denne app virker mistænkelig, men brugeren kan se bort fra advarslen og køre appen alligevel. SmartScreen advarer ikke brugeren igen om denne app, hvis brugeren tvinger SmartScreen til at køre appen.
+
+Hvis du slår denne politik fra, slås SmartScreen fra for alle brugere. Brugerne får ikke en advarsel, hvis de forsøger at køre mistænkelige apps fra internettet.
+
+Hvis du ikke konfigurerer denne politikindstilling, slås SmartScreen til som standard, men brugerne kan ændre deres indstillinger.
+      </string>
       <string id="ShowLockOption">Vis lås i brugerfeltmenuen</string>
       <string id="ShowLockOption_Help">Viser eller skjuler lås fra brugerfeltmenuen.
 Hvis du aktiverer denne politikindstilling, vises låseindstillingen i brugerfeltmenuen.
@@ -619,6 +624,9 @@ Hvis politikken er aktiveret, deaktiveret eller ikke konfigureret, kan brugerne 
         <textBox refId="DefaultLibrariesLocation">
           <label>Placering for standardbiblioteksdefinition</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Vælg en af følgende indstillinger:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

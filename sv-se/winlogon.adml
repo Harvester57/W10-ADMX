@@ -72,12 +72,34 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen, igno
 
 Tips: Sök efter mapparna som visas i sökvägsmiljövariabeln genom att klicka på "Systemegenskaper" på Kontrollpanelen, klicka på fliken "Avancerat", klicka på knappen "Miljövariabler" och slutligen klicka på "Sökväg" i rutan "Systemvariabler".</string>
 
-      <string id="AutomaticRestartSignOnDescription">Logga automatiskt in den senaste interaktiva användaren efter en systeminitierad omstart</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Den här principinställningen styr om en enhet automatiskt loggar in den senaste interaktiva användaren när Windows Update har startat om systemet.
+      <string id="AutomaticRestartSignOnDescription">Logga in och lås den senaste interaktiva användaren automatiskt efter en omstart</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Den här principinställningen styr om en enhet loggar in och låser den senaste interaktiva användaren automatiskt efter att systemet startas om eller efter en avstängning och kallstart.
 
-Om du aktiverar eller låter bli att konfigurera den här principinställningen sparar enheten användarens autentiseringsuppgifter på ett säkert sätt (inklusive användarnamn, domän och krypterat lösenord) för att konfigurera en automatisk inloggning efter en Windows Update-omstart. Efter Windows Update-omstarten loggas användaren in automatiskt och sessionen låses automatiskt med alla skärmlåsappar som har konfigurerats för användaren.
+Detta sker endast om den senaste interaktiva användaren inte loggade ut innan en omstart eller avstängning gjordes.
 
-Om du inaktiverar den här principinställningen lagrar enheten inte användarens autentiseringsuppgifter för automatisk inloggning efter en Windows Update-omstart. Användarens skärmlåsappar startar inte om efter att systemet har startat om.</string>
+Om enheten är ansluten till Active Directory eller Azure Active Directory gäller den här principen endast Windows Update-omstarter. Annars gäller principen både Windows Update-omstarter och omstarter och avstängningar som användaren initierat.
+
+Om du inte konfigurerar den här principen är den aktiverad som standard. När principen är aktiverad loggas användaren in automatiskt och sessionen låses med alla låsskärmsappar konfigurerade för den användaren efter att enheten startas om.
+
+När du har aktiverat den här principen kan du konfigurera dess inställningar via ConfigAutomaticRestartSignOn-principen, som konfigurerar läget för automatisk inloggning och låsning av den senaste interaktiva användaren efter en omstart eller kallstart.
+
+Om du inaktiverar den här principinställningen konfigureras inte automatisk inloggning, och användarens låsskärmsappar startas inte om efter att systemet startas om.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Konfigurera läget för automatisk inloggning och låsning av den senaste interaktiva användaren efter en omstart eller kallstart</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Den här principinställningen styr konfigurationen för när en automatisk omstart, inloggning och låsning görs efter en omstart eller kallstart. Om du väljer Inaktiverad i principen ”Logga in och lås den senaste interaktiva användaren automatiskt efter en omstart” så görs ingen automatisk inloggning och den här principen behöver inte konfigureras.
+
+Om du aktiverar den här principinställningen kan du välja ett av följande två alternativ:
+
+1. ”Aktiverad om BitLocker är på och inte pausad” anger att automatisk inloggning och låsning endast sker om BitLocker är på och inte pausad under omstarten eller avstängningen. Personliga data går då att komma åt på enhetens hårddisk om BitLocker inte är på eller pausad under en uppdatering. När BitLocker är pausad så inaktiveras skyddet av systemkomponenter och data tillfälligt, men det kan krävas i vissa fall för att kunna uppdatera startkritiska komponenter.
+     BitLocker pausas under uppdateringar om:
+        - Enheten inte har TPM 2.0 och PCR7, eller
+        - Enheten inte använder enbart TPM-skydd
+2. ”Alltid aktiverad” anger att automatisk inloggning sker även om BitLocker är pausad eller inte på under en omstart eller avstängning. När BitLocker inte är på går det att komma åt personliga data på hårddisken. Automatisk omstart och inloggning ska endast köras under det här villkoret om du anser att den konfigurerade enheten är på en säker, fysisk plats.
+
+Om du inaktiverar eller låter bli att konfigurera den här inställningen används standardinställningen ”Aktiverad om BitLocker är på och inte pausad” för att bestämma om automatisk inloggning görs.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Aktiverad om BitLocker är på och inte pausad</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Alltid aktiverad</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Om du inaktiverar den här principinställningen lagrar enheten inte användaren
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Ange vilket program som tillåts generera Secure Attention Sequence</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Konfigurera läget för automatisk inloggning och låsning av den senaste interaktiva användaren efter en omstart eller kallstart</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

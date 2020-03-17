@@ -44,20 +44,25 @@ Hinweise:
           Weitere Informationen finden Sie unter den Einstellungen "Internetdrucken aktivieren" in diesem Einstellungsordner und unter "Websites nach Druckern durchsuchen" unter "Benutzerkonfiguration\Administrative Vorlagen\Systemsteuerung\Drucker".
 
           Die Einstellungen "Klassische Shell aktivieren" und "Öffnen der Ordneroptionen mithilfe der Schaltfläche 'Optionen' auf der Registerkarte 'Ansicht' des Menübands nicht zulassen" unter "Benutzerkonfiguration\Administrative Vorlagen\Windows-Komponenten\Windows-Explorer" sowie die Einstellung "Active Desktop aktivieren" unter "Benutzerkonfiguration\Administrative Vorlagen\Desktop\Active Desktop" haben Auswirkungen auf die Webansicht.</string>
-      <string id="DomainDisplayPrinters_Help">Wenn Sie diese Richtlinieneinstellung aktivieren, wird die maximale Anzahl von Druckern (jedes Typs) festgelegt, die vom Druckerinstallations-Assistenten auf einem Computer in einem verwalteten Netzwerk angezeigt werden (wenn der Computer, z. B. ein zu einer Domäne gehörigen Laptop in einem Firmennetzwerk, einen Domänencontroller erreichen kann).
+      <string id="DomainDisplayPrinters_Help">Wenn Sie diese Richtlinieneinstellung aktivieren, wird die maximale Anzahl von Druckern (jedes Typs) festgelegt, die vom Druckerinstallations-Assistenten auf einem Computer in einem verwalteten Netzwerk angezeigt wird (wenn der Computer eine Verbindung mit einem Domänencontroller herstellen kann, z. B. mit einem Laptop in einem Unternehmensnetzwerk, der einer Domäne angehört).
 
           Wenn diese Richtlinieneinstellung deaktiviert ist, wird die Netzwerksuchseite nicht angezeigt.
 
-          Wird diese Richtlinieneinstellung nicht konfiguriert, zeigt der Druckerinstallations-Assistent die Standardanzahl von Druckern jedes Typs an:
-Verzeichnisdrucker: 20
- TCP/IP-Drucker: 0
- Webdienstedrucker: 0
- Bluetooth-Drucker: 10
- Freigegebene Drucker: 0
+          Wenn diese Richtlinieneinstellung nicht konfiguriert ist, zeigt der Druckerinstallations-Assistent die Standardanzahl von Druckern jedes Typs an:
+          Verzeichnisdrucker: 20
+          TCP/IP-Drucker: 0
+          Webdienstedrucker: 0
+          Bluetooth-Drucker: 10
+          Freigegebene Drucker: 0
 
-  Wenn verfügbare Webdienstedrucker in Ihrem Netzwerk angezeigt werden sollen, aktivieren Sie die Netzwerkerkennung. Um die Netzwerkerkennung zu aktivieren, klicken Sie auf "Start", "Systemsteuerung" und dann auf "Netzwerk und Internet". Klicken Sie auf der Seite "Netzwerk und Internet" auf "Netzwerk- und Freigabecenter". Klicken Sie auf der Seite "Netzwerk- und Freigabecenter" auf "Erweiterte Freigabeeinstellungen ändern". Klicken Sie auf der Seite "Erweiterte Freigabeeinstellungen" auf den Pfeil neben "Domäne", auf "Netzwerkerkennung einschalten" und dann auf "Änderungen speichern".
+          Wenn verfügbare Webdienstedrucker in Ihrem Netzwerk angezeigt werden sollen, vergewissern Sie sich, dass die Netzwerkerkennung aktiviert ist. Um die Netzwerkerkennung zu aktivieren, klicken Sie auf "Start", "Systemsteuerung" und dann auf "Netzwerk und Internet". Klicken Sie auf der Seite "Netzwerk und Internet" auf "Netzwerk- und Freigabecenter". Klicken Sie auf der Seite "Netzwerk- und Freigabecenter" auf "Erweiterte Freigabeeinstellungen ändern". Klicken Sie auf der Seite "Erweiterte Freigabeeinstellungen" auf den Pfeil neben "Domäne", auf "Netzwerkerkennung einschalten" und dann auf "Änderungen speichern".
 
-          Wenn Drucker eines bestimmten Typs nicht angezeigt werden sollen, können Sie diese Richtlinie aktivieren und die Anzahl der anzuzeigenden Drucker auf 0 festlegen.</string>
+          Wenn Drucker eines bestimmten Typs nicht angezeigt werden sollen, aktivieren Sie diese Richtlinie, und legen Sie die Anzahl anzuzeigender Drucker auf 0 fest.
+
+          In Windows 10 und höher können nur TCP/IP-Drucker im Assistenten angezeigt werden. Wenn Sie diese Richtlinieneinstellung aktivieren, gelten nur Grenzwerte für TCP/IP-Drucker. Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der Standardgrenzwert angewendet (gilt nur für Windows 10).
+          
+          Da unter Windows 8 und höher keine Bluetooth-Drucker angezeigt werden, gilt der entsprechende Grenzwert nicht für diese Windows-Versionen.
+      </string>
       <string id="DomainPrinters">Druckerinstallations-Assistent - Netzwerksuchseite (Verwaltetes Netzwerk)</string>
       <string id="DownlevelBrowse">Netzwerk nach Druckern durchsuchen</string>
       <string id="DownlevelBrowse_Help">Ermöglicht Benutzern, im Druckerinstallations-Assistenten das Netzwerk nach freigegebenen Druckern zu durchsuchen.
@@ -129,17 +134,21 @@ Hinweis: Durch Anwendung dieser Richtlinie werden vorhandene Kernelmodustreiber 
           Diese Einstellung verhindert nicht, dass andere Programme zum Löschen eines Druckers ausgeführt werden.
 
           Wenn diese Richtlinie deaktiviert oder nicht konfiguriert wird, können Benutzer Drucker mithilfe der oben beschriebenen Methoden löschen.</string>
-      <string id="NonDomainDisplayPrinters_Help">Durch diese Richtlinie wird die maximale Anzahl von Druckern (jedes Typs) festgelegt, die vom Druckerinstallations-Assistenten auf einem Computer in einem nicht verwalteten Netzwerk angezeigt werden (wenn der Computer, z. B. einen zu einer Domäne gehörigen Laptop in einem Heimnetzwerk, einen Domänencontroller nicht erreichen kann).
+      <string id="NonDomainDisplayPrinters_Help">Mit dieser Richtlinie wird die maximale Anzahl von Druckern (jedes Typs) festgelegt, die vom Druckerinstallations-Assistenten auf einem Computer in einem nicht verwalteten Netzwerk angezeigt wird (wenn der Computer keine Verbindung mit einem Domänencontroller herstellen kann, z. B. mit einem Laptop in einem Heimnetzwerk, der einer Domäne angehört).
 
 Wenn diese Einstellung deaktiviert ist, wird die Netzwerksuchseite nicht angezeigt.
 
-Wird diese Einstellung nicht konfiguriert, zeigt der Druckerinstallations-Assistent die Standardanzahl von Druckern jedes Typs an:
+Wenn diese Einstellung nicht konfiguriert ist, zeigt der Druckerinstallations-Assistent die Standardanzahl von Druckern jedes Typs an:
 TCP/IP-Drucker: 50
 Webdienstedrucker: 50
 Bluetooth-Drucker: 10
-Freigegebene Drucker: 50 
+Freigegebene Drucker: 50
 
-Wenn Drucker eines bestimmten Typs nicht angezeigt werden sollen, können Sie diese Richtlinie aktivieren und die Anzahl der anzuzeigenden Drucker auf 0 festlegen.</string>
+Wenn Drucker eines bestimmten Typs nicht angezeigt werden sollen, aktivieren Sie diese Richtlinie, und legen Sie die Anzahl anzuzeigender Drucker auf 0 fest.
+
+In Windows 10 und höher können nur TCP/IP-Drucker im Assistenten angezeigt werden. Wenn Sie diese Richtlinieneinstellung aktivieren, gelten nur Grenzwerte für TCP/IP-Drucker. Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der Standardgrenzwert angewendet (gilt nur für Windows 10).
+          
+Da unter Windows 8 und höher keine Bluetooth-Drucker angezeigt werden, gilt der entsprechende Grenzwert nicht für diese Windows-Versionen.</string>
       <string id="NonDomainPrinters">Druckerinstallations-Assistent - Netzwerksuchseite (Nicht verwaltetes Netzwerk)</string>
       <string id="PackagePointAndPrintOnly">Nur Point-and-Print für Pakete verwenden</string>
       <string id="PackagePointAndPrintOnly_Help">Diese Richtlinie legt fest, dass Clientcomputer nur Point-and-Print für Pakete verwenden können.
@@ -269,7 +278,7 @@ Windows Ultimate-, Professional- und Home-SKUs setzen die Suche nach kompatiblen
 
         Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, sind alle installierten Druckererweiterungen zur Ausführung zugelassen.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Das Standardausgabeformat von Microsoft XPS-Dokument-Generator auf das XPS-Vorgängerformat (*.xps) von Microsoft ändern</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Der Microsoft XPS-Dokument-Generator (MXDW) generiert unter Windows 10, Windows 10 und Windows Server 2016 standardmäßig OpenXPS-Dateien (*.oxps).
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Der Microsoft XPS-Dokument-Generator (MXDW) generiert unter Windows 10, Windows 10 und Windows Server 2019 standardmäßig OpenXPS-Dateien (*.oxps).
 
           Wenn Sie die Gruppenrichtlinieneinstellung aktivieren, entspricht das MXDW-Ausgabeformat dem älteren Microsoft XPS-Format (*.xps).
 

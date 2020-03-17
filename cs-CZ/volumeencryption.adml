@@ -41,21 +41,19 @@ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, zobrazí Průvod
       <string id="ConfigureStartupUsage_Name">Požadovat při spouštění další ověřování (Windows Server 2008 a Windows Vista)</string>
       <string id="ConfigureAdvancedStartup_Name">Požadovat při spouštění další ověřování</string>
 
-      <string id="ConfigureAdvancedStartup_Help">Toto nastavení zásad umožňuje nakonfigurovat, zda bude nástroj BitLocker při každém spouštění počítače vyžadovat další ověřování a zda používáte nástroj BitLocker s čipem TPM nebo bez něj. Toto nastavení zásad je použito při zapnutí nástroje BitLocker.
+      <string id="ConfigureAdvancedStartup_Help">Toto nastavení zásad umožňuje nakonfigurovat, zda bude nástroj BitLocker při každém spouštění počítače vyžadovat další ověřování a zda používáte nástroj BitLocker s čipem TPM nebo bez něj. Toto nastavení zásad je použito při zapnutí nástroje BitLocker.
 
-Poznámka: Při spouštění lze vyžadovat pouze jednu z dodatečných možností ověřování, v opačném případě dojde k chybě zásad.
+Poznámka: Při spouštění lze vyžadovat pouze jednu z dodatečných možností ověřování, v opačném případě dojde k chybě zásad.
 
-Pokud chcete nástroj BitLocker používat v počítači bez čipu TPM, zaškrtněte políčko Povolit nástroj BitLocker bez kompatibilního čipu TPM. V tomto režimu je pro spuštění vyžadováno heslo nebo jednotka USB. Při použití spouštěcího klíče jsou informace klíče použité k šifrování jednotky uloženy na jednotku USB, čímž dojde k vytvoření USB klíče. Při vložení USB klíče dojde k ověření přístupu k jednotce a jednotka bude zpřístupněna. Pokud dojde ke ztrátě USB klíče, bude nedostupný nebo zapomenete heslo, bude pro přístup k jednotce nutné použít jednu z možností obnovení nástrojem BitLocker.
+Pokud chcete nástroj BitLocker používat v počítači bez čipu TPM, zaškrtněte políčko Povolit nástroj BitLocker bez kompatibilního čipu TPM. V tomto režimu je ke spuštění vyžadováno heslo nebo USB flash disk. Při použití spouštěcího klíče jsou informace klíče použité k šifrování jednotky uloženy na USB flash disku, čímž dojde k vytvoření USB klíče. Při vložení USB klíče se ověří přístup k disku a disk bude zpřístupněn. Pokud dojde ke ztrátě USB klíče, bude nedostupný nebo zapomenete heslo, bude pro přístup k disku nutné použít jednu z možností obnovení nástrojem BitLocker.
 
-V počítači s kompatibilním čipem TPM lze při spouštění jako další ochranu šifrovaných dat použít jeden ze čtyř typů metod ověřování. Při spouštění počítače lze k ověření použít pouze čip TPM. Může však také být vyžadováno vložení jednotky USB Flash obsahující spouštěcí klíč, zadání 4 až 20místného číselného PIN kódu nebo lze použít obě tyto možnosti.
+V počítači s kompatibilním čipem TPM lze při spouštění jako další ochranu šifrovaných dat použít jeden ze čtyř typů metod ověřování. Při spouštění počítače lze k ověření použít pouze čip TPM. Může však také být vyžadováno vložení USB flash disku obsahujícího spouštěcí klíč, zadání 6 až 20místného číselného kódu PIN nebo lze použít obě tyto možnosti.
 
-Pokud toto nastavení zásad povolíte, budou uživatelé moci v průvodci nastavením nástroje BitLocker nakonfigurovat pokročilé možnosti spouštění.
+Pokud toto nastavení zásad povolíte, budou uživatelé moci v průvodci nastavením nástroje BitLocker nakonfigurovat pokročilé možnosti spouštění.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou uživatelé v počítačích s čipem TPM moci nakonfigurovat pouze základní možnosti.
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou uživatelé v počítačích s čipem TPM moci nakonfigurovat pouze základní možnosti.
 
-Poznámka: Pokud chcete vyžadovat používání spouštěcího PIN kódu a jednotky USB Flash, je nutné pomocí nástroje příkazového řádku manage-bde nakonfigurovat nastavení nástroje BitLocker – namísto průvodce nastavením nástroje BitLocker Drive Encryption.
-
-
+Poznámka: Pokud chcete vyžadovat používání spouštěcího kódu PIN a USB flash disku, je nutné nastavení nástroje BitLocker namísto průvodce nastavením nástroje BitLocker Drive Encryption nakonfigurovat pomocí nástroje příkazového řádku manage-bde.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Povolit odemknutí sítě při spouštění</string>
@@ -287,16 +285,21 @@ Upozornění: Změna výchozího profilu ověřování platformy ovlivní zabezp
 
       <string id="PlatformValidation_BIOS_Name">Konfigurovat profil ověřování platformy TPM pro konfigurace firmwaru založené na systému BIOS</string>
 
-      <string id="PlatformValidation_UEFI_Help">Nastavením této zásady můžete konfigurovat, jak zabezpečovací hardware TPM zabezpečí šifrovací klíč nástroje BitLocker. Toto nastavení zásad se nepoužívá, pokud počítač neobsahuje kompatibilní čip TPM nebo pokud byl nástroj BitLocker již spuštěn s ochranou TPM.
+      <string id="PlatformValidation_UEFI_Help">Nastavením této zásady můžete konfigurovat, jak zabezpečovací hardware TPM zabezpečí šifrovací klíč nástroje BitLocker. Toto nastavení zásad se nepoužívá, pokud počítač neobsahuje kompatibilní čip TPM nebo pokud byl nástroj BitLocker už spuštěn s ochranou TPM.
 
-Důležité: Tyto zásady skupiny se vztahují pouze na počítače s konfiguracemi využívajícími nativní firmware UEFI. Počítače se systémem BIOS nebo firmwarem UEFI s povoleným modulem CSM (Compatibility Service Module) ukládají do registrů konfigurace platformy (PCR) jiné hodnoty. Pomocí nastavení zásad skupiny Konfigurovat profil ověřování platformy TPM pro konfigurace s firmwarem založeným na systému BIOS lze nakonfigurovat profil registru konfigurace platformy TPM pro počítače s konfiguracemi se systémem BIOS nebo pro počítače s firmwarem UEFI s povoleným modulem CSM.
+Důležité: Tyto zásady skupiny se vztahují jen na počítače s konfiguracemi využívajícími nativní firmware UEFI. Počítače se systémem BIOS nebo firmwarem UEFI s povoleným modulem CSM (Compatibility Service Module) ukládají do registrů konfigurace platformy (PCR) jiné hodnoty. Pomocí nastavení zásad skupiny Konfigurovat profil ověřování platformy TPM pro konfigurace s firmwarem založeným na systému BIOS lze nakonfigurovat profil registru konfigurace platformy TPM pro počítače s konfiguracemi se systémem BIOS nebo pro počítače s firmwarem UEFI s povoleným modulem CSM.
 
 Pokud toto nastavení zásad povolíte před zapnutím nástroje BitLocker, můžete konfigurovat součásti spuštění počítače, které čip TPM ověří před odemknutím přístupu k jednotce operačního systému šifrované nástrojem BitLocker. Pokud se některá z těchto komponent změní během doby, kdy je zapnutá ochrana nástrojem BitLocker, čip TPM neuvolní šifrovací klíč k odemknutí jednotky a počítač místo toho zobrazí konzolu Obnovení nástrojem BitLocker a bude vyžadovat, aby k odemčení jednotky bylo zadáno heslo pro obnovení nebo obnovovací klíč.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nástroj BitLocker použije výchozí profil ověřování platformy nebo profil ověřování platformy určený skriptem nastavení. Profil ověřování platformy se skládá ze sady indexů registru konfigurace platformy (PCR) v rozsahu od 0 do 23. Výchozí profil ověřování platformy zabezpečuje šifrovací klíč proti změnám spustitelného kódu základního systémového firmwaru (PCR 0), rozšířeného nebo zásuvného spustitelného kódu (PCR 2), správce spouštění systému (PCR 4) a řízení přístupu nástrojem BitLocker (PCR 11).
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nástroj BitLocker použije výchozí profil ověřování platformy pro dostupný hardware nebo profil ověřování platformy určený skriptem nastavení. Profil ověřování platformy se skládá ze sady indexů registru konfigurace platformy (PCR) v rozsahu od 0 do 23. 
 
-Upozornění: Změna výchozího profilu ověřování platformy ovlivní zabezpečení a možnost správy počítače. Citlivost nástroje BitLocker na změny platformy (škodlivé nebo autorizované) se zvyšuje nebo snižuje podle toho, zda jsou zahrnuty nebo vyloučeny registry konfigurace platformy (PCR). Pokud tuto zásadu nastavíte, aniž by byl zahrnut registr PCR 7, budou potlačeny zásady skupiny Povolit zabezpečené spouštění systému pro ověření integrity, což nástroji BitLocker zabrání používat zabezpečené spouštění systému pro platformu nebo ověření integrity pro konfigurační data spouštění (BCD). Je-li tato zásada nastavená, může se stát, že bude při aktualizaci firmwaru spuštěna obnova nástroje BitLocker. Pokud tuto zásadu nastavíte tak, aby zahrnovala registr PCR 0, pozastavte před každou aktualizací firmwaru nástroj BitLocker.
-      
+Na osobních počítačích bez podpory Stavu zabezpečeného spouštění (PCR 7) výchozí profil ověřování platformy zabezpečuje šifrovací klíč proti změnám spustitelného kódu základního systémového firmwaru (PCR 0), rozšířeného nebo zásuvného spustitelného kódu (PCR 2), správce spouštění systému (PCR 4) a řízení přístupu nástrojem BitLocker (PCR 11).
+
+Pokud je Stav zabezpečeného spouštění (PCR7) podporován, výchozí profil ověřování platformy zabezpečuje šifrovací klíč pomocí Stavu zabezpečeného spouštění (PCR 7) a řízení přístupu nástrojem BitLocker (PCR 11).
+
+Upozornění: Změna výchozího profilu ověřování platformy ovlivní zabezpečení a možnost správy počítače. Citlivost nástroje BitLocker na změny platformy (škodlivé nebo autorizované) se zvyšuje nebo snižuje podle toho, jestli jsou zahrnuty, nebo vyloučeny registry konfigurace platformy (PCR). Pokud tuto zásadu nastavíte, aniž by byl zahrnut registr PCR 7, budou potlačeny zásady skupiny Povolit zabezpečené spouštění systému pro ověření integrity, což nástroji BitLocker zabrání používat zabezpečené spouštění systému pro platformu nebo ověření integrity pro konfigurační data spouštění (BCD). Je-li tato zásada nastavená, může se stát, že bude při aktualizaci firmwaru spuštěna obnova nástroje BitLocker. Pokud tuto zásadu nastavíte tak, aby zahrnovala registr PCR 0, pozastavte před každou aktualizací firmwaru nástroj BitLocker.
+
+Tuto zásadu se doporučuje nekonfigurovat, aby výběr profilu PCR mohl provést systém Windows, a dosáhlo se tak nejlepší kombinace zabezpečení a použitelnosti na základě dostupného hardwaru na každém počítači.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Konfigurovat profil ověřování platformy TPM pro konfigurace s nativním firmwarem UEFI</string>
@@ -311,6 +314,13 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, budou při restartován
 
       </string>
       <string id="MorBehavior_Name">Zakázat přepsání paměti při restartování</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Nastavení této zásady umožňuje blokovat přímý přístup do paměti (DMA) pro všechny porty Thunderbolt PCI pro příjem dat podporující připojení za chodu, dokud se uživatel nepřihlásí do Windows. Jakmile se uživatel přihlásí, systém Windows vytvoří výčet zařízení PCI připojených k hostitelským portům Thunderbolt PCI. Pokaždé když uživatel uzamkne počítač, zablokuje se přístup DMA na portech Thunderbolt PCI, které podporují připojení za chodu a nemají žádná podřízená zařízení, dokud se uživatel znovu nepřihlásí. Zařízení, která byla ve výčtu už při odemčení zařízení, budou nadále fungovat, dokud se neodpojí nebo se systém nerestartuje nebo nepřejde do režimu hibernace. Nastavení této zásady se vynucuje jen v případě, že je povolen nástroj BitLocker nebo šifrování zařízení.
+
+Poznámka: Některé počítače nemusí být s touto zásadou kompatibilní, pokud přístup DMA pro nově připojená zařízení Thunderbolt před jejich zviditelněním pro Windows umožňuje systémový firmware.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Zakázat nová zařízení DMA, pokud je tento počítač zamknutý</string>
 
       <string id="FVEOSCategory">Jednotky operačního systému</string>
       <string id="FVEFDVCategory">Pevné datové jednotky</string>
@@ -373,13 +383,14 @@ Nastavení, které řídí ladění spouštění systému (0x16000010), bude vž
 
 
       <string id="MinimumPINLength_Name">Konfigurovat minimální délku PIN kódu pro spuštění</string>
-      <string id="MinimumPINLength_Help">Nastavení této zásady umožňuje nakonfigurovat minimální délku spouštěcího PIN kódu čipu TPM. Toto nastavení zásad je použito při zapnutí nástroje BitLocker. Spouštěcí PIN kód musí být minimálně čtyřmístný a maximálně dvacetimístný.
+      <string id="MinimumPINLength_Help">
+          Nastavení této zásady umožňuje nakonfigurovat minimální délku spouštěcího kódu PIN čipu TPM. Tato zásada se použije při zapnutí nástroje BitLocker. Spouštěcí kód PIN musí být minimálně 4místný a maximálně 20místný.
 
-Pokud nastavení této zásady povolíte, můžete při nastavování spouštěcího PIN kódu vyžadovat minimální počet číslic.
+          Pokud tuto zásadu povolíte, můžete při nastavování spouštěcího kódu PIN vyžadovat minimální počet číslic.
 
-Pokud nastavení této zásady zakážete nebo nenakonfigurujete, mohou uživatelé nakonfigurovat spouštěcí PIN kód v délce od 4 do 20 číslic.
+          Pokud tuto zásadu zakážete nebo nenakonfigurujete, můžou uživatelé nakonfigurovat spouštěcí kód PIN v délce od 6 do 20 číslic.
 
-      
+          POZNÁMKA: Pokud je minimální délka kódu PIN nastavená na méně než 6 číslic, systém Windows se při změně kódu PIN pokusí aktualizovat dobu uzamčení čipu TPM 2.0 na vyšší než výchozí hodnotu. Pokud se to podaří, změní se nastavení doby uzamčení čipu TPM zpět na výchozí hodnotu jen v případě, že se resetuje čip TPM.
 
       </string>
 
@@ -628,49 +639,46 @@ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, standardní uži
 
       <string id="RDVEDrive_Name">Konfigurovat použití hardwarového šifrování pro vyměnitelné datové jednotky</string>
 
-      <string id="OSEDrive_Help">Toto nastavení zásad umožňuje spravovat používání hardwarového šifrování na jednotkách operačního systému nástrojem BitLocker a definovat, který šifrovací algoritmus může nástroj BitLocker používat s hardwarovým šifrováním. Používání hardwarového šifrování může zvýšit výkon operací s jednotkami, u kterých je prováděno časté čtení nebo zapisování dat.
+      <string id="OSEDrive_Help">Nastavení této zásady umožňuje spravovat používání hardwarového šifrování na jednotkách operačního systému nástrojem BitLocker a určit, které šifrovací algoritmy může nástroj BitLocker používat s hardwarovým šifrováním. Používání hardwarového šifrování může zvýšit výkon operací u jednotek, u kterých se provádí časté čtení nebo zapisování dat.
 
-Pokud toto nastavení zásad povolíte, můžete určit další možnosti, které řídí, zda je u počítačů, které nepodporují hardwarové šifrování, použito softwarové šifrování nástrojem BitLocker, a zda chcete omezit šifrovací algoritmy a sady šifer používané s hardwarovým šifrováním.
+Pokud tuto zásadu povolíte, můžete určit další možnosti, které řídí, jestli se u počítačů, které hardwarové šifrování nepodporují, má místo něho použít softwarové šifrování nástrojem BitLocker a jestli chcete omezit šifrovací algoritmy a sady šifer používané s hardwarovým šifrováním.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nástroj BitLocker nebude moci s jednotkami operačního systému používat hardwarové šifrování a ve výchozím nastavení bude při šifrování jednotek použito softwarové šifrování nástrojem BitLocker.
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, nástroj BitLocker nebude moct u jednotek operačního systému používat hardwarové šifrování a ve výchozím nastavení se při šifrování jednotek použije softwarové šifrování nástrojem BitLocker.
 
-Pokud toto nastavení zásad nenakonfigurujete, nástroj BitLocker použije hardwarové šifrování s šifrovacím algoritmem nastaveným pro danou jednotku. Pokud není hardwarové šifrování dostupné, bude místo něj použito softwarové šifrování nástrojem BitLocker.
+Pokud tuto zásadu nenakonfigurujete, nástroj BitLocker použije softwarové šifrování bez ohledu na dostupnost hardwarového šifrování.
 
-Poznámka: Nastavení zásad Zvolit metodu šifrování jednotky a sílu šifry se nevztahuje na hardwarové šifrování. Šifrovací algoritmus používaný hardwarovým šifrováním je nastaven při vytváření oddílů na jednotce. Ve výchozím nastavení používá nástroj BitLocker k šifrování jednotky algoritmus nakonfigurovaný na dané jednotce. Možnost Omezit šifrovací algoritmus a sady šifer povolené pro hardwarové šifrování umožňuje omezit šifrovací algoritmy, které nástroj BitLocker může používat s hardwarovým šifrováním. Pokud není sada algoritmů pro jednotku k dispozici, nástroj BitLocker používání hardwarového šifrování zakáže.
-Šifrovací algoritmy jsou určeny identifikátory objektu (OID). Například:
+Poznámka: Nastavení zásady Zvolit metodu šifrování jednotky a sílu šifry se nevztahuje na hardwarové šifrování. Šifrovací algoritmus používaný hardwarovým šifrováním se nastaví při vytváření oddílů na jednotce. Ve výchozím nastavení používá nástroj BitLocker k šifrování jednotky algoritmus nakonfigurovaný na dané jednotce. Možnost Omezit šifrovací algoritmus a sady šifer povolené pro hardwarové šifrování umožňuje omezit šifrovací algoritmy, které nástroj BitLocker může používat s hardwarovým šifrováním. Pokud není sada algoritmů pro jednotku k dispozici, nástroj BitLocker používání hardwarového šifrování zakáže.
+Šifrovací algoritmy jsou určené identifikátory objektu (OID). Například:
 - AES 128 v režimu CBC, OID: 2.16.840.1.101.3.4.1.2
 - AES 256 v režimu CBC, OID: 2.16.840.1.101.3.4.1.42
-      
       </string>
 
-      <string id="FDVEDrive_Help">Toto nastavení zásad umožňuje spravovat používání hardwarového šifrování na pevných datových jednotkách nástrojem BitLocker a definovat, který šifrovací algoritmus může nástroj BitLocker používat s hardwarovým šifrováním. Používání hardwarového šifrování může zvýšit výkon operací s jednotkami, u kterých je prováděno časté čtení nebo zapisování dat.
+      <string id="FDVEDrive_Help">Nastavení této zásady umožňuje spravovat používání hardwarového šifrování na pevných datových jednotkách nástrojem BitLocker a určit, které šifrovací algoritmy může nástroj BitLocker používat s hardwarovým šifrováním. Používání hardwarového šifrování může zvýšit výkon operací u jednotek, u kterých se provádí časté čtení nebo zapisování dat.
 
-Pokud toto nastavení zásad povolíte, můžete určit další možnosti, které řídí, zda je u počítačů, které nepodporují hardwarové šifrování, použito softwarové šifrování nástrojem BitLocker, a zda chcete omezit šifrovací algoritmy a sady šifer používané s hardwarovým šifrováním.
+Pokud tuto zásadu povolíte, můžete určit další možnosti, které řídí, jestli se u počítačů, které hardwarové šifrování nepodporují, má místo něho použít softwarové šifrování nástrojem BitLocker a jestli chcete omezit šifrovací algoritmy a sady šifer používané s hardwarovým šifrováním.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nástroj BitLocker nebude moci s jednotkami operačního systému používat hardwarové šifrování a ve výchozím nastavení bude při šifrování jednotek použito softwarové šifrování nástrojem BitLocker.
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, nástroj BitLocker nebude moct u jednotek operačního systému používat hardwarové šifrování a ve výchozím nastavení se při šifrování jednotek použije softwarové šifrování nástrojem BitLocker.
 
-Pokud toto nastavení zásad nenakonfigurujete, nástroj BitLocker použije hardwarové šifrování s šifrovacím algoritmem nastaveným pro danou jednotku. Pokud není hardwarové šifrování dostupné, bude místo něj použito softwarové šifrování nástrojem BitLocker.
+Pokud tuto zásadu nenakonfigurujete, nástroj BitLocker použije softwarové šifrování bez ohledu na dostupnost hardwarového šifrování.
 
-Poznámka: Nastavení zásad Zvolit metodu šifrování jednotky a sílu šifry se nevztahuje na hardwarové šifrování. Šifrovací algoritmus používaný hardwarovým šifrováním je nastaven při vytváření oddílů na jednotce. Ve výchozím nastavení používá nástroj BitLocker k šifrování jednotky algoritmus nakonfigurovaný na dané jednotce. Možnost Omezit šifrovací algoritmus a sady šifer povolené pro hardwarové šifrování umožňuje omezit šifrovací algoritmy, které nástroj BitLocker může používat s hardwarovým šifrováním. Pokud není sada algoritmů pro jednotku k dispozici, nástroj BitLocker používání hardwarového šifrování zakáže.
-Šifrovací algoritmy jsou určeny identifikátory objektu (OID). Například:
+Poznámka: Nastavení zásady Zvolit metodu šifrování jednotky a sílu šifry se nevztahuje na hardwarové šifrování. Šifrovací algoritmus používaný hardwarovým šifrováním se nastaví při vytváření oddílů na jednotce. Ve výchozím nastavení používá nástroj BitLocker k šifrování jednotky algoritmus nakonfigurovaný na dané jednotce. Možnost Omezit šifrovací algoritmus a sady šifer povolené pro hardwarové šifrování umožňuje omezit šifrovací algoritmy, které nástroj BitLocker může používat s hardwarovým šifrováním. Pokud není sada algoritmů pro jednotku k dispozici, nástroj BitLocker používání hardwarového šifrování zakáže.
+Šifrovací algoritmy jsou určené identifikátory objektu (OID). Například:
 - AES 128 v režimu CBC, OID: 2.16.840.1.101.3.4.1.2
 - AES 256 v režimu CBC, OID: 2.16.840.1.101.3.4.1.42
-      
       </string>
 
-      <string id="RDVEDrive_Help">Toto nastavení zásad umožňuje spravovat používání hardwarového šifrování na vyměnitelných datových jednotkách nástrojem BitLocker a definovat, který šifrovací algoritmus může nástroj BitLocker používat s hardwarovým šifrováním. Používání hardwarového šifrování může zvýšit výkon operací s jednotkami, u kterých je prováděno časté čtení nebo zapisování dat.
+      <string id="RDVEDrive_Help">Nastavení této zásady umožňuje spravovat používání hardwarového šifrování na vyměnitelných datových jednotkách nástrojem BitLocker a určit, které šifrovací algoritmy může nástroj BitLocker používat s hardwarovým šifrováním. Používání hardwarového šifrování může zvýšit výkon operací u jednotek, u kterých se provádí časté čtení nebo zapisování dat.
 
-Pokud toto nastavení zásad povolíte, můžete určit další možnosti, které řídí, zda je u počítačů, které nepodporují hardwarové šifrování, použito softwarové šifrování nástrojem BitLocker, a zda chcete omezit šifrovací algoritmy a sady šifer používané s hardwarovým šifrováním.
+Pokud tuto zásadu povolíte, můžete určit další možnosti, které řídí, jestli se u počítačů, které hardwarové šifrování nepodporují, má místo něho použít softwarové šifrování nástrojem BitLocker a jestli chcete omezit šifrovací algoritmy a sady šifer používané s hardwarovým šifrováním.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nástroj BitLocker nebude moci s jednotkami operačního systému používat hardwarové šifrování a ve výchozím nastavení bude při šifrování jednotek použito softwarové šifrování nástrojem BitLocker.
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, nástroj BitLocker nebude moct u jednotek operačního systému používat hardwarové šifrování a ve výchozím nastavení se při šifrování jednotek použije softwarové šifrování nástrojem BitLocker.
 
-Pokud toto nastavení zásad nenakonfigurujete, nástroj BitLocker použije hardwarové šifrování s šifrovacím algoritmem nastaveným pro danou jednotku. Pokud není hardwarové šifrování dostupné, bude místo něj použito softwarové šifrování nástrojem BitLocker.
+Pokud tuto zásadu nenakonfigurujete, nástroj BitLocker použije softwarové šifrování bez ohledu na dostupnost hardwarového šifrování.
 
-Poznámka: Nastavení zásad Zvolit metodu šifrování jednotky a sílu šifry se nevztahuje na hardwarové šifrování. Šifrovací algoritmus používaný hardwarovým šifrováním je nastaven při vytváření oddílů na jednotce. Ve výchozím nastavení používá nástroj BitLocker k šifrování jednotky algoritmus nakonfigurovaný na dané jednotce. Možnost Omezit šifrovací algoritmus a sady šifer povolené pro hardwarové šifrování umožňuje omezit šifrovací algoritmy, které nástroj BitLocker může používat s hardwarovým šifrováním. Pokud není sada algoritmů pro jednotku k dispozici, nástroj BitLocker používání hardwarového šifrování zakáže.
-Šifrovací algoritmy jsou určeny identifikátory objektu (OID). Například:
+Poznámka: Nastavení zásady Zvolit metodu šifrování jednotky a sílu šifry se nevztahuje na hardwarové šifrování. Šifrovací algoritmus používaný hardwarovým šifrováním se nastaví při vytváření oddílů na jednotce. Ve výchozím nastavení používá nástroj BitLocker k šifrování jednotky algoritmus nakonfigurovaný na dané jednotce. Možnost Omezit šifrovací algoritmus a sady šifer povolené pro hardwarové šifrování umožňuje omezit šifrovací algoritmy, které nástroj BitLocker může používat s hardwarovým šifrováním. Pokud není sada algoritmů pro jednotku k dispozici, nástroj BitLocker používání hardwarového šifrování zakáže.
+Šifrovací algoritmy jsou určené identifikátory objektu (OID). Například:
 - AES 128 v režimu CBC, OID: 2.16.840.1.101.3.4.1.2
 - AES 256 v režimu CBC, OID: 2.16.840.1.101.3.4.1.42
-      
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">Povolit použití ověřování nástrojem BitLocker vyžadující vstup z klávesnice před spuštěním na tabletech</string>
@@ -687,6 +695,14 @@ Poznámka: Pokud tuto zásadu ponecháte vypnutou, nebudou u takovýchto zaříz
 - Konfigurovat spouštěcí klíč a PIN kód čipu TPM: Požadováno/Povoleno
 - Konfigurovat použití hesel pro jednotky operačního systému.
       
+      </string>
+
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Umožnit zařízením kompatibilním s InstantGo nebo HSTI, aby se odhlásila z PIN před spuštěním.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Toto nastavení zásad umožňuje uživatelům na zařízeních, která jsou kompatibilní s InstantGo nebo testovacím rozhraním bezpečnosti hardwaru Microsoft (HSTI), nepoužívat pro ověřování před spuštěním PIN kód. Tímto se na kompatibilním hardwaru potlačí možnosti „Vyžadovat spouštěcí PIN kód s čipem TPM“ a „Vyžadovat spouštěcí klíč a PIN kód s čipem TPM“ zásady „Požadovat při spouštění další ověřování“.
+
+Pokud toto nastavení povolíte, uživatelé na zařízeních kompatibilních s InstantGo a HSTI budou moci zapnout BitLocker bez ověřování před spuštěním.
+
+Pokud tato zásada není povolena, platí možnosti zásady „Požadovat při spouštění další ověřování“.
       </string>
 
       <string id="AllowSecureBootForIntegrity_Name">Povolit zabezpečené spouštění pro ověření integrity</string>
@@ -966,7 +982,7 @@ Poznámka: Ne všechny znaky a jazyky jsou v prostředí před spuštěním podp
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Minimální počet znaků:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Minimální počet znaků:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

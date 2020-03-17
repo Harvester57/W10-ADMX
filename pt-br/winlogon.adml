@@ -72,12 +72,34 @@ Se você desabilitar esta opção ou não configurá-la, a opção será ignorad
 
 Dica: Para localizar as pastas indicadas pela variável de ambiente Path, clique em Propriedades do Sistema no Painel de Controle, clique na guia Avançada, no botão Variáveis de Ambiente e, em seguida, na caixa de variáveis Sistema, clique em Path.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Conectar último usuário interativo automaticamente após uma reinicialização iniciada pelo sistema</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Esta configuração de política controla se um dispositivo conectará automaticamente o último usuário interativo após o Windows Update reiniciar o sistema.
+      <string id="AutomaticRestartSignOnDescription">Entrar e bloquear o último usuário interativo automaticamente após a reinicialização</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Esta configuração de política controla se um dispositivo conectará e bloqueará automaticamente o último usuário interativo depois que o sistema for reiniciado ou após um desligamento e uma inicialização a frio.
 
-Se você habilitar ou não configurar essa política, o dispositivo salvará com segurança as credenciais do usuário (incluindo o nome de usuário, o domínio e a senha criptografada) para configurar a entrada automática após uma reinicialização do Windows Update. Após o Windows Update reiniciar o sistema, o usuário será automaticamente conectado e a sessão será automaticamente bloqueada com todos os aplicativos da tela de bloqueio configurados para esse usuário.
+Isso ocorre apenas se o último usuário interativo não sair antes da reinicialização ou do desligamento.
 
-Se você desabilitar essa configuração de política, o dispositivo não armazenará as credenciais do usuário para entrada automática após uma reinicialização do Windows Update. Os aplicativos da tela de bloqueio dos usuários não são reiniciados após a reinicialização do sistema.</string>
+Se o dispositivo fizer parte do Active Directory ou do Azure Active Directory, esta política se aplicará apenas ao reinício do Windows Update. Caso contrário, ela se aplicará às reinicializações do Windows Update e às reinicializações e aos desligamentos iniciados pelo usuário.
+
+Se você não definir esta configuração de política, ela será habilitada por padrão. Quando a política estiver habilitada, o usuário será conectado automaticamente e a sessão será bloqueada automaticamente com todos os apps da tela de bloqueio configurados para esse usuário após a inicialização do dispositivo.
+
+Depois de habilitar essa política, você poderá definir suas configurações por meio da política ConfigAutomaticRestartSignOn, que configura o modo de conectar e bloquear automaticamente o último usuário interativo após uma reinicialização ou inicialização a frio.
+
+Se você desabilitar esta configuração de política, o dispositivo não configurará a conexão automática. Os apps da tela de bloqueio do usuário não serão reiniciados após a reinicialização do sistema.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Configurar o modo de conexão e bloqueio automáticos do último usuário interativo após uma reinicialização ou inicialização a frio</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Esta configuração de política controla a configuração na qual uma reinicialização e uma conexão e um bloqueio automáticos ocorrem após uma reinicialização ou inicialização a frio. Se você escolheu "Desabilitado" na política "Conectar e bloquear o último usuário interativo automaticamente após a reinicialização", a conexão automática não ocorrerá e não será necessário configurar essa política.
+
+Se você habilitar esta configuração de política, poderá escolher uma das duas opções a seguir:
+
+1. "Habilitado se o BitLocker estiver ativado e não suspenso" especifica que a conexão e o bloqueio automáticos só ocorrerão se o BitLocker estiver ativado e não suspenso durante a reinicialização ou o desligamento. Os dados pessoais poderão ser acessados no disco rígido do dispositivo neste momento se o BitLocker não estiver ativado nem suspenso durante uma atualização. A suspensão do BitLocker remove temporariamente a proteção dos componentes e dados do sistema, mas pode ser necessária em certas circunstâncias para atualizar os componentes críticos para a inicialização com êxito.
+     O BitLocker será suspenso durante as atualizações se:
+        - O dispositivo não tiver o TPM 2.0 e PCR7 ou
+        - O dispositivo não usar um protetor somente TPM
+2. "Sempre Habilitado" especifica que a conexão automática ocorrerá mesmo que o BitLocker esteja desativado ou suspenso durante a reinicialização ou o desligamento. Quando o BitLocker não está habilitado, os dados pessoais estão acessíveis no disco rígido. A reinicialização e a conexão automáticas deverão ser executadas sob esta condição somente se você tiver certeza de que o dispositivo configurado está em uma localização física segura.
+
+Se você desabilitar ou não definir esta configuração, o recurso de conexão automática será o padrão para o comportamento "Habilitado se o BitLocker estiver ativado e não suspenso".</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Habilitado se o BitLocker estiver ativado e não suspenso</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Sempre Habilitado</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Se você desabilitar essa configuração de política, o dispositivo não armaze
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Definir que software pode gerar a Sequência Segura</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Configurar o modo de conexão e bloqueio automáticos do último usuário interativo após uma reinicialização ou inicialização a frio</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

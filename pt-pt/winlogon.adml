@@ -72,12 +72,34 @@ Se desativar esta definição ou não a configurar, a definição é ignorada e 
 
 Sugestão: Para localizar as pastas indicadas pela variável de ambiente Caminho, clique em Propriedades do Sistema no Painel de Controlo, clique no separador Avançadas, clique no botão Variáveis de Ambiente e, em seguida, clique em Caminho na caixa Variáveis do Sistema.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Iniciar sessão automaticamente como o último utilizador interativo após um reinício iniciado pelo sistema</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Esta definição de política controla se um dispositivo iniciará sessão automaticamente como o último utilizador interativo após o Windows Update reiniciar o sistema.
+      <string id="AutomaticRestartSignOnDescription">Iniciar sessão e bloquear automaticamente como o último utilizador interativo após um reinício</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Esta definição de política controla se um dispositivo iniciará sessão e bloqueará automaticamente como o último utilizador interativo após o reinício do sistema ou após o encerramento e arranque a frio.
 
-Se ativar ou não configurar esta definição de política, o dispositivo guardará de forma segura as credenciais do utilizador (incluindo o nome de utilizador, domínio e palavra-passe encriptada) para configurar o início de sessão automático após um reinício iniciado pelo Windows Update. Após o Windows Update reiniciar o sistema, é automaticamente iniciada sessão pelo utilizador e a sessão é automaticamente bloqueada com todas as aplicações do ecrã de bloqueio configuradas para esse utilizador.
+Isto apenas ocorre se o último utilizador interativo não terminar sessão antes do reinício ou encerramento.
 
-Se desativar esta definição de política, o dispositivo não armazenará as credenciais do utilizador para iniciar sessão automaticamente após um reinício iniciado pelo Windows Update. As aplicações do ecrã de bloqueio do utilizador não serão reiniciadas após o reinício do sistema.</string>
+Se o dispositivo for associado ao Active Directory ou ao Azure Active Directory, esta política aplica-se apenas aos reinícios do Windows Update. Caso contrário, aplica-se a reinícios do Windows Update e a reinícios e encerramentos iniciados pelo utilizador.
+
+Se não configurar esta definição de política, esta é ativada por predefinição. Quando a política é ativada, é automaticamente iniciada a sessão do utilizador e a sessão é automaticamente bloqueada com todas as aplicações do ecrã de bloqueio configuradas para esse utilizador após o arranque do dispositivo.
+
+Após desativar esta política, pode configurar as respetivas definições através da política ConfigAutomaticRestartSignOn, que configura o modo de início de sessão e bloqueio automáticos do último utilizador interativo após um reinício ou arranque a frio.
+
+Se desativar esta definição de política, o dispositivo não configurará o início de sessão automático. As aplicações do ecrã de bloqueio do utilizador não serão reiniciadas após o reinício do sistema.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Configurar o modo de início de sessão e bloqueio automáticos do último utilizador interativo após um reinício ou arranque a frio</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Esta definição de política controla a configuração com a qual um reinício e início de sessão automáticos e bloqueio ocorrem após um reinício ou arranque a frio. Se escolher "Desativado" na política "Iniciar sessão e bloquear automaticamente como o último utilizador interativo após um reinício", o início de sessão automático não ocorre e esta política não precisa de ser configurada.
+
+Se ativar esta definição de política, pode escolher uma das duas opções seguintes:
+
+1. "Ativado se o BitLocker estiver ligado e não suspenso" especifica que o início de sessão e bloqueio automáticos apenas ocorrerão se o BitLocker estiver ativo e não suspenso durante o reinício ou encerramento. É possível aceder aos dados pessoais na unidade de disco rígido do dispositivo neste momento, se o BitLocker estiver desligado ou suspenso durante uma atualização. A suspensão do BitLocker suspende temporariamente a proteção de componentes e dados do sistema, mas tal pode ser necessário em determinadas circunstâncias para atualizar com êxito componentes de arranque importantes.
+     O BitLocker é suspenso durante as atualizações se:
+        - O dispositivo não tiver o TPM 2.0 e o PCR7, ou
+        - O dispositivo não utilizar um protetor Só TPM
+2. "Sempre Ativado" especifica que o início de sessão automático ocorre, mesmo que o BitLocker esteja desligado ou suspenso durante o reinício ou encerramento. Quando o BitLocker não estiver ativado, os dados pessoais estão acessíveis na unidade de disco rígido. O reinício e início de sessão automáticos apenas devem ser executados nestas condições se tiver a certeza de que o dispositivo configurado está num local físico seguro.
+
+Se desativar ou não configurar esta definição, o início de sessão automático será predefinido para o comportamento "Ativado se o BitLocker estiver ligado e não suspenso".</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Ativado se o BitLocker estiver ligado e não suspenso</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Sempre Ativado</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Se desativar esta definição de política, o dispositivo não armazenará as cr
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Defina qual o software que tem permissão para gerar a Sequência de Atenção Segura</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Configurar o modo de início de sessão e bloqueio automáticos do último utilizador interativo após um reinício ou arranque a frio</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

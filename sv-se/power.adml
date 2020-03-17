@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Ange timeout för systemströmsparläge (nätdrift)</string>
       <string id="ACStandbyWithHiberfileEnable">Inaktivera hybridströmsparläge (nätdrift)</string>
       <string id="ACSystemLidAction">Välj åtgärd för lockbrytaren (nätdrift)</string>
+      <string id="ACConnectivityInStandby">Tillåt nätverksanslutning under vänteläge med anslutning (vid nätdrift)</string>
       <string id="BatteryDischargeAction0Explain">Den här principinställningen avgör vad som sker när batterikapaciteten kommer ned till nivån för meddelande om kritisk energinivå.
 
 Om du aktiverar den här principinställningen måste du välja en av följande åtgärder:
@@ -82,6 +83,7 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen kan anv
       <string id="DCStandbyTimeOut">Ange timeout för systemströmsparläge (batteridrift)</string>
       <string id="DCStandbyWithHiberfileEnable">Inaktivera hybridströmsparläge (batteridrift)</string>
       <string id="DCSystemLidAction">Välj åtgärd för lockbrytaren (batteridrift)</string>
+      <string id="DCConnectivityInStandby">Tillåt nätverksanslutning under vänteläge med anslutning (vid batteridrift)</string>
       <string id="DiskACPowerDownTimeOut">Stäng av hårddisken (nätdrift)</string>
       <string id="DiskDCPowerDownTimeOut">Stäng av hårddisken (batteridrift)</string>
       <string id="DiskPowerDownTimeOutExplain">Den här principinställningen bestämmer inaktivitetsperioden innan Windows stänger av hårddisken.
@@ -204,11 +206,11 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen bestäm
 Om användarna har konfigurerat ett bildspel som körs på låsskärmen när datorn är låst kan detta förhindra att skärmen stängs av.  Du kan inaktivera bildspelsfunktionen med principinställningen "Förhindra att låsskärmens bildspel aktiveras".</string>
       <string id="AllowStandbyStatesAC">Tillåt väntelägen (S1-S3) vid strömsparläge (nätdrift)</string>
       <string id="AllowStandbyStatesDC">Tillåt väntelägen (S1-S3) vid strömsparläge (batteridrift)</string>
-      <string id="AllowStandbyStatesExplain">Den här principinställningen avgör huruvida Windows får använda väntelägena när datorn försätts i strömsparläge.
+      <string id="AllowStandbyStatesExplain">Den här principinställningen avgör huruvida Windows får använda väntelägen när datorn försätts i strömsparläge.
 
-Om du aktiverar den här principinställningen försätts datorn i strömsparläge genom att vilolägena används.
+Om du aktiverar eller låter bli att konfigurera den här principinställningen använder Windows väntelägen för att försätta datorn i strömsparläge.
 
-Om du inaktiverar eller inte konfigurerar den här principinställningen kan datorn bara övergå i viloläge.</string>
+Om du inaktiverar den här principinställningen tillåts inte väntelägena (S1-S3).</string>
 
       <string id="AllowSystemSleepWithRemoteFilesOpenAC">Tillåt strömsparläge med öppna nätverksfiler (Ansluten)</string>
       <string id="AllowSystemSleepWithRemoteFilesOpenDC">Tillåt strömsparläge med öppna nätverksfiler (Batteridrift)</string>
@@ -271,6 +273,30 @@ Om du aktiverar den här principinställningen måste du ange ett numeriskt (pro
 
 Om du inaktiverar eller inte konfigurerar den här principinställningen kan användarna visa och ändra den.</string>
     
+      <string id="EnergySaverSettingsCat">Energisparinställningar</string>
+      <string id="EsBattThresholdAC">Batteritröskelvärde för att aktivera energisparläge (vid nätdrift)</string>
+      <string id="EsBattThresholdDC">Batteritröskelvärde för att aktivera energisparläge (vid batteridrift)</string>
+      <string id="EsBattThresholdExplain">Med den här principinställningen kan du ange vid vilken batteriladdningsnivå som energisparläge ska aktiveras.
+
+Om du aktiverar principinställningen måste du ange ett procentvärde som indikerar batteriladdningsnivån. Energisparläge aktiveras automatiskt när den här nivån nås eller understigs.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen har användarna kontrollen över den här inställningen.</string>
+
+      <string id="ConnectivityInStandbyExplain">Med den här principinställningen kan du styra nätverksanslutningens tillstånd i vänteläge för system som stöder vänteläge.
+
+Om du aktiverar principinställningen bevaras nätverksanslutningen i vänteläge.
+
+Om du inaktiverar principinställningen är det inte säkert att nätverksanslutningen bevaras i vänteläge. Den här anslutningsbegränsningen gäller för närvarande endast WLAN-nätverk och kan komma att ändras.
+
+Om du inte konfigurerar principinställningen har användarna kontrollen över den här inställningen.</string>
+
+      <string id="PowerThrottlingSettingsCat">Inställningar för effektmoderering</string>
+      <string id="PowerThrottlingTurnOff">Inaktivera Effektmoderering</string>
+      <string id="PowerThrottlingTurnOffExplain">Med den här principinställningen kan du inaktivera Effektmoderering.
+
+Om du aktiverar den här principinställningen så inaktiveras Effektmoderering.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen bestämmer användarna den här inställningen.</string>
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -420,6 +446,9 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen kan anv
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Meddelande om reservbatteriets energinivå (procent):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Batteritröskelvärde i procent för att aktivera energisparläge:</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -44,20 +44,25 @@
           另请参阅此设置文件夹中的“激活 Internet 打印”设置和“用户配置\管理模板\控制面板\打印机”中的“浏览共用网站以查找打印机”设置。
 
           影响 Web 视图的设置有“用户配置\管理模板\Windows 组件\Windows Explorer”中“启用经典 shell”和“不允许通过彩带的‘视图’选项卡上的‘选项’按钮打开的文件夹选项”设置，以及“用户配置\管理模板\桌面\Active Desktop”中的“启用 Active Desktop”设置。</string>
-      <string id="DomainDisplayPrinters_Help">如果启用此策略设置，则该策略设置添加打印机向导将在托管网络(计算机可以到达域控制器时，例如企业网络中加入到域的便携式计算机)中的计算机上显示的打印机(各种类型)最大数目。
+      <string id="DomainDisplayPrinters_Help">如果启用此策略设置，它将设置添加打印机向导将在托管网络(计算机可以到达域控制器时，例如企业网络中加入域的笔记本电脑)中的计算机上显示的(各种类型的)打印机最大数目。
 
-          如果禁用此策略设置，则将不会显示网络扫描页。
+          如果禁用此策略设置，将不会显示网络扫描页。
 
-          如果未配置此策略设置，则添加打印机向导将显示各种类型打印机的默认数目:
+          如果未配置此策略设置，则添加打印机向导将显示每种类型打印机的默认数目:
           目录打印机: 20
           TCP/IP 打印机: 0
           Web 服务打印机: 0
-          Bluetooth 打印机: 10
+          蓝牙打印机: 10
           共享打印机: 0
 
-          若要查看网络中可用的 Web 服务打印机，请确保启用网络发现。若要启用网络发现，请依次单击“开始”、“控制面板”和“网络和 Internet”。在“网络和 Internet”页上，单击“网络和共享中心”。在“网络和共享中心”页上，单击“更改高级共享设置”。在“高级共享设置”页上，单击“域”箭头旁的箭头，单击“启用网络发现”，然后单击“保存更改”。
+          若要查看网络上可用的 Web 服务打印机，请确保已启用网络发现。若要启用网络发现，请依次单击“开始”、“控制面板”和“网络和 Internet”。在“网络和 Internet”页上，单击“网络和共享中心”。在“网络和共享中心”页上，单击“更改高级共享设置”。在“高级共享设置”页上，单击“域”箭头旁的箭头，单击“启用网络发现”，然后单击“保存更改”。
 
-          如果希望不显示特定类型的打印机，请启用此策略并将显示的打印机数目设置为 0。</string>
+          如果希望不显示特定类型的打印机，请启用此策略并将显示的打印机数目设置为 0。
+
+          在 Windows 10 和更高版本中，向导中只能显示 TCP/IP 打印机。如果启用此策略设置，则只有 TCP/IP 打印机限制适用。仅在 Windows 10 中，如果禁用或不配置此策略设置，将应用默认限制。
+          
+          在 Windows 8 和更高版本中，不显示蓝牙打印机，因此其限制不适用于这些版本的 Windows。
+      </string>
       <string id="DomainPrinters">添加打印机向导 — 网络扫描页(托管网络)</string>
       <string id="DownlevelBrowse">浏览网络以便查找打印机</string>
       <string id="DownlevelBrowse_Help">允许用户使用添加打印机向导来搜索网络上共享的打印机。
@@ -129,17 +134,21 @@
           这个设置无法阻止用户使用其他程序删除打印机。
 
           如果禁用或未配置此策略，则用户可以使用上述方法删除打印机。</string>
-      <string id="NonDomainDisplayPrinters_Help">此策略可设置添加打印机向导将在非托管网络(当计算机可以连接域控制器时，如家庭网络中加入到域的便携式计算机)中的计算机上显示的打印机(各种类型)最大数目。
+      <string id="NonDomainDisplayPrinters_Help">此策略可设置添加打印机向导将在非托管网络(当计算机无法连接域控制器时，如家庭网络中加入域的笔记本电脑)中的计算机上显示的(各种类型的)打印机最大数目。
 
 如果禁用此设置，将不会显示网络扫描页。
 
 如果未配置此设置，则添加打印机向导将显示每种类型打印机的默认数目:
 TCP/IP 打印机: 50
 Web 服务打印机: 50
-Bluetooth 打印机: 10
+蓝牙打印机: 10
 共享打印机: 50
 
-如果不希望显示特定类型的打印机，请启用此策略并将打印机数目设置为显示为 0。</string>
+如果不希望显示特定类型的打印机，请启用此策略并将显示的打印机数目设置为 0。
+
+在 Windows 10 和更高版本中，向导中只能显示 TCP/IP 打印机。如果启用此策略设置，则只有 TCP/IP 打印机限制适用。仅在 Windows 10 中，如果禁用或不配置此策略设置，将应用默认限制。
+          
+在 Windows 8 和更高版本中，不显示蓝牙打印机，因此其限制不适用于这些版本的 Windows。</string>
       <string id="NonDomainPrinters">添加打印机向导 — 网络扫描页(未受管理网络)</string>
       <string id="PackagePointAndPrintOnly">仅使用程序包指向并打印</string>
       <string id="PackagePointAndPrintOnly_Help">此策略限制客户端计算机仅使用程序包指向并打印。
@@ -269,11 +278,19 @@ Bluetooth 打印机: 10
 
         如果禁用或未配置此策略设置，则系统将允许运行所有已安装的打印机扩展。</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">将 Microsoft XPS 文档写入程序(MXDW)默认输出格式更改为旧版 Microsoft XPS 格式(*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">默认情况下，Microsoft XPS 文档写入程序(MXDW)在 Windows 10、Windows 10 和 Windows Server 2016 Technical Preview 4 中生成 OpenXPS (*.oxps)文件。
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">默认情况下，Microsoft XPS 文档写入程序(MXDW)在 Windows 10、Windows 10 和 Windows Server 2019 中生成 OpenXPS (*.oxps)文件。
 
           如果启用此组策略设置，则默认 MXDW 输出格式为旧版 Microsoft XPS (*.xps)。
 
           如果禁用或未配置此策略设置，则默认 MXDW 输出格式为 OpenXPS (*.oxps)。</string>
+      <string id="SetDefaultPrinterMRUModeOff">关闭 Windows 默认打印机管理</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">此首选项允许你更改默认打印机管理。
+
+如果启用此设置，Windows 将不会管理默认打印机。
+ 
+如果禁用此设置，Windows 将管理默认打印机。
+
+如果未配置此设置，则默认打印机管理将不会更改。 </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">
@@ -286,7 +303,7 @@ Bluetooth 打印机: 10
         <decimalTextBox defaultValue="20" refId="ADprinters">目录打印机的数目</decimalTextBox>
         <decimalTextBox defaultValue="0" refId="IPprinters">TCP/IP 打印机的数目</decimalTextBox>
         <decimalTextBox defaultValue="0" refId="WSDprinters">Web 服务打印机的数目</decimalTextBox>
-        <decimalTextBox defaultValue="10" refId="Bluetoothprinters">Bluetooth 打印机的数目</decimalTextBox>
+        <decimalTextBox defaultValue="10" refId="Bluetoothprinters">蓝牙打印机的数目</decimalTextBox>
         <decimalTextBox defaultValue="0" refId="Shareprinters">共享打印机的数目</decimalTextBox>
       </presentation>
       <presentation id="IntranetPrintersUrl">
@@ -302,7 +319,7 @@ Bluetooth 打印机: 10
       <presentation id="NonDomainPrinters">
         <decimalTextBox defaultValue="50" refId="IPprinters">TCP/IP 打印机的数目</decimalTextBox>
         <decimalTextBox defaultValue="50" refId="WSDprinters">Web 服务打印机的数目</decimalTextBox>
-        <decimalTextBox defaultValue="10" refId="Bluetoothprinters">Bluetooth 打印机的数目</decimalTextBox>
+        <decimalTextBox defaultValue="10" refId="Bluetoothprinters">蓝牙打印机的数目</decimalTextBox>
         <decimalTextBox defaultValue="50" refId="Shareprinters">共享打印机的数目</decimalTextBox>
       </presentation>
       <presentation id="PackagePointAndPrintServerList">

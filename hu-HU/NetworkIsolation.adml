@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">Alkalmazások internetes proxykiszolgálói</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  Ez a beállítás az asztali alkalmazásokra nincs hatással.
 	
@@ -20,7 +19,8 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor az alkal
 
 Példa: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">Alkalmazások internetes proxykiszolgálói</string>
@@ -36,10 +36,12 @@ Ez a beállítás NEM használható internetes proxyk beállítására.
 
 Példa: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
-	<!--Define subnet addresses-->	
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">Alkalmazások magánhálózati tartományai</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">Ez a beállítás az asztali alkalmazásokra nincs hatással.
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> Ez a beállítás az asztali alkalmazásokra nincs hatással.
 				
 A vállalati hálózatban található IP-címtartományok vesszővel tagolt listája.
 
@@ -53,12 +55,12 @@ Ha ezt a házirend-beállítást letiltja vagy nem konfigurálja, a Windows hál
 
 Példa: 3efe:1092::/96,18.1.1.1/10 
 
-További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-				
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">A proxydefiníciók mérvadóak</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">Ez a beállítás az asztali alkalmazásokra nincs hatással.
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> Ez a beállítás az asztali alkalmazásokra nincs hatással.
 				
 A Windows hálózatelkülönítés automatikus proxyészlelési funkciójának kikapcsolása a tartományi vállalati környezetben.
 
@@ -66,11 +68,12 @@ Ha engedélyezi ezt a házirend-beállítást, azzal kikapcsolja a Windows hál�
 
 Ha ezt a házirend-beállítást letiltja vagy nem konfigurálja, a Windows hálózatelkülönítés megkísérli a proxykiszolgálók címének automatikus felderítését.  
 
-További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-		<!--Subnet definitions are authoritative-->	
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">Az alhálózati definíciók mérvadóak</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">Ez a beállítás az asztali alkalmazásokra nincs hatással.
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> Ez a beállítás az asztali alkalmazásokra nincs hatással.
 				
 A Windows hálózatelkülönítés azon funkciójának kikapcsolása, amely automatikusan felderíti a magánhálózati állomásokat a tartományi vállalati környezetben.
 
@@ -78,10 +81,35 @@ Ha engedélyezi ezt a házirend-beállítást, azzal kikapcsolja a Windows hál�
 
 Ha ezt a házirend-beállítást letiltja vagy nem konfigurálja, a Windows hálózatelkülönítés megkísérli a magánhálózati állomások automatikus felderítését a tartományi vállalati környezetben. 
 				
-További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-	
-	
-     </stringTable>
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">A felhőben üzemelő nagyvállalati erőforrás-tartományok</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> Ez a beállítás asztali alkalmazásokra nem érvényes.
+
+Tartományi felhőerőforrások függőleges vonalakkal tagolt listája. A proxycím után vesszőt téve az egyes felhőerőforrásokhoz belső proxykiszolgálót is lehet társítani.
+
+A felhőben üzemeltetett nagyvállalati erőforrás-tartományok listáját tartalmazza. Az erőforrásokkal létesített kapcsolatok a vállalati hálózatokkal létesített kapcsolatnak számítanak.
+
+Ha egy felhőerőforráshoz proxyt párosítanak, az adott felhőerőforrásra irányuló forgalom a vállalati hálózaton a megadott proxyn keresztül lesz irányítva (a 80-as porton). Az erre a célra használt proxykiszolgálót az alkalmazás-házirendekhez használt intranetes proxykiszolgálókkal kell konfigurálni.
+
+Példa: [felhőerőforrás]|[felhőerőforrás]|[felhőerőforrás],[proxy]|[felhőerőforrás]|[felhőerőforrás],[proxy]|
+
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">Munkahelyiként és személyesként kategorizált tartományok</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> Ez a beállítás asztali alkalmazásokra nem érvényes.
+
+A munkahelyi és személyes erőforrásként egyaránt használható tartományok neveinek vesszőkkel tagolt listája.
+
+További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@ További információ: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>Magánalhálózatok  </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>Nagyvállalati felhőerőforrások </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>Semleges erőforrások </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

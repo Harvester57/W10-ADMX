@@ -5,7 +5,7 @@
   <description>introduzir a descrição aqui</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">Pelo menos, Windows 10 ou Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">Pelo menos Windows 10 ou Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Pelo menos, Windows 8 ou Windows RT</string>
       <string id="TS_SUPPORTED_Windows8_Server">Pelo menos, Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Pelo menos, Windows 8 Enterprise ou Windows Server 2012</string>
@@ -143,6 +143,7 @@ Se não configurar esta definição de política, o redirecionamento de unidades
       <string id="TS_CLIENT_HELP">Controla as definições do cliente de Ligação ao Ambiente de Trabalho Remoto</string>
       <string id="TS_CLIENT_LPT">Não permitir redirecionamento da porta LPT</string>
       <string id="TS_CLIENT_PNP">Não permitir redirecionamento de dispositivos Plug and Play suportados</string>
+      <string id="TS_CAMERA_REDIRECTION">Não permitir o redirecionamento da captura de vídeo</string>
       <string id="TS_CLIENT_PRINTER">Não permitir redirecionamento de impressoras de cliente</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Esta definição de política especifica se a partilha de conteúdo da Área de Transferência (redirecionamento da Área de Transferência) deve ser impedida entre um computador remoto e um computador cliente durante uma sessão de Serviços de Ambiente de Trabalho Remoto.
 
@@ -197,6 +198,15 @@ Se desativar esta definição de política, os utilizadores poderão redireciona
 Se ativar esta definição de política, os utilizadores não poderão redirecionar os dispositivos Plug and Play suportados para o computador remoto. Se não configurar esta definição de política, os utilizadores poderão redirecionar os dispositivos Plug and Play suportados apenas se estiverem utilizando o Windows Server 2012 R2 ou versões anteriores.
 
 Nota: pode desativar o redirecionamento de tipos específicos de dispositivos Plug and Play suportados utilizando as definições de política de Configuração do Computador\Modelos Administrativos\Sistema\Instalação de Dispositivos\Restrições de Instalação de Dispositivos.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Esta definição de política permite-lhe controlar o redirecionamento dos dispositivos de captura de vídeo para o computador remoto numa sessão dos Serviços de Ambiente de Trabalho Remoto. 
+
+Por predefinição, os Serviços de Ambiente de Trabalho Remoto permitem o redirecionamento de dispositivos de captura de vídeo.
+
+Se ativar esta definição de política, os utilizadores não poderão redirecionar os dispositivos de captura de vídeo para o computador remoto. 
+
+Se desativar ou não configurar esta definição de política, os utilizadores podem redirecionar os dispositivos de captura de vídeo para o computador remoto. Os utilizadores podem usar a opção Mais no separador Recursos Locais da Ligação ao Ambiente de Trabalho Remoto, para escolher os dispositivos de captura de vídeo a redirecionar para o computador remoto.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Esta definição de política permite limitar o número de monitores que um utilizador pode utilizar para apresentar uma sessão de Serviços de Ambiente de Trabalho Remoto. A limitação do número de monitores para apresentação de uma sessão de Serviços de Ambiente de Trabalho Remoto pode melhorar o desempenho da ligação, especialmente através de ligações lentas, e reduzir a carga do servidor.
@@ -320,12 +330,13 @@ Nota: A sessão da consola também é conhecida como Sessão 0. O acesso à cons
       <string id="TS_GATEWAY_BASIC">Pedir credenciais, utilizar protocolo Básico</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Utilizar credenciais com início de sessão local</string>
       <string id="TS_GATEWAY_NTLM">Pedir credenciais, utilizar protocolo NTLM</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Pedir credenciais, utilizar protocolo Negotiate</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Definir método de autenticação de Gateway RD</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Especifica o método de autenticação que os clientes têm de utilizar quando tentarem ligar a um servidor Anfitrião de Sessões de RD através de um servidor de Gateway de RD. Pode impor esta definição de política ou pode permitir que os utilizadores a substituam. Por predefinição, quando ativa esta definição de política, ela é imposta. Quando esta definição de política é imposta, os utilizadores não podem substituir esta definição, mesmo que selecionem a opção "Utilizar estas definições de servidor de Gateway de RD" no cliente.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Especifica o método de autenticação que os clientes têm de utilizar quando tentarem ligar a um servidor Anfitrião de Sessões de RD através de um servidor de Gateway de RD. Pode impor esta definição de política ou pode permitir que os utilizadores a substituam. Por predefinição, quando ativa esta definição de política, a mesma é imposta. Quando esta definição de política é imposta, os utilizadores não podem substituir esta definição, mesmo que selecionem a opção "Utilizar estas definições de servidor de Gateway de RD" no cliente.
 
-Para permitir que os utilizadores substituam esta definição de política, selecione a caixa de verificação "Permitir aos utilizadores alterar esta definição". Quando opta por esta solução, os utilizadores podem especificar um método de autenticação alternativo configurando definições no cliente, utilizando um ficheiro RDP ou um script de HTML. Se os utilizadores não especificarem um método de autenticação alternativo, por predefinição, será utilizado o método de autenticação especificado nesta definição de política.
+Para permitir que os utilizadores substituam esta definição de política, selecione a caixa de verificação "Permitir aos utilizadores alterar esta definição". Ao optar por esta solução, os utilizadores podem especificar um método de autenticação alternativo configurando definições no cliente, utilizando um ficheiro RDP ou um script de HTML. Se os utilizadores não especificarem um método de autenticação alternativo, por predefinição, será utilizado o método de autenticação especificado nesta definição de política.
 
-Se desativar ou não configurar esta definição de política, será utilizado o método de autenticação especificado pelo utilizador, caso seja especificado um. Se não for especificado um método de autenticação, é possível utilizar para autenticação o protocolo NTLM ativado no cliente ou um smart card.</string>
+Se desativar ou não configurar esta definição de política, será utilizado o método de autenticação especificado pelo utilizador, caso seja especificado algum. Se não for especificado um método de autenticação, é possível utilizar para autenticação o protocolo Negotiate ativado no cliente ou um smart card.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Permitir ligação através do Gateway de RD</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Se ativar esta definição de política, quando a Ligação ao Ambiente de Trabalho Remoto não conseguir ligar diretamente a um computador remoto (um servidor Anfitrião de Sessões de RD ou um computador com o Ambiente de Trabalho Remoto ativado), os clientes tentarão ligar ao computador remoto através de um servidor de Gateway de RD. Neste caso, os clientes tentarão ligar ao servidor de Gateway de RD especificado na definição de política "Definir o endereço do servidor de Gateway de RD".
 
@@ -408,21 +419,24 @@ Se ativar esta definição de política, estas notificações não serão aprese
 
 Se desativar ou não configurar esta definição de política, estas notificações serão apresentadas no servidor Anfitrião de Sessões de RD depois de iniciar sessão como administrador local.</string>
       <string id="TS_LICENSING_MODE">Definir o modo de licenciamento de Ambiente de Trabalho Remoto</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">Esta definição de política permite especificar o tipo de licença de acesso de cliente para Serviços de Ambiente de Trabalho Remoto (CAL de RDS) necessária para ligar a este servidor de Anfitrião de Sessões de RD.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        Esta definição de política permite especificar o tipo de licença de acesso de cliente para Serviços de Ambiente de Trabalho Remoto (CAL de RDS) necessária para ligar a este servidor de Anfitrião de Sessões de RD.
 
-Pode utilizar esta definição de política para selecionar um de dois modos de licenciamento: Por Utilizador ou Por Dispositivo.
+        Pode utilizar esta definição de política para selecionar um de três modos de licenciamento: Por Utilizador, Por Dispositivo ou AAD Por Utilizador.
 
-O modo de licenciamento Por Utilizador exige que cada conta de utilizador que ligue a este servidor de Anfitrião de Sessões de RD tenha uma CAL de RDS Por Utilizador.
+        O modo de licenciamento Por Utilizador exige que cada conta de utilizador que se ligue a este servidor de Anfitrião de Sessões de RD tenha uma CAL de RDS Por Utilizador emitida por um servidor de Licenciamento de RD.
 
-O modo de licenciamento Por Dispositivo exige que cada dispositivo que ligue a este servidor de Anfitrião de Sessões de RD tenha uma CAL de RDS Por Dispositivo.
+        O modo de licenciamento Por Dispositivo exige que cada dispositivo que se ligue a este servidor de Anfitrião de Sessões de RD tenha uma CAL de RDS Por Dispositivo emitida por um servidor de Licenciamento de RD.
 
-Se ativar esta definição de política, o modo de licenciamento de Ambiente de Trabalho Remoto que especificar será honrado pelo servidor de licenças de Ambiente de Trabalho Remoto.
+        O modo de licenciamento AAD Por Utilizador exige que cada conta de utilizador que se ligue a este servidor de Anfitrião de Sessões de RD tenha um plano de serviço compatível com licenças RDS atribuídas em AAD.
+        
+        Se ativar esta definição de política, o modo de licenciamento de Ambiente de Trabalho Remoto que especificar será honrado pelo servidor de licenças de Ambiente de Trabalho Remoto e pelo Anfitrião de Sessões de RD.
 
-Se desativar ou não configurar esta definição de política, o modo de licenciamento não será especificado ao nível da Política de Grupo.
-
-</string>
+        Se desativar ou não configurar esta definição de política, o modo de licenciamento não será especificado ao nível da Política de Grupo.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Por Dispositivo</string>
       <string id="TS_LICENSING_MODE_PER_USER">Por Utilizador</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">AAD Por Utilizador</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">Esta definição de política especifica se deve ser impedido o redirecionamento de dados para portas LPT de cliente durante uma sessão de Serviços de Ambiente de Trabalho Remoto.
 
 Pode utilizar esta definição para impedir os utilizadores de mapear portas LPT locais e de redirecionar dados do computador remoto para periféricos de portas LPT locais. Por predefinição, os Serviços de Ambiente de Trabalho Remoto permitem o redirecionamento de porta LPT.
@@ -1006,19 +1020,40 @@ Se desativar esta definição de política, os programas RemoteApp publicados a 
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">Utilizar o controlador da placa gráfica para Ligações ao Ambiente de Trabalho Remoto</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">Esta definição de política permite-lhe ativar o controlador da placa gráfica WDDM para Ligações ao Ambiente de Trabalho Remoto.
+
+Se ativar esta definição de política, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica WDDM.
+
+Se desativar ou não configurar esta definição de política, as Ligações ao Ambiente de Trabalho Remoto NÃO utilizarão o controlador da placa gráfica WDDM. Neste caso, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica XDDM.
+
+Para que esta alteração surta efeito, tem de reiniciar o Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">Esta definição de política permite-lhe ativar o controlador da placa gráfica WDDM para Ligações ao Ambiente de Trabalho Remoto.
+
+Se ativar ou não configurar esta definição de política, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica WDDM.
+
+Se desativar esta definição de política, as Ligações ao Ambiente de Trabalho Remoto NÃO utilizarão o controlador da placa gráfica WDDM. Neste caso, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica XDDM.
+
+Para que esta alteração surta efeito, tem de reiniciar o Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">Esta definição de política permite-lhe ativar o controlador da placa gráfica WDDM para Ligações ao Ambiente de Trabalho Remoto.
+
+Se ativar ou esta definição de política, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica WDDM.
+
+Se desativar esta definição de política, as Ligações ao Ambiente de Trabalho Remoto NÃO utilizarão o controlador da placa gráfica WDDM. Neste caso, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica XDDM.
+
+Se não configurar esta definição de política, as Ligações ao Ambiente de Trabalho Remoto no Servidor de Anfitrião de Sessões de RD NÃO utilizarão o controlador da placa gráfica WDDM. EM todos os outros casos, as Ligações ao Ambiente de Trabalho Remoto irão utilizar o controlador da placa gráfica WDDM.
+
+Para que esta alteração surta efeito, tem de reiniciar o Windows.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Configurar codificação de hardware H.264/AVC para Ligações ao Ambiente de Trabalho Remoto</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Esta definição de política permite-lhe ativar o suporte de codificação de hardware H.264/AVC para Ligações de Ambiente de Trabalho Remoto. Quando ativa a codificação de hardware, se ocorrer um erro, vamos tentar utilizar codificação de software. Se desativar ou não configurar esta política, vamos utilizar sempre codificação de software.
-
-Se definir a opção de codificação para "Tentar Sempre", o Ambiente de Trabalho Remoto vai sempre tentar utilizar a codificação de hardware H.264/AVC, quando esta estiver disponível. Tenha em conta que, para o Windows Server a executar o Hyper-V com RemoteFX vGPU ativado, a política tem de ser definida no computador anfitrião do Hyper-V.
-
-Se definir a opção de codificação para "Tentar apenas para máquinas virtuais RemoteFX vGPU", tenha em conta que, para o Windows Server a executar o Hyper-V com RemoteFX vGPU ativado, a política tem de ser definida no computador anfitrião do Hyper-V.
-
-Se definir a opção de codificação para "Tentar apenas para cenários sem RemoteFX vGPU", o Ambiente de Trabalho Remoto vai tentar utilizar codificação de hardware para todos os cenários, exceto para o RemoteFX vGPU.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Tentar sempre</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Tentar apenas para máquinas virtuais RemoteFX vGPU</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Tentar apenas para cenários sem RemoteFX vGPU</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Esta definição de política permite-lhe ativar o suporte de codificação de hardware H.264/AVC para Ligações ao Ambiente de Trabalho Remoto. Quando ativa a codificação de hardware, se ocorrer um erro, vamos tentar utilizar a codificação de software. Se desativar ou não configurar esta política, vamos utilizar sempre codificação de software.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Dar prioridade ao modo gráfico H.264/AVC 444 para Ligações ao Ambiente de Trabalho Remoto</string>
@@ -1170,6 +1205,18 @@ Se ativar esta definição de política, o início de sessão do utilizador é b
 
 Se desativar ou não configurar esta definição de política, é mostrado o ecrã Iniciar e as aplicações são registadas em segundo plano.</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">Utilizar as placas gráficas do hardware em todas as sessões de Serviços de Ambiente de Trabalho Remoto</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Esta definição de política permite que os administradores de sistema alterem a composição dos gráficos em todas as sessões de Serviços de Ambiente de Trabalho Remoto.
+
+Se ativar esta definição de política, todas as sessões de Serviços de Ambiente de Trabalho Remoto utilizam o compositor de gráficos por hardware em vez do Controlador de Composição Básica da Microsoft como adaptador predefinido.
+
+Se desativar esta definição de política, todas as sessões de Serviços de Ambiente de Trabalho Remoto utilizam o Controlador de Composição Básica da Microsoft como adaptador predefinido.
+
+Se não configurar esta definição de política, as sessões de Serviços de Ambiente de Trabalho Remoto no servidor de Anfitrião de Sessões de RD utilizam o Controlador de Composição Básica da Microsoft como adaptador predefinido. Em todos os outros casos, as sessões de Serviços de Ambiente de Trabalho Remoto utilizam o compositor de gráficos por hardware por predefinição.
+
+NOTA: A definição de política permite o balanceamento de carga de unidades de processamento gráfico (GPU) num computador com mais do que um GPU instalado. A configuração da GPU da sessão local não é afetada por esta definição de política.
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">
@@ -1317,9 +1364,6 @@ Se desativar ou não configurar esta definição de política, é mostrado o ecr
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">Algoritmo de compressão RDP:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Codificação de hardware AVC preferido:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Experiência visual:</dropdownList>

@@ -1,11 +1,15 @@
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/Policysecurity intelligence">
 <displayName>immettere qui il nome visualizzato</displayName>
 <description>immettere qui la descrizione</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Windows Defender</string>
+    <string id="AntiSpywareDefender">Windows Defender Antivirus</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Esclusioni</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Riduzione superficie di attacco</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Accesso alle cartelle controllato</string>
+    <string id="ExploitGuard_NetworkProtection">Protezione della rete</string>
     <string id="NetworkRealtimeInspection">Network Inspection System</string>
     <string id="NetworkRealtimeInspection_Exclusions">Esclusioni</string>
     <string id="Quarantine">Quarantena</string>
@@ -13,10 +17,11 @@
     <string id="Remediation">Monitoraggio e aggiornamento</string>
     <string id="Reporting">Segnalazione errori</string>
     <string id="Scan">Analisi</string>
-    <string id="SignatureUpdate">Aggiornamenti delle firme</string>
+    <string id="SignatureUpdate">Aggiornamenti di intelligence sulla sicurezza</string>
     <string id="Spynet">MAPS</string>
     <string id="Threats">Minacce</string>
     <string id="ClientInterface">Interfaccia client</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Consenti avvio del servizio antimalware con priorità normale</string>
     <string id="AllowFastServiceStartup_Explain">Questa impostazione dei criteri controlla la priorità di caricamento per il servizio antimalware. L'aumento della priorità di caricamento consentirà un avvio più rapido del servizio, ma potrebbe influire negativamente sulle prestazioni.
 
@@ -25,7 +30,18 @@ Se si abilita o non si configura questa impostazione dei criteri, il servizio an
 Se si disabilita questa impostazione dei criteri, il servizio antimalware verrà caricato come attività con priorità bassa.</string>
 
     <string id="DisableAutoExclusions">Disattiva le esclusioni automatiche</string>
-    <string id="DisableAutoExclusions_Explain">Consente a un amministratore di specificare se deve essere disattivata la funzionalità delle esclusioni automatiche per le SKU server.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Consente all'amministratore di specificare se la funzionalità delle esclusioni automatiche per le SKU server deve essere disattivata.
+
+        Disabilitato (valore predefinito):
+        Windows Defender esclude dall'analisi l'elenco predefinito di percorsi per migliorare le prestazioni.
+
+        Abilitato:
+        Windows Defender non esclude dall'analisi l'elenco predefinito di percorsi. Può influire sulle prestazioni del computer in alcuni scenari.
+
+        Non configurato:
+        Come Disabilitato.
+    </string>
     <string id="DisableAntiSpyware">Disattiva Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Questa impostazione dei criteri disabilita Endpoint Protection.
 
@@ -33,12 +49,16 @@ Se si disabilita questa impostazione dei criteri, il servizio antimalware verrà
 
     Se si disabilita o non si configura questa impostazione dei criteri, Endpoint Protection verrà eseguito per impostazione predefinita e verrà eseguita la ricerca di malware o altro software potenzialmente indesiderato nei computer.
     </string>
-    <string id="DisableAntiSpywareDefender">Disattiva Windows Defender</string>
-    <string id="DisableAntiSpywareDefender_Explain">Questa impostazione dei criteri disabilita Windows Defender.
+    <string id="DisableAntiSpywareDefender">Disabilita Windows Defender Antivirus</string>
+    <string id="DisableAntiSpywareDefender_Explain">Questa impostazione di criteri disabilita Windows Defender Antivirus.
+    
+    Se abiliti questa impostazione di criteri, Windows Defender Antivirus non verrà eseguito e non eseguirà la ricerca di malware o altro software potenzialmente indesiderato nei computer.
 
-    Se si abilita questa impostazione dei criteri, Windows Defender non verrà eseguito e non verrà eseguita la ricerca di malware o altro software potenzialmente indesiderato nei computer.
+    Se disabiliti questa impostazione di criteri, Windows Defender Antivirus verrà eseguito indipendentemente da qualsiasi altro prodotto antivirus installato.
 
-    Se si disabilita o non si configura questa impostazione dei criteri, Windows Defender verrà eseguito per impostazione predefinita e verrà eseguita la ricerca di malware o altro software potenzialmente indesiderato nei computer.</string>
+    Se non configuri questa impostazione di criteri, Windows gestirà internamente Windows Defender Antivirus. Se installi un altro programma antivirus, Windows Defender Antivirus verrà disabilitato automaticamente. In caso contrario, Windows Defender Antivirus eseguirà la ricerca di malware e altro software potenzialmente indesiderato nei computer.
+
+    L'abilitazione o la disabilitazione di questo criterio potrebbe causare comportamenti imprevisti o non supportati. È consigliabile lasciare non configurata questa impostazione di criteri.</string>
     <string id="DisableLocalAdminMerge">Configura comportamento di unione per elenchi di amministratori locali</string>
     <string id="DisableLocalAdminMerge_Explain">Questa impostazione dei criteri determina se le impostazioni di elenco complesse configurate da un amministratore locale vengono o meno unite con le impostazioni di Criteri di gruppo. Questa impostazione dei criteri si applica a elenchi come quelli delle minacce e delle esclusioni.
 
@@ -47,11 +67,11 @@ Se si abilita o non si configura questa impostazione dei criteri, gli elementi u
 Se si disabilita questa impostazione dei criteri, nei criteri validi risultanti verranno utilizzati solo gli elementi definiti da Criteri di gruppo. Le impostazioni di Criteri di gruppo saranno prioritarie rispetto alle impostazioni delle preferenze configurate dall'amministratore locale.</string>
     <string id="DisableRoutinelyTakingAction">Disattiva monitoraggio e aggiornamento di routine</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Questa impostazione dei criteri consente di specificare se Windows Defender interverrà automaticamente per tutte le minacce rilevate. L'intervento da eseguire per una particolare minaccia sarà determinato dalla combinazione dell'azione definita dal criterio, dell'azione definita dall'utente e dall'azione definita dalla firma.
+    Questa impostazione dei criteri consente di specificare se Windows Defender Antivirus interverrà automaticamente per tutte le minacce rilevate. L'intervento da eseguire per una particolare minaccia sarà determinato dalla combinazione dell'azione definita dal criterio, dell'azione definita dall'utente e dall'azione definita dalla firma.
 
-Se si abilita questa impostazione dei criteri, Windows Defender non interverrà automaticamente per le minacce rilevate, ma chiederà all'utente di scegliere tra le azioni disponibili per ciascuna minaccia.
+    Se si abilita questa impostazione dei criteri, Windows Defender Antivirus non interverrà automaticamente per le minacce rilevate, ma chiederà all'utente di scegliere tra le azioni disponibili per ciascuna minaccia.
 
-Se si disabilita o non si configura questa impostazione dei criteri, Windows Defender interverrà automaticamente per tutte le minacce rilevate dopo un ritardo non configurabile di circa cinque secondi.</string>
+    Se si disabilita o non si configura questa impostazione dei criteri, Windows Defender Antivirus interverrà automaticamente per tutte le minacce rilevate dopo un ritardo non configurabile di circa cinque secondi.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Questa impostazione dei criteri consente di specificare se Endpoint Protection interverrà automaticamente per tutte le minacce rilevate. L'intervento da eseguire per una particolare minaccia sarà determinato dalla combinazione dell'azione definita dal criterio, dell'azione definita dall'utente e dall'azione definita dalla firma.
 
@@ -66,40 +86,55 @@ Se si abilita questa impostazione dei criteri, il server proxy verrà ignorato p
 
 Se si disabilita o non si configura questa impostazione dei criteri, il server proxy non verrà ignorato per gli indirizzi specificati.</string>
     <string id="ProxyPacUrl">Definisci autoconfigurazione proxy (.pac) per la connessione alla rete</string>
-    <string id="ProxyPacUrl_Explain">Questa impostazione dei criteri definisce l'URL di un file .pac del proxy da usare quando il client tenta la connessione alla rete per gli aggiornamenti delle definizioni e le segnalazioni a MAPS. In caso di errore dell'autoconfigurazione proxy o se non è specificata alcuna autoconfigurazione proxy, verrà eseguito il fallback alle opzioni alternative, nell'ordine indicato:
+    <string id="ProxyPacUrl_Explain">Questa impostazione di criteri definisce l'URL di un file .pac del proxy da usare quando il client tenta la connessione alla rete per gli aggiornamenti di intelligence sulla sicurezza e le segnalazioni a MAPS. In caso di errore dell'autoconfigurazione proxy o se non è specificata alcuna autoconfigurazione proxy, verrà eseguito il fallback alle opzioni alternative, nell'ordine indicato:
       1. Server proxy (se specificato)
       2. URL .pac del proxy (se specificato)
       3. Nessuno
       4. Impostazioni proxy di Internet Explorer
       5. Rilevamento automatico
 
-      Se si abilita questa impostazione, l'impostazione del proxy verrà configurata per l'uso del file .pac del proxy specificato, in base all'ordine specificato in precedenza.
+      Se abiliti questa impostazione, l'impostazione del proxy verrà configurata per l'uso del file .pac del proxy specificato, in base all'ordine specificato in precedenza.
 
-      Se si disabilita o non si configura questa impostazione, il proxy ignorerà questo passaggio di fallback, in base all'ordine specificato in precedenza.</string>
+      Se disabiliti o non configuri questa impostazione, il proxy ignorerà questo passaggio di fallback, in base all'ordine specificato in precedenza.</string>
     <string id="ProxyServer">Definisci server proxy per la connessione alla rete</string>
-    <string id="ProxyServer_Explain">Questa impostazione dei criteri consente di configurare il proxy denominato da usare quando il client tenta la connessione alla rete per gli aggiornamenti delle definizioni e le segnalazioni a MAPS. In caso di errore del proxy denominato o se non è specificato alcun proxy, verrà eseguito il fallback alle opzioni alternative, nell'ordine indicato:
+    <string id="ProxyServer_Explain">Questa impostazione di criteri consente di configurare il proxy denominato da usare quando il client tenta la connessione alla rete per gli aggiornamenti di intelligence sulla sicurezza e le segnalazioni a MAPS. In caso di errore del proxy denominato o se non è specificato alcun proxy, verrà eseguito il fallback alle opzioni alternative, nell'ordine indicato:
       1. Server proxy (se specificato)
       2. URL .pac del proxy (se specificato)
       3. Nessuno
       4. Impostazioni proxy di Internet Explorer
       5. Rilevamento automatico
 
-      Se si abilita questa impostazione, il proxy verrà impostato sull'URL specificato, in base all'ordine specificato in precedenza. L'URL deve essere preceduto da http:// o https://.
+      Se abiliti questa impostazione, il proxy verrà impostato sull'URL specificato, in base all'ordine specificato in precedenza. L'URL deve essere preceduto da http:// o https://.
 
-      Se si disabilita o non si configura questa impostazione, il proxy ignorerà questo passaggio di fallback, in base all'ordine specificato in precedenza.
+      Se disabiliti o non configuri questa impostazione, il proxy ignorerà questo passaggio di fallback, in base all'ordine specificato in precedenza.
     </string>
     <string id="RandomizeScheduleTaskTimes">Utilizza ore casuali per le attività pianificate</string>
-    <string id="RandomizeScheduleTaskTimes_Explain">Questa impostazione dei criteri consente di abilitare o disabilitare la scelta casuale dell'ora di inizio per le analisi pianificate e dell'ora di inizio per gli aggiornamenti delle definizioni pianificati. Questa impostazione dei criteri viene utilizzata per distribuire l'impatto a livello di risorse delle operazioni di analisi. Potrebbe essere utilizzata, ad esempio, nelle macchine virtuali guest che condividono un host, per evitare che più macchine virtuali guest eseguano contemporaneamente un'operazione con utilizzo intensivo del disco.
+    <string id="RandomizeScheduleTaskTimes_Explain">Questa impostazione di criteri consente di abilitare o disabilitare la scelta casuale dell'ora di inizio per le analisi pianificate e dell'ora di inizio per gli aggiornamenti di intelligence sulla sicurezza pianificati. Questa impostazione viene utilizzata per distribuire l'impatto a livello di risorse delle operazioni di analisi. Potrebbe essere utilizzata, ad esempio, nelle macchine virtuali guest che condividono un host, per evitare che più macchine virtuali guest eseguano contemporaneamente un'operazione con utilizzo elevato del disco.
 
-Se si abilita o non si configura questa impostazione dei criteri, le attività pianificate inizieranno a un'ora casuale, entro un intervallo di 30 minuti prima o dopo l'ora di inizio specificata.
+    Se abiliti o non configuri questa impostazione, le attività pianificate inizieranno a un'ora casuale, entro un intervallo di 30 minuti prima o dopo l'ora di inizio specificata.
 
-Se si disabilita questa impostazione dei criteri, le attività pianificate inizieranno all'ora specificata.</string>
+    Se disabiliti questa impostazione, le attività pianificate inizieranno all'ora specificata.</string>
     <string id="ServiceKeepAlive">Servizio antimalware sempre in esecuzione</string>
-    <string id="ServiceKeepAlive_Explain">Questa impostazione dei criteri consente di stabilire se il servizio antimalware rimane o meno in esecuzione quando vengono disabilitate le definizioni antivirus e antispyware. È consigliabile mantenere disabilitata questa impostazione dei criteri.
+    <string id="ServiceKeepAlive_Explain">Questa impostazione di criteri consente di definire se il servizio antimalware rimane in esecuzione quando viene disabilitata l'intelligence sulla sicurezza antivirus e antispyware. È consigliabile mantenere disabilitata questa impostazione.
 
-Se si abilita questa impostazione dei criteri, il servizio antimalware rimarrà sempre in esecuzione anche se sono disabilitate sia le definizioni antivirus che antispyware.
+    Se abiliti questa impostazione, il servizio antimalware rimarrà sempre in esecuzione anche se è disabilitata l'intelligence sulla sicurezza antivirus e antispyware.
 
-Se si disabilita o non si configura questa impostazione dei criteri, il servizio antimalware verrà arrestato quando vengono disabilitate sia le definizioni antivirus che antispyware. In caso di riavvio del computer, il servizio verrà avviato se è impostato per l'avvio automatico. Dopo l'avvio del servizio, verrà eseguito un controllo per stabilire se le definizioni antivirus e antispyware sono abilitate. Se almeno uno dei gruppi di definizioni è abilitato, il servizio rimarrà in esecuzione. Se entrambi sono disabilitati, il servizio verrà arrestato.</string>
+    Se disabiliti o non configuri questa impostazione, il servizio antimalware verrà arrestato quando viene disabilitata l'intelligence sulla sicurezza antivirus e antispyware. In caso di riavvio del computer, il servizio verrà avviato se è impostato su Avvio automatico. Dopo l'avvio del servizio, verrà eseguito un controllo per stabilire se l'intelligence sulla sicurezza antivirus e antispyware è abilitata. Se almeno una è abilitata, il servizio rimarrà in esecuzione. Se entrambe sono disabilitate, il servizio verrà arrestato.</string>
+    <string id="Root_PUAProtection">Configura il rilevamento di applicazioni potenzialmente indesiderate</string>
+    <string id="Root_PUAProtection_Explain">
+        Abilita o disabilita il rilevamento di applicazioni potenzialmente indesiderate. Puoi scegliere di bloccare, controllare o consentire il software potenzialmente indesiderato quando viene scaricato o tenta di installarsi sul computer.
+
+Abilitato:
+        specifica la modalità nella sezione Opzioni:
+        -Blocca: il software potenzialmente indesiderato sarà bloccato.
+        -Modalità di controllo: il software potenzialmente indesiderato non verrà bloccato, ma se questa funzione avesse bloccato l'accesso qualora fosse stata impostata su Blocca, un record dell'evento sarà presente nei registri eventi.
+
+Disabilato:
+        il software potenzialmente indesiderato non verrà bloccato.
+
+Non configurato:
+        come Disabilitato.
+    </string>
     <string id="Exclusions_Extensions">Esclusioni di estensioni</string>
     <string id="Exclusions_Extensions_Explain">Questa impostazione dei criteri consente di specificare un elenco di tipi di file da escludere dall'analisi pianificata, personalizzata e in tempo reale. I tipi di file devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa dell'estensione del tipo di file (ad esempio, "obj" o "lib"). Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
     <string id="Exclusions_Paths">Esclusioni di percorsi</string>
@@ -113,13 +148,13 @@ Se si abilita o non si configura questa impostazione dei criteri, il riconoscime
 
 Se si disabilita questa impostazione dei criteri, il riconoscimento del protocollo verrà disabilitato.</string>
     <string id="Nis_Consumers_IPS_DisableSignatureRetirement">Attiva ritiro definizioni</string>
-    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Questa impostazione dei criteri consente di configurare il ritiro delle definizioni per la protezione della rete da exploit di vulnerabilità note. Il processo di ritiro delle definizioni prevede un controllo per stabilire se nel computer sono disponibili gli aggiornamenti della sicurezza necessari per proteggerlo da una particolare vulnerabilità. Se il sistema non è vulnerabile all'exploit rilevato da una definizione, tale definizione viene ritirata. Se vengono ritirate tutte le definizioni per un determinato protocollo, tale protocollo non verrà più analizzato. L'abilitazione di questa funzionalità consente di migliorare le prestazioni. In un computer in cui sono disponibili tutti gli aggiornamenti della sicurezza più recenti, la protezione della rete non avrà effetti sulle prestazioni della rete.
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Questa impostazione di criteri consente di configurare il ritiro delle definizioni per la protezione della rete da exploit di vulnerabilità note. Il processo di ritiro delle definizioni prevede un controllo per stabilire se nel computer sono disponibili gli aggiornamenti della sicurezza necessari per proteggerlo da una particolare vulnerabilità. Se il sistema non è vulnerabile all'exploit rilevato da una definizione, tale definizione viene ritirata. Se viene ritirata tutta l'intelligence sulla sicurezza  per un determinato protocollo, tale protocollo non verrà più analizzato. L'abilitazione di questa funzionalità consente di migliorare le prestazioni. In un computer in cui sono disponibili tutti gli aggiornamenti della sicurezza più recenti, la protezione della rete non avrà effetti sulle prestazioni della rete.
 
-Se si abilita o non si configura questa impostazione dei criteri, il ritiro delle definizioni verrà abilitato.
+    Se abiliti o non configuri questa impostazione, il ritiro delle definizioni verrà abilitato.
 
-Se si disabilita questa impostazione dei criteri, il ritiro delle definizioni verrà disabilitato.</string>
+    Se disabiliti questa impostazione, il ritiro delle definizioni verrà disabilitato.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Specifica set di definizioni aggiuntivi per l'ispezione del traffico di rete</string>
-    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Questa impostazione dei criteri definisce i set di definizioni aggiuntivi da abilitare per l'ispezione del traffico di rete. I GUID dei set di definizioni devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa di un GUID di set di definizioni. Ad esempio, il GUID del set di definizioni per abilitare le definizioni di prova viene definito come "{b54b6ac9-a737-498e-9120-6616ad3bf590}". Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Questa impostazione di criteri definisce i set di definizioni aggiuntivi da abilitare per l'ispezione del traffico di rete. I GUID dei set di definizioni devono essere aggiunti nelle opzioni per questa impostazione. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa di un GUID di set di definizioni. Ad esempio, il GUID del set di definizioni per abilitare l'intelligence sulla sicurezza di prova viene definito come "{b54b6ac9-a737-498e-9120-6616ad3bf590}". Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Configura sostituzione dell'impostazione locale per la rimozione degli elementi dalla cartella di quarantena</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">Questa impostazione dei criteri consente di configurare una sostituzione locale per la configurazione del numero di giorni di mantenimento degli elementi nella cartella di quarantena, prima della rimozione. Questa impostazione dei criteri può essere configurata solo da Criteri di gruppo.
 
@@ -157,13 +192,13 @@ Se si abilita o non si configura questa impostazione dei criteri, le notifiche d
 
 Se si disabilita questa impostazione dei criteri, le notifiche di scrittura non elaborate verranno disabilitate.</string>
     <string id="DisableRealtimeMonitoring">Disattiva protezione in tempo reale</string>
-    <string id="DisableRealtimeMonitoringDefender_Explain">Questa impostazione dei criteri disattiva gli avvisi della protezione in tempo reale relativi al rilevamento di malware noto.
+    <string id="DisableRealtimeMonitoringDefender_Explain">Questa impostazione dei criteri disabilita gli avvisi della protezione in tempo reale relativi al rilevamento di malware noto.
 
-    Windows Defender invia avvisi quando rileva tentativi di installazione o esecuzione automatica di malware o software potenzialmente indesiderato nel computer dell'utente.
+    Windows Defender Antivirus invia avvisi quando rileva tentativi di installazione o esecuzione automatica di malware o software potenzialmente indesiderato nel computer dell'utente.
 
-    Se si abilita questa impostazione dei criteri, Windows Defender non richiederà all'utente se intervenire quando viene rilevata la presenza di malware.
+    Se si abilita questa impostazione dei criteri, Windows Defender Antivirus non richiederà all'utente se intervenire quando viene rilevata la presenza di malware.
 
-    Se si disabilita o non si configura questa impostazione dei criteri, Windows Defender richiederà all'utente se intervenire quando viene rilevata la presenza di malware.</string>
+    Se si disabilita o non si configura questa impostazione dei criteri, Windows Defender Antivirus richiederà all'utente se intervenire quando viene rilevata la presenza di malware.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Questa impostazione dei criteri disattiva gli avvisi della protezione in tempo reale relativi al rilevamento di malware noto.
 
@@ -289,13 +324,21 @@ Se si disabilita questa impostazione dei criteri, gli eventi del Dr Watson non v
     <string id="Reporting_WppTracingComponents_Explain">Questa impostazione dei criteri consente di configurare i componenti del preprocessore di traccia software Windows.</string>
     <string id="Reporting_WppTracingLevel">Configura livello di traccia preprocessore Windows</string>
     <string id="Reporting_WppTracingLevel_Explain">Questa impostazione dei criteri consente di configurare i livelli di traccia per il preprocessore di traccia software Windows. 
+livelli di traccia definiti sono i seguenti:
+ 1- Errore
+ 2 - Avviso
+ 3 - Informazioni
+ 4 - Debug</string>
+    <string id="Reporting_DisableEnhancedNotifications">Disattiva notifiche avanzate</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Usa questa impostazione dei criteri per specificare se visualizzare nei client le notifiche avanzate di Windows Defender Antivirus.
+      
+      Se si disabilita o non si configura questa impostazione, le notifiche avanzate di Windows Defender Antivirus verranno visualizzate nei client.
+      
+      Se si abilita questa impostazione, le notifiche avanzate di Windows Defender Antivirus non verranno visualizzate nei client.
+    </string>
 
-I livelli di traccia definiti sono i seguenti:
-1 - Errore
-2 - Avviso
-3 - Informazioni
-4 - Debug</string>
-    <string id="Scan_AllowPause">Consenti agli utenti di sospendere l'analisi</string>
+      <string id="Scan_AllowPause">Consenti agli utenti di sospendere l'analisi</string>
     <string id="Scan_AllowPause_Explain">Questa impostazione dei criteri consente di stabilire se gli utenti possono o meno sospendere un'analisi in corso.
 
 Se si abilita o non si configura questa impostazione dei criteri, verrà aggiunto un nuovo menu di scelta rapida all'icona della barra delle applicazioni per consentire agli utenti di sospendere un'analisi.
@@ -319,14 +362,14 @@ Se si disabilita o non si configura questa impostazione dei criteri, i file di a
 Se si abilita questa impostazione dei criteri, l'utilizzo della CPU non supererà la percentuale specificata.
 
 Se si disabilita o non si configura questa impostazione dei criteri, l'utilizzo della CPU non supererà il valore predefinito.</string>
-    <string id="CheckForSignaturesBeforeRunningScan">Controlla la disponibilità delle definizioni di virus e spyware più recenti prima di eseguire un'analisi pianificata</string>
-    <string id="CheckForSignaturesBeforeRunningScan_Explain">Questa impostazione dei criteri consente di specificare se eseguire o meno un controllo della disponibilità di nuove definizioni di virus e spyware prima di eseguire un'analisi. 
+    <string id="CheckForSignaturesBeforeRunningScan">Verifica la disponibilità dell'intelligence sulla sicurezza antivirus e antispyware più recenti prima di eseguire l'analisi pianificata</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">Questa impostazione di criteri consente di specificare se eseguire o meno una verifica della disponibilità di nuova intelligence sulla sicurezza antivirus e antispyware prima di eseguire un'analisi.
 
-Questa impostazione dei criteri si applica alle analisi pianificate e alla riga di comando "mpcmdrun -SigUpdate", ma non influisce sulle analisi avviate manualmente dall'interfaccia utente.
+    Questa impostazione si applica alle analisi pianificate e alla riga di comando "mpcmdrun -SigUpdate", ma non influisce sulle analisi avviate manualmente dall'interfaccia utente.
 
-Se si abilita questa impostazione dei criteri, verrà eseguito un controllo della disponibilità di nuove definizioni prima di eseguire un'analisi.
+    Se abiliti questa impostazione, verrà eseguita una verifica della disponibilità di nuova intelligence sulla sicurezza prima di eseguire un'analisi.
 
-Se si disabilita o non si configura questa impostazione dei criteri, l'analisi verrà avviata con le definizioni esistenti.</string>
+    Se disabiliti o non configuri questa impostazione, l'analisi verrà avviata usando l'intelligence sulla sicurezza esistente.</string>
     <string id="Scan_DisableArchiveScanning">Analizza file di archivio</string>
     <string id="Scan_DisableArchiveScanning_Explain">Questa impostazione dei criteri consente di configurare le analisi per l'individuazione di software dannoso e indesiderato nei file di archivio, come file ZIP o CAB.
 
@@ -496,79 +539,91 @@ Se si disabilita o non si configura questa impostazione dei criteri, verrà eseg
     Se si abilita questa impostazione, verrà eseguita un'analisi di recupero dopo il numero specificato di analisi pianificate consecutive non eseguite.
 
     Se si disabilita o non si configura questa impostazione, verrà eseguita un'analisi di recupero dopo 2 analisi pianificate consecutive non eseguite.</string>
-    <string id="SignatureUpdate_ASSignatureDue">Definisci numero di giorni trascorsi i quali le definizioni di spyware sono considerate non aggiornate</string>
-    <string id="SignatureUpdate_ASSignatureDue_Explain">Questa impostazione dei criteri consente di definire il numero di giorni che devono trascorrere prima che le definizioni di spyware siano considerate non aggiornate. Se si stabilisce che le definizioni non sono aggiornate, questo stato può attivare varie ulteriori azioni, incluso il fallback a un'origine di aggiornamento alternativa o la visualizzazione di un'icona di avviso nell'interfaccia utente. Per impostazione predefinita, il valore è impostato su 14 giorni.
+    <string id="Scan_LowCpuPriority">Configura la priorità bassa della CPU per le analisi pianificate</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Questa impostazione dei criteri ti consente di abilitare o disabilitare la priorità bassa della CPU per le scansioni pianificate.
 
-Se si abilita questa impostazione dei criteri, le definizioni di spyware verranno considerate non aggiornate una volta trascorso il numero di giorni specificato senza un aggiornamento.
+        Se abiliti questa impostazione, durante le analisi pianificate verrà utilizzata la priorità bassa della CPU.
 
-Se si disabilita o non si configura questa impostazione dei criteri, le definizioni di spyware verranno considerate non aggiornate una volta trascorso il numero di giorni predefinito senza un aggiornamento.</string>
-    <string id="SignatureUpdate_AVSignatureDue">Definisci numero di giorni trascorsi i quali le definizioni di virus sono considerate non aggiornate</string>
-    <string id="SignatureUpdate_AVSignatureDue_Explain">Questa impostazione dei criteri consente di definire il numero di giorni che devono trascorrere prima che le definizioni di virus siano considerate non aggiornate. Se si stabilisce che le definizioni non sono aggiornate, questo stato può attivare varie ulteriori azioni, incluso il fallback a un'origine di aggiornamento alternativa o la visualizzazione di un'icona di avviso nell'interfaccia utente. Per impostazione predefinita, il valore è impostato su 14 giorni.
+Se disabiliti o non configuri questa impostazione, non verranno apportate modifiche alla priorità della CPU per le scansioni pianificate.
+    </string>
+    <string id="SignatureUpdate_ASSignatureDue">Definisci il numero di giorni dopo i quali l'intelligence sulla sicurezza antispyware viene considerata obsoleta</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">Questa impostazione di criteri consente di definire il numero di giorni che devono trascorrere prima che l'intelligence sulla sicurezza antispyware sia considerata non aggiornata. Se si stabilisce che l'intelligence non è aggiornata, questo stato può attivare varie ulteriori azioni, incluso il fallback a un'origine di aggiornamento alternativa o la visualizzazione di un'icona di avviso nell'interfaccia utente. Per impostazione predefinita, il valore è impostato su 14 giorni.
 
-Se si abilita questa impostazione dei criteri, le definizioni di virus verranno considerate non aggiornate una volta trascorso il numero di giorni specificato senza un aggiornamento.
+    Se abiliti questa impostazione, l'intelligence sulla sicurezza antispyware verrà considerata non aggiornata una volta trascorso il numero di giorni specificato senza un aggiornamento.
 
-Se si disabilita o non si configura questa impostazione dei criteri, le definizioni di virus verranno considerate non aggiornate una volta trascorso il numero di giorni predefinito senza un aggiornamento.</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definisci le condivisioni file per il download degli aggiornamenti delle definizioni</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Questa impostazione dei criteri consente di configurare le origini condivisioni file UNC per il download degli aggiornamenti delle definizioni. Le origini verranno contattate nell'ordine specificato. Il valore di questa impostazione deve essere immesso come stringa delimitata da barre verticali che enumera le origini di aggiornamento delle definizioni. Ad esempio: "{\\unc1 | \\unc2 }". L'elenco è vuoto per impostazione predefinita.
+    Se disabiliti o non configuri questa impostazione, l'intelligence sulla sicurezza antispyware verrà considerata non aggiornata una volta trascorso il numero di giorni predefinito senza un aggiornamento.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Definisci il numero di giorni dopo i quali l'intelligence sulla sicurezza antivirus viene considerata non aggiornata</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">Questa impostazione di criteri consente di definire il numero di giorni che devono trascorrere prima che l'intelligence sulla sicurezza antivirus sia considerata non aggiornata. Se si stabilisce che l'intelligence non è aggiornata, questo stato può attivare varie ulteriori azioni, incluso il fallback a un'origine di aggiornamento alternativa o la visualizzazione di un'icona di avviso nell'interfaccia utente. Per impostazione predefinita, il valore è impostato su 14 giorni.
 
-Se si abilita questa impostazione dei criteri, verranno contattate le origini specificate per gli aggiornamenti delle definizioni. Dopo il completamento del download degli aggiornamenti delle definizioni da un'origine specificata, le origini rimanenti nell'elenco non verranno contattate.
+    Se abiliti questa impostazione, l'intelligence sulla sicurezza antivirus verrà considerata non aggiornata una volta trascorso il numero di giorni specificato senza un aggiornamento.
 
-Se si disabilita o non si configura questa impostazione dei criteri, l'elenco rimarrà vuoto per impostazione predefinita e non verrà contattata alcuna origine.</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate">Attiva analisi dopo l'aggiornamento delle firme</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Questa impostazione dei criteri consente di configurare l'analisi automatica avviata dopo l'aggiornamento delle definizioni.
+    Se disabiliti o non configuri questa impostazione, l'intelligence sulla sicurezza antivirus verrà considerata non aggiornata una volta trascorso il numero di giorni predefinito senza un aggiornamento.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definisci le condivisioni file per il download degli aggiornamenti di intelligence sulla sicurezza</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Questa impostazione di criteri consente di configurare le origini di condivisioni file UNC per il download degli aggiornamenti di intelligence sulla sicurezza. Le origini verranno contattate nell'ordine specificato. Il valore di questa impostazione deve essere immesso come stringa delimitata da barre verticali che enumera le origini di aggiornamento di intelligence sulla sicurezza. Ad esempio: "{\\unc1 | \\unc2 }". L'elenco è vuoto per impostazione predefinita.
 
-Se si abilita o non si configura questa impostazione dei criteri, verrà avviata un'analisi in seguito a un aggiornamento delle definizioni.
+    Se abiliti questa impostazione, verranno contattate le origini specificate per gli aggiornamenti di intelligence sulla sicurezza. Dopo il completamento del download degli aggiornamenti da un'origine specificata, le origini rimanenti nell'elenco non verranno contattate.
 
-Se si disabilita questa impostazione dei criteri, non verrà avviata un'analisi in seguito a un aggiornamento delle definizioni.</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Consenti aggiornamenti delle definizioni con alimentazione a batterie</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Questa impostazione dei criteri consente di configurare l'aggiornamento delle definizioni quando il computer è alimentato a batterie.
+    Se disabiliti o non configuri questa impostazione, l'elenco rimarrà vuoto per impostazione predefinita e non verrà contattata alcuna origine.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation">Definisci la posizione dell'intelligence sulla sicurezza per i client VDI.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation_Explain">Questa impostazione di criteri consente di definire la posizione dell'intelligence sulla sicurezza per i computer configurati con VDI. 
 
-Se si abilita o non si configura questa impostazione dei criteri, gli aggiornamenti delle definizioni verranno eseguiti in base ai normali criteri, indipendentemente dallo stato dell'alimentazione.
+    Se disabiliti o non configuri questa impostazione, all'intelligence sulla sicurezza si farà riferimento dall'origine locale predefinita.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Abilita l'analisi dopo l'aggiornamento di intelligence sulla sicurezza</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Questa impostazione di criteri consente di configurare l'analisi automatica che viene avviata dopo l'aggiornamento di intelligence sulla sicurezza.
 
-Se si disabilita questa impostazione dei criteri, gli aggiornamenti delle definizioni verranno disattivati quando il computer è alimentato a batterie.</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Inizializza aggiornamento delle definizioni all'avvio</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Questa impostazione dei criteri consente di configurare gli aggiornamenti delle definizioni all'avvio quando non è presente un motore antimalware.
+    Se abiliti o non configuri questa impostazione, verrà avviata un'analisi in seguito a un aggiornamento di intelligence sulla sicurezza.
 
-Se si abilita o non si configura questa impostazione dei criteri, gli aggiornamenti delle definizioni verranno inizializzati all'avvio quando non è presente un motore antimalware.
+    Se disabiliti questa impostazione, non verrà avviata un'analisi in seguito a un aggiornamento di intelligence sulla sicurezza.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Consenti aggiornamenti di intelligence sulla sicurezza con alimentazione a batteria</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Questa impostazione di criteri consente di configurare gli aggiornamenti di intelligence sulla sicurezza quando il computer è alimentato a batteria.
 
-Se si disabilita questa impostazione dei criteri, gli aggiornamenti delle definizioni non verranno inizializzati all'avvio quando non è presente un motore antimalware.</string>
-    <string id="SignatureUpdate_FallbackOrder">Definisci l'ordine delle origini per il download degli aggiornamenti delle definizioni</string>
-    <string id="SignatureUpdate_FallbackOrder_Explain">Questa impostazione dei criteri consente di definire l'ordine per contattare le diverse origini di aggiornamento delle definizioni. Il valore di questa impostazione dei criteri deve essere immesso come stringa delimitata da barre verticali che enumera le origini di aggiornamento delle definizioni nell'ordine desiderato. I valori possibili sono: "InternalDefinitionUpdateServer", "MicrosoftUpdateServer", "MMPC" e "FileShares"
+    Se abiliti o non configuri questa impostazione, gli aggiornamenti di intelligence sulla sicurezza verranno eseguiti in base ai normali criteri, indipendentemente dallo stato dell'alimentazione.
 
-Ad esempio: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
+    Se disabiliti questa impostazione, gli aggiornamenti di intelligence sulla sicurezza verranno disabilitati quando il computer è alimentato a batteria.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Avvia aggiornamento di intelligence sulla sicurezza all'avvio</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Questa impostazione di criteri consente di configurare gli aggiornamenti di intelligence sulla sicurezza all'avvio quando non è presente un motore antimalware.
 
-Se si abilita questa impostazione dei criteri, le origini di aggiornamento delle definizioni verranno contattate nell'ordine specificato. Dopo il completamento del download degli aggiornamenti delle definizioni da un'origine specificata, le origini rimanenti nell'elenco non verranno contattate.
+    Se abiliti o non configuri questa impostazione, gli aggiornamenti di intelligence sulla sicurezza verranno avviati all'avvio quando non è presente un motore antimalware.
 
-Se si disabilita o non si configura questa impostazione dei criteri, le origini di aggiornamento delle definizioni verranno contattate in un ordine predefinito.</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU">Consenti aggiornamenti delle definizioni da Microsoft Update</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Questa impostazione dei criteri consente di abilitare il download degli aggiornamenti delle definizioni da Microsoft Update anche se il server predefinito di Aggiornamenti automatici è configurato per un'altra origine di download, come Windows Update.
+    Se disabiliti questa impostazione, gli aggiornamenti di intelligence sulla sicurezza non verranno avviati all'avvio quando non è presente un motore antimalware.</string>
+    <string id="SignatureUpdate_FallbackOrder">Definisci l'ordine delle origini per il download degli aggiornamenti di intelligence sulla sicurezza</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">Questa impostazione di criteri consente di definire l'ordine per contattare le diverse origini di aggiornamento di intelligence sulla sicurezza. Il valore di questa impostazione deve essere immesso come stringa delimitata da barre verticali che enumera le origini di aggiornamento di intelligence sulla sicurezza nell'ordine desiderato. I valori possibili sono: "InternalDefinitionUpdateServer", "MicrosoftUpdateServer", "MMPC" e "FileShares"
 
-Se si abilita questa impostazione dei criteri, gli aggiornamenti delle definizioni verranno scaricati da Microsoft Update.
+    Ad esempio: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
 
-Se si disabilita o non si configura questa impostazione dei criteri, gli aggiornamenti delle definizioni verranno scaricati dall'origine di download configurata.</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery">Consenti aggiornamenti delle definizioni in tempo reale in base alle segnalazioni per Microsoft MAPS</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Questa impostazione dei criteri consente di abilitare gli aggiornamenti delle definizioni in tempo reale in risposta alle segnalazioni inviate a Microsoft MAPS. Se un servizio segnala un file come sconosciuto e Microsoft MAPS rileva che l'aggiornamento delle definizioni più recente include definizioni per un rischio correlato a tale file, il servizio riceverà immediatamente tutte le definizioni più aggiornate per tale rischio. Per utilizzare questa funzionalità, è necessario che il computer sia stato configurato per la partecipazione a Microsoft MAPS.
+    Se abiliti questa impostazione, le origini di aggiornamento di intelligence sulla sicurezza verranno contattate nell'ordine specificato. Dopo il completamento del download degli aggiornamenti di intelligence sulla sicurezza da un'origine specificata, le origini rimanenti nell'elenco non verranno contattate.
 
-Se si abilita o non si configura questa impostazione dei criteri, gli aggiornamenti delle definizioni in tempo reale verranno abilitati.
+    Se disabiliti o non configuri questa impostazione, le origini di aggiornamento di intelligence sulla sicurezza verranno contattate in un ordine predefinito.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Consenti aggiornamenti di intelligence sulla sicurezza da Microsoft Update</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Questa impostazione di criteri consente di abilitare il download degli aggiornamenti di intelligence sulla sicurezza da Microsoft Update anche se il server predefinito di Aggiornamenti automatici è configurato per un'altra origine di download, come Windows Update.
 
-Se si disabilita questa impostazione dei criteri, gli aggiornamenti in tempo reale delle definizioni verranno disabilitati.</string>
-    <string id="SignatureUpdate_ScheduleDay">Specifica giorno della settimana per il controllo della disponibilità di aggiornamenti delle definizioni</string>
-    <string id="SignatureUpdate_ScheduleDay_Explain">Questa impostazione dei criteri consente di specificare il giorno della settimana in cui controllare se sono disponibili aggiornamenti delle definizioni. È inoltre possibile configurare il controllo per l'esecuzione ogni giorno o per disattivarne del tutto l'esecuzione.
+    Se abiliti questa impostazione, gli aggiornamenti di intelligence sulla sicurezza verranno scaricati da Microsoft Update.
 
-Questa impostazione dei criteri può essere configurata con i valori numerici ordinali seguenti:
-(0x0) tutti i giorni
-(0x1) domenica 
-(0x2) lunedì
-(0x3) martedì
-(0x4) mercoledì
-(0x5) giovedì
-(0x6) venerdì
-(0x7) sabato
-(0x8) mai
+    Se disabiliti o non configuri questa impostazione, gli aggiornamenti di intelligence sulla sicurezza verranno scaricati dall'origine di download configurata.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">Consenti aggiornamenti di intelligence sulla sicurezza in tempo reale in base alle segnalazioni a Microsoft MAPS</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Questa impostazione di criteri consente di abilitare gli aggiornamenti di intelligence sulla sicurezza in tempo reale in risposta alle segnalazioni inviate a Microsoft MAPS. Se un servizio segnala un file come sconosciuto e Microsoft MAPS rileva che l'aggiornamento di intelligence più recente include informazioni per una minaccia correlata a tale file, il servizio riceverà immediatamente tutta l'intelligence sulla sicurezza più aggiornata per tale minaccia. Per utilizzare questa funzionalità, è necessario che il computer sia stato configurato per la partecipazione a Microsoft MAPS.
 
-Se si abilita questa impostazione dei criteri, il controllo della disponibilità di aggiornamenti delle definizioni verrà eseguito con la frequenza specificata.
+    Se abiliti o non configuri questa impostazione, gli aggiornamenti di intelligence sulla sicurezza in tempo reale verranno abilitati.
 
-Se si disabilita o non si configura questa impostazione dei criteri, il controllo della disponibilità degli aggiornamenti verrà eseguito con la frequenza predefinita.</string>
+    Se disabiliti questa impostazione, gli aggiornamenti di intelligence in tempo reale verranno disabilitati.</string>
+    <string id="SignatureUpdate_ScheduleDay">Specifica il giorno della settimana per la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">Questa impostazione di criteri consente di specificare il giorno della settimana in cui verificare se sono disponibili aggiornamenti di intelligence sulla sicurezza. Puoi inoltre configurare la verifica perché venga eseguita ogni giorno o mai.
+
+    Questa impostazione può essere configurata con i valori numerici ordinali seguenti:
+    (0x0) tutti i giorni (impostazione predefinita)
+    (0x1) domenica 
+    (0x2) lunedì
+    (0x3) martedì
+    (0x4) mercoledì
+    (0x5) giovedì
+    (0x6) venerdì
+    (0x7) sabato
+    (0x8) mai
+
+    Se abiliti questa impostazione, la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza verrà eseguita con la frequenza specificata.
+
+    Se disabiliti o non configuri questa impostazione, la verifica della disponibilità degli aggiornamenti verrà eseguita con la frequenza predefinita.</string>
     <string id="SignatureUpdate_ScheduleDay_0">Mai</string>
     <string id="SignatureUpdate_ScheduleDay_1">Tutti i giorni</string>
     <string id="SignatureUpdate_ScheduleDay_2">Domenica</string>
@@ -578,24 +633,24 @@ Se si disabilita o non si configura questa impostazione dei criteri, il controll
     <string id="SignatureUpdate_ScheduleDay_6">Giovedì</string>
     <string id="SignatureUpdate_ScheduleDay_7">Venerdì</string>
     <string id="SignatureUpdate_ScheduleDay_8">Sabato</string>
-    <string id="SignatureUpdate_ScheduleTime">Specifica ora per il controllo della disponibilità di aggiornamenti delle definizioni</string>
-    <string id="SignatureUpdate_ScheduleTime_Explain">Questa impostazione dei criteri consente di specificare l'ora del giorno in cui controllare se sono disponibili aggiornamenti delle definizioni. Il valore dell'ora è rappresentato come numero di minuti dopo la mezzanotte (00.00).  Ad esempio, 120 (0x78) equivale alle 02.00. Per impostazione predefinita, questa impostazione dei criteri è configurata per eseguire il controllo della disponibilità di aggiornamenti delle definizioni 15 minuti prima dell'ora dell'analisi pianificata. La pianificazione è basata sull'ora locale nel computer in cui viene eseguito il controllo.
+    <string id="SignatureUpdate_ScheduleTime">Specifica l'ora per verificare la disponibilità di aggiornamenti di intelligence sulla sicurezza</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">Questa impostazione di criteri consente di specificare l'ora del giorno in cui verificare se sono disponibili aggiornamenti di intelligence sulla sicurezza. Il valore dell'ora è rappresentato come numero di minuti dopo la mezzanotte (00.00).  Ad esempio, 120 (0x78) equivale alle 02.00. Per impostazione predefinita, questa impostazione è configurata per eseguire la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza 15 minuti prima dell'ora dell'analisi pianificata. La pianificazione è basata sull'ora locale del computer in cui viene eseguita la verifica.
 
-Se si abilita questa impostazione dei criteri, il controllo della disponibilità di aggiornamenti delle definizioni verrà eseguito all'ora del giorno specificata.
+    Se abiliti questa impostazione, la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza verrà eseguita all'ora del giorno specificata.
 
-Se si disabilita o non si configura questa impostazione dei criteri, il controllo della disponibilità di aggiornamenti delle definizioni verrà eseguito all'ora predefinita.</string>
-    <string id="SignatureUpdate_SignatureDisableNotification">Consenti notifiche per disabilitare le definizioni in base alle segnalazioni per Microsoft MAPS</string>
-    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Questa impostazione dei criteri consente di configurare il servizio antimalware per la ricezione di notifiche per la disabilitazione delle singole definizioni in risposta alle segnalazioni inviate a Microsoft MAPS. Microsoft MAPS utilizza queste notifiche per disabilitare le definizioni che causano segnalazioni di falsi positivi. Per utilizzare questa funzionalità, è necessario che il computer sia stato configurato per la partecipazione a Microsoft MAPS.
+    Se disabiliti o non configuri questa impostazione, la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza verrà eseguita all'ora predefinita.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Consenti notifiche per disabilitare l'intelligence sulla sicurezza in base alle segnalazioni a Microsoft MAPS</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Questa impostazione di criteri consente di configurare il servizio antimalware per la ricezione di notifiche per la disabilitazione di specifica intelligence sulla sicurezza in risposta alle segnalazioni inviate a Microsoft MAPS. Microsoft MAPS utilizza queste notifiche per disabilitare l'intelligence sulla sicurezza che causa segnalazioni di falsi positivi. Per utilizzare questa funzionalità, è necessario che il computer sia stato configurato per la partecipazione a Microsoft MAPS.
 
-Se si abilita o non si configura questa impostazione dei criteri, il servizio antimalware riceverà le notifiche per la disabilitazione delle definizioni.
+    Se abiliti o non configuri questa impostazione, il servizio antimalware riceverà le notifiche per la disabilitazione dell'intelligence sulla sicurezza.
 
-Se si disabilita questa impostazione dei criteri, il servizio antimalware non riceverà le notifiche per la disabilitazione delle definizioni.</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definisci numero di giorni trascorsi i quali è necessario un aggiornamento delle definizioni di recupero</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Questa impostazione dei criteri consente di definire il numero di giorni trascorso il quale sarà necessario un aggiornamento delle definizioni di recupero. Il valore predefinito per questa impostazione è 1 giorno.
+    Se disabiliti questa impostazione, il servizio antimalware non riceverà le notifiche per la disabilitazione dell'intelligence sulla sicurezza.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definisci il numero di giorni dopo i quali è necessario un aggiornamento di intelligence sulla sicurezza di recupero</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Questa impostazione di criteri consente di definire il numero di giorni trascorso il quale sarà necessario un aggiornamento di intelligence sulla sicurezza di recupero. Il valore predefinito per questa impostazione è 1 giorno.
 
-Se si abilita questa impostazione dei criteri, verrà eseguito un aggiornamento delle definizioni di recupero dopo il numero di giorni specificato.
+    Se abiliti questa impostazione, verrà eseguito un aggiornamento di intelligence sulla sicurezza di recupero dopo il numero di giorni specificato.
 
-Se si disabilita o non si configura questa impostazione dei criteri, sarà necessario un aggiornamento delle definizioni di recupero dopo il numero di giorni predefinito.</string>
+    Se disabiliti o non configuri questa impostazione, sarà necessario un aggiornamento di intelligence sulla sicurezza di recupero dopo il numero di giorni predefinito.</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Specifica l'intervallo per la notifica di scadenza</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
     Questa impostazione dei criteri consente di specificare un intervallo (in giorni) per la notifica di scadenza.
@@ -603,28 +658,28 @@ Se si disabilita o non si configura questa impostazione dei criteri, sarà neces
 
     Il valore deve essere maggiore di zero affinché il criterio sia attivo.
     </string>
-    <string id="SignatureUpdate_SignatureUpdateInterval">Specifica l'intervallo per il controllo della disponibilità di aggiornamenti delle definizioni</string>
-    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Questa impostazione dei criteri consente di specificare un intervallo per controllare se sono disponibili aggiornamenti delle definizioni. Il valore temporale è rappresentato come numero di ore tra ogni controllo di disponibilità di aggiornamenti. I valori validi sono compresi nell'intervallo da 1 (ogni ora) a 24 (una volta al giorno).
+    <string id="SignatureUpdate_SignatureUpdateInterval">Specifica l'intervallo per verificare la disponibilità di aggiornamenti di intelligence sulla sicurezza</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Questa impostazione di criteri consente di specificare un intervallo per verificare se sono disponibili aggiornamenti di intelligence sulla sicurezza. Il valore temporale è rappresentato come numero di ore tra ogni verifica. I valori validi sono compresi nell'intervallo da 1 (ogni ora) a 24 (una volta al giorno).
 
-Se si abilita questa impostazione dei criteri, il controllo della disponibilità di aggiornamenti delle definizioni verrà eseguito in base all'intervallo specificato.
+    Se abiliti questa impostazione, la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza verrà eseguita in base all'intervallo specificato.
 
-Se si disabilita o non si configura questa impostazione dei criteri, il controllo della disponibilità di aggiornamenti delle definizioni verrà eseguito in base all'intervallo predefinito.</string>
-    <string id="SignatureUpdate_UpdateOnStartup">Controlla disponibilità delle definizioni di virus e spyware più recenti all'avvio</string>
-    <string id="SignatureUpdate_UpdateOnStartup_Explain">Questa impostazione dei criteri consente di specificare se eseguire o meno un controllo della disponibilità di nuove definizioni di virus e spyware subito dopo l'avvio del servizio.
+    Se disabiliti o non configuri questa impostazione, la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza verrà eseguita in base all'intervallo predefinito.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">Verifica la disponibilità di intelligence sulla sicurezza antivirus e antispyware più recente all'avvio</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">Questa impostazione di criteri consente di specificare se eseguire o meno una verifica della disponibilità di nuova intelligence sulla sicurezza antivirus e antispyware subito dopo l'avvio del servizio.
 
-Se si abilita questa impostazione dei criteri, verrà eseguito un controllo della disponibilità di nuove definizioni dopo l'avvio del servizio.
+    Se abiliti questa impostazione, verrà eseguita una verifica della disponibilità di nuova intelligence sulla sicurezza dopo l'avvio del servizio.
 
-Se si disabilita o non si configura questa impostazione dei criteri, non verrà eseguito un controllo della disponibilità di nuove definizioni dopo l'avvio del servizio.</string>
+    Se disabiliti o non configuri questa impostazione, non verrà eseguita una verifica della disponibilità di nuova intelligence sulla sicurezza dopo l'avvio del servizio.</string>
     <string id="DisableBlockAtFirstSeen">Configura la funzionalità 'Blocco al primo rilevamento'</string>
     <string id="DisableBlockAtFirstSeen_Explain">Questa funzionalità assicura che il dispositivo esegua una verifica in tempo reale con Microsoft Active Protection Service (MAPS) prima di consentire l'esecuzione o l'accesso a determinato contenuto. Se la funzionalità è disabilitata, la verifica non verrà eseguita, riducendo lo stato di protezione del dispositivo.
-	Abilitato - L'impostazione Blocco al primo rilevamento è attivata.
-	Disabilitato - L'impostazione Blocco al primo rilevamento è disattivata.
-	
-	La funzionalità richiede che queste impostazioni di Criteri di gruppo siano impostate come segue:
-	MAPS -&gt; Il criterio “Partecipa a Microsoft MAPS” deve essere abilitato. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.
-	MAPS -&gt; Il criterio “Invia campioni di file se sono necessarie ulteriori analisi” deve essere impostato su 1 (Invia campioni sicuri) o 3 (Invia tutti i campioni). L'impostazione su 0 (Richiedi sempre conferma) ridurrà lo stato di protezione del dispositivo. Se si esegue l'impostazione su 2 (Non inviare mai), la funzionalità “Blocco al primo rilevamento” non funzionerà.
-	Protezione in tempo reale -&gt; Il criterio “Analizza tutti i file e gli allegati scaricati” deve essere abilitato. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.
-	Protezione in tempo reale -&gt; Non abilitare il criterio “Disattiva protezione in tempo reale”. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.</string>
+    Abilitata - L'impostazione Blocco al primo rilevamento è abilitata.
+    Disabilitata - L'impostazione Blocco al primo rilevamento è disabilitata.
+    
+    La funzionalità richiede che queste impostazioni di Criteri di gruppo siano impostate come segue:
+    MAPS -&gt; Il criterio “Partecipa a Microsoft MAPS” deve essere abilitato. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.
+    MAPS -&gt; Il criterio “Invia campioni di file se sono necessarie ulteriori analisi” deve essere impostato su 1 (Invia campioni sicuri) o 3 (Invia tutti i campioni). L'impostazione su 0 (Richiedi sempre conferma) ridurrà lo stato di protezione del dispositivo. Se imposti su 2 (Non inviare mai), la funzionalità “Blocco al primo rilevamento” non funzionerà.
+    Protezione in tempo reale -&gt; Il criterio “Analizza tutti i file e gli allegati scaricati” deve essere abilitato. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.
+    Protezione in tempo reale -&gt; Non abilitare il criterio "Disattiva protezione in tempo reale". In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Configura sostituzione dell'impostazione locale per le segnalazioni a Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Questa impostazione dei criteri consente di configurare una sostituzione locale per la configurazione della partecipazione a Microsoft MAPS. Questa impostazione dei criteri può essere configurata solo da Criteri di gruppo.
 
@@ -648,24 +703,24 @@ Se si disabilita o non si configura questa impostazione dei criteri, Criteri di 
     <string id="SubmitSamplesConsent_Send_All">Invia tutti i campioni</string>
 
     <string id="SpynetReporting">Partecipa a Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Questa impostazione dei criteri consente di partecipare a Microsoft MAPS. Microsoft MAPS è la community online che fornisce assistenza agli utenti su come rispondere a potenziali rischi. Questa community contribuisce inoltre ad arrestare la diffusione di nuove infezioni da malware.
+    <string id="SpynetReporting_Explain">Questa impostazione di criteri consente di partecipare a Microsoft MAPS. Microsoft MAPS è la community online che consente di scegliere come rispondere a potenziali minacce. La community contribuisce anche ad arrestare la diffusione di nuove infezioni da malware.
 
-È possibile scegliere di inviare informazioni di base o aggiuntive in relazione al software rilevato. Le informazioni aggiuntive aiutano Microsoft a creare nuove definizioni e a proteggere i computer degli utenti. Queste informazioni possono includere, ad esempio, il percorso degli elementi rilevati nel computer nel caso sia stato rimosso software dannoso. Le informazioni verranno raccolte e inviate automaticamente. In alcuni casi, potrebbero essere accidentalmente inviati a Microsoft dati personali. Tuttavia Microsoft non userà tali dati per identificare o contattare l'utente.
+    Puoi scegliere di inviare informazioni di base o aggiuntive sul software rilevato. Informazioni aggiuntive consentono a Microsoft di creare nuova intelligence sulla sicurezza e aiutarti a proteggere il computer. Queste informazioni possono ad esempio indicare la posizione degli elementi rilevati nel computer in caso di rimozione di software dannoso. Le informazioni verranno raccolte e inviate automaticamente. In alcuni casi, informazioni personali potrebbero essere inviate a Microsoft in modo non intenzionale. Le informazioni, tuttavia, non verranno utilizzate per identificarti o contattarti.
 
-Le opzioni possibili sono:
-(0x0) Disabilitata (impostazione predefinita)
-(0x1) Partecipazione di base
-(0x2) Partecipazione avanzata
+    Le opzioni possibili sono:
+    (0x0) disabilitato (impostazione predefinita)
+    (0x1) abbonamento di base
+    (0x2) abbonamento avanzato
 
-La partecipazione di base prevede l'invio di informazioni di base a Microsoft sul software rilevato, inclusi la provenienza del software, le azioni applicate manualmente o automaticamente e l'esito delle azioni.
+    L'abbonamento di base invierà a Microsoft informazioni di base relative al software rilevato, tra cui la provenienza del software, le azioni applicate da te o automaticamente e il loro esito.
 
-Con la partecipazione avanzata, oltre alle informazioni di base verranno inviate a Microsoft altre informazioni su software dannoso, spyware e software potenzialmente indesiderato, tra cui il percorso del software, i nomi dei file, il funzionamento del software e il relativo impatto sul computer.
+    L'abbonamento avanzato, oltre alle informazioni di base, invierà a Microsoft altre informazioni relative a software dannoso, spyware e software potenzialmente indesiderato, tra cui la posizione del software, i nomi dei file, il modo in cui opera il software e il suo impatto sul computer.
 
-Se si abilita questa impostazione dei criteri, si contribuirà a Microsoft MAPS con il livello di partecipazione specificato.
+    Se abiliti questa impostazione, partecipi a Microsoft MAPS con l'abbonamento specificato.
 
-Se si disabilita o non si configura questa impostazione dei criteri, non si parteciperà a Microsoft MAPS.
+    Se disabiliti o non configuri questa impostazione, non partecipi a Microsoft MAPS.
   
-In Windows 10 la partecipazione di base non è più disponibile, quindi se si imposta il valore su 1 o 2, viene eseguita la registrazione del dispositivo nella partecipazione avanzata.</string>
+    In Windows 10 l'abbonamento di base non è più disponibile, per cui l'impostazione del valore su 1 o 2 determinerà la registrazione del dispositivo all'abbonamento avanzato.</string>
     <string id="SpynetReporting_Disabled">Disabilitata</string>
     <string id="SpynetReporting_Basic">MAPS di base</string>
     <string id="SpynetReporting_Advanced">MAPS avanzata</string>
@@ -701,10 +756,10 @@ I valori validi per l'azione di correzione sono:
       Se si abilita questa impostazione l'interfaccia utente AM non visualizzerà notifiche di riavvio del sistema.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Elimina tutte le notifiche</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Usa questa impostazione dei criteri per specificare se visualizzare nei client le notifiche di Windows Defender.
-      Se si disabilita o non si configura questa impostazione, le notifiche di Windows Defender verranno visualizzate nei client.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Usa questa impostazione dei criteri per specificare se visualizzare nei client le notifiche di Windows Defender Antivirus.
+      Se si disabilita o non si configura questa impostazione, le notifiche di Windows Defender Antivirus verranno visualizzate nei client.
 
-      Se si abilita questa impostazione, le notifiche di Windows Defender non verranno visualizzate nei client.
+      Se si abilita questa impostazione, le notifiche di Windows Defender Antivirus non verranno visualizzate nei client.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Visualizza testo aggiuntivo per i client quando devono eseguire un'azione</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Questa impostazione dei criteri consente di specificare se visualizzare o meno testo aggiuntivo ai client quando devono eseguire un'azione. Il testo visualizzato è una stringa personalizzata definita dall'amministratore. Ad esempio, il numero di telefono per chiamare l'help desk aziendale. Nell'interfaccia client verranno visualizzati al massimo 1024 caratteri. Le stringhe più lunghe verranno troncate prima della visualizzazione.
@@ -712,6 +767,198 @@ I valori validi per l'azione di correzione sono:
 Se si abilita questa impostazione dei criteri, verrà visualizzato il testo aggiuntivo specificato.
 
 Se si disabilita o non si configura questa impostazione dei criteri, non verrà visualizzato alcun testo aggiuntivo.</string>
+    <string id="MpCloudBlockLevel">Seleziona livello di protezione su cloud</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Questa impostazione dei criteri determina l'aggressività di Windows Defender Antivirus nel bloccare e analizzare i file sospetti.
+
+      Se questa impostazione è abilitata, Windows Defender Antivirus sarà più aggressivo nell'identificare file sospetti da bloccare e analizzare; in caso contrario, sarà meno aggressivo e pertanto bloccherà e analizzerà con minore frequenza. 
+      
+      Per maggiori informazioni su valori specifici supportati, consulta il sito della documentazione di Windows Defender Antivirus.
+
+      Nota: affinché questa funzionalità sia operativa, deve essere abilitata l'impostazione "Partecipa a Microsoft MAPS".
+
+      Le possibili opzioni sono:
+      (0x0) Livello blocco Windows Defender Antivirus predefinito
+      (0x2) Livello blocco Elevato: blocca in modo aggressivo gli eseguibili sconosciuti mentre ottimizza le prestazioni del client (maggiore possibilità di falsi positivi)
+      (0x4) Livello blocco Più elevato: blocca in modo aggressivo gli eseguibili sconosciuti e applica le misure di protezione aggiuntive (potrebbe influire sulle prestazioni del client)
+      (0x6) Livello blocco Nessuna tolleranza: blocca tutti gli eseguibili sconosciuti
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Livello di blocco Windows Defender Antivirus predefinito</string>
+    <string id="MpCloudBlockLevel_High_Level">Livello blocco elevato</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Livello blocco Più elevato</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Livello blocco Nessuna tolleranza</string>
+    <string id="MpBafsExtendedTimeout">Configura controllo cloud esteso</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Questa funzionalità consente a Windows Defender Antivirus di bloccare un file sospetto per un massimo di 60 secondi e scansionarlo nel cloud per garantire che sia sicuro.
+      
+      Il timeout tipico per il controllo su cloud è 10 secondi. Per abilitare la funzionalità di controllo su cloud esteso, specificare l'estensione in secondi, fino a un massimo di 50 secondi aggiuntivi.
+
+      Ad esempio, se il timeout desiderato è 60 secondi, specificare 50 secondi in questa impostazione, che abiliterà la funzione di controllo su cloud esteso e porterà il tempo totale a 60 secondi.
+
+      Nota: questa funzionalità dipende da altre tre impostazioni MAPS - "Configura la funzionalità 'Blocco al primo rilevamento'; "Partecipa a Microsoft MAPS"; "Invia campioni di file se sono necessarie ulteriori analisi" devono essere tutte abilitate.
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Impedisci a utenti e app di accedere a siti Web pericolosi</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Abilita o disabilita la protezione di rete Windows Defender Exploit Guard per impedire ai dipendenti l'uso delle applicazioni per accedere a domini pericolosi che potrebbero ospitare tentativi di phishing, a siti di host per exploit e ad altro contenuto dannoso su Internet.
+
+    Abilitato:
+        Specifica la modalità nella sezione Opzioni:
+    -Blocca: gli utenti e le applicazioni non potranno accedere ai domini pericolosi
+    -Modalità Controllo: gli utenti e le applicazioni possono collegarsi ai domini pericolosi, tuttavia se l'accesso venisse bloccato qualora la funzionalità fosse impostata su Blocca, viene registrato un record dell'evento nei registri eventi.
+
+    Disabilitato:
+    Gli utenti e le applicazioni non saranno bloccati e potranno connettersi ai domini pericolosi.
+
+    Non configurato:
+    Come Disabilitato.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Escludi file e percorsi dalle regole Riduzione superficie di attacco</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Escludi file e percorsi dalle regole Attack Surface Reduction (ASR).
+
+    Abilitato:
+    Specifica le cartelle o i file e le risorse che devono essere esclusi dalle regole Attack Surface Reduction nella sezione Opzioni.
+    Specifica ogni regola su una riga nuova come coppia nome-valore:
+    - Colonna Nome: immetti il percorso di una cartella o il nome completo della risorsa. Ad esempio, ""C:\Windows"" esclude tutti i file di quella directory. ""C:\Windows\App.exe"" esclude solo lo specifico file di quella cartella
+    - Colonna Valore: immetti ""0"" per ogni elemento
+
+    Disabilitato:
+    Nessuna esclusione viene applicata alle regole Attack Surface Reduction.
+
+    Non configurato:
+    Come Disabilitato.
+
+    Puoi configurare le regole Attack Surface Reduction nell'impostazione dei criteri di gruppo Configura regole Attack Surface Reduction.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Configura regole Riduzione superficie di attacco</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Imposta lo stato per ogni regola Attack Surface Reduction (ASR).
+
+    Dopo aver abilitato l'impostazione puoi impostare ogni regola sui seguenti valori nella sezione Opzioni:
+    - Blocca: la regola viene applicata
+    - Modalità Controllo: se la regola normalmente causasse un evento, verrebbe registrata (non effettivamente applicata)
+    - Disattiva: la regola non viene applicata
+
+    Abilitato:
+    Specifica lo stato di ogni regola Attack Surface Reduction nella sezione Opzioni per questa impostazione.
+    Specifica ogni regola su una riga nuova come coppia nome-valore:
+    - Colonna Nome: immetti un ID regola Attack Surface Reduction valido
+    - Colonna Valore: immetti l'ID relativo allo stato che vuoi specificare per la regola associata
+
+    Nella colonna Valore sono consentiti i seguenti ID stato:
+    - 1 (Blocca)
+    - 0 (Disattiva)
+    - 2 (Controllo)
+    
+    Esempio:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Disabilitato:
+    Nessuna regola Attack Surface Reduction viene configurata.
+
+    Non configurato:
+    Come Disabilitato.
+
+    Puoi escludere cartelle o file e risorse nell'impostazione dei criteri di gruppo Escludi cartelle o file e risorse.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Configura accesso controllato alle cartelle</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Attiva o disattiva l'accesso alle cartelle controllato per le applicazioni non attendibili. È possibile scegliere di bloccare, controllo o consentire tentativi da applicazioni non attendibili per:
+    -Modificare o eliminare i file nelle cartelle protette, ad esempio la cartella documenti
+    -Scrivere i settori del disco
+
+È inoltre possibile scegliere di blocco solo o controllo scrive in settori del disco consentendo comunque la modifica o eliminazione di file nelle cartelle protette.
+
+Windows Defender Antivirus determina automaticamente quali applicazioni possono essere considerate attendibili. È possibile aggiungere altre applicazioni attendibili nell'impostazione configura applicazioni consentite criteri di gruppo.
+    Cartelle di sistema predefinite sono protette automaticamente, ma è possibile aggiungere cartelle nell'impostazione dei criteri di gruppo di cartelle Configura protetto.
+
+Blocco:
+    Verrà bloccati le operazioni seguenti:
+    -Tentativi da applicazioni non attendibili di modificare o eliminare i file nelle cartelle protette
+    -Tentativi da applicazioni non attendibili in cui scrivere i settori del disco
+    Registro eventi di Windows registrerà i blocchi in registri applicazioni e servizi &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; 1123 ID.
+
+Disattivato:
+    Di seguito non verranno bloccati e verrà consentita l'esecuzione di:
+    -Tentativi da applicazioni non attendibili di modificare o eliminare i file nelle cartelle protette
+    -Tentativi da applicazioni non attendibili in cui scrivere i settori del disco
+    I seguenti tentativi non verranno registrati nel registro eventi di Windows.
+
+Modalità controllo:
+    Di seguito non verranno bloccati e verrà consentita l'esecuzione di:
+    -Tentativi da applicazioni non attendibili di modificare o eliminare i file nelle cartelle protette
+    -Tentativi da applicazioni non attendibili in cui scrivere i settori del disco
+    Registro eventi di Windows registrerà i tentativi di accesso in registri applicazioni e servizi &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; 1124 ID.
+
+Modifica solo del blocco disco:
+    Verrà bloccati le operazioni seguenti:
+    -Tentativi da applicazioni non attendibili in cui scrivere i settori del disco
+    Registro eventi di Windows registrerà i tentativi di accesso in registri applicazioni e servizi &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; 1123 ID.
+
+Di seguito non verranno bloccati e verrà consentita l'esecuzione di:
+    -Tentativi da applicazioni non attendibili di modificare o eliminare i file nelle cartelle protette
+    I seguenti tentativi non verranno registrati nel registro eventi di Windows.
+
+Solo la modifica del disco di controllo:
+    Di seguito non verranno bloccati e verrà consentita l'esecuzione di:
+    -Tentativi da applicazioni non attendibili in cui scrivere i settori del disco
+    -Tentativi da applicazioni non attendibili di modificare o eliminare i file nelle cartelle protette
+    Solo un tentativo di scrivere i settori del disco protetto verrà registrato nel registro eventi di Windows (in registri applicazioni e servizi &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124).
+    Tentativo di modificare o eliminare i file nelle cartelle protette non verranno registrato.
+
+Non configurato:
+    Come disabilitato.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Disabilita (valore predefinito)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Blocca</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Modalità Controllo</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Blocca solo la modifica del disco</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Controlla solo la modifica del disco</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Configura applicazioni consentite</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Aggiungi altre applicazioni che devono essere considerate "attendibili" dall'accesso controllato alle cartelle.
+
+    Queste applicazioni possono modificare o eliminare i file nelle cartelle con accesso controllato.
+
+    Windows Defender Antivirus determina automaticamente quali applicazioni possono essere considerate attendibili. Puoi configurare l'impostazione per aggiungere altre applicazioni.
+
+    Abilitato:
+        Specifica altre applicazioni consentite nella sezione Opzioni.
+
+    Disabilitato:
+    Nessuna applicazione viene aggiunta all'elenco delle applicazioni attendibili.
+
+    Non configurato:
+    Come Disabilitato.
+
+    Puoi abilitare l'accesso controllato alle cartelle nell'impostazione dei criteri di gruppo Configura accesso controllato alle cartelle.
+
+    Le cartelle di sistema predefinite sono controllate automaticamente, ma puoi aggiungere cartelle nell'impostazione dei criteri di gruppo Configura cartelle protette.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Configura cartelle protette</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Specifica altre cartelle che devono essere controllate dalla funzionalità di accesso controllato alle cartelle.
+
+    I file in queste cartelle non possono essere modificati o eliminati dalle applicazioni non attendibili.
+
+    Le cartelle di sistema predefinite sono protette automaticamente. Puoi configurare questa impostazione per aggiungere altre cartelle. 
+    L'elenco delle cartelle di sistema predefinite protette è riportato in Sicurezza di Windows.
+
+    Abilitato:
+    Specifica le altre cartelle che devono essere protette nella sezione Opzioni.
+
+    Disabilitato:
+    Nessun'altra cartella viene protetta.
+
+    Non configurato:
+    Come Disabilitato.
+
+    Puoi abilitare l'accesso controllato alle cartelle nell'impostazione di Criteri di gruppo Configura accesso controllato alle cartelle.
+
+    Windows Defender Antivirus determina automaticamente quali applicazioni possono essere considerate attendibili. Puoi aggiungere altre applicazioni attendibili nell'impostazione di Criteri di gruppo Configura applicazioni consentite.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -805,32 +1052,37 @@ Se si disabilita o non si configura questa impostazione dei criteri, non verrà 
     <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Specifica ora del giorno per l'esecuzione di un'analisi pianificata</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_ASSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definisci numero di giorni trascorsi i quali le definizioni di spyware sono considerate non aggiornate</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definisci il numero di giorni dopo i quali l'intelligence sulla sicurezza antispyware viene considerata obsoleta</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_AVSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definisci numero di giorni trascorsi i quali le definizioni di virus sono considerate non aggiornate</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definisci il numero di giorni dopo i quali l'intelligence sulla sicurezza antivirus viene considerata non aggiornata</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
     <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
-        <label>Definisci le condivisioni file per il download degli aggiornamenti delle definizioni</label>
+        <label>Definisci le condivisioni file per il download degli aggiornamenti di intelligence sulla sicurezza</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SharedSignaturesLocation">
+    <textBox refId="SignatureUpdate_SharedSignaturesLocation">
+        <label>Definisci la condivisione file per il download degli aggiornamenti di intelligence sulla sicurezza in ambienti virtuali</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_FallbackOrder">
     <textBox refId="SignatureUpdate_FallbackOrder">
-        <label>Definisci l'ordine delle origini per il download degli aggiornamenti delle definizioni</label>
+        <label>Definisci l'ordine delle origini per il download degli aggiornamenti di intelligence sulla sicurezza</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleDay">
-    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Specifica giorno della settimana per il controllo della disponibilità di aggiornamenti delle definizioni</dropdownList>
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Specifica il giorno della settimana per la verifica della disponibilità di aggiornamenti di intelligence sulla sicurezza</dropdownList>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleTime">
-    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Specifica ora per il controllo della disponibilità di aggiornamenti delle definizioni</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Specifica l'ora per verificare la disponibilità di aggiornamenti di intelligence sulla sicurezza</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definisci numero di giorni trascorsi i quali è necessario un aggiornamento delle definizioni di recupero</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definisci il numero di giorni dopo i quali è necessario un aggiornamento di intelligence sulla sicurezza di recupero</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Specifica l'intervallo per il controllo della disponibilità di aggiornamenti delle definizioni</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Specifica l'intervallo per verificare la disponibilità di aggiornamenti di intelligence sulla sicurezza</decimalTextBox>
     </presentation>
     <presentation id="SpynetReporting">
     <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Partecipa a Microsoft MAPS</dropdownList>
@@ -852,6 +1104,33 @@ Se si disabilita o non si configura questa impostazione dei criteri, non verrà 
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Specifica l'intervallo per la notifica di scadenza</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Seleziona livello di blocco su cloud</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Specifica il tempo di controllo su cloud esteso in secondi</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Configura la funzionalità di controllo delle cartelle</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Esclusioni dalle regole Riduzione superficie di attacco:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Imposta lo stato per ogni regola Riduzione superficie di attacco:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Immetti le applicazioni che devono essere considerate attendibili:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Immetti le cartelle che devono essere controllate:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

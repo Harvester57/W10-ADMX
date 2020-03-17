@@ -33,7 +33,7 @@ Remarques :
       <string id="CplPrinters">Imprimantes</string>
       <string id="CplPrinters_Help">Gère la configuration de l’imprimante réseau et les options de publication.</string>
       <string id="CustomizedSupportUrl">URL de support personnalisé du volet gauche du dossier Imprimantes</string>
-      <string id="CustomizedSupportUrl_Help">Par défaut, le dossier Imprimantes contient un lien vers la page Web du support Microsoft appelé « Obtenir de l’aide sur l’impression ». Il peut également contenir un lien vers une page Web fournie par le fabricant de l’imprimante sélectionnée.
+      <string id="CustomizedSupportUrl_Help">Par défaut, le dossier Imprimantes contient un lien vers la page Web du Support Microsoft appelé « Obtenir de l’aide sur l’impression ». Il peut également contenir un lien vers une page Web fournie par le fabricant de l’imprimante sélectionnée.
 
           Si vous activez ce paramètre de stratégie, vous remplacez le lien par défaut « Obtenir de l’aide sur l’impression » par un lien vers une page Web personnalisée pour votre entreprise.
 
@@ -46,7 +46,7 @@ Remarques :
           L’affichage Web est affecté par les paramètres « Activer l’interface classique » et « Ne pas autoriser l’ouverture des Options des dossiers à partir du bouton Options sous l’onglet Affichage du ruban » dans Configuration utilisateur\Modèles d’administration\Composants Windows\Explorateur Windows, et par le paramètre « Activer Active Desktop » dans Configuration utilisateur\Modèles d’administration\Bureau\Active Desktop.</string>
       <string id="DomainDisplayPrinters_Help">Si vous activez ce paramètre de stratégie, il définit le nombre maximal d’imprimantes (de chaque type) que l’Assistant Ajout d’imprimante affiche sur un ordinateur d’un réseau géré (lorsque l’ordinateur peut atteindre un contrôleur de domaine, par exemple un ordinateur portable faisant partie d’un domaine dans un réseau d’entreprise.)
 
-          Si ce paramètre de stratégie est désactivé, la page d’analyse réseau ne s’affiche pas.
+Si ce paramètre de stratégie est désactivé, la page d’analyse réseau ne s’affiche pas..
 
           Si ce paramètre de stratégie n’est pas configuré, l’Assistant Ajout d’imprimante affiche le nombre par défaut d’imprimantes de chaque type :
           Imprimantes Active Directory : 20
@@ -57,7 +57,12 @@ Remarques :
 
           Pour afficher les imprimantes de services Web disponibles sur votre réseau, veillez à ce que la découverte du réseau soit activée. Pour ce faire, cliquez successivement sur « Démarrer », « Panneau de configuration », puis « Réseau et Internet ». Sur la page « Réseau et Internet », cliquez sur « Centre Réseau et partage ». Sur la page Centre Réseau et partage, cliquez sur « Modifier les paramètres de partage avancés ». Dans la page qui s’affiche, cliquez sur la flèche en regard de « Domaine », cliquez sur « Activer la découverte de réseau », puis sur « Enregistrer les modifications ».
 
-          Si vous ne souhaitez pas afficher les imprimantes d’un certain type, activez cette stratégie et définissez le nombre d’imprimantes à afficher à 0.</string>
+          Si vous ne souhaitez pas afficher les imprimantes d’un certain type, activez cette stratégie et définissez le nombre d’imprimantes à afficher à 0.
+
+          Dans  Windows 10 et versions ultérieures, seules les imprimantes TCP/IP peuvent s’afficher dans l’Assistant. Si vous activez ce paramètre de stratégie, seules les limites relatives aux imprimantes TCP/IP sont applicables. Sur Windows 10 uniquement, si vous désactivez ou ne configurez pas ce paramètre de stratégie, la limite par défaut s’applique.
+          
+          Dans Windows 8 et versions ultérieures, les imprimantes Bluetooth ne s’affichent pas, si bien que leurs limites ne s’appliquent pas à ces versions de Windows.
+      </string>
       <string id="DomainPrinters">Assistant Ajout d’imprimante - Page d’analyse réseau (réseau géré)</string>
       <string id="DownlevelBrowse">Rechercher les imprimantes sur le réseau</string>
       <string id="DownlevelBrowse_Help">Permet aux utilisateurs d’utiliser l’Assistant Ajout d’imprimante pour rechercher les imprimantes partagées sur le réseau.
@@ -139,7 +144,11 @@ Imprimantes des services Web : 50
 Imprimantes Bluetooth : 10
 Imprimantes partagées : 50
 
-Si vous ne souhaitez pas afficher les imprimantes d’un certain type, activez cette stratégie et définissez le nombre d’imprimantes à afficher à 0.</string>
+Si vous ne souhaitez pas afficher les imprimantes d’un certain type, activez cette stratégie et définissez le nombre d’imprimantes à afficher à 0.
+
+Dans Windows 10 et versions ultérieures, seules les imprimantes TCP/IP peuvent s’afficher dans l’Assistant. Si vous activez ce paramètre de stratégie, seules les limites relatives aux imprimantes TCP/IP sont applicables. Sur Windows 10 uniquement, si vous désactivez ou ne configurez pas ce paramètre de stratégie, la limite par défaut s’applique.
+          
+Dans Windows 8 et versions ultérieures, les imprimantes Bluetooth ne s’affichent pas, si bien que leurs limites ne s’appliquent pas à ces versions de Windows.</string>
       <string id="NonDomainPrinters">Assistant Ajout d’imprimante - Page d’analyse réseau (réseau non géré)</string>
       <string id="PackagePointAndPrintOnly">Utiliser Pointer et imprimer les packages uniquement</string>
       <string id="PackagePointAndPrintOnly_Help">Cette stratégie limite les ordinateurs client à l’utilisation de Pointer et imprimer les packages uniquement.
@@ -269,11 +278,11 @@ Par défaut, la famille de référence (SKU) Windows Édition Intégrale, Profes
 
         Si vous désactivez ou ne configurez pas ce paramètre de stratégie, toutes les extensions d’imprimantes installées pourront être exécutées.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Remplacer le format de sortie Microsoft XPS Document Writer (MXDW) par défaut par le format Microsoft XPS (*.xps) hérité</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Microsoft XPS Document Writer (MXDW) génère des fichiers OpenXPS (*.oxps) par défaut dans Windows 10 et Windows Server 2016.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Microsoft XPS Document Writer (MXDW) génère des fichiers OpenXPS (*.oxps) par défaut dans Windows 10 et Windows Server 2019.
 
-          Si vous activez ce paramètre de stratégie de groupe, le format de sortie MXDW par défaut est le format Microsoft XPS (*.xps) hérité.
+          Si vous activez ce paramètre de stratégie de groupe, le format de sortie MXDW par défaut est le format Microsoft XPS (*.xps) hérité.
 
-          Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le format de sortie MXDW par défaut est OpenXPS (*.oxps).</string>
+          Si vous désactivez ou ne configurez pas ce paramètre de stratégie, le format de sortie MXDW par défaut est OpenXPS (*.oxps).</string>
       <string id="SetDefaultPrinterMRUModeOff">Désactiver la gestion des imprimantes par défaut Windows</string>
       <string id="SetDefaultPrinterMRUModeOff_Help">Cette préférence vous permet de modifier la gestion des imprimantes par défaut.
 

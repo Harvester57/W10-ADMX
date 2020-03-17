@@ -72,12 +72,34 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, bude ignorováno a syst
 
 Tip: Chcete-li najít složky označené systémovou proměnnou Path, klikněte na ovládacím panelu na ikonu Vlastnosti systému, pak na kartu Upřesnit a na tlačítko Proměnné prostředí a v seznamu Systémové proměnné klikněte na položku Path.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Automaticky přihlásit posledního interaktivního uživatele po restartování vyvolaném systémem</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Toto nastavení zásad určuje, zda zařízení automaticky přihlásí posledního interaktivního uživatele poté, co služba Windows Update restartuje systém.
+      <string id="AutomaticRestartSignOnDescription">Po restartování automaticky přihlásit a uzamknout posledního interaktivního uživatele</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Nastavení této zásady určuje, jestli má zařízení po restartování systému nebo po svém ukončení a úplném spuštění automaticky přihlásit a uzamknout posledního interaktivního uživatele.
 
-Pokud nastavení této zásady povolíte nebo nenakonfigurujete, zařízení bezpečně uloží přihlašovací údaje uživatele (včetně uživatelského jména, domény a zašifrovaného hesla) pro konfiguraci automatického přihlášení po restartování služby Windows Update. Po restartování služby Windows Update je uživatel automaticky přihlášen a relace se automaticky zamkne se všemi aplikacemi na zamykací obrazovce nakonfigurovanými pro tohoto uživatele.
+K tomu dojde jen v případě, že se poslední interaktivní uživatel před restartováním nebo vypnutím zařízení neodhlásil.
 
-Pokud toto nastavení zásad zakážete, zařízení neuloží přihlašovací údaje uživatele pro automatické přihlášení po restartování služby Windows Update. Aplikace na zamykací obrazovce se po restartování systému nerestartují.</string>
+Pokud je zařízení připojené ke službě Active Directory nebo Azure Active Directory, bude se tato zásada vztahovat jen na restartování související se službou Windows Update. V opačném případě se použije jak po restartování souvisejícím se službou Windows Update, tak i po restartování spuštěném uživatelem.
+
+Pokud tuto zásadu nenakonfigurujete, bude ve výchozím nastavení povolená. V tom případě dojde po spuštění zařízení k automatickému přihlášení uživatele a automatickému uzamčení relace se všemi aplikacemi na zamykací obrazovce, které jsou pro něho nakonfigurované.
+
+Po povolení této zásady můžete nakonfigurovat její nastavení pomocí zásady ConfigAutomaticRestartSignOn, která určuje režim automatického přihlášení a uzamčení posledního interaktivního uživatele po restartování nebo úplném spuštění.
+
+Pokud tuto zásadu zakážete, automatické přihlášení se na zařízeních nenakonfiguruje a aplikace na zamykací obrazovce uživatele se po restartování systému znovu nespustí.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Nakonfigurovat režim automatického přihlášení a uzamčení posledního interaktivního uživatele po restartování nebo úplném spuštění</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Nastavení této zásady určuje konfiguraci pro automatické restartování, přihlášení a uzamčení po restartování nebo úplném spuštění. Pokud jste u zásady „Po restartování automaticky přihlásit a uzamknout posledního interaktivního uživatele“ vybrali možnost Zakázáno, automatické přihlášení neproběhne a tuto zásadu nebude nutné konfigurovat.
+
+Pokud tuto zásadu povolíte, můžete zvolit jednu z následujících dvou možností:
+
+1. Povoleno se zapnutým a nepozastaveným nástrojem BitLocker: Určuje, že automatické přihlášení a uzamčení proběhne, jen pokud je nástroj BitLocker během restartování nebo úplném spuštění aktivní a nepozastavený. Pokud je tento nástroj během aktualizace vypnutý nebo pozastavený, je možné v této době přistupovat k osobním datům na pevném disku zařízení. Pozastavení nástroje BitLocker znamená dočasné odebrání ochrany systémových součástí a dat, ale může být za určitých okolností nutné, aby se zajistila úspěšná aktualizace součástí zásadních pro spuštění.
+     Nástroj BitLocker se během aktualizací pozastaví v těchto případech:
+        – Zařízení nemá čip TPM 2.0 a PCR7.
+        – Zařízení nepoužívá ochranu jen na bázi čipu TPM.
+2. Povoleno vždy: Určuje, že automatické přihlášení proběhne, i když je nástroj BitLocker při restartování nebo úplném spuštění vypnutý nebo pozastavený. Pokud není nástroj BitLocker povolený, jsou přístupná osobní data na pevném disku. Za těchto podmínek by automatické restartování a přihlášení mělo proběhnout jen v případě, kdy máte jistotu, že nakonfigurované zařízení je v bezpečném fyzickém umístění.
+
+Pokud toto nastavení zakážete nebo nenakonfigurujete, bude se automatické přihlašování chovat podle výchozí hodnoty Povoleno se zapnutým a nepozastaveným nástrojem BitLocker.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Povoleno se zapnutým a nepozastaveným nástrojem BitLocker</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Povoleno vždy</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Pokud toto nastavení zásad zakážete, zařízení neuloží přihlašovací �
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Nastavit, který software může generovat SAS (Secure Attention Sequence)</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Nakonfigurovat režim automatického přihlášení a uzamčení posledního interaktivního uživatele po restartování nebo úplném spuštění</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

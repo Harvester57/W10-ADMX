@@ -10,6 +10,9 @@
     <category name="TPMCategory" displayName="$(string.TPMCategory)">
       <parentCategory ref="windows:System" />
     </category>
+    <category name="DSHACategory" displayName="$(string.DSHACategory)">
+      <parentCategory ref="windows:System" />
+    </category>
   </categories>
   <policies>
     <policy name="OSManagedAuth_Name" class="Machine" displayName="$(string.OSManagedAuth_Name)" explainText="$(string.OSManagedAuth_Help)" presentation="$(presentation.OSManagedAuth_Name)" key="Software\Policies\Microsoft\TPM">
@@ -34,7 +37,7 @@
           </item>
         </enum>
       </elements>
-    </policy>    
+    </policy>
     <policy name="BlockedCommandsList_Name" class="Machine" displayName="$(string.BlockedCommandsList_Name)" explainText="$(string.BlockedCommandsList_Help)" presentation="$(presentation.BlockedCommandsList_Name)" key="SOFTWARE\Policies\Microsoft\Tpm\BlockedCommands" valueName="Enabled">
       <parentCategory ref="TPMCategory" />
       <supportedOn ref="windows:SUPPORTED_WindowsVista" />
@@ -88,6 +91,36 @@
       <elements>
         <decimal id="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" key="Software\Policies\Microsoft\Tpm" valueName="StandardUserAuthorizationFailureTotalThreshold" maxValue="100" />
       </elements>
-    </policy>    
+    </policy>
+    <policy name="UseLegacyDAP_Name" class="Machine" displayName="$(string.UseLegacyDAP_Name)" explainText="$(string.UseLegacyDAP_Help)" key="Software\Policies\Microsoft\TPM" valueName="UseLegacyDictionaryAttackParameters">
+      <parentCategory ref="TPMCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS2" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="OptIntoDSHA_Name" class="Machine" displayName="$(string.OptIntoDSHA_Name)" explainText="$(string.OptIntoDSHA_Help)" key="Software\Policies\Microsoft\DeviceHealthAttestationService" valueName="EnableDeviceHealthAttestationService">
+      <parentCategory ref="DSHACategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="ClearTPMIfNotReady_Name" class="Machine" displayName="$(string.ClearTPMIfNotReady_Name)" explainText="$(string.ClearTPMIfNotReady_Help)" key="Software\Policies\Microsoft\TPM" valueName="ClearTPMIfNotReadyGP">
+      <parentCategory ref="TPMCategory" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
   </policies>
 </policyDefinitions>

@@ -143,6 +143,7 @@ Pokud toto nastavení zásad nenakonfigurujete, není přesměrování jednotek 
       <string id="TS_CLIENT_HELP">Řídí nastavení klienta Připojení ke vzdálené ploše</string>
       <string id="TS_CLIENT_LPT">Nepovolit přesměrování portu LPT</string>
       <string id="TS_CLIENT_PNP">Nepovolit přesměrování podporovaného zařízení plug and play</string>
+      <string id="TS_CAMERA_REDIRECTION">Nepovolit přesměrování pro digitalizaci videa</string>
       <string id="TS_CLIENT_PRINTER">Nepovolit přesměrování tiskárny klienta</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Nastavení této zásady určuje, zda má být během relace služby Vzdálená plocha zakázáno sdílení obsahu schránky (přesměrování schránky) mezi vzdáleným a klientským počítačem.
 
@@ -197,6 +198,15 @@ Pokud nastavení této zásady zakážete, budou moct uživatelé přesměrováv
 Pokud nastavení této zásady povolíte, nemůžou uživatelé přesměrovat podporovaná zařízení Plug and Play do vzdáleného počítače. Pokud nastavení této zásady nenakonfigurujete, můžou uživatelé přesměrovat podporovaná zařízení Plug and Play do vzdáleného počítače, jedině pokud používají Windows Server 2012 R2 a starší verze.
 
 Poznámka: Přesměrování určitých typů podporovaných zařízení Plug and Play je možné zakázat nastavením zásady Omezení pro instalaci zařízení ve složce Konfigurace počítače\Šablony pro správu\Systém\Instalace zařízení.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Nastavení této zásady umožňuje řídit přesměrování zařízení pro digitalizaci videa na vzdálený počítač v relaci služby Vzdálená plocha. 
+
+Ve výchozím nastavení umožňuje služba Vzdálená plocha přesměrování zařízení pro digitalizaci videa.
+
+Pokud tuto zásadu povolíte, nemůžou uživatelé přesměrovat zařízení pro digitalizaci videa na vzdálený počítač. 
+
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, uživatelé můžou zařízení pro digitalizaci videa přesměrovat na vzdálený počítač. Uživatelé můžou zvolit zařízení pro digitalizaci videa, která se mají přesměrovat na vzdálený počítač, a to pomocí možnosti Další na kartě Místní prostředky v okně Připojení ke vzdálené ploše.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Nastavení této zásady umožňuje omezit počet monitorů, které může uživatel použít k zobrazení relace služby Vzdálená plocha. Omezením počtu monitorů k zobrazení relace služby Vzdálená plocha lze zlepšit kvalitu zobrazení, a to zejména u pomalých připojení, a snížit zatížení serveru.
@@ -320,12 +330,13 @@ Poznámka: Relace konzoly je také známá jako relace 0. Přístup ke konzole l
       <string id="TS_GATEWAY_BASIC">Požádat o přihlašovací údaje, použít protokol Basic</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Použít přihlašovací údaje místního přihlášení</string>
       <string id="TS_GATEWAY_NTLM">Požádat o přihlašovací údaje, použít protokol NTLM</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Požádat o přihlašovací údaje, použít protokol vyjednávání</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Nastavit metodu ověřování služby Brána VP</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Určuje metodu ověřování, kterou klienti musí použít při pokusu o připojení k serveru hostitele relací VP prostřednictvím serveru Brána VP. Nastavení této zásady můžete vynutit nebo můžete povolit, aby je uživatelé mohli přepsat. Ve výchozím nastavení platí, že pokud toto nastavení povolíte, bude vynucováno. Je-li nastavení této zásady vynucováno, uživatelé nemohou toto nastavení přepsat, ani když v klientovi vyberou možnost Použít toto nastavení serveru služby Brána VP.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Určuje metodu ověřování, kterou klienti musí použít při pokusu o připojení k serveru hostitele relací VP prostřednictvím serveru Brána VP. Nastavení této zásady můžete vynutit nebo můžete povolit, aby je uživatelé mohli přepsat. Ve výchozím nastavení platí, že pokud toto nastavení povolíte, bude vynucováno. Je-li nastavení této zásady vynucováno, uživatelé nemohou toto nastavení obejít, ani když v klientovi vyberou možnost Použít toto nastavení serveru služby Brána VP.
 
-Pokud chcete uživatelům povolit přepsání nastavení této zásady, zaškrtněte políčko Povolit uživatelům změnit toto nastavení. Uživatelé pak budou pomocí konfigurace nastavení v klientovi určit alternativní metodu ověřování – pomocí souboru RDP nebo pomocí skriptu HTML. Pokud uživatelé neurčí alternativní metodu ověřování, bude podle výchozího nastavení použita metoda ověřování určená v nastavení této zásady.
+Pokud chcete uživatelům povolit přepsání nastavení této zásady, zaškrtněte políčko Povolit uživatelům změnit toto nastavení. Uživatelé pak budou pomocí konfigurace nastavení v klientovi určit alternativní metodu ověřování – pomocí souboru RDP nebo pomocí skriptu HTML. Pokud uživatelé neurčí alternativní metodu ověřování, bude podle výchozího nastavení použita metoda ověřování určená v nastavení této zásady.
 
-Pokud toto nastavení zakážete nebo nenakonfigurujete, bude použita metoda ověřování určená uživatelem, pokud je zadána. Pokud není určena žádná metoda ověřování, k ověření lze použít protokol NTLM, který je povolen v klientovi, nebo čipovou kartu.</string>
+Pokud toto nastavení zakážete nebo nenakonfigurujete, bude použita metoda ověřování určená uživatelem, pokud je zadána. Pokud není určena žádná metoda ověřování, lze k ověření použít protokol vyjednávání, který je povolen v klientovi, nebo čipovou kartu.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Povolit připojení prostřednictvím služby Brána VP</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Pokud nastavení této zásady povolíte a Připojení ke vzdálené ploše se nemůže připojit přímo ke vzdálenému počítači (serveru hostitele relací VP nebo počítači s povolenou službou Vzdálená plocha), pokusí se klienti připojit ke vzdálenému počítači prostřednictvím serveru služby Brána VP. V tomto případě se klienti pokusí připojit k serveru služby Brána VP, který je zadán v nastavení zásady Nastavit adresu serveru služby Brána VP.
 
@@ -408,21 +419,24 @@ Pokud toto nastavení povolíte, tato upozornění se nebudou na serveru hostite
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete, budou se tato upozornění zobrazovat na serveru hostitele relací VP poté, co se přihlásíte jako místní správce.</string>
       <string id="TS_LICENSING_MODE">Nastavit licenční režim služby Vzdálená plocha</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">Nastavení této zásady umožňuje určit typ licence pro klientský přístup k Vzdálené ploše (VP CAL), který se vyžaduje pro připojení k tomuto serveru hostitele relací VP.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        Nastavení této zásady umožňuje určit typ licence pro klientský přístup k Vzdálené ploše (licence VP CAL), který je vyžadován pro připojení k tomuto serveru Hostitele relace VP.
 
-Nastavení této zásady lze použít k výběru jednoho ze dvou režimů licencí: vázaných na uživatele nebo vázaných na zařízení.
+        Pomocí této zásady můžete vybrat jeden ze tří režimů licencování: Vázaná na uživatele, Vázaná na zařízení a Vázaná na uživatele podle AAD.
 
-Režim licence vázané na uživatele vyžaduje, aby měl každý uživatelský účet připojující se k tomuto serveru hostitele relací VP licenci VP CAL vázanou na uživatele.
+        Licencování v režimu Vázaná na uživatele vyžaduje, aby byla pro každý uživatelský účet připojující se k tomuto serveru Hostitele relace VP vystavena licence VP CAL vázaná na uživatele ze serveru Licencování VP.
 
-Režim licence vázané na zařízení vyžaduje, aby mělo každé zařízení připojující se k tomuto serveru hostitele relací VP licenci VP CAL vázanou na zařízení.
+        Licencování v režimu Vázaná na zařízení vyžaduje, aby byla pro každé zařízení připojující se k tomuto serveru Hostitele relace VP vystavena licence VP CAL vázaná na zařízení.
 
-Pokud nastavení této zásady povolíte, bude licenční server Vzdálené plochy respektovat zadaný režim licencování Vzdálené plochy.
+        Licencování v režimu Vázaná na uživatele podle AAD vyžaduje, aby měl každý uživatelský účet připojující se k tomuto serveru Hostitele relace VP plán služeb, který podporuje licence na VP přiřazené v AAD.
+        
+        Pokud tuto zásadu povolíte, bude vámi zadaný režim licencování Vzdálené plochy respektován licenčním serverem Vzdálené plochy a Hostitelem relace VP.
 
-Pokud nastavení této zásady zakážete nebo nenakonfigurujete, nebude režim licencování určen na úrovni zásad skupiny.
-
-</string>
+        Pokud tuto zásadu zakážete nebo nenakonfigurujete, nebude režim licencování určen na úrovni zásad skupiny.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Podle zařízení</string>
       <string id="TS_LICENSING_MODE_PER_USER">Podle uživatele</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">Vázaná na uživatele podle AAD</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">Nastavení této zásady určuje, zda má být v relaci služby Vzdálená plocha zakázáno přesměrování dat na porty LPT klientů.
 
 Pomocí tohoto nastavení lze uživatelům zabránit v mapování místních portů LPT a přesměrování dat ze vzdáleného počítače na periferní zařízení připojená k místnímu portu LPT. Služba Vzdálená plocha ve výchozím nastavení umožňuje přesměrování na port LPT.
@@ -456,12 +470,12 @@ Pokud nastavení této zásady povolíte, nebude rozevírací seznam dialogovéh
 Pokud nastavení této zásady zakážete nebo nenakonfigurujete, nebude z rozevíracího seznamu dialogového okna Ukončit systém Windows možnost Odpojit odebrána.
 
 Poznámka: Nastavení této zásady má vliv pouze na dialogové okno Ukončit systém Windows. Nezabrání uživatelům v použití jiných metod odpojení od relace služby Vzdálená plocha. Nastavení této zásady také nezabrání odpojeným relacím na serveru. Nastavením zásady Nastavit časový limit odpojených relací ve složce Konfigurace počítače\Šablony pro správu\Součásti systému Windows\Služba Vzdálená plocha\Server hostitele relací VP\Časové limity relací můžete určit, jak dlouho zůstane odpojená relace na serveru aktivní.</string>
-      <string id="TS_NoSecurityMenu">Odebrat z nabídky Start položku Zabezpečení systému Windows</string>
-      <string id="TS_NoSecurityMenu_Help">Určuje, zda chcete z podnabídky Nastavení u klientů služby odebrat položku Zabezpečení systému Windows. Toto nastavení můžete použít, pokud chcete nezkušeným uživatelům zabránit v neúmyslném odhlášení od služby Vzdálená plocha.
+      <string id="TS_NoSecurityMenu">Odebrat z nabídky Start položku Zabezpečení Windows</string>
+      <string id="TS_NoSecurityMenu_Help">Určuje, zda chcete z podnabídky Nastavení u klientů služby odebrat položku Zabezpečení Windows. Toto nastavení můžete použít, pokud chcete nezkušeným uživatelům zabránit v neúmyslném odhlášení od služby Vzdálená plocha.
 
-Je-li nastaven stav Povoleno, nebude v podnabídce Nastavení nabídky Start zobrazena položka Zabezpečení systému Windows. To má za následek, že uživatelé musí dialogové okno Zabezpečení systému Windows v klientských počítačích otevřít zadáním zabezpečovací posloupnosti, například stisknutím kláves Ctrl+Alt+End.
+Je-li nastaven stav Povoleno, nebude v podnabídce Nastavení nabídky Start zobrazena položka Zabezpečení Windows. To má za následek, že uživatelé musí dialogové okno Zabezpečení systému Windows v klientských počítačích otevřít zadáním zabezpečovací posloupnosti, například stisknutím kláves Ctrl+Alt+End.
 
-Pokud je nastaven stav Zakázáno nebo Není nakonfigurováno, zůstane položka Zabezpečení systému Windows zobrazena v podnabídce Nastavení.</string>
+Pokud je nastaven stav Zakázáno nebo Není nakonfigurováno, zůstane položka Zabezpečení Windows zobrazena v podnabídce Nastavení.</string>
       <string id="TS_on_the_Local_machine">V místním počítači</string>
       <string id="TS_On_the_Network">V síti</string>
       <string id="TS_PASSWORD">Při připojení vždy žádat heslo</string>
@@ -1006,19 +1020,40 @@ Pokud toto nastavení zásad zakážete, nebudou aplikace RemoteApp publikované
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">Používat ovladač pro zobrazení grafiky WDDM u připojení ke Vzdálené ploše</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">Nastavení této zásady umožňuje povolit ovladač pro zobrazení grafiky WDDM u připojení ke Vzdálené ploše.
+
+Pokud tuto zásadu povolíte, budou připojení ke Vzdálené ploše používat ovladač pro zobrazení grafiky WDDM.
+
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, NEBUDOU připojení ke Vzdálené ploše používat ovladač pro zobrazení grafiky WDDM. V tomto případě budou tato připojení používat ovladač pro zobrazení grafiky XDDM.
+
+Tato změna se projeví až po restartování Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">Nastavení této zásady umožňuje povolit ovladač pro zobrazení grafiky WDDM u připojení ke Vzdálené ploše.
+
+Pokud tuto zásadu povolíte nebo nenakonfigurujete, budou připojení ke Vzdálené ploše používat ovladač pro zobrazení grafiky WDDM.
+
+Pokud tuto zásadu zakážete, NEBUDOU připojení ke Vzdálené ploše používat ovladač pro zobrazení grafiky WDDM. V tomto případě budou tato připojení používat ovladač pro zobrazení grafiky XDDM.
+
+Tato změna se projeví až po restartování Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">Nastavení této zásady umožňuje povolit ovladač pro zobrazení grafiky WDDM u připojení ke Vzdálené ploše.
+
+Pokud tuto zásadu povolíte, budou připojení ke Vzdálené ploše používat ovladač pro zobrazení grafiky WDDM.
+
+Pokud tuto zásadu zakážete, NEBUDOU připojení ke Vzdálené ploše používat ovladač pro zobrazení grafiky WDDM. V tomto případě budou tato připojení používat ovladač pro zobrazení grafiky XDDM.
+
+Pokud tuto zásadu nenakonfigurujete, ovladač pro zobrazení grafiky WDDM NEBUDOU používat připojení ke Vzdálené ploše na serveru Hostitele relace VP. Ve všech ostatních případech budou tato připojení tento ovladač používat.
+
+Tato změna se projeví až po restartování Windows.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Nakonfigurovat hardwarové kódování H.264/AVC pro připojení ke vzdálené ploše</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Nastavení této zásady umožňuje povolit podporu hardwarového kódování H.264/AVC pro připojení ke vzdálené ploše. Pokud hardwarové kódování povolíte, pak se v případě chyby pokusíme použít softwarové kódování. Pokud tuto zásadu zakážete nebo nenakonfigurujete, budeme vždycky používat softwarové kódování.
-        
-Pokud nastavíte možnost kódování Vždycky to zkusit, služba Vzdálená plocha se vždycky pokusí použít hardwarové kódování H.264/AVC v případě, že je k dispozici. Mějte na paměti, že v případě systému Windows Server s technologií Hyper-V s povolenou funkcí RemoteFX vGPU musí být tato zásada nastavená na hostitelském počítači Hyper-V.
-        
-Pokud nastavíte možnost kódování Zkusit to jenom u virtuálních počítačů s funkcí vGPU RemoteFX, mějte na paměti, že v případě systému Windows Server s technologií Hyper-V s povolenou funkcí RemoteFX vGPU musí být tato zásada nastavená na hostitelském počítači Hyper-V.
-        
-Pokud nastavíte možnost kódování Zkusit to jenom u scénářů bez funkce RemoteFX vGPU, služba Vzdálená plocha se pokusí použít hardwarové kódování u všech scénářů s výjimkou těch, kde se používá vGPU RemoteFX.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Vždycky to zkusit</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Zkusit to jenom u virtuálních počítačů s funkcí vGPU RemoteFX</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Zkusit to jenom u scénářů bez funkce RemoteFX vGPU</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Nastavení této zásady umožňuje povolit podporu hardwarového kódování H.264/AVC pro připojení ke vzdálené ploše. Pokud hardwarové kódování povolíte, pokusíme se použít softwarové kódování v případě chyby. Pokud tuto zásadu zakážete nebo nenakonfigurujete, budeme vždy používat softwarové kódování.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Upřednostňovat grafický režim H.264/AVC 444 u připojení ke vzdálené ploše</string>
@@ -1169,16 +1204,16 @@ Pokud toto nastavení zásad povolíte, bude přihlášení uživatele blokován
 
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, zobrazí se úvodní obrazovka a aplikace jsou registrovány na pozadí.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Použít výchozí hardwarový grafický adaptér pro všechny relace Vzdálené plochy</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Nastavení této zásady umožňuje správcům systému změnit vykreslování grafiky pro všechny relace Vzdálené plochy.
+      <string id="TS_DX_USE_FULL_HWGPU">Používat hardwarové grafické adaptéry pro všechny relace služby Vzdálená plocha</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Nastavení této zásady umožňuje správcům systému změnit vykreslování grafiky pro všechny relace služby Vzdálená plocha.
 
-Když nastavení této zásady povolíte, všechny relace Vzdálené plochy budou jako výchozí adaptér používat hardwarové vykreslování grafiky místo základního ovladače vykreslování Microsoft.
+Když nastavení této zásady povolíte, všechny relace služby Vzdálená plocha budou jako výchozí adaptér používat hardwarové vykreslování grafiky místo Základního ovladače vykreslování Microsoft.
 
-Když nastavení této zásady naopak zakážete, budou všechny relace Vzdálené plochy jako výchozí adaptér používat základní ovladač vykreslování Microsoft.
+Když nastavení této zásady naopak zakážete, budou všechny relace služby Vzdálená plocha jako výchozí adaptér používat Základní ovladač vykreslování Microsoft.
 
-Pokud nastavení této zásady nenakonfigurujete, relace Vzdálené plochy na serveru Hostitele relace VP budou jako výchozí adaptér používat základní ovladač vykreslování Microsoft. V ostatních případech budou relace Vzdálené plochy ve výchozím nastavení používat hardwarové vykreslování.
+Pokud nastavení této zásady nenakonfigurujete, relace služby Vzdálená plocha na serveru Hostitele relace VP budou jako výchozí adaptér používat Základní ovladač vykreslování Microsoft. Ve všech ostatních případech budou tyto relace ve výchozím nastavení používat hardwarové vykreslování.
 
-POZNÁMKA: Na počítači s víc nainstalovanými grafickými procesory (GPU) nastavení této zásady ovlivňuje jenom výchozí GPU. Všechna ostatní GPU se považují za sekundární a používají se jako hardwarové zobrazovací jednotky. Konfiguraci GPU místní relace nastavení této zásady neovlivňuje.
+POZNÁMKA: Na počítači s více nainstalovanými grafickými procesory (GPU) nastavení této zásady ovlivňuje jenom výchozí GPU. Všechna ostatní GPU se považují za sekundární a používají se jako hardwarové zobrazovací jednotky. Konfiguraci GPU místní relace nastavení této zásady neovlivňuje.
 </string>
       
     </stringTable>
@@ -1328,9 +1363,6 @@ POZNÁMKA: Na počítači s víc nainstalovanými grafickými procesory (GPU) na
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">Kompresní algoritmus pro data RDP:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Upřednostňovat hardwarové kódování AVC:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Vzhled:</dropdownList>

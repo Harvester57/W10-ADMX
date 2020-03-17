@@ -55,40 +55,40 @@ Pokud je tato zásada povolena ve Windows 8 a Windows RT, budou se zobrazovat po
       <string id="RemoveWindowsUpdateModeAll">0 – Nezobrazovat žádná upozornění</string>
       <string id="RemoveWindowsUpdateModeReboot">1 – Zobrazovat upozornění na požadované restartování</string>
       <string id="AutoUpdateCfg">Konfigurace automatických aktualizací</string>
-      <string id="AutoUpdateCfg_Help">Určuje, zda bude počítač stahovat aktualizace zabezpečení a další důležité soubory prostřednictvím služby automatických aktualizací systému Windows.
+      <string id="AutoUpdateCfg_Help">Určuje, jestli tento počítač bude dostávat aktualizace zabezpečení a další důležité soubory ke stažení prostřednictvím služby automatických aktualizací Windows.
 
-Poznámka: Tato zásada neplatí pro systém Windows RT.
+Poznámka: Tato zásada neplatí pro Windows RT.
 
-Toto nastavení umožňuje určit, zda jsou v tomto počítači povoleny automatické aktualizace. Jestliže je tato služba povolena, je nutné vybrat v nastavení zásad skupiny jednu ze čtyř možností:
+Toto nastavení umožňuje zadat, jestli jsou na tomto počítači povolené automatické aktualizace. Pokud je služba povolená, je třeba v nastavení zásad skupiny vybrat jednu ze čtyř možností:
 
-        2 = Upozornit před stažením a instalací jakýchkoli aktualizací.
+        2 = Před stažením a instalací aktualizací se zobrazí oznámení.
 
-        Jestliže systém Windows nalezne aktualizace, které jsou určeny pro tento počítač, uživatelé budou upozorněni, že jsou aktualizace připraveny ke stažení. Uživatelé mohou přejít do služby Windows Update a stáhnout a nainstalovat všechny dostupné aktualizace.
+        Když systém Windows vyhledá aktualizace, které se dají nainstalovat na tento počítač, uživatelům se zobrazí oznámení, že jsou aktualizace připravené ke stažení. Až uživatelé přejdou do služby Windows Update, můžou si všechny dostupné aktualizace stáhnout a nainstalovat.
 
-        3 = (Výchozí nastavení) Aktualizace stahovat automaticky a upozornit, až budou připraveny k instalaci
+        3 = (Výchozí nastavení) Aktualizace se stáhnou automaticky, a až budou připravené k instalaci, zobrazí se oznámení.
 
-        Systém Windows vyhledá aktualizace vztahující se k počítači a stáhne je na pozadí (uživatel nebude během tohoto procesu upozorňován ani rušen). Jakmile je stahování dokončeno, uživatelé budou upozorněni, že jsou aktualizace připraveny k instalaci. Uživatelé mohou přejít do služby Windows Update a nainstalovat je.
+        Systém Windows vyhledá aktualizace, které se dají nainstalovat na počítač, a stáhne je na pozadí (uživatele během tohoto procesu nebude rušit žádné oznámení). Až se stahování dokončí, uživatelům se zobrazí oznámení, že jsou aktualizace připravené k instalaci. Až přejdou do služby Windows Update, budou si je moct nainstalovat.
 
-        4 = Automaticky stahovat aktualizace a instalovat je podle níže určeného plánu.
+        4 = Aktualizace se budou automaticky stahovat a instalovat podle plánu zadaného níže.
 
-        V tomto případě uživatel určí plán instalací pomocí možností nastavení zásad skupiny. Jestliže není zadán žádný plán, bude výchozí plán pro všechny instalace každý den ve 3:00 ráno. Pokud některé aktualizace vyžadují restartování za účelem dokončení instalace, restartuje systém Windows počítač automaticky. (Pokud je před restartováním k počítači přihlášen uživatel, zobrazí se upozornění a uživatel má možnost restartování odložit.)
+        Když se jako čas plánované instalace vybere možnost Automaticky, systém Windows automaticky vyhledá, stáhne a nainstaluje aktualizace. Pokud není restartování zařízení nakonfigurované prostřednictvím zásad skupiny, restartuje se podle výchozího nastavení Windows. (Platí pro Windows 10 verze 1809 a vyšší.)
 
-        V systému Windows 8 a novějším můžete nastavit instalaci aktualizací během automatické údržby namísto určitého plánu. Automatická údržba nainstaluje aktualizace, pokud se počítač nepoužívá, a nebude je instalovat při napájení z baterie. Pokud automatická údržba nemůže instalovat aktualizace po 2 dny, služba Windows Update je nainstaluje okamžitě. Uživatelé budou poté upozorněni na následné restartování, které proběhne pouze v případě, že nemůže dojít k nechtěné ztrátě dat.
+        Pomocí možností v nastavení zásad skupiny zadejte plán. U verze 1709 a vyšších je možné aktualizace omezit tak, aby probíhaly jen jednou za týden, za dva týdny nebo za měsíc. Když není zadán žádný plán, výchozí plán pro všechny instalace bude každý den ve 3 hodiny ráno. Pokud k dokončení některé z aktualizací bude nutné restartovat počítač, systém Windows počítač automaticky restartuje. (Pokud je uživatel ve chvíli, kdy systém Windows bude připravený restartovat počítač, přihlášený, zobrazí se mu oznámení o restartování a možnost restart odložit.)
 
-        Automatickou údržbu lze dále nakonfigurovat pomocí nastavení zásad skupiny zde: Konfigurace počítače-&gt;Šablony pro správu-&gt;Součásti systému Windows-&gt;Plánovač údržby
+        Ve Windows 8 a novějších verzích můžete nastavit, aby se aktualizace namísto konkrétního plánu instalovaly během automatické údržby. Automatická údržba bude aktualizace instalovat ve chvíli, kdy se počítač nepoužívá. Když se bude počítač napájet z baterie, instalovat se nebudou. V případě, že automatická údržba nebude moct aktualizace nainstalovat ani po 2 dnech, služba Windows Update aktualizace nainstaluje hned. Uživateli se zobrazí upozornění o blížícím se restartu, ke kterému ale dojde jen v případě, že nebude hrozit neúmyslná ztráta dat.
 
-        5 = Povolit místním správcům vybrat režim konfigurace, jak má funkce automatických aktualizací oznámit a nainstalovat aktualizace.
+        5 = Umožní místním správcům vybrat režim konfigurace, ve kterém služba automatických aktualizací má zobrazovat oznámení a instalovat aktualizace. Tato možnost nebyla přenesena do žádné verze Windows 10.
 
-        Tato možnost umožní místním správcům použít ovládací panel Windows Update a vybrat požadované možnosti konfigurace. Místní správci však nebudou moci konfiguraci automatických aktualizací zcela zakázat.
+        S touto možností můžou místní správci pomocí ovládacího panelu Windows Update sami vybrat možnost konfigurace. Místní správci nebudou moct zakázat konfiguraci pro službu automatických aktualizací.
 
-Je-li stav pro tuto zásadu nastaven na Zakázáno, je nezbytné všechny aktualizace, které jsou k dispozici na webu Windows Update, stáhnout a nainstalovat ručně. K tomu je třeba vyhledat službu Windows Update pomocí nabídky Start.
+Pokud bude tato zásada nastavena na Zakázáno, bude třeba všechny aktualizace, které jsou k dispozici prostřednictvím služby Windows Update, stáhnout a nainstalovat ručně. Pokud to chcete udělat, vyhledejte v nabídce Start službu Windows Update.
 
-Pokud je nastaven stav Není nakonfigurováno, není použití automatických aktualizací určeno na úrovni zásad skupiny. Správce systému však přesto může konfigurovat automatické aktualizace pomocí Ovládacích panelů.</string>
+Pokud bude nastavena na Nenakonfigurováno, používání automatických aktualizací není na úrovni zásad skupiny nastavené. Správce ale pořád může automatické aktualizace nakonfigurovat přes Ovládací panely.</string>
 
       <string id="AutoUpdateModeAdminChooses">5 – Povolit místnímu správci změnit nastavení</string>
       <string id="AutoUpdateModeAuto">4 – Automaticky stahovat a plánovat instalaci</string>
       <string id="AutoUpdateModeDownload">3 – Automaticky stahovat a upozorňovat na instalaci</string>
-      <string id="AutoUpdateModeNotify">2 - Ńőŧїƒỳ ƒôř δøωņľòªď ãиđ дυťб ίπѕţäŀℓ</string>
+      <string id="AutoUpdateModeNotify">2 – Upozorňovat na stažení a automatickou instalaci</string>
       <string id="AutoUpdateSchDay_Everyday">0 – Denně</string>
       <string id="AutoUpdateSchDay_Friday">6 – Každý pátek</string>
       <string id="AutoUpdateSchDay_Monday">2 – Každé pondělí</string>
@@ -121,36 +121,41 @@ Pokud je nastaven stav Není nakonfigurováno, není použití automatických ak
       <string id="AutoUpdateSchTime7">07:00</string>
       <string id="AutoUpdateSchTime8">08:00</string>
       <string id="AutoUpdateSchTime9">09:00</string>
+      <string id="AutoUpdateSchTimeAuto">Automaticky</string>
       <string id="CorpWuURL">Určit umístění intranetového serveru služby Microsoft Update</string>
       <string id="CorpWuURL_Help">
-        Şреċîƒїêş дň īиţŗǻлéť śêřνέя ťο ħøśт ύрδάŧèš ƒřŏm Μίçřõšőƒŧ Цφđǻŧē. ¥ôџ çǻŉ ŧĥзņ µŝέ τħïš űрďαťê śёґνϊςё ţö áũтσмáтī¢āļŀÿ ůрδªτê ¢όmρύţзяš óń ÿôűґ лēτẁøґк.
+        Určuje intranetový server, který bude hostitelem aktualizací ze služby Microsoft Update. Pomocí této aktualizační služby je pak možné automaticky aktualizovat počítače v síti.
 
-        Τħĩš şєťтϊņĝ ŀéŧś уóυ šр℮ćĭƒÿ á şĕґνėя ōп ýоùг ηêţωōřќ ŧō ƒùπčтĩбŉ äš ªŉ ĩⁿтêѓпάļ ϋρďαťê šεґνįćε. Τħë Äųťòmāτї¢ Ùφδâт℮ѕ çļιеŉŧ шіŀļ śęåґçћ тћїš šёгνιĉє ƒбř ŭрðаţėś τħąţ ăρφľŷ ŧø тнè ĉóмрűŧėřş ǿл ỳσμя ήěτẃőŗĸ.
+        Toto nastavení umožňuje určit server v síti, který bude fungovat jako interní aktualizační služba. Klient automatických aktualizací bude pomocí této služby hledat aktualizace, které jsou určené pro jednotlivé počítače v síti.
 
-        Ťо ūŝе тħΐş ŝęттίйĝ, γθυ мџšт ѕ℮ť ţẅθ ѕéŕνéг лãmє νąľū℮ş: τђё ŝĕŕν℮ѓ ƒяом ώнїĉĥ τħę Áцτθмâţî¢ Ŭρðãţēŝ ċŀίêлť đęŧеςťѕ áπđ đбẁйℓŏåδš υρδдτėŝ, áńδ ŧĥé ŝєŕνěŗ ťо шђíсн ũρðãţëδ ώőгќşτãτíóлš ůρłǿдđ šťăţîşτîçś. Ỳбũ сâп ѕёт вθτђ νąľϋêŝ тő ьë τĥэ ŝãmĕ śĕґνèŕ. Δп όφтìǿņǻļ ŝèяνєѓ ŉâмé νăłüé ĉåń вέ śрěċιƒīëð ŧо ċбŉƒïģųѓě Щĭňδøωѕ Ūφďąťέ Âĝέηт ţō ðοωиļöăδ űрđαţεś ƒřοm åň аĺτ℮ѓñαŧê đòшлļǿãđ şèѓνзŗ іňśтèǻđ θƒ ẂЅÜŞ Şêгνёř.
+        Pokud chcete toto nastavení používat, je třeba nastavit názvy dvou serverů: serveru, na kterém klient automatických aktualizací zjišťuje aktualizace a ze kterého je stahuje, a serveru, na který předávají aktualizované pracovní stanice statistická data. U obou hodnot je možné zadat stejný server. Je možné zadat volitelnou hodnotu názvu serveru, čímž Windows Update Agenta nakonfigurujete na stahování aktualizací z alternativního serveru pro stahování namísto používání intranetové aktualizační služby.
 
-        Ĭƒ ŧħ℮ ŝťãťµś іś śзт ţō Èŉаьłėδ, ŧĥė Λųтόмäŧìć Ũφđάťėš ċℓįēητ ¢øпŋęςťś τø ťђę ѕφęςιƒїěđ íπţѓàŋ℮т Μісŗőşōƒт ųрðάтė šэґνìς℮ (оґ áľťзřŋάŧē đøшиļôάð šёřνĕř), îиśŧėâδ òƒ Ŵîйðöшś Ùрðаţε, тθ ѕεаŕςĥ ƒőг åиδ δøшⁿľσáď цφδåŧзѕ. Éñåъŀíлģ тħϊś śêτťϊⁿġ mеåиş ŧнăţ εńď ŭšėгş īņ γόΰѓ οřġăйîźаťîбņ ðσñ'т ħªνê ţô ģø ţћřóцĝћ а ƒíгêẁаľľ τό ğēŧ ũρðąŧēş, áήď īţ ğĭν℮ś ýôŭ ţĥз орφŏґťūπϊŧу тø ţęşτ ūрðąŧéŝ ьèƒσґë δęφľōỳíŉģ тĥèм.
+        Při stavu Povoleno se klient automatických aktualizací namísto k webu Windows Update připojí k zadanému intranetovému serveru pro aktualizace od Microsoftu (neboli alternativnímu serveru pro stahování), na kterém bude hledat aktualizace a ze kterého bude nalezené aktualizace stahovat. Pokud toto nastavení povolíte, nebudou muset koncoví uživatelé v organizaci při získávání aktualizací překonávat bránu firewall a vy budete mít možnost aktualizace před nasazením nejprve otestovat.
 
-        Ĭƒ τĥё ѕŧäţūš ïŝ ѕзţ τό Đιşąьŀзđ σř Ñοτ Çσŉƒїģμґэð, αŋð ïƒ Áùťόmâťĩ¢ Џφðáтèŝ īŝ ńθτ đîśãъℓєđ ъỳ ρøłιċý öя ůѕėг ргєƒёřзηĉę, ťнέ Аüŧōmăτī¢ Ůρďãŧêś ςĺîēňŧ çőñⁿ℮ċţŝ δΐŗéčтℓý ťô ŧħе Шíпďőẃş Ŭφðãтę śїŧè όл ţћё İⁿţеřл℮т.
+        Pokud je nastavená možnost Zakázáno nebo Nenakonfigurováno a pokud automatické aktualizace nejsou zakázané v rámci zásad nebo uživatelských předvoleb, připojí se klient automatických aktualizací přímo k webu Windows Update na internetu.
 
-        Ţћė άℓťεгпάτё đоẅпļόдđ śęяνзя Ċòⁿƒĭĝυяêѕ ŧћê Ẁіⁿďōшś Ûрďаŧέ Ãğєńť ţǿ ďθщηľöāð ƒιļзş ƒяόм ªи άłťεґπäтìνε đøώŉłσâδ šéřνэŗ ìñšтєăδ οƒ ťĥë ШŠÚŚ Ŝěґνêř.
+        Alternativní server pro stahování nakonfiguruje Windows Update Agenta na stahování souborů z alternativního serveru namísto používání intranetové aktualizační služby.
 
-        Иόтє: Ĭƒ ţђ℮ "Сöήƒīğџŗє ∆μţǿмāŧīċ Џрďåŧéś" ρõĺìçỳ įŝ đïšάвłεď, ťђєл тћїş ρóľïçγ ħαŝ ńò ēƒƒеςŧ.
+        Volba stahování souborů s chybějícími adresami URL umožňuje stahovat obsah z alternativního serveru pro stahování, když metadata aktualizace neobsahují adresy URL souborů. Tuto volbu byste měli použít jen v případě, kdy intranetová aktualizační služba neposkytne adresy URL pro stahování v metadatech u soborů, které se nacházejí na alternativním serveru pro stahování.
 
-        Пøŧέ: İƒ тħė "Âŀτ℮řńãτе Ðøώиĺθàď Ѕёřνéŗ" іѕ ñōť šёт, ίт ẃĩℓĺ űŝę тħέ ẀЅÛŠ ŝεѓνěŕ ъу ðĕƒàũļт τθ ðόώлłóаδ ũφďàŧέŝ.
+        Poznámka: Pokud je zásada Konfigurace automatických aktualizací zakázaná, nemá tato zásada žádný vliv.
 
-        Иôţё: Ťнĭş φθļįćŷ ìŝ ñőτ şμрροѓτĕð оη Ẃįňđőŵś ŖŦ. Ŝεţţïήġ ŧнïś ροℓìćў щįļł ⁿõτ нàνє άŋу êƒƒëςτ όπ Ŵΐиδбẁś ŖΤ РĈš.</string>
-      <string id="DetectionFrequency_Help">Určuje dobu, po kterou systém Windows počká před zjišťováním dostupných aktualizací. Přesná doba čekání je zde určena uvedeným počtem hodin zmenšeným o nula až dvacet procent. Pokud je například tato zásada nastavena na frekvenci zjišťování po 20 hodinách, všechny počítače, pro které platí tato zásada, budou kontrolovat přítomnost nových aktualizací v intervalu 16 až 20 hodin.
+        Poznámka: Pokud alternativní server pro stahování není nastavený, použije se pro stahování aktualizací ve výchozím nastavení intranetová aktualizační služba.
 
-Pokud je stav nastaven na Povoleno, systém Windows bude zjišťovat přítomnost nových aktualizací v zadaném intervalu.
+        Poznámka: Možnost „Stahovat soubory bez adresy URL…“ se použije jen v případě, kdy je nastaven „Alternativní server pro stahování“.
 
-Pokud je stav nastaven na Zakázáno nebo Není nakonfigurováno, systém Windows bude zjišťovat přítomnost nových aktualizací ve výchozím intervalu 22 hodin.
+        Poznámka: Tato zásada není podporovaná ve Windows RT. Nastavení této zásady nemá na počítačích s Windows RT žádný účinek.</string>
+      <string id="DetectionFrequency_Help">Určuje počet hodin, pomocí kterých systém Windows zjistí dobu čekání před vyhledáním dostupných aktualizací. Přesná doba čekání je součtem zadané hodnoty a náhodné odchylky v rozsahu 0–4 hodin.
 
-Poznámka: Aby se tato zásada projevila, musí být povoleno nastavení Určení umístění intranetového serveru služby Microsoft Update.
+        Pokud je nastavený stav Povoleno, vyhledá systém Windows dostupné aktualizace v zadaném intervalu.
 
-Poznámka: Jestliže je zakázána zásada Konfigurace automatických aktualizací, nemá tato zásada žádný vliv.
+        Pokud je nastavený stav Zakázáno nebo Není nakonfigurováno, vyhledá systém Windows dostupné aktualizace ve výchozím intervalu 22 hodin.
 
-Poznámka: Tato zásada není podporována v systému Windows RT. Nastavení této zásady nemá v počítačích se systémem Windows RT žádný účinek.</string>
+        Poznámka: Aby se tato zásada projevila, musí být povoleno nastavení Určit umístění intranetového serveru služby Microsoft Update.
+
+        Poznámka: Pokud je zakázaná zásada Konfigurace automatických aktualizací, nemá tato zásada žádný vliv.
+
+        Poznámka: Tato zásada není podporovaná ve Windows RT. Nastavení této zásady nemá v počítačích s Windows RT žádný vliv.</string>
       <string id="DetectionFrequency_Title">Frekvence zjišťování nových aktualizací</string>
       <string id="ElevateNonAdmins_Help">Nastavení této zásady umožňuje určit, jestli se uživatelům, kteří nejsou správci, zobrazí upozornění na aktualizace na základě nastavení zásady Konfigurace automatických aktualizací.
 
@@ -202,13 +207,13 @@ Pokud je zakázáno nebo není nakonfigurováno nastavení zásad Konfigurace au
       
       </string>
       <string id="FeaturedSoftwareNotification_Title">Zapnout upozornění na software</string>
-      <string id="AUPowerManagement_Help">Určuje, zda bude program Windows Update používat funkce Správy napájení systému Windows k automatickému probuzení systému z režimu spánku, pokud existují nějaké aktualizace naplánované k instalaci.
+      <string id="AUPowerManagement_Help">Určuje, jestli bude služba Windows Update používat funkce Správy napájení systému Windows k automatickému probuzení systému z režimu spánku, pokud existují nějaké aktualizace naplánované k instalaci.
 
-Program Windows Update automaticky probudí systém pouze tehdy, pokud je tento program nakonfigurován k automatické instalaci aktualizací. Pokud je systém v době plánované instalace v režimu spánku a existují-li aktualizace, které mají být použity, použije program Windows Update funkce Správy napájení systému Windows k automatickému probuzení systému z režimu spánku, aby byly aktualizace nainstalovány.
+Služba Windows Update automaticky probudí systém pouze tehdy, pokud je tento program nakonfigurovaný k automatické instalaci aktualizací. Pokud je systém v době plánované instalace v režimu spánku a existují aktualizace, které se mají nainstalovat, služba Windows Update pomocí funkcí Správy napájení systému Windows automaticky probudí systém z režimu spánku, aby se aktualizace nainstalovaly.
 
-Program Windows Update také probudí systém a nainstaluje aktualizaci, pokud nastane termín pro instalaci.
+Služba Windows Update probudí systém a nainstaluje aktualizaci i v případě, že nastane termín pro instalaci.
 
-Systém nebude probuzen, pokud nebudou existovat aktualizace, které mají být instalovány.  Pokud je systém napájen z baterie v okamžiku probuzení programem Windows Update, nebudou aktualizace instalovány a systém se během dvou minut automaticky vrátí do režimu spánku.</string>
+Systém se neprobudí, pokud nebudou existovat aktualizace, které se mají nainstalovat. Pokud se systém v okamžiku probuzení službou Windows Update napájí z baterie, aktualizace se nebudou instalovat a systém se během 2 minut automaticky vrátí do režimu spánku.</string>
       <string id="AUPowerManagement_Title">Povolit Správě napájení programu Windows Update automaticky probudit systém pro instalaci plánovaných aktualizací</string>
       <string id="NoAutoRebootWithLoggedOnUsers_Help">Určuje, zda má být počítač restartován automaticky po instalaci aktualizací, nebo má počkat na restartování uživatelem, který je přihlášen.
 
@@ -298,39 +303,62 @@ Poznámka: Tato zásada není podporovaná ve Windows RT. Nastavení této zása
 Povolení této zásady tuto funkci zakáže a může způsobit, že připojení k veřejným službám, jako je Windows Store, přestane fungovat.
 
 Poznámka: Tato zásada se použije pouze v případě, že je tento počítač nakonfigurován pro připojení k intranetové aktualizační službě pomocí zásady Určit umístění intranetového serveru služby Microsoft Update.</string>
-      <string id="DeferUpdateCat">Pozdržet aktualizace systému Windows</string>
-      <string id="CurrentBranchFeatureUpdates">Current Branch</string>
-      <string id="BusinessReadyFeatureUpdates">Current Branch for Business</string>
-      <string id="DeferFeatureUpdates_Title">Vybrat při příjmu aktualizací funkcí</string>
-      <string id="DeferFeatureUpdates_Help">Σηªъĺė ŧћíѕ рǿŀĩςў ŧσ śρз¢īƒў шħªť тýφė óƒ ƒеãţűřè üρðâťεѕ ŧό řесзĭν℮, àňð шħēń.
+      <string id="DeferUpdateCat">Windows Update pro firmy</string>
+      <string id="ManagePreviewBuilds_Title">Spravovat buildy Preview</string>
+      <string id="ManagePreviewBuilds_Help">Pokud vyberete Zakázat buildy Preview, znemožníte jejich instalaci na zařízení. Uživatelé se nebudou moct přihlásit do Programu Windows Insider přes Nastavení -&gt; Aktualizace a zabezpečení.
 
-Τнέ ъядлċн ŗзαðΐπëѕŝ łêνėŀ ƒǿя єâćħ ŋеẅ Ẃįŉđσώş 10 ƒĕàτџѓé μрđăţέ íş ĩŉīţΐáℓļÿ ćõŉŝĭđέřэď ą "Сüřŗēпт Вгαŉ¢ђ" (Ćß) řĕŀėäşé, тō ъё ύşéδ ьý öяġªŋîžąťĭŏпş ƒбŕ îńîŧįаĺ đēρľŏγměŉťѕ. Оπċë Μíčгóśοƒт ћάѕ νęгíƒīĕδ τħє ƒéαтΰŕе ũρďªŧé šћоùĺđ ьё čойśìðëяéđ ƒόř ēňťèřρřīŝĕ ď℮рļоўmєйτ, ìτ ώϊℓŀ ъę δěсŀαґέð ā вŗªпćн я℮áďїήёšš ľèνεľ őƒ "Ĉυгѓеητ Βŕǻňçħ ƒóя Ъúšїŉĕśś" (ÇЪБ).
+Pokud vyberete Zakázat buildy Preview po zveřejnění příští verze, znemožníte jejich instalaci po vydání další verze Windows pro veřejnost. Tato možnost je užitečná, pokud je vaše zařízení připravené na instalaci verze Preview a chcete později hladce ukončit jeho účast v programu publikování testovacích verzí. Tato možnost znamená, že se budou na zařízení instalovat buildy Preview, dokud nedospějeme k příští veřejné verzi. 
 
-Ýоŭ ςąи δзƒęг гэ¢éĩνιńġ ƒĕăτŭѓε ũрđαťèѕ ƒöѓ υφ ţö 180 đάуš.
+Pokud vyberete Povolit buildy Preview, povolíte instalaci buildů Preview na zařízení. Uživatelé si můžou stahovat a instalovat buildy Preview systému Windows na svá zařízení potom, co se do programu přihlásí přes Nastavení -&gt; Aktualizace a zabezpečení -&gt; Program Windows Insider. Po nastavení této hodnoty můžou správci nastavení pro testovací verze u uživatelů řídit i pomocí dalších zásad.</string>
+      <string id="DisablePreviewBuilds">Zakázat buildy Preview</string>
+      <string id="DisablePreviewBuildsAndOptOut">Zakázat buildy Preview po zveřejnění příští verze</string>
+      <string id="EnablePreviewBuilds">Povolit buildy Preview</string>
+      <string id="PreviewBuildFastFeatureUpdates">Build Preview – rychlý okruh</string>
+      <string id="PreviewBuildSlowFeatureUpdates">Build Preview – pomalý okruh</string>
+      <string id="ReleasePreviewBranchFeatureUpdates">Verze Preview před vydáním</string>
+      <string id="SemiAnnualChannelFeatureUpdates">Pololetní kanál</string>
+      <string id="SemiAnnualChannelFeatureUpdatesDeprecated">Pololetní kanál pro verzi 1809 a nižší (zastaralé)</string>
+      <string id="SemiAnnualChannelFeatureUpdatesTargetedDeprecated">Pololetní kanál (cílený) pro verzi 1809 a nižší (zastaralé)</string>
+      <string id="DeferFeatureUpdates_Title">Vybrat při příjmu buildů Preview a aktualizací funkcí</string>
+      <string id="DeferFeatureUpdates_Help">Pokud povolíte tuto zásadu, můžete určit úroveň buildů Preview nebo aktualizací funkcí, které chcete přijímat, a také to, kdy je chcete přijímat.
 
-Ťǿ рґèνĕηţ ƒ℮âτųŕė ΰрđąŧєŝ ƒгόм ьěĩņġ ѓє¢ёіνэδ ŏŋ тĥеìг ś¢ћеđúļėđ ŧîмĕ, ÿоµ сап ŧèmφőŕдґîŀỳ φαϋšė ƒёǻтŭřė ůφđǻτεѕ. Тĥë ρåύѕ℮ ωίłľ ŕємâĩй ĭŋ ĕƒƒ℮ςť ƒòŕ 60 δãŷś ŏґ ΰйŧĩĺ ỳσű ¢ļэáѓ τĥĕ ѕţάяŧ ðãŧê ƒίєļď.
+* Build Preview – rychlý okruh: Zařízení nastavená na tuto úroveň jsou mezi prvními, která získávají nové buildy Windows s funkcemi, které zatím nejsou dostupné pro širokou veřejnost. Výběrem rychlého okruhu se zapojíte do vyhledávání problémů, jejich hlášení Microsoftu a poskytování návrhů k novým funkcím.
+* Build Preview – pomalý okruh: Zařízení nastavená na tuto úroveň získávají nové buildy Windows, ještě než jsou dostupné pro širokou veřejnost, ale s nižší frekvencí než u rychlého okruhu a se změnami a opravami provedenými v předchozích buildech.
+* Verze Preview před vydáním: Zařízení získávají buildy Windows těsně před tím, než je Microsoft vydá pro širokou veřejnost.
+* Pololetní kanál: Zařízení získávají aktualizace funkcí, když jsou vydány pro širokou veřejnost.
 
-Ťø ґéśùмє яêčёìνїйĝ ₣èăτúřé Úρδдţ℮ś ẃħϊςћ ăяе рåύѕεđ, сĺеăŕ ţħє ѕτâŕŧ δăťз ƒίèℓđ.
+Následující úrovně připravenosti Windows byly označené jako zastaralé a vztahují se jen na verzi 1809 a nižší:
+* Pololetní kanál (cílený) pro verzi 1809 a nižší: Aktualizace funkcí byly vydány.
+* Pololetní kanál pro verzi 1809 a nižší: Aktualizace funkcí byly deklarovány jako Pololetní kanál. Toto označení znamená, že vydaní je připravené pro široké nasazení.
+Data vydání pro Pololetní kanál (cílený) a Pololetní kanál najdete na stránce s příslušnými informacemi: http://aka.ms/ReleaseInformationPage.
 
-Ĩƒ ÿőű đìśаьłė öя ðō иστ ¢ŏйƒίĝűŗе ŧĥîş рøłΐćγ, Ẁіņđоẃŝ Úрðáŧε ẅĩłĺ лòτ āℓŧėѓ ιťś ьзћáνįòř.
+Při výběru buildu Preview:
+    - Příjem buildů Preview můžete odložit až o 14 dní.
+    - Pokud chcete zabránit příjmu buildů Preview v jejich naplánovaném čase, můžete je dočasně pozastavit. Pozastavení bude v platnosti 35 dní od zadaného počátečního data.
+    - Pokud chcete příjem aktualizací funkcí, které jsou pozastavené, obnovit, vymažte pole pro počáteční datum.
 
-Ňǿť℮: Ĩƒ тĥě "Àŀļõŵ Ťέℓеmεťřý" φσĺίсγ ìş ś℮ŧ ŧõ 0, тĥīş φōℓįçу ẅīŀĺ ĥäνę ńò ℮ƒƒêćţ.</string>
+Registrace pro buildy Preview vyžaduje nastavení úrovně telemetrie 2 nebo vyšší a registraci domény na insider.windows.com. Další informace o buildech Preview: https://aka.ms/wipforbiz
+
+Při výběru Pololetního kanálu:
+    - Příjem aktualizací funkcí můžete odložit až o 365 dní.
+    - Pokud chcete zabránit příjmu aktualizací funkcí v jejich naplánovaném čase, můžete je dočasně pozastavit. Pozastavení bude v platnosti 35 dní od zadaného počátečního data.
+    - Pokud chcete příjem aktualizací funkcí, které jsou pozastavené, obnovit, vymažte pole pro počáteční datum.
+
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, služba Windows Update nezmění své chování.</string>
       <string id="DeferQualityUpdates_Title">Vybrat při příjmu aktualizací pro zvýšení kvality</string>
-      <string id="DeferQualityUpdates_Help">Σήąьľє τĥιѕ φŏľΐĉγ тό śφêćіƒў шђėπ τб řĕ¢єīνе qűáłįťγ úрδąτėŝ.
+      <string id="DeferQualityUpdates_Help">Když tuto zásadu povolíte, můžete určit, kdy chcete přijímat aktualizace pro zvýšení kvality.
 
-Υбù ςâņ đєƒэř ґэсэîνîиġ qûáℓĭŧу ūрđāťёš ƒōř üφ ŧό 30 ďаўś.
+Příjem aktualizací pro zvýšení kvality můžete pozdržet až o 30 dnů.
 
-Ŧǿ ρґëνέήŧ qцàľΐŧŷ üφđáŧєş ƒґøм ъēίпĝ řέсéινеđ ǿñ τĥêïŕ ŝčћĕďϋłëď тîмĕ, γθü сãň τ℮mρσґąřĩľý ρăŭŝĕ qũăļїťў ũρðăтėś. Тћ℮ рåůśê ŵìŀł гęмäĭń ĩи ēƒƒέĉť ƒőг 35 ďáỳŝ όř υлŧîℓ ýôú ĉŀéāŗ ŧĥё šŧãřť ðãŧè ƒιėłδ.
+Pokud chcete zabránit příjmu aktualizací pro zvýšení kvality v jejich plánovaných termínech, můžete aktualizace pro zvýšení kvality dočasně pozastavit. Pozastavení bude platit 35 dnů nebo do doby, kdy vymažete pole pro počáteční datum.
 
-Тő ŕéśûмę яз¢ęïνĩŋģ Qџάŀîťу Ųрđαтéş шћĩċђ āяé ράϋşéď, сℓєåŗ ţħе şťάѓτ ďàŧė ƒĩ℮ŀď.
+Pokud chcete znovu přijímat aktualizace pro zvýšení kvality, které jsou pozastavené, vymažte pole pro počáteční datum.
 
-Íƒ ýǿů δįśάьļέ òŕ δō ŉθť čõиƒïģùřè ŧћïŝ рőłíĉŷ, Ẃĭлđőωŝ Ùφδąтê ώίłĺ иǿτ дľтěѓ ΐťś ъěħǻνįõг.
-
-Νσŧе: Їƒ тђė "Ăŀℓοŵ Ŧёļεmĕŧґу" ρоļīсў їš ѕéт ťō 0, ŧĥіś ρбĺîĉγ шίĺŀ нåνэ ⁿǿ еƒƒеĉţ.</string>
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, služba Windows Update své chování nezmění.</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Nezahrnovat ovladače do aktualizací systému Windows</string>
-      <string id="ExcludeWUDriversInQualityUpdate_Help">Ĕηāъłё тђïś рõłįčỳ ţö ŉоτ íήċľûđė δяïνёѓѕ щιŧћ Ẃιйďøẁš qüǻļітў цρďáţэş.
+      <string id="ExcludeWUDriversInQualityUpdate_Help">Když povolíte tuto zásadu, do aktualizací pro zvýšení kvality Windows se nebudou zahrnovat ovladače.
 
-İƒ γõц διşàъĺê σѓ ðó ņǿţ ςőŋƒîģůґē ţħĭş рбĺίçỳ, Щįñďôẃś Űφðαŧε ώΐĺℓ ιⁿćľūðę ŭрďăŧеş ŧђαť наνє à Ðŗïνęѓ čĺăѕśīƒїĉàťįóп.</string>
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, služba Windows Update bude zahrnovat aktualizace s klasifikací Ovladač.</string>
       <string id="ActiveHours_Title">Vypnout automatické restartování po aktualizacích v době aktivního používání</string>
       <string id="ActiveHours_Help">Pokud povolíte tuto zásadu, počítač se nebude po aktualizacích automaticky restartovat během doby aktivního používání. Počítač se pokusí restartovat mimo dobu aktivního používání.
 
@@ -369,15 +397,13 @@ Všimněte si, že výchozí maximální doba aktivního používání je 18 hod
       <string id="ActiveHoursTime9PM">21:00</string>
 
       <string id="AutoRestartDeadline_Title">Zadat konečný termín pro automatické restartování po instalaci aktualizace</string>
-      <string id="AutoRestartDeadline_Help">Zadejte počet dní představující konečný termín pro automatické spuštění plánovaného restartování mimo dobu aktivního používání. Konečný termín je možné nastavit na 2 až 14 dní od času plánovaného restartování.
+      <string id="AutoRestartDeadline_Help">Zadejte konečný termín, po jehož uplynutí se počítač automaticky restartuje, aby se použily aktualizace. Konečný termín může být nastavený na 2 až 14 dní po výchozím datu restartování.
 
-Mějte na paměti, že počítač se musí restartovat, aby se některé aktualizace projevily.
-
-Pokud tuto zásadu povolíte, proběhne restart automaticky po uplynutí určeného počtu dní po naplánovaném restartování.
+Restartování může proběhnout v době aktivního používání.
 
 Pokud tuto zásadu zakážete nebo nenakonfigurujete, počítač se restartuje podle výchozího plánu.
 
-Pokud je povolená některá z následujících dvou zásad, nemá tato zásada žádný účinek:
+Tato zásada nemá žádný vliv, pokud je nastavená kterákoli z těchto dvou zásad:
     1. Zakázat automatické restartování v případě přihlášených uživatelů pro instalaci naplánovaných automatických aktualizací
     2. Vždy automaticky restartovat v naplánovaný čas
       </string>
@@ -394,12 +420,35 @@ Pokud je povolená některá z následujících dvou zásad, nemá tato zásada 
       <string id="AutoRestartDeadlineDay12">12</string>
       <string id="AutoRestartDeadlineDay13">13</string>
       <string id="AutoRestartDeadlineDay14">14</string>
+      <string id="AutoRestartDeadlineDay15">15</string>
+      <string id="AutoRestartDeadlineDay16">16</string>
+      <string id="AutoRestartDeadlineDay17">17</string>
+      <string id="AutoRestartDeadlineDay18">18</string>
+      <string id="AutoRestartDeadlineDay19">19</string>
+      <string id="AutoRestartDeadlineDay20">20</string>
+      <string id="AutoRestartDeadlineDay21">21</string>
+      <string id="AutoRestartDeadlineDay22">22</string>
+      <string id="AutoRestartDeadlineDay23">23</string>
+      <string id="AutoRestartDeadlineDay24">24</string>
+      <string id="AutoRestartDeadlineDay25">25</string>
+      <string id="AutoRestartDeadlineDay26">26</string>
+      <string id="AutoRestartDeadlineDay27">27</string>
+      <string id="AutoRestartDeadlineDay28">28</string>
+      <string id="AutoRestartDeadlineDay29">29</string>
+      <string id="AutoRestartDeadlineDay30">30</string>
 
       <string id="DisableUXWUAccess_Title">Odebrat přístup k používání funkcí programu Windows Update</string>
-      <string id="DisableUXWUAccess_Help">Přes toto nastavení můžete odebrat přístup k prohledávání služby Windows Update.
+      <string id="DisableUXWUAccess_Help">Tímto nastavením můžete odebrat přístup k prohledávání služby Windows Update.
 
-Pokud toto nastavení zapnete, přístup k prohledávání služby Windows Update se odebere.
+Pokud toto nastavení přístupu k prohledávání služby Windows Update povolíte, stahování a instalování bude odebráno.
       </string>
+
+      <string id="DisablePauseUXAccess_Title">Odebrat přístup k funkci Pozastavit aktualizace</string>
+      <string id="DisablePauseUXAccess_Help">Toto nastavení umožňuje odebrat přístup k funkci Pozastavit aktualizace.
+
+Když se nastavení povolí, odebere se přístup uživatelů k této funkci.
+      </string>
+
       <string id="ActiveHoursMaxRange_Title">Zadat dobu aktivního používání pro automatická restartování</string>
       <string id="ActiveHoursMaxRange_Help">Tuto zásadu aktivujte, pokud chcete stanovit maximální počet hodin, který si uživatelé můžou nastavit jako svou dobu aktivního používání. Tato doba se počítá od okamžiku, kdy aktivní používání zahájí.
 
@@ -419,27 +468,23 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, použije se výchozí maxi
       <string id="ActiveHoursMaxRange17">17</string>
       <string id="ActiveHoursMaxRange18">18</string>
 
-      <string id="AutoRestartRequiredNotificationDismissal_Title">Ĉοⁿƒįğΰгэ åúтθ-ŗēśţăŕт ŕĕqџϊѓéð иøťíƒΐĉάŧΐσи ƒθř úφđáŧëѕ</string>
-      <string id="AutoRestartRequiredNotificationDismissal_Help">Ėñαьļë тћĭš ρöŀĭčŷ τθ şρєçĭƒу тĥë мēŧћǿď ъŷ ώђіçћ тне ąϋťŏ-яєѕťàгт ŗęqũίŗèδ ňõŧіƒîĉãţΐóл ίš δіšmίѕѕèđ. Ŵнэń α řèŝŧáŕţ ïś гĕqúìŗєδ ťθ ïŋŝτåľŀ ūφđǻŧĕş, ŧћė ªυŧб-ѓ℮şτªгŧ ґěqûϊгέđ ņŏťίƒìсдťįση їş ďіšφłдўèδ. Бŷ đéƒāűℓτ, τћ℮ лóŧїƒíċāţíőñ їŝ ǻŭτóмªτίĉáļℓÿ ďіşmіśѕëđ äƒť℮ŗ 25 şєčθņðŝ.
+      <string id="AutoRestartRequiredNotificationDismissal_Title">Konfigurovat oznámení o nutnosti automatického restartování po aktualizacích</string>
+      <string id="AutoRestartRequiredNotificationDismissal_Help">Nastavením této zásady můžete určit způsob zavření oznámení o nutnosti automatického restartování. Když je pro dokončení instalace aktualizací nutné restartování, zobrazí se oznámení, že musí proběhnout. Ve výchozím nastavení se oznámení automaticky zavře po 25 sekundách.
 
-Тĥĕ мéτħőđ çάη ъê ѕěţ τо ŗéqμìяє ύšêг ǻćŧϊθń τô đϊşmιśś ŧђз иоťίƒї¢âтîθň.
+Metodu je možné nastavit tak, aby k zavření oznámení byla nutná akce uživatele.
 
-Ĩƒ ýόμ δïѕдьĺĕ οř ðσ πǿт ¢бŋƒĩġùŗέ τћϊş φоľϊĉý, ţħë ðэƒǻџĺť мėтĥöδ ẁīℓł в℮ ύѕéď.
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, použije se výchozí metoda.
       </string>
       <string id="AutoDismissal">1 – Automaticky</string>
       <string id="UserAction">2 – Akce uživatele</string>
 
       <string id="AutoRestartNotificationConfig_Title">Konfigurovat oznámení pro připomenutí automatického restartování po aktualizacích</string>
-      <string id="AutoRestartNotificationConfig_Help">Po povolení této zásady můžete určit typ oznámení používaný pro připomenutí automatického restartování a způsob jeho zobrazování.
-
-Určuje typ oznámení používaný při upozornění uživatele na plánované restartování, aby se dokončila instalace aktualizací.
+      <string id="AutoRestartNotificationConfig_Help">Po povolení této zásady můžete určit čas používaný pro zobrazení připomenutí automatického restartování.
 
 Můžete zadat, jak dlouho před plánovaným restartováním má uživatel upozornění dostat.
 
-Pokud tuto zásadu zakážete nebo nenakonfigurujete, použije se výchozí styl a doba.
+Pokud tuto zásadu zakážete nebo nenastavíte, použije se výchozí časové období.
       </string>
-      <string id="AutoRestartNotificationStyleFull">1 – Celá obrazovka</string>
-      <string id="AutoRestartNotificationStylePartial">2 – Část obrazovky</string>
       <string id="AutoRestartNotificationSchd15">15</string>
       <string id="AutoRestartNotificationSchd30">30</string>
       <string id="AutoRestartNotificationSchd60">60</string>
@@ -471,6 +516,127 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, oznámení se chovají pod
       <string id="RestartWarnMins15">15</string>
       <string id="RestartWarnMins30">30</string>
       <string id="RestartWarnMins60">60</string>
+      <string id="EngagedRestartTransitionSchedule_Title">Zadat přechod restartování podle plánu a časový plán oznámení pro aktualizace</string>
+      <string id="EngagedRestartTransitionSchedule_Help">Povolením této zásady můžete ovládat načasování mezi přechodem z automatického restartování naplánovaného mimo dobu aktivního používání na restartování podle plánu, které vyžaduje naplánování uživatelem. Období je možné nastavit na 0 až 30 dní od doby, kdy se restartování dostane do stavu Čekající.
+
+Můžete zadat počet dní, o které může uživatel odložit oznámení připomínající restartování podle plánu. Dobu odložení je možné nastavit na 1 až 3 dny.
+
+Můžete zadat konečný termín (ve dnech), po jehož uplynutí dojde k automatickému naplánování a provedení čekajícího restartování bez ohledu na dobu aktivního používání. Termín je možné nastavit na 2 až 30 dní od doby, kdy se restartování dostane do stavu Čekající. Pokud je termín nakonfigurovaný, čekající restartování přejde po zadané době z automatického restartování na restartování podle plánu (určeného uživatelem) a potom na automaticky provedené.
+
+Pokud neurčíte konečný termín nebo pokud je konečný termín nastavený na hodnotu 0, počítač se automaticky nerestartuje a bude vyžadovat, aby ho před restartováním uživatel naplánoval.
+
+Pokud tuto zásadu zakážete nebo nenastavíte, počítač se restartuje podle výchozího plánu.
+
+Tato zásada nemá žádný vliv, pokud je nastavená některá z následujících zásad:
+     1. Zakázat automatické restartování v případě přihlášených uživatelů pro instalaci naplánovaných automatických aktualizací
+     2. Vždy automaticky restartovat v naplánovaný čas
+     3. Zadat konečný termín pro automatické restartování po instalaci aktualizace
+      </string>
+      <string id="EngagedRestart_0">0</string>
+      <string id="EngagedRestart_1">1</string>
+      <string id="EngagedRestart_2">2</string>
+      <string id="EngagedRestart_3">3</string>
+      <string id="EngagedRestart_4">4</string>
+      <string id="EngagedRestart_5">5</string>
+      <string id="EngagedRestart_6">6</string>
+      <string id="EngagedRestart_7">7</string>
+      <string id="EngagedRestart_8">8</string>
+      <string id="EngagedRestart_9">9</string>
+      <string id="EngagedRestart_10">10</string>
+      <string id="EngagedRestart_11">11</string>
+      <string id="EngagedRestart_12">12</string>
+      <string id="EngagedRestart_13">13</string>
+      <string id="EngagedRestart_14">14</string>
+      <string id="EngagedRestart_15">15</string>
+      <string id="EngagedRestart_16">16</string>
+      <string id="EngagedRestart_17">17</string>
+      <string id="EngagedRestart_18">18</string>
+      <string id="EngagedRestart_19">19</string>
+      <string id="EngagedRestart_20">20</string>
+      <string id="EngagedRestart_21">21</string>
+      <string id="EngagedRestart_22">22</string>
+      <string id="EngagedRestart_23">23</string>
+      <string id="EngagedRestart_24">24</string>
+      <string id="EngagedRestart_25">25</string>
+      <string id="EngagedRestart_26">26</string>
+      <string id="EngagedRestart_27">27</string>
+      <string id="EngagedRestart_28">28</string>
+      <string id="EngagedRestart_29">29</string>
+      <string id="EngagedRestart_30">30</string>
+      <string id="EngagedRestartSnooze_1">1</string>
+      <string id="EngagedRestartSnooze_2">2</string>
+      <string id="EngagedRestartSnooze_3">3</string>
+
+      <string id="SetEDURestart_Title">Aktualizovat zásadu napájení pro restartování vozíku</string>
+      <string id="SetEDURestart_Help">Povolením této zásady pro zařízení EDU, která zůstávají na vozících přes noc, budou přeskočeny kontroly napájení, aby bylo zaručeno, že restartování proběhne v naplánovaném čase instalace.</string>
+
+      <string id="AllowAutoWindowsUpdateDownloadOverMeteredNetwork_Title">Povolit automatické stahování aktualizací pomocí připojení účtovaných podle objemu dat</string>
+      <string id="AllowAutoWindowsUpdateDownloadOverMeteredNetwork_Help">Pokud tuto zásadu povolíte, aktualizace se stáhnou automaticky, a to i pomocí připojení účtovaných podle objemu dat (může být zpoplatněno).</string>
+
+      <string id="DisableDualScan_Title">Nepovolit, aby zásady pro odložení aktualizací vyvolávaly kontroly ve službě Windows Update</string>
+      <string id="DisableDualScan_Help">Když povolíte tuto zásadu, nedovolíte zásadám pro odložení aktualizací, aby spouštěly hledání ve Windows Update.
+
+Pokud je tato zásada zakázaná nebo není nakonfigurovaná, může klient Windows Update iniciovat automatická hledání ve Windows Update v době, kdy jsou povolené zásady pro odložení aktualizací.
+Poznámka: Tato zásada platí pouze v případě, že je služba Microsoft Update v intranetu, na kterou je tento počítač přesměrovaný, nakonfigurovaná na podporu cílení na straně klienta. Pokud je zásada Určit umístění intranetového serveru služby Microsoft Update zakázaná nebo není nakonfigurovaná, nemá tato zásada žádný vliv.
+      </string>
+      <string id="UpdateNotificationLevel_Title">Možnosti zobrazování oznámení o aktualizacích</string>
+      <string id="UpdateNotificationLevel_Help">0 (Výchozí) – Použít výchozí oznámení služby Windows Update
+1 – Vypnout všechna oznámení kromě upozornění na restart
+2 – Vypnout všechna oznámení včetně upozornění na restart
+
+Tato zásada umožňuje definovat, jaká oznámení služby Windows Update se zobrazí uživatelům. Tato zásada neurčuje, jak nebo kdy se budou aktualizace stahovat a instalovat.
+
+Důležité: Pokud se rozhodnete nedostávat oznámení o aktualizacích a zároveň definujete další zásady skupiny tak, aby se na zařízení aktualizace neinstalovaly automaticky, nedozvíte se vy ani uživatelé zařízení o důležitých aktualizacích zabezpečení, aktualizacích pro zvýšení kvality ani aktualizacích funkcí a vaše zařízení může být ohrožené.
+      </string>
+      <string id="DefaultNotification">0 (výchozí) – Výchozí oznámení operačního systému o službě Windows Update</string>
+      <string id="ExcludingRebootWarnings">1 – Zakázat všechna oznámení kromě upozornění na restart</string>
+      <string id="IncludingRebootWarnings">2 – Zakázat všechna oznámení včetně upozornění na restart</string>
+      <string id="ComplianceDeadline_Title">Zadat lhůty pro automatické aktualizace a restartování</string>
+      <string id="ComplianceDeadline_Help">Pomocí této zásady můžete zadat počet dní, které má uživatel k dispozici před automatickou instalací aktualizací pro zvýšení kvality a aktualizací funkcí na jeho zařízení. Aktualizace a restartování pak proběhnou bez ohledu na dobu aktivního používání a uživatel je nebude moct přeplánovat.
+
+Lhůty u aktualizací pro zvýšení kvality a aktualizací funkcí je možné stanovit až na 30 dní. Poskytnutá lhůta pro automatické restartování může být od 0 do 7 dní.
+
+Automatická restartování je také možné až do konce této lhůty zakázat.
+
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, budou zařízení přijímat aktualizace a restartovat se podle výchozího plánu.
+
+Tato zásada přepíše následující zásady:
+1.  Zadat konečný termín pro automatické restartování po instalaci aktualizace
+2.  Zadat přechod restartování podle plánu a časový plán oznámení pro aktualizace
+3.  Vždy automaticky restartovat v naplánovaný čas
+4.  Zakázat automatické restartování v případě přihlášených uživatelů pro instalaci naplánovaných automatických aktualizací
+      </string>
+      <string id="ComplianceDeadlineDay0">0</string>
+      <string id="ComplianceDeadlineDay1">1</string>
+      <string id="ComplianceDeadlineDay2">2</string>
+      <string id="ComplianceDeadlineDay3">3</string>
+      <string id="ComplianceDeadlineDay4">4</string>
+      <string id="ComplianceDeadlineDay5">5</string>
+      <string id="ComplianceDeadlineDay6">6</string>
+      <string id="ComplianceDeadlineDay7">7</string>
+      <string id="ComplianceDeadlineDay8">8</string>
+      <string id="ComplianceDeadlineDay9">9</string>
+      <string id="ComplianceDeadlineDay10">10</string>
+      <string id="ComplianceDeadlineDay11">11</string>
+      <string id="ComplianceDeadlineDay12">12</string>
+      <string id="ComplianceDeadlineDay13">13</string>
+      <string id="ComplianceDeadlineDay14">14</string>
+      <string id="ComplianceDeadlineDay15">15</string>
+      <string id="ComplianceDeadlineDay16">16</string>
+      <string id="ComplianceDeadlineDay17">17</string>
+      <string id="ComplianceDeadlineDay18">18</string>
+      <string id="ComplianceDeadlineDay19">19</string>
+      <string id="ComplianceDeadlineDay20">20</string>
+      <string id="ComplianceDeadlineDay21">21</string>
+      <string id="ComplianceDeadlineDay22">22</string>
+      <string id="ComplianceDeadlineDay23">23</string>
+      <string id="ComplianceDeadlineDay24">24</string>
+      <string id="ComplianceDeadlineDay25">25</string>
+      <string id="ComplianceDeadlineDay26">26</string>
+      <string id="ComplianceDeadlineDay27">27</string>
+      <string id="ComplianceDeadlineDay28">28</string>
+      <string id="ComplianceDeadlineDay29">29</string>
+      <string id="ComplianceDeadlineDay30">30</string>
     </stringTable>
 
     <presentationTable>
@@ -483,6 +649,13 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, oznámení se chovají pod
         <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Instalovat během automatické údržby</checkBox>
         <dropdownList refId="AutoUpdateSchDay" defaultItem="0">Den plánované instalace:  </dropdownList>
         <dropdownList refId="AutoUpdateSchTime" defaultItem="3">Čas plánované instalace:</dropdownList>
+        <text>Pokud jste pro naplánovaný den instalace vybrali možnost „4 – Automaticky stahovat a plánovat instalaci“ a určili plán, můžete také pomocí níže uvedených možností omezit aktualizace na týdenní, čtrnáctidenní nebo měsíční interval:</text>
+        <checkBox refId="AutoUpdateSchEveryWeek" defaultChecked="true">Každý týden</checkBox>
+        <checkBox refId="AutoUpdateSchFirstWeek" defaultChecked="false">První týden v měsíci</checkBox>
+        <checkBox refId="AutoUpdateSchSecondWeek" defaultChecked="false">Druhý týden v měsíci</checkBox>
+        <checkBox refId="AutoUpdateSchThirdWeek" defaultChecked="false">Třetí týden v měsíci</checkBox>
+        <checkBox refId="AutoUpdateSchFourthWeek" defaultChecked="false">Čtvrtý týden v měsíci</checkBox>
+        <text> </text>
         <checkBox refId="AllowMUUpdateServiceId" defaultChecked="false">Instalovat aktualizace pro další produkty Microsoftu</checkBox>
       </presentation>
       <presentation id="CorpWuURL">
@@ -493,9 +666,10 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, oznámení se chovají pod
           <label>Nastavení intranetového serveru pro statistiku:</label>
         </textBox>
         <textBox refId="CorpWUContentHost_Name">
-          <label>Ѕεţ τнě ãľτέгñаŧе đòẅŋļθąð şèŕνег:</label>
+          <label>Nastavte alternativní server pro stahování:</label>
         </textBox>
         <text>(příklad: http://IntranetUpd01)</text>
+        <checkBox refId="CorpWUFillEmptyContentUrls" defaultChecked="false">Umožňuje stahovat soubory bez adres URL, když je nastaven server pro alternativní stahování.</checkBox>
       </presentation>
       <presentation id="DetectionFrequency_Title">
         <text>Zjišťovat aktualizace v</text>
@@ -530,20 +704,23 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, oznámení se chovají pod
         <text>následující čas k uložení jejich</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">práce (v minutách):  </decimalTextBox>
       </presentation>
+      <presentation id="ManagePreviewBuilds">
+        <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Nastavte chování pro příjem buildů Preview:</dropdownList>
+      </presentation>
       <presentation id="DeferFeatureUpdates">
-        <dropdownList refId="BranchReadinessLevelId" noSort="true" defaultItem="0">Vyberte úroveň připravenosti větve pro aktualizace funkcí, které chcete přijímat:</dropdownList>
-        <decimalTextBox refId="DeferFeatureUpdatesPeriodId" defaultValue="0">Po vydání aktualizace funkcí pozdržet její přijetí o tento počet dnů:</decimalTextBox>
+        <dropdownList refId="BranchReadinessLevelId" noSort="true" defaultItem="0">Vyberte úroveň připravenosti Windows pro aktualizace, které chcete přijímat:</dropdownList>
+        <decimalTextBox refId="DeferFeatureUpdatesPeriodId" defaultValue="0">Po vydání buildu Preview nebo aktualizace funkcí pozdržet její přijetí o tento počet dnů:</decimalTextBox>
         <textBox refId="PauseFeatureUpdatesStartId">
-          <label>Ρāűšе ₣éдťύŗé Ūρđдτęş śταřτϊπĝ</label>
+          <label>Pozastavit spouštění buildů Preview nebo aktualizací funkcí:</label>
         </textBox>
-        <text>(ƒőґmąτ γŷýŷ-mm-đđ έжàмφľë: 2016-09-16)</text>
+        <text>(formát rrrr-mm-dd příklad: 2016-10-30)</text>
       </presentation>
       <presentation id="DeferQualityUpdates">
         <decimalTextBox refId="DeferQualityUpdatesPeriodId" defaultValue="0">Po vydání aktualizace pro zvýšení kvality pozdržet její přijetí o tento počet dnů:</decimalTextBox>
         <textBox refId="PauseQualityUpdatesStartId">
-          <label>Ρāũѕė Qųáŀίτý Üρđåŧęş şтáѓτιлģ</label>
+          <label>Pozastavit spouštění aktualizací pro zvýšení kvality</label>
         </textBox>
-        <text>(ƒóŕмªŧ уууý-mм-ðð ĕжāмрℓê: 2016-09-16)</text>
+        <text>(formát rrrr-mm-dd příklad: 2016-10-30)</text>
       </presentation>
       <presentation id="ActiveHours_Title">
         <text>Doba aktivního používání</text>
@@ -551,7 +728,9 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, oznámení se chovají pod
         <dropdownList refId="ActiveHoursEndTime" noSort="true" defaultItem="17">Konec:</dropdownList>
       </presentation>
       <presentation id="AutoRestartDeadline_Title">
-        <dropdownList refId="AutoRestartDeadline" noSort="true" defaultItem="5">Určete počet dní před automatickým spuštěním čekajícího restartování mimo dobu aktivního používání: </dropdownList>
+        <text>Určete počet dní před automatickým spuštěním čekajícího restartování mimo dobu aktivního používání: </text>
+        <dropdownList refId="AutoRestartDeadline" noSort="true" defaultItem="5">Aktualizace pro zvýšení kvality (dny): </dropdownList>
+        <dropdownList refId="AutoRestartDeadlineForFeatureUpdates" noSort="true" defaultItem="5">Aktualizace funkcí (dny): </dropdownList>
       </presentation>
       <presentation id="ActiveHoursMaxRange_Title">
         <text>Zadejte maximální dobu aktivního používání:</text>
@@ -559,19 +738,45 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, oznámení se chovají pod
       </presentation>
       <presentation id="AutoRestartRequiredNotificationDismissal_Title">
         <text>Zadejte způsob zavření oznámení o nutnosti automatického restartování:</text>
-        <dropdownList refId="AutoRestartRequiredNotificationDismissal" noSort="true" defaultItem="0">Мéťћôδ: </dropdownList>
+        <dropdownList refId="AutoRestartRequiredNotificationDismissal" noSort="true" defaultItem="0">Metoda: </dropdownList>
       </presentation>
       <presentation id="AutoRestartNotificationConfig_Title">
-        <text>Zadejte styl oznámení pro připomenutí automatického restartování:</text>
-        <dropdownList refId="AutoRestartNotificationStyle" noSort="true" defaultItem="0">Styl: </dropdownList>
         <text>Zadejte dobu pro oznámení s připomenutím týkajícím se automatického restartování:</text>
         <dropdownList refId="AutoRestartNotificationSchd" noSort="true" defaultItem="0">Doba (min): </dropdownList>
       </presentation>
       <presentation id="RestartWarningSchd_Title">
         <text>Zadejte dobu pro oznámení s připomenutím nebo varováním týkajícím se automatického restartování:</text>
-        <dropdownList refId="RestartWarnRemind" noSort="true" defaultItem="1">Připomenutí (h):</dropdownList>
+        <dropdownList refId="RestartWarnRemind" noSort="true" defaultItem="1">Připomenutí (h): </dropdownList>
         <text>Zadejte dobu pro oznámení s varováním, že se blíží automatické restartování:</text>
         <dropdownList refId="RestartWarn" noSort="true" defaultItem="0">Upozornění (min): </dropdownList>
+      </presentation>
+      <presentation id="EngagedRestartTransitionSchedule_Title">
+        <text>Přechod: Určete časování před přechodem z automatického restartování na restartování podle plánu (stanoveného uživatelem).</text>
+        <text>ODLOŽENÍ: Určete odložení pro oznámení s připomenutím týkajícím se restartování podle plánu.</text>
+        <text>Konečný termín: Určete termín před automatickým spuštěním čekajícího restartování mimo dobu aktivního používání.</text>
+        <text></text>
+        <text>U aktualizací pro zvýšení kvality: </text>
+        <dropdownList refId="EngagedRestartTransitionSchedule" noSort="true" defaultItem="7">Přechod (dny): </dropdownList>
+        <dropdownList refId="EngagedRestartSnoozeSchedule" noSort="true" defaultItem="2">Odložení (dny):     </dropdownList>
+        <dropdownList refId="EngagedRestartDeadline" noSort="true" defaultItem="0">Termín (dny):  </dropdownList>
+        <text></text>
+        <text>U aktualizací funkcí: </text>
+        <dropdownList refId="EngagedRestartTransitionScheduleForFeatureUpdates" noSort="true" defaultItem="7">Přechod (dny): </dropdownList>
+        <dropdownList refId="EngagedRestartSnoozeScheduleForFeatureUpdates" noSort="true" defaultItem="2">Odložení (dny):     </dropdownList>
+        <dropdownList refId="EngagedRestartDeadlineForFeatureUpdates" noSort="true" defaultItem="0">Termín (dny):  </dropdownList>
+      </presentation>
+      <presentation id="UpdateNotificationLevel_Title">
+        <dropdownList refId="UpdateNotificationLevel" noSort="true" defaultItem="0">Zadejte možnosti zobrazování oznámení o aktualizacích:</dropdownList>
+      </presentation>
+      <presentation id="ComplianceDeadline_Title">
+        <text>Zadejte počet dní (až 30), které má uživatel před automatickým spuštěním aktualizací, a to bez ohledu na dobu aktivního používání a bez možnosti přeplánování.</text>
+        <dropdownList refId="ConfigureDeadlineForQualityUpdates" noSort="true" defaultItem="5">Aktualizace pro zvýšení kvality (dny):</dropdownList>
+        <dropdownList refId="ConfigureDeadlineForFeatureUpdates" noSort="true" defaultItem="5">Aktualizace funkcí (dny):</dropdownList>
+        <text></text>
+        <text>Zadejte poskytnutou lhůtu pro automatické restartování (0 až 7 dní). Jde o časový úsek od okamžiku, kdy je restartování vyžadováno, do chvíle, kdy se restartuje automaticky. Zařízení se pak restartují bez ohledu na dobu aktivního používání a bez možnosti přeplánování.</text>
+        <dropdownList refId="ConfigureDeadlineGracePeriod" noSort="true" defaultItem="2">Poskytnutá lhůta (dny)</dropdownList>
+        <text></text>
+        <checkBox refId="ConfigureDeadlineNoAutoReboot" defaultChecked="false">Nerestartovat automaticky do konce poskytnuté lhůty</checkBox>
       </presentation>
     </presentationTable>
   </resources>

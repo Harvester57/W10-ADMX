@@ -5,7 +5,7 @@
   <description>在此輸入描述</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">至少需要 Windows 10 或 Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">至少需要 Windows 10 或 Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">至少需要 Windows 8 或 Windows RT</string>
       <string id="TS_SUPPORTED_Windows8_Server">至少需要 Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> 至少需要 Windows 8 企業版或 Windows Server 2012</string>
@@ -143,6 +143,7 @@
       <string id="TS_CLIENT_HELP">控制遠端桌面連線用戶端設定</string>
       <string id="TS_CLIENT_LPT">不允許 LPT 連接埠重新導向</string>
       <string id="TS_CLIENT_PNP">不允許支援的隨插即用裝置重新導向</string>
+      <string id="TS_CAMERA_REDIRECTION">不允許視訊擷取重新導向</string>
       <string id="TS_CLIENT_PRINTER">不允許用戶端印表機重新導向</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">這個原則設定指定在遠端桌面服務工作階段期間，是否要防止在遠端電腦及用戶端電腦間共用剪貼簿內容 (剪貼簿重新導向)。
 
@@ -197,6 +198,15 @@ c.	用戶端要求的值
 如果您啟用這個原則設定，則使用者無法將支援的隨插即用裝置重新導向到遠端電腦。如果您未設定此原則設定，只有當遠端電腦是執行 Windows Server 2012 R2 或更早版本時，使用者才能將支援的隨插即用裝置重新導向遠端電腦。
 
 注意: 您可以使用 [電腦設定]\[系統管理範本]\[系統]\[裝置安裝]\[裝置安裝限制] 原則設定，停用重新導向特定類型的支援隨插即用裝置。
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">這項原則設定可讓您在遠端桌面服務工作階段中，控制視訊擷取裝置是否可重新導向到遠端電腦。
+
+根據預設，遠端桌面服務允許重新導向視訊擷取裝置。
+
+如果啟用這項原則設定，使用者無法將他們的視訊擷取裝置重新導向到遠端電腦。
+
+如果停用或不設定這項原則設定，使用者即可將他們的視訊擷取裝置重新導向到遠端電腦。使用者可以使用遠端桌面連線 [本機資源] 索引標籤上的 [更多] 選項，來選擇要重新導向到遠端電腦的視訊擷取裝置。
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">這個原則設定可讓您限制使用者可用來顯示遠端桌面服務工作階段的監視器數目。限制用來顯示遠端桌面服務工作階段的監視器數目可以改善連線的效能 (特別是在低速連結上)，並減少伺服器的負載。
@@ -320,12 +330,13 @@ RD 工作階段主機伺服器後援印表機驅動程式預設為停用。如�
       <string id="TS_GATEWAY_BASIC">要求憑證，使用基本通訊協定</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">使用從本機登入的憑證</string>
       <string id="TS_GATEWAY_NTLM">要求憑證，使用 NTLM 通訊協定</string>
+      <string id="TS_GATEWAY_NEGOTIATE">要求認證，使用 [交涉] 通訊協定</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">設定 RD 閘道驗證方法</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">指定當嘗試透過 RD 閘道伺服器連線到 RD 工作階段主機伺服器時，用戶端必須使用的驗證方法。您可以強制執行這個原則設定，也可以允許使用者覆寫這個原則設定。根據預設，只要啟用這個原則設定就會強制執行。若強制執行這個原則設定，使用者無法覆寫這個設定，即使他們選取用戶端上的 [使用這些 RD 閘道伺服器設定] 選項也是一樣。
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">指定嘗試透過 RD 閘道伺服器連線到 RD 工作階段主機伺服器時，用戶端必須使用的驗證方法。您可以強制執行這個原則設定，也可以允許使用者覆寫這個原則設定。根據預設，只要啟用了這個原則設定，就會強制執行。若強制執行這個原則設定，則即使使用者在用戶端上選取了 [使用這些 RD 閘道伺服器設定] 選項，也無法覆寫此設定。 
 
-若要允許使用者覆寫這個原則設定，請選取 [允許使用者變更此設定] 核取方塊。執行這個動作後，使用者可以使用 RDP 檔案或 HTML 指令碼在用戶端上進行這些設定，以指定替代的驗證方法。如果使用者未指定替代的驗證方法，則預設為使用您在這個原則設定中所指定的驗證方法。
+若要允許使用者覆寫此原則設定，請選取 [允許使用者變更此設定] 核取方塊。執行此動作後，使用者可以使用 RDP 檔案或 HTML 指令碼，在用戶端上進行這些設定，以指定替代的驗證方法。如果使用者未指定替代的驗證方法，則預設會使用您在此原則設定中所指定的驗證方法。
 
-如果停用或未設定這個原則設定，則使用由使用者指定的驗證方法 (如果已指定)。如果未指定驗證方法，則可以使用在用戶端上啟用的 NTLM 通訊協定或是智慧卡進行驗證。</string>
+如果停用或未設定此原則設定，則會使用由使用者指定的驗證方法 (若使用者有指定)。若未指定驗證方法，則可以使用於用戶端上啟用的 [交涉] 通訊協定或是智慧卡來進行驗證。</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">啟用透過 RD 閘道連線</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">如果啟用這個原則設定，當遠端桌面連線無法直接連線到遠端電腦 (RD 工作階段主機伺服器或是已啟用遠端桌面的電腦) 時，用戶端會嘗試透過 RD 閘道伺服器連線到遠端電腦。遇到這種情況時，用戶端會嘗試連線到「設定 RD 閘道伺服器位址」原則設定中所指定的 RD 閘道伺服器。
 
@@ -408,21 +419,24 @@ RD 工作階段主機伺服器後援印表機驅動程式預設為停用。如�
 
 如果停用或未設定這個原則設定，在您以本機系統管理員身分登入後，將會在 RD 工作階段主機伺服器上顯示這些通知。</string>
       <string id="TS_LICENSING_MODE">設定遠端桌面授權模式</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">這個原則設定可以讓您指定連線到這部 RD 工作階段主機伺服器所需的遠端桌面服務用戶端存取授權 (RDS CAL) 類型。
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        此原則設定可讓您指定連線至此 RD 工作階段主機伺服器時，所需的遠端桌面服務用戶端存取權授權 (RDS CAL) 類型。
 
-您可以使用這個原則設定選取兩種授權模式之一:「每個使用者」或「每一裝置」。
+        您可以使用此原則設定來選取三種授權模式之一: 每一使用者、每一裝置和每一使用者 AAD。
 
-「每個使用者」授權模式要求連線到這部 RD 工作階段主機伺服器的每個使用者帳戶都必須有「RDS 每個使用者的 CAL」。
+        每一使用者授權模式需要連線至此 RD 工作階段主機伺服器的每一使用者帳戶都具有 RD 授權伺服器發行的 RDS 每一使用者 CAL。
 
-「每一裝置」授權模式則要求連線到這部 RD 工作階段主機伺服器的每個裝置都必須有「RDS 每一裝置的 CAL」。
+        每一裝置授權模式需要連線至此 RD 工作階段主機伺服器的每一裝置都具有 RD 授權伺服器發行的 RDS 每一裝置 CAL。
 
-如果您啟用這個原則設定，遠端桌面授權伺服器將使用您指定的遠端桌面授權模式。
+        每一使用者 AAD 授權模式需要連線至此 RD 工作階段主機伺服器的每一使用者帳戶都具有支援 AAD 中所指派 RDS 授權的服務方案。
+        
+        若您啟用此原則設定，則遠端桌面授權伺服器和 RD 工作階段主機會接受您指定的遠端桌面授權模式。
 
-如果您停用或未設定這個原則設定，則不會在群組原則層級指定授權模式。
-
-</string>
+        若您停用或未設定此原則設定，則不會在群組原則層級指定授權模式。
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">每個裝置</string>
       <string id="TS_LICENSING_MODE_PER_USER">每位使用者</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">每個使用者的 AAD</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">這個原則設定指定在遠端桌面服務工作階段期間，是否要防止將資料重新導向到用戶端 LPT 連接埠。
 
 您可以使用這個設定防止使用者對應本機 LPT 連接埠，並將來自遠端電腦的資料重新導向到本機的 LPT 連接埠週邊設備。根據預設，遠端桌面服務允許 LPT 連接埠重新導向。
@@ -1006,19 +1020,40 @@ RD 工作階段主機伺服器後援印表機驅動程式預設為停用。如�
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">遠端桌面連線的 WDDM 圖形顯示驅動程式</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">此原則設定可讓您啟用遠端桌面連線的 WDDM 圖形顯示驅動程式。
+
+如果您啟用此原則設定，則遠端桌面連線將會使用 WDDM 圖形顯示驅動程式。
+
+如果您停用或未設定此原則設定，則遠端桌面連線將「不會」使用 XDDM 圖形顯示驅動程式。在此案例中，遠端桌面連線將會使用 XDDM 圖形顯示驅動程式。
+
+您必須重新啟動 Windows 才能讓此變更生效。
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">此原則設定可讓您啟用遠端桌面連線的 WDDM 圖形顯示驅動程式。
+
+如果您啟用或未設定此原則設定，則遠端桌面連線將會使用 WDDM 圖形顯示驅動程式。
+
+如果您停用此原則設定，則遠端桌面連線將「不會」使用 XDDM 圖形顯示驅動程式。在此案例中，遠端桌面連線將會使用 WDDM 圖形顯示驅動程式。
+
+您必須重新啟動 Windows 才能讓此變更生效。
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">此原則設定可讓您啟用遠端桌面連線的 WDDM 圖形顯示驅動程式。
+
+如果您啟用此原則設定，則遠端桌面連線將會使用 WDDM 圖形顯示驅動程式。
+
+如果您停用此原則設定，則遠端桌面連線將「不會」使用 WDDM 圖形顯示驅動程式。在此案例中，RD 工作階段主機伺服器上的遠端桌面連線將不會使用 XDDM 圖形顯示驅動程式。
+
+若您未設定此原則設定，則 RD 工作階段主機伺服器上的遠端桌面連線將「不會」使用 WDDM 圖形顯示驅動程式。在所有其他案例中，遠端桌面連線應用程式將會使用 WDDM 圖形顯示驅動程式。
+
+您必須重新啟動 Windows 才能讓此變更生效。
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">設定「遠端桌面連線」的 H.264/AVC 硬體編碼</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">此原則設定可讓您啟用「遠端桌面連線」的 H.264/AVC 硬體編碼支援。啟用硬體編碼時，若發生錯誤，我們將嘗試使用軟體編碼。若停用或未設定此原則，我們將一律使用軟體編碼。
-        
-若將編碼選項設定為 [一律嘗試]，「遠端桌面」將一律嘗試使用 H.264/AVC 硬體編碼 (若可用)，請注意，對於執行 Hyper-V (且 RemoteFX vGPU 已啟用) 的 Windows Server，必須在 Hyper-V 主機電腦上設定原則。
-        
-若將編碼選項設定為 [只針對 RemoteFX vGPU 虛擬機器嘗試]，請注意，對於執行 Hyper-V (且 RemoteFX vGPU 已啟用) 的 Windows Server，必須在 Hyper-V 主機電腦上啟用原則。
-        
-若將編碼選項設定為 [只針對非 RemoteFX vGPU 案例嘗試]，「遠端桌面」會嘗試為所有案例 (RemoteFX vGPU 除外) 使用硬體編碼。
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">一律嘗試</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">只針對 RemoteFX vGPU 虛擬機器嘗試</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">只針對非 RemoteFX vGPU 案例嘗試</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">這個原則設定可讓您啟用遠端桌面連線的 H.264/AVC 硬體編碼支援。當您啟用硬體編碼時，如果發生錯誤，我們將嘗試使用軟體編碼。如果您停用或未設定這個原則，我們永遠都會使用軟體編碼。</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">排定「遠端桌面連線」的 H.264/AVC 444 圖形模式優先順序</string>
@@ -1169,6 +1204,18 @@ RD 工作階段主機伺服器後援印表機驅動程式預設為停用。如�
 
 如果您停用或未設定這個原則設定，會顯示 [開始] 畫面，並在背景登錄應用程式。</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">在所有遠端桌面服務工作階段使用硬體圖形卡</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">這項原則設定可讓系統管理員變更所有遠端桌面服務工作階段的圖形轉譯。
+
+如果您啟用這項原則設定，所有遠端桌面服務工作階段都會使用硬體圖形轉譯器作為預設介面卡，而不是 Microsoft 基本轉譯驅動程式。
+
+如果您停用此原則設定，所有遠端桌面服務工作階段都會使用 Microsoft 基本轉譯驅動程式作為預設介面卡。
+
+如果您不進行這項原則設定，RD 工作階段主機伺服器上的遠端桌面服務工作階段會使用 Microsoft 基本轉譯驅動程式作為預設介面卡。至於其他情況，遠端桌面服務工作階段會依預設使用硬體圖形轉譯器。
+
+注意: 使用原則設定，可在安裝了多個圖形處理器 (GPU) 的電腦上進行 GPU 的負載平衡。本機工作階段的 GPU 設定不會受這項原則設定影響。
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">
@@ -1316,9 +1363,6 @@ RD 工作階段主機伺服器後援印表機驅動程式預設為停用。如�
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP 壓縮演算法:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">偏好 AVC 硬體編碼:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">視覺效果:</dropdownList>

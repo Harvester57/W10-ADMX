@@ -59,10 +59,41 @@ Microsoft 支援服務診斷工具 (MSDT) 會收集診斷資料，供專業支�
 
 
 </string>
+<string id="TroubleshootingAllowRecommendations">疑難排解: 允許使用者存取建議的疑難排解方法以解決已知問題</string>
+<string id="TroubleshootingAllowRecommendationsExplain">這項原則設定會在裝置上套用已知問題的建議疑難排解，並讓系統管理員設定將其套用到網域/IT 環境的方式。
+若未設定此原則設定，則會允許使用者設定套用建議疑難排解的方式。
+
+啟用此原則，可讓您設定將疑難排解套用到使用者裝置的方式。您可以選取下列其中一個值:
+0 = 關閉此功能。
+1 = 關閉此功能但仍套用重大疑難排解。
+2 = 在有可用的建議疑難排解時通知使用者，並讓使用者執行或忽略它。
+3 = 自動執行建議的疑難排解，並在成功執行之後通知使用者。
+4 = 自動執行建議的疑難排解，而不通知使用者。
+5 = 讓使用者自行選擇建議的疑難排解設定。
+
+在設定此新設定後，若要在您的網域內觸發裝置的建議疑難排解，請遵循以下指示:
+1. 使用以下內容建立 bat 指令碼:
+rem 以下批次指令碼會觸發建議的疑難排解
+C:\Windows\System32\mitigationscanner.exe
+
+2. 若要建立新的立即工作，請巡覽至群組原則管理編輯器 &gt; [電腦設定] &gt; [喜好設定]，然後選取 [控制台] 設定。
+3. 在 [控制台] 設定下方，以滑鼠右鍵按一下 [排定的工作] 然後選取 [新增]。選取 [立即工作] (至少為 Windows 7)。
+4. 提供適當的名稱和描述，然後在 [安全性選項] 下方，將使用者帳戶設為 [SYSTEM]，然後選取 [以最高權限執行] 核取方塊。
+5. 在 [動作] 索引標籤中，建立新動作、選取 [以其類型啟動程式]，然後輸入在步驟 1 中建立的檔案。
+6. 設定工作為部署到您的網域。</string>
+<string id="RecommendationsDropDown_DoNothing">關閉此功能</string>
+<string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">關閉此功能但仍套用重大疑難排解。</string>
+<string id="RecommendationsDropDown_AskFirst">在有可用的建議疑難排解時通知使用者，並讓使用者執行或忽略它。</string>
+<string id="RecommendationsDropDown_ApplyThenNotify">自動執行建議的疑難排解，並在成功執行之後通知使用者。</string>
+<string id="RecommendationsDropDown_ApplySilently">自動執行建議的疑難排解，而不通知使用者。</string>
+<string id="RecommendationsDropDown_DeferToUser">讓使用者自行選擇建議的疑難排解設定。</string>
     </stringTable>
     <presentationTable>
       <presentation id="MsdtToolDownloadPolicy">
         <dropdownList refId="MsdtToolDownloadPolicyLevel" noSort="true" defaultItem="1">允許工具下載</dropdownList>
+      </presentation>
+      <presentation id="TroubleshootingAllowRecommendations">
+        <dropdownList refId="TroubleshootingAllowRecommendations_Dropdown" noSort="true" defaultItem="0">允許 Microsoft 針對已知問題提供建議的疑難排解方法</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

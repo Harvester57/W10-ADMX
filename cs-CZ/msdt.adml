@@ -5,8 +5,8 @@
   <description>Zde zadejte popis.</description>
   <resources>
     <stringTable>
-      <string id="WdiScenarioCategory">Nástroj Microsoft Support Diagnostic Tool</string>
-      <string id="WdiScenarioExecutionPolicy">Nástroj Microsoft Support Diagnostic Tool: Konfigurovat úroveň spuštění</string>
+      <string id="WdiScenarioCategory">Microsoft Support Diagnostic Tool</string>
+      <string id="WdiScenarioExecutionPolicy">Microsoft Support Diagnostic Tool: Konfigurovat úroveň spuštění</string>
       <string id="WdiScenarioExecutionPolicyExplain">Toto nastavení zásad určuje úroveň spuštění nástroje Microsoft Support Diagnostic Tool.
 
 Nástroj MSDT (Microsoft Support Diagnostic Tool) shromažďuje diagnostické údaje pro analýzu, kterou provádějí odborníci podpory.
@@ -23,7 +23,7 @@ Aby se toto nastavení zásad projevilo, není vyžadováno restartování poč�
 
 Toto nastavení zásad se projeví pouze v případě, že bude spuštěna služba DPS (Diagnostic Policy Service). Pokud je služba zastavena nebo zakázána, nebudou scénáře diagnostiky spuštěny. Službu DPS lze konfigurovat pomocí modulu snap-in Služby v konzole MMC (Microsoft Management Console).</string>
 
-      <string id="MsdtToolDownloadPolicy">Nástroj Microsoft Support Diagnostic Tool: Omezit stahování nástrojů</string>
+      <string id="MsdtToolDownloadPolicy">Microsoft Support Diagnostic Tool: Omezit stahování nástrojů</string>
       <string id="MsdtToolDownloadPolicyExplain">Toto nastavení zásad omezí zásadu pro stahování nástrojů pro nástroj Microsoft Support Diagnostic Tool.
 
 Nástroj MSDT (Microsoft Support Diagnostic Tool) shromažďuje diagnostické údaje pro analýzu, kterou provádějí odborníci podpory.  U některých problémů nástroj MSDT může vyzvat uživatele, aby pro odstranění problému stáhnul další nástroje.
@@ -59,10 +59,41 @@ Aby se toto nastavení zásad projevilo, není vyžadováno restartování poč�
 
 
 </string>
+<string id="TroubleshootingAllowRecommendations">Poradce při potížích: Povolit uživatelům přístup k doporučeným řešením známých problémů</string>
+<string id="TroubleshootingAllowRecommendationsExplain">Nastavení této zásady určuje způsob použití doporučených postupů pro řešení známých problémů u zařízení a umožňuje správcům příslušnou konfiguraci v jejich doménách nebo IT prostředích.
+Pokud toto nastavení nenakonfigurujete, umožníte uživateli, aby si nakonfiguroval, jestli a jak se mají doporučené postupy pro řešení problémů používat.
+
+Při povolení této zásady můžete nakonfigurovat, jak se budou doporučené postupy pro řešení problémů používat u zařízení uživatele. Můžete vybrat jednu z následujících hodnot:
+0 = Vypnout tuto funkci
+1 = Vypnout tuto funkci, ale přesto používat kriticky důležité postupy pro řešení problémů
+2 = Upozornit uživatele, že je k dispozici doporučený postup pro řešení problémů, ale pak nechat na něm, jestli ho spustí, nebo bude ignorovat
+3 = Spustit doporučený postup pro řešení problémů automaticky a po jeho úspěšném doběhnutí upozornit uživatele
+4 = Spustit doporučený postup pro řešení problémů automaticky bez upozornění uživatele
+5 = Umožnit uživateli zvolit si vlastní nastavení pro doporučené postupy pro řešení problémů
+
+Po nastavení této nové zásady můžete doporučené postupy pro řešení problémů u zařízení ve vaší doméně spouštět podle následujících pokynů:
+1. Vytvořte skript bat s následujícím obsahem:
+rem Následující dávkový skript spustí doporučené postupy pro řešení problémů
+C:\Windows\System32\mitigationscanner.exe
+
+2. Pokud chcete vytvořit novou okamžitou úlohu, přejděte na Editor pro správu zásad skupiny &gt; Konfigurace počítače &gt; Předvolby a vyberte Nastavení ovládacích panelů. 
+3. V části Nastavení ovládacích panelů klikněte pravým tlačítkem myši na Naplánované úlohy a vyberte Nová. Vyberte možnost Okamžitá úloha (alespoň Windows 7).
+4. Zadejte odpovídající název a popis a potom v části Možnosti zabezpečení nastavte uživatelský účet na hodnotu Systém a zaškrtněte políčko Spustit s nejvyššími oprávněními.
+5. Na kartě Akce vytvořte novou akci, jako její typ vyberte možnost Spustit program a potom zadejte soubor vytvořený v kroku 1.
+6. Nakonfigurujte úlohu pro nasazení do vaší domény.</string>
+<string id="RecommendationsDropDown_DoNothing">Tuto funkci vypnout</string>
+<string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">Vypnout tuto funkci, ale přesto používat kriticky důležité postupy pro řešení problémů</string>
+<string id="RecommendationsDropDown_AskFirst">Upozornit uživatele, že je k dispozici doporučený postup pro řešení problémů, ale pak nechat na něm, jestli ho spustí, nebo bude ignorovat</string>
+<string id="RecommendationsDropDown_ApplyThenNotify">Spustit doporučený postup pro řešení problémů automaticky a po jeho úspěšném doběhnutí upozornit uživatele</string>
+<string id="RecommendationsDropDown_ApplySilently">Spustit doporučený postup pro řešení problémů automaticky bez upozornění uživatele</string>
+<string id="RecommendationsDropDown_DeferToUser">Umožnit uživateli zvolit si vlastní nastavení pro doporučené postupy pro řešení problémů</string>
     </stringTable>
     <presentationTable>
       <presentation id="MsdtToolDownloadPolicy">
         <dropdownList refId="MsdtToolDownloadPolicyLevel" noSort="true" defaultItem="1">Stahování nástrojů povoleno</dropdownList>
+      </presentation>
+      <presentation id="TroubleshootingAllowRecommendations">
+        <dropdownList refId="TroubleshootingAllowRecommendations_Dropdown" noSort="true" defaultItem="0">Povolit řešení známých problémů podle postupů doporučených Microsoftem</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

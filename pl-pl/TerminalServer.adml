@@ -5,7 +5,7 @@
   <description>tutaj wprowadź opis</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">Co najmniej Windows 10 lub Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">Co najmniej Windows 10 lub Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Co najmniej system Windows 8 lub Windows RT</string>
       <string id="TS_SUPPORTED_Windows8_Server">Co najmniej Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Co najmniej Windows 8 Enterprise lub Windows Server 2012</string>
@@ -143,6 +143,7 @@ Jeśli to ustawienie zasad nie zostanie skonfigurowane, przekierowywanie dysków
       <string id="TS_CLIENT_HELP">Steruje ustawieniami klienta usługi Podłączanie pulpitu zdalnego</string>
       <string id="TS_CLIENT_LPT">Nie zezwalaj na przekierowywanie portu LPT</string>
       <string id="TS_CLIENT_PNP">Nie zezwalaj na przekierowywanie obsługiwanego urządzenia Plug and Play</string>
+      <string id="TS_CAMERA_REDIRECTION">Nie zezwalaj na przekierowywanie przechwytywania wideo</string>
       <string id="TS_CLIENT_PRINTER">Nie zezwalaj na przekierowywanie drukarek klienta</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">To ustawienie zasad określa, czy należy zapobiegać udostępnianiu zawartości schowka (przekierowywaniu schowka) między komputerem zdalnym a komputerem klienckim w trakcie sesji usług pulpitu zdalnego.
 
@@ -197,6 +198,15 @@ Jeśli to ustawienie zasad zostanie wyłączone, użytkownicy będą mogli przek
 Jeśli to ustawienie zasad zostanie włączone, użytkownicy nie będą mogli przekierowywać obsługiwanych urządzeń Plug and Play do komputera zdalnego. Jeśli to ustawienie zasad nie zostanie skonfigurowane, użytkownicy będą mogli przekierowywać obsługiwane urządzenia Plug and Play do komputera zdalnego tylko wtedy, gdy korzysta on z systemu Windows Server 2012 R2 lub starszego.
 
 Uwaga: za pomocą ustawień zasad Konfiguracja komputera\Szablony administracyjne\System\Instalacja urządzeń\Ograniczenia instalacji urządzeń można wyłączyć przekierowywanie określonych typów obsługiwanych urządzeń Plug and Play.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">To ustawienie zasad umożliwia sterowanie przekierowywaniem urządzeń przechwytywania wideo do komputera zdalnego w sesji usług pulpitu zdalnego. 
+
+Domyślnie usługi pulpitu zdalnego zezwalają na przekierowywanie urządzeń przechwytywania wideo.
+
+Jeśli włączysz to ustawienie zasad, użytkownicy nie będą mogli przekierowywać swoich urządzeń przechwytywania wideo do komputera zdalnego. 
+
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, użytkownicy będą mogli przekierowywać swoje urządzenia przechwytywania wideo do komputera zdalnego. Użytkownicy mogą użyć przycisku Więcej opcji na karcie Zasoby lokalne w oknie Podłączanie pulpitu zdalnego, aby wybrać urządzenia przechwytywania wideo, które będą przekierowywane do komputera zdalnego.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">To ustawienie zasad umożliwia ograniczenie liczby monitorów, na których użytkownik może wyświetlać sesję usług pulpitu zdalnego. Ograniczenie liczby monitorów używanych do wyświetlania sesji usług pulpitu zdalnego umożliwia zwiększenie wydajności połączenia, zwłaszcza w przypadku powolnych łączy, i zmniejszenie obciążenia serwera.
@@ -320,12 +330,13 @@ Uwaga: Sesja konsoli jest nazywana również sesją 0. Dostęp do konsoli można
       <string id="TS_GATEWAY_BASIC">Pytaj o poświadczenia, użyj protokołu podstawowego</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Użyj lokalnie zalogowanych poświadczeń</string>
       <string id="TS_GATEWAY_NTLM">Pytaj o poświadczenia, użyj protokołu NTLM</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Pytaj o poświadczenia, użyj protokołu negocjacji</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Ustaw metodę uwierzytelniania bramy usług pulpitu zdalnego</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Określa metodę uwierzytelniania, która musi zostać użyta przez klientów przy próbie nawiązania połączenia z serwerem hosta sesji pulpitu zdalnego za pośrednictwem serwera bramy usług pulpitu zdalnego. Można wymusić to ustawienie zasad lub pozwolić użytkownikom na zastąpienie go. Domyślnie włączenie tego ustawienia zasad powoduje jego wymuszenie. Gdy to ustawienie zasad jest wymuszane, użytkownicy nie mogą go zastąpić, nawet jeśli wybiorą opcję Użyj następujących ustawień serwera bramy usług pulpitu zdalnego na kliencie.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Określa metodę uwierzytelniania, której klienci muszą używać przy próbie nawiązania połączenia z serwerem hosta sesji pulpitu zdalnego za pośrednictwem serwera bramy usług pulpitu zdalnego. Można wymusić to ustawienie zasad lub zezwolić użytkownikom na zastąpienie go. Domyślnie włączenie tego ustawienia zasad powoduje jego wymuszenie. Gdy to ustawienie zasad jest wymuszane, użytkownicy nie mogą go zastąpić, nawet jeśli wybiorą opcję Użyj następujących ustawień serwera bramy usług pulpitu zdalnego na kliencie.
 
-Aby zezwolić użytkownikom na zastąpienie tego ustawienia zasad, zaznacz pole wyboru Umożliwienie zmieniania tego ustawienia przez użytkowników. Użytkownicy będą mogli wtedy określić alternatywną metodę uwierzytelniania przez skonfigurowanie ustawień klienta lub przez użycie pliku RDP bądź skryptu HTML. Jeżeli użytkownicy nie określą alternatywnej metody uwierzytelniania, domyślnie zostanie użyta metoda uwierzytelniania określona w ustawieniu zasad.
+Aby zezwolić użytkownikom na zastąpienie tego ustawienia zasad, zaznacz pole wyboru Umożliwienie zmieniania tego ustawienia przez użytkowników. Użytkownicy będą mogli wtedy określić alternatywną metodę uwierzytelniania, konfigurując ustawienia klienta lub używając pliku RDP bądź skryptu HTML. Jeżeli użytkownicy nie określą alternatywnej metody uwierzytelniania, domyślnie będzie używana metoda uwierzytelniania określona w tym ustawieniu zasad.
 
-Gdy to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, zostanie użyta metoda uwierzytelniania określona przez użytkownika (jeśli jest taka). Jeżeli metoda uwierzytelniania nie została określona, do uwierzytelniania będzie można używać protokołu NTLM włączonego na komputerze klienckim lub karty inteligentnej.</string>
+Jeśli wyłączysz to ustawienie zasad lub go nie skonfigurujesz, będzie używana metoda uwierzytelniania określona przez użytkownika, o ile ją określił. Jeśli metoda uwierzytelnianie nie zostanie określona, na potrzeby uwierzytelniania będzie używany protokół negocjacji włączony na kliencie albo karta inteligentna.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Włącz połączenie przez bramę usług pulpitu zdalnego</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Jeżeli to ustawienie zasad zostanie włączone, to gdy usługa Podłączanie pulpitu zdalnego nie może połączyć się bezpośrednio z komputerem zdalnym (serwerem hosta sesji pulpitu zdalnego lub komputerem z włączoną funkcją Pulpit zdalny), klienci będą podejmować próby nawiązania połączenia z komputerem zdalnym za pośrednictwem serwera bramy usług pulpitu zdalnego. W takiej sytuacji klienci będą podejmować próby nawiązania połączenia z serwerem bramy usług pulpitu zdalnego określonym w ustawieniu zasad Ustaw adres serwera bramy usług pulpitu zdalnego.
 
@@ -408,21 +419,24 @@ Jeżeli to ustawienie zasad zostanie włączone, te powiadomienia nie będą wy�
 
 Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, te powiadomienia będą wyświetlane na serwerze hosta sesji pulpitu zdalnego po zalogowaniu się administratora lokalnego.</string>
       <string id="TS_LICENSING_MODE">Ustaw tryb licencjonowania usług pulpitu zdalnego</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">To ustawienie zasad umożliwia określenie typu licencji CAL usług pulpitu zdalnego potrzebnej do nawiązania połączenia z tym serwerem hosta sesji usług pulpitu zdalnego.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        To ustawienie zasad umożliwia określenie typu licencji dostępu klienta usług pulpitu zdalnego (RDS CAL) potrzebnej do nawiązania połączenia z tym serwerem hosta sesji usług pulpitu zdalnego.
 
-Za pomocą tego ustawienia zasad można wybrać jeden z dwóch trybów licencjonowania: Na użytkownika lub Na urządzenie.
+        Za pomocą tego ustawienia zasad możesz wybrać jeden z trzech trybów licencjonowania: Na użytkownika, Na urządzenie i Usługa AAD na użytkownika.
 
-W trybie licencjonowania Na użytkownika dla każdego konta użytkownika łączącego się z tym serwerem hosta sesji usług pulpitu zdalnego jest wymagana licencja CAL usług pulpitu zdalnego na użytkownika.
+        W trybie licencjonowania Na użytkownika dla każdego konta użytkownika łączącego się z tym serwerem hosta sesji usług pulpitu zdalnego jest wymagana licencja RDS CAL na użytkownika wystawiona przez serwer licencjonowania usług pulpitu zdalnego.
 
-W trybie licencjonowania Na urządzenie dla każdego urządzenia łączącego się z tym serwerem hosta sesji usług pulpitu zdalnego jest wymagana licencja CAL usług pulpitu zdalnego na urządzenie.
+        W trybie licencjonowania Na urządzenie dla każdego urządzenia łączącego się z tym serwerem hosta sesji usług pulpitu zdalnego jest wymagana licencja RDS CAL na urządzenie wystawiona przez serwer licencjonowania usług pulpitu zdalnego.
 
-Jeżeli to ustawienie zasad zostanie włączone, określony tryb licencjonowania usług pulpitu zdalnego będzie uznawany przez serwer licencji usług pulpitu zdalnego.
+        W trybie licencjonowania Usługa AAD na użytkownika dla każdego konta użytkownika łączącego się z tym serwerem hosta sesji usług pulpitu zdalnego jest wymagany plan usług obsługujący licencje usług pulpitu zdalnego, który został przypisany w usłudze AAD.
+        
+        Jeśli włączysz to ustawienie zasad, określony tryb licencjonowania usług pulpitu zdalnego będzie uznawany przez serwer licencji usług pulpitu zdalnego i hosta sesji usług pulpitu zdalnego.
 
-Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, tryb licencjonowania nie będzie określony na poziomie zasad grupy.
-
-</string>
+        Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, tryb licencjonowania nie będzie określany na poziomie zasad grupy.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Na urządzenie</string>
       <string id="TS_LICENSING_MODE_PER_USER">Na użytkownika</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">Usługa AAD na użytkownika</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">To ustawienie zasad określa, czy uniemożliwiać przekierowywanie danych do portów LPT klienta w czasie sesji usług pulpitu zdalnego.
 
 Za pomocą tego ustawienia można uniemożliwić użytkownikom mapowanie lokalnych portów LPT i przekierowywanie danych z komputera zdalnego do urządzeń peryferyjnych podłączonych do lokalnych portów LPT. Domyślnie w usługach pulpitu zdalnego jest możliwe przekierowywanie portów LPT.
@@ -456,12 +470,12 @@ Jeżeli to ustawienie zasad zostanie włączone, element Rozłącz nie pojawi si
 Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, element Rozłącz nie zostanie usunięty z listy rozwijanej w oknie dialogowym Zamykanie systemu Windows.
 
 Uwaga: To ustawienie zasad dotyczy jedynie okna dialogowego Zamykanie systemu Windows. Nie zapobiega stosowaniu przez użytkowników innych metod rozłączania z sesją usług pulpitu zdalnego. To ustawienie zasad nie zapobiega również rozłączaniu sesji po stronie serwera. Za pomocą ustawienia zasad Konfiguracja komputera\Szablony administracyjne\Składniki systemu Windows\Usługi pulpitu zdalnego\Host sesji pulpitu zdalnego\Limity czasu sesji\Ustaw limit czasu dla sesji rozłączonych można określić, jak długo rozłączona sesja pozostaje aktywna na serwerze.</string>
-      <string id="TS_NoSecurityMenu">Usuń element Zabezpieczenia systemu Windows z menu Start</string>
-      <string id="TS_NoSecurityMenu_Help">Określa, czy usunąć element Zabezpieczenia systemu Windows z menu Ustawienia na komputerach klienckich usług pulpitu zdalnego. Za pomocą tego ustawienia można zapobiegać przypadkowemu wylogowywaniu się niedoświadczonych użytkowników z usług pulpitu zdalnego.
+      <string id="TS_NoSecurityMenu">Usuń element Zabezpieczenia Windows z menu Start</string>
+      <string id="TS_NoSecurityMenu_Help">Określa, czy usunąć element Zabezpieczenia Windows z menu Ustawienia na komputerach klienckich usług pulpitu zdalnego. Za pomocą tego ustawienia można zapobiegać przypadkowemu wylogowywaniu się niedoświadczonych użytkowników z usług pulpitu zdalnego.
 
-Ustawienie stanu Włączone spowoduje, że element Zabezpieczenia systemu Windows nie będzie widoczny w podmenu Ustawienia w menu Start. W rezultacie użytkownicy będą musieli wpisać sekwencję zwracającą uwagę zabezpieczeń, taką jak CTRL+ALT+END, aby otworzyć okno dialogowe Zabezpieczenia systemu Windows na komputerze klienckim.
+Ustawienie stanu Włączone spowoduje, że element Zabezpieczenia Windows nie będzie widoczny w podmenu Ustawienia w menu Start. W rezultacie użytkownicy będą musieli wpisać sekwencję zwracającą uwagę zabezpieczeń, taką jak CTRL+ALT+END, aby otworzyć okno dialogowe Zabezpieczenia Windows na komputerze klienckim.
 
-Ustawienie stanu Wyłączone lub Nieskonfigurowane spowoduje, że element Zabezpieczenia systemu Windows będzie widoczny w menu Ustawienia.</string>
+Ustawienie stanu Wyłączone lub Nieskonfigurowane spowoduje, że element Zabezpieczenia Windows będzie widoczny w menu Ustawienia.</string>
       <string id="TS_on_the_Local_machine">Na komputerze lokalnym</string>
       <string id="TS_On_the_Network">W sieci</string>
       <string id="TS_PASSWORD">Zawsze monituj o hasło po połączeniu</string>
@@ -1006,19 +1020,40 @@ Jeśli to ustawienie zasad zostanie wyłączone, w programach RemoteApp opubliko
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">Użyj sterownika karty graficznej WDDM dla połączeń usług pulpitu zdalnego</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">To ustawienie zasad umożliwia włączenie obsługi sterownika wyświetlania grafiki WDDM dla połączeń usług pulpitu zdalnego.
+
+Jeśli włączysz to ustawienie zasad, w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki WDDM.
+
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, w połączeniach usług pulpitu zdalnego NIE będzie używany sterownik wyświetlania grafiki WDDM. W takim przypadku w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki XDDM.
+
+Aby ta zmiana zaczęła obowiązywać, musisz uruchomić ponownie system Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">To ustawienie zasad umożliwia włączenie obsługi sterownika wyświetlania grafiki WDDM dla połączeń usług pulpitu zdalnego.
+
+Jeśli włączysz to ustawienie zasad albo go nie skonfigurujesz, w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki WDDM.
+
+Jeśli wyłączysz to ustawienie zasad, w połączeniach usług pulpitu zdalnego NIE będzie używany sterownik wyświetlania grafiki WDDM. W takim przypadku w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki XDDM.
+
+Aby ta zmiana zaczęła obowiązywać, musisz uruchomić ponownie system Windows.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">To ustawienie zasad umożliwia włączenie obsługi sterownika wyświetlania grafiki WDDM dla połączeń usług pulpitu zdalnego.
+
+Jeśli włączysz to ustawienie zasad, w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki WDDM.
+
+Jeśli wyłączysz to ustawienie zasad, w połączeniach usług pulpitu zdalnego NIE będzie używany sterownik wyświetlania grafiki WDDM. W takim przypadku w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki XDDM.
+
+Jeśli nie skonfigurujesz tego ustawienia zasad, w połączeniach usług pulpitu zdalnego na serwerze hosta sesji usług pulpitu zdalnego NIE będzie używany sterownik wyświetlania grafiki WDDM. We wszystkich innych przypadkach w połączeniach usług pulpitu zdalnego będzie używany sterownik wyświetlania grafiki WDDM.
+
+Aby ta zmiana zaczęła obowiązywać, musisz uruchomić ponownie system Windows.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Konfiguruj kodowanie sprzętowe H.264/AVC dla połączeń usług pulpitu zdalnego</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">To ustawienie zasad umożliwia włączenie obsługi kodowania sprzętowego H.264/AVC dla połączeń usług pulpitu zdalnego. Jeśli kodowanie sprzętowe zostanie włączone, to w przypadku wystąpienia błędu zostanie podjęta próba użycia kodowania programowego. Jeśli te zasady zostaną wyłączone lub nie zostaną skonfigurowane, zawsze będzie używane kodowanie programowe.
-        
-W przypadku ustawienia opcji kodowania „Zawsze próbuj” usługa pulpitu zdalnego będzie zawsze próbować użyć kodowania sprzętowego H.264/AVC, gdy będzie ono dostępne. W przypadku systemu Windows Server z uruchomioną funkcją Hyper-V z włączonym procesorem vGPU z obsługą funkcji RemoteFX konieczne jest ustawienie zasad na maszynie hosta funkcji Hyper-V.
-        
-W przypadku ustawienia opcji kodowania „Próbuj tylko w przypadku maszyn wirtualnych z procesorami vGPU z obsługą funkcji RemoteFX” w systemie Windows Server z uruchomioną funkcją Hyper-V z włączonym procesorem vGPU z obsługą funkcji RemoteFX konieczne jest ustawienie zasad na maszynie hosta funkcji Hyper-V.
-        
-W przypadku ustawienia opcji kodowania „Próbuj tylko w przypadku scenariuszy z procesorami vGPU bez obsługi funkcji RemoteFX” usługa pulpitu zdalnego będzie próbować użyć kodowania sprzętowego we wszystkich scenariuszach oprócz scenariuszy z procesorami vGPU z obsługą funkcji RemoteFX.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Zawsze próbuj</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Próbuj tylko w przypadku maszyn wirtualnych z procesorami vGPU z obsługą funkcji RemoteFX</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Próbuj tylko w przypadku scenariuszy z procesorami vGPU bez obsługi funkcji RemoteFX</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">To ustawienie zasad umożliwia włączenie obsługi kodowania sprzętowego H.264/AVC dla połączeń usług pulpitu zdalnego. Jeśli włączysz kodowanie sprzętowe, to w przypadku wystąpienia błędu zostanie podjęta próba użycia kodowania programowego. Jeśli wyłączysz tę zasadę albo jej nie skonfigurujesz, zawsze będzie używane kodowanie programowe.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">W przypadku połączeń usług pulpitu zdalnego traktuj priorytetowo tryb graficzny H.264/AVC 444</string>
@@ -1169,6 +1204,18 @@ Jeśli to ustawienie zasad zostanie włączone, logowanie użytkownika zostanie 
 
 Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, ekran startowy zostanie wyświetlony, a aplikacje będą rejestrowane w tle.</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">Używaj sprzętowych kart graficznych dla wszystkich sesji usług pulpitu zdalnego</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">To ustawienie zasad umożliwia administratorom systemu zmienianie renderowania grafiki dla wszystkich sesji usług pulpitu zdalnego.
+
+Jeśli włączysz to ustawienie zasad, we wszystkich sesjach usług pulpitu zdalnego jako karta domyślna będzie używany sprzętowy moduł renderowania grafiki, a nie podstawowy sterownik renderowania firmy Microsoft.
+
+Jeśli wyłączysz to ustawienie zasad, we wszystkich sesjach usług pulpitu zdalnego jako karta domyślna będzie używany podstawowy sterownik renderowania firmy Microsoft.
+
+Jeśli nie skonfigurujesz tego ustawienia zasad, w sesjach usług pulpitu zdalnego na serwerze hosta sesji pulpitu zdalnego jako karta domyślna będzie używany podstawowy sterownik renderowania firmy Microsoft. We wszystkich pozostałych przypadkach w sesjach usług pulpitu zdalnego będzie domyślnie używany sprzętowy moduł renderowania grafiki.
+
+UWAGA: To ustawienie zasad umożliwia równoważenie obciążenia procesorów graficznych (GPU) na komputerze z zainstalowanym więcej niż jednym procesorem GPU. To ustawienie zasad nie ma wpływu na konfigurację procesora GPU sesji lokalnej.
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">
@@ -1316,9 +1363,6 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">Algorytm kompresji RDP:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Preferuj kodowanie sprzętu AVC:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Wygląd:</dropdownList>

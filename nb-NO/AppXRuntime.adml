@@ -33,13 +33,15 @@ Hvis du deaktiverer eller ikke angir denne policyinnstillingen, bruker Windows S
 Hvis du aktiverer denne policyinnstillingen, kan brukere logge på Windows Store-apper som vanligvis krever en Microsoft-konto for pålogging, med en organisasjonskonto i stedet.
 
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, må brukerne logge på med en Microsoft-konto.</string>
-      <string id="AppxRuntimeBlockHostedAppAccessWinRT">Blokker start av Windows Store-apper med API-tilgang for Windows-kjøretid fra driftet innhold.</string>
+      <string id="AppxRuntimeBlockHostedAppAccessWinRT">Blokker start av universelle Windows-apper med API-tilgang for Windows-kjøretid fra vertsbasert innhold.</string>
       <string id="AppxRuntimeBlockHostedAppAccessWinRTExplanation">
-        Denne policyinnstillingen kontrollerer om Windows Store-apper med API-tilgang for Windows-kjøretid fra nettinnhold kan startes.
+        Denne policyinnstillingen styrer om universelle Windows-apper med Windows Runtime API-tilgang direkte fra nettinnhold kan startes.
 
-        Hvis du aktiverer denne policyinnstillingen, kan ikke Windows Store-apper med API-tilgang for Windows-kjøretid fra nettinnhold startes. Windows Store-apper uten API-tilgang for Windows-kjøretid fra nettinnhold blir ikke påvirket.
+        Hvis du aktiverer denne policyinnstillingen, kan du ikke starte universelle Windows-apper som deklarerer Windows Runtime API-tilgang i ApplicationContentUriRules-delen av manifestet. Universelle Windows-apper som ikke har deklarert Windows Runtime API-tilgang i manifestet, påvirkes ikke.
 
-        Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan alle Windows Store-apper startes.
+        Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan alle universelle Windows-apper startes.
+
+        Denne policyen bør ikke aktiveres med mindre det anbefales av Microsoft som et sikkerhetstiltak, fordi det kan forårsake alvorlige problemer med appkompatibilitet.
       </string>
     </stringTable>
     <presentationTable>

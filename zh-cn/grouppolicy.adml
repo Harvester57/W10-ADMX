@@ -12,6 +12,32 @@
       <string id="FontMitigation_Off">不阻止不受信任的字体</string>
       <string id="FontMitigation_Audit">记录事件而不阻止不受信任的字体</string>
 
+	  <string id="ProcessMitigationOptions_List">进程缓解选项</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        此安全功能提供了替代单个进程 MitigationOptions 设置的方法。此功能可用于强制实施多个特定于应用程序的安全策略。应用程序名称将指定为值名称，包括扩展名。值将指定为在特定位置上有一系列标志的位字段。位可设置为0 (强制关闭设置)、1 (强制启用设置)或 ? (在进行 GPO 评估前保留现有设置值)。已识别的位位置为:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        为子进程启用数据执行保护(DEP)
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        为子进程启用 DEP-ATL 形实转换模拟。DEP-ATL 形实转换模拟使系统可以拦截源自活动模板库(ATL)形实转换层的 NX 故障。
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        为子进程启用结构化异常处理程序覆盖保护(SEHOP)。SEHOP 阻止使用结构化异常处理程序(SEH)覆盖技术的攻击。
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        强制性地址空间布局随机化(ASLR)策略按照加载时发生映像基冲突的情形强行重定基与动态基不兼容的映像。如果需要重定位，则不包含基重定位部分的映像将不会加载。
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        根据自下而上的随机化策略(包括堆栈随机选项)，随机位置可用作最低用户地址。
+
+        例如，若要启用 PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE 和 PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON，请禁用 PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF；若要将所有其他选项保留为其默认值，请指定以下值:
+        ???????????????0???????1???????1
+
+        将此处未指定的标志设置为 ? 以外的任何值将导致不确定的行为。
+</string>
+
       <string id="ResetDfsClientInfoDuringRefreshPolicy">在策略刷新期间启用 AD/DFS 域控制器同步</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">启用此设置将使组策略客户端连接到 DFS 共享用于 Active Directory 的域控制器。
 
@@ -24,21 +50,60 @@
 
 
 </string>
+      <string id="EnableCDP">在此设备上继续体验</string>
+      <string id="EnableCDP_Help">
+此策略设置确定是否允许 Windows 设备参与跨设备体验(继续体验)。
+
+如果启用此策略设置，则该 Windows 设备可以被属于同一用户的其他 Windows 设备发现，并且可以参与跨设备体验。
+
+如果禁用此策略设置，则该 Windows 设备无法被其他设备发现，并且无法参与跨设备体验。
+
+如果未配置此策略设置，则默认行为取决于 Windows 版本。对此策略的更改将在重新启动后生效。
+      </string>
+      <string id="EnableMMX">此设备上的手机-电脑链接</string>
+      <string id="EnableMMX_Help">
+此策略允许 IT 管理员关闭将手机与电脑相链接的功能，该功能支持通过手机和电脑之间的链接继续阅读、收发电子邮件和其他任务。
+
+如果启用此策略设置，Windows 设备将能够注册手机-电脑链接功能，从而继续在电脑上的体验。
+
+如果禁用此策略设置，Windows 设备将无法链接到手机，从所有链接的手机的设备列表中消失，并且不能继续电脑上的体验。
+
+如果不配置此策略设置，默认行为将取决于 Windows 版本。对此策略的更改将在重启后生效。
+      </string>
+      <string id="EnableAppUriHandlers">配置包含应用 URI 处理程序的 Web 到应用链接</string>
+      <string id="EnableAppUriHandlers_Help">
+此策略设置确定 Windows 是否支持包含应用 URI 处理程序的 Web 到应用链接。
+
+启用此策略设置将会启用 Web 到应用链接，以便可以使用 http(s) URI 来启动应用。
+
+禁用此策略将会禁用 Web 到应用链接，并会在默认浏览器中打开 http(s) URI 而不是启动相关应用。
+
+如果不配置此策略设置，则默认行为取决于 Windows 版本。对此策略进行的更改将会在重新启动后生效。
+      </string>
+      <string id="Fonts">字体</string>
+      <string id="EnableFontProviders">启用字体提供程序</string>
+      <string id="EnableFontProviders_Help">
+        此策略设置确定 Windows 是否可以从联机字体提供程序下载字体和字体目录数据。
+
+        如果启用此策略设置，则 Windows 将定期查询联机字体提供程序，以确定是否有新的字体目录可用。如果需要设置文本格式或呈现文本，Windows 还可以下载字体数据。
+
+        如果禁用此策略设置，则 Windows 不会连接到联机字体提供程序，仅会枚举本地安装的字体。
+
+        如果未配置此策略设置，则默认行为取决于 Windows 版本。对此策略的更改将在重启后生效。
+      </string>
       <string id="EnableLogonOptimization">配置组策略缓存</string>
       <string id="EnableLogonOptimization_Help">
-        
-        通过此策略设置，可以配置组策略缓存行为。
-        
-        如果启用或未配置此策略设置，则组策略会在每个后台处理会话后缓存策略信息。此缓存会保存相应的 GPO 和其中包含的设置。当组策略在同步前台模式下运行时，它会引用此缓存，从而使组策略的运行速度更快。当读取缓存时，组策略会尝试联系登录域控制器以确定链接速度。当组策略在后台模式或异步前台模式下运行时，它会继续下载最新版本的策略信息，并使用估计带宽值确定慢速链接阈值。（参阅“配置组策略慢速链接检测”策略设置以配置异步前台行为。）
-        
-        此策略设置中定义的慢速链接值决定了组策略在将链接速度报告为慢速前已等待域控制器响应的时间。默认值为 500 毫秒。
-        
-        此策略设置中定义的超时值决定了组策略在确定无网络连接前已等待域控制器响应的时间。该操作将停止当前的组策略处理。下次与域控制器建立连接后，组策略会在后台运行。将此值设置过高可能会导致在启动或登录时用户等待的时间更长。默认值为 5000 毫秒。
-        
-        如果禁用此策略设置，则组策略客户端不会缓存相应的 GPO 或这些 GPO 中包含的设置。当组策略同步运行时，它会从网络下载最新版本的策略，并使用估计带宽值确定慢速链接阈值。（参阅“配置组策略慢速链接检测”策略设置以配置异步前台行为。）
-      
+        此策略设置允许你配置组策略缓存行为。
+
+        如果启用或不配置此策略设置，那么组策略将在每次后台处理会话完成后缓存策略信息。此缓存会保存相应的 GPO 和其中包含的设置。当组策略在同步前台模式下运行时，它会引用此缓存，从而使组策略的运行速度更快。当读取缓存时，组策略会尝试联系登录域控制器以确定链接速度。当组策略在后台模式或异步前台模式下运行时，它会继续下载最新版本的策略信息，并使用估计带宽值确定慢速链接阈值。(请参阅“配置组策略慢速链接检测”策略设置以配置异步前台行为。)
+
+        此策略设置中定义的慢速链接值决定了组策略在将链接速度报告为慢速前等待域控制器响应的时间。默认值为 500 毫秒。
+
+        此策略设置中定义的超时值决定了组策略在确定无网络连接前等待域控制器响应的时间。该操作将停止当前的组策略处理。下次与域控制器建立连接后，组策略会在后台运行。将此值设置过高可能会导致在启动或登录时用户等待时间更长。默认值为 5000 毫秒。
+
+        如果禁用此策略设置，那么组策略客户端将不会缓存适用的 GPO 或这些 GPO 内包含的设置。当组策略同步运行时，它会从网络下载最新版本的策略，并使用估计带宽值确定慢速链接阈值。(请参阅“配置组策略慢速链接检测”策略设置以配置异步前台行为。)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">为服务器启用组策略缓存</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -49,54 +114,49 @@
         如果禁用或不配置此策略设置，那么组策略客户端将不会缓存适用的 GPO 或这些 GPO 内包含的设置。当组策略同步运行时，它会从网络下载最新版本的策略，并使用估计带宽值确定慢速链接阈值。（参阅“配置组策略慢速链接检测”策略设置以配置异步前台行为。）
       
       </string>
-      
+
       <string id="LogonScriptDelay">配置登录脚本延迟</string>
       <string id="LogonScriptDelay_Help">
-        
-        输入“0”可禁用登录脚本延迟。
-        
+        输入 "0" 可禁用登录脚本延迟。
+
         通过此策略设置，可以配置组策略客户端在登录后运行脚本之前等待的时间。
-        
-        默认情况下，组策略客户端在运行登录脚本之前会等待 5 分钟。这有助于通过阻止磁盘争用来创建具有良好响应性的桌面环境。
-        
+
+        默认情况下，组策略客户端在运行登录脚本之前会等待 5 分钟。这有助于阻止磁盘争用，创建具有良好响应性的桌面环境。
+
         如果启用此策略设置，组策略会在运行登录脚本前等待指定的时间长度。
-        
+
         如果禁用此策略设置，组策略会在登录后立即运行脚本。
-        
+
         如果未配置此策略设置，则组策略会在运行登录脚本前等待 5 分钟。
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">将直接访问连接配置为快速网络连接</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">使用此策略设置，管理员可定义被视为应用和更新组策略时所用的快速网络连接的直接访问连接。
- 
-在组策略检测直接访问连接的带宽速度这一过程中，有时检测会无法提供任何带宽速度信息。如果组策略检测到带宽速度，它将遵循标准规则来评估直接访问连接是快速还是慢速网络连接。如果未检测到带宽速度，则组策略将默认使用慢速网络连接。使用此策略设置，管理员可以选择在未能确定网络带宽速度时替代默认使用慢速网络连接的设置，而改为默认使用快速网络连接。
- 
-注意: 组策略检测到慢速网络连接时，组策略将仅处理那些配置为通过慢速链接(慢速网络连接)处理的客户端扩展。 
- 
-如果启用此策略，当组策略无法确定直接访问的带宽速度时，组策略会将网络连接评估为快速链接，并处理所有客户端扩展。
- 
-如果禁用或未配置此设置，组策略会将网络连接评估为慢速链接，并仅处理那些配置为通过慢速链接处理的客户端扩展。
-          
-      
-          
+      <string id="SlowLinkDefaultForDirectAccess_Help">使用此策略设置，管理员可定义直接访问连接是否为快速网络连接，以应用和更新组策略。
+
+当组策略检测直接访问连接的带宽速度时，有时检测无法提供任何带宽速度信息。如果组策略检测到带宽速度，它将遵循标准规则来评估直接访问连接是快速还是慢速网络连接。如果未检测到带宽速度，则组策略将默认使用慢速网络连接。使用此策略设置，管理员可以选择在未能确定网络带宽速度时替代默认使用慢速网络连接的设置，而改为默认使用快速网络连接。
+
+注意:当组策略检测到慢速网络连接时，将仅处理配置为通过慢速链接(慢速网络连接)处理的客户端扩展。
+
+如果启用此策略，当组策略无法确定直接访问的带宽速度时，会将网络连接评估为快速链接，并处理所有客户端扩展。
+
+如果禁用或未配置此设置，组策略会将网络连接评估为慢速链接，并仅处理配置为通过慢速链接处理的客户端扩展。
+
       </string>
      <string id="SlowlinkDefaultToAsync">检测到慢速网络连接时，将组策略处理更改为异步运行。</string>
-      <string id="SlowlinkDefaultToAsync_Help">检测到慢速网络连接时，此策略指导组策略处理跳过处理要求异步处理(即计算机是否在启动和用户登录期间等待网络完全初始化)的任何客户端扩展。 
- 
+      <string id="SlowlinkDefaultToAsync_Help">检测到慢速网络连接时，此策略将指示组策略处理跳过处理要求同步处理(即计算机是否在启动和用户登录期间等待网络完全初始化)的任何客户端扩展。
+
 如果启用此策略设置，则检测到慢速网络连接时，组策略处理始终将以异步方式运行。
 客户端计算机不会在启动和登录时等待网络完全初始化。现有用户将使用缓存的凭据来登录，
-这可缩短登录时间。网络可用之后，组策略将在后台应用。  
-注意，因为采用后台刷新的方式，所以不会应用软件安装、文件夹重定向和驱动器
-映射首选项扩展等要求异步处理的扩展。
- 
-注意: 即使启用此策略设置，仍存在两种导致异步处理组策略的情况：
+这可缩短登录时间。网络可用之后，组策略将在后台应用。
+注意，因为采用后台刷新的方式，所以不会应用软件安装、文件夹重定向
+
+和驱动器映射首选项扩展等要求同步处理的扩展。
+
+注意:即使启用此策略设置，仍存在两种导致同步处理组策略的情况:
 1 - 客户端计算机在加入域之后首次启动。
 2 - 启用了组策略“在计算机启动和登录时始终等待网络”。
- 
-如果禁用或未配置此策略设置，检测慢速网络连接将不影响组策略处理采用同步还是异步方式。
 
-      
+如果禁用或未配置此策略设置，检测慢速网络连接将不影响组策略处理采用同步还是异步方式。
 
       </string>
       <string id="DisableLGPOProcessing">关闭本地组策略对象处理</string>
@@ -117,7 +177,7 @@
 如果启用此策略设置，组策略将使用此管理配置的最大等待时间并替代任何默认或系统计算的等待时间。
 
 如果禁用或未配置此策略设置，则在运行 Windows Vista 操作系统的计算机上，组策略将使用 30 秒的默认等待时间。
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">允许跨林的用户策略和漫游用户配置文件</string>
@@ -491,6 +551,12 @@ RSoP 记录有关已应用到客户端的组策略设置的信息。此信息中
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">缓解选项</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">进程缓解选项</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Windows 字体缓存服务应可以从联机字体提供程序下载字体和字体目录数据。</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">慢速链接值:[数字字段] 毫秒</decimalTextBox>

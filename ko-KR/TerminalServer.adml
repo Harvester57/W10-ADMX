@@ -143,6 +143,7 @@ Windows Server 2008 R2를 실행하는 컴퓨터에 연결할 경우 기본적�
       <string id="TS_CLIENT_HELP">원격 데스크톱 연결 클라이언트 설정 제어</string>
       <string id="TS_CLIENT_LPT">LPT 포트 리디렉션을 허용하지 않음</string>
       <string id="TS_CLIENT_PNP">지원되는 플러그 앤 플레이 장치 리디렉션 허용 안 함</string>
+      <string id="TS_CAMERA_REDIRECTION">비디오 캡처 리디렉션 허용 안 함</string>
       <string id="TS_CLIENT_PRINTER">클라이언트 프린터의 리디렉션을 허용하지 않음</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">이 정책 설정은 원격 데스크톱 서비스 세션 중에 원격 컴퓨터와 클라이언트 컴퓨터 간에 클립보드 내용을 공유(클립보드 리디렉션)하지 않도록 할지 여부를 지정합니다.
 
@@ -197,6 +198,15 @@ c.	클라이언트가 요구하는 값
 이 정책 설정을 사용하면 사용자가 지원되는 플러그 앤 플레이 장치를 원격 컴퓨터로 리디렉션할 수 없습니다. 이 정책 설정을 구성하지 않으면 사용자가 지원되는 플러그 앤 플레이 장치를 Windows Server 2012 R2 이전 버전이 실행되는 원격 컴퓨터로만 리디렉션할 수 있습니다.
 
 참고: 컴퓨터 구성\관리 템플릿\시스템\장치 설치\장치 설치 제한 정책 설정을 사용하여 특정 유형의 지원되는 플러그 앤 플레이 장치의 리디렉션을 허용하지 않을 수 있습니다.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">이 정책 설정을 통해 원격 데스크톱 서비스 세션에서 원격 컴퓨터로 비디오 캡처 장치를 리디렉션할 수 있습니다. 
+
+기본적으로 원격 데스크톱 서비스는 비디오 캡처 장치의 리디렉션을 허용하지 않습니다.
+
+이 정책 설정을 사용하면 사용자가 비디오 캡처 장치를 원격 컴퓨터로 리디렉션할 수 없습니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 비디오 캡처 장치를 원격 컴퓨터로 리디렉션할 수 있습니다. 사용자는 원격 데스크톱 연결의 로컬 리소스 탭에 있는 추가 옵션을 사용하여 원격 컴퓨터로 리디렉션할 비디오 캡처 장치를 선택할 수 있습니다.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">이 정책 설정으로 사용자가 원격 데스크톱 서비스 세션을 표시하는 데 사용할 수 있는 모니터의 수를 제한할 수 있습니다. 원격 데스크톱 서비스 세션을 표시하는 모니터의 수를 제한하면 특히 연결 속도가 느릴 경우 연결 성능을 높일 수 있으며 서버 부하를 줄일 수 있습니다.
@@ -318,12 +328,13 @@ RD 세션 호스트 서버 대체 프린터 드라이버는 기본적으로 사�
       <string id="TS_GATEWAY_BASIC">자격 증명을 요청하며 기본 프로토콜 사용</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">로컬로 로그온한 자격 증명 사용</string>
       <string id="TS_GATEWAY_NTLM">자격 증명을 요청하며 NTLM 프로토콜 사용</string>
+      <string id="TS_GATEWAY_NEGOTIATE">자격 증명을 요청하며 협상 프로토콜 사용</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">TS 게이트웨이 인증 방법 설정</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">RD 게이트웨이 서버를 통해 RD 세션 호스트 서버에 연결하려 할 때 클라이언트에서 사용해야 하는 인증 방법을 지정합니다. 이 정책 설정을 적용하거나 사용자가 이 정책 설정을 덮어쓰도록 할 수 있습니다. 이 정책 설정을 사용하면 기본적으로 해당 설정이 적용됩니다. 이 정책 설정이 적용되면 사용자가 클라이언트에서 "이 RD 게이트웨이 서버 설정 사용" 옵션을 선택하더라도 이 설정을 무시할 수 없습니다.
 
 사용자가 이 정책 설정을 덮어쓸 수 있도록 하려면 "사용자가 이 설정을 변경하도록 허용" 확인란을 선택합니다. 이 확인란을 선택하면 사용자가 클라이언트에서 설정을 구성하거나 RDP 파일 또는 HTML 스크립트를 사용하여 대체 인증 방법을 지정할 수 있습니다. 사용자가 대체 인증 방법을 지정하지 않으면 기본적으로 이 정책 설정에서 지정하는 인증 방법이 사용됩니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 지정한 인증 방법(인증 방법이 지정된 경우)이 사용됩니다. 인증 방법이 지정되지 않은 경우 클라이언트에서 사용하는 NTLM 프로토콜 또는 스마트 카드가 인증에 사용됩니다.</string>
+이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 지정한 인증 방법(인증 방법이 지정된 경우)이 사용됩니다. 인증 방법이 지정되지 않은 경우 클라이언트에서 사용하는 협상 프로토콜 또는 스마트 카드가 인증에 사용됩니다.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">TS 게이트웨이를 통한 연결 사용</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">이 정책 설정을 사용하면 원격 데스크톱 연결에서 원격 컴퓨터(RD 세션 호스트 서버 또는 원격 데스크톱을 사용하는 컴퓨터)에 직접 연결할 수 없는 경우 클라이언트는 RD 게이트웨이 서버를 통해 원격 컴퓨터에 연결하려고 시도합니다. 이 경우 클라이언트는 "RD 게이트웨이 서버 주소 설정" 정책 설정에 지정된 RD 게이트웨이 서버에 연결하려고 시도합니다.
 
@@ -406,21 +417,24 @@ RDS 끝점 서버 그룹은 기본적으로 비어 있습니다.
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 로컬 관리자로 로그온한 후 RD 세션 호스트 서버에 이러한 알림이 표시됩니다.</string>
       <string id="TS_LICENSING_MODE">터미널 서비스 라이선스 모드 설정</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">이 정책 설정으로 이 RD 세션 호스트 서버에 연결하는 데 필요한 RDS CAL(원격 데스크톱 서비스 클라이언트 액세스 라이선스) 유형을 지정할 수 있습니다.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        이 정책 설정으로 이 RD 세션 호스트 서버에 연결하는 데 필요한 RDS CAL(원격 데스크톱 서비스 클라이언트 액세스 라이선스) 유형을 지정할 수 있습니다.
 
-이 정책 설정을 통해 사용자 단위 또는 장치 단위의 두 가지 라이선스 모드 중 하나를 선택할 수 있습니다.
+        이 정책 설정을 통해 사용자 단위 또는 장치 단위의 두 가지 라이선스 모드 중 하나를 선택할 수 있습니다.
 
-사용자 단위 라이선스 모드를 사용하려면 이 RD 세션 호스트 서버에 연결하는 각 사용자 계정에 RDS 사용자 단위 CAL이 있어야 합니다.
+        사용자 단위 라이선스 모드를 사용하려면 이 RD 세션 호스트 서버에 연결하는 각 사용자 계정에 RD 라이선싱 서버에서 발급한 RDS 사용자 단위 CAL이 있어야 합니다.
 
-장치 단위 라이선스 모드를 사용하려면 이 RD 세션 호스트 서버에 연결하는 각 장치에 RDS 장치 단위 CAL이 있어야 합니다.
+        장치 단위 라이선스 모드를 사용하려면 이 RD 세션 호스트 서버에 연결하는 각 장치에 RD 라이선싱 서버에서 발급한 RDS 장치 단위 CAL이 있어야 합니다.
 
-이 정책 설정을 사용하면 지정한 원격 데스크톱 라이선싱 모드가 원격 데스크톱 라이선스 서버에서 허용됩니다.
+        AAD 사용자 단위 라이선스 모드를 사용하려면 이 RD 세션 호스트 서버에 연결하는 각 사용자 계정에 AAD에 할당된 RDS 라이선스를 지원하는 서비스 계획이 있어야 합니다.
+        
+        이 정책 설정을 사용하면 지정한 원격 데스크톱 라이선싱 모드가 원격 데스크톱 라이선스 서버에서 허용됩니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 그룹 정책 수준에서 라이선스 모드가 지정되지 않습니다.
-
-</string>
+        이 정책 설정을 사용하지 않거나 구성하지 않으면 그룹 정책 수준에서 라이선스 모드가 지정되지 않습니다.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">장치 단위</string>
       <string id="TS_LICENSING_MODE_PER_USER">사용자 단위</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">사용자 단위 AAD</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">이 정책 설정은 원격 데스크톱 서비스 세션 중에 데이터를 클라이언트 LPT 포트로 리디렉션할 수 없도록 할지 여부를 지정합니다.
 
 이 설정을 사용하면 사용자가 로컬 LPT 포트를 매핑할 수 없으며 원격 컴퓨터에서 로컬 LPT 포트 주변 장치로 데이터를 리디렉션할 수 없습니다. 기본적으로 원격 데스크톱 서비스에서는 LPT 포트 리디렉션을 허용합니다.
@@ -1002,19 +1016,40 @@ RDP 압축 알고리즘을 사용하지 않도록 선택할 수도 있습니다.
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">원격 데스크톱 연결에 대해 WDDM 그래픽 디스플레이 드라이버 사용</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">이 정책 설정을 통해 원격 데스크톱 연결에 대해 WDDM 그래픽 디스플레이 드라이버를 사용하도록 설정할 수 있습니다.
+
+이 정책 설정을 사용하면 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용 하지 않습니다. 이 경우 원격 데스크톱 연결에서 XDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 변경 내용을 적용하려면 Windows를 다시 시작해야 합니다.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">이 정책 설정을 통해 원격 데스크톱 연결에 대해 WDDM 그래픽 디스플레이 드라이버를 사용하도록 설정할 수 있습니다.
+
+이 정책 설정을 사용하거나 구성하지 않으면 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 정책 설정을 사용하지 않으면 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용하지 않습니다. 이 경우 원격 데스크톱 연결에서 XDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 변경 내용을 적용하려면 Windows를 다시 시작해야 합니다.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">이 정책 설정을 통해 원격 데스크톱 연결에 대해 WDDM 그래픽 디스플레이 드라이버를 사용하도록 설정할 수 있습니다.
+
+이 정책 설정을 사용하면 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 정책 설정을 사용하지 않으면 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용하지 않습니다. 이 경우 원격 데스크톱 연결에서 XDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 정책 설정을 구성 하지 않으면 RD 세션 호스트 서버의 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용하지 않습니다. 다른 모든 경우에는 원격 데스크톱 연결에서 WDDM 그래픽 디스플레이 드라이버를 사용합니다.
+
+이 변경 내용을 적용 하려면 Windows를 다시 시작해야 합니다.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">원격 데스크톱 연결에 대한 H.264/AVC 하드웨어 인코딩 구성</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">이 정책 설정을 통해 원격 데스크톱 연결에 대한 H.264/AVC 하드웨어 인코딩 지원을 사용하도록 설정할 수 있습니다. 하드웨어 인코딩을 사용하면 오류가 발생하는 경우 소프트웨어 인코딩을 사용하려고 시도합니다. 이 정책을 사용하지 않거나 구성하지 않으면 항상 소프트웨어 인코딩을 사용합니다.
-        
-인코딩 옵션을 “항상 시도”로 설정하면 원격 데스크톱은 사용 가능한 경우 항상 H.264/AVC 하드웨어 인코딩을 사용하려고 시도합니다. RemoteFX vGPU를 사용하도록 설정된 Hyper-V를 실행하는 Windows Server의 경우 Hyper-V 호스트 컴퓨터에서 이 정책을 설정해야 합니다.
-        
-인코딩 옵션을 “RemoteFX vGPU 가상 컴퓨터에 대해서만 시도”로 설정하면 RemoteFX vGPU를 사용하도록 설정된 Hyper-V를 실행하는 Windows Server의 경우 Hyper-V 호스트 컴퓨터에서 이 정책을 설정해야 합니다.
-        
-인코딩 옵션을 “RemoteFX vGPU를 제외한 시나리오에 대해서만 시도”로 설정하면 원격 데스크톱은 RemoteFX vGPU를 제외한 모든 시나리오에 하드웨어 인코딩을 사용하려고 시도합니다.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">항상 시도</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">RemoteFX vGPU 가상 컴퓨터에 대해서만 시도</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">비 RemoteFX vGPU 시나리오에만 시도</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">이 정책 설정을 통해 원격 데스크톱 연결에 대한 H.264/AVC 하드웨어 인코딩 지원을 사용하도록 설정할 수 있습니다. 하드웨어 인코딩을 사용하면 오류가 발생하는 경우 소프트웨어 인코딩을 사용하려고 시도합니다. 이 정책을 사용하지 않거나 구성하지 않으면 항상 소프트웨어 인코딩을 사용합니다.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">원격 데스크톱 연결에 H.264/AVC 444 그래픽 모드 우선 사용</string>
@@ -1165,16 +1200,16 @@ Connect Time Detect(연결 시 검색) 및 Continuous Network Detect(연속 네�
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 시작 화면이 표시되며 앱이 백그라운드에서 등록됩니다.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Use the hardware default graphics adapter for all Remote Desktop Services sessions(모든 원격 데스크톱 서비스 세션에 하드웨어 기본 그래픽 어댑터 사용)</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">이 정책 설정을 사용하면 시스템 관리자가 모든 원격 데스크톱 서비스 세션에 대해 그래픽 렌더링을 변경할 수 있습니다.
+      <string id="TS_DX_USE_FULL_HWGPU">모든 원격 데스크톱 서비스 세션에 하드웨어 그래픽 어댑터 사용</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">이 정책 설정을 통해 시스템 관리자가 모든 원격 데스크톱 서비스 세션에 대해 그래픽 렌더링을 변경할 수 있습니다.
 
 이 정책 설정을 사용하면 모든 원격 데스크톱 서비스 세션에서 Microsoft 기본 렌더링 드라이버 대신 하드웨어 그래픽 렌더러를 기본 어댑터로 사용합니다.
 
 이 정책 설정을 사용하지 않으면 모든 원격 데스크톱 서비스 세션에서 Microsoft 기본 렌더링 드라이버를 기본 어댑터로 사용합니다.
 
-이 정책 설정을 구성하지 않으면 RD 세션 호스트 서버의 원격 데스크톱 서비스 세션에서 Microsoft 기본 렌더링 드라이버를 기본 어댑터로 사용합니다. 그 외의 모든 경우에는 원격 데스크톱 서비스 세션에서 기본적으로 하드웨어 그래픽 렌더러를 사용합니다.
+이 정책 설정을 구성하지 않으면 RD 세션 호스트 서버의 원격 데스크톱 서비스 세션에서 Microsoft 기본 렌더링 드라이버를 기본 어댑터로 사용합니다. 다른 모든 경우에 원격 데스크톱 서비스 세션 기본적으로 하드웨어 그래픽 렌더러를 사용합니다.
 
-참고: 정책 설정은 GPU(그래픽 처리 장치)가 두 개 이상 설치된 컴퓨터의 기본 GPU에만 영향을 줍니다. 모든 추가 GPU는 보조 어댑터로 간주되며 하드웨어 렌더러로 사용됩니다. 로컬 세션의 GPU 구성은 이 정책 설정의 영향을 받지 않습니다.
+참고: 정책 설정을 사용하면 둘 이상의 GPU(그래픽 처리 장치)가 설치된 컴퓨터에서 GPU의 로드 균형 조정이 가능합니다. 그래픽 gpu에는 컴퓨터에 설치된 두 개 이상의 GPU 처리 부하 분산 정책 설정을 사용합니다. 로컬 세션의 GPU 구성은 이 정책 설정의 영향을 받지 않습니다.
 </string>
       
     </stringTable>
@@ -1324,9 +1359,6 @@ Connect Time Detect(연결 시 검색) 및 Continuous Network Detect(연속 네�
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP 압축 알고리즘:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">AVC 하드웨어 인코딩 선호:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">시각적 효과:</dropdownList>

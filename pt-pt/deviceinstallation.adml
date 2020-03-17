@@ -21,7 +21,7 @@ Se desativar esta definição de política, os controladores assinados por um ce
       <string id="DeviceInstall_Classes_Allow">Permitir a instalação de dispositivos utilizando controladores que correspondem a estas classes de configuração de dispositivo</string>
       <string id="DeviceInstall_Classes_Allow_Help">Esta definição de política permite-lhe especificar uma lista de identificadores exclusivos globais (GUIDs) de classe de configuração de dispositivo para controladores de dispositivo que o Windows pode instalar. Utilize apenas esta definição de política quando a definição de política "Impedir instalação de dispositivos não descritos por outras definições de política" está ativada. Outras definições de política que impedem a instalação do dispositivo têm precedência sobre esta.
 
-Se ativar esta definição de política, o Windows pode instalar ou atualizar controladores de dispositivo cujos GUIDs de classe de configuração de dispositivo aparecem na lista criada, a menos que outra definição de política impeça especificamente a instalação (por exemplo, a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de dispositivo", a definição de política "Impedir instalação de dispositivos para estas classes de dispositivo" ou a definição de política "Impedir instalação de dispositivos amovíveis"). Se ativar esta definição de política num servidor de ambiente de trabalho remoto, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de ambiente de trabalho remoto para o servidor de ambiente de trabalho remoto.
+Se ativar esta definição de política, o Windows pode instalar ou atualizar controladores de dispositivo cujos GUIDs de classe de configuração de dispositivo aparecem na lista criada, a menos que outra definição de política impeça especificamente a instalação (por exemplo, a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de dispositivo", a definição de política "Impedir instalação de dispositivos para estas classes de dispositivo", a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDS de instância de dispositivo" ou a definição de política "Impedir instalação de dispositivos amovíveis"). Se ativar esta definição de política num servidor de ambiente de trabalho remoto, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de remote desktop para o servidor de remote desktop.
 
 Se desativar ou não configurar esta definição de política e nenhuma outra definição de política descrever o dispositivo, a definição de política "Impedir instalação de dispositivos não descritos por outras definições de política" determina se o dispositivo pode ser instalado.</string>
       <string id="DeviceInstall_Classes_Deny">Impedir a instalação de dispositivos utilizando controladores que correspondem a estas classes de configuração de dispositivo</string>
@@ -34,7 +34,7 @@ Se desativar ou não configurar esta definição de política, o Windows pode in
       <string id="DeviceInstall_IDs_Allow">Permitir instalação de dispositivos que correspondam a estes IDs de dispositivo</string>
       <string id="DeviceInstall_IDs_Allow_Help">Esta definição de política permite-lhe especificar uma lista de IDs de hardware Plug and Play e de IDs compatíveis de dispositivos que o Windows pode instalar. Utilize apenas esta definição de política quando a definição de política "Impedir instalação de dispositivos não descritos por outras definições de política" está ativada. Outras definições de política que impedem a instalação do dispositivo têm precedência sobre esta.
 
-Se ativar esta definição de política, o Windows pode instalar ou atualizar qualquer dispositivo cujo ID de hardware Plug and Play ou ID compatível aparece na lista criada, a menos que outra definição de política impeça especificamente a instalação (por exemplo, a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de dispositivo", a definição de política "Impedir instalação de dispositivos para estas classes de dispositivo" ou a definição de política "Impedir instalação de dispositivos amovíveis"). Se ativar esta definição de política num servidor de ambiente de trabalho remoto, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de ambiente de trabalho remoto para o servidor de ambiente de trabalho remoto.
+Se ativar esta definição de política, o Windows pode instalar ou atualizar qualquer dispositivo cujo ID de hardware Plug and Play ou ID compatível aparece na lista criada, a menos que outra definição de política impeça especificamente a instalação (por exemplo, a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de dispositivo", a definição de política "Impedir instalação de dispositivos para estas classes de dispositivo", a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositvo" ou a definição de política "Impedir instalação de dispositivos amovíveis"). Se ativar esta definição de política num servidor de remote desktop, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de ambiente de trabalho remoto para o servidor de remote desktop.
 
 Se desativar ou não configurar esta definição de política e nenhuma outra definição de política descrever o dispositivo, a definição de política "Impedir instalação de dispositivos não descritos por outras definições de política" determina se o dispositivo pode ser instalado.</string>
       <string id="DeviceInstall_IDs_Deny">Impedir a instalação de dispositivos que correspondam a estes IDs de dispositivo</string>
@@ -43,12 +43,24 @@ Se desativar ou não configurar esta definição de política e nenhuma outra de
 Se ativar esta definição de política, o Windows é impedido de instalar um dispositivo cujo ID de hardware ou ID compatível aparece na lista criada. Se ativar esta definição de política num servidor de ambiente de trabalho remoto, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de ambiente de trabalho remoto para o servidor de ambiente de trabalho remoto.
 
 Se desativar ou não configurar esta definição de política, os dispositivos podem ser instalados e atualizados conforme permitido ou impedido por outras definições de política.</string>
+      <string id="DeviceInstall_Instance_IDs_Allow">Permitir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo</string>
+      <string id="DeviceInstall_Instance_IDs_Allow_Help">Esta definição de política permite-lhe especificar uma lista de IDs de instância de dispositivo Plug and Play para dispositivos que o Windows pode instalar. Utilize apenas esta definição de política quando a definição de política "Impedir instalação de dispositivos não descritos por outras definições de política" está ativada. Outras definições de política que impedem a instalação do dispositivo têm precedência sobre esta.
+
+Se ativar esta definição de política, o Windows pode instalar ou atualizar qualquer dispositivo cujo ID de instância de dispositivo Plug and Play aparece na lista criada, a menos que outra definição de política impeça especificamente a instalação (por exemplo, a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de dispositivo", a definição de política "Impedir instalação de dispositivos para estas classes de dispositivo", a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo", ou a definição de política "Impedir instalação de dispositivos amovíveis"). Se ativar esta definição de política num servidor de remote desktop, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de ambiente de trabalho remoto para o servidor de remote desktop.
+
+Se desativar ou não configurar esta definição de política e nenhuma outra definição de política descrever o dispositivo, a definição de política "Impedir instalação de dispositivos não descritos por outras definições de política" determina se o dispositivo pode ser instalado.</string>
+      <string id="DeviceInstall_Instance_IDs_Deny">Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo</string>
+      <string id="DeviceInstall_Instance_IDs_Deny_Help">Esta definição de política permite-lhe especificar uma lista de IDs de instância de dispositivo Plug and Play para dispositivos que o Windows está impedido de instalar. Esta definição de política tem precedência sobre quaisquer outras definições de política que permitem ao Windows instalar um dispositivo.
+
+Se ativar esta definição de política, o Windows é impedido de instalar um dispositivo cujo ID de instância de dispositivo aparece na lista criada. Se ativar esta definição de política num servidor de remote desktop, a definição de política afeta o redirecionamento dos dispositivos especificados de um cliente de ambiente de trabalho remoto para o servidor de remote desktop.
+
+Se desativar ou não configurar esta definição de política, os dispositivos podem ser instalados e atualizados conforme permitido ou impedido por outras definições de política</string>
       <string id="DeviceInstall_InstallTimeout">Configurar tempo limite de instalação de dispositivo</string>
       <string id="DeviceInstall_InstallTimeout_Help">Esta definição de política permite configurar o número de segundos que o Windows aguarda pela conclusão de uma tarefa de instalação de dispositivo. 
 
 Se ativar esta definição de política, o Windows aguarda o número de segundos que especificar antes de terminar a instalação.
 
-Se desativar ou não configurar esta definição de política, o Windows aguarda 300 segundos pela conclusão de uma tarefa de instalação de dispositivo antes de terminar a instalação.</string>
+Se desativar ou não configurar esta definição de política, o Windows aguarda 240 segundos pela conclusão de uma tarefa de instalação de dispositivo antes de terminar a instalação.</string>
       <string id="DeviceInstall_Removable_Deny">Impedir instalação de dispositivos amovíveis</string>
       <string id="DeviceInstall_Removable_Deny_Help">Esta definição de política permite impedir o Windows de instalar dispositivos amovíveis. Um dispositivo é considerado amovível quando o controlador para o dispositivo ao qual está ligado indicar que o dispositivo é amovível. Por exemplo, um dispositivo USB (Universal Serial Bus) é reportado como amovível pelos controladores para o concentrador USB ao qual o dispositivo está ligado. Esta definição de política tem precedência sobre qualquer outra definição de política que permita ao Windows instalar um dispositivo.
 
@@ -70,11 +82,11 @@ Se ativar esta definição de política, são permitidas ligações remotas à i
 	  
 Se desativar ou não configurar esta definição de política, não são permitidas ligações remotas à interface Plug and Play.</string>
       <string id="DeviceInstall_Unspecified_Deny">Impedir instalação de dispositivos não descritos por outras definições de política</string>
-      <string id="DeviceInstall_Unspecified_Deny_Help">Esta definição de política permite impedir a instalação de dispositivos que não são especificamente descritos por qualquer outra definição de política.
+      <string id="DeviceInstall_Unspecified_Deny_Help">Esta definição de política permite-lhe impedir a instalação de dispositivos que não são especificamente descritos por qualquer outra definição de política. 
 
-Se ativar esta definição de política, o Windows é impedido de instalar ou atualizar o controlador de qualquer dispositivo que não seja descrito pela definição de política "Permitir instalação de dispositivos que correspondam a estes IDs de dispositivo" ou "Permitir instalação de dispositivos para estas classes de dispositivo".
+Se ativar esta definição de política, o Windows é impedido de instalar ou atualizar o controlador de dispositivo de qualquer dispositivo que não seja descrito pela definição de política "Permitir instalação de dispositivos que correspondam a estes IDs de dispositivo", a definição de política "Permitir instalação de dispositivos para estas classes de dispositivo" ou a definição de política "Permitir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo".
 
-Se desativar ou não configurar esta definição de política, é permitido ao Windows instalar ou atualizar o controlador para qualquer dispositivo que não seja descrito pela definição de política "Permitir instalação de dispositivos que correspondam a estes IDs de dispositivo" ou "Permitir instalação de dispositivos para estas classes de dispositivo".</string>
+Se desativar ou não configurar esta definição de política, é permitido ao Windows instalar ou atualizar o controlador de dispositivo para qualquer dispositivo que não seja descrito pela definição de política "Impedir instalação de dispositivos que correspondam a estes IDs de dispositivo", a definição de política "Impedir instalação de dispositivos para estas classes de dispositivo", a definição de política "Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo" ou a definição de política "Impedir instalação de dispositivos removíveis".</string>
       <string id="DeviceInstall_DeniedPolicy_SimpleText">Apresentar um título de mensagem personalizada quando a instalação de dispositivo é impedida por uma definição de política</string>
       <string id="DeviceInstall_DeniedPolicy_SimpleText_Help">Esta definição de política permite apresentar um título de mensagem personalizada numa notificação quando é tentada uma instalação de dispositivo e uma definição de política impede a instalação.
 
@@ -91,7 +103,7 @@ Se desativar ou não configurar esta definição de política, o Windows apresen
       <string id="DriverInstall_Classes_AllowUser">Permitir que não administradores instalem controladores para estas classes de configuração de dispositivo</string>
       <string id="DriverInstall_Classes_AllowUser_Help">Esta definição de política especifica uma lista de GUIDs de classe de configuração de dispositivo que descreve os controladores de dispositivo que os membros não administradores do grupo de Utilizadores incorporado podem instalar no sistema.
 
-Se ativar esta definição de política, os membros do grupo de Utilizadores podem instalar controladores novos para as classes de configuração de dispositivo especificadas. Os controladores têm de estar assinados de acordo com a Política de Assinatura de Controlador do Windows ou estar assinados por fabricantes já incluídos no arquivo TrustedPublisher.
+Se ativar esta definição de política, os membros do grupo de Utilizadores podem instalar controladores novos para as classes de configuração de dispositivo especificadas. Os controladores têm de estar assinados de acordo com a Política de Assinatura de Controlador do Windows ou estar assinados por editores já incluídos no arquivo TrustedPublisher.
 
 Se desativar ou não configurar esta definição de política, apenas os membros do grupo Administradores têm permissão para instalar controladores de dispositivo novos no sistema.</string>
       <string id="DriverInstall_Help">Definições de política que controlam a instalação de controladores de dispositivo no sistema.</string>
@@ -147,6 +159,19 @@ Nota: se não for forçado nenhum reinício, o direito de restrição de instala
         <text>escreva um ID de hardware Plug and Play ou um ID compatível</text>
         <text>(por exemplo, gendisk, USB\COMPOSITE, USB\Class_ff).</text>
         <checkBox refId="DeviceInstall_IDs_Deny_Retroactive">Aplique também aos dispositivos correspondentes já instalados.</checkBox>
+      </presentation>
+      <presentation id="DeviceInstall_Instance_IDs_Allow">
+        <listBox refId="DeviceInstall_Instance_IDs_Allow_List">Permitir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo:</listBox>
+        <text>Para criar uma lista de dispositivos, clique em Mostrar. Na caixa de diálogo Mostrar Conteúdo, na coluna Valor,</text>
+        <text>introduza um ID de instância de dispositivo Plug and Play</text>
+        <text>(por exemplo, USB\VID_045E&amp;&amp;PID_0123\01234567890123456789).</text>
+      </presentation>
+      <presentation id="DeviceInstall_Instance_IDs_Deny">
+        <listBox refId="DeviceInstall_Instance_IDs_Deny_List">Impedir instalação de dispositivos que correspondam a qualquer um destes IDs de instância de dispositivo:</listBox>
+        <text>Para criar uma lista de dispositivos, clique em Mostrar. Na caixa de diálogo Mostrar Conteúdo, na coluna Valor,</text>
+        <text>introduza um ID de instância de dispositivo Plug and Play</text>
+        <text>(por exemplo, USB\VID_045E&amp;&amp;PID_0123\01234567890123456789).</text>
+        <checkBox refId="DeviceInstall_Instance_IDs_Deny_Retroactive">Aplique também aos dispositivos correspondentes já instalados.</checkBox>
       </presentation>
       <presentation id="DeviceInstall_InstallTimeout">
         <decimalTextBox refId="DeviceInstall_InstallTimeout_Time" defaultValue="300" spinStep="15">Tempo Limite de Instalação de Dispositivo (em segundos)</decimalTextBox>

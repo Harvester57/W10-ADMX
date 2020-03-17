@@ -1,11 +1,15 @@
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/Policysecurity intelligence">
 <displayName>escriba aquí el nombre para mostrar</displayName>
 <description>escriba aquí la descripción</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Antivirus de Windows Defender</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Exclusiones</string>
+    <string id="ExploitGuard">Protección contra vulnerabilidades de seguridad de Windows Defender</string>
+    <string id="ExploitGuard_ASR">Reducir la superficie de ataque</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Acceso a la carpeta controlado</string>
+    <string id="ExploitGuard_NetworkProtection">Protección de red</string>
     <string id="NetworkRealtimeInspection">Sistema de inspección de red</string>
     <string id="NetworkRealtimeInspection_Exclusions">Exclusiones</string>
     <string id="Quarantine">Cuarentena</string>
@@ -13,10 +17,11 @@
     <string id="Remediation">Corrección</string>
     <string id="Reporting">Informes</string>
     <string id="Scan">Detección</string>
-    <string id="SignatureUpdate">Actualizaciones de firma</string>
+    <string id="SignatureUpdate">Actualizaciones de inteligencia de seguridad</string>
     <string id="Spynet">MAPS</string>
     <string id="Threats">Amenazas</string>
     <string id="ClientInterface">Interfaz de cliente</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Permitir que el servicio antimalware se inicie con prioridad normal</string>
     <string id="AllowFastServiceStartup_Explain">Esta configuración de directiva controla la prioridad de carga del servicio antimalware. Si se aumenta la prioridad de carga, el servicio se iniciará más rápidamente, pero esto puede repercutir en el rendimiento.
 
@@ -25,7 +30,18 @@ Si habilita o no establece esta configuración, el servicio antimalware se carga
 Si deshabilita esta configuración, el servicio antimalware se cargará como una tarea de prioridad baja.</string>
 
     <string id="DisableAutoExclusions">Desactivar las exclusiones automáticas</string>
-    <string id="DisableAutoExclusions_Explain">Permite a un administrador especificar si la característica de exclusiones automáticas para SKU de servidor debe desactivarse.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Permite a un administrador especificar si debe desactivarse la característica Exclusiones automáticas para las SKU del servidor.
+
+        Deshabilitado (predeterminado):
+        Windows Defender excluirá una lista predefinida de rutas de acceso de los exámenes para mejorar el rendimiento.
+
+        Habilitado:
+        Windows Defender no excluirá ninguna lista predefinida de rutas de acceso de los exámenes. Esta opción puede afectar al rendimiento del equipo en algunos escenarios.
+
+        No configurado:
+        Lo mismo que Deshabilitado.
+    </string>
     <string id="DisableAntiSpyware">Desactivar Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Esta configuración de directiva desactiva Endpoint Protection.
 
@@ -33,12 +49,16 @@ Si habilita esta configuración de directiva, no se ejecuta Endpoint Protection 
 
 Si deshabilita o no define esta configuración de directiva, de manera predeterminada, se ejecuta Endpoint Protection y se busca malware y otro software potencialmente no deseado en los equipos.
     </string>
-    <string id="DisableAntiSpywareDefender">Desactivar Endpoint Protection</string>
-    <string id="DisableAntiSpywareDefender_Explain">Esta configuración de directiva desactiva Endpoint Protection.
+    <string id="DisableAntiSpywareDefender">Desactivar Antivirus de Windows Defender</string>
+    <string id="DisableAntiSpywareDefender_Explain">Esta configuración de directiva desactiva el Antivirus de Windows Defender.
+    
+    Si habilitas esta configuración de directiva, no se ejecutará el Antivirus de Windows Defender y no se examinarán los equipos en busca de malware u otro software potencialmente no deseado.
 
-    Si habilita esta configuración de directiva, no se ejecuta Endpoint Protection y no se busca malware u otro software potencialmente no deseado en los equipos.
+    Si deshabilitas esta configuración de directiva, Antivirus de Windows Defender se ejecutará independientemente de cualquier otro producto antivirus instalado.
 
-Si deshabilita o no define esta configuración de directiva, de manera predeterminada, se ejecuta Endpoint Protection y se busca malware y otro software potencialmente no deseado en los equipos.</string>
+    Si no estableces esta configuración de directiva, Windows administrará de forma interna el Antivirus de Windows Defender. Si instalas otro programa antivirus, Windows deshabilitará automáticamente el Antivirus de Windows Defender. De lo contrario, el Antivirus de Windows Defender buscará malware y otro software potencialmente no deseado en los equipos.
+
+    Habilitar o deshabilitar esta directiva puede provocar un comportamiento inesperado o no admitido. Se recomienda dejar esta configuración de directiva sin configurar.</string>
     <string id="DisableLocalAdminMerge">Configurar el comportamiento de combinación de las listas de administrador local</string>
     <string id="DisableLocalAdminMerge_Explain">Esta configuración de directiva controla si la configuración de lista compleja establecida por un administrador local se va a combinar con la configuración de la directiva de grupo. Esta configuración es válida en listas como las amenazas y las exclusiones.
 
@@ -47,11 +67,11 @@ Si habilita o no establece esta configuración, los elementos únicos definidos 
 Si deshabilita esta configuración, la directiva vigente resultante solo usará los elementos definidos en la directiva de grupo. La configuración de directiva de grupo reemplazará la configuración de preferencias establecida por el administrador local.</string>
     <string id="DisableRoutinelyTakingAction">Desactivar corrección de rutina</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Esta configuración de directiva permite configurar si Endpoint Protection automáticamente lleva a cabo acciones en todas las amenazas detectadas. La acción que debe tomarse en una amenaza determinada está determinada por la combinación de la acción definida por la directiva, la acción definida por el usuario y la acción definida por la firma.
+    Esta configuración de directiva permite configurar si Antivirus de Windows Defender realiza automáticamente acciones en todas las amenazas detectadas. La acción que debe realizarse en una amenaza en concreto está determinada por la combinación de la acción definida por la directiva, la acción definida por el usuario y la acción definida por la firma.
 
-Si habilita a esta configuración de directiva, Endpoint Protection no automáticamente actuar en las amenazas detectadas, pero avisa a los usuarios para elegir entre las acciones disponibles para cada amenaza.
+    Si habilitas esta configuración de directiva, Antivirus de Windows Defender no realizará ninguna acción automáticamente en las amenazas detectadas, sino que pedirá a los usuarios que elijan una de las acciones disponibles para cada amenaza.
 
-    Si deshabilita o no establece esta configuración de directiva, Endpoint Protection automáticamente lleva a cabo acciones en todas las amenazas detectadas tras un retraso configurable de aproximadamente cinco segundos.</string>
+    Si deshabilitas o no estableces esta configuración de directiva, Antivirus de Windows Defender realizará automáticamente acciones en todas las amenazas detectadas tras un retraso no configurable de aproximadamente cinco segundos.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Esta configuración de directiva le permite configurar si Endpoint Protection toma medidas automáticamente acerca de todas las amenazas detectadas. La medida que se debe tomar acerca de una amenaza en particular se determina mediante la combinación de las medidas definidas por la directiva, el usuario y la firma.
 
@@ -66,40 +86,55 @@ Si habilita esta configuración, el servidor proxy se omitirá en las direccione
 
 Si deshabilita o no establece esta configuración, el servidor proxy no se omitirá en las direcciones especificadas.</string>
     <string id="ProxyPacUrl">Definir la configuración automática de proxy (.pac) para conectarse a la red</string>
-    <string id="ProxyPacUrl_Explain">Esta configuración de directiva define la dirección URL de un archivo proxy .pac, que debería usarse en el momento en que el cliente intente conectarse a la red para obtener actualizaciones de definiciones e informes de MAPS. Si surge un error en el proxy con nombre o si no hay un proxy especificado, el cliente recurrirá a las siguientes opciones alternativas (en orden):
-      1. Servidor proxy (si está especificado)
-      2. URL de proxy .pac (si está especificada)
-      3. Ninguna
+    <string id="ProxyPacUrl_Explain">Esta configuración de directiva define la dirección URL de un archivo .pac de proxy que debe usarse cuando el cliente intente conectarse a la red para obtener actualizaciones de inteligencia de seguridad e informes de MAPS. Si se produce un error en el proxy de configuración automática o si no hay un proxy de configuración automática especificado, el cliente revertirá a las opciones alternativas (en orden):
+      1. Servidor proxy (si se especifica)
+      2. URL de archivo .pac de proxy (si se especifica)
+      3. Ninguno
       4. Configuración de proxy de Internet Explorer
       5. Detección automática
 
-      Si habilitas esta configuración, la configuración de proxy se establecerá para usar el proxy .pac especificado en función del orden indicado anteriormente.
+      Si habilitas este ajuste, la configuración de proxy se establecerá para usar el archivo .pac de proxy especificado en función del orden especificado anteriormente.
 
-      Si deshabilitas o no estableces esta configuración, el proxy se saltará este paso de reserva según el orden especificado más arriba.</string>
+      Si deshabilitas o no estableces esta configuración, el proxy omitirá este paso de retroceso según el orden especificado anteriormente.</string>
     <string id="ProxyServer">Definir servidor proxy para las conexiones con la red</string>
-    <string id="ProxyServer_Explain">Esta configuración de directiva te permite configurar el proxy con nombre que debería usarse en el momento en que el cliente intente conectarse a la red para obtener actualizaciones de definiciones e informes de MAPS. Si surge un error en el proxy con nombre o si no hay un proxy especificado, se usarán las siguientes configuraciones (en orden):
-      1. Servidor proxy (si está especificado)
-      2. URL de proxy .paca (si está especificada)
-      3. Ninguna
+    <string id="ProxyServer_Explain">Esta configuración de directiva permite configurar el proxy con nombre que debe usarse cuando el cliente intente conectarse a la red para obtener actualizaciones de inteligencia de seguridad e informes  de MAPS. Si se produce un error en el proxy con nombre o si no hay ningún proxy con nombre especificado, el cliente revertirá a las opciones alternativas (en orden):
+      1. Servidor proxy (si se especifica)
+      2. URL de archivo .pac de proxy (si se especifica)
+      3. Ninguno
       4. Configuración de proxy de Internet Explorer
       5. Detección automática
 
-      Si habilitas esta configuración, el proxy se establecerá en la dirección URL especificada en función del orden indicado anteriormente. Asimismo, la dirección URL debe ir precedida de http:// o https://.
+      Si habilitas este ajuste, el proxy se establecerá en la dirección URL especificada de acuerdo con el orden especificado anteriormente. La dirección URL debe comenzar con http:// o https://.
 
-      Si deshabilitas o no estableces esta configuración, el proxy se saltará este paso de reserva según el orden especificado más arriba.
+      Si deshabilitas o no estableces esta configuración, el proxy omitirá este paso de retroceso según el orden especificado anteriormente.
     </string>
     <string id="RandomizeScheduleTaskTimes">Seleccionar horas de tareas programadas aleatoriamente</string>
-    <string id="RandomizeScheduleTaskTimes_Explain">Esta configuración de directiva permite habilitar o deshabilitar la selección aleatoria de las horas de inicio programadas de las detecciones y las actualizaciones de definiciones. Esta configuración sirve para distribuir el impacto de las detecciones en los recursos. Podría usarse, por ejemplo, en equipos virtuales huésped que comparten un host, a fin de impedir que varios equipos virtuales huésped hagan un uso intensivo del disco al mismo tiempo.
+    <string id="RandomizeScheduleTaskTimes_Explain">Esta configuración de directiva permite habilitar o deshabilitar la selección aleatoria de la hora de inicio del examen programado y la hora de inicio de la actualización de inteligencia de seguridad programada. Esta configuración se usa para distribuir el impacto del examen en los recursos. Podría usarse, por ejemplo, en máquinas virtuales invitadas que comparten un host a fin de impedir que varias máquinas virtuales invitadas hagan un uso intensivo del disco al mismo tiempo.
 
-Si habilita o no establece esta configuración, las tareas programadas comenzarán a una hora aleatoria dentro de un intervalo de 30 minutos anterior y posterior a la hora de inicio especificada.
+    Si habilitas o no estableces esta configuración, las tareas programadas comenzarán a una hora aleatoria dentro de un intervalo de 30 minutos anterior y posterior a la hora de inicio especificada.
 
-Si deshabilita esta configuración, las tareas programadas comenzarán a la hora de inicio especificada.</string>
+    Si deshabilitas esta configuración, las tareas programadas comenzarán a la hora de inicio especificada.</string>
     <string id="ServiceKeepAlive">Permitir que el servicio antimalware permanezca siempre en ejecución</string>
-    <string id="ServiceKeepAlive_Explain">Esta configuración de directiva permite configurar si el servicio antimalware va a permanecer siempre en ejecución cuando las definiciones de antivirus y antispyware estén deshabilitadas. Se recomienda que esta configuración esté siempre deshabilitada.
+    <string id="ServiceKeepAlive_Explain">Esta configuración de directiva permite configurar si el servicio antimalware permanecerá o no cuando la inteligencia de seguridad de antivirus y antispyware esté deshabilitada. Se recomienda que esta configuración permanezca deshabilitada.
 
-Si habilita esta configuración, el servicio antimalware permanecerá siempre en ejecución, aun cuando las definiciones tanto de antivirus como de antispyware estén deshabilitadas.
+    Si habilitas esta configuración, el servicio antimalware siempre seguirá ejecutándose aunque se deshabiliten tanto la inteligencia de seguridad de antivirus como de antispyware.
 
-Si deshabilita o no establece esta configuración, el servicio antimalware se detendrá cuando las definiciones tanto de antivirus como de antispyware estén deshabilitadas. Si el equipo se reinicia, también lo hará el servicio si está configurado para iniciarse automáticamente. Una vez que el servicio se haya iniciado, se realizará una comprobación para ver si las definiciones de antivirus y antispyware están habilitadas. Si hay al menos una habilitada, el servicio seguirá ejecutándose. Si ambas están habilitadas, se detendrá.</string>
+    Si deshabilitas o no estableces esta configuración, el servicio antimalware se detendrá cuando la inteligencia de seguridad de antivirus y de antispyware esté deshabilitada. Si se reinicia el equipo, el servicio se iniciará si se establece en Inicio automático. Una vez iniciado el servicio, se comprobará si está habilitada la inteligencia de seguridad de antivirus y de antispyware. Si al menos una está habilitada, el servicio seguirá ejecutándose. Si ambas están deshabilitadas, se detendrá el servicio.</string>
+    <string id="Root_PUAProtection">Configurar detección de aplicaciones potencialmente no deseadas</string>
+    <string id="Root_PUAProtection_Explain">
+        Habilita o deshabilita la detección de aplicaciones potencialmente no deseadas. Puedes bloquear, auditar o permitir la descarga de software potencialmente no deseado o los intentos de instalarse automáticamente en el equipo.
+
+        Habilitado:
+        Especifica el modo en la sección Opciones:
+        -Bloquear: se bloquea el software potencialmente no deseado.
+        -Modo auditoría: no se bloquea el software potencialmente no deseado. Sin embargo, si esta característica bloquea el acceso porque se la ha establecido en Bloquear, se almacenará un registro del evento en los registros de eventos.
+
+        Deshabilitado:
+        no se bloquea el software potencialmente no deseado.
+
+        No configurado:
+        Igual que Deshabilitado.
+    </string>
     <string id="Exclusions_Extensions">Exclusiones de extensión</string>
     <string id="Exclusions_Extensions_Explain">Esta configuración de directiva permite especificar una lista de los tipos de archivo que deben quedar excluidos de la detección programada, personalizada y en tiempo real. Los tipos de archivo se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de la extensión del tipo de archivo (como "obj" o "lib"). El valor no se usa y se recomienda establecerlo en 0.</string>
     <string id="Exclusions_Paths">Exclusiones de ruta de acceso</string>
@@ -113,13 +148,13 @@ Si habilita o no establece esta configuración, el reconocimiento de protocolo s
 
 Si deshabilita esta configuración, el reconocimiento de protocolo se deshabilitará.</string>
     <string id="Nis_Consumers_IPS_DisableSignatureRetirement">Activar retirada de definiciones</string>
-    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Esta configuración de directiva permite configurar la retirada de definiciones para proteger la red de vulnerabilidades conocidas. La retirada de definiciones comprueba si un equipo tiene las actualizaciones de seguridad necesarias para estar protegido frente a una vulnerabilidad concreta. Si el sistema no está expuesto a la vulnerabilidad detectada por una definición, dicha definición se "retirará". Si se retiran todas las definiciones relativas a un protocolo determinado, ese protocolo dejará de analizarse. Cuando esta característica está habilitada, el rendimiento es mejor. En un equipo actualizado con todas las actualizaciones de seguridad más recientes, la protección de red no tendrá impacto alguno en el rendimiento de la red.
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Esta configuración de directiva permite configurar la retirada de definiciones para proteger la red contra vulnerabilidades de seguridad conocidas. La retirada de definiciones comprueba si un equipo tiene las actualizaciones de seguridad necesarias para estar protegido frente a una vulnerabilidad concreta. Si el sistema no está expuesto a la vulnerabilidad de seguridad detectada por una definición, dicha definición se "retirará". Si se retira toda la inteligencia de seguridad de un determinado protocolo, ese protocolo dejará de analizarse. Cuando esta característica está habilitada, el rendimiento es mejor. En un equipo actualizado con todas las actualizaciones de seguridad más recientes, la protección de red no tendrá impacto alguno en el rendimiento de la red.
 
-Si habilita o no establece esta configuración, la retirada de definiciones se habilitará.
+    Si habilitas o no estableces esta configuración, la retirada de definiciones se habilitará.
 
-Si deshabilita esta configuración, la retirada de definiciones se deshabilitará.</string>
+    Si deshabilitas esta configuración, la retirada de definiciones se deshabilitará.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Especificar más conjuntos de definiciones para la inspección del tráfico de red</string>
-    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Esta configuración de directiva habilita más conjuntos de definiciones para la inspección del tráfico de red. Los GUID de los conjuntos de definiciones se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un GUID de conjunto de definiciones. Como ejemplo, el GUID de conjunto de definiciones para habilitar definiciones de prueba se define como “{b54b6ac9-a737-498e-9120-6616ad3bf590}”. El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Esta configuración de directiva define conjuntos de definiciones adicionales para habilitar la inspección del tráfico de red. Los GUID de conjuntos de definiciones deben agregarse en las opciones de esta configuración. Cada entrada debe aparecer como un par nombre-valor, donde el nombre debe ser una representación de cadena de un GUID de conjunto de definiciones. Por ejemplo, el GUID de conjunto de definiciones para habilitar la inteligencia de seguridad de pruebas se define como: "{b54b6ac9-a737-498e-9120-6616ad3bf590}". El valor no se usa y se recomienda establecerlo en 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Definir reemplazo de configuración local para eliminar elementos de la carpeta Cuarentena</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">Esta configuración de directiva establece un reemplazo local de la configuración del número de días que los elementos deben permanecer en la carpeta Cuarentena antes de eliminarse. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
 
@@ -159,11 +194,11 @@ Si deshabilita esta configuración, las notificaciones de escritura de volumen s
     <string id="DisableRealtimeMonitoring">Desactivar protección en tiempo real</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware.
 
-Endpoint Protection le avisa cuando malware o software posiblemente no deseado intenta instalarse o ejecutarse en su equipo.
+    Antivirus de Windows Defender te avisa cuando malware o software posiblemente no deseado intenta instalarse o ejecutarse en tu equipo.
 
-Si habilita esta configuración de directiva, Endpoint Protection no avisará a los usuarios sobre la detección de malware para que tomen medidas.
+    Si habilitas esta configuración de directiva, Antivirus de Windows Defender no avisará a los usuarios sobre la detección de malware para que tomen medidas.
 
-Si deshabilita o no establece esta configuración de directiva, Endpoint Protection avisará a los usuarios sobre la detección de malware para que tomen medidas.</string>
+    Si deshabilitas o no estableces esta configuración de directiva, Antivirus de Windows Defender avisará a los usuarios sobre la detección de malware para que tomen medidas.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware.
 
@@ -288,14 +323,22 @@ Si deshabilita esta configuración, no se enviarán eventos Watson.</string>
     <string id="Reporting_WppTracingComponents">Configurar componentes de preprocesador de seguimiento de software de Windows</string>
     <string id="Reporting_WppTracingComponents_Explain">Esta directiva configura componentes de preprocesador de seguimiento de software de Windows (seguimiento de software WPP).</string>
     <string id="Reporting_WppTracingLevel">Configurar nivel de seguimiento de WPP</string>
-    <string id="Reporting_WppTracingLevel_Explain">Esta directiva permite configurar los niveles de seguimiento de preprocesador de seguimiento de software de Windows (seguimiento de software WPP). 
+    <string id="Reporting_WppTracingLevel_Explain">Esta directiva permite configurar los niveles de seguimiento del preprocesador de seguimiento de software de Windows (seguimiento de software WPP). 
+    Los niveles de seguimiento se definen del siguiente modo:
+    1: Error
+    2: Advertencia
+    3: Información
+    4: Depuración</string>
+    <string id="Reporting_DisableEnhancedNotifications">Desactivar notificaciones mejoradas</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Usa esta configuración de directiva para especificar si quieres que las notificaciones mejoradas de Antivirus de Windows Defender se muestren en los clientes.
+      
+      Si deshabilitas o no estableces esta configuración, las notificaciones mejoradas de Antivirus de Windows Defender se mostrarán en los clientes.
+      
+      Si habilitas esta configuración, las notificaciones mejoradas de Antivirus de Windows Defender no se mostrarán en los clientes.
+    </string>
 
-Los niveles de seguimiento se definen del siguiente modo:
-1: Error
-2: Advertencia 
-3: Información
-4: Depuración</string>
-    <string id="Scan_AllowPause">Permitir a los usuarios pausar un examen</string>
+      <string id="Scan_AllowPause">Permitir a los usuarios pausar un examen</string>
     <string id="Scan_AllowPause_Explain">Esta configuración de directiva permite administrar si los usuarios finales pueden pausar un examen en curso.
 
 Si habilita o no establece esta configuración, aparecerá un nuevo menú contextual en el icono de la bandeja de tareas que permita pausar un examen.
@@ -319,14 +362,14 @@ Si deshabilita o no establece esta configuración, los archivos de almacenamient
 Si habilita esta configuración, el uso de CPU no superará el porcentaje especificado.
 
 Si deshabilita o no establece esta configuración, el uso de CPU no superará el porcentaje predeterminado.</string>
-    <string id="CheckForSignaturesBeforeRunningScan">Buscar las definiciones de virus y spyware más recientes antes de ejecutar un examen programado</string>
-    <string id="CheckForSignaturesBeforeRunningScan_Explain">Esta configuración de directiva permite administrar si se van a buscar nuevas definiciones de virus y spyware antes de ejecutar un examen. 
+    <string id="CheckForSignaturesBeforeRunningScan">Buscar la inteligencia de seguridad más reciente de virus y spyware antes de ejecutar un examen programado</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">Esta configuración de directiva permite administrar si se va a buscar nueva inteligencia de seguridad de virus y spyware antes de ejecutar un examen. 
 
-Esta configuración es válida tanto para los exámenes programados como para la línea de comandos "mpcmdrun -SigUpdate", pero no tiene efecto alguno en los exámenes que se hayan iniciado manualmente desde la interfaz de usuario.
+    Esta configuración es válida tanto para los exámenes programados como para la línea de comandos "mpcmdrun -SigUpdate", pero no tiene efecto alguno en los exámenes que se hayan iniciado manualmente desde la interfaz de usuario.
 
-Si habilita esta configuración, se buscarán nuevas definiciones antes de ejecutar un examen.
+    Si habilitas esta configuración, se buscarán nueva inteligencia de seguridad antes de ejecutar un examen.
 
-Si deshabilita o no establece esta configuración, el examen se iniciará con las definiciones existentes.</string>
+    Si deshabilitas o no estableces esta configuración, el examen se iniciará con la inteligencia de seguridad existente.</string>
     <string id="Scan_DisableArchiveScanning">Examinar archivos de almacenamiento</string>
     <string id="Scan_DisableArchiveScanning_Explain">Esta configuración de directiva permite configurar los exámenes para que busquen software malintencionado y software no deseado en los archivos de almacenamiento (como los archivos .ZIP o .CAB).
 
@@ -496,79 +539,91 @@ Si deshabilita o no establece esta configuración, se ejecutará un examen progr
     Si habilita esta configuración, se realizará un examen de puesta al día después de omitir el número especificado de exámenes programados consecutivos.
 
     Si deshabilita o no establece esta configuración, se realizará un examen de puesta al día después de omitir 2 exámenes programados consecutivos.</string>
-    <string id="SignatureUpdate_ASSignatureDue">Definir el número de días que debe transcurrir para considerar las definiciones de spyware como caducadas</string>
-    <string id="SignatureUpdate_ASSignatureDue_Explain">Esta configuración de directiva permite definir el número de días que debe transcurrir para considerar las definiciones de spyware como caducadas. Si se establece que las definiciones están caducadas, este estado puede desencadenar más acciones, como revertir a un origen de actualización alternativo o mostrar un icono de advertencia en la interfaz de usuario. Este valor está establecido de forma predeterminada en 14 días.
+    <string id="Scan_LowCpuPriority">Configurar prioridad baja de CPU para exámenes programados</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Esta configuración de directiva permite habilitar o deshabilitar la prioridad baja de la CPU para los exámenes programados.
 
-Si habilita esta configuración, las definiciones de spyware se considerarán como caducadas después de que haya transcurrido el número de días especificado sin una actualización.
+        Si habilitas esta configuración, se usará una prioridad baja de CPU durante los exámenes programados.
 
-Si deshabilita o no establece esta configuración, las definiciones de spyware se considerarán como caducadas después de que haya transcurrido el número de días predeterminado sin una actualización.</string>
-    <string id="SignatureUpdate_AVSignatureDue">Definir el número de días que debe transcurrir para considerar las definiciones de virus como caducadas</string>
-    <string id="SignatureUpdate_AVSignatureDue_Explain">Esta configuración de directiva permite definir el número de días que debe transcurrir para considerar las definiciones de virus como caducadas. Si se establece que las definiciones están caducadas, este estado puede desencadenar más acciones, como revertir a un origen de actualización alternativo o mostrar un icono de advertencia en la interfaz de usuario. Este valor está establecido de forma predeterminada en 14 días.
+        Si deshabilitas o no configuras esta configuración, no se realizarán cambios en la prioridad de la CPU para los exámenes programados.
+    </string>
+    <string id="SignatureUpdate_ASSignatureDue">Definir el número de días que deben transcurrir para considerar la inteligencia de seguridad de spyware como caducada</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">Esta configuración de directiva permite definir el número de días que deben transcurrir para que la inteligencia de seguridad de spyware se considere caducada. Si se determina que la inteligencia de seguridad está caducada, este estado puede desencadenar varias acciones adicionales, como revertir a un origen de actualización alternativo o mostrar un icono de advertencia en la interfaz de usuario. De forma predeterminada, este valor se establece en 14 días.
 
-Si habilita esta configuración, las definiciones de virus se considerarán como caducadas después de que haya transcurrido el número de días especificado sin una actualización.
+    Si habilitas esta configuración, la inteligencia de seguridad de spyware se considerará caducada después de que haya transcurrido el número de días especificado sin una actualización.
 
-Si deshabilita o no establece esta configuración, las definiciones de virus se considerarán como caducadas después de que haya transcurrido el número de días predeterminado sin una actualización.</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definir recursos compartidos de archivos para descargar actualizaciones de definiciones</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Esta configuración de directiva permite configurar orígenes de recursos compartidos de archivos UNC para descargar actualizaciones de definiciones. El contacto con los orígenes se debe establecer en el orden especificado. El valor de esta configuración se debe especificar como una cadena separada por canalización en la que se enumeren los orígenes de actualización de definiciones (por ejemplo, "{\\unc1 | \\unc2 }"). La lista está vacía de forma predeterminada.
+    Si deshabilitas o no estableces esta configuración, la inteligencia de seguridad de spyware se considerará caducada después de que haya transcurrido el número de días predeterminado sin una actualización.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Definir el número de días que deben transcurrir para considerar la inteligencia de seguridad de virus como caducada</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">Esta configuración de directiva permite definir el número de días que deben transcurrir para que la inteligencia de seguridad de virus se considere caducada. Si se determina que la inteligencia de seguridad está caducada, este estado puede desencadenar varias acciones adicionales, como revertir a un origen de actualización alternativo o mostrar un icono de advertencia en la interfaz de usuario. De forma predeterminada, este valor se establece en 14 días.
 
-Si habilita esta configuración, se establecerá contacto con los orígenes especificados en busca de actualizaciones de definiciones. Cuando las actualizaciones de definiciones de un origen en concreto se hayan descargado correctamente, se establecerá contacto con el resto de orígenes de la lista.
+    Si habilitas esta configuración, la inteligencia de seguridad de virus se considerará caducada después de que haya transcurrido el número de días especificado sin una actualización.
 
-Si deshabilita o no establece esta configuración, la lista seguirá vacía de forma predeterminada y no se establecerá contacto con ningún origen.</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate">Activar examen tras una actualización de firma</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Esta configuración de directiva permite configurar el examen automático que se inicia después de que haya tenido lugar una actualización de definición.
+    Si deshabilitas o no estableces esta configuración, la inteligencia de seguridad de virus se considerará caducada después de que haya transcurrido el número de días predeterminado sin una actualización.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definir recursos compartidos de archivos para descargar actualizaciones de inteligencia de seguridad</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Esta configuración de directiva permite configurar orígenes de recursos compartidos de archivos de UNC para la descarga de actualizaciones de inteligencia de seguridad. Se establecerá contacto con los orígenes en el orden especificado. El valor de esta configuración debe escribirse como una cadena separada por canalización en la que se enumeren los orígenes de actualización de inteligencia de seguridad (por ejemplo, "{\\unc1 | \\unc2 }"). La lista está vacía de forma predeterminada.
 
-Si habilita o no establece esta configuración, se iniciará un examen después de una actualización de definición.
+    Si habilitas esta configuración, se establecerá contacto con los orígenes especificados en busca de actualizaciones de inteligencia de seguridad. Cuando se hayan descargado correctamente las actualizaciones de inteligencia de seguridad procedentes de un origen en concreto, no se establecerá contacto con el resto de los orígenes de la lista.
 
-Si deshabilita esta configuración, no se iniciará un examen después de una actualización de definición.</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Permitir actualizaciones de definiciones al funcionar con batería</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Esta configuración de directiva permite configurar actualizaciones de definiciones cuando el equipo se ejecuta con batería.
+    Si deshabilitas o no estableces esta configuración, la lista seguirá vacía de forma predeterminada y no se establecerá contacto con ningún origen.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation">Definir la ubicación de inteligencia de seguridad para los clientes de VDI.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation_Explain">Esta configuración de directiva permite definir la ubicación de inteligencia de seguridad para los equipos configurados con VDI. 
 
-Si habilita o no establece esta configuración, las actualizaciones de definiciones sucederán del modo habitual, independientemente del estado de energía.
+    Si deshabilitas o no estableces esta configuración, hará referencia a la inteligencia de seguridad desde el origen local predeterminado.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Activar examen tras una actualización de inteligencia de seguridad</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Esta configuración de directiva permite configurar el examen automático que se inicia después de que se haya instalado una actualización de inteligencia de seguridad.
 
-Si deshabilita esta configuración, las actualizaciones de definiciones se desactivarán cuando el equipo se ejecute con batería.</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Realizar actualización de definición en el inicio</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Esta configuración de seguridad permite configurar actualizaciones de definiciones al inicio, cuando no hay un motor antimalware presente.
+    Si habilitas o no estableces esta configuración, se iniciará un examen después de una actualización de inteligencia de seguridad.
 
-Si habilita o no establece esta configuración, las actualizaciones de definiciones se realizarán al inicio, cuando no hay un motor antimalware presente.
+    Si deshabilitas esta configuración, no se iniciará ningún examen después de una actualización de inteligencia de seguridad.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Permitir actualizaciones de inteligencia de seguridad al usar la batería</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Esta configuración de directiva permite configurar actualizaciones de inteligencia de seguridad cuando el equipo se usa con batería.
 
-Si deshabilita esta configuración, las actualizaciones de definiciones no se realizarán al inicio, cuando no hay un motor antimalware presente.</string>
-    <string id="SignatureUpdate_FallbackOrder">Definir el orden de los orígenes para descargar actualizaciones de definiciones</string>
-    <string id="SignatureUpdate_FallbackOrder_Explain">Esta configuración de directiva permite definir el orden en el que se va a establecer contacto con los distintos orígenes de actualización de definiciones. El valor de esta configuración se debe especificar como una cadena separada por canalización en la que se enumeren en orden los orígenes de actualización de definiciones Entre los posibles valores están los siguientes: “InternalDefinitionUpdateServer”, “MicrosoftUpdateServer”, “MMPC” y “FileShares”
+    Si habilitas o no estableces esta configuración, las actualizaciones de inteligencia de seguridad se realizarán de la forma habitual, independientemente del estado de energía.
 
-Por ejemplo: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
+    Si deshabilitas esta configuración, las actualizaciones de inteligencia de seguridad se desactivarán cuando el equipo se use con batería.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Iniciar actualización de inteligencia de seguridad al inicio</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Esta configuración de directiva permite configurar actualizaciones de inteligencia de seguridad al inicio, cuando no hay ningún motor antimalware presente.
 
-Si habilita esta configuración, se establecerá contacto con los orígenes de actualización de definiciones en el orden especificado. Cuando las actualizaciones de definiciones de un origen en concreto se hayan descargado correctamente, se establecerá contacto con el resto de orígenes de la lista.
+    Si habilitas o no estableces esta configuración, las actualizaciones de inteligencia de seguridad se iniciarán al inicio, cuando no hay ningún motor antimalware presente.
 
-Si deshabilita o no establece esta configuración, se establecerá contacto con los orígenes de actualización de definiciones en el orden predeterminado.</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU">Permitir actualizaciones de definiciones de Microsoft Update</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Esta configuración de directiva permite descargar actualizaciones de definiciones de Microsoft Update, incluso cuando el servidor predeterminado de actualizaciones automáticas esté configurado en otro origen de actualización, como Windows Update.
+    Si deshabilitas esta configuración, las actualizaciones de inteligencia de seguridad no se iniciarán al inicio, cuando no hay ningún motor antimalware presente.</string>
+    <string id="SignatureUpdate_FallbackOrder">Definir el orden de los orígenes para descargar actualizaciones de inteligencia de seguridad</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">Esta configuración de directiva permite definir el orden en el que se va a establecer contacto con los distintos orígenes de actualización de inteligencia de seguridad. El valor de esta configuración se debe especificar como una cadena separada por canalización en la que se enumeren en orden los orígenes de actualización de inteligencia de seguridad. Entre los posibles valores se incluyen los siguientes: “InternalDefinitionUpdateServer”, “MicrosoftUpdateServer”, “MMPC” y “FileShares”.
 
-Si habilita esta configuración, las actualizaciones de definiciones se descargarán de Microsoft Update.
+    Por ejemplo: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
 
-Si deshabilita o no establece esta configuración, las actualizaciones de definiciones se descargarán del origen de descarga configurado.</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery">Permitir actualizaciones de definiciones en tiempo real basadas en informes a Microsoft MAPS</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Esta configuración de directiva permite habilitar las actualizaciones de definiciones en tiempo real en respuesta a los informes enviados a Microsoft MAPS. Si el servicio informa de que un archivo es desconocido y Microsoft MAPS descubre que la actualización de definición más reciente tiene definiciones para una amenaza relacionada con ese archivo, el servicio recibirá de forma inmediata todas las definiciones más recientes para esa amenaza. Su equipo debe estar configurado para unirse a Microsoft MAPS para que esta funcionalidad funcione.
+    Si habilitas esta configuración, se establecerá contacto con los orígenes de actualización de inteligencia de seguridad en el orden especificado. Cuando se hayan descargado correctamente las actualizaciones de inteligencia de seguridad procedentes de un origen en concreto, no se establecerá contacto con el resto de los orígenes de la lista.
 
-Si habilita o no establece esta configuración, las actualizaciones de definiciones en tiempo real se habilitarán.
+    Si deshabilitas o no estableces esta configuración, se establecerá contacto con los orígenes de actualización de inteligencia de seguridad en el orden predeterminado.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Permitir actualizaciones de inteligencia de seguridad de Microsoft Update</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Esta configuración de directiva permite descargar actualizaciones de inteligencia de seguridad de Microsoft Update, incluso si el servidor predeterminado de Actualizaciones automáticas está configurado en otro origen de descarga (por ejemplo, Windows Update).
 
-Si deshabilita esta configuración, las actualizaciones de definiciones en tiempo real se deshabilitarán.</string>
-    <string id="SignatureUpdate_ScheduleDay">Especificar el día de la semana en el que buscar actualizaciones de definiciones</string>
-    <string id="SignatureUpdate_ScheduleDay_Explain">Esta configuración de directiva permite especificar el día de la semana en el que buscar actualizaciones de definiciones. La búsqueda también se puede configurar para que se ejecute cada día o nunca.
+    Si habilitas esta configuración, las actualizaciones de inteligencia de seguridad se descargarán desde Microsoft Update.
 
-Esta configuración se puede definir con los siguientes valores de número ordinal:
-(0x0) Todos los días
-(0x1) Domingo
-(0x2) Lunes
-(0x3) Martes
-(0x4) Miércoles
-(0x5) Jueves
-(0x6) Viernes
-(0x7) Sábado
-(0x8) Nunca
+    Si deshabilitas o no estableces esta configuración, las actualizaciones de inteligencia de seguridad se descargarán desde el origen de descargas configurado.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">Permitir actualizaciones de inteligencia de seguridad en tiempo real en función de los informes enviados a Microsoft MAPS</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Esta configuración de directiva permite habilitar actualizaciones de inteligencia de seguridad en tiempo real en respuesta a los informes enviados a Microsoft MAPS. Si el servicio notifica un archivo como desconocido y Microsoft MAPS detecta que la actualización más reciente de inteligencia de seguridad tiene inteligencia de seguridad para una amenaza relacionada con ese archivo, el servicio recibirá de inmediato toda la inteligencia de seguridad más reciente para esa amenaza. Para que esta opción funcione, debes haber configurado el equipo para unirse a Microsoft MAPS.
 
-Si habilita esta configuración, la búsqueda de actualizaciones de definiciones se realizará a la frecuencia especificada.
+    Si habilitas o no estableces esta configuración, las actualizaciones de inteligencia de seguridad en tiempo real se habilitarán.
 
-Si deshabilita o no establece esta configuración, la búsqueda de actualizaciones de definiciones se realizará a una frecuencia predeterminada.</string>
+    Si deshabilitas esta configuración, las actualizaciones de inteligencia de seguridad en tiempo real se deshabilitarán.</string>
+    <string id="SignatureUpdate_ScheduleDay">Especificar el día de la semana en el que buscar actualizaciones de inteligencia de seguridad</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">Esta configuración de directiva permite especificar el día de la semana en el que buscar actualizaciones de inteligencia de seguridad. La búsqueda también puede configurarse para que se ejecute todos los días o nunca.
+
+    Esta configuración se puede definir con los siguientes valores de número ordinal:
+    (0x0) Todos los días
+    (0x1) Domingo
+    (0x2) Lunes
+    (0x3) Martes
+    (0x4) Miércoles
+    (0x5) Jueves
+    (0x6) Viernes
+    (0x7) Sábado
+    (0x8) Nunca
+
+    Si habilitas esta configuración, la búsqueda de actualizaciones de inteligencia de seguridad se realizará según la frecuencia especificada.
+
+    Si deshabilitas o no estableces esta configuración, la búsqueda de actualizaciones de inteligencia de seguridad se realizará según la frecuencia predeterminada.</string>
     <string id="SignatureUpdate_ScheduleDay_0">Nunca</string>
     <string id="SignatureUpdate_ScheduleDay_1">Todos los días</string>
     <string id="SignatureUpdate_ScheduleDay_2">Domingo</string>
@@ -578,24 +633,24 @@ Si deshabilita o no establece esta configuración, la búsqueda de actualizacion
     <string id="SignatureUpdate_ScheduleDay_6">Jueves</string>
     <string id="SignatureUpdate_ScheduleDay_7">Viernes</string>
     <string id="SignatureUpdate_ScheduleDay_8">Sábado</string>
-    <string id="SignatureUpdate_ScheduleTime">Especificar la hora a la que buscar actualizaciones de definiciones</string>
-    <string id="SignatureUpdate_ScheduleTime_Explain">Esta configuración de directiva permite especificar la hora del día a la que buscar actualizaciones de definiciones. El valor de hora se representa como un número de minutos pasada la medianoche (00:00).  Así, por ejemplo, 120 (0x78) equivale a 02:00 AM. Esta configuración está establecida de forma predeterminada para realizar la búsqueda de actualizaciones de definiciones 15 minutos antes de la hora del examen programado. La programación se basa en la hora local del equipo en el que la búsqueda tiene lugar.
+    <string id="SignatureUpdate_ScheduleTime">Especificar la hora a la que buscar actualizaciones de inteligencia de seguridad</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">Esta configuración de directiva permite especificar la hora del día a la que buscar actualizaciones de inteligencia de seguridad. El valor de hora se representa como el número de minutos pasada la medianoche (00:00). Así, por ejemplo, 120 (0x78) equivale a 02:00 a. m. De forma predeterminada, esta configuración se ha establecido para realizar la búsqueda de actualizaciones de inteligencia de seguridad 15 minutos antes de la hora del examen programado. La programación se basa en la hora local del equipo en el que se realiza la búsqueda.
 
-Si habilita esta configuración, la búsqueda de actualizaciones de definiciones se realizará a la hora del día especificada.
+    Si habilitas esta configuración, la búsqueda de actualizaciones de inteligencia de seguridad se realizará a la hora del día especificada.
 
-Si deshabilita o no establece esta configuración, la búsqueda de actualizaciones de definiciones se realizará a la hora predeterminada.</string>
-    <string id="SignatureUpdate_SignatureDisableNotification">Permitir notificaciones para deshabilitar definiciones basadas en informes a Microsoft MAPS</string>
-    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Esta configuración de directiva permite configurar el servicio antimalware para recibir notificaciones para deshabilitar definiciones individuales en respuesta a los informes que envía a Microsoft MAPS. Microsoft MAPS usa estas notificaciones para deshabilitar definiciones que estén causando informes de falsos positivos. Su equipo debe estar configurado para unirse a Microsoft MAPS para que esta funcionalidad funcione.
+    Si deshabilitas o no estableces esta configuración, la búsqueda de actualizaciones de inteligencia de seguridad se realizará a la hora predeterminada.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Permitir notificaciones para deshabilitar informes basados en la inteligencia de seguridad en Microsoft MAPS</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Esta configuración de directiva permite configurar el servicio antimalware para recibir notificaciones para deshabilitar instancias individuales de inteligencia de seguridad en respuesta a los informes que se envían a Microsoft MAPS. Microsoft MAPS usa estas notificaciones para deshabilitar instancias de inteligencia de seguridad que estén causando informes de falsos positivos. Para que esta opción funcione, debes haber configurado el equipo para unirse a Microsoft MAPS.
 
-Si habilita o no establece esta configuración, el servicio antimalware recibirá notificaciones para deshabilitar definiciones.
+    Si habilitas o no estableces esta configuración, el servicio antimalware recibirá notificaciones para deshabilitar instancias de inteligencia de seguridad.
 
-Si deshabilita esta configuración, el servicio antimalware no recibirá notificaciones para deshabilitar definiciones.</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definir el número de días tras los que se necesita una actualización de definición de puesta al día</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Esta configuración de directiva permite definir el número de días tras los que será necesaria una actualización de definición de puesta al día. El valor predeterminado de esta configuración es de 1 día.
+    Si deshabilitas esta configuración, el servicio antimalware no recibirá notificaciones para deshabilitar instancias de inteligencia de seguridad.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definir el número de días tras los cuales se necesita una actualización de inteligencia de seguridad de puesta al día</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Esta configuración de directiva permite definir el número de días tras los cuales será necesaria una actualización de inteligencia de seguridad de puesta al día. El valor predeterminado de esta configuración es de 1 día.
 
-Si habilita esta configuración, se realizará una actualización de definición de puesta al día transcurrido el número de días especificado.
+    Si habilitas esta configuración, se realizará una actualización de inteligencia de seguridad de puesta al día transcurrido el número de días especificado.
 
-Si deshabilita o no establece esta configuración, será necesario realizar una actualización de definición de puesta al día transcurrido el número de días predeterminado.</string>
+    Si deshabilitas o no estableces esta configuración, será necesario realizar una actualización de inteligencia de seguridad de puesta al día transcurrido el número de días predeterminado.</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Especificar el intervalo para la notificación de expiración</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
     Esta configuración de directiva permite especificar un intervalo (en días) para la notificación de expiración.
@@ -603,28 +658,28 @@ Si deshabilita o no establece esta configuración, será necesario realizar una 
 
     El valor debe ser mayor que cero para que la directiva esté activa.
     </string>
-    <string id="SignatureUpdate_SignatureUpdateInterval">Especificar el intervalo para buscar actualizaciones de definiciones</string>
-    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Esta configuración de directiva permite especificar el intervalo en el que buscar actualizaciones de definiciones. El valor de tiempo se representa como el número de horas entre búsquedas de actualizaciones. Los valores válidos oscilan entre 1 (cada hora) y 24 (una vez al día).
+    <string id="SignatureUpdate_SignatureUpdateInterval">Especificar el intervalo para buscar actualizaciones de inteligencia de seguridad</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Esta configuración de directiva permite especificar el intervalo en el que buscar actualizaciones de inteligencia de seguridad. El valor de tiempo se representa como el número de horas entre búsquedas de actualizaciones. Los valores válidos oscilan entre 1 (cada hora) y 24 (una vez al día).
 
-Si habilita esta configuración, las búsquedas de actualizaciones de definiciones se realizarán en el intervalo especificado.
+    Si habilitas esta configuración, las búsquedas de actualizaciones de inteligencia de seguridad se realizarán en el intervalo especificado.
 
-Si deshabilita o no establece esta configuración, las búsquedas de actualizaciones de definiciones se realizarán en el intervalo predeterminado.</string>
-    <string id="SignatureUpdate_UpdateOnStartup">Buscar las definiciones de virus y spyware más recientes en el inicio</string>
-    <string id="SignatureUpdate_UpdateOnStartup_Explain">Esta configuración de directiva permite administrar si se van a buscar nuevas definiciones de virus y spyware inmediatamente después de que el servicio se inicie.
+    Si deshabilitas o no estableces esta configuración, las búsquedas de actualizaciones de inteligencia de seguridad se realizarán en el intervalo predeterminado.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">Buscar la inteligencia de seguridad antivirus y antispyware más reciente al inicio</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">Esta configuración de directiva permite administrar si se van a buscar nueva inteligencia de seguridad de virus y spyware inmediatamente después de que el servicio se inicie.
 
-Si habilita esta configuración, se realizará una búsqueda de nuevas definiciones después de que el servicio se inicie.
+    Si habilitas esta configuración, se realizará una búsqueda de nueva inteligencia de seguridad después de que el servicio se inicie.
 
-Si deshabilita o no establece esta configuración, no se realizará una búsqueda de nuevas definiciones después de que el servicio se inicie.</string>
+    Si deshabilitas o no estableces esta configuración, no se realizará ninguna búsqueda de nueva inteligencia de seguridad después de que el servicio se inicie.</string>
     <string id="DisableBlockAtFirstSeen">Configurar la característica "Bloqueo a primera vista"</string>
-    <string id="DisableBlockAtFirstSeen_Explain">Esta característica garantiza que el dispositivo realiza comprobaciones en tiempo real con Microsoft Active Protection Service (MAPS) antes de permitir la ejecución o el acceso a cierto contenido. Si esta característica está deshabilitada, no se producirá la comprobación y se reducirá el estado de protección del dispositivo.
-	Habilitada: la opción de configuración Bloqueo a primera vista está activada.
-	Deshabilitada: la opción de configuración Bloqueo a primera vista está desactivada.
-	
-	Esta característica necesita que la configuración de directiva de grupo esté establecida del siguiente modo:
-	MAPS -&gt; "Únete a Microsoft MAPS" debe estar habilitado para que la característica "Bloqueo a primera vista" funcione.
-	MAPS -&gt; "Enviar muestras de archivos cuando se requieran más análisis" debe establecerse en 1 (Enviar muestras seguras) o 3 (Enviar todas las muestras). Si se establece en 0 (Preguntar siempre), se reducirá el estado de protección del dispositivo. Con la opción 2 (No enviar nunca), la característica "Bloqueo a primera vista" no funcionará.
-	Protección en tiempo real -&gt; La directiva "Examinar todos los archivos y datos adjuntos descargados" debe estar habilitada para que la característica "Bloqueo a primera vista" funcione.
-	Protección en tiempo real -&gt; No habilites la directiva "Desactivar protección en tiempo real" o la característica "Bloqueo a primera vista" no funcionará.</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Esta característica garantiza que el dispositivo se comprueba en tiempo real con Microsoft Active Protection Service (MAPS) antes de permitir el acceso a cierto contenido o su ejecución. Si esta característica se deshabilita, no se realizará la comprobación y se reducirá el estado de protección del dispositivo.
+    Habilitado: la opción Bloqueo a primera vista está activada.
+    Deshabilitado: la opción Bloqueo a primera vista está desactivada.
+    
+    Esta característica requiere que los ajustes de Directiva de grupo se establezcan del siguiente modo:
+    MAPS -&gt; la opción "Unirse a Microsoft MAPS" debe estar habilitada para que la característica "Bloqueo a primera vista" funcione.
+    MAPS -&gt; la opción "Enviar muestras de archivos cuando se requieran más análisis" debe establecerse en 1 (Enviar muestras seguras) o 3 (Enviar todas las muestras). Si se establece en 0 (Preguntar siempre), se reducirá el estado de protección del dispositivo. Si se establece en 2 (No enviar nunca), la característica "Bloqueo a primera vista" no funcionará.
+    Protección en tiempo real -&gt; la directiva "Examinar todos los archivos y datos adjuntos descargados" debe estar habilitada para que la característica "Bloqueo a primera vista" funcione.
+    Protección en tiempo real -&gt; no habilites la directiva "Desactivar protección en tiempo real"; de lo contrario, la característica "Bloqueo a primera vista" no funcionará.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Definir reemplazo de configuración local para enviar informes a Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Esta configuración de directiva define un reemplazo local para la configuración para unirse a Microsoft MAPS. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
 
@@ -648,24 +703,24 @@ Si deshabilita o no establece esta configuración, la directiva de grupo tendrá
     <string id="SubmitSamplesConsent_Send_All">Enviar todas las muestras</string>
 
     <string id="SpynetReporting">Únase a Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Esta configuración de directiva te permite unirte a Mapas de Microsoft. Mapas de Microsoft es la comunidad en línea que te ayuda a elegir la respuesta a las amenazas potenciales. La comunidad también te ayuda a detener la propagación de nuevas infecciones de software malintencionado.
+    <string id="SpynetReporting_Explain">Esta configuración de directiva te permite unirte a Microsoft MAPS. Microsoft MAPS es la comunidad en línea que te ayuda a elegir cómo responder frente a amenazas potenciales. La comunidad también ayuda a detener la propagación de nuevas infecciones de software malintencionado.
 
-    Puedes optar por enviar información básica o adicional acerca del software detectado. La información adicional permite a Microsoft crear definiciones nuevas y le ayuda a proteger tu equipo. Esta información puede incluir aspectos como la ubicación de los elementos detectados en el equipo en caso de que se haya eliminado software dañino. La información se recopila y se envía de manera automática. En algunos casos, es posible que se envíe de forma no intencionada información personal a Microsoft. No obstante, Microsoft no usará esta información para identificarte ni para ponerse en contacto contigo.
+    Puedes optar por enviar información básica o adicional sobre el software detectado. La información adicional le permite a Microsoft a crear una nueva inteligencia de seguridad y le ayuda a proteger tu equipo. Esta información puede incluir aspectos como la ubicación de los elementos detectados en el equipo si se quitó software perjudicial. La información se recopila y envía automáticamente. En algunos casos, es posible que se envíe involuntariamente información personal a Microsoft. Sin embargo, Microsoft no usará dicha información para identificarte ni para ponerse en contacto contigo.
 
     Las opciones posibles son:
-    (0x0) Deshabilitado (predeterminado)
+    (0x0) Deshabilitado (valor predeterminado)
     (0x1) Suscripción básica
     (0x2) Suscripción avanzada
 
-    Con la suscripción básica se enviará a Microsoft información básica sobre el software detectado, como el origen del software, las acciones que realizas o que se realizan automáticamente y si dichas acciones se realizaron correctamente.
+    Con la Suscripción básica, se envía a Microsoft información básica sobre el software detectado, como el origen del software, las acciones que realizas o que se realizan de forma automática, y si dichas acciones se realizaron correctamente.
 
-    Con la suscripción avanzada, además de la información básica, se enviará más información a Microsoft sobre software malintencionado, spyware y software potencialmente no deseado, incluida la ubicación del software, los nombres de archivos, cómo funciona el software y cómo afectó al equipo.
+    Con la Suscripción avanzada, además de la información básica, se envía más información a Microsoft sobre software malintencionado, spyware y software potencialmente no deseado, incluida la ubicación del software, los nombres de archivo, cómo funciona el software y cómo se vio afectado el equipo.
 
-    Si habilitas esta configuración, te unirás a Mapas de Microsoft con la suscripción especificada.
+    Si habilitas esta configuración, te unirás a Microsoft MAPS con la suscripción especificada.
 
-    Si deshabilitas o no estableces esta configuración, no te unirás a Mapas de Microsoft.
+    Si deshabilitas o no estableces esta configuración, no te unirás a Microsoft MAPS.
   
-    En Windows 10, la suscripción básica ya no está disponible y, al definir el valor 1 o 2, se registra el dispositivo a una suscripción avanzada.</string>
+    En Windows 10, la Suscripción básica ya no está disponible, por lo que si estableces el valor en 1 o 2, el dispositivo se inscribirá en la Suscripción avanzada.</string>
     <string id="SpynetReporting_Disabled">Deshabilitado</string>
     <string id="SpynetReporting_Basic">MAPS básico</string>
     <string id="SpynetReporting_Advanced">MAPS avanzado</string>
@@ -701,10 +756,10 @@ Los valores de acción de corrección válidos son:
       Si habilita a esta configuración, la interfaz de usuario de AM no mostrará las notificaciones de reinicio.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Suprimir todas las notificaciones</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Usa esta configuración de directiva para especificar si quieres que las notificaciones de Windows Defender se muestren en los clientes.
-      Si deshabilitas o no estableces esta configuración, las notificaciones de Windows Defender se mostrarán en los clientes.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Usa esta configuración de directiva para especificar si quieres que las notificaciones de Antivirus de Windows Defender se muestren en los clientes.
+      Si deshabilitas o no estableces esta configuración, las notificaciones de Antivirus de Windows Defender se mostrarán en los clientes.
 
-      Si habilitas esta configuración, las notificaciones de Windows Defender no se mostrarán en los clientes.
+      Si habilitas esta configuración, las notificaciones de Antivirus de Windows Defender no se mostrarán en los clientes.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Mostrar más texto a los clientes cuando deban realizar una acción</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Esta configuración de directiva permite configurar si se va a mostrar o no más texto a los clientes cuando deban realizar una acción. El texto que se muestra es una cadena definida por el administrador personalizada (por ejemplo, el número de teléfono para llamar al servicio de asistencia de la compañía). La interfaz de cliente solo mostrará un máximo de 1024 caracteres. Las cadenas que sean más largas se truncarán antes de mostrarse.
@@ -712,6 +767,202 @@ Los valores de acción de corrección válidos son:
 Si habilita esta configuración, se mostrará el texto extra especificado.
 
 Si deshabilita o no establece esta configuración, no se mostrará ningún texto extra.</string>
+    <string id="MpCloudBlockLevel">Selecciona el nivel de protección de la nube</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Esta configuración de directiva determina la agresividad de Antivirus de Windows Defender en lo que respecta al bloqueo y examen de archivos sospechosos.
+
+      Si esta configuración está activada, Antivirus de Windows Defender será más agresivo al identificar archivos sospechosos que se deben bloquear y examinar; de lo contrario, será menos agresivo y, por tanto, bloqueará y examinará archivos con menos frecuencia. 
+      
+      Para obtener más información sobre los valores específicos compatibles, consulta el sitio de la documentación de Antivirus de Windows Defender.
+
+      Nota: esta característica necesita que la configuración "Únete a Microsoft MAPS" esté habilitada para funcionar.
+
+      Las opciones posibles son:
+      (0x0) Nivel de bloqueo predeterminado de Windows Defender
+      (0x2) Nivel de bloqueo alto: bloquea objetos desconocidos de manera agresiva a la vez que optimiza el rendimiento del cliente (más posibilidades de falsos positivos).
+      (0x4) Nivel de bloqueo alto+: bloquea objetos desconocidos de manera agresiva y aplica medidas de protección adicionales (puede afectar al rendimiento del cliente).
+      (0x6) Nivel de bloqueo con tolerancia cero: bloquea todos los ejecutables desconocidos.
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Nivel de bloqueo predeterminado de Antivirus de Windows Defender</string>
+    <string id="MpCloudBlockLevel_High_Level">Nivel de bloqueo alto</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Nivel de bloqueo alto+</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nivel de bloqueo de cero tolerancia</string>
+    <string id="MpBafsExtendedTimeout">Configura la comprobación de la nube extendida</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Esta característica permite que Antivirus de Windows Defender bloquee un archivo sospechoso durante un máximo de 60 segundos y lo examine en la nube para comprobar que es seguro.
+      
+      El tiempo de espera de la comprobación de la nube habitual es de 10 segundos. Para habilitar la característica de comprobación de la nube extendida, especifica el tiempo extendido en segundos, hasta un máximo de 50 segundos adicionales.
+
+      Por ejemplo, si el tiempo de espera deseado es de 60 segundos, especifica 50 segundos en esta configuración y se habilitará la característica de comprobación de la nube extendida, que aumentará el tiempo total en 60 segundos.
+
+      Nota: esta característica depende de otras tres opciones de configuración de MAPS: característica "Bloqueo a primera vista"; "Únete a Microsoft MAPS"; "Enviar muestras de archivos cuando se requieran más análisis" (todas ellas deben estar activadas).
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Impedir que los usuarios y las aplicaciones tengan acceso a sitios Web peligrosos</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Habilita o deshabilita la protección de red de Protección contra vulnerabilidades de seguridad de Windows Defender para impedir que los empleados usen cualquier aplicación para acceder a dominios peligrosos que puedan hospedar fraudes por suplantación de identidad (phishing), sitios que hospeden vulnerabilidades y otro tipo de contenido malintencionado en Internet.
+
+    Habilitado:
+    Especifica el modo en la sección Opciones:
+    -Bloquear: los usuarios y las aplicaciones no podrán acceder a sitios peligrosos.
+    -Modo auditoría: los usuarios y las aplicaciones pueden conectarse a dominios peligrosos. Sin embargo, si esta característica bloquea el acceso porque se la ha establecido en Bloquear, se almacenará un registro del evento en los registros de eventos.
+
+    Deshabilitado:
+    No se impedirá que los usuarios y las aplicaciones se conecten a sitios peligrosos.
+
+    No configurado:
+    Lo mismo que Deshabilitado.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Excluir archivos y las rutas de acceso de las reglas de reducción de la superficie de ataque</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Excluye archivos y rutas de acceso de las reglas de Attack Surface Reduction (ASR).
+
+    Habilitado:
+    Especifica las carpetas o los archivos y los recursos que deben excluirse de las reglas de ASR en la sección Opciones.
+    Especifica cada regla en una línea nueva como un par nombre-valor:
+    - Columna Nombre: escribe una ruta de acceso de carpeta o un nombre de recurso completo. Por ejemplo, ""C:\Windows"" excluirá todos los archivos de ese directorio. ""C:\Windows\App.exe"" excluirá solo ese archivo específico de esa carpeta específica.
+    - Columna Valor: escribe ""0"" para cada elemento.
+
+    Deshabilitado:
+    No se aplicará ninguna exclusión a las reglas de ASR.
+
+    No configurado:
+    Lo mismo que Deshabilitado.
+
+    Puedes configurar las reglas de ASR en la opción de GP para configurar reglas de Attack Surface Reduction.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Configurar reglas de reducción de la superficie de ataque</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Establece el estado para cada regla de Attack Surface Reduction (ASR).
+
+    Después de habilitar esta configuración, puedes establecer las siguientes opciones para cada regla en la sección Opciones:
+    - Bloquear: se aplicará la regla.
+    - Modo auditoría: si la regla suele generar un evento, se registrará (aunque la regla no se aplicará realmente).
+    - Desactivar: no se aplicará la regla.
+
+    Habilitado:
+    Especifica el estado de cada regla de ASR en la sección Opciones para esta configuración.
+    Escribe cada regla en una línea nueva como un par nombre-valor:
+    - Columna Nombre: indica un id. de regla de ASR válido.
+    - Columna Valor: indica el id. de estado que hace referencia al estado que quieres especificar para la regla asociada.
+
+    Se permiten los siguientes id. de estado en la columna Valor:
+    - 1 (Bloquear)
+    - 0 (Desactivar)
+    - 2 (Auditar)
+    
+    Ejemplo:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Deshabilitado:
+    No se configurarán reglas de ASR.
+
+    No configurado:
+    Lo mismo que Deshabilitado.
+
+    Puedes excluir carpetas o archivos en la opción de GP para excluir archivos y rutas de acceso de las reglas de Attack Surface Reduction.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Configurar Acceso controlado a carpeta</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Habilitar o deshabilitar el acceso controlado a carpetas para aplicaciones que no son de confianza. Puedes elegir bloquear, auditar o permitir los intentos que realizan las aplicaciones que no son de confianza para:
+    - Modificar o eliminar archivos en carpetas protegidas, como la carpeta Documentos
+    - Escribir en sectores del disco
+
+    También puedes elegir bloquear o auditar solamente la escritura en los sectores del disco, pero seguir permitiendo la modificación o la eliminación de archivos en las carpetas protegidas.
+
+    El Antivirus de Windows Defender determina automáticamente qué aplicaciones pueden considerarse de confianza. Puedes agregar aplicaciones de confianza adicionales en la opción de directiva de grupo Configurar aplicaciones permitidas.
+    Las carpetas del sistema predeterminadas se protegen automáticamente, pero puedes agregar carpetas en la opción de directiva de grupo Configurar carpetas protegidas.
+
+    Bloquear:
+    Se bloquearán los siguientes elementos:
+    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+    El registro de eventos de Windows registrará estos bloqueos en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1123.
+
+
+    Deshabilitado:
+    No se bloquearán y se podrán ejecutar los siguientes elementos:
+    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+    Estos intentos no se registrarán en el registro de eventos de Windows.
+
+
+    Modo auditoría:
+    No se bloquearán y se podrán ejecutar los siguientes elementos:
+    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+    El registro de eventos de Windows registrará estos intentos en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1124.
+
+
+    Bloquear solo la modificación del disco:
+    Se bloquearán los siguientes elementos:
+    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+    El registro de eventos de Windows registrará estos intentos en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1123.
+
+    No se bloquearán y se podrán ejecutar los siguientes elementos:
+    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+    Estos intentos no se registrarán en el registro de eventos de Windows.
+
+
+    Auditar solo la modificación del disco:
+    No se bloquearán y se podrán ejecutar los siguientes elementos:
+    - Intentos de las aplicaciones que no son de confianza para escribir en los sectores del disco
+    - Intentos de las aplicaciones que no son de confianza para modificar o eliminar archivos de carpetas protegidas
+    Solo los intentos de escritura en los sectores del disco protegidos se registrarán en el registro de eventos de Windows (en Registros de aplicaciones y servicios &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operativo &gt; Id. 1124).
+    No se registrarán los intentos de modificación o eliminación de archivos de carpetas protegidas.
+
+    No configurado:
+    Igual que Deshabilitado.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Deshabilitar (predeterminado)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Bloquear</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Modo auditoría</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Bloquear solo la modificación del disco</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Auditar solo la modificación del disco</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Configurar aplicaciones permitidas</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Agrega aplicaciones adicionales que la característica Acceso controlado a carpetas deba considerar "de confianza".
+
+    Estas aplicaciones pueden modificar o eliminar archivos de las carpetas de acceso controlado a carpetas.
+
+    El Antivirus de Windows Defender determina automáticamente qué aplicaciones son de confianza. Puedes configurar esta opción para agregar aplicaciones adicionales.
+
+    Habilitado: 
+    Especifica aplicaciones permitidas adicionales en la sección Opciones.
+
+    Deshabilitado:
+    No se agregará ninguna aplicación adicional a la lista de confianza.
+
+    No configurado:
+    Lo mismo que Deshabilitado.
+
+    Puedes habilitar el acceso controlado a carpetas en la opción de GP Configurar el acceso controlado a carpetas.
+
+    Las carpetas del sistema predeterminadas se protegen automáticamente, pero puedes agregar carpetas en la configuración de GP Configurar carpetas protegidas.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Configurar carpetas protegidas</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Especifica las carpetas adicionales que se deben proteger mediante la característica de acceso controlado a carpetas.
+
+    Las aplicaciones que no son de confianza no pueden modificar ni eliminar los archivos de estas carpetas.
+
+    Las carpetas del sistema predeterminadas se protegen automáticamente. Puedes establecer esta configuración para agregar carpetas adicionales. 
+    La lista de carpetas del sistema predeterminadas que se protegen se muestra en Seguridad de Windows.
+
+    Habilitada:
+    Especifica las carpetas adicionales que deben protegerse en la sección Opciones.
+
+    Deshabilitada:
+    No se protegerá ninguna carpeta adicional.
+
+    No configurada:
+    Igual que Deshabilitada.
+
+    Puedes habilitar el acceso controlado a carpetas en la opción de GP Configurar el acceso controlado a carpetas.
+
+    El Antivirus de Windows Defender determina automáticamente las aplicaciones que pueden ser de confianza. Puedes agregar aplicaciones de confianza adicionales en la opción de GP Configurar aplicaciones permitidas.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -805,32 +1056,37 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
     <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Especificar la hora del día a la que ejecutar un examen programado</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_ASSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definir el número de días que debe transcurrir para considerar las definiciones de spyware como caducadas</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definir el número de días que deben transcurrir para considerar la inteligencia de seguridad de spyware como caducada</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_AVSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definir el número de días que debe transcurrir para considerar las definiciones de virus como caducadas</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definir el número de días que deben transcurrir para considerar la inteligencia de seguridad de virus como caducada</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
     <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
-        <label>Definir recursos compartidos de archivos para descargar actualizaciones de definiciones</label>
+        <label>Definir recursos compartidos de archivos para descargar actualizaciones de inteligencia de seguridad</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SharedSignaturesLocation">
+    <textBox refId="SignatureUpdate_SharedSignaturesLocation">
+        <label>Definir el recurso compartido de archivos para descargar actualizaciones de inteligencia de seguridad en entornos virtuales</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_FallbackOrder">
     <textBox refId="SignatureUpdate_FallbackOrder">
-        <label>Definir el orden de los orígenes para descargar actualizaciones de definiciones</label>
+        <label>Definir el orden de los orígenes para descargar actualizaciones de inteligencia de seguridad</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleDay">
-    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Especificar el día de la semana en el que buscar actualizaciones de definiciones</dropdownList>
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Especificar el día de la semana en el que buscar actualizaciones de inteligencia de seguridad</dropdownList>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleTime">
-    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Especificar la hora a la que buscar actualizaciones de definiciones</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Especificar la hora a la que buscar actualizaciones de inteligencia de seguridad</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definir el número de días tras los que se necesita una actualización de definición de puesta al día</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definir el número de días tras los cuales se necesita una actualización de inteligencia de seguridad de puesta al día</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Especificar el intervalo para buscar actualizaciones de definiciones</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Especificar el intervalo para buscar actualizaciones de inteligencia de seguridad</decimalTextBox>
     </presentation>
     <presentation id="SpynetReporting">
     <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Únase a Microsoft MAPS</dropdownList>
@@ -852,6 +1108,33 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Especificar el intervalo para la notificación de expiración</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Selecciona nivel de bloqueo de la nube</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Especifica el tiempo de comprobación de la nube extendido en segundos</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Configurar la característica Proteger mis carpetas</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Exclusiones de reglas de ASR:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Establecer el estado para cada regla de ASR:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Escriba las aplicaciones que deben ser de confianza:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Especifica las carpetas que deben protegerse:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

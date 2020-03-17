@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Ez a házirend-beállítás lehetővé teszi a vállalati webhely HTTPS URL-címének megadását, amelynek segítségével az ügyfelek megállapítják a tartomány aktuális helyét (azaz, hogy a vállalati hálózaton belül vagy kívül van-e). Ha a célhely URL-címe elérhető, akkor az ügyfél helye a vállalati hálózaton belül van, egyébként a hálózaton kívül.</string>
       <string id="NCSI_PassivePolling">Passzív lekérdezés megadása</string>
       <string id="NCSI_PassivePolling_Help">Ez a házirend-beállítás lehetővé teszi a passzív lekérdezési viselkedés megadását. A hálózati kapcsolat állapotjelzője számos mérést kérdez le gyakori ismétlődéssel a hálózati veremről, hogy megállapítsa, a hálózati kapcsolat megszűnt-e.  A beállítások használatával vezérelheti a lekérdezési viselkedést.</string>
+      <string id="NCSI_GlobalDns">Globális DNS megadása</string>
+      <string id="NCSI_GlobalDns_Help">Ez a házirend-beállítás lehetővé teszi a DNS-kötési viselkedés megadását. Az NCSI alapértelmezés szerint arra a felületre korlátozza a DNS-kereséseket, amelyen éppen mintavételt végez. Ha engedélyezi ezt a beállítást, az NCSI bármely felületen engedélyezi majd a DNS-kereséseket.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>A következő jelölőnégyzet bejelölésével letiltja a hálózati kapcsolat állapotjelzőjének passzív lekérdezési viselkedését.   Ez javítja a kiszolgálókon és más, statikus hálózati kapcsolattal rendelkező gépeken a processzor terhelését.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Passzív lekérdezés letiltása</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>A következő jelölőnégyzettel letiltható a felületkötés, amikor DNS-kereséseket végeznek az NCSI-ben. Így az NCSI jobb működésre lehet képes különleges hálózati konfigurációk esetén, például ha egy DNS-kiszolgáló a localhost állomáson fut.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Globális DNS használata</checkBox>
       </presentation>
     </presentationTable>
   </resources>

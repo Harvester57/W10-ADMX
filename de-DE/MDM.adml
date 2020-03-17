@@ -14,7 +14,26 @@ Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, wird die MDM-Registri
 Wenn Sie diese Richtlinieneinstellung aktivieren, wird die MDM-Registrierung für alle Benutzer deaktiviert. Bereits bestehende MDM-Registrierungen werden nicht aufgehoben.
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren, wird die MDM-Registrierung für alle Benutzer aktiviert.
-</string>
+      </string>
+      <string id="MDM_JoinMDM_DisplayName">Automatische MDM-Registrierung mit standardmäßigen Azure AD-Anmeldeinformationen aktivieren</string>
+      <string id="MDM_JoinMDM_Help">
+            Diese Richtlinieneinstellung gibt an, ob das Gerät automatisch beim MDM-Dienst (Mobile Device Management, Verwaltung mobiler Geräte) registriert wird, der in Azure Active Directory (Azure AD) konfiguriert wurde. Wenn die Registrierung erfolgreich verläuft, wird das Gerät remote vom MDM-Dienst verwaltet.
+
+            Wichtig: Das Gerät muss in Azure AD registriert sein, damit die MDM-Registrierung erfolgreich ist.
+
+            Wenn Sie die Richtlinieneinstellung nicht konfigurieren, wird keine automatische MDM-Registrierung initiiert.
+
+            Wenn Sie die Richtlinieneinstellung aktivieren, wird eine Aufgabe erstellt, um die Registrierung des Geräts bei dem in Azure AD angegebenen MDM-Dienst zu initiieren.
+
+            Wenn Sie die Richtlinieneinstellung deaktivieren, wird die MDM-Registrierung aufgehoben.
+      </string>
+      <string id="UserCredential">Benutzeranmeldedaten</string>
+      <string id="DeviceCredential">Geräteanmeldedaten</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="AutoEnrollMDM">
+        <dropdownList refId="UseAADCredentialTypeDrop" defaultItem="1">Zu verwendenden Anmeldedatentyp auswählen:</dropdownList>
+      </presentation>
+    </presentationTable>	
   </resources>
 </policyDefinitionResources>

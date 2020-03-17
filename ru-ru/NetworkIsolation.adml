@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">Прокси-серверы Интернета для приложений</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  Этот параметр политики не применяется к классическим приложениям.
 	
@@ -20,7 +19,8 @@
 
 Пример: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
+Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">Прокси-серверы в интрасети для приложений</string>
@@ -36,10 +36,12 @@
 
 Пример: [3efe:3022::1000];18.0.0.1;18.0.0.2
 
-Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
-	<!--Define subnet addresses-->	
+Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">Диапазоны частных сетей для приложений</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">Этот параметр политики не применяется к классическим приложениям.
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> Этот параметр политики не применяется к классическим приложениям.
 				
 Список диапазонов IP-адресов корпоративной сети, разделенных запятыми.
 
@@ -53,12 +55,12 @@
 
 Пример: 3efe:1092::/96,18.1.1.1/10 
 
-Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-				
+Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">Определения прокси-серверов достоверны</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">Этот параметр политики не применяется к классическим приложениям.
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> Этот параметр политики не применяется к классическим приложениям.
 				
 Отключает автоматическое обнаружение прокси-серверов сетевой изоляцией Windows в корпоративной среде домена.
 
@@ -66,11 +68,12 @@
 
 Если вы отключаете или не задаете этот параметр политики, сетевая изоляция Windows будет пытаться автоматически обнаружить адреса прокси-серверов.  
 
-Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-		<!--Subnet definitions are authoritative-->	
+Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">Определения подсети являются достоверными</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">Этот параметр политики не применяется к классическим приложениям.
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> Этот параметр политики не применяется к классическим приложениям.
 				
 Выключает автоматическое обнаружение сетевой изоляцией Windows узлов частной сети в корпоративной среде домена.
 
@@ -78,10 +81,35 @@
 
 Если вы отключаете или не задаете этот параметр политики, сетевая изоляция Windows пытается автоматически обнаружить узлы частной сети в корпоративной среде домена. 
 				
-Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-	
-	
-     </stringTable>
+Дополнительные сведения см. на следующей странице: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">Домены корпоративных ресурсов, размещенные в облаке</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> Этот параметр не применяется к классическим приложениям.
+
+Разделенный вертикальной чертой список облачных ресурсов домена. Каждый облачный ресурс может быть дополнительно связан с внутренним прокси-сервером с помощью завершающей запятой, за которой следует адрес прокси-сервера.
+
+Содержит список корпоративных доменов ресурсов, размещенных в облаке. Подключения к этим ресурсам считаются подключениями к корпоративным сетям.
+
+Если прокси-сервер связывается с облачным ресурсом, трафик к облачному ресурсу будет направляться через корпоративную сеть через указанный прокси-сервер (на порте 80). Используемый для этой цели прокси-сервер должен также быть настроен с помощью прокси-серверов интрасети для политики приложений.
+
+Пример: [cloudresource]|[cloudresource]|[cloudresource],[proxy]|[cloudresource]|[cloudresource],[proxy]|
+
+Дополнительные сведения см. в статье http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">Домены, отнесенные к рабочим и личным одновременно</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> Этот параметр не применяется к классическим приложениям.
+
+Разделенный запятыми список доменных имен, которые можно использовать одновременно в качестве рабочих и личных ресурсов.
+
+Для получения дополнительных сведений см. статью http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>Частные подсети  </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>Корпоративные облачные ресурсы </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>Нейтральные ресурсы </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

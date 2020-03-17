@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Questa impostazione dei criteri consente di specificare l'URL HTTPS URL del sito Web aziendale utilizzato dai client per determinare il percorso corrente del dominio (vale a dire, se il computer si trova all'interno o all'esterno della rete aziendale). La raggiungibilità della destinazione URL indica che il percorso del client è interno alla rete aziendale; in caso contrario, il percorso è esterno alla rete aziendale.</string>
       <string id="NCSI_PassivePolling">Specifica polling passivo</string>
       <string id="NCSI_PassivePolling_Help">Questa impostazione dei criteri consente di specificare il comportamento del polling passivo L'indicatore di stato della connettività di rete (NCSI) effettua il polling di varie misure dello stack di rete a un intervallo frequente, per determinare se la connettività di rete è stata persa.  Utilizzare le opzioni per controllare il comportamento di polling passivo.</string>
+      <string id="NCSI_GlobalDns">Specificare DNS globale</string>
+      <string id="NCSI_GlobalDns_Help">Questa impostazione dei criteri consente di specificare il comportamento del binding DNS. L'Indicatore stato connettività di rete per impostazione predefinita limiterà le ricerche DNS all'interfaccia sulla quale il probe è in esecuzione. Abilitando tale impostazione, l'Indicatore stato connettività di rete consentirà l'esecuzione delle ricerche DNS su qualsiasi interfaccia.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>La seguente casella di controllo disabilita il meccanismo di polling passivo nell'indicatore di stato della connettività di rete.   Ciò determina un miglioramento del carico di lavoro su server o altri computer che dispongono di una connessione di rete statica.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Disabilita polling passivo</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>La seguente casella di controllo disabilita il binding dell'interfaccia quando si effettuano ricerche DNS nell'Indicatore stato connettività di rete. Ciò consente all'Indicatore stato connettività di rete di funzionare meglio con configurazioni di rete speciali, ad esempio un server DNS eseguito in localhost.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Utilizzare DNS globale</checkBox>
       </presentation>
     </presentationTable>
   </resources>

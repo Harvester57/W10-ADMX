@@ -155,23 +155,56 @@ TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se
 
 Esta configuración de directiva se puede usar en combinación con "Permitir delegación de credenciales guardadas" para definir excepciones para servidores específicos que se permiten al usar caracteres comodín en la lista de servidores de "Permitir delegación de credenciales guardadas".</string>
       <string id="RestrictedRemoteAdministration">Restringir delegación de credenciales a servidores remotos</string>
-      <string id="RestrictedRemoteAdministration_Explain">Cuando se ejecutan en el modo Administración restringida o si el dispositivo está usando Credential Guard remoto, las aplicaciones participantes no exponen credenciales a los dispositivos remotos (independientemente del método de delegación). El modo Administración restringida puede limitar el acceso a los recursos que están en otros servidores o redes más allá del equipo de destino, ya que las credenciales no se delegan. Credential Guard remoto no limita el acceso a los recursos mediante el redireccionamiento de todas las solicitudes al dispositivo de cliente.
+      <string id="RestrictedRemoteAdministration_Explain">Cuando se ejecutan en el modo de administración restringida o de Credential Guard remoto, las aplicaciones participantes no exponen credenciales con las que se ha iniciado sesión ni las suministradas a ningún host remoto. El modo de administración restringida puede limitar el acceso a los recursos que están en otros servidores del host remoto, ya que las credenciales no se delegan. Credential Guard remoto no limita el acceso a los recursos, ya que redirige todas las solicitudes al dispositivo cliente.
 
 Aplicaciones participantes:
 Cliente de escritorio remoto
 
-Si habilitas esta configuración de directiva, se exige el modo Administración restringida o Credential Guard remoto y las aplicaciones participantes no podrán delegar credenciales para dispositivos remotos.
+Si habilitas esta configuración de directiva, se admiten las opciones siguientes:
+ 
+Restringir delegación de credenciales: Las aplicaciones participantes deben usar la administración restringida o Credential Guard remoto para conectarse a los hosts remotos.
+ 
+Necesitar Credential Guard remoto: Las aplicaciones participantes deben usar Credential Guard remoto para conectarse a los hosts remotos.
+ 
+Necesitar un administrador restringido: Las aplicaciones participantes deben usar la administración restringida para conectarse a los hosts remotos.
 
-Si deshabilitas o no estableces esta configuración de directiva, no se exigen el modo Administración restringida y Credential Guard remoto y las aplicaciones participantes pueden delegar las credenciales para dispositivos remotos.
+Si deshabilitas o no configuras esta configuración de directiva, no se aplicarán la administración restringida ni Credential Guard remoto, y las aplicaciones participantes podrán delegar credenciales para dispositivos remotos.
 
-Nota: para deshabilitar la mayoría de delegación de credenciales, puede ser suficiente denegar la delegación en el proveedor de servicios de seguridad de credenciales (CredSSP) modificando la configuración de plantillas administrativas (que se encuentra en Configuración del equipo\Plantillas administrativas\Sistema\Delegación de credenciales).
+Nota: Para deshabilitar la mayoría de delegación de credenciales, puede bastar con denegar la delegación en el proveedor de servicios de seguridad de credenciales (CredSSP) modificando la configuración de plantillas administrativas (que se encuentra en Configuración del equipo\Plantillas administrativas\Sistema\Delegación de credenciales).
 
-Nota: en Windows 8.1 y Windows Server 2012 R2, la habilitación de esta directiva forzará el modo Administración restringida, independientemente del modo elegido. Estas versiones no son compatibles con Credential Guard remoto.
+Nota: En Windows 8.1 y Windows Server 2012 R2, la habilitación de esta directiva aplicará el modo de administración restringida, independientemente del modo elegido. Estas versiones no son compatibles con Credential Guard remoto.
 </string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
-      <string id="PreferRemoteCredentialGuard">Preferir Credential Guard remoto</string>
+      <string id="PreferRemoteCredentialGuard">Restringir delegación de credenciales</string>
       <string id="RequireRemoteCredentialGuard">Necesitar Credential Guard remoto</string>
       <string id="RequireRestrictedAdmin">Necesitar un administrador restringido</string>
+      <string id="AllowProtectedCreds">El host remoto permite la delegación de credenciales no exportables</string>
+      <string id="AllowProtectedCreds_Explain">El host remoto permite la delegación de credenciales no exportables
+
+Cuando se usa la delegación de credenciales, los dispositivos proporcionan una versión exportable de credenciales al host remoto. Esto expone a los usuarios al riesgo de robo de credenciales por parte de atacantes en el host remoto.
+
+Si habilitas esta configuración de directiva, el host admitirá el modo de administración restringida o remoto.
+
+Si deshabilitas o no configuras esta configuración de directiva, no se admitirán el modo de administración restringida ni el modo Credential Guard remoto. El usuario siempre tendrá que pasar sus credenciales al host.</string>
+      <string id="AllowEncryptionOracle">Corrección de oráculo de cifrado</string>
+      <string id="AllowEncryptionOracle_Explain">Corrección de oráculo de cifrado
+
+Esta configuración de directiva se aplica a las aplicaciones que usan el componente CredSSP (por ejemplo: Conexión a Escritorio remoto).
+
+Algunas versiones del protocolo CredSSP son vulnerables a un ataque de oráculo de cifrado contra el cliente. Esta directiva controla la compatibilidad con los servidores y los clientes vulnerables. También te permite establecer el nivel de protección que quieras para la vulnerabilidad de oráculo de cifrado.
+
+Si habilitas esta configuración de directiva, la compatibilidad con la versión de CredSSP se seleccionará en función de las siguientes opciones:
+
+Forzar clientes actualizados: las aplicaciones cliente que usen CredSSP no podrán revertirse a las versiones no seguras y los servicios que usen CredSSP no aceptarán clientes sin revisión. Nota: Esta configuración no debe implementarse hasta que todos los hosts remotos sean compatibles con la versión más reciente.
+
+Mitigado: las aplicaciones cliente que usen CredSSP no podrán revertirse a la versión no segura, pero los servicios que usen CredSSP aceptarán clientes sin revisión. Consulta el vínculo siguiente para obtener información importante sobre el riesgo que plantean los clientes sin revisión restantes.
+
+Vulnerable: las aplicaciones cliente que usen CredSSP expondrán los servidores remotos a ataques al admitir la reversión a versiones no seguras, y los servicios que usen CredSSP aceptarán clientes sin revisión.
+
+Para obtener más información sobre los requisitos de vulnerabilidad y mantenimiento para mantener la seguridad, consulta https://go.microsoft.com/fwlink/?linkid=866660</string>
+      <string id="AllowEncryptionOracle_Force">Forzar clientes actualizados</string>
+      <string id="AllowEncryptionOracle_Secure">Mitigado</string>
+      <string id="AllowEncryptionOracle_Allow">Vulnerable</string>
     </stringTable>
     
     <presentationTable>
@@ -214,6 +247,12 @@ Nota: en Windows 8.1 y Windows Server 2012 R2, la habilitación de esta directiv
       <presentation id="RestrictedRemoteAdministration">
         <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Usar el siguiente modo restringido:</dropdownList>
       </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Nivel de protección:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

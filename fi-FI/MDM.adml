@@ -14,7 +14,26 @@ Jos et määritä tätä käytäntöasetusta, mobiililaitteiden hallinnan rekist
 Jos otat tämän käytäntöasetuksen käyttöön, mobiililaitteiden hallinnan rekisteröinti poistetaan käytöstä kaikilta käyttäjiltä. Toiminto ei poista aiemmin luotuja mobiililaitteiden hallinnan rekisteröintejä.
 
 Jos poistat tämän käytäntöasetuksen käytöstä, mobiililaitteiden hallinnan rekisteröinti otetaan käyttöön kaikille käyttäjille.
-</string>
+      </string>
+      <string id="MDM_JoinMDM_DisplayName">Ota käyttöön automaattinen mobiililaitteiden hallinnan rekisteröinti käyttämällä Azure AD -oletustunnistetietoja</string>
+      <string id="MDM_JoinMDM_Help">
+            Tämä käytäntöasetus määrittää, rekisteröidäänkö laite automaattisesti Azure Active Directoryssa (Azure AD) määritettyyn mobiililaitteiden hallintapalveluun. Jos rekisteröinti onnistuu, mobiililaitteiden hallintapalvelu hallinnoi laitetta etäyhteyden kautta.
+
+            Tärkeää: Laitteen pitää olla rekisteröity Azure AD:hen, jotta rekisteröinti onnistuu.
+
+            Jos et määritä tätä käytäntöasetusta, automaattista mobiililaitteiden hallinnan rekisteröintiä ei aloiteta.
+
+            Jos otat tämän käytäntöasetuksen käyttöön, järjestelmä luo tehtävän laitteen rekisteröinnin aloittamiseksi Azure AD:ssa määritettyyn mobiililaitteiden hallintapalveluun.
+
+            Jos poistat tämän käytäntöasetuksen käytöstä, mobiililaitteiden hallinnan rekisteröinti poistetaan.
+      </string>
+      <string id="UserCredential">Käyttäjän tunnistetieto</string>
+      <string id="DeviceCredential">Laitteen tunnistetieto</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="AutoEnrollMDM">
+        <dropdownList refId="UseAADCredentialTypeDrop" defaultItem="1">Valitse käytettävä tunnistetietotyyppi:</dropdownList>
+      </presentation>
+    </presentationTable>	
   </resources>
 </policyDefinitionResources>

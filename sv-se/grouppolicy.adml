@@ -12,6 +12,32 @@
       <string id="FontMitigation_Off">Blockera inte teckensnitt som inte är betrodda</string>
       <string id="FontMitigation_Audit">Logga händelser utan att blockera teckensnitt som inte är betrodda</string>
 
+	  <string id="ProcessMitigationOptions_List">Åtgärdsalternativ för processer</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Den här säkerhetsfunktionen kan du använda för att åsidosätta MitigationOptions-inställningar för enskilda processer. Du kan tillämpa ett antal säkerhetsprinciper specifikt för program. Programnamnet anges som värdenamnet, inklusive tillägget. Värdet anges som ett bitfält med en serie flaggor på särskilda positioner. Bitarna kan vara antingen 0 (inställningen sätts till av), 1 (inställningen sätts till på) eller ? (inställningen behåller sitt tidigare värde från före GPO-utvärderingen). Bitplatser som känns igen är:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Aktiverar Dataexekveringsskydd (DEP) för underprocessen
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Aktiverar DEP-ATL-thunk-emulering för underprocessen. DEP-ATL-thunk-emulering gör att systemet fångar upp NX-fel som har sitt ursprung i Active Template Library-thunk-skiktet (ATL).
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Aktiverar överskrivningsskydd för strukturerade undantagshanterare (SEHOP) för underprocessen. SEHOP blockerar försök att utnyttja överskrivningstekniken med strukturerade undantagshanterare (SEH).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Principen för att framtvinga ASLR (Address Space Layout Randomization) utför rebase för avbildningar som inte stöder dynamiska baser genom att agera som om en avbildningsbaskollision inträffade vid inläsningen. Om en omflyttning krävs läses inte avbildningar som saknar basomflyttningsavnitt in.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Nerifrån och upp-slumpmässighetsprincipen som omfattar alternativ för stackslumpmässighet gör att en slumpmässig plats används som lägsta användaradress.
+
+        Om du till exempel vill aktivera PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE och PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON inaktiverar du PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, och för att låta alla andra alternativ behålla sina standardvärden anger du värdet:
+        ???????????????0???????1???????1
+
+        Om du anger flaggor som har specificerats här till något annat värde än ? ger det oväntade resultat.
+</string>
+
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Aktivera synkronisering av domänkontrollant för AD/DFS vid uppdatering av princip</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Om du aktiverar den här inställningen kommer grupprincipklienten att ansluta till samma domänkontrollant för DFS-resurser som används för Active Directory.
 
@@ -24,21 +50,60 @@
 
 
 </string>
+      <string id="EnableCDP">Fortsätt användningsupplevelser på den här enheten</string>
+      <string id="EnableCDP_Help">
+Den här principinställningen bestämmer om Windows-enheten tillåts dela användningsupplevelser mellan enheter (fortsätta användningsupplevelser).
+
+Om du aktiverar den här principinställningen kan Windows-enheten upptäckas av andra Windows-enheter som tillhör användaren och dela användningsupplevelser mellan enheter.
+
+Om du inaktiverar principinställningen kan Windows-enheten inte upptäckas av andra enheter och heller inte dela användningsupplevelser mellan enheter.
+
+Om du inte konfigurerar principinställningen avgörs standardbeteendet av vilken Windows-utgåva som används. Ändringar av den här principen börjar först gälla efter en omstart.
+      </string>
+      <string id="EnableMMX">Länkning av telefon till dator på denna enhet</string>
+      <string id="EnableMMX_Help">
+Med den här principen kan IT-administratörer inaktivera möjligheten att länka en telefon till en dator för att återuppta aktiviteter mellan dem, t.ex. fortsätta läsa, skicka e-post och andra aktiviteter som kräver att telefonen och datorn är länkade.
+
+Om du aktiverar den här principinställningen kan Windows-enheten läggas till för länkning av telefon till dator och synkas för Fortsätt på dator-scenarier.
+
+Om du inaktiverar principinställningen kan inte Windows-enheten länkas till telefoner och den tar bort sig själv från enhetslistan över eventuella länkade telefoner. Den kan heller inte användas i Fortsätt på dator-scenarier.
+
+Om du inte konfigurerar principinställningen beror standardbeteendet på Windows-utgåvan. Ändring av principen börjar gälla först efter en omstart.
+      </string>
+      <string id="EnableAppUriHandlers">Konfigurera webb-till-app-länkning med URI-referenser</string>
+      <string id="EnableAppUriHandlers_Help">
+Den här principinställningen anger om Windows stöder webb-till-app-länkning med URI-referenser.
+
+Om du aktiverar den här principinställningen aktiveras webb-till-app-länkning så att appar kan startas med en http(s)-URI.
+
+Om du inaktiverar principinställningen inaktiveras webb-till-app-länkning och http(s)-URI:er öppnas med standardwebbläsaren i stället för den associerade appen.
+
+Om du inte konfigurerar principinställningen beror användningen ovan på Windows-utgåvan. Ändring av principen börjar gälla först efter en omstart.
+      </string>
+      <string id="Fonts">Teckensnitt</string>
+      <string id="EnableFontProviders">Tillåt teckensnittsnedladdning</string>
+      <string id="EnableFontProviders_Help">
+        Den här principinställningen bestämmer om Windows får ladda ned teckensnitt och teckensnittskatalogdata från leverantörer online.
+
+        Om du aktiverar den här principinställningen kan Windows regelbundet kontrollera med leverantören om en ny teckensnittskatalog finns tillgänglig. Windows kan också ladda ned teckensnittsdata om det behövs för att formatera eller återge text.
+
+        Om du inaktiverar den här principinställningen kan Windows inte ansluta till en teckensnittsleverantör online och endast lokalt installerade teckensnitt används.
+
+        Om du inte konfigurerar principinställningen beror standardbeteendet på Windows-utgåvan. Ändring av principen börjar gälla först efter en omstart.
+      </string>
       <string id="EnableLogonOptimization">Konfigurera grupprincipens cachelagring</string>
       <string id="EnableLogonOptimization_Help">
-        
         Med den här principinställningen kan du konfigurera beteendet för grupprincipens cachelagring.
-        
-        Om du aktiverar eller låter bli att konfigurera den här principinställningen cachelagrar grupprincipen principinformation efter varje session med bakgrundsbearbetning. Den här cachen sparar tillämpliga grupprincipobjekt och inställningarna i dem. När grupprincipen körs i synkront förgrundsläge refererar den till den här cachen, och kan på så sätt köras snabbare. När cachen har lästs försöker grupprincipen kontakta en domänkontrollant för inloggning för att fastställa länkhastigheten. När grupprincipen körs i bakgrundsläge eller asynkront förgrundsläge fortsätter den att ladda ned den senaste versionen av principinformationen, och använder en uppskattad bandbredd för att fastställa trösklarna för långsamma länkar. (Se principinställningen ”Konfigurera Identifiering av långsam grupprinciplänk” för att konfigurera asynkront förgrundsbeteende.)
-        
+
+        Om du aktiverar eller låter bli att konfigurera den här principinställningen cachelagrar grupprincipen principinformation efter varje session med bakgrundsbearbetning. Den här cachen sparar tillämpliga grupprincipobjekt och inställningarna i dem. När grupprincipen körs i synkront förgrundsläge refererar den till den här cachen, och kan på så sätt köras snabbare. När cachen har lästs försöker grupprincipen kontakta en domänkontrollant för inloggning för att fastställa länkhastigheten. När grupprincipen körs i bakgrundsläge eller asynkront förgrundsläge fortsätter den att ladda ned den senaste versionen av principinformationen, och använder en uppskattad bandbredd för att fastställa trösklarna för långsamma länkar. (Se principinställningen "Konfigurera Identifiering av långsam grupprinciplänk" för att konfigurera asynkront förgrundsbeteende.)
+
         Det värde för långsam länk som har definierats i den här principinställningen fastställer hur länge grupprincipen väntar på ett svar från domänkontrollanten innan den rapporterar att länkhastigheten är långsam. Standardvärdet är 500 millisekunder.
-        
+
         Det timeoutvärde som har definierats i den här principinställningen fastställer hur länge grupprincipen väntar på ett svar från domänkontrollanten innan den fastställer att det inte finns någon nätverksanslutning. Det stoppar den aktuella grupprincipbearbetningen. Grupprincipen körs i bakgrunden nästa gång en anslutning till en domänkontrollant upprättas. Om värdet ställs in för högt kan det leda till längre väntetid för användaren vid start eller inloggning. Standardvärdet är 5000 millisekunder.
-        
-        Om du inaktiverar den här principinställningen cachelagrar inte grupprincipklienten grupprincipobjekt eller inställningar som finns i objekten. När grupprincipen körs synkront laddar den ned den senaste versionen av principen från nätverket och använder bandbreddsuppskattningar för att fastställa trösklarna för långsamma länkar. (Se principinställningen ”Konfigurera Identifiering av långsam grupprinciplänk” för att konfigurera asynkront förgrundsbeteende.)
-      
+
+        Om du inaktiverar den här principinställningen cachelagrar inte grupprincipklienten grupprincipobjekt eller inställningar som finns i objekten. När grupprincipen körs synkront laddar den ned den senaste versionen av principen från nätverket och använder bandbreddsuppskattningar för att fastställa trösklarna för långsamma länkar. (Se principinställningen "Konfigurera Identifiering av långsam grupprinciplänk" för att konfigurera asynkront förgrundsbeteende.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Aktivera grupprincipens cachelagring för servrar</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -49,52 +114,48 @@
         Om du inaktiverar eller inte konfigurerar den här principinställningen cachelagrar inte grupprincipklienten grupprincipobjekt eller inställningar som finns i objekten. När grupprincipen körs synkront laddar den ned den senaste versionen av principen från nätverket och använder bandbreddsuppskattningar för att fastställa trösklarna för långsamma länkar. (Se principinställningen ”Konfigurera Identifiering av långsam grupprinciplänk” för att konfigurera asynkront förgrundsbeteende.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Konfigurera fördröjning av inloggningsskript</string>
       <string id="LogonScriptDelay_Help">
-        
-        Ange ”0” om du vill inaktivera fördröjning av inloggningsskript.
-        
+        Ange "0" om du vill inaktivera fördröjning av inloggningsskript.
+
         Med den här principinställningen konfigurerar du hur länge grupprincipklienten väntar med att köra skript efter inloggningen.
-        
-        Som standard väntar grupprincipklienter fem minuter innan inloggningsskripten körs. Det skapar en dynamisk skrivbordsmiljö genom att förhindra diskkonkurrens.
-        
+
+        Som standard väntar grupprincipklienten fem minuter innan inloggningsskript körs. Det skapar en dynamisk skrivbordsmiljö genom att förhindra diskkonkurrens.
+
         Om du aktiverar den här principinställningen väntar grupprincipen angiven tid innan inloggningsskripten körs.
-        
+
         Om du inaktiverar den här principinställningen kör grupprincipen skript omedelbart efter inloggning.
-        
+
         Om du låter bli att konfigurera den här principinställningen väntar grupprincipen fem minuter innan inloggningsskripten körs.
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Konfigurera Direct Access-anslutningar som en snabb nätverksanslutning</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Med den här principinställningen kan en administratör definiera Direct Access-anslutningen så att den tolkas som en snabb nätverksanslutning när Grupprincip tillämpas och uppdateras. 
- 
-När Grupprincip identifierar bandbreddshastigheten för en Direct Access-anslutning kan identifieringen i vissa fall misslyckas att ge information om bandbreddshastigheten. Om Grupprincip identifierar en bandbreddshastighet följer programmet de normala reglerna för att utvärdera om Direct Access-anslutningen är en snabb eller långsam nätverksanslutning. Om ingen bandbreddshastighet identifieras används standardvärdet, en långsam nätverksanslutning. Med den här principinställningen kan administratörer åsidosätta standardvärdet (en långsam nätverksanslutning) och i stället ange att en snabb nätverksanslutning ska vara standardvärde om ingen nätverksbandbreddshastighet kan kontrolleras.
- 
-Obs! När Grupprincip identifierar en långsam nätverksanslutning behandlas bara de klienttillägg som har konfigurerats för behandling via en långsam länk (en långsam nätverksanslutning).  
- 
-Om du aktiverar den här principen utvärderas nätverksanslutningen som en snabb länk och alla klienttillägg behandlas då Grupprincip inte kan identifiera bandbreddhastigheten via Direct Access.
- 
+      <string id="SlowLinkDefaultForDirectAccess_Help">Med den här principinställningen kan en administratör definiera Direct Access-anslutningen så att den tolkas som en snabb nätverksanslutning när grupprincipen tillämpas och uppdateras.
+
+När grupprincipen identifierar bandbreddshastigheten för en Direct Access-anslutning kan identifieringen i vissa fall misslyckas med att ge information om bandbreddshastigheten. Om grupprincipen identifierar en bandbreddshastighet följer grupprincipen de normala reglerna för att utvärdera om Direct Access-anslutningen är en snabb eller långsam nätverksanslutning. Om ingen bandbreddshastighet identifieras används standardvärdet, en långsam nätverksanslutning. Med den här principinställningen kan administratörer åsidosätta standardvärdet (en långsam nätverksanslutning) och i stället ange att en snabb nätverksanslutning ska vara standardvärde om ingen nätverksbandbreddshastighet kan fastställas.
+
+Obs! När grupprincipen identifierar en långsam nätverksanslutning behandlas bara de klienttillägg som har konfigurerats för behandling via en långsam länk (en långsam nätverksanslutning).
+
+Om du aktiverar den här principen när grupprincipen inte kan identifiera bandbreddhastigheten via Direct Access så utvärderas nätverksanslutningen som en snabb länk och alla klienttillägg behandlas.
+
 Om du inaktiverar eller låter bli att konfigurera den här inställningen utvärderas nätverksanslutningen som en långsam länk och bara de klienttillägg som har konfigurerats för att behandlas över en långsam länk bearbetas.
-          
-      
-          
+
       </string>
      <string id="SlowlinkDefaultToAsync">Ändra bearbetningen i Grupprincip till asynkron bearbetning om en långsam nätverksanslutning identifieras.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Den här principinställningen gör att Grupprincip inte behandlar några klienttillägg som kräver synkron bearbetning (det vill säga om datorer väntar tills nätverket är helt initierat under start och inloggning) när en långsam nätverksanslutning identifieras.  
- 
-Om du aktiverar den här principinställningen sker behandlingen alltid asynkront om en långsam nätverksanslutning identifieras.
-Klientdatorerna väntar inte på att nätverket ska initieras helt vid start och inloggning. Befintliga användare loggas in med hjälp av cachelagrade autentiseringsuppgifter vilket ger kortare inloggningstider. Grupprinciperna tillämpas i bakgrunden när nätverket är tillgängligt.   
-Observera att eftersom detta är en uppdatering i bakgrunden så körs inte tillägg som kräver synkron behandling, t.ex. Programvaruinstallation. Mappomdirigering och Enhetsmappning.
- 
-Obs! Det finns två tillstånd som gör att Grupprincip bearbetas synkront även om den här principinställningen är aktiverad:
-1 - Första gången datorn startar efter det att klientdatorn har anslutits till en domän.
-2 – Om principinställningen Vänta alltid på nätverket när datorn startas och vid inloggning är aktiverad.
- 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen påverkas inte den synkrona eller asynkrona behandlingen av att en långsam nätverksanslutning identifieras.
+      <string id="SlowlinkDefaultToAsync_Help">Den här principinställningen gör att grupprincipen inte behandlar några klienttillägg som kräver synkron bearbetning (det vill säga om datorer väntar tills nätverket är helt initierat under start och inloggning) när en långsam nätverksanslutning identifieras.
 
-      
+Om du aktiverar den här principinställningen sker behandlingen alltid asynkront om en långsam nätverksanslutning identifieras.
+Klientdatorerna väntar inte på att nätverket ska initieras helt vid start och inloggning. Befintliga användare loggas in med hjälp av cachelagrade
+autentiseringsuppgifter vilket ger kortare inloggningstider. Grupprincipen tillämpas i bakgrunden när nätverket är tillgängligt.
+Observera att eftersom detta är en uppdatering i bakgrunden så körs inte tillägg som kräver synkron behandling, t.ex. Programvaruinstallation. Mappomdirigering
+och Enhetsmappning.
+
+Obs! Det finns två tillstånd som gör att grupprincipen bearbetas synkront även om den här principinställningen är aktiverad:
+1 - Första gången datorn startar efter det att klientdatorn har anslutits till en domän.
+2 - Om principinställningen "Vänta alltid på nätverket när datorn startas och vid inloggning" är aktiverad.
+
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen påverkas inte den synkrona eller asynkrona behandlingen av att en långsam nätverksanslutning identifieras.
 
       </string>
       <string id="DisableLGPOProcessing">Inaktivera bearbetning av lokala grupprincipobjekt</string>
@@ -115,7 +176,7 @@ Obs! För domänanslutna datorer bör den här inställningen endast konfigurera
 Om du aktiverar den här principinställningen använder grupprincipen denna administrativt konfigurerade maximala väntetid och åsidosätter all väntetid som är standard eller som har beräknats av systemet.
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen använder grupprincipen standardväntetiden 30 sekunder på datorer som kör Windows-operativsystemet Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Tillåt användarprinciper mellan skogar och centrala användarprofiler</string>
@@ -489,6 +550,12 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Åtgärdsalternativ</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Åtgärdsalternativ för processer</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Windows-tjänsten för teckensnittscache bör tillåtas ladda ned teckensnitt och teckensnittskatalogdata från teckensnittsleverantörer online.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Värde för långsam länk: [sifferfält] millisekunder</decimalTextBox>

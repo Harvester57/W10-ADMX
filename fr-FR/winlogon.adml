@@ -72,12 +72,34 @@ Si vous désactivez ce paramètre ou si vous ne le configurez pas, il est ignor�
 
 Conseil : pour trouver les dossiers indiqués par la variable d’environnement PATH, dans le Panneau de configuration, cliquez sur Système, puis dans la boîte de dialogue Propriétés système qui s’affiche, cliquez sur l’onglet Avancé, sur le bouton Variables d’environnement et, dans la zone Variables système, sur Path.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Connecter automatiquement le dernier utilisateur interactif après un redémarrage initié par le système</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Ce paramètre de stratégie contrôle si un appareil connecte automatiquement le dernier utilisateur interactif après un redémarrage du système par Windows Update.
+      <string id="AutomaticRestartSignOnDescription">Se connecter et verrouiller automatiquement le dernier utilisateur interactif après un redémarrage</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Ce paramètre de stratégie contrôle si un appareil connecte et verrouille automatiquement le dernier utilisateur interactif après un redémarrage du système, un arrêt ou un démarrage à froid.
 
-Si vous activez ce paramètre de stratégie ou ne le configurez pas, l’appareil enregistre en toute sécurité les informations d’identification de l’utilisateur (notamment le nom d’utilisateur, le domaine et le mot de passe chiffré) afin de configurer une connexion automatique après un redémarrage initié par Windows Update. Après le redémarrage initié par Windows Update, l’utilisateur est automatiquement connecté et la session est automatiquement verrouillée avec toutes les applications de l’écran de verrouillage configurées pour cet utilisateur.
+Cela ne se produit que si le dernier utilisateur interactif ne s'est pas déconnecté avant le redémarrage ou l'arrêt.​
 
-Si vous désactivez ce paramètre de stratégie, l’appareil ne stocke pas les informations d’identification de l’utilisateur pour une connexion automatique après un redémarrage initié par Windows Update. Les applications de l’écran de verrouillage de l’utilisateur ne sont pas redémarrées après le redémarrage du système.</string>
+Si l'appareil est joint à Active Directory ou à Azure Active Directory, cette stratégie s'applique uniquement aux redémarrages de Windows Update. Sinon, elle s'applique aux redémarrages de Windows Update et aux redémarrages et arrêts initiés par l'utilisateur.​
+
+Si vous ne configurez pas ce paramètre de stratégie, il est activé par défaut. Lorsque la stratégie est activée, l'utilisateur est automatiquement connecté et la session est automatiquement verrouillée avec toutes les applications de l’écran de verrouillage configurées pour cet utilisateur après le démarrage du système.​
+
+Après l'activation de cette stratégie, vous pouvez configurer ses paramètres via la stratégie ConfigAutomaticRestartSignOn, qui configure le mode de connexion et de verrouillage automatique du dernier utilisateur interactif après un redémarrage ou un démarrage à froid​.
+
+Si vous désactivez ce paramètre de stratégie, l'appareil ne configure pas la connexion automatique. Les applications de l’écran de verrouillage de l’utilisateur ne sont pas redémarrées après le redémarrage du système.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Configurer le mode de connexion automatique et de verrouillage du dernier utilisateur interactif après un redémarrage ou un démarrage à froid</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Ce paramètre de stratégie contrôle la configuration sous laquelle un redémarrage, une authentification et un verrouillage automatiques interviennent après un redémarrage ou un démarrage à froid. Si vous avez choisi « Désactivé » dans la stratégie « Se connecter et verrouiller automatiquement le dernier utilisateur interactif après un redémarrage », l'authentification automatique ne se produira pas et cette stratégie ne doit pas être configurée.
+
+Si vous activez ce paramètre de stratégie, vous pouvez choisir l'une des deux options suivantes :
+
+1. « Activé si BitLocker est activé et non suspendu » spécifie que l'authentification et le verrouillage automatiques ne se produisent que si BitLocker est actif et non suspendu pendant le redémarrage ou l'arrêt. À ce stade, les données personnelles sont accessibles sur le disque dur de l'appareil si BitLocker est désactivé ou suspendu pendant une mise à jour. La fonctionnalité de suspension de BitLocker retire temporairement la protection des données pour les composants et les données système, mais elle peut s'avérer nécessaire dans certaines circonstances pour mettre à jour les composants indispensables au démarrage.
+     BitLocker est suspendu pendant les mises à jour si :
+        - L'appareil n'a pas TPM 2.0 et PCR7, ou
+        - L'appareil n'utilise pas de protecteur pour TPM uniquement.
+2. « Toujours activé » indique que l'authentification automatique se produit même si BitLocker est désactivé ou suspendu pendant le redémarrage ou l'arrêt. Quand BitLocker n'est pas activé, les données personnelles sont accessibles sur le disque dur. Le redémarrage et l'authentification automatiques ne doivent être exécutés qu'à cette condition si vous avez l'assurance que l'appareil configuré se trouve à un emplacement physique sécurisé.
+
+Si vous désactivez ou ne configurez pas ce paramètre, l'authentification automatique correspond par défaut au comportement « Activé si BitLocker est activé ou non interrompu ».</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Activé si BitLocker est activé et non suspendu</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Toujours activé</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Si vous désactivez ce paramètre de stratégie, l’appareil ne stocke pas les 
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Définir quels logiciels sont autorisés à générer la séquence de touches de sécurité</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Configurer le mode de connexion automatique et de verrouillage du dernier utilisateur interactif après un redémarrage ou un démarrage à froid</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

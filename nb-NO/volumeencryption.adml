@@ -43,19 +43,17 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, viser ins
 
       <string id="ConfigureAdvancedStartup_Help">Med denne policyinnstillingen kan du konfigurere om BitLocker skal kreve ekstra godkjenning hver gang datamaskinen startes, og om du vil bruke BitLocker med eller uten en TPM-modul (Trusted Platform Module). Denne policyinnstillingen brukes når du aktiverer BitLocker.
 
-Obs! Bare ett av alternativene for ekstra godkjenning kan kreves ved oppstart, ellers oppstår det en policyinnstillingsfeil.
+Obs!  Bare ett av alternativene for ekstra godkjenning kan kreves ved oppstart, ellers oppstår det en policyinnstillingsfeil.
 
 Hvis du vil bruke BitLocker på en datamaskin uten en TPM-modul, merker du av for Tillat BitLocker uten en kompatibel TPM. I denne modusen kreves det enten et passord eller en USB-stasjon for oppstart. Når du bruker en oppstartsnøkkel, lagres nøkkelinformasjonen som brukes til å kryptere stasjonen, på USB-stasjonen, og det opprettes en USB-nøkkel. Når USB-nøkkelen settes inn, godkjennes tilgangen til stasjonen, og stasjonen er tilgjengelig. Hvis USB-nøkkelen går tapt eller er utilgjengelig, eller hvis du har glemt passordet, må du bruke ett av BitLocker-gjenopprettingsalternativene for å få tilgang til stasjonen.
 
-På en datamaskin med en kompatibel TPM-modul kan fire godkjenningsmetoder brukes ved oppstart for å gi ekstra beskyttelse for krypterte data. Når datamaskinen startes, kan den bare bruke TPM-modulen for godkjenning, eller den kan også kreve at en USB-flash-stasjon med en oppstartsnøkkel settes inn, at brukeren taster inn en PIN-kode på 4–20 sifre, eller begge deler.
+På en datamaskin med en kompatibel TPM-modul kan fire godkjenningsmetoder brukes ved oppstart for å gi ekstra beskyttelse for krypterte data. Når datamaskinen startes, kan den bare bruke TPM-modulen for godkjenning, eller den kan også kreve at en USB-flash-stasjon med en oppstartsnøkkel settes inn, at brukeren taster inn en PIN-kode på 6–20 sifre, eller begge deler.
 
 Hvis du aktiverer denne policyinnstillingen, kan brukerne konfigurere avanserte oppstartsalternativer i veiviseren for BitLocker-installasjon.
 
 Hvis du deaktiverer eller lar være å konfigurere denne policyinnstillingen, kan brukerne bare konfigurere grunnleggende alternativer på datamaskiner med en TPM-modul.
 
-Obs! Hvis du vil kreve at en PIN-kode for oppstart og en USB-flash-stasjon brukes, må du konfigurere BitLocker-innstillinger ved hjelp av kommandolinjeverktøyet manage-bde i stedet for veiviseren for installasjon av BitLocker-stasjonskryptering.
-
-
+Obs!  Hvis du vil kreve at en PIN-kode for oppstart og en USB-flash-stasjon brukes, må du konfigurere BitLocker-innstillinger ved hjelp av kommandolinjeverktøyet manage-bde i stedet for veiviseren for installasjon av BitLocker-stasjonskryptering.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Tillat opplåsing av nettverk ved oppstart</string>
@@ -287,16 +285,21 @@ Advarsel! Ved bytte fra standardprofil for plattformvalidering påvirkes sikkerh
 
       <string id="PlatformValidation_BIOS_Name">Konfigurer valideringsprofil for TPM-plattform for BIOS-baserte fastvarekonfigurasjoner</string>
 
-      <string id="PlatformValidation_UEFI_Help">Med denne policyinnstillingen kan du konfigurere hvordan datamaskinens TPM-sikkerhetsmaskinvare (Trusted Platform Module) skal sikre BitLocker-krypteringsnøkkelen. Denne policyinnstillingen gjelder ikke hvis datamaskinen ikke har en kompatibel TPM, eller hvis BitLocker allerede er slått på med TPM-beskyttelse.
+      <string id="PlatformValidation_UEFI_Help">Med denne policyinnstillingen kan du konfigurere hvordan datamaskinens sikkerhetsmaskinvare for klarert plattformmodul (TPM) skal sikre BitLocker-krypteringsnøkkelen. Denne policyinnstillingen gjelder ikke hvis datamaskinen ikke har en kompatibel TPM, eller hvis BitLocker allerede er aktivert med TPM-beskyttelse.
 
-Viktig! Denne gruppepolicyen gjelder bare for datamaskiner med en opprinnelig UEFI-fastvarekonfigurasjon. Datamaskiner med BIOS- eller UEFI-fastvare med en CSM (Compatibility Service Module) aktivert, lagrer forskjellige verdier i plattformskonfigurasjonsregistre (PCRer). Bruk gruppepolicyinnstillingen Konfigurer valideringsprofil for TPM-plattform for BIOS-fastvarekonfigurasjoner for å konfigurere TPM PCR-profilen for datamaskiner med BIOS-konfigurasjoner eller datamaskiner med UEFI-fastvare med en CSM aktivert.
+Viktig!  Denne gruppepolicyen gjelder bare for datamaskiner med en opprinnelig UEFI-fastvarekonfigurasjon. Datamaskiner med BIOS eller UEFI-fastvare med kompatibilitetsservicemodus (CSM) aktivert lagrer ulike verdier i plattformkonfigurasjonsregistrene (PCR-er). Bruk gruppepolicyinnstillingen Konfigurer valideringsprofil for TPM-plattform for BIOS-baserte fastvarekonfigurasjoner for å konfigurere TPM PCR-profilen for datamaskiner med BIOS-konfigurasjoner eller datamaskiner med UEFI-fastvare med en CSM aktivert.
 
-Hvis du aktiverer denne policyinnstillingen før du slår på BitLocker, kan du konfigurere oppstartskomponentene som TPM skal validere før frigivelse av tilgang til den BitLocker-krypterte operativsystemstasjonen. Hvis noen av disse komponentene endres mens BitLocker-beskyttelsen er aktivert, vil ikke TPM frigjøre krypteringsnøkkelen som låser opp stasjonen, og datamaskinen viser i stedet BitLocker-gjenopprettingskonsollen og krever at gjenopprettingspassordet eller -nøkkelen oppgis for å låse opp stasjonen.
+Hvis du aktiverer denne policyinnstillingen før du aktiverer BitLocker, kan du konfigurere oppstartskomponentene som TPM skal validere før du låser opp tilgangen til den BitLocker-krypterte operativsystemstasjonen. Hvis noen av disse komponentene endres mens BitLocker-beskyttelsen er aktivert, vil ikke TPM frigi krypteringsnøkkelen for å låse opp stasjonen, og datamaskinen vil i stedet vise BitLocker-gjenopprettingskonsollen og kreve at enten gjenopprettingspassordet eller gjenopprettingsnøkkelen angis for å låse opp stasjonen.
 
-Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, bruker BitLocker standard plattformvalideringsprofil eller den valideringsprofilen som er angitt i installasjonsskriptet. En plattformvalideringsprofil består av et sett med PCR-indekser (Platform Configuration Register), fra 0 til 23. Standard plattformvalideringsprofil sikrer krypteringsnøkkelen mot endringer i kjørbar kode for kjernesystemfastvare (PCR 0), utvidet eller tilkoblet kjørbar kode (PCR 2), Oppstartsbehandling (PCR 4) og BitLocker-tilgangskontroll (PCR 11).
+Hvis du deaktiverer eller ikke aktiverer denne policyinnstillingen, bruker BitLocker standard plattformvalideringsprofil for den tilgjengelige maskinvaren eller plattformvalideringsprofilen angitt av installasjonsskriptet. En plattformvalideringsprofil består av et sett PCR-indekser (Platform Configuration Register) som går fra 0 til 23. 
 
-Advarsel! Ved bytte fra standardprofil for plattformvalidering påvirkes sikkerheten og administrasjonen av datamaskinen. BitLockers følsomhet for plattformendringer (skadelige eller godkjente) øker eller minsker med inkludering eller ekskludering (henholdsvis) av PCRer. Hvis du angir denne policyinnstillingen spesielt med PCR 7 utelatt, overstyres gruppepolicyen Tillatt sikker oppstart for integritetsvalidering, noe som hindrer at BitLocker bruker integritetsvalidering for sikker oppstart for plattform eller konfigurasjonsdata for oppstart (BCD – Boot Configuration Data). Hvis du angir denne policyinnstillingen, kan det føre til BitLocker-gjenoppretting når fastvaren oppdateres. Hvis du angir at denne policyen skal inkludere PCR 0, må du deaktivere BitLocker før du oppdaterer fastvaren.
-      
+På PC-er som mangler støtte for sikker oppstart (PCR 7), sikrer standard plattformvalideringsprofil krypteringsnøkkelen mot endringer i kjernesystemets kjørbare kode for fastvare (PCR 0), utvidet eller tilkoblet kjørbar kode (PCR 2), Boot Manager (PCR 4) og BitLocker tilgangskontroll (PCR 11).
+
+Når støtte for tilstand for sikker oppstart (PCR7) er tilgjengelig, sikrer standard plattformvalideringsprofil at krypteringsnøkkelen bruker tilstand for sikker oppstart (PCR 7) og BitLocker tilgangskontroll (PCR 11).
+
+Advarsel!  Når du endrer fra standard plattformvalideringsprofil, påvirkes sikkerheten og administrerbarheten til datamaskinen. BitLockers følsomhet for plattformendringer (ondsinnede eller autoriserte) økes eller reduseres avhengig av (henholdsvis) inkludering eller eksklusjon av PCR-er. Når du angir denne policyen med PCR 7 utelatt, overstyrer du gruppepolicyen Tillat sikker oppstart for integritetsvalidering, noe som hindrer BitLocker fra å bruke Sikker oppstart for plattform eller Integritetsvalidering for konfigurasjonsdata for oppstart (BCD). Hvis du angir denne policyen, kan det føre til BitLocker-gjenoppretting når fastvaren oppdateres. Hvis du angir at denne policyen skal inkludere PCR 0, avbryter du BitLocker før du tar i bruk fastvareoppdateringer.
+
+Det anbefales ikke å konfigurere denne policyen, slik at Windows kan velge PCR-profilen for den beste kombinasjonen av sikkerhet og brukbarhet, basert på den tilgjengelige maskinvaren på hver PC.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Konfigurer valideringsprofil for TPM-plattform for opprinnelige UEFI-fastvarekonfigurasjoner</string>
@@ -311,6 +314,13 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, fjernes B
 
       </string>
       <string id="MorBehavior_Name">Forhindre minneoverskriving ved omstart</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Med denne policyinnstillingen kan du blokkere direkte minnetilgang (DMA) for alle Thunderbolt PCI-nedstrømsporter som kan kobles direkte, til en bruker logger på Windows. Når en bruker logger seg på, vil Windows nummerere PCI-enhetene som er koblet til vertens Thunderbolt PCI-porter. Hver gang brukeren låser maskinen, blir DMA blokkert på direkte tilkoblede Thunderbolt PCI-porter uten barneenheter, frem til brukeren logger seg på igjen. Enheter som allerede var nummererte da maskinen var ulåst, fortsetter å fungere til de kobles fra eller systemet startes på nytt eller settes i dvalemodus. Denne policyinnstillingen håndheves bare når BitLocker- eller enhetskryptering er aktivert.
+
+Obs!  Noen PC-er er kanskje ikke kompatible med denne policyen hvis systemfastvaren muliggjør DMA for nytilkoblede Thunderbolt-enheter før de nye enhetene eksponeres for Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Deaktiver nye DMA-enheter når datamaskinen er låst</string>
 
       <string id="FVEOSCategory">Operativsystemstasjoner</string>
       <string id="FVEFDVCategory">Faste datastasjoner</string>
@@ -373,13 +383,14 @@ Policyinnstillingen som styrer oppstartsfeilsøking (0x16000010), blir alltid va
 
 
       <string id="MinimumPINLength_Name">Konfigurer minimum PIN-lengde for oppstart</string>
-      <string id="MinimumPINLength_Help">Med denne policyinnstillingen kan du konfigurere en minimumslengde for en PIN-kode for oppstart for en TPM (Trusted Platform Module). Denne policyinnstillingen brukes når du aktiverer BitLocker. PIN-koden for oppstart må ha en minimumslengde på fire sifre, og den kan være på maksimalt 20 sifre.
+      <string id="MinimumPINLength_Help">
+          Med denne policyinnstillingen kan du konfigurere en minimumslengde for en oppstarts-PIN-kode for en TPM (Trusted Platform Module). Denne policyinnstillingen tas i bruk når du aktiverer BitLocker. Oppstarts-PIN-koden må ha en minimumslengde på fire sifre og en maksimumslengde på 20 sifre.
 
-Hvis du aktiverer denne policyinnstillingen, kan du kreve at et minimum antall sifre brukes ved angivelse av PIN-koden for oppstart.
+          Hvis du aktiverer denne policyinnstillingen, kan du kreve at det brukes et minimum antall sifre når oppstarts-PIN-koden angis.
 
-Hvis du deaktiverer eller lar være å konfigurere denne policyinnstillingen, kan brukerne konfigurere en PIN-kode for oppstart fra fire til 20 sifre.
+          Hvis du deaktiverer eller lar være å konfigurere denne policyinnstillingen, kan brukerne velge en oppstarts-PIN-kode på 6–20 sifre.
 
-      
+          MERK: Hvis minimumslengden for PIN-koder settes til mindre enn seks sifre, prøver Windows å sette TPM 2.0-låseperioden til lengre enn standard når en PIN-kode endres. Hvis dette lykkes, tilbakestiller Windows TPM-låseperioden til standard bare hvis TPM tilbakestilles.
 
       </string>
 
@@ -628,49 +639,46 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan stand
 
       <string id="RDVEDrive_Name">Konfigurer bruk av maskinvarebasert kryptering for flyttbare datastasjoner</string>
 
-      <string id="OSEDrive_Help">Med denne policyinnstillingen kan du administrere BitLockers bruk av maskinvarebasert kryptering på operativsystemstasjoner og angi hvilke krypteringsalgoritmer som kan brukes med maskinvarebasert kryptering. Bruk av maskinvarebasert kryptering kan forbedre ytelsen til stasjonsoperasjoner som innebærer regelmessig lesing og skriving av data til stasjonen.
+      <string id="OSEDrive_Help">Med denne policyinnstillingen kan du administrere BitLockers bruk av maskinvarebasert kryptering på operativsystemstasjoner og angi hvilke krypteringsalgoritmer den kan bruke med maskinvarebasert kryptering. Ved å bruke maskinvarebasert kryptering kan du forbedre ytelsen til stasjonsoperasjoner som involverer å lese eller skrive data til stasjonen.
 
-Hvis du aktiverer denne policyinnstillingen, kan du angi flere alternativer som kontrollerer om programvarebasert kryptering for BitLocker brukes i stedet for maskinvarebasert kryptering på datamaskiner som ikke støtter maskinvarebasert kryptering, og om du vil begrense krypteringsalgoritmene og chiffreringssamlingene som brukes med maskinvarebasert kryptering.
+Hvis du aktiverer denne policyinnstillingen, kan du angi flere alternativer som kontrollerer om programvarebasert kryptering i BitLocker brukes i stedet for maskinvarebasert kryptering på datamaskiner som ikke har støtte for maskinvarebasert kryptering, og om du vil begrense krypteringsalgoritmer og chiffreringssamlinger som brukes med maskinvarebasert kryptering.
 
-Hvis du deaktiverer denne policyinnstillingen, kan ikke BitLocker bruke maskinvarebasert kryptering med operativsystemstasjoner, og programvarebasert kryptering for BitLocker brukes når stasjonen krypteres.
+Hvis du deaktiverer denne policyinnstillingen, kan ikke BitLocker bruke maskinvarebasert kryptering med operativsystemstasjoner og BitLocker-programvarebasert kryptering brukes som standard når stasjonen er kryptert.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, bruker BitLocker maskinvarebasert kryptering med krypteringsalgoritmen angitt for stasjonen. Hvis maskinvarebasert kryptering ikke er tilgjengelig, brukes programvarebasert kryptering for BitLocker i stedet.
+Hvis du ikke konfigurerer denne policyinnstillingen, bruker BitLocker programvarebasert kryptering uavhengig av maskinvarebasert krypteringstilgjengelighet.
 
-Obs! Policyinnstillingen Velg krypteringsmetode og chifferkodestyrke for stasjon gjelder ikke for maskinvarebasert kryptering. Krypteringsalgoritmen som brukes av maskinvarebasert kryptering, angis når stasjonen partisjoneres. Som standard bruker BitLocker algoritmen som er konfigurert på stasjonen, for å kryptere stasjonen. Med alternativet Begrens krypteringsalgoritmer og chiffreringssamlinger tillatt for maskinvarebasert kryptering kan du begrense krypteringsalgoritmene som BitLocker kan bruke med maskinvarekryptering. Hvis algoritmen som er angitt for stasjonen, ikke er tilgjengelig, vil BitLocker deaktivere bruken av maskinvarebasert kryptering.
-Krypteringsalgoritmer angis ved hjelp av Objekt-IDer (OID). Eksempel:
-– AES 128 i OID for CBC-modus: 2.16.840.1.101.3.4.1.2
-– AES 256 i OID for CBC-modus: 2.16.840.1.101.3.4.1.42
-      
+Obs! Policyinnstillingen Velg krypteringsmetode for stasjon og chifferkodestyrke gjelder ikke for maskinvarebasert kryptering. Krypteringsalgoritmen som brukes av maskinvarebasert kryptering, angis når stasjonen er partisjonert. Som standard bruker BitLocker algoritmen som er konfigurert på stasjonen, til å kryptere stasjonen. Alternativet Begrens krypteringsalgoritmer og chiffreringssamlinger tillatt for maskinvarebasert kryptering gir deg muligheten til å begrense krypteringsalgoritmer som BitLocker kan bruke med maskinvarekryptering. Hvis algoritmen som er angitt for stasjonen, ikke er tilgjengelig, vil BitLocker deaktivere bruken av maskinvarebasert kryptering.
+Krypteringsalgoritmer angis av objekt-ID-er (OID). Eksempel:
+– AES 128 i CBC-modus-OID: 2.16.840.1.101.3.4.1.2
+– AES 256 i CBC-modus-OID: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="FDVEDrive_Help">Med denne policyinnstillingen kan du administrere BitLockers bruk av maskinvarebasert kryptering på faste datastasjoner og angi hvilke krypteringsalgoritmer som kan brukes med maskinvarebasert kryptering. Bruk av maskinvarebasert kryptering kan forbedre ytelsen til stasjonsoperasjoner som innebærer regelmessig lesing og skriving av data til stasjonen.
+      <string id="FDVEDrive_Help">Med denne policyinnstillingen kan du administrere BitLockers bruk av maskinvarebasert kryptering på faste datastasjoner og angi hvilke krypteringsalgoritmer den kan bruke med maskinvarebasert kryptering. Ved å bruke maskinvarebasert kryptering kan du forbedre ytelsen til stasjonsoperasjoner som involverer å lese eller skrive data til stasjonen.
 
-Hvis du aktiverer denne policyinnstillingen, kan du angi flere alternativer som kontrollerer om programvarebasert kryptering for BitLocker brukes i stedet for maskinvarebasert kryptering på datamaskiner som ikke støtter maskinvarebasert kryptering, og om du vil begrense krypteringsalgoritmene og chiffreringssamlingene som brukes med maskinvarebasert kryptering.
+Hvis du aktiverer denne policyinnstillingen, kan du angi flere alternativer som kontrollerer om programvarebasert kryptering i BitLocker brukes i stedet for maskinvarebasert kryptering på datamaskiner som ikke har støtte for maskinvarebasert kryptering, og om du vil begrense krypteringsalgoritmer og chiffreringssamlinger som brukes med maskinvarebasert kryptering.
 
-Hvis du deaktiverer denne policyinnstillingen, kan ikke BitLocker bruke maskinvarebasert kryptering med operativsystemstasjoner, og programvarebasert kryptering for BitLocker brukes når stasjonen krypteres.
+Hvis du deaktiverer denne policyinnstillingen, kan ikke BitLocker bruke maskinvarebasert kryptering med operativsystemstasjoner og BitLocker-programvarebasert kryptering brukes som standard når stasjonen er kryptert.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, bruker BitLocker maskinvarebasert kryptering med krypteringsalgoritmen angitt for stasjonen. Hvis maskinvarebasert kryptering ikke er tilgjengelig, brukes programvarebasert kryptering for BitLocker i stedet.
+Hvis du ikke konfigurerer denne policyinnstillingen, bruker BitLocker programvarebasert kryptering uavhengig av maskinvarebasert krypteringstilgjengelighet.
 
-Obs! Policyinnstillingen Velg krypteringsmetode og chifferkodestyrke for stasjon gjelder ikke for maskinvarebasert kryptering. Krypteringsalgoritmen som brukes av maskinvarebasert kryptering, angis når stasjonen partisjoneres. Som standard bruker BitLocker algoritmen som er konfigurert på stasjonen, for å kryptere stasjonen. Med alternativet Begrens krypteringsalgoritmer og chiffreringssamlinger tillatt for maskinvarebasert kryptering kan du begrense krypteringsalgoritmene som BitLocker kan bruke med maskinvarekryptering. Hvis algoritmen som er angitt for stasjonen, ikke er tilgjengelig, vil BitLocker deaktivere bruken av maskinvarebasert kryptering.
-Krypteringsalgoritmer angis ved hjelp av Objekt-IDer (OID). Eksempel:
-– AES 128 i OID for CBC-modus: 2.16.840.1.101.3.4.1.2
-– AES 256 i OID for CBC-modus: 2.16.840.1.101.3.4.1.42
-      
+Obs! Policyinnstillingen Velg krypteringsmetode for stasjon og chifferkodestyrke gjelder ikke for maskinvarebasert kryptering. Krypteringsalgoritmen som brukes av maskinvarebasert kryptering, angis når stasjonen er partisjonert. Som standard bruker BitLocker algoritmen som er konfigurert på stasjonen, til å kryptere stasjonen. Alternativet Begrens krypteringsalgoritmer og chiffreringssamlinger tillatt for maskinvarebasert kryptering gir deg muligheten til å begrense krypteringsalgoritmer som BitLocker kan bruke med maskinvarekryptering. Hvis algoritmen som er angitt for stasjonen, ikke er tilgjengelig, vil BitLocker deaktivere bruken av maskinvarebasert kryptering.
+Krypteringsalgoritmer angis av objekt-ID-er (OID). Eksempel:
+– AES 128 i CBC-modus-OID: 2.16.840.1.101.3.4.1.2
+– AES 256 i CBC-modus-OID: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="RDVEDrive_Help">Med denne policyinnstillingen kan du administrere BitLockers bruk av maskinvarebasert kryptering på flyttbare datastasjoner og angi hvilke krypteringsalgoritmer som kan brukes med maskinvarebasert kryptering. Bruk av maskinvarebasert kryptering kan forbedre ytelsen til stasjonsoperasjoner som innebærer regelmessig lesing og skriving av data til stasjonen.
+      <string id="RDVEDrive_Help">Med denne policyinnstillingen kan du administrere BitLockers bruk av maskinvarebasert kryptering på datastasjoner som kan fjernes, og angi hvilke krypteringsalgoritmer den kan bruke med maskinvarebasert kryptering. Ved å bruke maskinvarebasert kryptering kan du forbedre ytelsen til stasjonsoperasjoner som involverer å lese eller skrive data til stasjonen.
 
-Hvis du aktiverer denne policyinnstillingen, kan du angi flere alternativer som kontrollerer om programvarebasert kryptering for BitLocker brukes i stedet for maskinvarebasert kryptering på datamaskiner som ikke støtter maskinvarebasert kryptering, og om du vil begrense krypteringsalgoritmene og chiffreringssamlingene som brukes med maskinvarebasert kryptering.
+Hvis du aktiverer denne policyinnstillingen, kan du angi flere alternativer som kontrollerer om programvarebasert kryptering i BitLocker brukes i stedet for maskinvarebasert kryptering på datamaskiner som ikke har støtte for maskinvarebasert kryptering, og om du vil begrense krypteringsalgoritmer og chiffreringssamlinger som brukes med maskinvarebasert kryptering.
 
-Hvis du deaktiverer denne policyinnstillingen, kan ikke BitLocker bruke maskinvarebasert kryptering med operativsystemstasjoner, og programvarebasert kryptering for BitLocker brukes når stasjonen krypteres.
+Hvis du deaktiverer denne policyinnstillingen, kan ikke BitLocker bruke maskinvarebasert kryptering med operativsystemstasjoner og BitLocker-programvarebasert kryptering brukes som standard når stasjonen er kryptert.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, bruker BitLocker maskinvarebasert kryptering med krypteringsalgoritmen angitt for stasjonen. Hvis maskinvarebasert kryptering ikke er tilgjengelig, brukes programvarebasert kryptering for BitLocker i stedet.
+Hvis du ikke konfigurerer denne policyinnstillingen, bruker BitLocker programvarebasert kryptering uavhengig av maskinvarebasert krypteringstilgjengelighet.
 
-Obs! Policyinnstillingen Velg krypteringsmetode og chifferkodestyrke for stasjon gjelder ikke for maskinvarebasert kryptering. Krypteringsalgoritmen som brukes av maskinvarebasert kryptering, angis når stasjonen partisjoneres. Som standard bruker BitLocker algoritmen som er konfigurert på stasjonen, for å kryptere stasjonen. Med alternativet Begrens krypteringsalgoritmer og chiffreringssamlinger tillatt for maskinvarebasert kryptering kan du begrense krypteringsalgoritmene som BitLocker kan bruke med maskinvarekryptering. Hvis algoritmen som er angitt for stasjonen, ikke er tilgjengelig, vil BitLocker deaktivere bruken av maskinvarebasert kryptering.
-Krypteringsalgoritmer angis ved hjelp av Objekt-IDer (OID). Eksempel:
-– AES 128 i OID for CBC-modus: 2.16.840.1.101.3.4.1.2
-– AES 256 i OID for CBC-modus: 2.16.840.1.101.3.4.1.42
-      
+Obs! Policyinnstillingen Velg krypteringsmetode for stasjon og chifferkodestyrke gjelder ikke for maskinvarebasert kryptering. Krypteringsalgoritmen som brukes av maskinvarebasert kryptering, angis når stasjonen er partisjonert. Som standard bruker BitLocker algoritmen som er konfigurert på stasjonen, til å kryptere stasjonen. Alternativet Begrens krypteringsalgoritmer og chiffreringssamlinger tillatt for maskinvarebasert kryptering gir deg muligheten til å begrense krypteringsalgoritmer som BitLocker kan bruke med maskinvarekryptering. Hvis algoritmen som er angitt for stasjonen, ikke er tilgjengelig, vil BitLocker deaktivere bruken av maskinvarebasert kryptering.
+Krypteringsalgoritmer angis av objekt-ID-er (OID). Eksempel:
+– AES 128 i CBC-modus-OID: 2.16.840.1.101.3.4.1.2
+– AES 256 i CBC-modus-OID: 2.16.840.1.101.3.4.1.42
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">Aktiver bruken av BitLocker-godkjenning som krever inndata fra tastatur før oppstart på nettbrett</string>
@@ -687,6 +695,14 @@ Vær oppmerksom på at hvis du ikke aktiverer denne policyinnstillingen, kan det
 – Konfigurer oppstartsnøkkel og PIN-kode for TPM: påkrevd/tillatt
 – Konfigurer bruk av passord for operativsystemstasjoner
       
+      </string>
+
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Tillat at brukere med InstantGo- eller HSTI-kompatible enheter kan velge bort PIN-kode før oppstart.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Denne policyinnstillingen gjør at brukere med enheter som er kompatible med InstantGo eller Microsoft Hardware Security Test Interface (HSTI), ikke trenger en PIN-kode for godkjenning før oppstart. Dette overstyrer alternativene Krev PIN-oppstartskode med TPM og Krev oppstartsnøkkel og PIN-kode med TPM i policyen Krev ekstra godkjenning ved oppstart på kompatibel maskinvare.
+
+Hvis du aktiverer denne policyinnstillingen, kan brukere med InstantGo- og HSTI-kompatible enheter velge om de vil aktivere BitLocker uten godkjenning før oppstart.
+
+Hvis du ikke aktiverer denne policyen, gjelder alternativene i policyen Krev ekstra godkjenning ved oppstart.
       </string>
 
       <string id="AllowSecureBootForIntegrity_Name">Tillat integritetsvalidering for sikker oppstart</string>
@@ -966,7 +982,7 @@ Obs! Ikke alle tegn og språk støttes før oppstart. Det anbefales på det ster
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Minimum antall tegn:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Minimum antall tegn:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

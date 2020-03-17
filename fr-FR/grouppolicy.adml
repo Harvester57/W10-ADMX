@@ -11,22 +11,22 @@
       <string id="FontMitigation_On">Bloquer les polices non approuvés et enregistrer les événements</string>
       <string id="FontMitigation_Off">Ne pas bloquer les polices non approuvées</string>
       <string id="FontMitigation_Audit">Enregistrer les événements sans bloquer les polices non approuvées</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Options de traitement des préventions</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Cette fonctionnalité de sécurité permet de remplacer les paramètres individuels des options de traitement des préventions. Elle peut être utilisée pour appliquer plusieurs stratégies de sécurité propres aux applications. Le nom de l’application est spécifié comme nom de valeur, y compris l’extension. La valeur est spécifiée en tant que champ de bits avec une série d’indicateurs à des emplacements particuliers. Les bits peuvent être définis sur 0 (le paramètre est désactivé), 1 (le paramètre est activé) ou ? (le paramètre conserve sa valeur existant avant l’évaluation d’objet de stratégie de groupe). Les emplacements de bit reconnus sont les suivants :
+        Cette fonctionnalité de sécurité permet de remplacer les paramètres individuels de traitement de MitigationOptions. Elle peut être utilisée pour appliquer plusieurs stratégies de sécurité spécifiques aux applications. Le nom de l’application est spécifié comme nom de valeur, y compris l’extension. La valeur est spécifiée en tant que champ de bits avec une série d’indicateurs à des emplacements particuliers. Les bits peuvent être définis sur 0 (le paramètre est désactivé), 1 (le paramètre est activé) ou ? (le paramètre conserve sa valeur existant avant l’évaluation d’objet de stratégie de groupe). Les emplacements de bit reconnus sont les suivants :
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
-        Active la prévention de l’exécution des données (PED) pour le processus enfant
+        Active la prévention de l'exécution des données (PED) pour le processus enfant
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Active l’émulation thunk PED-ATL pour le processus enfant. Cette émulation entraîne l’interception par le système des erreurs NX qui proviennent de la couche thunk Active Template Library (ATL). 
+        Active l’émulation thunk PED-ATL pour le processus enfant. Cette émulation entraîne l’interception par le système des erreurs NX qui proviennent de la couche thunk Active Template Library (ATL).
 
         PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
-        Active la protection SEHOP (Structured Exception Handler Overwrite Protection) pour le processus enfant. La protection SEHOP bloque les codes malveillants exploitant une faille de sécurité qui ont recours à la technique de remplacement SEH (Structured Exception Handler).
+        Active la protection SEHOP (Structured Exception Handler Overwrite Protection) pour le processus enfant. La protection SEHOP bloque les codes malveillants qui utilisent la technique de remplacement SEH (Structured Exception Handler).
 
         PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
-        La stratégie de randomisation du format d’espace d’adresse (ASLR) de force rebase de force les images qui ne sont pas compatibles avec la base dynamique en agissant même si une collision de base d’image s’est produite lors du chargement. Si des réadressages sont requis, les images dépourvues de section de réadressage de base ne sont pas chargées.
+        La stratégie de randomisation du format d’espace d’adresse (ASLR) de force rebase de force les images qui ne sont pas compatibles avec la base dynamique en agissant, même si une collision de base d’image s’est produite lors du chargement. Si des réadressages sont requis, les images dépourvues de section de réadressage de base ne sont pas chargées.
 
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
@@ -35,7 +35,7 @@
         Par exemple, pour activer PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE et PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, désactivez PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, laissez toutes les autres options sur leurs valeurs par défaut, puis spécifiez la valeur 
         ???????????????0???????1???????1
 
-        La définition des indicateurs non spécifiés ici sur une valeur autre que ? entraîne un comportement indéfini.	  
+La définition des indicateurs non spécifiés ici sur une valeur autre que ? entraîne un comportement non défini.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Activer la synchronisation des contrôleurs de domaine AD/DFS durant l’actualisation de stratégie</string>
@@ -50,42 +50,60 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Poursuivre les expériences sur cet appareil</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Ce paramètre de stratégie détermine si l’appareil Windows est autorisé à participer à des actions interappareils (expériences continues).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Si vous activez ce paramètre de stratégie, l’appareil Windows devient détectable par d’autres appareils Windows appartenant au même utilisateur et peut participer à des expériences interappareils.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Si vous désactivez ce paramètre de stratégie, l’appareil Windows n’est pas détectable par d’autres appareils et ne peut pas participer à des expériences interappareils..
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Si vous ne configurez pas ce paramètre de stratégie, le comportement par défaut dépend de l’édition Windows. Les modifications apportées à cette stratégie entrent en vigueur après le redémarrage.
+      </string>
+      <string id="EnableMMX">Liaison téléphone-PC sur cet appareil</string>
+      <string id="EnableMMX_Help">
+Cette politique permet aux administrateurs informatiques de désactiver la possibilité de lier un téléphone à un PC pour continuer la lecture, l'envoi d'e-mails et d'autres tâches nécessitant la liaison entre le téléphone et le PC.
+
+Si vous activez ce paramètre de stratégie, l'appareil Windows peut s'inscrire à la fonctionnalité de liaison téléphone-PC et participer aux expériences Continuer sur PC.
+
+Si vous désactivez ce paramètre de stratégie, l'appareil Windows n'est pas autorisé à être lié aux téléphones. Il se supprime de la liste des appareils de tous les téléphones liés et ne peut pas participer aux expériences Continuer sur PC.
+
+Si vous ne configurez pas ce paramètre de stratégie, le comportement par défaut dépend de l'édition de Windows. Les modifications apportées à cette stratégie prennent effet au redémarrage.
+      </string>
+      <string id="EnableAppUriHandlers">Configurer les liaisons web-application avec les gestionnaires d'URI d'applications</string>
+      <string id="EnableAppUriHandlers_Help">
+Ce paramètre de stratégie détermine si Windows prend en charge les liaisons web-application avec les gestionnaires d'URI d'applications.
+
+L'activation de ce paramètre de stratégie active les liaisons web-application afin que les applications puissent être lancées avec un URI http(s).
+
+La désactivation de cette stratégie désactive les liaisons web-application et les URI http(s) sont ouverts dans le navigateur par défaut au lieu de l'application associée.
+
+Si vous ne configurez pas ce paramètre de stratégie, le comportement par défaut dépend de l'édition de Windows. Les changements apportés à cette stratégie prennent effet au redémarrage.
       </string>
       <string id="Fonts">Polices</string>
       <string id="EnableFontProviders">Activer les fournisseurs de polices</string>
       <string id="EnableFontProviders_Help">
         Ce paramètre de stratégie détermine si Windows est autorisé à télécharger les polices et les données des catalogues de polices d’un fournisseur de polices en ligne.
-        
+
         Si vous activez ce paramètre de stratégie, Windows interroge régulièrement un fournisseur de polices en ligne pour déterminer si un nouveau catalogue de polices est disponible. Windows peut également télécharger des données de police si nécessaire pour mettre en forme ou restituer du texte.
-        
-        Si vous désactivez ce paramètre de stratégie, Windows ne se connecte pas à un fournisseur de polices en ligne, et énumère uniquement les polices installées localement.
-      
-        Si vous ne configurez pas ce paramètre de stratégie, le comportement par défaut dépend de l’édition Windows. Les modifications apportées à cette stratégie prennent effet au redémarrage.
+
+        Si vous désactivez ce paramètre de stratégie, Windows ne se connecte pas à un fournisseur de polices en ligne et énumère uniquement les polices installées localement.
+
+        Si vous ne configurez pas ce paramètre de stratégie, le comportement par défaut dépend de l’édition de Windows. Les modifications apportées à cette stratégie prennent effet au redémarrage.
       </string>
       <string id="EnableLogonOptimization">Configurer la mise en cache des stratégies de groupe</string>
       <string id="EnableLogonOptimization_Help">
-        
         Ce paramètre de stratégie vous permet de configurer le comportement de mise en cache des stratégies de groupe.
-        
-        Si vous activez ou ne configurez pas ce paramètre de stratégie, la stratégie de groupe met en cache les informations relatives aux stratégies après chaque session de traitement en arrière-plan. Ce cache enregistre les objets de stratégie de groupe applicables et les paramètres qu’ils contiennent. Lorsque la stratégie de groupe s’exécute au premier plan de manière synchrone, elle fait référence à ce cache, ce qui lui permet de s’exécuter plus rapidement. Lors de la lecture du cache, la stratégie de groupe tente de contacter un contrôleur de domaine d’ouverture de session pour déterminer la vitesse de la liaison. Lorsque la stratégie de groupe s’exécute en arrière-plan ou au premier plan de manière asynchrone, elle continue à télécharger la dernière version des informations relatives à la stratégie, et utilise une estimation de la bande passante pour déterminer les seuils de liaison lente. (Voir le paramètre de stratégie « Configurer la détection d’une liaison lente de stratégie de groupe » pour configurer un comportement au premier plan de manière asynchrone.)
-        
-        La valeur de la liaison lente définie dans ce paramètre de stratégie détermine la durée pendant laquelle la stratégie de groupe attend une réponse du contrôleur de domaine avant de signaler la vitesse de la liaison comme étant lente. La valeur par défaut est de 500 millisecondes.
-        
-        La valeur de délai d’attente définie dans ce paramètre de stratégie détermine la durée pendant laquelle la stratégie de groupe attend une réponse du contrôleur de domaine avant de déterminer qu’il n’y a pas de connectivité réseau. Cela interrompt le traitement de la stratégie de groupe en cours. La stratégie de groupe s’exécutera en arrière-plan lors du prochain établissement d’une connexion à un contrôleur de domaine. Affecter à ce paramètre une valeur trop élevée peut entraîner de longs délais d’attente pour l’utilisateur lors du démarrage ou de l’ouverture de session. La valeur par défaut est de 5 000 millisecondes.
-        
-        Si vous désactivez ce paramètre de stratégie, le client de la stratégie de groupe ne met pas en cache les objets de stratégie de groupe applicables et les paramètres qu’ils contiennent. Lorsque la stratégie de groupe s’exécute de manière synchrone, elle télécharge la dernière version de la stratégie à partir du réseau et utilise des estimations de la bande passante pour déterminer les seuils de liaison lente. (Voir le paramètre de stratégie « Configurer la détection d’une liaison lente de stratégie de groupe » pour configurer un comportement au premier plan de manière asynchrone.)
-      
+
+        Si vous activez ou ne configurez pas ce paramètre de stratégie, la stratégie de groupe met en cache les informations relatives aux stratégies après chaque session de traitement en arrière-plan. Ce cache enregistre les objets de stratégie de groupe applicables et les paramètres qu’ils contiennent. Lorsque la stratégie de groupe s’exécute au premier plan de manière synchrone, elle fait référence à ce cache, ce qui lui permet de s’exécuter plus rapidement. Lors de la lecture du cache, la stratégie de groupe tente de contacter un contrôleur de domaine d’ouverture de session pour déterminer la vitesse de la liaison. Lorsque la stratégie de groupe s’exécute en arrière-plan ou au premier plan de manière asynchrone, elle continue à télécharger la dernière version des informations relatives à la stratégie, et utilise une estimation de la bande passante pour déterminer les seuils de liaison lente. (Voir le paramètre de stratégie « Configurer la détection d’une liaison lente de stratégie de groupe » pour configurer un comportement au premier plan de manière asynchrone.)
+
+        La valeur de la liaison lente définie dans ce paramètre de stratégie détermine la durée pendant laquelle la stratégie de groupe attend une réponse du contrôleur de domaine avant de signaler la vitesse de la liaison comme étant lente. La valeur par défaut est de 500 millisecondes.
+
+        La valeur de délai d’attente définie dans ce paramètre de stratégie détermine la durée pendant laquelle la stratégie de groupe attend une réponse du contrôleur de domaine avant de déterminer qu’il n’y a pas de connectivité réseau. Cela interrompt le traitement de la stratégie de groupe en cours. La stratégie de groupe s’exécutera en arrière-plan lors du prochain établissement d’une connexion à un contrôleur de domaine. Affecter à ce paramètre une valeur trop élevée peut entraîner de longs délais d’attente pour l’utilisateur lors du démarrage ou de l’ouverture de session. La valeur par défaut est de 5 000 millisecondes.
+
+        Si vous désactivez ce paramètre de stratégie, le client de la stratégie de groupe ne met pas en cache les objets de stratégie de groupe applicables et les paramètres qu’ils contiennent. Lorsque la stratégie de groupe s’exécute de manière synchrone, elle télécharge la dernière version de la stratégie à partir du réseau et utilise des estimations de la bande passante pour déterminer les seuils de liaison lente. (Voir le paramètre de stratégie « Configurer la détection d’une liaison lente de stratégie de groupe » pour configurer un comportement au premier plan de manière asynchrone.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Activer la mise en cache des stratégies de groupe pour les serveurs</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,52 +114,48 @@ If you do not configure this policy setting, the default behavior depends on the
         Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, le client de la stratégie de groupe ne met pas en cache les objets de stratégie de groupe applicables et les paramètres qu’ils contiennent. Lorsque la stratégie de groupe s’exécute de manière synchrone, elle télécharge la dernière version de la stratégie à partir du réseau et utilise des estimations de la bande passante pour déterminer les seuils de liaison lente. (Voir le paramètre de stratégie « Configurer la détection d’une liaison lente de stratégie de groupe » pour configurer un comportement au premier plan de manière asynchrone.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Configurer le délai des scripts d’ouverture de session</string>
       <string id="LogonScriptDelay_Help">
-        
-        Entrez « 0 » pour désactiver le délai des scripts d’ouverture de session.
-        
-        Ce paramètre de stratégie vous permet de configurer la durée pendant laquelle le client de la stratégie de groupe attend après l’ouverture de session avant d’exécuter les scripts.
-        
-        Par défaut, le client de la stratégie de groupe attend cinq minutes avant d’exécuter les scripts d’ouverture de session. Cela permet de créer un environnement de bureau réactif en empêchant la contention de disque.
-        
-        Si vous activez ce paramètre de stratégie, la stratégie de groupe attend la durée spécifiée avant d’exécuter les scripts d’ouverture de session.
-        
-        Si vous désactivez ce paramètre de stratégie, la stratégie de groupe exécute les scripts immédiatement après l’ouverture de session.
-        
-        Si vous ne configurez pas ce paramètre de stratégie, la stratégie de groupe attend cinq minutes avant d’exécuter les scripts d’ouverture de session.
-      
+        Entrez « 0 » pour désactiver le délai de script d'ouverture de session.
+
+        Ce paramètre de stratégie vous permet de configurer la durée d'attente du client de stratégie de groupe après l'ouverture de session avant l'exécution des scripts.
+
+        Par défaut, le client de stratégie de groupe attend cinq minutes avant d'exécuter des scripts d'ouverture de session. Cela permet de créer un environnement de bureau réactif en empêchant la contention du disque.
+
+        Si vous activez ce paramètre de stratégie, la stratégie de groupe attend la durée spécifiée avant d'exécuter des scripts d'ouverture de session.
+
+        Si vous désactivez ce paramètre de stratégie, la stratégie de groupe exécute les scripts immédiatement après l'ouverture de session.
+
+        Si vous ne configurez pas ce paramètre de stratégie, la stratégie de groupe attend cinq minutes avant d'exécuter des scripts d'ouverture de session.
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Configurer les connexions Accès direct en tant que connexion haut débit</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Ce paramètre de stratégie permet à un administrateur de définir la connexion Accès direct de façon à ce qu’elle soit considérée comme une connexion haut débit pour l’application et la mise à jour de la stratégie de groupe. 
- 
+      <string id="SlowLinkDefaultForDirectAccess_Help">Ce paramètre de stratégie permet à un administrateur de définir la connexion Accès direct de façon à ce qu’elle soit considérée comme une connexion haut débit pour l’application et la mise à jour de la stratégie de groupe.
+
 Lorsque la stratégie de groupe détecte le débit de la bande passante d’une connexion Accès direct, il est possible que les informations sur le débit de la bande passante ne soient pas fournies. Si la stratégie de groupe détecte un débit de bande passante, elle suit les règles normales pour déterminer si la connexion Accès direct est une connexion réseau lente ou rapide. Si aucun débit de bande passante n'est détecté, la stratégie de groupe considère par défaut qu’il s’agit d'une connexion réseau lente. Ce paramètre de stratégie permet à un administrateur de remplacer la valeur par défaut et d’utiliser une connexion réseau rapide si aucun débit de bande passante n'est déterminé.
- 
-Remarque : lorsque la stratégie de groupe détecte une connexion réseau lente, elle ne traite que les extensions côté client configurées pour le traitement via une liaison lente (connexion réseau lente).  
- 
+
+Remarque : lorsque la stratégie de groupe détecte une connexion réseau lente, elle ne traite que les extensions côté client configurées pour le traitement via une liaison lente (connexion réseau lente).
+
 Si vous activez cette stratégie, lorsque la stratégie de groupe ne peut pas déterminer le débit de la bande passante via Accès direct, elle reconnaît la connexion réseau comme une liaison rapide et traite toutes les extensions côté client.
- 
+
 Si vous désactivez ce paramètre ou ne le configurez pas, la stratégie de groupe reconnaît la connexion réseau comme une liaison lente et ne traite que les extensions côté client configurées pour le traitement via une liaison lente.
-          
-      
-          
+
       </string>
      <string id="SlowlinkDefaultToAsync">Modifier le traitement de la stratégie de groupe de façon à ce qu’elle s'exécute de façon asynchrone lorsqu’une connexion réseau lente est détectée.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Cette stratégie indique au traitement de la stratégie de groupe d’ignorer le traitement des extensions côté client qui nécessitent un traitement synchrone (c’est-à-dire, si les ordinateurs attendent l'initialisation complète du réseau lors du démarrage et de l’ouverture de session des utilisateurs) lorsqu’une connexion réseau lente est détectée.  
- 
-Si vous activez ce paramètre de stratégie, lorsqu’une connexion réseau lente est détectée, le traitement de la stratégie de groupe s'exécute toujours de façon asynchrone.
-Les ordinateurs clients n’attendent pas que le réseau soit entièrement initialisé au démarrage et à l’ouverture de session. Les utilisateurs existants ouvrent une session en utilisant des informations d’identification mises en cache, ce qui accélère le processus d’ouverture de session. La stratégie de groupe s’applique en tâche de fond dès lors que le réseau devient disponible.   
-Étant donné que l’actualisation s’effectue en tâche de fond, les extensions du type Installation de logiciels et Redirection de dossiers nécessitent deux ouvertures de session pour que les modifications soient appliquées.
- 
-Remarque : deux conditions provoquent le traitement asynchrone de la stratégie de groupe et ce, même si ce paramètre de stratégie et activé :
-1 - Lors du démarrage initial de l’ordinateur après que l’ordinateur client a rejoint le domaine.
-2 - Si le paramètre de stratégie Toujours attendre le réseau lors du démarrage de l’ordinateur et de l’ouverture de session est activé.
- 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, la détection d’une connexion réseau lente n'affecte pas le traitement synchrone ou asynchrone de la stratégie de groupe.
+      <string id="SlowlinkDefaultToAsync_Help">Cette stratégie indique au traitement de la stratégie de groupe d’ignorer le traitement des extensions côté client qui nécessitent un traitement synchrone (c’est-à-dire, si les ordinateurs attendent l'initialisation complète du réseau lors du démarrage et de l’ouverture de session des utilisateurs) lorsqu’une connexion réseau lente est détectée.
 
-      
+Si vous activez ce paramètre de stratégie, lorsqu’une connexion réseau lente est détectée, le traitement de la stratégie de groupe s'exécute toujours de façon asynchrone.
+Les ordinateurs client n’attendent pas que le réseau soit entièrement initialisé au démarrage et à l’ouverture de session. Les utilisateurs existants ouvrent une session en utilisant des informations d'identification mises en cache,
+ce qui accélère le processus d’ouverture de session. La stratégie de groupe s’applique en arrière-plan une fois le réseau disponible.
+L’actualisation s'effectuant en arrière-plan, les extensions nécessitant un traitement synchrone, telles que l'extension de préférence Installation de logiciels, Redirection de dossiers
+et Mappages de lecteurs, ne sont pas appliquées.
+
+Remarque : deux conditions provoquent le traitement asynchrone de la stratégie de groupe, même si ce paramètre de stratégie est activé :
+1 - Lors du démarrage initial de l’ordinateur après que l’ordinateur client a rejoint le domaine.
+2 - Si le paramètre de stratégie « Toujours attendre le réseau lors du démarrage de l’ordinateur et de l’ouverture de session » est activé.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, la détection d’une connexion réseau lente n'affecte pas le traitement synchrone ou asynchrone de la stratégie de groupe.
 
       </string>
       <string id="DisableLGPOProcessing">Désactiver le traitement des objets de stratégie de groupe locaux</string>
@@ -162,7 +176,7 @@ Remarque : il est vivement recommandé de configurer ce paramètre de stratégi
 Si vous activez ce paramètre de stratégie, la stratégie de groupe utilise ce délai d’attente maximal administrativement configuré et à la place de tout délai d’attente par défaut ou calculé par le système.
 
 Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, la stratégie de groupe utilise le délai d’attente par défaut de 30 secondes sur les ordinateurs exécutant le système d’exploitation Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Autoriser la stratégie utilisateur et les profils itinérants entre les forêts</string>

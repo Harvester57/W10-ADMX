@@ -5,84 +5,88 @@
   <description>请在此处输入描述</description>
   <resources>
     <stringTable>
-      <string id="W32TIME_CONFIG_EXPLAIN">使用此策略设置，可以为域控制器的 Windows 时间服务 (W32time) 指定时钟规则和常规值(包括 RODC)。
+      <string id="W32TIME_CONFIG_EXPLAIN">使用此策略设置，可以为域控制器(包括 RODC)的 Windows 时间服务(W32time)指定时钟规则和常规值。
 
-如果启用此策略设置，则可以为该服务指定以下时钟规则、常规和 RODC 参数。
+如果启用此策略设置，目标计算机上的 W32time 服务将使用此处提供的设置。否则，目标计算机上的服务将使用本地配置的设置值。
 
-如果禁用或未配置此策略设置，Windows 时间服务将使用以下每个参数的默认值。
+有关单个参数、参数值组合以及标记定义的更多详细信息，请参阅 https://go.microsoft.com/fwlink/?linkid=847809。
 
-以下值中有几个是标量，这意味着它们只表示相互之间的相对关系，而没有特定的度量单位定义。
+        FrequencyCorrectRate
+此参数控制 W32time 校正本地时钟频率的速度。此值越低则校正速度越慢，越高则校正速度越快。默认值: 4 (标量)。
 
-FrequencyCorrectRate
-此参数控制 W32time 校正本地时钟频率的速度。此值越低则校正速度越慢，越高则校正速度越快。此值过低可能导致过度校正和不稳定。此值过高则可能导致同步较慢。默认值: 4 (标量)。
+        HoldPeriod
+此参数指示客户端计算机在一个序列中必须收到多少一致的时间示例后，后续的时间示例才会被评估为潜在峰值。默认值: 5
 
-HoldPeriod
-此参数指示客户端计算机在一个序列中必须收到多少可能精确的时间样本之后，才将随后的时间样本评估为可能的峰值。如果在一段时间之内没有收到任何可用的时间样本，则时间客户端一旦收到第一个可能精确的时间样本，就停止进行时间样本峰值评估。收到一系列时间样本(由 HoldPeriod 指定)之后，时间客户端将对后续时间样本进行峰值评估。当某时间样本与客户端计算机本地时钟之间的时间差大于 LargePhaseOffset 值时，该时间样本即被视为峰值。默认值: 5 个时间样本。
+        LargePhaseOffset
+如果时间示例与客户端计算机本地时钟的差别超过 LargePhaseOffset，本地时钟将被视为已明显偏离，或者过快。默认值: 50,000,000 个 100 纳秒单位(ns)，即 5 秒。
 
-LargePhaseOffset
-此参数指定与客户端计算机本地时钟的时间差(相位偏移)为多少时，时间样本必须被视为峰值。时间差大于 LargePhaseOffset 值的时间样本被视为峰值。默认值: 50,000,000 个 100 纳秒单位(ns)，即 5 秒。
+        MaxAllowedPhaseOffset
+如果收到的响应的时间差大于此参数值，W32time 会立即将客户端计算机本地时钟设置为网络时间协议(NTP)服务器提供的确认为精确时间的时间。如果该时间差小于此值，则将逐步校正客户端计算机本地时钟。默认值: 300 秒。
 
-MaxAllowedPhaseOffset
-此参数控制 W32time 如何根据时间样本和客户端计算机本地时钟之间计算的时间差大小来校正时钟。如果收到的响应的时间差大于此值，W32time 会立即将客户端计算机本地时钟设置为网络时间协议(NTP)服务器提供的确认为精确时间的时间。如果该时间差小于此值，则将逐步校正客户端计算机本地时钟。默认值: 300 秒。
+        MaxNegPhaseCorrection
+如果收到的时间示例指示过去的某个时间(与客户端计算机本地时钟相比)其时间差大于 MaxNegPhaseCorrection 值，将放弃此时间示例。默认值: 172,800 秒。
 
-MaxNegPhaseCorrection
-此参数控制可以反向进行的可允许的最大时钟校正。如果收到的时间样本是一个过去的时间(与客户端计算机本地时钟相比)，且时间差大于 MaxNegPhaseCorrection 值，则丢弃该时间样本。如果发生这种情况，则 Windows Time 源将在事件查看器的系统日志中记录一个事件。默认值: 172,800 秒。
+        MaxPosPhaseCorrection
+如果收到的时间示例指示未来的某个时间(与客户端计算机本地时钟相比)其时间差大于 MaxPosPhaseCorrection 值，将放弃此时间示例。默认值: 172,800 秒。
 
-MaxPosPhaseCorrection
-此参数控制可以正向进行的可允许的最大时钟校正。如果收到的时间样本是一个将来的时间(与客户端计算机本地时钟相比)，且时间差大于 MaxPosPhaseCorrection 值，则丢弃该时间样本。默认值: 172,800 秒。
+        PhaseCorrectRate
+此参数控制 W32time 校正客户端计算机本地时钟差异的速度，校正目的是与作为准确示例从 NTP 服务器接受的时间示例相匹配。值越小时钟校正速度越慢；值越大时钟校正速度越快。默认值: 7 (标量)。
 
-PhaseCorrectRate
-此参数控制 W32time 以怎样的速度校正客户端计算机本地时钟时间差来匹配 NTP 服务器提供的确认为精确时间的时间样本。此值越低则时钟校正速度越慢，越高则时钟校正速度越快。默认值: 7 (标量)。
+        PollAdjustFactor
+此参数控制 W32time 更改轮询间隔的速度。当响应被认为准确时，轮询间隔将自动延长。当响应被认为不准确时，轮询间隔将自动缩短。默认值: 5 (标量)。
 
-PollAdjustFactor
-此参数控制 W32time 更改轮询间隔的速度。当认为响应精确时，轮询间隔自动延长。当认为响应不精确时，轮询间隔自动缩短。默认值: 5 (标量)。
+        SpikeWatchPeriod
+此参数指定在示例作为准确示例被接受前，收到时间偏移大于 LargePhaseOffset 的示例的时间长度。将 SpikeWatchPeriod 与 HoldPeriod 结合使用来帮助消除从对等方返回的不定时、不准确的时间示例。默认值: 900 秒。
 
-SpikeWatchPeriod
-此参数指定从时间源收到的可疑时间样本在被接受为精确时间之前的时间量。当时间样本与客户端计算机本地时钟之间的时间差大于 LargePhaseOffset 值时，则认为这些样本可疑。SpikeWatchPeriod 和 HoldPeriod 结合使用，以帮助消除从对等端返回的零散而不精确的时间样本。默认值: 900 秒。
+        UpdateInterval
+此参数指定在逐渐校正时钟时，两次校正之间 W32time 等待的时长。进行逐渐校正时，此服务对时钟进行轻微调整，并等待此时长，然后查看是否需要其他调整，直至校正完成。默认值: 100 个 1/100 秒单位，即 1 秒。
 
-UpdateInterval
-此参数指定逐步校正时钟时 W32time 在两次校正之间等待的时间量。进行逐步校正时，服务将微调时钟，等待该参数指定的时间，然后检查是否需要下一次调节，直到完成校正。默认值: 100 个 1/100 秒单位，即 1 秒。
+        常规参数:
 
-常规参数:
+        AnnounceFlags
+此参数是控制如何通过 NetLogon 公布时间服务可用性的位掩码值。默认值: 0x0a (十六进制)
 
-AnnounceFlags
-此参数是一个控制如何通过 NetLogon 公告时间服务可用性的位掩码值。默认值: 0x0a (十六进制)。有关可能的值，请参阅 Microsoft TechNet 库上的“NtpClient\EventLogFlags 子项”文档。
+        EventLogFlags
+此参数控制可以记录到事件查看器系统日志的特殊事件。默认值: 0x02 (十六进制位掩码)。
 
-EventLogFlags
-此参数控制可以记录到事件查看器系统日志的特殊事件。默认值: 0x02 (十六进制位掩码)。有关可能的值，请参阅 Microsoft TechNet 库上的“NtpClient\EventLogFlags 子项”文档。
-
-LocalClockDispersion
+        LocalClockDispersion
 此参数指示由 NTP 服务器向请求时间样本的客户端报告的最大误差(秒)。(仅当 NTP 服务器在使用本地 CMOS 时钟时间时适用。)默认值: 10 秒。
 
-MaxPollInterval
-此参数控制最大轮询间隔，此间隔定义对等端轮询之间的最长时间。默认值: 10，对应于以 2 为底 1,024 秒的对数值。(不应设置为大于 15。)
+        MaxPollInterval
+此参数控制最大轮询间隔，此间隔定义对等端轮询之间的最长时间。默认值: 10，对应于以 2 为底 1024 秒的对数值。(不应设置为大于 15。)
 
-MinPollInterval
+        MinPollInterval
 此参数控制最小轮询间隔，此间隔定义对等端轮询之间的最短时间。默认值: 6，对应于以 2 为底 64 秒的对数值。
 
-RequireSecureTimeSyncRequests
-此参数控制 DC 是否响应使用较旧的身份验证协议的时间同步请求。如果启用(设置为 1)，则 DC 将不会响应使用此类协议的请求。默认值: 0 (布尔值)。
+        ClockHoldoverPeriod
+此参数指示系统时钟在不与时间源同步的情况下能够在表面上保持准确性的最大秒数。如果经过此时间段后 W32time 未从任何输入提供程序获取新示例，W32time 将启动对时间源的重新发现。默认值: 7800 秒。
 
-UtilizeSslTimeData
-此参数控制 W32time 是否使用基于计算机上的 SSL 流量计算的时间数据作为附加输入来更正本地时钟。默认值: 1 (布尔值)
+        RequireSecureTimeSyncRequests
+此参数控制 DC 是否响应使用较旧身份验证协议的时间同步请求。如果启用(设置为 1)，DC 将不响应使用此类协议的请求。默认值: 0 (布尔值)。
 
-RODC 参数:
+        UtilizeSslTimeData
+此参数控制 W32time 是否使用根据计算机的 SSL 流量计算的时间数据作为校正本地时钟的其他输入。默认值: 1 (布尔值)，表示已启用
 
-ChainEntryTimeout
-此参数指定条目被视为过期之前可以保留在链表中的最长时间。在处理下一个请求或响应时，可以删除过期的条目。默认值: 16 秒。
+        ClockAdjustmentAuditLimit
+此参数指定可能记录到目标计算机上的 W32time 服务事件日志的最小本地时钟调整。默认值: 百万分之 800 (PPM)。
 
-ChainMaxEntries
-此参数控制链表中允许的最大条目数。如果链表已满，并且没有能够删除的过期条目，则将丢弃所有传入请求。默认值: 128 个条目。
+        RODC 参数:
 
-ChainMaxHostEntries
-此参数控制链表中允许用于特定主机的最大条目数。默认值: 4 个条目。
+        ChainEntryTimeout
+此参数指定条目被视为过期前可以保留在链表中的最大时长。当处理下一个请求或响应时，过期条目可能被删除。默认值: 16 秒。
 
-ChainDisable
-此参数控制是否禁用链机制。如果禁用链(设置为 0)，则 RODC 可以与任何域控制器同步，但是没有在 RODC 上缓存密码的主机将无法与 RODC 同步。默认值: 0 (布尔值)。
+        ChainMaxEntries
+此参数控制链表中允许的最大条目数。如果链表已满且没有可以删除的过期条目，则任何传入请求都将被放弃。默认值: 128 个条目。
 
-ChainLoggingRate
-此参数控制将事件(指示成功和不成功链接尝试次数)记录到事件查看器系统日志中的频率。默认值: 30 分钟。
-</string>
+        ChainMaxHostEntries
+此参数控制特定主机的链表中允许的最大条目数。默认值: 4 个条目。
+
+        ChainDisable
+此参数控制是否禁用链机制。如果链被禁用(设置为 0)，则 RODC 可以与任何域控制器同步，但未在 RODC 中缓存密码的主机将无法与 RODC 同步。默认值: 0 (布尔值)。
+
+        ChainLoggingRate
+此参数控制指示成功和不成功链接尝试次数的事件被记录到事件查看器中的系统日志的频率。默认值: 30 分钟。
+      </string>
 
 <string id="W32TIME_CONFIGURE_NTPCLIENT_EXPLAIN">此策略设置指定一组用于控制 Windows NTP 客户端的参数。
 
@@ -91,7 +95,7 @@ ChainLoggingRate
 如果禁用或未配置此策略设置，Windows NTP 客户端将使用以下每个参数的默认值。
 
 NtpServer
-NTP 时间源的域名系统(DNS)名称或 IP 地址。此值的格式是“dns 名称,标志”，其中“标志”是该主机标志的十六进制位掩码。有关详细信息，请参阅“Windows 时间服务组策略设置”中的“与 Windows Time 关联的 NTP 客户端组策略设置”部分。 默认值为“time.windows.com,0x09”。
+NTP 时间源的域名系统(DNS)名称或 IP 地址。此值的格式是 ""dns 名称,标志""，其中""标志""是该主机标志的十六进制位掩码。有关详细信息，请参阅""Windows 时间服务组策略设置""中的""与 Windows Time 关联的 NTP 客户端组策略设置""部分。默认值为 ""time.windows.com,0x09""。
 
 类型
 此值控制 W32time 所使用的身份验证。默认值为 NT5DS。
@@ -103,14 +107,13 @@ ResolvePeerBackoffMinutes
 此值(分钟)控制上一次尝试失败时 W32time 再次尝试解析 DNS 名称之前等待的时间。默认值为 15 分钟。
 
 ResolvePeerBackoffMaxTimes
-此值控制在重新启动发现进程之前 W32time 尝试解析 DNS 名称的次数。DNS 名称解析每失败一次，下一次尝试之前等待的时间将是前一次等待时间的两倍。默认值为尝试 7 次。
+此值控制在重启发现进程之前 W32time 尝试解析 DNS 名称的次数。DNS 名称解析每失败一次，下一次尝试之前等待的时间将是前一次等待时间的两倍。默认值为尝试 7 次。
 
 SpecialPollInterval
-此 NTP 客户端值(秒)控制当时间源配置为使用特殊轮询间隔时，轮询手动配置时间源的频率。如果在 NTPServer 设置上启用了 SpecialInterval 标志，则客户端将使用设置为 SpecialPollInterval 的值(而不是 MinPollInterval 和 MaxPollInterval 值)来确定轮询时间源的频率。默认值为 3600 秒(1 小时)。
+此 NTP 客户端值(秒)控制当时间源配置为使用特殊轮询间隔时，轮询手动配置时间源的频率。如果在 NTPServer 设置上启用了 SpecialInterval 标志，则客户端将使用设置为 SpecialPollInterval 的值(而不是 MinPollInterval 和 MaxPollInterval 值之间的可变间隔)来确定轮询时间源的频率。SpecialPollInterval 必须介于 [MinPollInterval, MaxPollInterval] 范围内，否则选取最接近的值。默认值: 1024 秒。
 
 EventLogFlags
-此值是一个位掩码，控制可以记录到事件查看器系统日志中的事件。若此值设置为 0x1，则指示每次检测到时间跳跃时 W32time 都将创建一个事件。若此值设置为 0x2，则指示每次更改时间源时 W32time 都将创建一个事件。此值是一个位掩码值，因此将其设置为 0x3 (0x1 与 0x2 的和)时指示同时记录时间跳跃和时间源更改。
-      
+此值是一个位掩码，控制可以记录到事件查看器系统日志中的事件。若此值设置为 0x1，则指示每次检测到时间跳转时 W32time 都将创建一个事件。若此值设置为 0x2，则指示每次更改时间源时 W32time 都将创建一个事件。此值是一个位掩码值，因此将其设置为 0x3 (0x1 与 0x2 的和)时指示同时记录时间跳转和时间源更改。
       </string>
       <string id="W32TIME_ENABLE_NTPCLIENT_EXPLAIN">此策略设置指定是否启用 Windows NTP 客户端。
 
@@ -161,8 +164,10 @@ EventLogFlags
         <decimalTextBox refId="W32TIME_LocalClockDispersion" defaultValue="10">LocalClockDispersion</decimalTextBox>
         <decimalTextBox refId="W32TIME_MaxPollInterval" defaultValue="10">MaxPollInterval</decimalTextBox>
         <decimalTextBox refId="W32TIME_MinPollInterval" defaultValue="6">MinPollInterval</decimalTextBox>
+        <decimalTextBox refId="W32TIME_ClockHoldoverPeriod" defaultValue="7800">ClockHoldoverPeriod</decimalTextBox>
         <decimalTextBox refId="W32TIME_RequireSecureTimeSyncRequests" defaultValue="0">RequireSecureTimeSyncRequests</decimalTextBox>
         <decimalTextBox refId="W32TIME_UtilizeSslTimeData" defaultValue="1">UtilizeSslTimeData</decimalTextBox>
+        <decimalTextBox refId="W32TIME_ClockAdjustmentAuditLimit" defaultValue="800">ClockAdjustmentAuditLimit</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainEntryTimeout" defaultValue="16">ChainEntryTimeout</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainMaxEntries" defaultValue="128">ChainMaxEntries</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainMaxHostEntries" defaultValue="4">ChainMaxHostEntries</decimalTextBox>
@@ -178,7 +183,7 @@ EventLogFlags
         <decimalTextBox refId="W32TIME_CrossSiteSyncFlags" defaultValue="2">CrossSiteSyncFlags</decimalTextBox>
         <decimalTextBox refId="W32TIME_ResolvePeerBackoffMinutes" defaultValue="15">ResolvePeerBackoffMinutes</decimalTextBox>
         <decimalTextBox refId="W32TIME_ResolvePeerBackoffMaxTimes" defaultValue="7">ResolvePeerBackoffMaxTimes</decimalTextBox>
-        <decimalTextBox refId="W32TIME_SpecialPollInterval" defaultValue="3600">SpecialPollInterval</decimalTextBox>
+        <decimalTextBox refId="W32TIME_SpecialPollInterval" defaultValue="1024">SpecialPollInterval</decimalTextBox>
         <decimalTextBox refId="W32TIME_NtpClientEventLogFlags" defaultValue="0">EventLogFlags</decimalTextBox>
       </presentation>
     </presentationTable>

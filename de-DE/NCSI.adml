@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Mit dieser Richtlinieneinstellung können Sie die die HTTPS-URL der Firmenwebsite angeben, mit deren Hilfe Cientcomputer ihren aktuellen Domänenort innerhalb oder außerhalb eines Unternehmensnetzwerks bestimmen. Die Erreichbarkeit des URL-Ziels zeigt an, dass sich der Clientort innerhalb des Unternehmensnetzwerks befindet, andernfalls würde er außerhalb liegen.</string>
       <string id="NCSI_PassivePolling">Passive Abrufe angeben</string>
       <string id="NCSI_PassivePolling_Help">Mit dieser Richtlinieneinstellung können Sie das Verhalten der passiven Abrufe steuern. NCSI ruft in regelmäßigen Abständen verschiedene Maßeinheiten über den Netzwerkstapel hinweg ab, um zu ermitteln, ob die Netzwerkkonnektivität verloren gegangen ist.  Verwenden Sie diese Optionen, um das Verhalten der passiven Abrufe zu steuern.</string>
+      <string id="NCSI_GlobalDns">Globalen DNS angeben</string>
+      <string id="NCSI_GlobalDns_Help">Mit dieser Richtlinieneinstellung können Sie das DNS-Bindungsverhalten festlegen. NCSI beschränkt DNS-Lookups standardmäßig auf die Schnittstelle, die aktuell getestet wird. Wenn Sie diese Einstellung aktivieren, lässt NCSI DNS-Lookups für beliebige Schnittstellen zu.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>Das folgende Kontrollkästchen deaktiviert den passiven Abrufmechanismus in NCSI.   Auf diese Weise können Sie die CPU-Arbeitsauslastung auf Servern oder anderen Computern verringern, deren Netzwerkkonnektivität statisch ist.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Passive Abrufe deaktivieren</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Mit dem folgenden Kontrollkästchen wird die Schnittstellenbindung bei DNS-Lookups in NCSI deaktiviert. Dadurch funktioniert NCSI mit speziellen Netzwerkkonfigurationen u. U. besser, beispielsweise bei einem auf "localhost" ausgeführten DNS-Server.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Globalen DNS verwenden</checkBox>
       </presentation>
     </presentationTable>
   </resources>

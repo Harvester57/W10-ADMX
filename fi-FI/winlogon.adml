@@ -72,12 +72,34 @@ Jos tämä asetus poistetaan käytöstä tai sitä ei määritetä, asetus ohite
 
 Vihje: Voit etsiä Polku-ympäristömuuttujan määrittämät kansiot valitsemalla Ohjauspaneelista Ominaisuudet: Järjestelmä, napsauttamalla Lisäasetukset-välilehteä, napsauttamalla Ympäristömuuttujat-painiketta ja valitsemalla sitten Järjestelmämuuttujat-ruudusta kohdan Polku.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Kirjaa viimeisin vuorovaikutteinen käyttäjä automaattisesti sisään järjestelmän käynnistämän uudelleenkäynnistyksen jälkeen</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Tämä käytäntöasetus määrittää, kirjaako laite viimeisimmän vuorovaikutteisen käyttäjän automaattisesti sisään sen jälkeen, kun Windows Update on käynnistänyt järjestelmän uudelleen.
+      <string id="AutomaticRestartSignOnDescription">Kirjaa sisään ja lukitse edellinen vuorovaikutteinen käyttäjä automaattisesti uudelleenkäynnistyksen jälkeen</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Tämä käytäntöasetus määrittää, kirjaako laite käyttäjän sisään automaattisesti ja lukitseeko laite edellisen vuorovaikutteisen käyttäjän automaattisesti järjestelmän uudelleenkäynnistyksen, sammuttamisen tai kylmäkäynnistyksen jälkeen.
 
-Jos otat tämän käytäntöasetuksen käyttöön tai määrität sen, laite tallentaa käyttäjän tunnistetiedot (käyttäjänimen, toimialueen ja salatun salasanan), jotta se voi kirjata käyttäjän automaattisesti sisään sen jälkeen, kun Windows Update on käynnistänyt järjestelmän uudelleen. Windows Updaten käynnistämän uudelleenkäynnistyksen jälkeen käyttäjä kirjataan automaattisesti sisään ja istunnossa näytetään kyseiselle käyttäjälle määritetyt lukitusnäytön sovellukset.
+Tämä tapahtuu vain, jos edellinen vuorovaikutteinen käyttäjä ei kirjautunut ulos ennen uudelleenkäynnistystä tai sammutusta.
 
-Jos poistat tämän käytäntöasetuksen käytöstä, laite ei tallenna käyttäjän tunnistetietoja, jotta se voisi kirjata käyttäjän sisään Windows Updaten käynnistämän uudelleenkäynnistyksen jälkeen. Käyttäjän lukitusnäytön sovelluksia ei käynnistetä uudelleen järjestelmän uudelleenkäynnistämisen jälkeen.</string>
+Jos laite on liitetty Active Directoryyn tai Azure Active Directoryyn, tämä käytäntö koskee vain Windows Updaten käynnistämiä uudelleenkäynnistyksiä. Muussa tapauksessa tämä käytäntö koskee sekä Windows Updaten käynnistämiä uudelleenkäynnistyksiä että käyttäjän käynnistämiä uudelleenkäynnistyksiä ja sammutuksia.
+
+Jos et määritä tätä käytäntöasetusta, se on oletusarvon mukaan käytössä. Kun tämä käytäntö on käytössä, käyttäjä kirjataan automaattisesti sisään ja istunnossa näytetään kyseiselle käyttäjälle määritetyt lukitusnäytön sovellukset.
+
+Kun tämä käytäntö on otettu käyttöön, voit määrittää sen asetukset ConfigAutomaticRestartSignOn-käytännöllä, joka määrittää edellisen vuorovaikutteisen käyttäjän automaattisen kirjautumisen ja lukitsemisen tilan uudelleenkäynnistyksen tai kylmän käynnistyksen jälkeen.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, laite ei määritä automaattista sisäänkirjautumista. Käyttäjän lukitusnäytön sovelluksia ei käynnistetä uudelleen järjestelmän uudelleenkäynnistyksen jälkeen.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Määritä edellisen vuorovaikutteisen käyttäjän automaattisen sisäänkirjautumisen ja lukitsemisen tila uudelleenkäynnistyksen tai kylmäkäynnistyksen jälkeen</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Tämä käytäntöasetus määrittää, suoritetaanko automaattinen uudelleenkäynnistys, sisäänkirjautuminen ja lukitus uudelleenkäynnistyksen tai kylmäkäynnistyksen jälkeen. Jos olet valinnut Kirjaa sisään ja lukitse edellinen vuorovaikutteinen käyttäjä automaattisesti uudelleenkäynnistyksen jälkeen -käytännön asetukseksi Ei käytössä -vaihtoehdon, automaattinen kirjautuminen ei ole käytössä eikä tätä käytäntöä tarvitse määrittää.
+
+Jos otat tämän käytäntöasetuksen käyttöön, voit valita jommankumman seuraavista vaihtoehdoista:
+
+1. Käytössä, jos BitLocker on käytössä eikä sitä ole keskeytetty -asetus määrittää, että automaattinen sisäänkirjautuminen ja lukitus suoritetaan vain, jos BitLocker on aktiivisena eikä keskeytettynä uudelleenkäynnistyksen tai sammutuksen aikana. Henkilökohtaisia tietoja voidaan käyttää laitteen kiintolevyllä, jos BitLocker ei ole käytössä tai keskeytettynä päivityksen aikana. BitLockerin keskeyttäminen väliaikaisesti poistaa järjestelmäkomponenttien ja tietojen suojauksen, mutta se saattaa olla tarpeen joissakin tilanteissa, jotta käynnistyksessä tarvittavien komponenttien päivitys onnistuu.
+     BitLocker keskeytetään päivitysten aikana seuraavissa tilanteissa:
+        – Laitteessa ei ole TPM 2.0 -turvapiiriä ja PCR7:ää.
+        – Laite ei käytä vain TPM-turvapiiriin perustuvaa suojausta.
+2. Aina käytössä -asetus määrittää, että automaattinen sisäänkirjautuminen suoritetaan, vaikka BitLocker on poistettu käytöstä tai keskeytetty uudelleenkäynnistyksen tai sammutuksen aikana. Kun BitLocker ei ole käytössä, henkilökohtaiset tiedot ovat käytettävissä kiintolevyllä. Automaattista uudelleenkäynnistystä ja sisäänkirjautumista ei tule suorittaa tätä vaihtoehtoa käytettäessä, jollet ole varma, että määritetty laite on suojatussa fyysisessä sijainnissa.
+
+Jos poistat tämän asetuksen käytöstä tai et määritä sitä, automaattisen kirjautumisen asetuksena on oletusarvoisesti Käytössä, jos BitLocker on käytössä eikä sitä ole keskeytetty -vaihtoehto.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Käytössä, jos BitLocker on käytössä eikä sitä ole keskeytetty</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Aina käytössä</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Jos poistat tämän käytäntöasetuksen käytöstä, laite ei tallenna käyttä
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Määritä, mikä ohjelmisto voi luoda suojauskomennon</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Määritä edellisen vuorovaikutteisen käyttäjän automaattisen sisäänkirjautumisen ja lukitsemisen tila uudelleenkäynnistyksen tai kylmäkäynnistyksen jälkeen</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

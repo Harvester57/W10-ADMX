@@ -41,21 +41,19 @@ Hvis du deaktiverer eller undlader at konfigurere politikindstillingen, vil konf
       <string id="ConfigureStartupUsage_Name">Kræv yderligere godkendelse ved start (Windows Server 2008 og Windows Vista)</string>
       <string id="ConfigureAdvancedStartup_Name">Kræv yderligere godkendelse ved start</string>
 
-      <string id="ConfigureAdvancedStartup_Help">Med denne politikindstilling kan du konfigurere, om BitLocker kræver yderligere godkendelse, hver gang computeren starter, og om du skal bruge BitLocker med eller uden et TPM-modul (Trusted Platform Module). Denne politikindstilling anvendes, når du aktiverer BitLocker.
+      <string id="ConfigureAdvancedStartup_Help">Med denne politikindstilling kan du konfigurere, om BitLocker kræver yderligere godkendelse, hver gang computeren starter, og om du skal bruge BitLocker med eller uden et TPM (Trusted Platform Module). Denne politikindstilling anvendes, når du slår BitLocker til.
 
 Bemærk! Kun én af de ekstra godkendelsesindstillinger kan kræves ved start, ellers opstår der en fejl i politikken.
 
-Hvis du vil bruge BitLocker på en computer uden TPM, skal du markere afkrydsningsfeltet "Tillad BitLocker uden et kompatibelt TPM". I denne tilstand kræves hverken adgangskode eller USB-drev ved start. Ved brug af en startnøgle gemmes de nøgleoplysninger, der bruges til at kryptere drevet, på USB-drevet, så der oprettes en USB-nøgle. Når USB-nøglen indsættes, godkendes adgangen til drevet, hvorefter der er adgang til drevet. Hvis USB-nøglen går tabt eller ikke længere er tilgængelig, eller hvis du har glemt adgangskoden, skal du bruge en af BitLocker-genoprettelsesindstillingerne til at få adgang til drevet.
+Hvis du vil bruge BitLocker på en computer uden et TPM, skal du markere afkrydsningsfeltet "Tillad BitLocker uden et kompatibelt TPM". I denne tilstand kræves hverken adgangskode eller USB-drev ved start. Ved brug af en startnøgle gemmes de nøgleoplysninger, der bruges til at kryptere drevet, på USB-drevet, så der oprettes en USB-nøgle. Når USB-nøglen indsættes, godkendes adgangen til drevet, hvorefter der er adgang til drevet. Hvis USB-nøglen går tabt eller ikke længere er tilgængelig, eller hvis du har glemt adgangskoden, skal du bruge en af BitLocker-genoprettelsesindstillingerne til at få adgang til drevet.
 
-På en computer med et kompatibelt TPM-modul kan der bruges fire godkendelsesmetoder ved start til at beskytte krypterede data yderligere. Når computeren starter, kan den bruge TPM-modulet til godkendelse alene, eller den kan kræve, at der også indsættes et USB-flashdrev, som indeholder en startnøgle, at der angives en pinkode på mellem 4 og 20 cifre, eller begge dele.
+På en computer med et kompatibelt TPM kan der bruges fire godkendelsesmetoder ved start til at beskytte krypterede data yderligere. Når computeren starter, kan den bruge et TPM til godkendelse alene, eller den kan kræve, at der også indsættes et USB-flashdrev, som indeholder en startnøgle, at der angives en pinkode på mellem 6 og 20 cifre, eller begge dele.
 
 Hvis du aktiverer denne politikindstilling, kan brugere konfigurere avancerede startindstillinger i konfigurationsguiden til BitLocker.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugere kun konfigurere grundlæggende indstillinger på computere med et TPM-modul.
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugere kun konfigurere grundlæggende indstillinger på computere med et TPM.
 
 Bemærk! Hvis du vil kræve, at der bruges en startpinkode og et USB-flashdrev, skal du konfigurere BitLocker-indstillinger ved hjælp af kommandolinjeværktøjet manage-bde i stedet for guiden til konfiguration af BitLocker-drevkryptering.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Tillad oplåsning af netværk ved start</string>
@@ -293,10 +291,15 @@ Vigtigt! Denne gruppepolitik gælder kun for computere med en indbygget UEFI-fir
 
 Hvis du aktiverer denne politikindstilling, inden du aktiverer BitLocker, kan du konfigurere de startkomponenter, som TPM validerer, inden der låses op for adgang til det BitLocker-krypterede operativsystemdrev. Hvis nogle af disse komponenter ændres, mens BitLocker-beskyttelse er aktiveret, frigiver TPM ikke krypteringsnøglen, som kan låse drevet op, men computeren viser i stedet BitLocker-genoprettelseskonsollen og kræver, at enten genoprettelsesadgangskoden eller genoprettelsesnøglen angives, så drevet kan låses op.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, bruger BitLocker standardprofilen til platformsvalidering eller den profil til platformsvalidering, der er angivet i installationsscriptet. En profil til platformsvalidering består af et sæt PCR-indekser (Platform Configuration Register) i intervallet fra 0 til 23. Standardprofilen til platformsvalidering sikrer krypteringsnøglen mod ændringer i PCR 0 (kernesystemets eksekverbare firmwarekode), PCR 2 (udvidet eller tilslutningsbar eksekverbar kode), PCR 4 (Boot Manager) og PCR 11 (BitLocker-adgangskontrol).
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, bruger BitLocker standardprofilen til platformsvalidering for tilgængelig hardware eller den profil til platformsvalidering, der er angivet i installationsscriptet. En profil til platformsvalidering består af et sæt PCR-indekser (Platform Configuration Register) i intervallet fra 0 til 23.
+
+På pc'er, der mangler understøttelse af sikker bootstarttilstand (PCR 7), sikrer standardprofilen til platformsvalidering krypteringsnøglen mod ændringer i PCR 0 (kernesystemets eksekverbare firmwarekode), PCR 2 (udvidet eller tilslutningsbar eksekverbar kode), PCR 4 (Boot Manager) og PCR 11 (BitLocker-adgangskontrol).
+
+Når understøttelse af sikker bootstart (PCR7) er tilgængelig, sikrer standardprofilen til platformsvalidering krypteringsnøglen ved at bruge sikker bootstarttilstand (PCR 7) og BitLocker-adgangskontrol (PCR 11). 
 
 Advarsel! Hvis der vælges en anden profil end standardprofilen til platformsvalidering, påvirker det sikkerheden og administrationen af computeren. BitLockers følsomhed over for platformændringer (skadelige eller godkendte) øges eller mindskes, afhængigt af om PCR'er henholdsvis medtages eller udelades. Hvis du angiver denne politikindstilling og udelader PCR 7, tilsidesættes gruppepolitikken "Tillad sikker bootstart ved integritetsvalidering", og BitLocker forhindres i at bruge sikker bootstart til validering af platforms- eller BCD-integritet (Boot Configuration Data). Angivelse af denne politikindstilling kan resultere i BitLocker-genoprettelse, når firmware opdateres. Hvis du angiver, at denne politikindstilling skal inkludere PCR 0, skal du afbryde BitLocker før anvendelse af firmwareopdateringer.
-      
+
+Det anbefales ikke at konfigurere denne politik, så Windows kan vælge PCR-profilen til den bedste kombination af sikkerhed og anvendelig baseret på den tilgængelige hardware på hver pc.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Konfigurer TPM-profil til platformsvalidering for indbyggede UEFI-firmwarekonfigurationer</string>
@@ -311,6 +314,13 @@ Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, fjernes Bi
 
       </string>
       <string id="MorBehavior_Name">Undgå overskrivning af hukommelse ved genstart</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Med denne politikindstilling kan du blokere DMA (Direct Memory Access) for alle Thunderbolt PCI-downstream-hot plug-porte, indtil en bruger logger på Windows. Når en bruger logger på, tæller Windows de PCI-enheder, som er sluttet til værtens Thunderbolt PCI-porte. Hver gang brugeren låser maskinen, bliver DMA blokeret på Thunderbolt PCI-hot plug-porte uden underordnede enheder, indtil brugeren logger på igen. Enheder, som allerede var optalt, da maskinen var ulåst, fortsætter med at fungere, til de kobles fra, eller systemet genstartes eller sættes i dvaletilstand. Denne politikindstilling håndhæves kun, når BitLocker- eller enhedskryptering er aktiveret.
+
+Bemærk! Nogle pc'er er måske ikke kompatible med denne politik, hvis systemfirmwaren muliggør DMA for nytilsluttede Thunderbolt-enheder, før de nye enheder eksponeres for Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Slå nye DMA-enheder fra, når denne computer er låst</string>
 
       <string id="FVEOSCategory">Operativsystemdrev</string>
       <string id="FVEFDVCategory">Permanente datadrev</string>
@@ -373,13 +383,14 @@ Den indstilling, der styrer startfejlfinding (0x16000010), bliver altid validere
 
 
       <string id="MinimumPINLength_Name">Konfigurer minimumpinkodelængde for start</string>
-      <string id="MinimumPINLength_Help">Med denne politikindstilling kan du konfigurere en minimumlængde for en startpinkode for TPM (Trusted Platform Module). Denne politikindstilling anvendes, når du aktiverer BitLocker. Startpinkoden skal have en minimumlængde på fire cifre og kan have en maksimumlængde på 20 cifre.
+      <string id="MinimumPINLength_Help">
+          Med denne politikindstilling kan du konfigurere en minimumslængde for en startpinkode for TPM (Trusted Platform Module) Politikindstillingen anvendes, når du slår BitLocker til Startpinkoden skal have en minimumslængde på 4 cifre og kan have en maksimumslængde på 20 cifre.
 
-Hvis du aktiverer denne politikindstilling, kan du kræve et antal cifre, der som minimum skal bruges, når startpinkoden indstilles.
+          Hvis du aktiverer denne politikindstilling, kan du kræve et antal cifre, der som minimum skal bruges, når startpinkoden indstilles.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugere konfigurere en startpinkode med en længde på mellem fire og 20 cifre.
+          Hvis du deaktiverer eller undlader at konfigurere politikindstillingen, kan brugere konfigurere en startpinkode med en længde på mellem 6 og 20 cifre.
 
-      
+          Bemærk! Hvis minimumslængden for en pinkode er angivet til under 6 cifre, forsøger Windows at opdatere TPM 2.0-spærringsperioden, så den er længere end standardværdien, når en pinkode ændres. Hvis det lykkes, vil Windows kun nulstille TPM-spærringsperioden til standardværdien, hvis TPM'en nulstilles.
 
       </string>
 
@@ -628,49 +639,46 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, har 
 
       <string id="RDVEDrive_Name">Konfigurer brugen af hardwarebaseret kryptering for flytbare datadrev</string>
 
-      <string id="OSEDrive_Help">Med denne politikindstilling kan du administrere BitLockers anvendelse af hardwarebaseret kryptering på operativsystemdrev og angive, hvilke krypteringsalgoritmer BitLocker kan bruge ved hardwarebaseret kryptering. Brug af hardwarebaseret kryptering kan forbedre ydeevnen for drevhandlinger, der involverer hyppig læsning eller skrivning af data på drevet.
+      <string id="OSEDrive_Help">Du kan bruge denne politikindstilling til at administrere BitLockers brug af hardwarebaseret kryptering på operativsystemdrev og angive de krypteringsalgoritmer, der kan bruges med hardwarebaseret kryptering. Brug af hardwarebaseret kryptering kan forbedre ydeevnen af drevhandlinger, der ofte omfatter læsning eller skrivning af data til drevet.
 
-Hvis du aktiverer denne politikindstilling, kan du angive yderligere indstillinger, der styrer, om softwarebaseret BitLocker-kryptering bruges i stedet for hardwarebaseret kryptering på computere, der ikke understøtter hardwarebaseret kryptering, og om du vil begrænse de krypteringsalgoritmer og krypteringsprogrammer, der bruges ved hardwarebaseret kryptering.
+Hvis du aktiverer denne politikindstilling, kan du angive yderligere indstillinger, der styrer, om BitLocker-softwarebaseret kryptering bruges i stedet for hardwarebaseret kryptering på computere, som ikke understøtter hardwarebaseret kryptering, og om du vil begrænse de krypteringsalgoritmer og krypteringsprogrammer, der bruges med hardwarebaseret kryptering.
 
-Hvis du deaktiverer denne politikindstilling, kan BitLocker ikke bruge hardwarebaseret kryptering på operativsystemdrev, og softwarebaseret BitLocker-kryptering bruges som standard, når drevet krypteres.
+Hvis du deaktiverer denne politikindstilling, kan BitLocker ikke bruge hardwarebaseret kryptering sammen med operativsystemdrev, og BitLocker-softwarebaseret kryptering vil blive brugt som standard, når drevet krypteres.
 
-Hvis du undlader at konfigurere politikindstillingen, bruger BitLocker hardwarebaseret kryptering med krypteringsalgoritmen angivet for drevet. Hvis hardwarebaseret kryptering ikke er tilgængelig, bruges softwarebaseret BitLocker-kryptering i stedet for.
+Hvis du undlader at konfigurere denne politikindstilling, anvender BitLocker softwarebaseret kryptering, uanset om hardwarebaseret kryptering er tilgængelig.
 
-Bemærk! Politikindstillingen "Vælg drevkrypteringsmetode og -krypteringsgrad" gælder ikke for hardwarebaseret kryptering. Den krypteringsalgoritme, der bruges ved hardwarebaseret kryptering, angives, når drevet partitioneres. Som standard bruger BitLocker den algoritme, der er konfigureret på drevet, til at kryptere drevet. Med indstillingen "Begræns krypteringsalgoritmer og krypteringsprogrammer, der er tilladt ved hardwarebaseret kryptering" kan du begrænse de krypteringsalgoritmer, som BitLocker kan bruge ved hardwarekryptering. Hvis den algoritme, der er angivet for drevet, ikke er tilgængelig, deaktiverer BitLocker brugen af hardwarebaseret kryptering.
-Krypteringsalgoritmer angives af objekt-id'er. Eksempel:
-- Objekt-id for AES 128 i CBC-tilstand: 2.16.840.1.101.3.4.1.2
-- Objekt-id for AES 256 i CBC-tilstand: 2.16.840.1.101.3.4.1.42
-      
+Bemærk! Politikindstillingen "Vælg drevkrypteringsmetode og krypteringsgrad" gælder ikke for hardwarebaseret kryptering. Den krypteringsalgoritme, der bruges af hardwarebaseret kryptering, angives, når drevet partitioneres. BitLocker bruger som standard den algoritme, der er konfigureret på drevet, til at kryptere drevet. Indstillingen "Begræns krypteringsalgoritmer og krypteringsprogrammer, der er tilladt til hardwarebaseret kryptering" giver dig mulighed for at begrænse de krypteringsalgoritmer, som BitLocker kan bruge med hardwarebaseret kryptering. Hvis den algoritme, der er angivet for drevet, ikke er tilgængelig, vil BitLocker deaktivere brugen af hardwarebaseret kryptering.
+Krypteringsalgoritmer angives af objekt-id'er (OID). Eksempler:
+-AES 128 i CBC mode OID: 2.16.840.1.101.3.4.1.2
+-AES 256 i CBC mode OID: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="FDVEDrive_Help">Med denne politikindstilling kan du administrere BitLockers anvendelse af hardwarebaseret kryptering på faste datadrev og angive, hvilke krypteringsalgoritmer BitLocker kan bruge ved hardwarebaseret kryptering. Brug af hardwarebaseret kryptering kan forbedre ydeevnen for drevhandlinger, der involverer hyppig læsning eller skrivning af data på drevet.
+      <string id="FDVEDrive_Help">Du kan bruge denne politikindstilling til at administrere BitLockers brug af hardwarebaseret kryptering på permanente datadrev og angive de krypteringsalgoritmer, der kan bruges med hardwarebaseret kryptering. Brug af hardwarebaseret kryptering kan forbedre ydeevnen af drevhandlinger, der ofte omfatter læsning eller skrivning af data til drevet.
 
-Hvis du aktiverer denne politikindstilling, kan du angive yderligere indstillinger, der styrer, om softwarebaseret BitLocker-kryptering bruges i stedet for hardwarebaseret kryptering på computere, der ikke understøtter hardwarebaseret kryptering, og om du vil begrænse de krypteringsalgoritmer og krypteringsprogrammer, der bruges ved hardwarebaseret kryptering.
+Hvis du aktiverer denne politikindstilling, kan du angive yderligere indstillinger, der styrer, om BitLocker-softwarebaseret kryptering bruges i stedet for hardwarebaseret kryptering på computere, som ikke understøtter hardwarebaseret kryptering, og om du vil begrænse de krypteringsalgoritmer og krypteringsprogrammer, der bruges med hardwarebaseret kryptering.
 
-Hvis du deaktiverer denne politikindstilling, kan BitLocker ikke bruge hardwarebaseret kryptering på operativsystemdrev, og softwarebaseret BitLocker-kryptering bruges som standard, når drevet krypteres.
+Hvis du deaktiverer denne politikindstilling, kan BitLocker ikke bruge hardwarebaseret kryptering sammen med operativsystemdrev, og BitLocker-softwarebaseret kryptering vil blive brugt som standard, når drevet krypteres.
 
-Hvis du undlader at konfigurere politikindstillingen, bruger BitLocker hardwarebaseret kryptering med krypteringsalgoritmen angivet for drevet. Hvis hardwarebaseret kryptering ikke er tilgængelig, bruges softwarebaseret BitLocker-kryptering i stedet for.
+Hvis du undlader at konfigurere denne politikindstilling, anvender BitLocker softwarebaseret kryptering, uanset om hardwarebaseret kryptering er tilgængelig.
 
-Bemærk! Politikindstillingen "Vælg drevkrypteringsmetode og -krypteringsgrad" gælder ikke for hardwarebaseret kryptering. Den krypteringsalgoritme, der bruges ved hardwarebaseret kryptering, angives, når drevet partitioneres. Som standard bruger BitLocker den algoritme, der er konfigureret på drevet, til at kryptere drevet. Med indstillingen "Begræns krypteringsalgoritmer og krypteringsprogrammer, der er tilladt ved hardwarebaseret kryptering" kan du begrænse de krypteringsalgoritmer, som BitLocker kan bruge ved hardwarekryptering. Hvis den algoritme, der er angivet for drevet, ikke er tilgængelig, deaktiverer BitLocker brugen af hardwarebaseret kryptering.
-Krypteringsalgoritmer angives af objekt-id'er. Eksempel:
-- Objekt-id for AES 128 i CBC-tilstand: 2.16.840.1.101.3.4.1.2
-- Objekt-id for AES 256 i CBC-tilstand: 2.16.840.1.101.3.4.1.42
-      
+Bemærk! Politikindstillingen "Vælg drevkrypteringsmetode og krypteringsgrad" gælder ikke for hardwarebaseret kryptering. Den krypteringsalgoritme, der bruges af hardwarebaseret kryptering, angives, når drevet partitioneres. BitLocker bruger som standard den algoritme, der er konfigureret på drevet til at kryptere drevet. Indstillingen "Begræns krypteringsalgoritmer og krypteringsprogrammer, der er tilladt til hardwarebaseret kryptering" giver dig mulighed for at begrænse de krypteringsalgoritmer, som BitLocker kan bruge med hardwarebaseret kryptering. Hvis den algoritme, der er angivet for drevet, ikke er tilgængelig, vil BitLocker deaktivere brugen af hardwarebaseret kryptering.
+Krypteringsalgoritmer angives af objekt-id'er (OID). Eksempler:
+-AES 128 i CBC mode OID: 2.16.840.1.101.3.4.1.2
+-AES 256 i CBC mode OID: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="RDVEDrive_Help">Med denne politikindstilling kan du administrere BitLockers anvendelse af hardwarebaseret kryptering på flytbare datadrev og angive, hvilke krypteringsalgoritmer BitLocker kan bruge ved hardwarebaseret kryptering. Brug af hardwarebaseret kryptering kan forbedre ydeevnen for drevhandlinger, der involverer hyppig læsning eller skrivning af data på drevet.
+      <string id="RDVEDrive_Help">Du kan bruge denne politikindstilling til at administrere BitLockers brug af hardwarebaseret kryptering på flytbare datadrev og angive de krypteringsalgoritmer, der kan bruges med hardwarebaseret kryptering. Brug af hardwarebaseret kryptering kan forbedre ydeevnen af drevhandlinger, der ofte omfatter læsning eller skrivning af data til drevet.
 
-Hvis du aktiverer denne politikindstilling, kan du angive yderligere indstillinger, der styrer, om softwarebaseret BitLocker-kryptering bruges i stedet for hardwarebaseret kryptering på computere, der ikke understøtter hardwarebaseret kryptering, og om du vil begrænse de krypteringsalgoritmer og krypteringsprogrammer, der bruges ved hardwarebaseret kryptering.
+Hvis du aktiverer denne politikindstilling, kan du angive yderligere indstillinger, der styrer, om BitLocker-softwarebaseret kryptering bruges i stedet for hardwarebaseret kryptering på computere, som ikke understøtter hardwarebaseret kryptering, og om du vil Begræns de krypteringsalgoritmer og krypteringsprogrammer, der bruges med hardwarebaseret kryptering.
 
-Hvis du deaktiverer denne politikindstilling, kan BitLocker ikke bruge hardwarebaseret kryptering på operativsystemdrev, og softwarebaseret BitLocker-kryptering bruges som standard, når drevet krypteres.
+Hvis du deaktiverer denne politikindstilling, kan BitLocker ikke bruge hardwarebaseret kryptering sammen med operativsystemdrev, og BitLocker-softwarebaseret kryptering vil blive brugt som standard, når drevet krypteres.
 
-Hvis du undlader at konfigurere politikindstillingen, bruger BitLocker hardwarebaseret kryptering med krypteringsalgoritmen angivet for drevet. Hvis hardwarebaseret kryptering ikke er tilgængelig, bruges softwarebaseret BitLocker-kryptering i stedet for.
+Hvis du undlader at konfigurere denne politikindstilling, anvender BitLocker softwarebaseret kryptering, uanset om hardwarebaseret kryptering er tilgængelig.
 
-Bemærk! Politikindstillingen "Vælg drevkrypteringsmetode og -krypteringsgrad" gælder ikke for hardwarebaseret kryptering. Den krypteringsalgoritme, der bruges ved hardwarebaseret kryptering, angives, når drevet partitioneres. Som standard bruger BitLocker den algoritme, der er konfigureret på drevet, til at kryptere drevet. Med indstillingen "Begræns krypteringsalgoritmer og krypteringsprogrammer, der er tilladt ved hardwarebaseret kryptering" kan du begrænse de krypteringsalgoritmer, som BitLocker kan bruge ved hardwarekryptering. Hvis den algoritme, der er angivet for drevet, ikke er tilgængelig, deaktiverer BitLocker brugen af hardwarebaseret kryptering.
-Krypteringsalgoritmer angives af objekt-id'er. Eksempel:
-- Objekt-id for AES 128 i CBC-tilstand: 2.16.840.1.101.3.4.1.2
-- Objekt-id for AES 256 i CBC-tilstand: 2.16.840.1.101.3.4.1.42
-      
+Bemærk! Politikindstillingen "Vælg drevkrypteringsmetode og krypteringsgrad" gælder ikke for hardwarebaseret kryptering. Den krypteringsalgoritme, der bruges af hardwarebaseret kryptering, angives, når drevet partitioneres. BitLocker bruger som standard den algoritme, der er konfigureret på drevet til at kryptere drevet. Indstillingen "Begræns krypteringsalgoritmer og krypteringsprogrammer, der er tilladt til hardwarebaseret kryptering" giver dig mulighed for at begrænse de krypteringsalgoritmer, som BitLocker kan bruge med hardware kryptering. Hvis den algoritme, der er angivet for drevet, ikke er tilgængelig, vil BitLocker deaktivere brugen af hardwarebaseret kryptering.
+Krypteringsalgoritmer angives af objekt-id'er (OID). Eksempler:
+-AES 128 i CBC mode OID: 2.16.840.1.101.3.4.1.2
+-AES 256 i CBC mode OID: 2.16.840.1.101.3.4.1.42
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">Aktivér brug af BitLocker-godkendelse, der kræver pre-boot-tastaturinput på slates før start</string>
@@ -687,6 +695,14 @@ Bemærk, at hvis du ikke aktiverer denne politikindstilling, vil indstillingerne
 - Konfigurer TPM-startnøgle og -pinkode: krævet/tilladt
 - Konfigurer brugen af adgangskoder for operativsystemdrev.
       
+      </string>
+
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Tillad enheder, der er kompatible med InstantGo eller HSTI, at framelde sig pre-boot-pinkode.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Med denne politikindstilling får brugere på enheder, der er kompatible med InstantGo eller Microsoft HSTI (Hardware Security Test Interface), mulighed for ikke at have en pinkode til pre-boot-godkendelse. Dette tilsidesætter indstillingerne "Kræv startpinkode med TPM" og "Kræv startnøgle og -pinkode med TPM" for politikken "Kræv yderligere godkendelse ved start" på kompatibel hardware.
+
+Hvis du aktiverer denne politikindstilling, kan brugere på InstantGo- og HSTI-kompatible enheder vælge at aktivere BitLocker uden pre-boot-godkendelse.
+
+Hvis denne politik ikke er aktiveret, anvendes indstillingerne for politikken "Kræv yderligere godkendelse ved start".
       </string>
 
       <string id="AllowSecureBootForIntegrity_Name">Tillad sikker bootstart ved integritetsvalidering</string>
@@ -966,7 +982,7 @@ Bemærk! Det er ikke alle tegn og sprog, der understøttes før start. Det anbef
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Mindste antal tegn:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Mindste antal tegn:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

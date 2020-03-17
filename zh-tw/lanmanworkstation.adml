@@ -36,6 +36,28 @@ AES_128_CCM
 
 檔案伺服器使用不安全的來賓登入來允許共用資料夾的未經驗證存取。雖然在企業環境中不常見，做為檔案伺服器的消費性「網路連接儲存裝置」(NAS) 設備經常使用不安全的來賓登入。Windows 檔案伺服器需要驗證，而且預設不會使用不安全的來賓登入。因為不安全的來賓登入未經驗證，重要安全性功能 (例如「SMB 簽署」與「SMB 加密」) 會被停用。因此，允許不安全的來賓登入的用戶端容易遭受各種攔截式攻擊，進而導致資料遺失、資料損毀與暴露於惡意程式碼。此外，使用不安全的來賓登入方式寫入到檔案伺服器的所有資料可能可供網路上的任何人存取。Microsoft 建議您停用不安全的來賓登入，並將檔案伺服器設定為要求驗證的存取。"
       </string>
+
+      <string id="Pol_EnableCSCforCAShares_Name">持續可用性共用上的離線檔案可用性</string>
+      <string id="Pol_EnableCSCforCAShares_Help">
+        此原則設定決定連線到 SMB 共用 (其中「持續可用性」(CA) 旗標已啟用) 之用戶端上的「離線檔案」行為。
+
+        若啟用此原則設定，當您在 Windows 電腦上連線到已啟用 CA 的共用時，[永遠可以離線瀏覽] 選項將出現在「檔案總管」的功能表中。此外，使用者也可以釘選已啟用 CA 之共用上的檔案 (使用用戶端快取功能)。
+
+        若停用或未設定此原則設定，Windows 將會防止搭配已啟用 CA 的共用來使用「離線檔案」。
+
+        注意: Microsoft 建議您不要啟用此群組原則。搭配 CA 使用「離線檔案」將導致線上與離線狀態之間有很長的轉換時間。
+      </string>
+
+      <string id="Pol_EnableHandleCachingForCAFiles_Name">持續可用性共用上的控制代碼快取功能</string>
+      <string id="Pol_EnableHandleCachingForCAFiles_Help">
+        此原則設定決定連線到 SMB 共用 (其中「持續可用性」(CA) 旗標已啟用) 之用戶端的 SMB 控制代碼快取功能的行為。
+
+        若啟用此原則設定，SMB 用戶端將允許 CA 共用上之檔案的已快取控制代碼。當重複存取在 Microsoft Azure Files 中執行之 CA 共用上的大量非結構化資料檔案時，這樣可獲得較佳的效能。
+
+        若停用或未設定此原則設定，Windows 將會防止使用透過 CA 共用開啟之檔案的已快取控制代碼。
+
+        注意: 連線到由 Windows Server 提供的「向外延展檔案伺服器」共用時，此原則沒有任何效果。若用戶端會定期連線到具有「一般用途的檔案伺服器」角色之「Windows 容錯移轉叢集」上裝載的檔案，Microsoft 建議您不要為該用戶端啟用此原則，因為這樣可能會導致容錯移轉時間變長以及記憶體與 CPU 使用量變高。
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_CipherSuiteOrder">

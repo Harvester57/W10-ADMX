@@ -72,12 +72,34 @@ Ha letiltja vagy nem konfigurálja ezt a beállítást, a rendszer figyelmen kí
 
 Tipp: A Path környezeti változóban megadott mappák kereséséhez a Vezérlőpult ablakban kattintson a Rendszer ikonra, kattintson a Speciális fülre, majd kattintson a Környezeti változók gombra, azután a Rendszerváltozók mezőben kattintson az Path elemre.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Az utolsó interaktív felhasználó automatikus bejelentkezése a rendszer által kezdeményezett újraindítás után</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Ez a házirend-beállítás vezérli, hogy sor kerüljön-e az utolsó interaktív falhasználó automatikus bejelentkezésére, miután a Windows Update újraindítja a rendszert.
+      <string id="AutomaticRestartSignOnDescription">Az utolsó interaktív felhasználó automatikus bejelentkezése és zárolása újraindítás után</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Ezzel a házirend-beállítással szabályozhatja, hogy az eszköz automatikusan bejelentkeztesse és zárolja-e az utolsó interaktív felhasználót a rendszer újraindítása után, illetve leállítás és hidegindítás után.
 
-Ha engedélyezi vagy nem konfigurálja ezt a házirend-beállítást, az eszköz a felhasználó hitelesítési adatainak (többek között a felhasználónevet, a tartományt és a titkosított jelszót) biztonságos mentésével konfigurálja a Windows Update újraindítása utáni automatikus bejelentkezést. Amikor a Windows Update újraindítja a rendszert, a felhasználó bejelentkezésére automatikusan sor kerül, a rendszer pedig, az adott felhasználó számára konfigurált valamennyi alkalmazást elérhetővé téve a zárolási képernyőn, automatikusan zárolja a munkamenetet.
+Ez csak akkor történik meg, ha az utolsó interaktív felhasználó nem jelentkezett ki az újraindítás vagy a leállítás előtt.
 
-Ha letiltja ezt a házirend-beállítást, a számítógép nem tárolja a felhasználó hitelesítési adatait a Windows Update által kezdeményezett újraindítás utáni bejelentkezéshez. A rendszer újraindítása után a felhasználó zárolási képernyőjének alkalmazásai nem indulnak újra.</string>
+Ha az eszköz csatlakoztatva van az Active Directoryhoz vagy az Azure Active Directoryhoz, ez a házirend csak a Windows Update újraindítására vonatkozik. Ellenkező esetben a Windows Update szolgáltatás újraindítására és a felhasználó által kezdeményezett újraindításokra és leállításokra lesz érvényes.
+
+Ha nem konfigurálja ezt a házirend-beállítást, az alapértelmezés szerint engedélyezve van. Ha a házirend engedélyezett, a felhasználó automatikusan be lesz jelentkeztetve, és a rendszer automatikusan zárolja a munkamenetet az eszköz indításakor a felhasználó számára beállított zárolási képernyős alkalmazásokkal.
+
+A házirend engedélyezése után konfigurálhatja a beállításait a ConfigAutomaticRestartSignOn-házirend használatával, amely az utolsó interaktív felhasználó automatikus bejelentkezésének és zárolásának módját határozza meg az újraindítás vagy a hidegindítás után.
+
+Ha letiltja ezt a házirend-beállítást, az eszköz nem konfigurálja az automatikus bejelentkezést. A felhasználó zárolási képernyőjének alkalmazásai nem indulnak újra a rendszer újraindítása után.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Az utolsó interaktív felhasználó automatikus bejelentkezési és zárolási módjának konfigurálása újraindítás vagy hidegindítás után</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Ezzel a házirend-beállítással szabályozhatja, hogy milyen konfigurációval történjen az automatikus újraindítás, bejelentkezés és zárolás a rendszer újraindítása vagy hidegindítása után. Ha a „Az utolsó interaktív felhasználó automatikus bejelentkezése és zárolása újraindítás után” házirendben a „Letiltva” lehetőséget választja, akkor nem történik automatikus bejelentkezés, és a házirendet nem kell konfigurálni.
+
+Ha engedélyezi ezt a házirend-beállítást, a következő két lehetőség közül választhat:
+
+1. „Engedélyezve, ha a BitLocker be van kapcsolva és nincs felfüggesztve” – meghatározza, hogy csak akkor történik automatikus bejelentkezés és zárolás, ha a BitLocker aktív és nincs felfüggesztve az újraindítás vagy leállítás során. A személyes adatok ekkor elérhetők az eszköz merevlemezén, ha a BitLocker nincs bekapcsolva vagy felfüggesztve a frissítések során. A BitLocker felfüggesztése átmenetileg eltávolítja a rendszer-összetevők és adatok védelmét, azonban erre bizonyos körülmények között szükség lehet a rendszerindításhoz szükséges összetevők sikeres frissítéséhez.
+     A BitLocker fel van függesztve a frissítések alatt, ha:
+        – Az eszközön nincs telepítve a TPM 2.0 és a PCR7, vagy
+        – Az eszköz nem használ csak a TPM-et használó védőelemet.
+2. „Mindig engedélyezve” – meghatározza, hogy akkor is történjen automatikus bejelentkezés, ha a BitLocker ki van kapcsolva vagy fel van függesztve az újraindítás vagy leállítás során. Az automatikus újraindítást és bejelentkezést csak akkor szabad futtatni ennek a beállításnak a megadásakor, ha biztos benne, hogy az eszköz fizikailag biztonságban van.
+
+Ha letiltja vagy nem konfigurálja ezt a beállítást, az automatikus bejelentkezés alapértéke az „Engedélyezve, ha a BitLocker be van kapcsolva és nincs felfüggesztve” működés.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Engedélyezve, ha a BitLocker be van kapcsolva és nincs felfüggesztve</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Mindig engedélyezve</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Ha letiltja ezt a házirend-beállítást, a számítógép nem tárolja a felha
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Biztonsági billentyűkombináció generálásához engedélyezett szoftverek megadása</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Az utolsó interaktív felhasználó automatikus bejelentkezési és zárolási módjának konfigurálása újraindítás vagy hidegindítás után</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

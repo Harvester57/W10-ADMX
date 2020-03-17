@@ -267,14 +267,14 @@ Hinweis: Die Symbole für die angegebenen Laufwerke werden zwar weiterhin unter 
  Mit dieser Einstellung wird auch nicht verhindert, dass Benutzer mit Programmen auf lokale oder Netzlaufwerke zugreifen können. Außerdem wird mit dieser Einstellung nicht verhindert, dass Benutzer das Datenträgerverwaltungs-Snap-In verwenden, um Laufwerkeigenschaften anzuzeigen oder zu ändern.
 
 Weitere Informationen finden Sie unter der Einstellung "Diese angegebenen Datenträger im Fenster 'Arbeitsplatz' ausblenden".</string>
-      <string id="NoWindowsHotKeys">Windows+X-Abkürzungstasten deaktivieren</string>
-      <string id="NoWindowsHotKeys_Help">Deaktiviert die Windows+X-Abkürzungstasten.
+      <string id="NoWindowsHotKeys">Abkürzungstasten für Windows-Taste deaktivieren</string>
+      <string id="NoWindowsHotKeys_Help">Deaktiviert Abkürzungstasten für die Windows-Taste.
 
-Tastaturen mit der Windows-Taste stellen Benutzern allgemeine Shellfeatures bereit. Zum Beispiel wird durch Drücken der Tastenfolge Windows+R das Dialogfeld "Ausführen" geöffnet, und durch Drücken von Windows+E wird der Datei-Explorer gestartet. Mit dieser Einstellung können Sie diese Windows+X-Abkürzungstasten deaktivieren.
+Tastaturen mit einer Windows-Taste bieten Benutzern Abkürzungstasten für allgemeine Shellfeatures. Beispielsweise wird durch Drücken der Tastenfolge Windows+R das Dialogfeld "Ausführen" geöffnet, und durch Drücken von Windows+E wird der Datei-Explorer gestartet. Mit dieser Einstellung können Sie diese Abkürzungstasten für die Windows-Taste deaktivieren.
 
-Wenn Sie diese Einstellung aktivieren, sind die Windows+X-Abkürzungstasten nicht verfügbar.
+Wenn Sie diese Einstellung aktivieren, sind die Abkürzungstasten für die Windows-Taste nicht verfügbar.
 
-Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, sind die Windows+X-Abkürzungstasten verfügbar.</string>
+Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, sind die Abkürzungstasten für die Windows-Taste verfügbar.</string>
       <string id="NoWorkgroupContents">"Benachbarte Computer" nicht unter Netzwerkumgebung anzeigen</string>
       <string id="NoWorkgroupContents_Help">Diese Richtlinieneinstellung ermöglicht Ihnen das Entfernen von Computern in der Arbeitsgruppe und Domäne des Benutzers aus den Netzwerkressourcenlisten im Datei-Explorer und der Netzwerkumgebung.
 
@@ -458,21 +458,26 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, können Administratoren einen 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden am Speicherort der Standardbibliotheks-Definitionsdateien keine Änderungen vorgenommen.
       
       </string>
-      <string id="EnableSmartScreen">Windows SmartScreen konfigurieren</string>
-      <string id="EnableSmartScreen_Help">Mit dieser Richtlinieneinstellung können Sie das Verhalten von Windows SmartScreen verwalten. Windows SmartScreen trägt dazu bei, die Sicherheit von PCs zu gewährleisten, indem Benutzer vor dem Ausführen unbekannter, aus dem Internet heruntergeladener Programme gewarnt werden. Wenn dieses Feature aktiviert ist, werden einige Informationen zu den auf PCs ausgeführten Dateien und Programmen an Microsoft gesendet.
+      <string id="EnableSmartScreen">Windows Defender SmartScreen konfigurieren</string>
+      <string id="SmartScreen_PreventBypass">Warnen und Umgehung verhindern</string>
+      <string id="SmartScreen_Warn">Warnen</string>
+      <string id="EnableSmartScreen_Help">Mit dieser Richtlinie können Sie Windows Defender SmartScreen aktivieren oder deaktivieren. SmartScreen trägt zum Schutz von PCs bei, indem Benutzer vor dem Ausführen potenziell schädlicher, aus dem Internet heruntergeladener Programme gewarnt werden. Diese Warnung wird als Interstitialdialogfeld angezeigt, bevor eine App ausgeführt wird, die aus dem Internet heruntergeladen wurde und unbekannt ist oder als schädlich identifiziert wurde. Für Apps, die nicht verdächtig erscheinen, wird kein Dialogfeld angezeigt.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, kann das Verhalten von Windows SmartScreen durch das Festlegen einer der folgenden Optionen gesteuert werden:
+Wenn dieses Feature aktiviert ist, werden einige Informationen zu den auf PCs ausgeführten Dateien und Programmen an Microsoft gesendet.
 
-• Benutzer vor dem Ausführen heruntergeladener unbekannter Software warnen
-• SmartScreen deaktivieren
+Wenn Sie die Richtlinie aktivieren, wird SmartScreen für alle Benutzer aktiviert. Das Verhalten kann durch die folgenden Optionen gesteuert werden:
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird das Verhalten von Windows SmartScreen von Administratoren mithilfe der Windows SmartScreen-Einstellungen in "Sicherheit und Wartung" auf dem PC verwaltet.
+• Warnen und Umgehung verhindern
+• Warnen
 
-Optionen:
-• Benutzer vor dem Ausführen heruntergeladener unbekannter Software warnen
-• SmartScreen deaktivieren
+Wenn Sie die Richtlinie mit der Option "Warnen und Umgehung verhindern" aktivieren, haben Benutzer in SmartScreen-Dialogfeldern keine Möglichkeit, die Warnung zu ignorieren und die App auszuführen. SmartScreen zeigt die Warnung bei nachfolgenden Versuchen, die App auszuführen, weiter an.
 
-</string>
+Wenn Sie die Richtlinie mit der Option "Warnen" aktivieren, werden Benutzer in SmartScreen-Dialogfeldern gewarnt, dass die App verdächtig ist, haben aber die Möglichkeit, die Warnung zu ignorieren und die App trotzdem auszuführen. Wenn SmartScreen vom Benutzer angewiesen wird, die App auszuführen, gibt SmartScreen keine erneute Warnung für die App aus.
+
+Wenn Sie die Richtlinie deaktivieren, wird SmartScreen für alle Benutzer deaktiviert. Benutzer werden nicht gewarnt, wenn sie versuchen, verdächtige Apps aus dem Internet auszuführen.
+
+Wenn Sie die Richtlinie nicht konfigurieren, wird SmartScreen standardmäßig aktiviert, Benutzer können ihre Einstellungen jedoch ändern.
+      </string>
       <string id="ShowLockOption">Sperre im Menü "Benutzerkachel" anzeigen</string>
       <string id="ShowLockOption_Help">Zeigt Sperren im Menü "Benutzerkachel" an oder blendet sie aus.
 Wenn Sie diese Richtlinieneinstellung aktivieren, wird im Menü "Benutzerkachel" die Sperroption angezeigt.
@@ -619,6 +624,9 @@ Wenn die Richtlinie aktiviert, deaktiviert oder nicht konfiguriert ist, können 
         <textBox refId="DefaultLibrariesLocation">
           <label>Definitionsspeicherort für Standardbibliotheken</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Wählen Sie eine der folgenden Einstellungen aus:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

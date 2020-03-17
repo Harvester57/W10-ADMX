@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
 <policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <policyNamespaces>
@@ -221,6 +221,11 @@
           </item>
         </enum>
         <enum id="AutoUpdateSchTime" valueName="ScheduledInstallTime" required="true">
+          <item displayName="$(string.AutoUpdateSchTimeAuto)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
           <item displayName="$(string.AutoUpdateSchTime0)">
             <value>
               <decimal value="0" />
@@ -343,6 +348,11 @@
           </item>
         </enum>
         <boolean id="AllowMUUpdateServiceId" valueName="AllowMUUpdateService" />
+        <boolean id="AutoUpdateSchEveryWeek" valueName="ScheduledInstallEveryWeek" />
+        <boolean id="AutoUpdateSchFirstWeek" valueName="ScheduledInstallFirstWeek" />
+        <boolean id="AutoUpdateSchSecondWeek" valueName="ScheduledInstallSecondWeek" />
+        <boolean id="AutoUpdateSchThirdWeek" valueName="ScheduledInstallThirdWeek" />
+        <boolean id="AutoUpdateSchFourthWeek" valueName="ScheduledInstallFourthWeek" />
       </elements>
     </policy>
     <policy name="CorpWuURL" class="Machine" displayName="$(string.CorpWuURL)" explainText="$(string.CorpWuURL_Help)" presentation="$(presentation.CorpWuURL)" key="Software\Policies\Microsoft\Windows\WindowsUpdate">
@@ -366,6 +376,7 @@
         <text id="CorpWUURL_Name" valueName="WUServer" required="true" />
         <text id="CorpWUStatusURL_Name" valueName="WUStatusServer" required="true" />
         <text id="CorpWUContentHost_Name" valueName="UpdateServiceUrlAlternate" required="false" />
+        <boolean id="CorpWUFillEmptyContentUrls" valueName="FillEmptyContentUrls" required="false" />
       </elements>
     </policy>
     <policy name="DetectionFrequency_Title" class="Machine" displayName="$(string.DetectionFrequency_Title)" explainText="$(string.DetectionFrequency_Help)" presentation="$(presentation.DetectionFrequency_Title)" key="Software\Policies\Microsoft\Windows\WindowsUpdate\AU" valueName="DetectionFrequencyEnabled">
@@ -421,9 +432,14 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
-    <policy name="AUPowerManagement_Title" class="Machine" displayName="$(string.AUPowerManagement_Title)" explainText="$(string.AUPowerManagement_Help)" key="Software\Policies\Microsoft\Windows\WindowsUpdate\AU" valueName="AUPowerManagement">
+    <policy name="AUPowerManagement_Title"
+            class="Machine"
+            displayName="$(string.AUPowerManagement_Title)"
+            explainText="$(string.AUPowerManagement_Help)"
+            key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+            valueName="AUPowerManagement">
       <parentCategory ref="WindowsUpdateCat" />
-      <supportedOn ref="windows:SUPPORTED_Windows7ToVista" />
+      <supportedOn ref="windows:SUPPORTED_Windows7ToVistaAndWindows10" />
       <enabledValue>
         <decimal value="1" />
       </enabledValue>
@@ -537,6 +553,41 @@
         <decimal value="0" />
       </disabledValue>
     </policy>
+    <policy name="ManagePreviewBuilds"
+            class="Machine"
+            displayName="$(string.ManagePreviewBuilds_Title)"
+            explainText="$(string.ManagePreviewBuilds_Help)"
+            key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+            presentation="$(presentation.ManagePreviewBuilds)"
+            valueName="ManagePreviewBuilds">
+      <parentCategory ref="DeferUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS3" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <enum id="ManagePreviewBuildsId" valueName="ManagePreviewBuildsPolicyValue" required="true">
+          <item displayName="$(string.DisablePreviewBuilds)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.DisablePreviewBuildsAndOptOut)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.EnablePreviewBuilds)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
     <policy name="DeferFeatureUpdates"
         class="Machine"
         displayName="$(string.DeferFeatureUpdates_Title)"
@@ -554,18 +605,38 @@
         </disabledValue>
         <elements>
           <enum id="BranchReadinessLevelId" valueName="BranchReadinessLevel" required="true">
-            <item displayName="$(string.CurrentBranchFeatureUpdates)">
+            <item displayName="$(string.PreviewBuildFastFeatureUpdates)">
+              <value>
+                <decimal value="2" />
+              </value>
+            </item>
+            <item displayName="$(string.PreviewBuildSlowFeatureUpdates)">
+              <value>
+                <decimal value="4" />
+              </value>
+            </item>
+            <item displayName="$(string.ReleasePreviewBranchFeatureUpdates)">
+              <value>
+                <decimal value="8" />
+              </value>
+            </item>
+            <item displayName="$(string.SemiAnnualChannelFeatureUpdates)">
               <value>
                 <decimal value="16" />
               </value>
             </item>
-            <item displayName="$(string.BusinessReadyFeatureUpdates)">
+            <item displayName="$(string.SemiAnnualChannelFeatureUpdatesDeprecated)">
               <value>
                 <decimal value="32" />
               </value>
             </item>
+            <item displayName="$(string.SemiAnnualChannelFeatureUpdatesTargetedDeprecated)">
+              <value>
+                <decimal value="16" />
+              </value>
+            </item>
           </enum>
-          <decimal id="DeferFeatureUpdatesPeriodId" valueName="DeferFeatureUpdatesPeriodInDays" minValue="0" maxValue="180" />
+          <decimal id="DeferFeatureUpdatesPeriodId" valueName="DeferFeatureUpdatesPeriodInDays" minValue="0" maxValue="365" />
           <text id="PauseFeatureUpdatesStartId" valueName="PauseFeatureUpdatesStartTime" maxLength="10" />
         </elements>
     </policy>
@@ -948,6 +1019,233 @@
               <decimal value="14" />
             </value>
           </item>
+          <item displayName="$(string.AutoRestartDeadlineDay15)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay16)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay17)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay18)">
+            <value>
+              <decimal value="18" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay19)">
+            <value>
+              <decimal value="19" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay20)">
+            <value>
+              <decimal value="20" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay21)">
+            <value>
+              <decimal value="21" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay22)">
+            <value>
+              <decimal value="22" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay23)">
+            <value>
+              <decimal value="23" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay24)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay25)">
+            <value>
+              <decimal value="25" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay26)">
+            <value>
+              <decimal value="26" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay27)">
+            <value>
+              <decimal value="27" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay28)">
+            <value>
+              <decimal value="28" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay29)">
+            <value>
+              <decimal value="29" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay30)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
+        </enum>
+        <enum id="AutoRestartDeadlineForFeatureUpdates" valueName="AutoRestartDeadlinePeriodInDaysForFeatureUpdates" required="true">
+          <item displayName="$(string.AutoRestartDeadlineDay2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay6)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay7)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay8)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay9)">
+            <value>
+              <decimal value="9" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay10)">
+            <value>
+              <decimal value="10" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay11)">
+            <value>
+              <decimal value="11" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay12)">
+            <value>
+              <decimal value="12" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay13)">
+            <value>
+              <decimal value="13" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay14)">
+            <value>
+              <decimal value="14" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay15)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay16)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay17)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay18)">
+            <value>
+              <decimal value="18" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay19)">
+            <value>
+              <decimal value="19" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay20)">
+            <value>
+              <decimal value="20" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay21)">
+            <value>
+              <decimal value="21" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay22)">
+            <value>
+              <decimal value="22" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay23)">
+            <value>
+              <decimal value="23" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay24)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay25)">
+            <value>
+              <decimal value="25" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay26)">
+            <value>
+              <decimal value="26" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay27)">
+            <value>
+              <decimal value="27" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay28)">
+            <value>
+              <decimal value="28" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay29)">
+            <value>
+              <decimal value="29" />
+            </value>
+          </item>
+          <item displayName="$(string.AutoRestartDeadlineDay30)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
         </enum>
       </elements>
     </policy>
@@ -959,6 +1257,21 @@
       valueName="SetDisableUXWUAccess">
       <parentCategory ref="WindowsUpdateCat" />
       <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOARM" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisablePauseUXAccess"
+      class="Machine"
+      displayName="$(string.DisablePauseUXAccess_Title)"
+      explainText="$(string.DisablePauseUXAccess_Help)"
+      key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+      valueName="SetDisablePauseUXAccess">
+      <parentCategory ref="WindowsUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS5" />
       <enabledValue>
         <decimal value="1" />
       </enabledValue>
@@ -1087,18 +1400,6 @@
         <decimal value="0" />
       </disabledValue>
       <elements>
-        <enum id="AutoRestartNotificationStyle" valueName="AutoRestartNotificationStyle" required="true">
-          <item displayName="$(string.AutoRestartNotificationStyleFull)">
-            <value>
-              <decimal value="1" />
-            </value>
-          </item>
-          <item displayName="$(string.AutoRestartNotificationStylePartial)">
-            <value>
-              <decimal value="2" />
-            </value>
-          </item>
-        </enum>
         <enum id="AutoRestartNotificationSchd" valueName="AutoRestartNotificationSchedule" required="true">
           <item displayName="$(string.AutoRestartNotificationSchd15)">
             <value>
@@ -1203,6 +1504,1111 @@
             </value>
           </item>
         </enum>
+      </elements>
+    </policy>
+    <policy name="EngagedRestartTransitionSchedule"
+      class="Machine"
+      displayName="$(string.EngagedRestartTransitionSchedule_Title)"
+      explainText="$(string.EngagedRestartTransitionSchedule_Help)"
+      key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+      presentation="$(presentation.EngagedRestartTransitionSchedule_Title)"
+      valueName="SetEngagedRestartTransitionSchedule">
+      <parentCategory ref="WindowsUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOARM" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <enum id="EngagedRestartTransitionSchedule" valueName="EngagedRestartTransitionSchedule" required="true">
+          <item displayName="$(string.EngagedRestart_0)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_6)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_7)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_8)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_9)">
+            <value>
+              <decimal value="9" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_10)">
+            <value>
+              <decimal value="10" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_11)">
+            <value>
+              <decimal value="11" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_12)">
+            <value>
+              <decimal value="12" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_13)">
+            <value>
+              <decimal value="13" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_14)">
+            <value>
+              <decimal value="14" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_15)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_16)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_17)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_18)">
+            <value>
+              <decimal value="18" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_19)">
+            <value>
+              <decimal value="19" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_20)">
+            <value>
+              <decimal value="20" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_21)">
+            <value>
+              <decimal value="21" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_22)">
+            <value>
+              <decimal value="22" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_23)">
+            <value>
+              <decimal value="23" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_24)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_25)">
+            <value>
+              <decimal value="25" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_26)">
+            <value>
+              <decimal value="26" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_27)">
+            <value>
+              <decimal value="27" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_28)">
+            <value>
+              <decimal value="28" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_29)">
+            <value>
+              <decimal value="29" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_30)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
+        </enum>
+        <enum id="EngagedRestartSnoozeSchedule" valueName="EngagedRestartSnoozeSchedule" required="true">
+          <item displayName="$(string.EngagedRestartSnooze_1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestartSnooze_2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestartSnooze_3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <enum id="EngagedRestartDeadline" valueName="EngagedRestartDeadline" required="true">
+          <item displayName="$(string.EngagedRestart_0)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_6)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_7)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_8)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_9)">
+            <value>
+              <decimal value="9" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_10)">
+            <value>
+              <decimal value="10" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_11)">
+            <value>
+              <decimal value="11" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_12)">
+            <value>
+              <decimal value="12" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_13)">
+            <value>
+              <decimal value="13" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_14)">
+            <value>
+              <decimal value="14" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_15)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_16)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_17)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_18)">
+            <value>
+              <decimal value="18" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_19)">
+            <value>
+              <decimal value="19" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_20)">
+            <value>
+              <decimal value="20" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_21)">
+            <value>
+              <decimal value="21" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_22)">
+            <value>
+              <decimal value="22" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_23)">
+            <value>
+              <decimal value="23" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_24)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_25)">
+            <value>
+              <decimal value="25" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_26)">
+            <value>
+              <decimal value="26" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_27)">
+            <value>
+              <decimal value="27" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_28)">
+            <value>
+              <decimal value="28" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_29)">
+            <value>
+              <decimal value="29" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_30)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
+        </enum>
+        <enum id="EngagedRestartTransitionScheduleForFeatureUpdates" valueName="EngagedRestartTransitionScheduleForFeatureUpdates" required="true">
+          <item displayName="$(string.EngagedRestart_0)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_6)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_7)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_8)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_9)">
+            <value>
+              <decimal value="9" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_10)">
+            <value>
+              <decimal value="10" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_11)">
+            <value>
+              <decimal value="11" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_12)">
+            <value>
+              <decimal value="12" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_13)">
+            <value>
+              <decimal value="13" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_14)">
+            <value>
+              <decimal value="14" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_15)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_16)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_17)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_18)">
+            <value>
+              <decimal value="18" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_19)">
+            <value>
+              <decimal value="19" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_20)">
+            <value>
+              <decimal value="20" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_21)">
+            <value>
+              <decimal value="21" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_22)">
+            <value>
+              <decimal value="22" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_23)">
+            <value>
+              <decimal value="23" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_24)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_25)">
+            <value>
+              <decimal value="25" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_26)">
+            <value>
+              <decimal value="26" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_27)">
+            <value>
+              <decimal value="27" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_28)">
+            <value>
+              <decimal value="28" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_29)">
+            <value>
+              <decimal value="29" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_30)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
+        </enum>
+        <enum id="EngagedRestartSnoozeScheduleForFeatureUpdates" valueName="EngagedRestartSnoozeScheduleForFeatureUpdates" required="true">
+          <item displayName="$(string.EngagedRestartSnooze_1)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestartSnooze_2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestartSnooze_3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+        </enum>
+        <enum id="EngagedRestartDeadlineForFeatureUpdates" valueName="EngagedRestartDeadlineForFeatureUpdates" required="true">
+          <item displayName="$(string.EngagedRestart_0)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_2)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_3)">
+            <value>
+              <decimal value="3" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_4)">
+            <value>
+              <decimal value="4" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_5)">
+            <value>
+              <decimal value="5" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_6)">
+            <value>
+              <decimal value="6" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_7)">
+            <value>
+              <decimal value="7" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_8)">
+            <value>
+              <decimal value="8" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_9)">
+            <value>
+              <decimal value="9" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_10)">
+            <value>
+              <decimal value="10" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_11)">
+            <value>
+              <decimal value="11" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_12)">
+            <value>
+              <decimal value="12" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_13)">
+            <value>
+              <decimal value="13" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_14)">
+            <value>
+              <decimal value="14" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_15)">
+            <value>
+              <decimal value="15" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_16)">
+            <value>
+              <decimal value="16" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_17)">
+            <value>
+              <decimal value="17" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_18)">
+            <value>
+              <decimal value="18" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_19)">
+            <value>
+              <decimal value="19" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_20)">
+            <value>
+              <decimal value="20" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_21)">
+            <value>
+              <decimal value="21" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_22)">
+            <value>
+              <decimal value="22" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_23)">
+            <value>
+              <decimal value="23" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_24)">
+            <value>
+              <decimal value="24" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_25)">
+            <value>
+              <decimal value="25" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_26)">
+            <value>
+              <decimal value="26" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_27)">
+            <value>
+              <decimal value="27" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_28)">
+            <value>
+              <decimal value="28" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_29)">
+            <value>
+              <decimal value="29" />
+            </value>
+          </item>
+          <item displayName="$(string.EngagedRestart_30)">
+            <value>
+              <decimal value="30" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SetEDURestart"
+            class="Machine"
+            displayName="$(string.SetEDURestart_Title)"
+            explainText="$(string.SetEDURestart_Help)"
+            key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+            valueName="SetEDURestart">
+      <parentCategory ref="WindowsUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="AllowAutoWindowsUpdateDownloadOverMeteredNetwork"
+            class="Machine"
+            displayName="$(string.AllowAutoWindowsUpdateDownloadOverMeteredNetwork_Title)"
+            explainText="$(string.AllowAutoWindowsUpdateDownloadOverMeteredNetwork_Help)"
+            key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+            valueName="AllowAutoWindowsUpdateDownloadOverMeteredNetwork">
+      <parentCategory ref="WindowsUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="DisableDualScan"
+        class="Machine"
+        displayName="$(string.DisableDualScan_Title)"
+        explainText="$(string.DisableDualScan_Help)"
+        key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+        valueName="DisableDualScan">
+      <parentCategory ref="WindowsUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS1" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+    </policy>
+    <policy name="UpdateNotificationLevel"
+        class="Machine"
+        displayName="$(string.UpdateNotificationLevel_Title)"
+        explainText="$(string.UpdateNotificationLevel_Help)"
+        key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+        presentation="$(presentation.UpdateNotificationLevel_Title)"
+        valueName="SetUpdateNotificationLevel">
+      <parentCategory ref="WindowsUpdateCat" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_NOARM" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <enum id="UpdateNotificationLevel" valueName="UpdateNotificationLevel" required="true">
+          <item displayName="$(string.DefaultNotification)">
+            <value>
+              <decimal value="0" />
+            </value>
+          </item>
+          <item displayName="$(string.ExcludingRebootWarnings)">
+            <value>
+              <decimal value="1" />
+            </value>
+          </item>
+          <item displayName="$(string.IncludingRebootWarnings)">
+            <value>
+              <decimal value="2" />
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="ComplianceDeadline"
+      class="Machine"
+      displayName="$(string.ComplianceDeadline_Title)"
+      explainText="$(string.ComplianceDeadline_Help)"
+      key="Software\Policies\Microsoft\Windows\WindowsUpdate"
+      presentation="$(presentation.ComplianceDeadline_Title)"
+      valueName="SetComplianceDeadline">
+      <parentCategory ref="WindowsUpdateCat"/>
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <enum id="ConfigureDeadlineForQualityUpdates" valueName="ConfigureDeadlineForQualityUpdates" required="true">
+          <item displayName="$(string.ComplianceDeadlineDay2)">
+            <value>
+              <decimal value="2"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay3)">
+            <value>
+              <decimal value="3"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay4)">
+            <value>
+              <decimal value="4"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay5)">
+            <value>
+              <decimal value="5"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay6)">
+            <value>
+              <decimal value="6"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay7)">
+            <value>
+              <decimal value="7"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay8)">
+            <value>
+              <decimal value="8"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay9)">
+            <value>
+              <decimal value="9"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay10)">
+            <value>
+              <decimal value="10"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay11)">
+            <value>
+              <decimal value="11"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay12)">
+            <value>
+              <decimal value="12"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay13)">
+            <value>
+              <decimal value="13"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay14)">
+            <value>
+              <decimal value="14"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay15)">
+            <value>
+              <decimal value="15"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay16)">
+            <value>
+              <decimal value="16"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay17)">
+            <value>
+              <decimal value="17"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay18)">
+            <value>
+              <decimal value="18"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay19)">
+            <value>
+              <decimal value="19"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay20)">
+            <value>
+              <decimal value="20"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay21)">
+            <value>
+              <decimal value="21"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay22)">
+            <value>
+              <decimal value="22"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay23)">
+            <value>
+              <decimal value="23"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay24)">
+            <value>
+              <decimal value="24"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay25)">
+            <value>
+              <decimal value="25"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay26)">
+            <value>
+              <decimal value="26"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay27)">
+            <value>
+              <decimal value="27"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay28)">
+            <value>
+              <decimal value="28"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay29)">
+            <value>
+              <decimal value="29"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay30)">
+            <value>
+              <decimal value="30"/>
+            </value>
+          </item>
+        </enum>
+        <enum id="ConfigureDeadlineForFeatureUpdates" valueName="ConfigureDeadlineForFeatureUpdates" required="true">
+          <item displayName="$(string.ComplianceDeadlineDay2)">
+            <value>
+              <decimal value="2"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay3)">
+            <value>
+              <decimal value="3"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay4)">
+            <value>
+              <decimal value="4"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay5)">
+            <value>
+              <decimal value="5"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay6)">
+            <value>
+              <decimal value="6"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay7)">
+            <value>
+              <decimal value="7"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay8)">
+            <value>
+              <decimal value="8"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay9)">
+            <value>
+              <decimal value="9"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay10)">
+            <value>
+              <decimal value="10"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay11)">
+            <value>
+              <decimal value="11"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay12)">
+            <value>
+              <decimal value="12"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay13)">
+            <value>
+              <decimal value="13"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay14)">
+            <value>
+              <decimal value="14"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay15)">
+            <value>
+              <decimal value="15"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay16)">
+            <value>
+              <decimal value="16"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay17)">
+            <value>
+              <decimal value="17"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay18)">
+            <value>
+              <decimal value="18"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay19)">
+            <value>
+              <decimal value="19"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay20)">
+            <value>
+              <decimal value="20"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay21)">
+            <value>
+              <decimal value="21"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay22)">
+            <value>
+              <decimal value="22"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay23)">
+            <value>
+              <decimal value="23"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay24)">
+            <value>
+              <decimal value="24"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay25)">
+            <value>
+              <decimal value="25"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay26)">
+            <value>
+              <decimal value="26"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay27)">
+            <value>
+              <decimal value="27"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay28)">
+            <value>
+              <decimal value="28"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay29)">
+            <value>
+              <decimal value="29"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay30)">
+            <value>
+              <decimal value="30"/>
+            </value>
+          </item>
+        </enum>
+        <enum id="ConfigureDeadlineGracePeriod" valueName="ConfigureDeadlineGracePeriod" required="true">
+          <item displayName="$(string.ComplianceDeadlineDay0)">
+            <value>
+              <decimal value="0"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay1)">
+            <value>
+              <decimal value="1"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay2)">
+            <value>
+              <decimal value="2"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay3)">
+            <value>
+              <decimal value="3"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay4)">
+            <value>
+              <decimal value="4"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay5)">
+            <value>
+              <decimal value="5"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay6)">
+            <value>
+              <decimal value="6"/>
+            </value>
+          </item>
+          <item displayName="$(string.ComplianceDeadlineDay7)">
+            <value>
+              <decimal value="7"/>
+            </value>
+          </item>
+        </enum>
+        <boolean id="ConfigureDeadlineNoAutoReboot" valueName="ConfigureDeadlineNoAutoReboot" />
       </elements>
     </policy>
   </policies>

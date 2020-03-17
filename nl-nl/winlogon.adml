@@ -72,12 +72,34 @@ Als u deze instelling uitschakelt of niet configureert, wordt de instelling gene
 
 Tip: als u de mappen wilt vinden die worden aangegeven door omgevingsvariabele Path, klikt u op Systeemeigenschappen in Configuratiescherm, klikt u op tabblad Geavanceerd, op de knop Omgevingsvariabelen en vervolgens in het vak Systeemvariabelen op Path.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Laatste interactieve gebruiker automatisch aanmelden na een door het systeem geïnitieerde herstart</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Met deze beleidsinstelling kunt u bepalen of een apparaat automatisch de laatste interactieve gebruiker aanmeldt nadat Windows Update het systeem opnieuw opstart.
+      <string id="AutomaticRestartSignOnDescription">Laatste interactieve gebruiker automatisch aanmelden en blokkeren na opnieuw opstarten</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Met deze beleidsinstelling kunt u bepalen of een apparaat de laatste interactieve gebruiker automatisch aanmeldt en vergrendelt nadat het systeem opnieuw is opgestart of nadat het systeem is afgesloten en koud wordt opgestart.
 
-Als u deze beleidsinstelling inschakelt of niet configureert, slaat het systeem de gegevens van de gebruiker (inclusief de gebruikersnaam, het domein en het gecodeerde wachtwoord) veilig op om de gebruiker na het opnieuw starten van het systeem door Windows Update automatisch aan te melden. Nadat het systeem door Windows Update opnieuw is opgestart, wordt de gebruiker automatisch aangemeld en wordt de sessie automatisch vergrendeld met alle apps op het vergrendelingsscherm geconfigureerd voor die gebruiker.
+Dit gebeurt alleen als de laatste interactieve gebruiker zich niet heeft afgemeld voor het opnieuw opstarten of afsluiten.
 
-Als u deze beleidsinstelling uitschakelt, slaat het apparaat de gegevens van de gebruiker niet op voor automatische aanmelding nadat het opnieuw Windows Update is opgestart. De apps op het vergrendelingsscherm worden niet opnieuw gestart nadat het systeem opnieuw is opgestart.</string>
+Als het apparaat is toegevoegd aan Active Directory of Azure Active Directory, is dit beleid alleen van toepassing wanneer opnieuw wordt opgestart door Windows Update. Als dit niet het geval is, wordt dit toegepast op de Windows Update-startpagina.
+
+Als u deze beleidsinstelling niet configureert, is deze standaard ingeschakeld. Wanneer het beleid is ingeschakeld, wordt de gebruiker automatisch aangemeld en wordt de sessie automatisch vergrendeld met alle apps voor het vergrendelingsscherm die voor die gebruiker zijn geconfigureerd, nadat het apparaat is opgestart.
+
+Als u dit beleid inschakelt, kunt u de instellingen configureren via het ConfigAutomaticRestartSignOn-beleid, waarin de modus wordt geconfigureerd voor het automatisch aanmelden en het vergrendelen van de laatste interactieve gebruiker nadat de computer opnieuw is opgestart of het systeem koud wordt opgestart.
+
+Als u deze beleidsinstelling uitschakelt, wordt automatisch aanmelden niet geconfigureerd op het apparaat. Apps op het vergrendelingsscherm van de gebruiker worden niet opnieuw gestart nadat het systeem opnieuw is opgestart.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">De modus configureren waarmee de laatste interactieve gebruiker automatisch wordt aangemeld en wordt vergrendeld nadat de computer opnieuw is opgestart of koud wordt opgestart</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Met deze beleidsinstelling wordt de configuratie waarbij automatisch opnieuw opstarten, aanmelden en vergrendelen plaatsvinden na opnieuw opstarten of koud opstarten. Als u 'Uitgeschakeld' hebt gekozen in het beleid 'De laatste interactieve gebruiker automatisch aanmelden en vergrendelen na opnieuw opstarten', wordt de automatische aanmelding niet uitgevoerd en hoeft dit beleid niet te worden geconfigureerd.
+
+Als u deze beleidsinstelling inschakelt, kunt u kiezen uit de volgende twee opties:
+
+1. 'Ingeschakeld als BitLocker is ingeschakeld en niet is onderbroken' geeft aan dat automatisch aanmelden en vergrendelen alleen wordt uitgevoerd als BitLocker actief is en niet wordt onderbroken tijdens het opnieuw opstarten of afsluiten. Op dat moment kunnen persoonlijke gegevens worden geopend op de harde schijf van het apparaat als BitLocker niet is ingeschakeld of opgeschort tijdens een update. Als u BitLocker opschort, wordt tijdelijk de beveiliging voor systeemonderdelen en gegevens uitgeschakeld, maar het kan in bepaalde omstandigheden nodig zijn voor het bijwerken van essentiële onderdelen voor het opstarten.
+     BitLocker wordt tijdens het bijwerken onderbroken als:
+        - Het apparaat geen TPM 2.0 en PCR7 heeft, of
+        - Het apparaat geen beveiliging met alleen TPM gebruikt
+2. 'Altijd ingeschakeld' geeft aan dat automatisch aanmelden altijd is ingeschakeld, zelfs wanneer BitLocker wordt uitgeschakeld of wordt onderbroken tijdens het opnieuw opstarten of afsluiten. Als BitLocker niet is ingeschakeld, zijn persoonlijke gegevens bereikbaar op de harde schijf. Automatisch opnieuw opstarten en aanmelden moet alleen onder deze voorwaarde worden gebruikt als u er zeker van bent dat het geconfigureerde apparaat zich op een veilige fysieke locatie bevindt.
+
+Als u deze instelling uitschakelt of niet configureert, wordt automatisch aanmelden standaard ingesteld op het gedrag van de optie 'Ingeschakeld als BitLocker is ingeschakeld en niet is onderbroken'.</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Ingeschakeld als BitLocker is ingeschakeld en niet is onderbroken</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Altijd ingeschakeld</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Als u deze beleidsinstelling uitschakelt, slaat het apparaat de gegevens van de 
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Instellen welke software de SAS (Secure Attention Sequence) mag genereren</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">De modus configureren waarmee de laatste interactieve gebruiker automatisch wordt aangemeld en wordt vergrendeld nadat de computer opnieuw is opgestart of koud wordt opgestart</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

@@ -72,12 +72,34 @@
 
 提示: 若要尋找 Path 環境變數所指定的資料夾，在 [控制台] 中按一下 [系統內容]，依序按一下 [進階] 索引標籤與 [環境變數] 按鈕，接著在 [系統變數] 方塊中按一下 [Path]。</string>
 
-      <string id="AutomaticRestartSignOnDescription">系統起始的重新啟動之後自動登入最後一個互動式使用者</string>
-      <string id="AutomaticRestartSignOnDescription_Help">這個原則設定可控制裝置是否在 Windows Update 重新啟動系統之後自動登入最後一個互動式使用者。
+      <string id="AutomaticRestartSignOnDescription">在重新開機後，自動登入並鎖定最後一個互動使用者</string>
+      <string id="AutomaticRestartSignOnDescription_Help">此原則設定負責控制在系統開機，或關機和冷開機後，裝置是否會自動登入，並鎖定最後一位互動使用者。
 
-如果您啟用或未設定這個原則設定，裝置會安全地儲存使用者的認證 (包括使用者名稱、網域和加密的密碼)，在 Windows Update 重新啟動之後設定自動登入。Windows Update 重新啟動之後，使用者會自動登入，且工作階段會自動以針對該使用者設定的所有鎖定畫面的應用程式鎖定。
+這只有當最後一個互動使用者在重新開機或關機前未登出時才會出現。
 
-如果您停用這個原則設定，裝置不會儲存 Windows Update 重新啟動之後自動登入的使用者認證。系統重新啟動之後，使用者鎖定畫面的應用程式不會重新啟動。</string>
+如果此裝置已加入 Active Directory 或 Azure Active Directory，則此原則只會套用至 Windows Update 重新開機。否則，此原則將會套用至 Windows Update 重新開機及使用者啟動的重新開機和關機。
+
+如果您未設定此原則設定，系統將預設為啟用。啟用此原則時，使用者會自動登入，並且在裝置開機後，工作階段將會透過使用者設定的所有鎖定畫面應用程式進行自動鎖定。
+
+啟用此原則後，您可以透過 ConfigAutomaticRestartSignOn 原則進行設定，它會設定自動登入模式，並鎖定重新開機或冷開機後最後一個互動使用者的模式。
+
+如果您停用此原則設定，裝置將不會設定為自動登入。系統重新開機後，使用者的鎖定畫面應用程式不會重新啟動。</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">將模式設定為從重新開機或冷開機後自動登入最後一個互動使用者帳號</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">此原則設定控制的是重新開機或冷開機後自動重新開機並登入與鎖定的設定。如果您選擇的是在 [在自動重新開機後登入並鎖定最後一位互動使用者] 中 [停用]，則此原則無需設定。
+
+如果您啟用此原則設定，您可以選擇下列兩個選項之一：
+
+1. [如果 BitLocker 已啟動且未擱置則啟用] 指的是自動登入且鎖定只有在重新開機或關機期間 BitLocker 已啟用且未擱置的情況下才會發生。如果 BitLocker 在更新其間未啟動或擱置，此時即可存取硬碟上的個人資料。 擱置 BitLocker 會暫時將保護用的系統元件和資料移除，但在某些情況下那可能需要用來順利更新開機所需的元件。
+     BitLocker 已於更新期間暫停，如果：
+        - 裝置沒有 TPM 2.0 和 PCR7，或是
+        - 裝置未使用 TPM 限定保護裝置
+2. 「永遠啟用」指的是即使 BitLocker 在重新開機或關機期間關閉或擱置，自動登入仍會發生。當 BitLocker 未啟用時，將能存取硬碟上的個人資料。如果您有信心設定裝置位於安全的實體位置，則自動重新開機和登入應該能在此狀況下執行。
+
+如果您停用或未設定此設定，自動登入將會預設為 [如果 BitLocker 已開啟且未擱置則啟用] 行為。</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">如果 BitLocker 開啟且未暫止則啟用</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">永遠啟用</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">設定允許哪個軟體產生 Secure Attention Sequence</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">設定自動登入模式，並鎖定重新開機或冷開機後最後一個互動使用者的模式</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

@@ -78,6 +78,22 @@
 如果禁用或未配置此策略设置，那么无论帐户配置如何，只要客户端发送复合身份验证请求，域控制器都会返回包含复合身份验证的服务票证。
 
 </string>
+      <string id="PKINITFreshness">对 PKInit Freshness Extension 的 KDC 支持</string>
+      <string id="PKINITFreshness_explain">若要提供对 PKInit Freshness Extension 的支持，则需达到 Windows Server 2016 域功能级别(DFL)。如果域控制器的域未达到 Windows Server 2016 DFL 或更高级别，则不会应用此策略。
+
+此策略设置允许你将域控制器(DC)配置为支持 PKInit Freshness Extension。
+
+如果启用此策略设置，则支持以下选项:
+
+支持: 请求支持 PKInit Freshness Extension。使用 PKInit Freshness Extension 成功进行身份验证的 Kerberos 客户端将获得新的公钥标识 SID。
+
+必需: 需要 PKInit Freshness Extension 才能成功进行身份验证。不支持 PKInit Freshness Extension 的 Kerberos 客户端在使用公钥凭据时将始终失败。
+
+如果禁用或未配置此策略设置，则 DC 绝不会提供 PKInit Freshness Extension 并在不检查新鲜度的情况下接受有效的身份验证请求。用户将从不会获得新的公钥标识 SID。
+</string>
+      <string id="NoPKINITFreshness">已禁用</string>
+      <string id="SupportPKINITFreshness">支持</string>
+      <string id="RequirePKINITFreshness">必需</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">票证大小阈值</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKInit Freshness Extension 选项:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

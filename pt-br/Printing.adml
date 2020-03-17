@@ -33,7 +33,7 @@ Observações:
       <string id="CplPrinters">Impressoras</string>
       <string id="CplPrinters_Help">Gerencia opções de publicação e de configuração da impressora de rede.</string>
       <string id="CustomizedSupportUrl">URL personalizada de suporte no painel esquerdo da pasta Impressoras</string>
-      <string id="CustomizedSupportUrl_Help">Por padrão, a pasta Impressoras inclui um link para a página da Web de Suporte da Microsoft denominada "Obter ajuda com a impressão". Também é possível incluir um link para uma página da Web oferecida pelo fornecedor da impressora que está selecionada.
+      <string id="CustomizedSupportUrl_Help">Por padrão, a pasta Impressoras inclui um link para a página da Web do Suporte da Microsoft denominada "Obter ajuda com a impressão". Também é possível incluir um link para uma página da Web oferecida pelo fornecedor da impressora que está selecionada.
 
           Se você habilitar essa configuração de política, substitua o link padrão "Obter ajuda com a impressão" por um link para uma página da Web personalizada para a sua empresa.
 
@@ -44,20 +44,25 @@ Observações:
           Além disso, veja as configurações "Ativar impressão via Internet" nesta pasta de configuração e "Procurar impressoras em um site comum" em Configuração do Usuário\Modelos Administrativos\Painel de Controle\Impressoras.
 
           A exibição na Web é afetada pelas configurações "Habilitar Shell Clássico" e "Não permitir que a pasta Opções seja aberta a partir do botão Opções na guia Exibir da fita" em Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Windows Explorer, e pela configuração "Habilitar o Active Desktop" em Configuração do Usuário\Modelos Administrativos\Área de Trabalho\Active Desktop.</string>
-      <string id="DomainDisplayPrinters_Help">Se você habilitar essa configuração de política, ela definirá o número máximo de impressoras (de cada tipo) que o Assistente para Adicionar Impressora exibirá em um computador em uma rede gerenciada (quando o computador puder acessar um controlador de domínio, por exemplo, um laptop associado a um domínio em uma rede corporativa).
+      <string id="DomainDisplayPrinters_Help">Se você habilitar esta configuração de política, isso definirá o número máximo de impressoras (de cada tipo) que o assistente Adicionar Impressora exibirá em um computador em uma rede não gerenciada (quando o computador não pode acessar um controlador de domínio, por exemplo, um notebook associado a um domínio em uma rede corporativa).
 
-          Se essa configuração de política estiver desabilitada, a página de verificação de rede não será exibida.
+          Se esta configuração de política for desabilitada, a página de verificação de rede não será exibida.
 
-          Se essa configuração de política não for definida, o Assistente para Adicionar Impressora exibirá o número padrão de impressoras de cada tipo:
-          Impressoras de diretório: 20
+          Se esta configuração de política não for definida, o assistente Adicionar Impressora exibirá o número padrão de impressoras de cada tipo:
+           Impressoras de diretório: 20
           Impressoras TCP/IP: 0
           Impressoras de Serviços Web: 0
           Impressoras Bluetooth: 10
-          Impressoras compartilhadas: 0
+ Impressoras compartilhadas: 0
 
-          Para exibir as impressoras de Serviços Web disponíveis em sua rede, verifique se a descoberta de rede está habilitada. Para habilitar a descoberta de rede, clique em "Iniciar", "Painel de Controle" e em "Rede e Internet". Na página "Rede e Internet", clique em "Central de Rede e Compartilhamento". Na página Central de Rede e Compartilhamento, clique em "Alterar as configurações de compartilhamento avançadas". Na página Configurações de compartilhamento avançadas, clique na seta próxima de "Domínio", clique em "Habilitar descoberta de rede" e clique em "Salvar alterações".
+          Para exibir as impressoras de Serviços Web disponíveis na rede, certifique-se de que a descoberta de rede está ativada. Para ativar a descoberta de rede, clique em "Iniciar", em "Painel de Controle" e em "Rede e Internet". Na página "Rede e Internet", clique em "Central de Rede e Compartilhamento". Na página Central de Rede e Compartilhamento, clique em "Alterar as configurações de compartilhamento avançadas". Na página Configurações compartilhamento avançadas, clique na seta ao lado da seta "Domínio", clique em "Ativar descoberta de rede" e, em seguida, clique em "Salvar alterações".
 
-          Se não quiser mostrar as impressoras de um determinado tipo, habilite essa política e defina o número de impressoras a ser exibido como 0.</string>
+          Se você não quiser exibir impressoras de determinado tipo, habilite esta política e defina o número de impressoras a serem exibidas como 0.
+
+          No Windows 10 e posterior, apenas as impressoras TCP/IP podem ser mostradas no assistente. Se você habilitar esta configuração de política, somente os limites de impressora TCP/IP serão aplicáveis. Somente no Windows 10, se você desabilitar ou não definir esta configuração de política, o limite padrão será aplicado.
+          
+          No Windows 8 e posterior, impressoras Bluetooth não são mostradas e, portanto, o limite não é válido para essas versões do Windows.
+      </string>
       <string id="DomainPrinters">Assistente para Adicionar Impressora - Página de verificação da rede (rede gerenciada)</string>
       <string id="DownlevelBrowse">Procurar impressoras na rede</string>
       <string id="DownlevelBrowse_Help">Permite que os usuários utilizem o Assistente para Adicionar Impressora para procurar impressoras compartilhadas na rede.
@@ -129,17 +134,21 @@ Observação: quando essa política é aplicada, os drivers de modo kernel exist
           Essa configuração não impede que os usuários executem outros programas para excluir uma impressora.
 
           Se essa política for desabilitada, ou não estiver configurada, os usuários poderão excluir impressoras utilizando os métodos descritos acima.</string>
-      <string id="NonDomainDisplayPrinters_Help">Essa política define o número máximo de impressoras (de cada tipo) que o Assistente para Adicionar Impressora exibirá em um computador em uma rede não gerenciada (quando o computador não puder acessar um controlador de domínio, por exemplo, um laptop associado a um domínio em uma rede local).
+      <string id="NonDomainDisplayPrinters_Help">Esta política define o número máximo de impressoras (de cada tipo) que o assistente Adicionar Impressora exibirá em um computador em uma rede não gerenciada (quando o computador não pode acessar um controlador de domínio, por exemplo, um notebook associado a um domínio em uma rede doméstica).
 
-Se essa configuração estiver desabilitada, a página de verificação de rede não será exibida.
+Se esta configuração for desabilitada, a página de verificação de rede não será exibida.
 
-Se essa configuração não for definida, o Assistente para Adicionar Impressora exibirá o número padrão de impressoras de cada tipo:
+Se esta configuração não for definida, o assistente Adicionar Impressora exibirá o número padrão de impressoras de cada tipo:
 Impressoras TCP/IP: 50
-Impressoras de serviços Web: 50
+Impressoras de Serviços Web: 50
 Impressoras Bluetooth: 10
 Impressoras compartilhadas: 50
 
-Para não exibir impressoras de um determinado tipo, habilite essa política e defina o número de impressoras a serem exibidas como 0.</string>
+Se você não quiser exibir impressoras de determinado tipo, habilite esta política e defina o número de impressoras a serem exibidas como 0.
+
+No Windows 10 e posterior, apenas as impressoras TCP/IP podem ser mostradas no assistente. Se você habilitar esta configuração de política, somente os limites de impressora TCP/IP serão aplicáveis. Somente no Windows 10, se você desabilitar ou não definir esta configuração de política, o limite padrão será aplicado.
+          
+No Windows 8 e posterior, impressoras Bluetooth não são mostradas e, portanto, o limite não é válido para essas versões do Windows.</string>
       <string id="NonDomainPrinters">Assistente para Adicionar Impressora - Página de verificação da rede (rede não gerenciada)</string>
       <string id="PackagePointAndPrintOnly">Usar somente Apontar e Imprimir Pacote</string>
       <string id="PackagePointAndPrintOnly_Help">Essa política restringe os computadores cliente a usarem somente o recurso apontar e imprimir pacote.
@@ -269,11 +278,19 @@ Por padrão, SKUs do Windows Ultimate, Professional e Home continuarão pesquisa
 
         Se você desabilitar essa configuração de política ou não a definir, todas as extensões de impressora que foram instaladas poderão ser executadas.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Alterar o formato de saída padrão do MXDW (Microsoft XPS Document Writer) para o formato herdado do Microsoft XPS (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">O Microsoft XPS Document Writer (MXDW) gera arquivos OpenXPS (*.oxps) por padrão no Windows 10, no Windows 10 e no Windows Server 2016 Technical Preview 4.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">O MXDW (Microsoft XPS Document Writer) gera arquivos OpenXPS (*.oxps) por padrão no Windows 10 e no Windows Server 2019.
 
-          Se você habilitar essa configuração de política de grupo, o formato de saída padrão do MXDW será o formato herdado Microsoft XPS (*.xps).
+          Se você habilitar essa configuração de política de grupo, o formato padrão de saída do MXDW será o formato herdado Microsoft XPS (*.xps).
 
-          Se você desabilitar ou não definir essa configuração de política, o formato de saída padrão do MXDW será OpenXPS (*.oxps).</string>
+          Se você desabilitar ou não definir essa configuração de política, o formato padrão de saída do MXDW será o OpenXPS (*.oxps).</string>
+      <string id="SetDefaultPrinterMRUModeOff">Desativar gerenciamento de impressora padrão do Windows</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">Esta preferência permite alterar o gerenciamento da impressora padrão.
+
+Se você habilitar essa configuração, o Windows não gerenciará a impressora padrão.
+ 
+Se você desabilitar essa configuração, o Windows gerenciará a impressora padrão.
+
+Se você não definir essa configuração, o gerenciamento da impressora padrão não será alterado. </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">

@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Almeno Windows Server 2008 R2 o Windows 7. Non supportato in Windows 10 o versioni successive</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 e Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Cancella l'elenco programmi recenti per i nuovi utenti</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Se si abilita questa impostazione, l'elenco dei programmi recenti nel menu Start sarà vuoto per tutti i nuovi utenti.
 
@@ -170,6 +171,12 @@ Se si abilita questa impostazione, il pulsante di alimentazione e i comandi Arre
 Se si disabilita o non si configura questa impostazione, il pulsante di alimentazione e i comandi Arresta il sistema, Riavvia il sistema, Sospensione e Ibernazione saranno disponibili nel menu Start. Il pulsante di alimentazione sarà inoltre disponibile nella finestra Sicurezza di Windows.
 
 Nota: questa impostazione è supportata solo dai programmi di terze parti certificati come compatibili con Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP o Windows 2000 Professional.</string>
+      <string id="HidePowerOptions">Rimuovi e impedisci accesso ai comandi Arresta il sistema, Riavvia il sistema, Sospensione e Ibernazione</string>
+      <string id="HidePowerOptions_Help">Questa impostazione impedisce agli utenti di eseguire i comandi seguenti dalla finestra Sicurezza di Windows, dalla schermata di accesso e dal menu Start: Arresta il sistema, Riavvia il sistema, Sospensione e Ibernazione. Questa impostazione non impedisce agli utenti di eseguire i programmi basati su Windows che eseguono tali funzioni.
+
+Se si abilita questa impostazione, i comandi Arresta il sistema, Riavvia il sistema, Sospensione e Ibernazione verranno rimossi dal menu Start. Il pulsante di alimentazione verrà rimosso anche dalla finestra Sicurezza di Windows, visualizzata quando si preme CTRL+ALT+CANC e dalla schermata di accesso.
+
+Se si disabilita o non si configura questa impostazione, il pulsante di alimentazione e i comandi Arresta il sistema, Riavvia il sistema, Sospensione e Ibernazione saranno disponibili nel menu Start. Il pulsante di alimentazione sarà inoltre disponibile nella finestra Sicurezza di Windows e nelle schermate di accesso.</string>
       <string id="NoCommonGroups">Rimuovi i gruppi di programmi comuni dal menu Start</string>
       <string id="NoCommonGroups_Help">Rimuove le voci del profilo All Users da Programmi del menu Start.
 
@@ -222,12 +229,22 @@ Se si disabilita o non si configura questa impostazione dei criteri, i programmi
 Vedere anche le impostazioni dei criteri correlate "Rimuovi l'elenco dei programmi più utilizzati dal menu Start" e "Disattiva i menu personalizzati".
 
 Questa impostazione dei criteri non impedisce agli utenti di aggiungere programmi al menu Start o alla barra delle applicazioni. Vedere le impostazioni dei criteri "Rimuovi l'elenco dei programmi aggiunti dal menu Start" e "Non consentire l'aggiunta di programmi alla barra delle applicazioni".</string>
+
       <string id="NoMoreProgramsList">Rimuovi l'elenco Tutti i programmi dal menu Start</string>
-      <string id="NoMoreProgramsList_Help">Questa impostazione dei criteri consente di rimuovere l'elenco Tutti i programmi dal menu Start.
+      <string id="NoMoreProgramsList_Help">Questa impostazione consente di comprimere o rimuovere l'elenco di tutte le app dal menu Start.
 
-Se si abilita questa impostazione dei criteri, la voce "Tutti i programmi" verrà rimossa dal menu Start.  Nella schermata Start verrà aperta la visualizzazione Tutte le app, che tuttavia conterrà solo le voci aggiunte per l'avvio.
+Selezionando "Comprimi", l'elenco delle app non viene visualizzato accanto ai riquadri aggiunti nel menu Start. Nel menu Start viene visualizzato un pulsante "Tutte le app" che consente di aprire l'elenco di tutte le app. Questa operazione corrisponde alla disattivazione dell'opzione "Mostra l'elenco delle app nel menu Start" in Impostazioni.
 
-Se si disabilita o non si configura questa impostazione dei criteri, la voce "Tutti i programmi" sarà ancora disponibile nel menu Start semplice.</string>
+La selezione di "Comprimi e disabilita impostazione" avrà lo stesso risultato dell'opzione di compressione e della disattivazione di "Mostra l'elenco delle app nel menu Start" in Impostazioni, pertanto gli utenti non possono attivarla.
+
+Se si seleziona "Rimuovi e disabilita impostazione", l'elenco di tutte le app verrà rimosso dal menu Start e "Mostra l'elenco delle app nel menu Start" verrà disabilitata in Impostazioni, pertanto gli utenti non possono attivarla. Selezionare questa opzione per la compatibilità con le versioni precedenti di Windows.
+
+Se si disabilita o non si configura questa impostazione, l'elenco di tutte le app sarà visibile per impostazione predefinita e l'utente potrà modificare l'opzione "Mostra l'elenco delle app nel menu Start" in Impostazioni.</string>
+      <string id="APPLIST_NONE">Nessuno</string>
+      <string id="APPLIST_COLLAPSE">Comprimi</string>
+      <string id="APPLIST_COLLAPSESETTING">Comprimi e disabilita impostazione</string>
+      <string id="APPLIST_REMOVESETTING">Rimuovi e disabilita impostazione</string>    
+
       <string id="NoNetAndDialupConnect">Rimuovi Connessioni di rete dal menu Start</string>
       <string id="NoNetAndDialupConnect_Help">Questa impostazione dei criteri consente di rimuovere Connessioni di rete dal menu Start.
 
@@ -515,6 +532,18 @@ Se non si configura questa impostazione, gli utenti potranno abilitare o disabil
 Se si abilita questa impostazione dei criteri, nel menu Start non verrà visualizzato il collegamento alla cartella Download.
 
 Se si disabilita o non si configura questa impostazione dei criteri, il collegamento Download sarà disponibile dal menu Start.</string>
+      <string id="NoStartMenuExplorerPlace">Rimuovi il collegamento Esplora file dalla barra delle posizioni del menu Start</string>
+      <string id="NoStartMenuExplorerPlace_Help">Questa impostazione dei criteri consente di rimuovere il collegamento Esplora file dalla barra delle posizioni del menu Start.
+
+Se si abilita questa impostazione dei criteri, nell'elenco delle posizioni del menu Start non sarà visualizzato Esplora file.
+
+Se si disabilita o non si configura questa impostazione dei criteri, Esplora file sarà disponibile dall'elenco delle posizioni del menu Start.</string>
+      <string id="NoStartMenuSettingsPlace">Rimuovi il collegamento Impostazioni dalla barra delle posizioni del menu Start</string>
+      <string id="NoStartMenuSettingsPlace_Help">Questa impostazione dei criteri consente di rimuovere il collegamento Impostazioni dalla barra delle posizioni del menu Start.
+
+Se si abilita questa impostazione dei criteri, nell'elenco delle posizioni del menu Start non sarà visualizzato Impostazioni.
+
+Se si disabilita o non si configura questa impostazione dei criteri, Impostazioni sarà disponibile dall'elenco delle posizioni del menu Start.</string>
       <string id="NoStartMenuRecordedTV">Rimuovi il collegamento Registrazioni TV dal menu Start</string>
       <string id="NoStartMenuRecordedTV_Help">Questa impostazione dei criteri consente di rimuovere il collegamento Registrazioni TV dal menu Start.
 
@@ -575,8 +604,22 @@ Se si disabilita o non si configura questa impostazione dei criteri, la schermat
 Se si disabilita o non si configura questa impostazione dei criteri, Windows selezionerà automaticamente le dimensioni in base al fattore di forma dell'hardware e gli utenti potranno modificare le dimensioni di Start nelle impostazioni.</string>
       <string id="ForceLauncherSize_Collapsed">Menu Start</string>
       <string id="ForceLauncherSize_Expanded">Start in modalità a schermo intero</string>
+      <string id="HidePeopleBar_DisplayName">Rimuovi la barra Contatti dalla barra delle applicazioni</string>
+      <string id="HidePeopleBar_ExplainText">Questi criteri consentono di rimuovere la barra Contatti dalla barra delle applicazioni e disabilitano l'esperienza I miei contatti.
+Se si abilitano questi criteri, l'icona dei contatti verrà rimossa dalla barra delle applicazioni, l'interruttore delle impostazioni corrispondente viene rimosso dalla pagina delle impostazioni della barra delle applicazioni e gli utenti non saranno in grado di aggiungere contatti alla barra delle applicazioni.</string>
+      <string id="HideRecentlyAddedApps">Rimuovi l'elenco "Aggiunti di recente" dal menu Start</string>
+      <string id="HideRecentlyAddedApps_Help">Questo criterio consente di impedire la visualizzazione nel menu Start di un elenco delle applicazioni installate di recente.
+
+Se abiliti questo criterio, nel menu Start non verrà più visualizzato l'elenco "Aggiunti di recente". L'impostazione corrispondente verrà disabilitata anche in Impostazioni.</string>
+      <string id="DisableContextMenusInStart">Disabilita menu contestuale nel menu Start</string>
+      <string id="DisableContextMenusInStart_Help">Questo criterio consente di impedire agli utenti di aprire i menu contestuali nel menu Start.
+
+Se abiliti questo criterio, le chiamate dei menu contestuali all'interno del menu Start verranno ignorate.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Scegli una delle azioni seguenti</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Scegliere una delle azioni seguenti</dropdownList>
       </presentation>

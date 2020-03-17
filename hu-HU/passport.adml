@@ -7,23 +7,31 @@
     <stringTable>
         <string id="MSPassportForWorkCategory">Vállalati Windows Hello</string>
         <string id="MSPassportForWorkPINComplexityCategory">PIN-kód bonyolultsága</string>
-        <string id="MSPassportForWorkRemoteCategory">Telefonos bejelentkezés</string>
         <string id="MSPassport_UsePassportForWork">A Vállalati Windows Hello használata</string>
+        <!-- Add support for certificate trust deployments -->
+        <string id="WHFB_UseCertificateForOnPremAuth">Tanúsítvány használata a helyszíni hitelesítéshez</string>
         <!-- DropdownList Button strings -->
         <string id="MSPassport_UsePassportForWorkExplain">A Vállalati Windows Hello szolgáltatás egy alternatív módszer, amellyel a saját Active Directory-fiókon vagy Azure Active Directory-fiókon keresztül lehet bejelentkezni a Windowsba, így nincs szükség jelszavakra, intelligens kártyákra és virtuális intelligens kártyákra.
 
-Ha engedélyezi ezt a házirend-beállítást, az eszköz a megfelelő kulcsok vagy tanúsítványok használatával minden felhasználó számára beüzemeli a Vállalati Windows Hello funkciót.
+Ha engedélyezi ezt a házirend-beállítást, az eszköz a megfelelő kulcsok vagy tanúsítványok használatával minden felhasználó számára üzembe helyezi a Vállalati Windows Hello szolgáltatást.
 
-Ha letiltja ezt a házirend-beállítást, az eszköz egyetlen felhasználóhoz sem üzemeli be a Vállalati Windows Hello funkciót.
+Ha letiltja ezt a házirend-beállítást, az eszköz egyetlen felhasználó számára sem helyezi üzembe a Vállalati Windows Hello szolgáltatást.
 
-Ha nem konfigurálja ezt a házirend-beállítást, a felhasználók beüzelmehetik a Vállalati Windows Hello funkciót a tartományi jelszavaik titkosítására.
+Ha nem konfigurálja ezt a házirend-beállítást, a felhasználók üzembe helyezhetik a Vállalati Windows Hello szolgáltatást a tartományi jelszavaik titkosítására.
+
+Válassza a „Ne indítsa el a Windows Hello üzembe helyezését bejelentkezés után” lehetőséget, ha egy harmadik fél megoldását használja a Vállalati Windows Hello szolgáltatás üzembe helyezésére.
+
+A „Ne indítsa el a Windows Hello üzembe helyezését bejelentkezés után” lehetőség kiválasztása esetén a Vállalati Windows Hello nem indítja el automatikusan az üzembe helyezést, miután a felhasználó bejelentkezett.
+
+Ha nem választja ki a „Ne indítsa el a Windows Hello üzembe helyezését bejelentkezés után” lehetőséget, a Vállalati Windows Hello a felhasználó bejelentkezése után automatikusan elindítja az üzembe helyezést.
+
         </string>
         <string id="MSPassport_RequireSecurityDevice">Hardverbiztonsági eszköz használata</string>
-        <string id="MSPassport_RequireSecurityDeviceExplain">Platformmegbízhatósági modullal (TPM) a szoftveres megoldásokhoz képest nagyobb fokú biztonság érhető el, mert a modulban tárolt adatok nem használhatók más eszközökön.
+        <string id="MSPassport_RequireSecurityDeviceExplain">Platformmegbízhatósági modullal (TPM) a szoftveres megoldásokhoz képest nagyobb fokú biztonság érhető el, mert a hardveresen védett adatok nem használhatók más eszközökön.
 
-Ha engedélyezi ezt a házirend-beállítást, csak azok az eszközök képesek a Vállalati Windows Hello üzembe helyezésére, amelyeken működő TPM modul található.
+Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello csak azokon az eszközökön lesz üzembe helyezve, amelyeken 1.2-es vagy 2.0-s verziójú, működő TPM modul található. A biztonsági eszközök választható jelleggel kizárhatók, ilyen esetben a Vállalati Windows Hello ezeken sem lesz üzembe helyezve.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, továbbra is a TPM modul a preferált megoldás, de az eszközök szoftveresen is üzembe helyezhetik a Vállalati Windows Hello funkciót abban az esetben, ha a TPM modul nem működik vagy nem érhető el.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, továbbra is a TPM a preferált megoldás, de az eszközök szoftveresen is üzembe helyezhetik a Vállalati Windows Hello funkciót abban az esetben, ha a TPM nem működik vagy nem érhető el.
         </string>
         <string id="MSPassport_MinimumPINLength">PIN-kód minimális hossza</string>
         <string id="MSPassport_MinimumPINLengthExplain">A PIN-kód minimális hossza beállítással megadható, hogy legalább hány karakterből kell állnia a PIN-kódnak. Az ehhez a házirend-beállításhoz megadható legkisebb érték 4. A legnagyobb beállítható értéknek kisebbnek kell lennie a PIN-kód maximális hossza házirend-beállításban megadott értéknél (vagy 127-nél, amelyik érték kisebb).
@@ -46,30 +54,30 @@ Megjegyzés: Amennyiben a PIN-kód maximális hosszára vonatkozó fenti feltét
         <string id="MSPassport_UppercaseLetters">Nagybetűk megkövetelése</string>
         <string id="MSPassport_UppercaseLettersExplain">Ezzel a házirend-beállítással konfigurálható a nagybetűk PIN-kódban való használata.
 
-Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello megköveteli a felhasználóktól, hogy legalább egy nagybetűt használjanak a PIN-kódjukban.
+Ha engedélyezi ezt a házirend-beállítást, a Windows megköveteli a felhasználóktól, hogy legalább egy nagybetűt használjanak a PIN-kódjukban.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Vállalati Windows Hello nem engedélyezi, hogy a felhasználók nagybetűket használjanak a PIN-kódjukban.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows nem engedélyezi, hogy a felhasználók nagybetűket használjanak a PIN-kódjukban.
         </string>
         <string id="MSPassport_LowercaseLetters">Kisbetűk megkövetelése</string>
         <string id="MSPassport_LowercaseLettersExplain">Ezzel a házirend-beállítással konfigurálható a kisbetűk PIN-kódban való használata.
 
-Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello megköveteli a felhasználóktól, hogy legalább egy kisbetűt használjanak a PIN-kódjukban.
+Ha engedélyezi ezt a házirend-beállítást, a Windows megköveteli a felhasználóktól, hogy legalább egy kisbetűt használjanak a PIN-kódjukban.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Vállalati Windows Hello nem engedélyezi, hogy a felhasználók kisbetűket használjanak a PIN-kódjukban.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows nem engedélyezi, hogy a felhasználók kisbetűket használjanak a PIN-kódjukban.
         </string>
         <string id="MSPassport_SpecialCharacters">Speciális karakterek megkövetelése</string>
         <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Ezzel a házirend-beállítással konfigurálható a speciális karakterek PIN-kódban való használata. A megengedett speciális karakterek a következők: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
 
-Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello megköveteli a felhasználóktól, hogy legalább egy speciális karaktert használjanak a PIN-kódjukban.
+Ha engedélyezi ezt a házirend-beállítást, a Windows megköveteli a felhasználóktól, hogy legalább egy speciális karaktert használjanak a PIN-kódjukban.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Vállalati Windows Hello nem engedélyezi, hogy a felhasználók speciális karaktereket használjanak a PIN-kódjukban.]]>
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows nem engedélyezi, hogy a felhasználók speciális karaktereket használjanak a PIN-kódjukban.]]>
         </string>
         <string id="MSPassport_Digits">Számjegyek megkövetelése</string>
         <string id="MSPassport_DigitsExplain">Ezzel a házirend-beállítással konfigurálható a számjegyek PIN-kódban való használata.
 
-Ha engedélyezi vagy nem konfigurálja ezt a házirend-beállítást, a Vállalati Windows Hello megköveteli a felhasználóktól, hogy legalább egy számjegyet használjanak a PIN-kódjukban.
+Ha engedélyezi vagy nem konfigurálja ezt a házirend-beállítást, a Windows megköveteli a felhasználóktól, hogy legalább egy számjegyet használjanak a PIN-kódjukban.
 
-Ha letiltja ezt a házirend-beállítást, a Vállalati Windows Hello nem engedélyezi, hogy a felhasználók számjegyeket használjanak a PIN-kódjukban.
+Ha letiltja ezt a házirend-beállítást, a Windows nem engedélyezi, hogy a felhasználók számjegyeket használjanak a PIN-kódjukban.
         </string>
         <string id="MSPassport_PINHistory">Korábbi PIN-kódok</string>
         <string id="MSPassport_PINHistoryExplain">Ez a beállítás határozza meg, hogy hány olyan múltbeli PIN-kód társítható a felhasználói fiókokhoz, amely nem használható fel újból. Ezzel a házirenddel a rendszergazdák fokozhatják a biztonságot azáltal, hogy a régi PIN-kódokat nem lehet tovább használni az adott idő elteltével. Új PIN-kód létrehozásával nem menthetők a korábbi PIN-kódok.
@@ -92,17 +100,81 @@ Ha letiltja ezt a házirend-beállítást, a Vállalati Windows Hello nem enged�
 
 Megjegyzés: Ha letiltja ezt a házirendet, a felhasználó egyetlen fióktípushoz sem használhat biometrikus hitelesítési módokat az eszközön.
         </string>
-        <string id="MSPassport_UseRemote">Telefonos bejelentkezés használata</string>
-        <string id="MSPassport_UseRemoteExplain">Ezzel a házirend-beállítással konfigurálható a telefonos bejelentkezés használata. Ezzel a szolgáltatással a telefonok asztali hitelesítésre alkalmas társeszközökként használhatók. A telefonos bejelentkezés működésének feltétele az, hogy a PC és a telefon ugyanabban az Azure AD-bérlőben legyen regisztrálva, valamint hogy a telefon regisztrálva legyen a Vállalati Windows Hello szolgáltatásban.
+        <string id="MSPassport_EnablePinRecovery">PIN-helyreállítás használata</string>
+        <string id="MSPassport_EnablePinRecoveryExplain">A PIN-helyreállítás lehetővé teszi, hogy a felhasználó megváltoztasson egy elfelejtett PIN-kódot a Vállalati Windows Hello PIN-helyreállítási szolgáltatásával anélkül, hogy elveszítené a hozzá tartozó hitelesítő adatokat és tanúsítványokat, ideértve az eszközön a felhasználó személyes fiókjaihoz tartozó kulcsokat is. Ehhez az Azure-alapú PIN-helyreállítási szolgáltatás titkosítja az eszközön tárolt titkos helyreállítási kódot, és a visszafejtéshez a PIN-helyreállítási szolgáltatás és az eszköz is szükséges. A PIN-helyreállításhoz a felhasználónak többfaktoros hitelesítést kell végrehajtania az Azure Active Directory szolgáltatásban.
 
-Ha engedélyezi ezt a házirend-beállítást, a telefonos bejelentkezés engedélyezett lesz, így a telefonokat asztali hitelesítésre alkalmas társeszközökként lehet használni.
+Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello használja a PIN-helyreállítási szolgáltatást. 
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a telefonos bejelentkezés le lesz tiltva, ezért a telefonok nem használhatók asztali hitelesítésre alkalmas társeszközökként.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows nem hoz létre titkos PIN-helyreállítási kódot, vagy nem tárolja azt. Ha a felhasználó elfelejti a PIN-kódját, törölnie kell a meglévő PIN-kódot és újat kell létrehoznia, majd újra regisztrálnia kell minden olyan szolgáltatásra, amelyhez a régi PIN-kóddal fért hozzá.
+
+MEGJEGYZÉS: Ez a házirend csak az Azure Active Directory szolgáltatásban regisztrált eszközökre vonatkozik.
+        </string>
+        <!-- Explain Text for UseCertificateForOnPremAuth -->
+        <string id="WHFB_UseCertificateForOnPremAuthExplain">Ezzel a házirend-beállítással megadhatja, hogy a Vállalati Windows Hello bejelentkezési tanúsítványt használjon a helyszíni hitelesítéshez.
+
+Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello bejelentkezési tanúsítványt használ a helyszíni hitelesítéshez.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Vállalati Windows Hello kulcsot használ a helyszíni hitelesítéshez.
+
+Megjegyzés: Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, és engedélyezi A Vállalati Windows Hello használata házirend-beállítást, akkor a Vállalati Windows Hello hitelesítésének megfelelő működéséhez a környezetben lenni kell legalább egy Windows Server 2016 rendszerű tartományvezérlőnek.
+        </string>
+        <!-- Explain text for device unlock policy -->
+        <string id="MSPassport_UseDeviceUnlock">Eszközfeloldási tényezők beállítása</string>
+        <string id="MSPassport_UseDeviceUnlock_Explain">Az első és második feloldási tényezőként használt hitelesítőadat-szolgáltatói GUID-ek (például arc- és ujjlenyomat-felismerési szolgáltatói GUID-ek) vesszővel elválasztott listájának konfigurálása. Ha a megbízható jelszolgáltató az egyik feloldási tényező, akkor a jelszabályokból is létre kell hoznia egy xml formátumú, vesszővel elválasztott listát mindegyik ellenőrizendő jeltípushoz.
+
+Ha engedélyezi ezt a házirend-beállítást, a felhasználónak mindkét listáról egy tényezőt kell használnia a sikeres feloldáshoz.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasználók továbbra is feloldhatják a készüléket a meglévő feloldási lehetőségekkel.
+
+További információt talál a következő helyen: https://go.microsoft.com/fwlink/?linkid=849684
+        </string>
+        <!-- Explain text for dynamic lock policy -->
+        <string id="MSPassport_UseDynamicLock">Dinamikus zárolási tényezők konfigurálása</string>
+        <string id="MSPassport_UseDynamicLock_Explain">Az egyes jelzési típusokhoz vesszővel elválasztott jelzésitípus-listák konfigurálása xml formátumban.
+
+Ha engedélyezi ezt a házirend-beállítást, a rendszer ezeknek a jelzési szabályoknak a kiértékelésével határozza meg a felhasználói távollétet az eszköz automatikus lezárása érdekében.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasználók továbbra is lezárhatják a készüléket a meglévő lezárási lehetőségekkel.
+
+További információt talál a következő helyen: https://go.microsoft.com/fwlink/?linkid=849684
+        </string>
+        <!-- Explain text for smart card emulation policy -->
+        <string id="MSPassport_DisableSmartCardNode">Az intelligens kártya emulációjának kikapcsolása</string>
+        <string id="MSPassport_DisableSmartCardNodeExplain">A Vállalati Windows Hello automatikusan biztosítja az intelligens kártya emulációját és a kompatibilitást az intelligens kártyával együttműködő alkalmazásokkal.
+
+Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello az intelligens kártyával együttműködő alkalmazásokkal nem kompatibilis hitelesítő adatokat szolgáltat a Vállalati Windows Hello használatához.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Vállalati Windows Hello az intelligens kártyával együttműködő alkalmazásokkal kompatibilis hitelesítő adatokat szolgáltat a Vállalati Windows Hello használatához.
+
+MEGJEGYZÉS: Ez a házirend a Vállalati Windows Hello hitelesítő adatait azok létrehozásakor érinti. A házirend alkalmazása előtt létrehozott hitelesítő adatok továbbra is biztosítják az intelligens kártya emulációját. Meglévő hitelesítő adatok módosításához engedélyezze ezt a házirend-beállítást, és válassza az „Elfelejtettem a PIN-kódom” lehetőséget a Beállításokban.
+        </string>
+        <string id="MSPassport_AllowAllUserAccessToSmartCardNode">Emulált intelligens kártya számbavételének engedélyezése az összes felhasználónál</string>
+        <string id="MSPassport_AllowAllUserAccessToSmartCardNodeExplain">A Windows megakadályozza az azonos számítógépen dolgozó felhasználók számára a Vállalati Windows Hello más felhasználóknak biztosított hitelesítő adatainak számbavételét.
+
+Ha engedélyezi ezt a házirend-beállítást, a Windows a számítógép összes felhasználója számára engedélyezi a Vállalati Windows Hello más felhasználóknak biztosított összes hitelesítő adatának számbavételét, de továbbra is megköveteli, hogy mindegyik felhasználó a saját hitelesítő faktorait használja a hitelesítéshez.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows nem engedélyezi a Vállalati Windows Hello más felhasználóknak ugyanazon az eszközön biztosított hitelesítő adatainak számbavételét.
+
+A házirend-beállítás azoknak a felhasználóknak készült, akik ugyanazon az eszközön bizonyos engedéllyel rendelkező és nem rendelkező felhasználóként is regisztrálva vannak. A felhasználó mindkét hitelesítő adattal rendelkezik, ezért bejelentkezhet az engedéllyel nem rendelkező hitelesítő adataival, de az engedélyt igénylő feladatot is elvégezheti anélkül, hogy ki kellene jelentkeznie.
+
+Ez a házirend-beállítás nem kompatibilis a Vállalati Windows Hello azon hitelesítő adataival, amelyeket „Az intelligens kártya emulációjának kikapcsolása” beállítás engedélyezése után hoztak létre.
+
+A beállítás alkalmazása után a Windows rendszert újra kell indítani.
+        </string>
+        <!-- Explain text for certificate propagation policy -->
+        <string id="MSPassport_UseHelloCertificatesAsSmartCardCertificates">A Vállalati Windows Hello-tanúsítványok használata intelligenskártya-tanúsítványként</string>
+        <string id="MSPassport_UseHelloCertificatesAsSmartCardCertificatesExplain">Ha engedélyezi ezt a házirend-beállítást, a Vállalati Windows Hello tanúsítványait intelligenskártya-tanúsítványként fogják használni az alkalmazások. A biometrikus tényezők nem lesznek elérhetők, amikor a rendszer arra kéri a felhasználót, hogy engedélyezze a tanúsítvány titkos kulcsának használatát. A házirend-beállítás a kizárólag az intelligenskártya-tanúsítványok használatán alapuló alkalmazásokkal való kompatibilitás engedélyezésére szolgál.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, az alkalmazások nem használhatják a Vállalati Windows Hello tanúsítványait intelligenskártya-tanúsítványként, és a biometrikus tényezők elérhetőek lesznek, amikor a felhasználót arra kéri a rendszer, hogy engedélyezze a tanúsítvány titkos kulcsának használatát.
+
+Ez a házirend-beállítás nem kompatibilis a Vállalati Windows Hello azon hitelesítő adataival, amelyeket „Az intelligens kártya emulációjának kikapcsolása” beállítás engedélyezése után hoztak létre.
+
+A Windows megköveteli, hogy a felhasználó zárolja a munkamenetét, majd oldja fel a zárolást, miután módosítja ezt a beállítást, ha a felhasználó aktuálisan be van jelentkezve.
         </string>
     </stringTable>
     <presentationTable>
         <presentation id="MSPassport_MinimumPINLengthControl">
-            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">PIN-kód minimális hossza</decimalTextBox>
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="6">PIN-kód minimális hossza</decimalTextBox>
         </presentation>
         <presentation id="MSPassport_MaximumPINLengthControl">
             <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">PIN-kód maximális hossza</decimalTextBox>
@@ -125,7 +197,33 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a telefonos be
       <presentation id="MSPassport_PINExpirationControl">
         <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">PIN-kódok érvényessége</decimalTextBox>
       </presentation>
-
+      <presentation id="MSPassport_ExcludeSecurityDevicesControl">
+        <text>Ne használja a következő biztonsági eszközöket:</text>
+        <checkBox refId="MSPassport_ExcludeTPM12DataType" defaultChecked="false">TPM 1.2</checkBox>
+      </presentation>
+      <presentation id="MSPassport_UsePassportForWorkControl">
+        <checkBox refId="MSPassport_DisablePostLogonProvisioning" defaultChecked="false">Ne indítsa el a Windows Hello üzembe helyezését bejelentkezés után</checkBox>
+      </presentation>
+      <presentation id="MSPassport_UseDeviceUnlock_Control">
+        <textBox refId="MSPassport_UseDeviceUnlock_GroupA">
+            <label>Első feloldási tényező – hitelesítőadat-szolgáltatók</label>
+            <defaultValue>{D6886603-9D2F-4EB2-B667-1971041FA96B},{8AF662BF-65A0-4D0A-A540-A338A999D36F},{BEC09223-B018-416D-A0AC-523971B639F5}</defaultValue>
+        </textBox>
+        <textBox refId="MSPassport_UseDeviceUnlock_GroupB">
+            <label>Második feloldási tényező – hitelesítőadat-szolgáltatók</label>
+            <defaultValue>{27FBDB57-B613-4AF2-9D7E-4FA7A66C21AD},{D6886603-9D2F-4EB2-B667-1971041FA96B}</defaultValue>
+        </textBox>
+        <textBox refId="MSPassport_UseDeviceUnlock_Plugins">
+            <label>Az eszköz feloldásának jelzési szabályai</label>
+            <defaultValue><![CDATA[<rule schemaVersion="1.0"> <signal type="bluetooth" scenario="Authentication" classOfDevice="512" rssiMin="-10" rssiMaxDelta="-10"/> </rule>]]> </defaultValue>
+        </textBox>
+      </presentation>
+      <presentation id="MSPassport_UseDynamicLock_Control">
+        <textBox refId="MSPassport_UseDynamicLock_Plugins">
+            <label>A dinamikus lezárás jelzési szabályai</label>
+            <defaultValue><![CDATA[<rule schemaVersion="1.0"> <signal type="bluetooth" scenario="Dynamic Lock" classOfDevice="512" rssiMin="-10" rssiMaxDelta="-10"/> </rule>]]> </defaultValue>
+        </textBox>
+      </presentation>
     </presentationTable>
   </resources>
 </policyDefinitionResources>

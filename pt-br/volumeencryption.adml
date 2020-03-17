@@ -28,14 +28,13 @@ Observação: a inicialização do TPM (Trusted Platform Module) pode ocorrer du
 
 Observação: essa política só é aplicável aos computadores executando o Windows Server 2008 ou o Windows Vista.
 
-Em um computador com um TPM compatível, dois métodos de autenticação podem ser usados na inicialização para oferecer proteção adicional de dados criptografados. Quando o computador é iniciado, ele pode exigir que os usuários insiram uma unidade flash USB que contém uma chave de inicialização. Ele também pode exigir que os usuários insiram um PIN (número de identificação pessoal) de inicialização de 4 a 20 dígitos.
+Em um computador com um TPM compatível, dois métodos de autenticação podem ser usados na inicialização para oferecer proteção adicional de dados criptografados. Quando o computador é iniciado, ele pode exigir que os usuários insiram um pen drive que contém uma chave de inicialização. Ele também pode exigir que os usuários insiram um PIN (número de identificação pessoal) de inicialização de 4 a 20 dígitos.
 
-Uma unidade flash USB que contém uma chave de inicialização é necessária em computadores que não possuem um TPM compatível. Sem um TPM, os dados criptografados por BitLocker são protegidos apenas pelo material da chave contido na unidade flash USB.
+Um pen drive que contém uma chave de inicialização é necessário em computadores que não possuem um TPM compatível. Sem um TPM, os dados criptografados por BitLocker são protegidos apenas pelo material da chave contido no pen drive.
 
-Se você habilitar essa configuração de política, o assistente exibirá a página para permitir que o usuário configure opções avançadas de inicialização do BitLocker. Você pode definir mais opções de configuração para computadores com e sem TPM.
+Se você habilitar essa configuração de política, o assistente mostrará a página para permitir que o usuário configure opções de inicialização avançada para o BitLocker. Você pode configurar mais opções para computadores com ou sem TPM.
 
-Se você desabilitar ou não definir essa configuração de política, o Assistente para Instalação do BitLocker exibirá etapas básicas que permitem ao usuário ativar o BitLocker em computadores com TPM. Nesse assistente básico, não é possível configurar chaves ou PINs de inicialização adicionais.
-
+Se você desabilitar ou não definir essa configuração de política, o assistente de configuração do BitLocker mostrará as etapas básicas que permitem que os usuários ativem o BitLocker em computadores com TPM. Nesse assistente básico, não será possível configurar uma chave ou um PIN de inicialização adicional.
 </string>
 
       <string id="ConfigureStartupUsage_Name">Exigir autenticação adicional na inicialização (Windows Server 2008 e Windows Vista)</string>
@@ -47,15 +46,13 @@ Observação: somente uma das opções adicionais de autenticação pode ser exi
 
 Se você quiser usar o BitLocker em um computador sem um TPM, marque a caixa de seleção "Permitir BitLocker sem um TPM compatível". Neste modo, uma senha ou uma unidade USB é necessária para inicialização. Ao usar uma chave de inicialização, as informações da chave utilizadas para criptografar a unidade são armazenadas na unidade USB, criando uma chave USB. Quando a chave USB for inserida, o acesso à unidade será autenticado e a unidade ficará acessível. Se a chave USB for perdida ou estiver indisponível ou se você tiver esquecido a senha, então precisará usar uma das opções de recuperação de BitLocker para acessar a unidade.
 
-Em um computador com um TPM compatível, quatro tipos de métodos de autenticação podem ser usados na inicialização para oferecer proteção adicional de dados criptografados. Quando o computador for iniciado, poderá usar apenas o TPM para autenticação ou também poderá exigir a inserção de uma unidade flash USB contendo uma chave de inicialização, a entrada de um PIN de 4 a 20 dígitos ou ambas.
+Em um computador com um TPM compatível, quatro tipos de métodos de autenticação podem ser usados na inicialização para oferecer proteção adicional de dados criptografados. Quando o computador for iniciado, poderá usar apenas o TPM para autenticação ou também poderá exigir a inserção de um pen drive contendo uma chave de inicialização, a entrada de um PIN de 4 a 20 dígitos ou ambas.
 
-Se você habilitar essa configuração de política, os usuários poderão configurar opções avançadas de inicialização no Assistente para Instalação do BitLocker.
+Se você habilitar essa configuração de política, os usuários poderão configurar opções avançadas de inicialização no assistente para instalação do BitLocker.
 
 Se você desabilitar ou não definir essa configuração de política, os usuários poderão configurar apenas as opções básicas nos computadores com um TPM.
 
-Observação: se você quiser exigir o uso de um PIN de inicialização e uma unidade flash USB, será preciso definir as configurações de BitLocker usando a ferramenta de linha de comando manage-bde em vez do Assistente para Instalação da Criptografia de Unidade de Disco BitLocker.
-
-
+Observação: se você quiser exigir o uso de um PIN de inicialização e um pen drive, será preciso definir as configurações de BitLocker usando a ferramenta de linha de comando manage-bde em vez do assistente para instalação da Criptografia de Unidade de Disco BitLocker.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Permitir desbloqueio de rede na inicialização</string>
@@ -287,16 +284,21 @@ Aviso: a alteração do perfil de validação de plataforma padrão afetará a s
 
       <string id="PlatformValidation_BIOS_Name">Configurar perfil de validação de plataforma TPM para configurações de firmware com base em BIOS</string>
 
-      <string id="PlatformValidation_UEFI_Help">Esta configuração de política permite configurar como o hardware de segurança TPM do computador protege a chave de criptografia do BitLocker. Essa configuração de política não será aplicável se o computador não possuir um TPM compatível ou se o BitLocker já tiver sido ativado com a proteção TPM.
+      <string id="PlatformValidation_UEFI_Help">Esta configuração de política permite configurar como o hardware de segurança do TPM (Trusted Platform Module) do computador protege a chave de criptografia de BitLocker. Esta configuração de política não se aplicará se o computador não tiver um TPM compatível ou se o BitLocker já tiver sido ativado com a proteção do TPM.
 
-Importante: esta política de grupo é aplicável somente a computadores com uma configuração de firmware UEFI nativo. Computadores com BIOS ou firmware UEFI com um CSM (Módulo de Serviço de Compatibilidade) habilitado armazenam valores diferentes nos PCRs (Registros de Configuração de Plataforma). Use a configuração de política de grupo "Configurar perfil de validação de plataforma TPM para configurações de firmware com base em BIOS" para configurar o perfil TPM PCR para computadores com configurações de BIOS ou firmware UEFI com um CSM habilitado.
+Importante: esta política de grupo só se aplica a computadores com uma configuração de firmware UEFI nativa. Os computadores com BIOS ou firmware UEFI com um módulo de serviço de compatibilidade (CSM) habilitado armazenam valores diferentes nos registros de configuração de plataforma (PCRs). Use a configuração de política de grupo "Configurar perfil de validação de plataforma TPM para configurações de firmware com base em BIOS" para configurar o perfil de PCR do TPM para computadores com configurações de BIOS ou computadores com firmware UEFI com um CSM habilitado.
 
-Se você habilitar essa configuração de política antes de ativar o BitLocker, poderá configurar os componentes de inicialização que o TPM validará antes de desbloquear o acesso à unidade do sistema operacional criptografada por BitLocker. Se algum desses componentes for alterado enquanto a proteção do BitLocker estiver ativa, o TPM não liberará a chave de criptografia para desbloquear a unidade, e o computador exibirá o console de Recuperação do BitLocker e exigirá que a senha ou a chave de recuperação seja informada para desbloquear a unidade.
+Se você habilitar essa configuração de política antes de ativar o BitLocker, poderá configurar os componentes de inicialização que o TPM validará antes de desbloquear o acesso à unidade de sistema operacional criptografada com BitLocker. Se algum desses componentes mudar enquanto a proteção do BitLocker estiver em vigor, o TPM não liberará a chave de criptografia para desbloquear a unidade e o computador exibirá o console de Recuperação do BitLocker e exigirá que a senha de recuperação ou a chave de recuperação seja fornecida para desbloquear a unidade.
 
-Se você desabilitar ou não definir essa configuração de política, o BitLocker usará o perfil de validação de plataforma padrão ou o perfil de validação de plataforma especificado pelo script de configuração. Um perfil de validação de plataforma consiste em um conjunto de índices de PCR (Registro de Configuração de Plataforma) que variam de 0 a 23. O perfil de validação de plataforma padrão protege a chave de criptografia contra alterações no código executável de firmware de sistema principal (PCR 0), código executável estendido ou conectável (PCR 2), gerenciador de inicialização (PCR 4) e controle de acesso do BitLocker (PCR 11).
+Se você desabilitar ou não definir essa configuração de política, o BitLocker usará o perfil de validação de plataforma padrão para o hardware disponível ou o perfil de validação de plataforma especificado pelo script de instalação. Um perfil de validação de plataforma consiste em um conjunto de índices de registro de configuração de plataforma (PCR) que variam de 0 a 23. 
 
-Aviso: a alteração do perfil de validação de plataforma padrão afetará a segurança e a capacidade de gerenciamento do seu computador. A sensibilidade do BitLocker às modificações de plataforma (mal-intencionadas ou autorizadas) aumenta ou diminui à medida que os PCRs são incluídos ou excluídos (respectivamente). Especificamente, configurar essa política com o PCR 7 omitido substitui a política de grupo "Permitir Inicialização Segura para validação de integridade", impedindo assim que o BitLocker use a Inicialização Segura para plataforma ou a validação de integridade de BCD (Dados de Configuração da Inicialização). A configuração dessa política pode resultar na recuperação de BitLocker quando o firmware é atualizado. Se você configurar essa política para incluir o PCR 0, suspenda o BitLocker antes de aplicar atualizações de firmware.
-      
+Em PCs que não têm suporte para Estado de Inicialização Segura (PCR 7), o perfil de validação da plataforma padrão protege a chave da criptografia contra mudanças no código executável do firmware do sistema principal (PCR 0), no código executável estendido ou conectável (PCR 2), no gerenciador de inicialização (PCR 4) e no controle de acesso do BitLocker (PCR 11).
+
+Quando o suporte para Estado de Inicialização Segura (PCR7) está disponível, o perfil de validação de plataforma padrão protege a chave de criptografia usando o Estado de Inicialização Segura (PCR7) e o controle de acesso do BitLocker (PCR 11). 
+
+Aviso: mudar do perfil de validação de plataforma padrão afeta a segurança e a capacidade de gerenciamento do computador. A sensibilidade do BitLocker a modificações de plataforma (mal-intencionadas ou autorizadas) aumenta ou diminui dependendo da inclusão ou da exclusão (respectivamente) dos PCRs. Especificamente, definir esta política com PCR 7 omitido irá substituir a política de grupo "Permitir Inicialização Segura para validação de integridade", impedindo o BitLocker de usar a Inicialização Segura para validação de integridade da plataforma ou dos Dados de Configuração da Inicialização (BCD). Definir esta política pode resultar na recuperação do BitLocker quando o firmware for atualizado. Se você definir esta política para incluir PCR 0, suspenda o BitLocker antes de aplicar as atualizações de firmware.
+
+É recomendável não configurar esta política, para permitir que o Windows selecione o perfil de PCR para a melhor combinação de segurança e usabilidade com base no hardware disponível em cada PC.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configurar perfil de validação de plataforma TPM para configurações de firmware UEFI nativo</string>
@@ -311,6 +313,13 @@ Se você desabilitar ou não definir essa configuração de política, os segred
 
       </string>
       <string id="MorBehavior_Name">Evitar substituição de memória ao reiniciar</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Esta configuração de política permite bloquear o DMA (acesso direto à memória) para todas as portas PCI Thunderbolt de downstream hot plug até que um usuário faça logon no Windows. Depois que um usuário fizer logon, o Windows vai enumerar os dispositivos PCI conectados às portas PCI Thunderbolt host. Sempre que o usuário bloquear a máquina, o DMA será bloqueado em portas PCI Thunderbolt hot plug sem dispositivos filho, até que o usuário faça logon novamente. Os dispositivos já enumerados quando a máquina foi desbloqueada continuarão a funcionar até que sejam desconectados ou se o sistema for reiniciado ou hibernado. Esta configuração de política será imposta somente quando a criptografia BitLocker ou de dispositivo estiver habilitada.
+
+Observação: alguns computadores podem não ser compatíveis com esta política caso o firmware do sistema permitir o DMA para dispositivos Thunderbolt recentemente conectados antes de expor os novos dispositivos ao Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Desabilitar novos dispositivos DMA quando este computador estiver bloqueado</string>
 
       <string id="FVEOSCategory">Unidades do Sistema Operacional</string>
       <string id="FVEFDVCategory">Unidades de Dados Fixas</string>
@@ -373,26 +382,25 @@ A configuração que controla a depuração de inicialização (0x16000010) semp
 
 
       <string id="MinimumPINLength_Name">Configurar tamanho mínimo do PIN para inicialização</string>
-      <string id="MinimumPINLength_Help">Essa configuração de política permite configurar um tamanho mínimo para um PIN de inicialização do TPM. Essa configuração de política é aplicada ao ativar o BitLocker. O PIN de inicialização deve ter um tamanho mínimo de 4 dígitos e pode ter um tamanho máximo de 20 dígitos.
+      <string id="MinimumPINLength_Help">
+          Essa configuração de política permite configurar um tamanho mínimo para um PIN de inicialização do TPM. Essa configuração de política é aplicada ao ativar o BitLocker. O PIN de inicialização deve ter um tamanho mínimo de 4 dígitos e pode ter um tamanho máximo de 20 dígitos.
 
-Se você habilitar essa configuração de política, poderá exigir um número mínimo de dígitos a serem usados ao configurar o PIN de inicialização.
+          Se você habilitar essa configuração de política, poderá exigir um número mínimo de dígitos a serem usados ao configurar o PIN de inicialização.
 
-Se você desabilitar ou não definir essa configuração de política, os usuários poderão configurar um PIN de inicialização com tamanho entre 4 e 20 dígitos.
+          Se você desabilitar ou não definir essa configuração de política, os usuários poderão configurar um PIN de inicialização com tamanho entre 6 e 20 dígitos.
 
-      
+          OBSERVAÇÃO: se o tamanho mínimo do PIN for definido abaixo de 6 dígitos, o Windows tentará atualizar o período de bloqueio do TPM 2.0 acima do padrão quando um PIN for alterado. Se bem-sucedido, o Windows redefinirá o período de bloqueio do TPM para o padrão somente se o TPM for redefinido.
 
       </string>
 
       <string id="OSAllowDRA_Name">Permitir agentes de recuperação de dados com base em certificado</string>
 
       <string id="FDVDenyWriteAccess_Name">Negar acesso de gravação a unidades fixas não protegidas por BitLocker</string>
-      <string id="FDVDenyWriteAccess_Help">Essa configuração de política determina se a proteção do BitLocker é necessária para que unidades de dados fixas sejam graváveis em um computador. Essa configuração de política é aplicada ao ativar o BitLocker.
+      <string id="FDVDenyWriteAccess_Help">Essa configuração de política determina se a proteção do BitLocker é necessária para que unidades de dados fixas sejam graváveis em um computador. Essa configuração de política é aplicada ao ativar o BitLocke.
 
 Se você habilitar essa configuração de política, todas as unidades de dados fixas que não estiverem protegidas por BitLocker serão montadas como somente leitura. Se a unidade estiver protegida por BitLocker, ela será montada com acesso de leitura e gravação.
 
 Se você desabilitar ou não definir essa configuração de política, todas as unidades de dados fixas no computador serão montadas com acesso de leitura e gravação.
-
-      
 
       </string>
 
@@ -630,49 +638,46 @@ Se você desabilitar ou não definir essa configuração de política, os usuár
 
       <string id="RDVEDrive_Name">Configurar uso da criptografia com base em hardware para unidades de dados removíveis</string>
 
-      <string id="OSEDrive_Help">Esta configuração de política permite gerenciar o uso da criptografia com base em hardware do BitLocker em unidades do sistema operacional e especificar quais algoritmos de criptografia poderão ser usados com a criptografia com base em hardware. O uso da criptografia com base em hardware pode melhorar o desempenho das operações de unidade que envolvem leitura ou gravação frequente de dados na unidade.
+      <string id="OSEDrive_Help">Essa configuração de política permite que você gerencie o uso de criptografia baseada em hardware do BitLocker em unidades do sistema operacional e especifique quais algoritmos de criptografia podem ser usados com a criptografia baseada em hardware. Usar a criptografia baseada em hardware pode melhorar o desempenho das operações de unidades que envolvem leitura ou gravação frequente de dados na unidade.
 
-Se você habilitar essa configuração de política, poderá especificar opções adicionais que controlam se a criptografia com base em software do BitLocker será usada no lugar da criptografia com base em hardware em computadores não compatíveis com a criptografia com base em hardware e se deseja restringir os algoritmos de criptografia e os pacotes de codificação usados com a criptografia com base em hardware.
+Se você habilitar essa configuração de política, poderá especificar opções adicionais que controlam se a criptografia baseada em software do BitLocker é usada em vez de criptografia baseada em hardware em computadores que não dão suporte à criptografia baseada em hardware e se você deseja restringir os algoritmos de criptografia e pacotes de codificação usados com criptografia baseada em hardware.
 
-Se você desabilitar essa configuração de política, o BitLocker não poderá usar a criptografia com base em hardware em unidades do sistema operacional e a criptografia com base em software do BitLocker será usada por padrão quando a unidade for criptografada.
+Se você desabilitar essa configuração de política, o BitLocker não poderá usar a criptografia baseada em hardware com unidades do sistema operacional, e a criptografia baseada em software do BitLocker será usada por padrão quando a unidade for criptografada.
 
-Se você não definir essa configuração de política, o BitLocker usará a criptografia com base em hardware com o algoritmo de criptografia definido para a unidade. Se a criptografia com base em hardware não estiver disponível, a criptografia com base em software do BitLocker será usada.
+Se você não definir essa configuração de política, o BitLocker usará a criptografia baseada em software, independentemente da disponibilidade da criptografia baseada em hardware.
 
-Observação: a configuração de política “Escolher método de criptografia da unidade e nível de codificação” não é aplicável à criptografia com base em hardware. O algoritmo usado pela criptografia com base em hardware é definido quando a unidade é particionada. Por padrão, o BitLocker usa o algoritmo configurado na unidade para criptografá-la. A opção “Restringir algoritmos de criptografia e pacotes de codificação permitidos para a criptografia com base em hardware” permite restringir os algoritmos de criptografia que o BitLocker pode usar com a criptografia de hardware. Se o algoritmo definido para a unidade não estiver disponível, o BitLocker desabilitará o uso da criptografia com base em hardware.
-Os algoritmos de criptografia são especificados por OIDs (Identificadores de Objetos). Por Exemplo:
-- OID do AES para chaves de 128 bits no modo CBC: 2.16.840.1.101.3.4.1.2
-- OID do AES para chaves de 256 bits no modo CBC: 2.16.840.1.101.3.4.1.42
-      
+Observação: a configuração de política "Escolher método de criptografia de unidade e nível de codificação" não se aplica à criptografia baseada em hardware. O algoritmo de criptografia usado pela criptografia baseada em hardware é definido quando a unidade é particionada. Por padrão, o BitLocker usa o algoritmo configurado na unidade para criptografar a unidade. A opção "Restringir algoritmos de criptografia e pacotes de codificação permitidos para criptografia baseada em hardware" permite que você restrinja os algoritmos de criptografia que o BitLocker pode usar com a criptografia de hardware. Se o conjunto de algoritmos da unidade não estiver disponível, o BitLocker desabilitará o uso de criptografia baseada em hardware.
+Algoritmos de criptografia especificados por identificadores de objeto (OID). Por exemplo:
+- AES 128 no OID de modo CBC: 2.16.840.1.101.3.4.1.2
+- AES 256 no OID de modo CBC: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="FDVEDrive_Help">Esta configuração de política permite gerenciar o uso da criptografia com base em hardware do BitLocker em unidades de dados fixas e especificar quais algoritmos de criptografia poderão ser usados com a criptografia com base em hardware. O uso da criptografia com base em hardware pode melhorar o desempenho das operações de unidade que envolvem leitura ou gravação frequente de dados na unidade.
+      <string id="FDVEDrive_Help">Essa configuração de política permite que você gerencie o uso de criptografia baseada em hardware do BitLocker em unidades de dados fixas e especifique quais algoritmos de criptografia podem ser usados com a criptografia baseada em hardware. Usar a criptografia baseada em hardware pode melhorar o desempenho das operações de unidades que envolvem leitura ou gravação frequente de dados na unidade.
 
-Se você habilitar essa configuração de política, poderá especificar opções adicionais que controlam se a criptografia com base em software do BitLocker será usada no lugar da criptografia com base em hardware em computadores não compatíveis com a criptografia com base em hardware e se deseja restringir os algoritmos de criptografia e os pacotes de codificação usados com a criptografia com base em hardware.
+Se você habilitar essa configuração de política, poderá especificar opções adicionais que controlam se a criptografia baseada em software do BitLocker é usada em vez de criptografia baseada em hardware em computadores que não dão suporte à criptografia baseada em hardware e se você deseja restringir os algoritmos de criptografia e pacotes de codificação usados com criptografia baseada em hardware.
 
-Se você desabilitar essa configuração de política, o BitLocker não poderá usar a criptografia com base em hardware em unidades do sistema operacional e a criptografia com base em software do BitLocker será usada por padrão quando a unidade for criptografada.
+Se você desabilitar essa configuração de política, o BitLocker não poderá usar a criptografia baseada em hardware com unidades do sistema operacional, e a criptografia baseada em software do BitLocker será usada por padrão quando a unidade for criptografada.
 
-Se você não definir essa configuração de política, o BitLocker usará a criptografia com base em hardware com o algoritmo de criptografia definido para a unidade. Se a criptografia com base em hardware não estiver disponível, a criptografia com base em software do BitLocker será usada.
+Se você não definir essa configuração de política, o BitLocker usará a criptografia baseada em software, independentemente da disponibilidade da criptografia baseada em hardware.
 
-Observação: a configuração de política “Escolher método de criptografia da unidade e nível de codificação” não é aplicável à criptografia com base em hardware. O algoritmo usado pela criptografia com base em hardware é definido quando a unidade é particionada. Por padrão, o BitLocker usa o algoritmo configurado na unidade para criptografá-la. A opção “Restringir algoritmos de criptografia e pacotes de codificação permitidos para a criptografia com base em hardware” permite restringir os algoritmos de criptografia que o BitLocker pode usar com a criptografia de hardware. Se o algoritmo definido para a unidade não estiver disponível, o BitLocker desabilitará o uso da criptografia com base em hardware.
-Os algoritmos de criptografia são especificados por OIDs (Identificadores de Objetos). Por Exemplo:
-- OID do AES para chaves de 128 bits no modo CBC: 2.16.840.1.101.3.4.1.2
-- OID do AES para chaves de 256 bits no modo CBC: 2.16.840.1.101.3.4.1.42
-      
+Observação: a configuração de política "Escolher método de criptografia de unidade e nível de codificação" não se aplica à criptografia baseada em hardware. O algoritmo de criptografia usado pela criptografia baseada em hardware é definido quando a unidade é particionada. Por padrão, o BitLocker usa o algoritmo configurado na unidade para criptografar a unidade. A opção "Restringir algoritmos de criptografia e pacotes de codificação permitidos para criptografia baseada em hardware" permite que você restrinja os algoritmos de criptografia que o BitLocker pode usar com a criptografia de hardware. Se o conjunto de algoritmos da unidade não estiver disponível, o BitLocker desabilitará o uso de criptografia baseada em hardware.
+Algoritmos de criptografia especificados por identificadores de objeto (OID). Por exemplo:
+- AES 128 no OID de modo CBC: 2.16.840.1.101.3.4.1.2
+- AES 256 no OID de modo CBC: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="RDVEDrive_Help">Esta configuração de política permite gerenciar o uso da criptografia com base em hardware do BitLocker em unidades de dados removíveis e especificar quais algoritmos de criptografia poderão ser usados com a criptografia com base em hardware. O uso da criptografia com base em hardware pode melhorar o desempenho das operações de unidade que envolvem leitura ou gravação frequente de dados na unidade.
+      <string id="RDVEDrive_Help">Essa configuração de política permite que você gerencie o uso de criptografia baseada em hardware do BitLocker em unidades de dados removíveis e especifique quais algoritmos de criptografia podem ser usados com a criptografia baseada em hardware. Usar a criptografia baseada em hardware pode melhorar o desempenho das operações de unidades que envolvem leitura ou gravação frequente de dados na unidade.
 
-Se você habilitar essa configuração de política, poderá especificar opções adicionais que controlam se a criptografia com base em software do BitLocker será usada no lugar da criptografia com base em hardware em computadores não compatíveis com a criptografia com base em hardware e se deseja restringir os algoritmos de criptografia e os pacotes de codificação usados com a criptografia com base em hardware.
+Se você habilitar essa configuração de política, poderá especificar opções adicionais que controlam se a criptografia baseada em software do BitLocker é usada em vez de criptografia baseada em hardware em computadores que não dão suporte à criptografia baseada em hardware e se você deseja restringir os algoritmos de criptografia e pacotes de codificação usados com criptografia baseada em hardware.
 
-Se você desabilitar essa configuração de política, o BitLocker não poderá usar a criptografia com base em hardware em unidades do sistema operacional e a criptografia com base em software do BitLocker será usada por padrão quando a unidade for criptografada.
+Se você desabilitar essa configuração de política, o BitLocker não poderá usar a criptografia baseada em hardware com unidades do sistema operacional, e a criptografia baseada em software do BitLocker será usada por padrão quando a unidade for criptografada.
 
-Se você não definir essa configuração de política, o BitLocker usará a criptografia com base em hardware com o algoritmo de criptografia definido para a unidade. Se a criptografia com base em hardware não estiver disponível, a criptografia com base em software do BitLocker será usada.
+Se você não definir essa configuração de política, o BitLocker usará a criptografia baseada em software, independentemente da disponibilidade da criptografia baseada em hardware.
 
-Observação: a configuração de política “Escolher método de criptografia da unidade e nível de codificação” não é aplicável à criptografia com base em hardware. O algoritmo usado pela criptografia com base em hardware é definido quando a unidade é particionada. Por padrão, o BitLocker usa o algoritmo configurado na unidade para criptografá-la. A opção “Restringir algoritmos de criptografia e pacotes de codificação permitidos para a criptografia com base em hardware” permite restringir os algoritmos de criptografia que o BitLocker pode usar com a criptografia de hardware. Se o algoritmo definido para a unidade não estiver disponível, o BitLocker desabilitará o uso da criptografia com base em hardware.
-Os algoritmos de criptografia são especificados por OIDs (Identificadores de Objetos). Por Exemplo:
-- OID do AES para chaves de 128 bits no modo CBC: 2.16.840.1.101.3.4.1.2
-- OID do AES para chaves de 256 bits no modo CBC: 2.16.840.1.101.3.4.1.42
-      
+Observação: a configuração de política "Escolher método de criptografia de unidade e nível de codificação" não se aplica à criptografia baseada em hardware. O algoritmo de criptografia usado pela criptografia baseada em hardware é definido quando a unidade é particionada. Por padrão, o BitLocker usa o algoritmo configurado na unidade para criptografar a unidade. A opção "Restringir algoritmos de criptografia e pacotes de codificação permitidos para criptografia baseada em hardware" permite que você restrinja os algoritmos de criptografia que o BitLocker pode usar com a criptografia de hardware. Se o conjunto de algoritmos da unidade não estiver disponível, o BitLocker desabilitará o uso de criptografia baseada em hardware.
+Algoritmos de criptografia especificados por identificadores de objeto (OID). Por exemplo:
+- AES 128 no OID de modo CBC: 2.16.840.1.101.3.4.1.2
+- AES 256 no OID de modo CBC: 2.16.840.1.101.3.4.1.42
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">Habilitar uso da autenticação do BitLocker que exige entrada de teclado pré-inicialização em slates</string>
@@ -691,10 +696,18 @@ Observe que, se você não habilitar essa configuração de política, as opçõ
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Permitir que dispositivos compatíveis com InstantGo ou HSTI recusem a pré-inicialização PIN.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Essa configuração de política permite que os usuários que usem dispositivos compatíveis com InstantGo ou HSTI (Microsoft Hardware Security Test Interface) não ter um PIN para autenticação de pré-inicialização. Isso substitui as opções "Exigir PIN de inicialização com TPM" e "Exigir chave de inicialização e PIN com TPM" da política "Exigir autenticação adicional na inicialização" no hardware compatível.
+
+Se você habilitar essa configuração de política, os usuários com dispositivos compatíveis InstantGo e HSTI terão a opção de ativar o BitLocker sem autenticação de pré-inicialização.
+
+Se essa política não estiver habilitada, a opção de política "Exigir autenticação adicional na inicialização" será aplicada.
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Permitir Inicialização Segura para validação de integridade</string>
       <string id="AllowSecureBootForIntegrity_Help">Esta configuração de política permite configurar se a Inicialização Segura poderá funcionar como provedor de integridade da plataforma para unidades do sistema operacional do BitLocker.
 
-A Inicialização Segura garante que o ambiente pré-inicialização do computador só carregará firmwares digitalmente assinados por editores de software autorizados. A Inicialização Segura também fornece mais flexibilidade para gerenciar a configuração pré-inicialização do que as verificações de integridade herdadas do BitLocker.
+A Inicialização Segura garante que o ambiente pré-inicialização do computador só carregará firmwares digitalmente assinados por fornecedores de software autorizados. A Inicialização Segura também fornece mais flexibilidade para gerenciar a configuração pré-inicialização do que as verificações de integridade herdadas do BitLocker.
 
 Se você habilitar ou não definir essa configuração de política, o BitLocker usará Inicialização Segura para integridade de plataforma se a plataforma for compatível com a validação de integridade com base na Inicialização Segura.
 
@@ -968,7 +981,7 @@ Observação: nem todos os caracteres e idiomas têm suporte em pré-inicializa�
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Mínimo de caracteres:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Mínimo de caracteres:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

@@ -38,6 +38,33 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittä
       <string id="Cost_DropDownList_Unrestricted">Rajoittamaton</string>
       <string id="Cost_DropDownList_Fixed">Kiinteä</string>
       <string id="Cost_DropDownList_Variable">Muuttuja</string>
+      <string id="UISettings_Category">WWAN-käyttöliittymäasetukset</string>
+      <string id="ShowAppCellularAccessUI">Määritä sovelluskohtaisen matkapuhelinverkon datayhteyden käytön käyttöliittymän näkyvyys</string>
+      <string id="ShowAppCellularAccessUI_Help">Tämä käytäntöasetus määrittää, näkyykö sovelluskohtaisen matkapuhelinverkon datayhteyden käytön linkki matkapuhelinverkon asetusten käyttöliittymässä.
+
+Jos tämä käytäntöasetus on käytössä, käytössä on avattava luetteloruutu, jossa on mahdollisia arvoja. Valitsemalla Piilota tai Näytä voit piilottaa tai näyttää sovelluskohtaisen matkapuhelinverkon datayhteyden käytön hallintasivun linkin. Jos tämä käytäntöasetus on poissa käytöstä tai sitä ei määritetä, sovelluskohtaisen matkapuhelinverkon datayhteyden käytön linkki näytetään oletusarvon mukaan.
+      </string>
+      <string id="ShowAppCellularAccessUI_Option_Hide">Piilota</string>
+      <string id="ShowAppCellularAccessUI_Option_Show">Näytä</string>
+      <string id="CellularDataAccess">Matkapuhelinverkon datayhteyden käyttö</string>
+      <string id="UserInControl">Hallinta on käyttäjällä</string>
+      <string id="ForceAllow">Pakota salliminen</string>
+      <string id="ForceDeny">Pakota estäminen</string>
+      <string id="LetAppsAccessCellularData_Name">Anna Windows-sovellusten käyttää matkapuhelinverkon datayhteyttä</string>
+      <string id="LetAppsAccessCellularData_Explain">Tämä käytäntöasetus määrittää, voivatko Windows-sovellukset käyttää matkapuhelinverkon datayhteyttä.
+
+Voit määrittää joko oletusasetuksen kaikille sovelluksille tai sovelluskohtaisen asetuksen määrittämällä pakettiperheen nimen. Voit selvittää sovelluksen pakettiperheen nimen käyttämällä Windows PowerShellin cmdlet-komentoa Get-AppPackage. Sovelluskohtainen asetus korvaa oletusasetuksen.
+
+Jos valitset Hallinta on käyttäjällä -vaihtoehdon, organisaation työntekijät voivat valitsemalla laitteessa Asetukset &gt; Verkko ja Internet &gt; Matkapuhelinverkko määrittää itse, voivatko Windows-sovellukset käyttää matkapuhelinverkon datayhteyttä.
+
+Jos valitset Pakota salliminen -vaihtoehdon, Windows-sovellukset voivat käyttää matkapuhelinverkon datayhteyttä eivätkä organisaation työntekijät voi muuttaa tätä.
+
+Jos valitset Pakota estäminen -vaihtoehdon, Windows-sovellukset eivät voi käyttää matkapuhelinverkon datayhteyttä eivätkä organisaation työntekijät voi muuttaa tätä.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, organisaation työntekijät voivat valitsemalla laitteessa Asetukset &gt; Verkko ja Internet &gt; Matkapuhelinverkko määrittää, voivatko Windows-sovellukset käyttää matkapuhelinverkon datayhteyttä.
+
+Jos sovellus on avoinna, kun tämä ryhmäkäytäntöobjekti otetaan käyttöön laitteessa, työntekijöiden on käynnistettävä sovellus tai laite uudelleen, jotta käytäntömuutokset tulevat käyttöön sovellukseen.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="SetCost3G_Presentation">
@@ -45,6 +72,18 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittä
       </presentation>
       <presentation id="SetCost4G_Presentation">
         <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Valitse määritettävä 4G-yhteyden kustannuksen arvo:</dropdownList>
+      </presentation>
+      <presentation id="ShowAppCellularAccessUI_Presentation">
+        <dropdownList refId="ShowAppCellularAccessUI_Option" defaultItem="1">Valitse määritettävä asetus:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessCellularData">
+        <dropdownList refId="LetAppsAccessCellularData_Enum" noSort="true" defaultItem="0">Oletusarvo kaikille sovelluksille:</dropdownList>
+        <text>Anna käyttäjän hallita näitä tiettyjä sovelluksia (käytä pakettiperheiden nimiä):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_UserInControlOfTheseApps_List"/>
+        <text>Pakota näiden tiettyjen sovellusten salliminen (käytä pakettiperheiden nimiä):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceAllowTheseApps_List"/>
+        <text>Pakota näiden tiettyjen sovellusten estäminen (käytä pakettiperheiden nimiä):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

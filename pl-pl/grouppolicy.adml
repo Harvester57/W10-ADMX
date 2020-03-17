@@ -12,6 +12,32 @@
       <string id="FontMitigation_Off">Nie blokuj niezaufanych czcionek</string>
       <string id="FontMitigation_Audit">Rejestruj zdarzenia, ale nie blokuj niezaufanych czcionek</string>
 
+	  <string id="ProcessMitigationOptions_List">Opcje ograniczania ryzyka procesów</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Ta funkcja zabezpieczeń umożliwia zastępowanie poszczególnych ustawień opcji ograniczania ryzyka procesów. Służy ona do wymuszania różnych zasad zabezpieczeń dla określonych aplikacji. Nazwa aplikacji jest określana jako nazwa wartości (wraz z rozszerzeniem). Wartość jest określana jako pole bitowe z flagami na odpowiednich pozycjach. Bity mogą przyjmować wartości 0 (wymuszone wyłączenie ustawienia), 1 (wymuszone włączenie ustawienia) lub ? (ustawienie zachowuje wartość istniejącą przed wyznaczeniem wartości obiektu zasad grupy). Rozpoznawane lokalizacje bitów:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Włącza zapobieganie wykonywaniu danych dla procesu podrzędnego.
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Włącza emulację wywołania 32-bitowego DEP-ATL dla procesu podrzędnego. Emulacja wywołania 32-bitowego DEP-ATL powoduje przechwytywanie przez system błędów NX pochodzących z warstwy wywołań 32-bitowych biblioteki ATL.
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Włącza funkcję ochrony przed zastępowaniem strukturalnej obsługi wyjątków (SEHOP) dla procesu podrzędnego. Funkcja SEHOP blokuje możliwość wykorzystania luk z użyciem techniki zastępowania strukturalnej obsługi wyjątków (SEH).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Zasady losowego generowania układu przestrzeni adresowej (ASLR) wymuszają zmianę bazy obrazów niezgodnych z bazą dynamiczną, symulując konflikt baz obrazów podczas ładowania. Jeśli wymagane są relokacje, obrazy bez sekcji relokacji bazy nie zostaną załadowane.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Zasady generowania losowego od dołu do góry, które uwzględniają opcje generowania losowego stosu, powodują używanie losowej lokalizacji jako najniższego adresu użytkownika.
+
+        Na przykład w celu włączenia ustawień PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE oraz PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON należy wyłączyć ustawienie PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, a w celu pozostawienia wartości domyślnych wszystkich pozostałych opcji należy podać wartość:
+        ???????????????0???????1???????1
+
+        Ustawienie niewymienionych tutaj flag na wartości inne niż ? spowoduje niezdefiniowane zachowanie.
+</string>
+
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Włącz synchronizację kontrolera domeny AD/DFS podczas odświeżania zasad</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Włączenie tego ustawienia spowoduje połączenie klienta zasad grupy z tym samym kontrolerem domeny dla udziałów DFS, który jest używany w przypadku usługi Active Directory.
 
@@ -24,21 +50,60 @@
 
 
 </string>
+      <string id="EnableCDP">Ciągłość środowiska na tym urządzeniu</string>
+      <string id="EnableCDP_Help">
+To ustawienie zasad określa, czy urządzenie z systemem Windows może być częścią środowiska wielu urządzeń (ciągłość środowiska).
+
+Jeśli to ustawienie zasad zostanie włączone, urządzenie z systemem Windows będzie możliwe do wykrycia przez inne urządzenia z systemem Windows należące do tego samego użytkownika oraz będzie mogło być częścią środowiska wielu urządzeń.
+
+Jeśli to ustawienie zasad zostanie wyłączone, urządzenie z systemem Windows nie będzie możliwe do wykrycia przez inne urządzenia z systemem Windows i nie będzie mogło być częścią środowiska wielu urządzeń.
+
+Jeśli to ustawienie zasad nie zostanie skonfigurowane, działanie domyślne będzie zależne od wersji systemu Windows. Zmiany tego ustawienia zasad są stosowane po ponownym uruchomieniu.
+      </string>
+      <string id="EnableMMX">Połączenie telefon-komputer na tym urządzeniu</string>
+      <string id="EnableMMX_Help">
+Ta zasada umożliwia administratorom wyłączenie możliwości połączenia telefonu z komputerem w celu kontynuowania czytania, wysyłania wiadomości e-mail i wykonywania innych zadań wymagających połączenia między telefonem a komputerem.
+
+Jeśli włączysz to ustawienie zasad, urządzenie z systemem Windows będzie mogło zarejestrować się w funkcji połączenia telefon-komputer i będzie można używać go w funkcji Kontynuuj na komputerze.
+
+Jeśli wyłączysz to ustawienie zasad, urządzenie z systemem Windows nie będzie mogło być łączone z telefonami, usunie się z listy urządzeń na wszystkich połączonych telefonach i nie będzie można używać go w funkcji Kontynuuj na komputerze.
+
+Jeśli nie skonfigurujesz tego ustawienia zasad, zachowanie domyślne będzie zależne od wersji systemu Windows. Zmiany tej zasady zaczynają obowiązywać po ponownym rozruchu.
+      </string>
+      <string id="EnableAppUriHandlers">Konfiguruj połączenia sieć web-aplikacja z użyciem programów obsługi identyfikatorów URI aplikacji</string>
+      <string id="EnableAppUriHandlers_Help">
+To ustawienie zasad określa, czy system Windows obsługuje połączenia sieć web-aplikacja z użyciem programów obsługi identyfikatorów URI aplikacji.
+
+Włączenie tego ustawienia zasad spowoduje włączenie połączeń sieć web-aplikacja, dzięki czemu będzie można uruchamiać aplikacje przy użyciu identyfikatorów URI protokołu HTTP(S).
+
+Wyłączenie tej zasady spowoduje wyłączenie połączeń sieć web-aplikacja, przez co identyfikatory URI protokołu HTTP(S) będą otwierane w przeglądarce domyślnej, zamiast powodować uruchomienie skojarzonych aplikacji.
+
+Jeśli nie skonfigurujesz tego ustawienia zasad, zachowanie domyślne będzie zależne od wersji systemu Windows. Zmiany w tej zasadzie zaczynają obowiązywać po ponownym rozruchu.
+      </string>
+      <string id="Fonts">Czcionki</string>
+      <string id="EnableFontProviders">Włącz dostawców czcionek</string>
+      <string id="EnableFontProviders_Help">
+        To ustawienie zasad określa, czy system Windows może pobierać czcionki i dane wykazu czcionek od dostawcy czcionek online.
+
+        Jeśli włączysz to ustawienie zasad, system Windows będzie okresowo wysyłał zapytanie do dostawcy czcionek online w celu sprawdzenia, czy jest dostępny nowy wykaz czcionek. System Windows będzie również mógł pobierać dane czcionek, jeśli będzie to wymagane do formatowania lub renderowania tekstu.
+
+        Jeśli wyłączysz to ustawienie zasad, system Windows nie będzie łączyć się z dostawcą czcionek online i będzie wyliczać tylko lokalnie zainstalowane czcionki.
+
+        Jeśli nie skonfigurujesz tego ustawienia zasad, zachowanie domyślne będzie zależne od wersji systemu Windows. Zmiany tej zasady zaczynają obowiązywać po ponownym rozruchu.
+      </string>
       <string id="EnableLogonOptimization">Konfiguruj buforowanie zasad grupy</string>
       <string id="EnableLogonOptimization_Help">
-        
-        To ustawienie zasad pozwala skonfigurować zachowanie buforowania zasad grupy.
-        
-        Jeśli to ustawienie zasad zostanie włączone lub nie zostanie skonfigurowane, zasady grupy będą zapisywać w pamięci podręcznej informacje o zasadach po każdej sesji przetwarzania w tle. W tej pamięci podręcznej są zapisywane odpowiednie obiekty zasad grupy oraz zawarte w nich ustawienia. Gdy zasady grupy są uruchamiane w synchronicznym trybie pierwszoplanowym, odwołują się do tej pamięci podręcznej, dzięki czemu mogą działać szybciej. Podczas odczytywania pamięci podręcznej zasady grupy podejmują próbę nawiązania połączenia z kontrolerem domeny logowania w celu ustalenia szybkości linku. Gdy zasady grupy są uruchamiane w trybie pracy w tle lub w asynchronicznym trybie pierwszoplanowym, jest kontynuowane pobieranie najnowszej wersji informacji o zasadach i przy użyciu szacowanej przepustowości są ustalane progi powolnego linku. (Zobacz ustawienie zasad „Konfiguruj wykrywanie powolnego linku zasad grupy”, aby skonfigurować zachowanie asynchronicznego pierwszego planu).
-        
-        Wartość powolnego linku zdefiniowana w tym ustawieniu zasad określa, jak długo zasady grupy mają czekać na odpowiedź kontrolera domeny, zanim zaraportują szybkość linku jako powolną. Wartością domyślną jest 500 milisekund.
-        
-        Wartość limitu czasu zdefiniowana w tym ustawieniu zasad określa, jak długo zasady grupy mają czekać na odpowiedź kontrolera domeny przed ustaleniem braku połączenia z siecią. Powoduje to zatrzymanie bieżącego przetwarzania zasad grupy. Przy następnym ustanowieniu połączenia z kontrolerem domeny zasady grupy będą działać w tle. Ustawienie zbyt wysokiej wartości może spowodować dłuższe czasy oczekiwania użytkownika podczas uruchamiania lub logowania. Wartością domyślną jest 5000 milisekund.
-        
-        Jeśli to ustawienie zostanie wyłączone, klient zasad grupy nie będzie zapisywać w pamięci podręcznej odpowiednich obiektów zasad grupy ani zawartych w nich ustawień. Gdy zasady grupy są uruchamiane synchronicznie, z sieci jest pobierana najnowsza wersja zasad i przy użyciu szacowanej przepustowości są ustalane progi powolnego linku. (Zobacz ustawienie zasad „Konfiguruj wykrywanie powolnego linku zasad grupy”, aby skonfigurować zachowanie asynchronicznego pierwszego planu).
-      
+        To ustawienie zasad umożliwia skonfigurowanie zachowania buforowania zasad grupy.
+
+        Jeśli włączysz to ustawienie zasad, zasady grupy będą zapisywać w pamięci podręcznej informacje o zasadach po każdej sesji przetwarzania w tle. W tej pamięci podręcznej są zapisywane odpowiednie obiekty zasad grupy oraz zawarte w nich ustawienia. Gdy zasady grupy są uruchamiane w synchronicznym trybie pierwszoplanowym, odwołują się do tej pamięci podręcznej, dzięki czemu mogą działać szybciej. Podczas odczytywania pamięci podręcznej zasady grupy podejmują próbę nawiązania połączenia z kontrolerem domeny logowania w celu ustalenia szybkości linku. Gdy zasady grupy są uruchamiane w trybie pracy w tle lub w asynchronicznym trybie pierwszoplanowym, jest kontynuowane pobieranie najnowszej wersji informacji o zasadach i przy użyciu szacowanej przepustowości są ustalane progi powolnego linku. (Zobacz ustawienie zasad „Konfiguruj wykrywanie powolnego linku zasad grupy”, aby skonfigurować zachowanie asynchronicznego pierwszego planu).
+
+        Wartość powolnego linku zdefiniowana w tym ustawieniu zasad określa, jak długo zasady grupy mają czekać na odpowiedź kontrolera domeny, zanim zgłoszą szybkość linku jako powolną. Wartość domyślna to 500 milisekund.
+
+        Wartość limitu czasu zdefiniowana w tym ustawieniu zasad określa, jak długo zasady grupy mają czekać na odpowiedź kontrolera domeny przed ustaleniem braku łączności sieciowej. Powoduje to zatrzymanie bieżącego przetwarzania zasad grupy. Przy następnym ustanowieniu połączenia z kontrolerem domeny zasady grupy będą działać w tle. Ustawienie zbyt dużej wartości może spowodować dłuższe czasy oczekiwania użytkownika podczas rozruchu lub logowania. Wartość domyślna to 5000 milisekund.
+
+        Jeśli wyłączysz to ustawienie zasad, klient zasad grupy nie będzie zapisywać w pamięci podręcznej odpowiednich obiektów zasad grupy ani zawartych w nich ustawień. Gdy zasady grupy są uruchamiane synchronicznie, z sieci jest pobierana najnowsza wersja zasad i przy użyciu szacowanej przepustowości są ustalane progi powolnego linku. (Zobacz ustawienie zasad „Konfiguruj wykrywanie powolnego linku zasad grupy”, aby skonfigurować zachowanie asynchronicznego pierwszego planu).
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Włącz buforowanie zasad grupy dla serwerów</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -49,54 +114,48 @@
         Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, klient zasad grupy nie będzie zapisywać w pamięci podręcznej odpowiednich obiektów zasad grupy ani zawartych w nich ustawień. Gdy zasady grupy są uruchamiane synchronicznie, z sieci jest pobierana najnowsza wersja zasad i przy użyciu szacowanej przepustowości są ustalane progi powolnego linku. (Zobacz ustawienie zasad „Konfiguruj wykrywanie powolnego linku zasad grupy”, aby skonfigurować zachowanie asynchronicznego pierwszego planu).
       
       </string>
-      
+
       <string id="LogonScriptDelay">Konfiguruj opóźnienie skryptu logowania</string>
       <string id="LogonScriptDelay_Help">
-        
         Wprowadź wartość „0”, aby wyłączyć opóźnienie skryptu logowania.
-        
-        To ustawienie zasad umożliwia określenie, jak długo po zalogowaniu ma czekać klient zasad grupy przed uruchomieniem skryptów.
-        
+
+        To ustawienie zasad umożliwia określenie, jak długo po zalogowaniu ma czekać klient zasad grupy, zanim uruchomi skrypty.
+
         Domyślnie klient zasad grupy czeka pięć minut, zanim uruchomi skrypty logowania. Pomaga to w tworzeniu sprawnie działającego środowiska pulpitu dzięki zapobieganiu rywalizacji o dysk.
-        
-        Jeśli to ustawienie zasad zostanie włączone, zasady grupy będą uruchamiać skrypty logowania po określonym czasie.
-        
-        Jeśli to ustawienie zasad zostanie wyłączone, zasady grupy będą uruchamiać skrypty natychmiast po zalogowaniu.
-        
-        Jeśli to ustawienie zasad nie zostanie skonfigurowane, zasady grupy będą uruchamiać skrypty logowania po pięciu minutach.
-      
+
+        Jeśli włączysz to ustawienie zasad, zasady grupy będą uruchamiać skrypty logowania po upływie określonego czasu.
+
+        Jeśli wyłączysz to ustawienie zasad, zasady grupy będą uruchamiać skrypty natychmiast po zalogowaniu.
+
+        Jeśli nie skonfigurujesz tego ustawienia zasad, zasady grupy będą uruchamiać skrypty logowania po pięciu minutach.
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Konfiguruj połączenia funkcji DirectAccess jako szybkie połączenie sieciowe</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">To ustawienie zasad umożliwia administratorowi zdefiniowanie połączenia funkcji Direct Access jako szybkiego połączenia sieciowego na użytek stosowania i aktualizowania zasad grupy. 
- 
-Jeśli przepustowość połączenia funkcji Direct Access jest wykrywana przez zasady grupy, czasami może brakować informacji dotyczących szybkości transmisji. Jeśli zasady grupy wykryją przepustowość, działają zgodnie ze zwykłymi regułami oceny tego, czy połączenie funkcji Direct Access jest szybkim, czy powolnym połączeniem sieciowym. Jeśli przepustowość nie zostanie wykryta, zasady grupy domyślnie traktują połączenie jako powolne połączenie sieciowe. To ustawienie zasad umożliwia administratorowi zastąpienie tego domyślnego powolnego połączenia sieciowego przez szybkie połączenie sieciowe, jeśli nie można określić szybkości transmisji sieciowej.
- 
-Uwaga: jeśli zasady grupy wykryją powolne połączenie sieciowe, przetworzą tylko te rozszerzenia po stronie klienta, które zostały skonfigurowane do przetwarzania przez powolne łącze (powolne połączenie sieciowe).  
- 
-Jeśli to ustawienie zasad zostanie włączone, a zasady grupy nie mogą określić przepustowości połączenia funkcji Direct Access, zasady grupy ocenią połączenie sieciowe jako szybkie łącze i przetworzą wszystkie rozszerzenia po stronie klienta.
- 
-Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, zasady grupy ocenią połączenie sieciowe jako powolne łącze i przetworzą tylko te rozszerzenia po stronie klienta, które zostały skonfigurowane do przetwarzania przez powolne łącze.
-          
-      
-          
+      <string id="SlowLinkDefaultForDirectAccess_Help">To ustawienie zasad umożliwia administratorowi zdefiniowanie połączenia dostępu bezpośredniego jako szybkiego połączenia sieciowego na użytek stosowania i aktualizowania zasad grupy.
+
+Jeśli przepustowość połączenia dostępu bezpośredniego jest wykrywana przez zasady grupy, czasami może brakować informacji dotyczących przepustowości. Jeśli zasady grupy wykryją przepustowość, działają zgodnie ze zwykłymi regułami oceny tego, czy połączenie dostępu bezpośredniego jest szybkim, czy powolnym połączeniem sieciowym. Jeśli przepustowość nie zostanie wykryta, zasady grupy domyślnie traktują połączenie jako powolne połączenie sieciowe. To ustawienie zasad umożliwia administratorowi zastąpienie tego domyślnego powolnego połączenia sieciowego przez szybkie połączenie sieciowe, jeśli nie można określić przepustowości sieci.
+
+Uwaga: jeśli zasady grupy wykryją powolne połączenie sieciowe, przetworzą tylko te rozszerzenia po stronie klienta, które zostały skonfigurowane do przetwarzania przez powolny link (powolne połączenie sieciowe).
+
+Jeśli włączysz tę zasadę, a zasady grupy nie będą mogły określić przepustowości połączenia dostępu bezpośredniego, zasady grupy ocenią połączenie sieciowe jako szybki link i przetworzą wszystkie rozszerzenia po stronie klienta.
+
+Jeśli wyłączysz to ustawienie albo go nie skonfigurujesz, zasady grupy ocenią połączenie sieciowe jako powolny link i przetworzą tylko te rozszerzenia po stronie klienta, które zostały skonfigurowane do przetwarzania przez powolny link.
+
       </string>
      <string id="SlowlinkDefaultToAsync">Po wykryciu powolnego połączenia sieciowego zmień przetwarzanie zasad grupy na asynchroniczne</string>
-      <string id="SlowlinkDefaultToAsync_Help">Te zasady powodują, że po wykryciu powolnego połączenia sieciowego zasady grupy pomijają przetwarzanie wszystkich rozszerzeń po stronie klienta, które wymagają przetwarzania synchronicznego (czyli oczekiwania przez komputery na pełne zainicjowanie sieci podczas uruchamiania komputera i logowania użytkownika).  
- 
-Jeśli to ustawienie zasad zostanie włączone, po wykryciu powolnego połączenia sieciowego przetwarzanie zasad grupy zawsze będzie odbywać się w trybie asynchronicznym.
-Komputery klienckie nie będą czekać na pełne zainicjowanie sieci podczas uruchamiania i logowania. Istniejący użytkownicy będą logowani za pomocą buforowanych poświadczeń, 
-dzięki czemu logowanie będzie szybsze. Zasady grupy zostaną zastosowane w tle — po udostępnieniu połączenia sieciowego.   
+      <string id="SlowlinkDefaultToAsync_Help">Ta zasada powoduje, że po wykryciu powolnego połączenia sieciowego zasady grupy pomijają przetwarzanie wszystkich rozszerzeń po stronie klienta, które wymagają przetwarzania synchronicznego (czyli oczekiwania przez komputery na pełne zainicjowanie sieci podczas uruchamiania komputera i logowania użytkownika).
+
+Jeśli włączysz to ustawienie zasad, po wykryciu powolnego połączenia sieciowego przetwarzanie zasad grupy zawsze będzie odbywać się w trybie asynchronicznym.
+Komputery klienckie nie będą czekać na pełne zainicjowanie sieci podczas uruchamiania i logowania. Istniejący użytkownicy będą logowani za pomocą buforowanych poświadczeń,
+dzięki czemu logowanie będzie szybsze. Zasady grupy zostaną zastosowane w tle po udostępnieniu połączenia sieciowego.
 Z uwagi na to, że odświeżanie odbywa się w tle, rozszerzenia wymagające przetwarzania synchronicznego (na przykład rozszerzenia Instalacja oprogramowania i Przekierowanie folderu
 oraz rozszerzenie preferencji Mapowania dysków) nie zostaną zastosowane.
- 
-Uwaga: nawet jeśli to ustawienia zasad jest włączone, w dwóch sytuacjach zasady grupy będą przetwarzane synchronicznie:
+
+Uwaga: Nawet jeśli to ustawienie zasad jest włączone, w dwóch sytuacjach zasady grupy będą przetwarzane synchronicznie:
 1. Podczas pierwszego uruchomienia komputera następującego po przyłączeniu komputera klienckiego do domeny.
 2. Jeśli ustawienie zasad „Zawsze czekaj na sieć podczas uruchomienia komputera i logowania” jest włączone.
- 
-Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, wykrycie powolnego połączenia sieciowego nie będzie miało wpływu na tryb przetwarzania zasad grupy (synchroniczny lub asynchroniczny).
 
-      
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, wykrycie powolnego połączenia sieciowego nie będzie miało wpływu na tryb przetwarzania zasad grupy (synchroniczny lub asynchroniczny).
 
       </string>
       <string id="DisableLGPOProcessing">Wyłącz przetwarzanie lokalnych obiektów zasad grupy</string>
@@ -117,7 +176,7 @@ Uwaga: zdecydowanie zaleca się, aby w przypadku komputerów przyłączonych do 
 Jeśli to ustawienie zasad zostanie włączone, zasady grupy będą korzystać z tego maksymalnego czasu oczekiwania skonfigurowanego w trybie administracyjnym i zastąpią wszelkie ustawienia czasu oczekiwania — domyślne lub obliczone przez system.
 
 Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, zasady grupy na komputerach z systemem operacyjnym Windows Vista będą używać domyślnego czasu oczekiwania, wynoszącego 30 sekund. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Zezwalaj na zasady użytkownika między lasami i profile użytkowników mobilnych</string>
@@ -491,6 +550,12 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Opcje łagodzenia</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Opcje ograniczania ryzyka procesów</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Usługa systemu Windows buforowania czcionek musi mieć możliwość pobierania czcionek i danych wykazu czcionek od dostawców czcionek online.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Wartość powolnego połączenia:[pole liczbowe] milisekund</decimalTextBox>

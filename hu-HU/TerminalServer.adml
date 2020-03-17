@@ -143,6 +143,7 @@ Ha nem konfigurálja ezt a házirend-beállítást, a rendszer nem szabályozza 
       <string id="TS_CLIENT_HELP">Távoli asztali kapcsolat ügyfél beállításainak vezérlése</string>
       <string id="TS_CLIENT_LPT">LPT-port átirányításának tiltása</string>
       <string id="TS_CLIENT_PNP">A támogatott Plug and Play eszközök átirányításának tiltása</string>
+      <string id="TS_CAMERA_REDIRECTION">Videorögzítés átirányításának tiltása</string>
       <string id="TS_CLIENT_PRINTER">Ügyfélnyomtatóra történő átirányítás tiltása</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Ezzel a házirend-beállítással a vágólapon található tartalom távoli számítógép és ügyfélszámítógép közötti megosztását (vagyis a vágólap átirányítását) tilthatja le a Távoli asztal szolgáltatások munkamenetében.
 
@@ -197,6 +198,15 @@ Ha letiltja ezt a házirend-beállítást, a felhasználók átirányíthatják 
 Ha engedélyezi ezt a házirend-beállítást, a felhasználók nem irányíthatják át a támogatott Plug and Play eszközöket a távoli számítógépre. Ha nem konfigurálja a házirend-beállítást, a felhasználók csak abban az esetben irányíthatják át a támogatott Plug and Play eszközöket a távoli számítógépre, ha azon Windows Server 2012 R2 vagy korábbi verziójú rendszer fut.
 
 Megjegyzés: a támogatott Plug and Play eszközök egyes típusainak átirányítását a Számítógép konfigurációja\Felügyeleti sablonok\Rendszer\Eszköz telepítése\Eszköztelepítési korlátozások kategória házirend-beállításaival tilthatja le.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Ezzel a házirend-beállítással szabályozhatja a videorögzítő eszközök átirányítását a távoli számítógépre a Távoli asztali szolgáltatások munkameneteiben. 
+
+A Távoli asztali szolgáltatások alapértelmezés szerint engedélyezi a videorögzítő eszközök átirányítását.
+
+Ha engedélyezi ezt a házirend-beállítást, a felhasználók nem irányíthatják át videorögzítő eszközeiket a távoli számítógépre. 
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasználók átirányíthatják videorögzítő eszközeiket a távoli számítógépre. A felhasználók a Távoli asztali kapcsolat párbeszédpanel Helyi erőforrások lapján található Egyebek gombra kattintva választhatják ki a távoli számítógépre átirányítani kívánt videorögzítő eszközöket.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Ezzel a házirend-beállítással korlátozhatja, hogy a felhasználó hány monitort használhat a Távoli asztali szolgáltatások munkamenetének megjelenítésére. A Távoli asztali szolgáltatások munkamenetének megjelenítésére használható monitorok számának korlátozásával növelhető a kapcsolat teljesítménye (különösen lassú kapcsolatok esetében), és csökkenthető a kiszolgáló terhelése.
@@ -320,12 +330,13 @@ Megjegyzés: A konzolmunkamenetet 0-s munkamenetnek is nevezik. A konzolelérés
       <string id="TS_GATEWAY_BASIC">Hitelesítő adatok kérése, alapszintű protokoll használata</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Helyi bejelentkezés hitelesítő adatainak használata</string>
       <string id="TS_GATEWAY_NTLM">Hitelesítő adatok kérése, NTLM protokoll használata</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Hitelesítő adatok kérése, Negotiate protokoll használata</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">A Távoli asztali átjáró hitelesítési módszerének beállítása</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Meghatározza, hogy melyik hitelesítési módszert kell az ügyfeleknek használni, amikor a Távoli asztali átjárókiszolgálón keresztül próbálnak csatlakozni a távoli asztali munkamenetgazda kiszolgálóhoz. A házirend-beállítás használata lehet kötelező, vagy engedélyezheti a felhasználók számára a beállítás felülírását. Alapértelmezés szerint a házirend-beállítás engedélyezés esetén kötelező. Ha ez a házirend-beállítás kötelező, a felhasználók még akkor sem tudják felülírni a beállítást, ha az ügyfélen megadják a „Távoli asztali átjárókiszolgáló beállításainak használata” beállítást.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Meghatározza, hogy az ügyfeleknek melyik hitelesítési módszert kell használniuk, amikor Távoli asztali átjárókiszolgálón keresztül próbálnak csatlakozni egy távoli asztali munkamenet gazdakiszolgálójához. Kötelezővé teheti e házirend-beállítás használatát, vagy engedélyezheti a felhasználók számára a házirend-beállítás felülírását. Alapértelmezés szerint a házirend-beállítás engedélyezése esetén a rendszer kötelezővé teszi annak betartását. Ha ez a házirend-beállítás kötelező érvényű, a felhasználók még akkor sem tudják felülírni a beállítást, ha az ügyfélen kiválasztják a „Távoli asztali átjárókiszolgáló beállításainak használata” lehetőséget.
 
-Ha engedélyezni szeretné a felhasználók számára a házirend-beállítás felülírását, jelölje be „A felhasználók módosíthatják ezt a beállítást” jelölőnégyzetet. Ha így tesz, a felhasználók az ügyfél megfelelő beállításainak meghatározásával, illetve egy RDP-fájllal vagy HTML-parancsfájllal megadhatnak egy alternatív hitelesítési módszert. Ha a felhasználó nem határoz meg alternatív hitelesítési módszert, a házirend-beállításban meghatározott hitelesítési módszer az alapértelmezett.
+Ha engedélyezni szeretné a felhasználók számára e házirend-beállítás felülírását, jelölje be „A beállítás módosításának engedélyezése a felhasználók számára” jelölőnégyzetet. Ha így tesz, a felhasználók az ügyfél megfelelő beállításainak konfigurálásával, illetve egy RDP-fájl vagy HTML-parancsfájl használatával megadhatnak egy alternatív hitelesítési módszert. Ha a felhasználók nem határoznak meg alternatív hitelesítési módszert, a rendszer az ebben a házirend-beállításban meghatározott hitelesítési módszert használja alapértelmezettként.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer a felhasználó által meghatározott hitelesítési módszert alkalmazza (ha van ilyen). Ha nincs megadott hitelesítési módszer, hitelesítésre az ügyfélszámítógépen engedélyezett NTLM protokoll vagy egy intelligens kártya használható.</string>
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer a felhasználó által meghatározott hitelesítési módszert alkalmazza (ha van ilyen). Ha nincs megadva hitelesítési módszer, az ügyfélszámítógépen engedélyezett Negotiate protokoll vagy egy intelligens kártya használható hitelesítésre.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Kapcsolat engedélyezése távoli asztali átjárón keresztül</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Ha engedélyezi ezt a házirend-beállítást, amikor a Távoli asztali kapcsolat eszköz nem tud közvetlenül csatlakozni egy távoli számítógéphez (távoli asztali munkamenetgazda kiszolgálóhoz vagy Távoli asztal szolgáltatást használó számítógéphez), az ügyfelek a távoli asztali átjárókiszolgálón keresztül kísérlik meg a kapcsolatot. Ebben az esetben az ügyfelek a „Távoli asztali átjárókiszolgáló címének beállítása” házirend-beállításban megadott átjárókiszolgálóhoz próbálnak kapcsolódni.
 
@@ -408,21 +419,24 @@ Ha engedélyezi ezt a házirend-beállítást, az értesítések nem jelennek me
 
 Ha letiltja vagy nem konfigurálja ezt a beállítást, az értesítések megjelennek a távoli asztali munkamenetgazda kiszolgálón, miután helyi rendszergazdaként bejelentkezett.</string>
       <string id="TS_LICENSING_MODE">A távoli asztali licencelés módjának beállítása</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">Ezzel a házirend-beállítással meghatározhatja, hogy milyen típusú távoli asztali ügyféllicenccel lehet a távoli asztali munkamenetgazda-kiszolgálóhoz csatlakozni.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        Ezzel a házirend-beállítással meghatározhatja, hogy a távoli asztali szolgáltatások ügyfélhozzáférési licencei (RDS CAL) közül milyen típusúval lehet ehhez a távoli asztali munkamenetgazda-kiszolgálóhoz csatlakozni.
 
-A házirend-beállítás megadásakor a Felhasználónkénti és az Eszközönkénti licencelési mód közül választhat.
+        A házirend-beállítás megadásakor háromféle licencelési mód közül választhat: Felhasználónkénti, Eszközönkénti, illetve AAD-alapú felhasználónkénti.
 
-A Felhasználónkénti licencelési mód esetén a távoli asztali munkamenetgazda-kiszolgálóhoz kapcsolódó összes felhasználói fióknak kell rendelkeznie felhasználónkénti RDS-ügyféllicenccel.
+        A Felhasználónkénti licencelési mód esetén a távoli asztali munkamenetgazda-kiszolgálóhoz kapcsolódó összes felhasználói fióknak kell rendelkeznie RD-licenckiszolgáló által kibocsájtott felhasználónkénti RDS CAL-lal.
 
-Az Eszközönkénti licencelési mód esetén a távoli asztali munkamenetgazda-kiszolgálóhoz kapcsolódó összes eszköznek kell rendelkeznie eszközönkénti RDS-ügyféllicenccel.
+        Az Eszközönkénti licencelési mód esetén a távoli asztali munkamenetgazda-kiszolgálóhoz kapcsolódó összes eszköznek kell rendelkeznie RD-licenckiszolgáló által kibocsájtott eszközönkénti RDS CAL-lal.
 
-Ha engedélyezi ezt a házirend-beállítást, a távoli asztali licenckiszolgáló a megadott távoli asztali licencelési módot veszi figyelembe.
+        Az AAD-alapú felhasználónkénti licencelési mód esetén a távoli asztali munkamenetgazda-kiszolgálóhoz kapcsolódó összes felhasználói fióknak kell rendelkeznie az AAD-ben hozzárendelt, RDS-licenceket támogató szolgáltatáscsomaggal.
+        
+        Ha engedélyezi ezt a házirend-beállítást, a távoli asztali licenckiszolgáló és a távoli asztali munkamenetgazda a megadott távoli asztali licencelési módot veszi figyelembe.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer nem szabályozza a licencelési módot a csoportházirend szintjén.
-
-</string>
+        Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer nem szabályozza a licencelési módot a csoportházirend szintjén.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Eszközönkénti</string>
       <string id="TS_LICENSING_MODE_PER_USER">Felhasználónkénti</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">AAD-alapú felhasználónkénti</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">A házirend-beállítással letilthatja az adatoknak az ügyfél LPT-portjaira történő átirányítása a Távoli asztali szolgáltatások munkameneteiben.
 
 Ezzel a házirend-beállítással megakadályozhatja, hogy a felhasználók helyi LPT-portok csatlakoztatását kezdeményezzék vagy adatokat irányítsanak át a távoli számítógépről a helyi LPT-porton található eszközökre. Alapértelmezés szerint a Távoli asztali szolgáltatások engedélyezi az adatok LPT-portokra történő átirányítását.
@@ -456,12 +470,12 @@ Ha engedélyezi ezt a házirend-beállítást, a „Kapcsolat bontása” elem n
 Ha letiltja vagy nem adja meg ezt a házirend-beállítást, a „Kapcsolat bontása” elem nem lesz eltávolítva A Windows leállítása párbeszédpanel listájából.
 
 Megjegyzés: Ez a házirend-beállítás csak A Windows leállítása párbeszédpanelt érinti. Nem akadályozza meg azt, hogy a felhasználók más módszerrel megszakítsák a Távoli asztali szolgáltatások munkamenetet. Fontos tudni, hogy a házirend-beállítás nem akadályozza meg, hogy leválasztott munkamenetek létezzenek a kiszolgálón. A „Számítógép konfigurációja\Felügyeleti sablonok\Windows-összetevők\Távoli asztali szolgáltatások\Távoli asztali munkamenetgazda\Munkamenet időkorlátja\Leválasztott munkamenetek időkorlátjának beállítása” házirend-beállítás konfigurálásával vezérelheti, hogy a leválasztott munkamenet mennyi ideig maradjon aktív a kiszolgálón.</string>
-      <string id="TS_NoSecurityMenu">A Windows rendszerbiztonság elem eltávolítása a Start menüből</string>
-      <string id="TS_NoSecurityMenu_Help">Ez a beállítás határozza meg a Beállítások menü Windows rendszerbiztonság elemének eltávolítását a távoli asztali ügyfeleken. Ezzel a beállítással megakadályozhatja, hogy tapasztalatlan felhasználók véletlenül kijelentkezzenek a Távoli asztali szolgáltatásokból.
+      <string id="TS_NoSecurityMenu">A Windows biztonság elem eltávolítása a Start menüből</string>
+      <string id="TS_NoSecurityMenu_Help">Ez a beállítás határozza meg a Beállítások menü Windows biztonság elemének eltávolítását a távoli asztali ügyfeleken. Ezzel a beállítással megakadályozhatja, hogy tapasztalatlan felhasználók véletlenül kijelentkezzenek a Távoli asztali szolgáltatásokból.
 
-A beállítás engedélyezése esetén a Start menü beállításai között a Windows rendszerbiztonság elem nem jelenik meg. Ekkor a felhasználók egy biztonsági billentyűkombinációval (például CTRL+ALT+END) nyithatják meg a Windows rendszerbiztonság párbeszédpanelt az ügyfélszámítógépen.
+A beállítás engedélyezése esetén a Windows biztonság elem nem jelenik meg a Start menü beállításai között. Ekkor a felhasználók egy biztonsági billentyűkombinációval (például CTRL+ALT+END) nyithatják meg a Windows biztonság párbeszédpanelt az ügyfélszámítógépen.
 
-Ha a beállítás letiltott vagy nem konfigurált, a Windows rendszerbiztonság elem a Beállítások menüben marad.</string>
+Ha a beállítás le van tiltva, vagy nincs konfigurálva, a Windows biztonság elem megjelenik a Beállítások menüben.</string>
       <string id="TS_on_the_Local_machine">A helyi számítógépen</string>
       <string id="TS_On_the_Network">A hálózaton</string>
       <string id="TS_PASSWORD">Minden csatlakozáskor meg kell adni a jelszót</string>
@@ -1006,19 +1020,40 @@ Ha letiltja a házirend-beállítást, a távoli asztali munkamenetgazda kiszolg
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">WDDM grafikus képernyőillesztő használata távoli asztali kapcsolatokhoz</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">Ezzel a házirend-beállítással engedélyezheti a WDDM grafikus képernyőillesztőt a távoli asztali kapcsolatokhoz.
+
+Ha engedélyezi a házirend-beállítást, akkor a távoli asztali kapcsolatok a WDDM grafikus képernyőillesztőt fogják használni.
+
+Ha letiltja vagy nem konfigurálja a házirend-beállítást, akkor a távoli asztali kapcsolatok NEM fogják a WDDM grafikus képernyőillesztőt használni. Ebben az esetben a távoli asztali kapcsolatok az XDDM grafikus képernyőillesztőt fogják használni.
+
+A módosítás életbe léptetéséhez újra kell indítani a Windows rendszert.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">Ezzel a házirend-beállítással engedélyezheti a WDDM grafikus képernyőillesztőt a távoli asztali kapcsolatokhoz.
+
+Ha engedélyezi vagy nem konfigurálja a házirend-beállítást, akkor a távoli asztali kapcsolatok a WDDM grafikus képernyőillesztőt fogják használni.
+
+Ha letiltja a házirend-beállítást, akkor a távoli asztali kapcsolatok NEM fogják a WDDM grafikus képernyőillesztőt használni. Ebben az esetben a távoli asztali kapcsolatok az XDDM grafikus képernyőillesztőt fogják használni.
+
+A módosítás életbe léptetéséhez újra kell indítani a Windows rendszert.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">Ezzel a házirend-beállítással engedélyezheti a WDDM grafikus képernyőillesztőt a távoli asztali kapcsolatokhoz.
+
+Ha engedélyezi a házirend-beállítást, akkor a távoli asztali kapcsolatok a WDDM grafikus képernyőillesztőt fogják használni.
+
+Ha letiltja a házirend-beállítást, akkor a távoli asztali kapcsolatok NEM fogják a WDDM grafikus képernyőillesztőt használni. Ebben az esetben a távoli asztali kapcsolatok az XDDM grafikus képernyőillesztőt fogják használni.
+
+Ha nem konfigurálja a házirend-beállítást, akkor a távoli asztali munkamenetgazda-kiszolgálón a távoli asztali kapcsolatok NEM fogják a WDDM grafikus képernyőillesztőt használni. A távoli asztali kapcsolatok minden más esetben a WDDM grafikus képernyőillesztőt fogják használni.
+
+A módosítás életbe léptetéséhez újra kell indítani a Windows rendszert.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">H.264/AVC típusú hardveres kódolás beállítása távoli asztali kapcsolatokhoz</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Ezzel a házirend-beállítással engedélyezhető a H.264/AVC típusú hardveres kódolás támogatása a távoli asztali kapcsolatokhoz. Ha engedélyezett a hardveres kódolás, és hiba lép fel, a Windows megpróbál szoftveres kódolást használni. Ha letiltja vagy nem konfigurálja ezt a házirendet, a Windows mindig szoftveres kódolást használ.
-        
-Amennyiben a „Mindig legyen próbálkozás” értékre állítja a kódolási beállítást, a Távoli asztal összetevő minden esetben megpróbálja a H.264/AVC típusú hardveres kódolást használni (ha az telepítve van). Ne feledje, hogy azon Windows Server-példányokon, amelyeken a Hyper-V szolgáltatásban engedélyezett a RemoteFX vGPU használata, ezt a házirendet a Hyper-V gazdagépen kell beállítani.
-        
-Ha a „Próbálkozás csak RemoteFX vGPU-val szerelt virtuális gépek esetén” értéket adja meg a kódolási beállításhoz, akkor azokon a Windows Server-példányokon, amelyeknek Hyper-V szolgáltatásában engedélyezett a RemoteFX vGPU használata, ezt a házirendet ugyancsak a Hyper-V gazdagépen kell beállítani.
-        
-Ha a „Próbálkozás csak RemoteFX vGPU nélküli esetekben” értékre állítja a kódolási beállítást, a Távoli asztal összetevő a RemoteFX vGPU kivételével minden esetben megpróbál hardveres kódolást használni.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Mindig legyen próbálkozás</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Próbálkozás csak RemoteFX vGPU-val szerelt virtuális gépek esetén</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Próbálkozás csak RemoteFX vGPU nélküli esetetekben</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Ezzel a házirend-beállítással engedélyezheti a H.264/AVC típusú hardveres kódolás támogatását a távoli asztali kapcsolatokhoz. Ha engedélyezi a hardveres kódolást, és hiba lép fel, a rendszer megpróbál szoftveres kódolást használni. Ha letiltja vagy nem konfigurálja ezt a házirendet, a rendszer mindig szoftveres kódolást használ.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">H.264/AVC 444 grafikus mód preferálása távoli asztali kapcsolatokhoz</string>
@@ -1169,16 +1204,16 @@ Ha engedélyezi ezt a házirend-beállítást, a rendszer akár 6 percig is blok
 
 Ha letiltja vagy nem konfigurálja a házirend-beállítást, a kezdőképernyő megjelenik, és a rendszer a háttérben regisztrálja az alkalmazásokat.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Alapértelmezett hardveres grafikus adapter használata az összes Távoli asztali munkamenethez</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Ezzel a házirend-beállítással szabályozhatják a rendszergazdák a grafikus képalkotást az összes távoli asztali munkamenetre vonatkozóan.
+      <string id="TS_DX_USE_FULL_HWGPU">Hardveres grafikus adapter használata a Távoli asztali szolgáltatások összes munkamenetéhez</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Ezzel a házirend-beállítással szabályozhatják a rendszergazdák a grafikus képalkotást a Távoli asztali szolgáltatások összes munkamenetére vonatkozóan.
 
-Ha engedélyezi ezt a házirend-beállítást, az összes távoli asztali munkamenet a hardveres grafikus megjelenítőt használja alapértelmezettként az Általános leképezési Microsoft-illesztő helyett.
+Ha engedélyezi ezt a házirend-beállítást, a Távoli asztali szolgáltatások összes munkamenete a hardveres grafikus megjelenítőt használja alapértelmezett adapterként az Általános leképezési Microsoft-illesztő helyett.
 
-Ha letiltja ezt a házirend-beállítást, az összes távoli asztali munkamenet az Általános leképezési Microsoft-illesztőt használja alapértelmezettként.
+Ha letiltja ezt a házirend-beállítást, a Távoli asztali szolgáltatások összes munkamenete az Általános leképezési Microsoft-illesztőt használja alapértelmezett adapterként.
 
-Ha nem konfigurálja ezt a házirend-beállítást, a Távoli asztali munkamenetgazdán futó távoli asztali munkamenetek az Általános leképezési Microsoft-illesztőt használják alapértelmezettként. A távoli asztali munkamenetek az összes többi esetben a hardveres grafikus megjelenítőt használják alapértelmezettként.
+Ha nem konfigurálja ezt a házirend-beállítást, a Távoli asztali szolgáltatásoknak a távoli asztali munkamenetgazda-kiszolgálón futó munkamenetei az Általános leképezési Microsoft-illesztőt használják alapértelmezett adapterként. Minden egyéb esetben a Távoli asztali szolgáltatások munkamenetei alapértelmezés szerint a hardveres grafikus megjelenítőt használják.
 
-MEGJEGYZÉS: a házirend-beállítás a több grafikus processzorral (GPU-val) ellátott rendszerekben csak az alapértelmezett GPU-ra érvényes. A rendszer az összes többi GPU-t másodlagos adapterként kezeli, és hardveres megjelenítőként használja. A házirend-beállítás nincs hatással a helyi munkamenet GPU-konfigurációjára.
+MEGJEGYZÉS: A házirend-beállítás lehetővé teszi a grafikus processzorok (GPU-k) közötti terheléselosztást a több GPU-val ellátott számítógépeken. Ez a házirend-beállítás nincs hatással a helyi munkamenet GPU-konfigurációjára.
 </string>
       
     </stringTable>
@@ -1328,9 +1363,6 @@ MEGJEGYZÉS: a házirend-beállítás a több grafikus processzorral (GPU-val) e
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-tömörítési algoritmus:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Hardveres AVC kódolás preferálása:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Vizuális élmény:</dropdownList>

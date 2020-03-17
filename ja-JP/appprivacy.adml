@@ -204,18 +204,33 @@
 
 このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsSyncWithDevices_Name">Windows アプリでデバイスと同期する</string>
-      <string id="LetAppsSyncWithDevices_Explain">このポリシー設定では、Windows アプリがデバイスと同期できるかどうかを指定します。
+      <string id="LetAppsSyncWithDevices_Name">Windows アプリがペアリングされていないデバイスと通信できるようにする</string>
+      <string id="LetAppsSyncWithDevices_Explain">このポリシー設定では、Windows アプリがペアリングされていないワイヤレス デバイスと通信できるかどうかを指定します。
+
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定よりアプリごとの設定の方が優先されます。
+
+[ユーザーが制御] オプションを選ぶと、Windows アプリがペアリングされていないワイヤレス デバイスと通信できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリはペアリングされていないワイヤレス デバイスと通信できます。組織の従業員はこの設定を変更することはできません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリはペアリングされていないワイヤレス デバイスと通信できません。組織の従業員はこの設定を変更することはできません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがペアリングされていないワイヤレス デバイスと通信できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsAccessTasks_Name">Windows アプリでタスクにアクセスする</string>
+      <string id="LetAppsAccessTasks_Explain">このポリシー設定では、Windows アプリがタスクにアクセスできるかどうかを指定します。
 
 すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-[ユーザーが制御] オプションを選ぶと、Windows アプリがデバイスと同期できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+[ユーザーが制御] オプションを選ぶと、Windows アプリがタスクにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスの [設定] &gt; [プライバシー] を使用)。
 
-[強制的に許可] オプションを選ぶと、Windows アプリはデバイスと同期できます。組織の従業員はこの設定を変更することはできません。
+[強制的に許可] オプションを選ぶと、Windows アプリはタスクにアクセスでき、組織の従業員はこの設定を変更できません。
 
-[強制的に拒否] オプションを選ぶと、Windows アプリはデバイスと同期できません。組織の従業員はこの設定を変更することはできません。
+[強制的に拒否] オプションを選ぶと、Windows アプリはタスクにアクセスできず、組織の従業員はこの設定を変更できません。
 
-このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがデバイスと同期できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+このポリシー設定を無効にした場合や構成しなかった場合は、Windows アプリがタスクにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスの [設定] &gt; [プライバシー] を使用)。
 
 このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
@@ -233,6 +248,78 @@
 このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが信頼済みデバイスにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
 このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsRunInBackground_Name">Windows アプリのバックグラウンド実行を許可する</string>
+      <string id="LetAppsRunInBackground_Explain">このポリシー設定では、Windows アプリがバックグラウンドで実行できるかどうかを指定します。
+
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
+
+[ユーザーが制御] オプションを選ぶと、Windows アプリがバックグラウンドで実行できるかどうかを、組織の従業員が選ぶことができます (デバイスの [設定] &gt; [プライバシー] を使用)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリはバックグラウンドで実行でき、組織の従業員はこの設定を変更できません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリはバックグラウンドで実行できず、組織の従業員はこの設定を変更できません。
+
+このポリシー設定を無効にした場合または構成しなかった場合は、Windows アプリがバックグラウンドで実行できるかどうかを、組織の従業員が選ぶことができます (デバイスの [設定] &gt; [プライバシー] を使用)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsGetDiagnosticInfo_Name">Windows アプリから他のアプリに関する診断情報にアクセスできるようにする</string>
+      <string id="LetAppsGetDiagnosticInfo_Explain">このポリシー設定では、Windows アプリが他の Windows アプリに関する診断情報 (ユーザー名を含む) を取得できるかどうかを指定します。
+
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
+
+[ユーザーが制御] オプションを選ぶと、Windows アプリが他のアプリに関する診断情報を取得できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリは他のアプリに関する診断情報を取得できます。組織の従業員はこの設定を変更することはできません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリは他のアプリに関する診断情報を取得できません。組織の従業員はこの設定を変更することはできません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが他のアプリに関する診断情報を取得できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsAccessGazeInput_Name">Windows アプリにアイ トラッカー デバイスへのアクセスを許可する</string>
+      <string id="LetAppsAccessGazeInput_Explain">このポリシー設定では、Windows アプリがアイ トラッカーにアクセスできるかどうかを指定します。
+
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
+
+[ユーザーが制御] オプションを選ぶと、Windows アプリがアイ トラッカーにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリはアイ トラッカーにアクセスできます。組織の従業員はこの設定を変更することはできません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリはアイ トラッカーにアクセスできません。組織の従業員はこの設定を変更することはできません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがアイ トラッカーにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsActivateWithVoice_Name">Windows アプリを音声でアクティブ化できるようにする</string>
+      <string id="LetAppsActivateWithVoice_Explain">このポリシー設定では、Windows アプリを音声でアクティブ化できるかどうかを指定します。
+
+[ユーザーが制御] オプションを選ぶと、音声キーワードを使用して Windows アプリをアクティブ化できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリは音声キーワードを使用してアクティブ化できるようになります。組織の従業員はこの設定を変更できません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリは音声キーワードを使用してアクティブ化できなくなります。組織の従業員はこの設定を変更できません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、音声キーワードを使用して Windows アプリをアクティブ化できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このポリシーは、Windows アプリと Cortana に適用されます。
+      </string>
+      <string id="LetAppsActivateWithVoiceAboveLock_Name">システムがロックされているときに音声で Windows アプリをアクティブ化できるようにする</string>
+      <string id="LetAppsActivateWithVoiceAboveLock_Explain">
+このポリシー設定では、システムがロックされた状態で音声を使用して Windows アプリをアクティブ化できるかどうかを指定します。
+
+[ユーザーが制御] オプションを選ぶと、システムがロックされた状態でユーザーが音声を使用してアプリケーションを操作できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、システムがロックされた状態でも、ユーザーは音声を使用してアプリケーションを操作できるようになります。組織の従業員はこの設定を変更できません。
+
+[強制的に拒否] オプションを選ぶと、システムがロックされた状態では、ユーザーが音声を使用してアプリケーションを操作することはできなくなります。組織の従業員はこの設定を変更できません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、システムがロックされた状態でユーザーが音声を使用してアプリケーションを操作できるかどうかを、組織の従業員が選択できます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このポリシーは、Windows アプリと Cortana に適用されます。この設定は、[ロック画面で Cortana を許可する] ポリシーよりも優先されます。このポリシーは、音声によるアクティブ化を許可するポリシーが、音声でアプリケーションをアクティブ化できるように構成されている場合にのみ適用されます。
       </string>
     </stringTable>
     <presentationTable>
@@ -362,6 +449,15 @@
         <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
         <multiTextBox refId="LetAppsSyncWithDevices_ForceDenyTheseApps_List"/>
       </presentation>
+      <presentation id="LetAppsAccessTasks">
+        <dropdownList refId="LetAppsAccessTasks_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessTasks_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessTasks_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessTasks_ForceDenyTheseApps_List"/>
+      </presentation>
       <presentation id="LetAppsAccessTrustedDevices">
         <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
         <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
@@ -370,6 +466,39 @@
         <multiTextBox refId="LetAppsAccessTrustedDevices_ForceAllowTheseApps_List"/>
         <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
         <multiTextBox refId="LetAppsAccessTrustedDevices_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsRunInBackground">
+        <dropdownList refId="LetAppsRunInBackground_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsRunInBackground_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsRunInBackground_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsRunInBackground_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsGetDiagnosticInfo">
+        <dropdownList refId="LetAppsGetDiagnosticInfo_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsGetDiagnosticInfo_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsGetDiagnosticInfo_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsGetDiagnosticInfo_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessGazeInput">
+        <dropdownList refId="LetAppsAccessGazeInput_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessGazeInput_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessGazeInput_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessGazeInput_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsActivateWithVoice">
+        <dropdownList refId="LetAppsActivateWithVoice_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsActivateWithVoiceAboveLock">
+        <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

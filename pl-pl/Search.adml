@@ -67,17 +67,19 @@ Jeśli to ustawienie zasad zostanie włączone, funkcja wyszukiwania nie będzie
 
 Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, funkcja wyszukiwania będzie korzystać z bieżącej lokalizacji użytkownika podczas udostępniania wyników wyszukiwania.</string>
       <string id="SafeSearch">Ustaw bezpieczne wyszukiwanie dla funkcji wyszukiwania</string>
-      <string id="ExplainSafeSearch">To ustawienie zasad umożliwia sterowanie ustawieniem bezpiecznego wyszukiwania używanego podczas wykonywania zapytania w funkcji wyszukiwania. 
+      <string id="ExplainSafeSearch">To ustawienie zasad umożliwia sterowanie ustawieniem bezpiecznego wyszukiwania używanym podczas wykonywania zapytania w funkcji wyszukiwania. 
 
-Jeśli to ustawienie zasad zostanie włączone, można określić jedno z trzech ustawień bezpiecznego wyszukiwania, którego użytkownicy nie będą mogli zmienić:
+Jeśli włączysz to ustawienie zasad, będzie można określić jedno z trzech ustawień bezpiecznego wyszukiwania, którego użytkownicy nie będą mogli zmienić:
 
-    -Ścisłe: filtrowanie z wyników wyszukiwania tekstów, obrazów i filmów dla dorosłych;
+    - Ścisłe: odfiltrowywanie z wyników wyszukiwania tekstów, obrazów i wideo dla dorosłych;
 
-    -Umiarkowane: filtrowanie z wyników wyszukiwania obrazów i filmów, ale nie tekstów dla dorosłych;
+    - Umiarkowane: odfiltrowywanie z wyników wyszukiwania obrazów i filmów, ale nie tekstów dla dorosłych;
 
-    -Wyłączone: brak filtrowania zawartości dla dorosłych z wyników wyszukiwania.
+    - Wyłączone: brak odfiltrowywania zawartości dla dorosłych z wyników wyszukiwania.
 
-Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli określić ustawienie bezpiecznego wyszukiwania.</string>
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, użytkownicy będą mogli określić ustawienie bezpiecznego wyszukiwania.
+
+Użytkownicy systemu Windows 10 powinni użyć ustawienia Search/DoNotUseWebResults.</string>
       <string id="SharePrivacyAllAndLocation">Informacje o użytkowniku i lokalizacji</string>
       <string id="SharePrivacyAll">Tylko informacje o użytkowniku</string>
       <string id="SharePrivacyAnonymous">Informacje anonimowe</string>
@@ -272,11 +274,26 @@ Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane,
 
 Jeśli to ustawienie zostanie włączone lub nie zostanie skonfigurowane, Cortana będzie dozwolona na urządzeniu. Jeśli to ustawienie zostanie wyłączone, Cortana zostanie wyłączona. 
 
-Po wyłączeniu Cortany użytkownicy nadal będą mogli korzystać z funkcji wyszukiwania zawartości urządzenia oraz wyszukiwania w Internecie.</string>
+Po wyłączeniu Cortany użytkownicy nadal będą mogli korzystać z funkcji wyszukiwania zawartości na urządzeniu.</string>
+      <string id="AllowCortanaAboveLock">Zezwalaj na Cortanę na ekranie blokady</string>
+      <string id="ExplainAllowCortanaAboveLock">To ustawienie zasad określa, czy użytkownik może korzystać interakcyjnie z funkcji Cortana przy użyciu mowy, gdy system jest zablokowany.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownik będzie mógł korzystać interakcyjnie z funkcji Cortana przy użyciu mowy, gdy system będzie zablokowany.
+
+Jeśli to ustawienie zostanie wyłączone, będzie konieczne odblokowanie systemu, aby użytkownik mógł korzystać interakcyjnie z funkcji Cortana przy użyciu mowy.</string>
       <string id="AllowSearchToUseLocation">Zezwalaj funkcji wyszukiwania i Cortanie na korzystanie z lokalizacji</string>
       <string id="ExplainAllowSearchToUseLocation">To ustawienie zasad określa, czy funkcja wyszukiwania i Cortana mogą zwracać wyniki uwzględniające lokalizację.
  
 Jeśli to ustawienie zostanie włączone, funkcja wyszukiwania i Cortana będą mogły uzyskiwać dostęp do informacji o lokalizacji.</string>
+      <string id="AllowCloudSearch">Zezwalaj na wyszukiwanie w chmurze</string>
+      <string id="AllowCortanaInAADPathOOBE">Zezwalaj na stronę Cortany w podczas pierwszego uruchamiania z użyciem konta usługi AAD</string>
+      <string id="ExplainAllowCloudSearch">Zezwalaj funkcji wyszukiwania oraz Cortanie na przeszukiwanie źródeł w chmurze, takich jak usługa OneDrive i program SharePoint</string>
+      <string id="ExplainCortanaAAD">Zezwalaj na wyświetlenie strony umożliwiającej włączenie Cortany podczas pierwszego uruchomienia Instalatora systemu Windows</string>
+      <string id="AllowCloudSearchDisabled">Wyłącz wyszukiwanie w chmurze</string>
+      <string id="AllowCortanainAADDisabled">Wyłącz stronę Cortany w usłudze AAD</string>
+      <string id="AllowCortanainAADEnabled">Włącz stronę Cortany w usłudze AAD</string>
+      <string id="AllowCloudSearchEnabled">Włącz wyszukiwanie w chmurze</string>
+      <string id="AllowCloudSearchControlledByUser">Wybrane przez użytkownika</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ Jeśli to ustawienie zostanie włączone, funkcja wyszukiwania i Cortana będą 
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Ustawienie domyślne bezpiecznego wyszukiwania</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Ustawienie wyszukiwania w chmurze</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Ustawienie Cortany w usłudze AAD</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

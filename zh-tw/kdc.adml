@@ -78,6 +78,22 @@
 如果您停用或未設定這個原則設定，只要用戶端傳送複合驗證要求 (無論帳戶設定為何)，網域控制站將會傳回包含複製驗證的服務票證。
 
 </string>
+      <string id="PKINITFreshness">PKInit Freshness 延伸模組的 KDC 支援</string>
+      <string id="PKINITFreshness_explain">對 PKInit Freshness 延伸模組的支援需要 Windows Server 2016 網域功能等級 (DFL)。若網域控制站的網域不是 Windows Server 2016 DFL 或更高，將不會套用此原則。
+
+此原則設定可讓您設定網域控制站 (DC) 以支援 PKInit Freshness 延伸模組。
+
+若啟用此原則設定，則支援下列選項:
+
+支援: 當收到要求時支援 PKInit Freshness 延伸模組。使用 PKInit Freshness 延伸模組順利驗證的 Kerberos 用戶端將取得全新的公開金鑰身分識別 SID。
+
+必要: 必須有 PKInit Freshness 延伸模組，才能順利進行驗證。使用公開金鑰認證時，不支援 PKInit Freshness 延伸模組的 Kerberos 用戶端將一律失敗。
+
+若停用或未設定此原則設定，則網域控制站 (DC) 將一律不會提供 PKInit Freshness 延伸模組，而且將會接受有效的驗證要求而不會檢查有效性。使用者將一律不會接收新的公開金鑰身分識別 SID。
+</string>
+      <string id="NoPKINITFreshness">已停用</string>
+      <string id="SupportPKINITFreshness">支援</string>
+      <string id="RequirePKINITFreshness">必要</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">票證大小閾值</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKInit Freshness 延伸模組選項:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

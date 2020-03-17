@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Minst Windows Server 2008 R2 eller Windows 7. Støttes ikke i Windows 10 eller nyere</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 og Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Slett listen over nylig brukte programmer for nye brukere</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Hvis du aktiverer denne policyinnstillingen, vil de nylig brukte programlistene i startmenyen være tomme for hver ny bruker.
 
@@ -73,15 +74,15 @@ Denne policyinnstillingen sletter heller ikke elementer som brukeren kan ha fest
       <string id="ForceStartMenuLogOff">Legg til Logg av på Start-menyen</string>
       <string id="ForceStartMenuLogOff_Help">Denne policyinnstillingen gjelder bare den klassiske versjonen av Start-menyen og påvirker ikke den nye Start-menystilen.
 
-Legger til elementet Logg av &lt;brukernavn&gt; på Start-menyen og forhindrer brukerne fra å fjerne det.
+Legger til elementet Logg av &lt;username&gt; på Start-menyen og hindrer brukerne fra å fjerne det.
 
-Hvis du aktiverer denne innstillingen, legges elementet Logg av &lt;brukernavn&gt; til på Start-menyen. Denne policyinnstillingen fjerner elementet Vis avloggingsvalg fra Start-menyalternativer. Brukerne kan derfor ikke fjerne elementet Logg av &lt;brukernavn&gt; fra Start-menyen.
+Hvis du aktiverer denne innstillingen, legges elementet Logg av &lt;username&gt; til på Start-menyen. Denne policyinnstillingen fjerner elementet Vis avloggingsvalg fra Start-menyalternativer. Brukerne kan derfor ikke fjerne elementet Logg av &lt;username&gt; fra Start-menyen.
 
 Hvis du deaktiverer denne innstillingen eller ikke konfigurerer den, kan brukerne bruke elementet Vis avloggingsvalg til å legge til og fjerne elementet Logg av.
 
-Denne policyinnstillingen påvirker bare Start-menyen. Den påvirker ikke elementet Logg av i dialogboksen Windows-sikkerhet som vises når du trykker Ctrl+Alt+Del.
+Denne policyinnstillingen påvirker bare Start-menyen. Den påvirker ikke elementet Logg av i dialogboksen Windows Sikkerhet som vises når du trykker på Ctrl+Alt+Del.
 
-Obs! Hvis du vil legge til eller fjerne elementet Logg av fra en datamaskin, klikker du Start, Innstillinger, Oppgavelinje og Start-meny. Klikk deretter kategorien Start-menyalternativer, og klikk deretter Vis avloggingsvalg i boksen Innstillinger for Start-menyen.
+Obs! Hvis du vil legge til eller fjerne elementet Logg av fra en datamaskin, klikker du på Start, Innstillinger, Oppgavelinje og Start-meny. Klikk deretter på kategorien Start-menyalternativer, og klikk deretter på Vis avloggingsvalg i boksen Innstillinger for Start-menyen.
 
 Se også Fjern avlogging i Brukerkonfigurasjon\Administrative maler\System\På-/avlogging.</string>
       <string id="GreyMSIAds">Ton ned Start-menysnarveier til utilgjengelige Windows Installer-programmer</string>
@@ -150,8 +151,8 @@ Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, kan en bruker v
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, beholdes varslinger, og når en bruker logger seg på, vises flisene som de var da brukeren logget seg av, inkludert loggen over tidligere varslinger for hver flis.
 
 Denne policyinnstillingen hindrer ikke nye varslinger fra å vises. Se policyinnstillingen Deaktiver programvarslinger for å hindre nye varslinger.</string>
-      <string id="StartPinAppsWhenInstalled">Fest apper på startskjermen når de er installert</string>
-      <string id="StartPinAppsWhenInstalled_Help">Denne policyinnstillingen tillater festing av apper på startskjermen som standard når de er inkludert av AppID i listen.</string>
+      <string id="StartPinAppsWhenInstalled">Feste apper til Start når de er installert</string>
+      <string id="StartPinAppsWhenInstalled_Help">Denne policyinnstillingen tillater festing av apper til Start som standard når de er inkludert av AppID i listen.</string>
 
       <string id="LockedStartLayout">Startskjermoppsett</string>
       <string id="LockedStartLayout_Help">Angir startskjermoppsettet for brukere.
@@ -170,6 +171,12 @@ Hvis du aktiverer denne policyinnstillingen, fjernes av/på-knappen og kommandoe
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, er av/på-knappen og kommandoene Deaktiver, Start på nytt, Hvile og Dvale er tilgjengelige på startmenyen. Av/på-knappen på Windows sikkerhetsskjerm er også tilgjengelig.
 
 Obs! Det er påkrevd at tredjepartsprogrammer som er sertifiserte som kompatible med Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP, eller Windows 2000 Professional, støtter denne policyinnstillingen.</string>
+      <string id="HidePowerOptions">Fjerne og hindre tilgang til kommandoene Deaktiver, Start på nytt, Hvile og Dvale</string>
+      <string id="HidePowerOptions_Help">Denne policyinnstillingen hindrer brukerne fra å utføre følgende kommandoer fra skjermbildet for Windows-sikkerhet, påloggingsskjermbildet og Start-menyen: Avslutt, omstart, hvilemodus og dvalemodus. Denne policyinnstillingen hindrer ikke brukerne fra å kjøre Windows-baserte programmer som utfører disse funksjonene.
+
+Hvis du aktiverer denne policyinnstillingen, fjernes kommandoene for avslutning, start på nytt, hvilemodus og dvalemodus fra Start-menyen. Av/på-knappen fjernes også fra Windows sikkerhetsskjerm, som vises når du trykker CTRL+ALT+DELETE, og starte datamaskinen på nytt fra påloggingsskjermbildet.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, er av/på-knappen og kommandoene for avslutning, start på nytt, hvilemodus og dvalemodus tilgjengelige på Start-menyen. Av/på-knappen i skjermbildet for Windows-sikkerhet er også tilgjengelig.</string>
       <string id="NoCommonGroups">Fjern felles programgrupper fra Start-menyen</string>
       <string id="NoCommonGroups_Help">Fjerner elementer i profilen Alle brukerne fra Programmer-menyen på Start-menyen.
 
@@ -222,12 +229,22 @@ Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, spore
 Se også disse relaterte policyinnstillingene: "Fjern listen over ofte brukte programmer fra Start-menyen" og "Deaktiver tilpassede menyer".
 
 Denne policyinnstillingen hindrer ikke brukerne fra å feste programmer på Start-menyen eller oppgavelinjen. Se policyinnstillingene "Fjern listen over festede programmer fra Start-menyen" og "Ikke tillat festing av programmer på oppgavelinjen".</string>
+
       <string id="NoMoreProgramsList">Fjern listen over alle programmer fra Start-menyen</string>
-      <string id="NoMoreProgramsList_Help">Med denne policyinnstillingen kan du fjerne listen over alle programmer fra Start-menyen.
+      <string id="NoMoreProgramsList_Help">Hvis du aktiverer denne innstillingen, vil Start-menyen skjule eller fjerne listen over alle apper fra Start-menyen.
 
-Hvis du aktiverer denne policyinnstillingen, fjernes elementet "Alle programmer" fra den enkle Start-menyen.  Startskjermen vil vise "Alle apper", men den vil bare inneholde elementer som er låst til Start-menyen.
+Valg av Skjul vil ikke vise applisten ved siden av de festede fliser på Start. En Alle apper-knapp vises på Start-menyen for å åpne listen over alle apper. Dette er det samme som å sette Vis applisten på Start-menyen i Innstillinger til Av.
 
-Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, blir elementet "Alle programmer" værende på den enkle Start-menyen.</string>
+Valg av Skjul og deaktiver innstillingen vil gjøre det samme som skjulealternativet og deaktivering av Vis applisten på Start-menyen i Innstillinger, slik at brukere ikke kan aktivere den.
+
+Valg av Fjern og deaktiver innstillingen vil fjerne listen over alle apper fra Start-menyen og deaktivere Vis applisten på Start-menyen i Innstillinger, slik at brukere ikke kan aktivere den. Velg dette alternativet for kompatibilitet med tidligere versjoner av Windows.
+
+Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vil listen over alle apper være synlige som standard, og brukeren kan endre Vis applisten på Start-menyen i Innstillinger.</string>
+      <string id="APPLIST_NONE">Ingen</string>
+      <string id="APPLIST_COLLAPSE">Skjul</string>
+      <string id="APPLIST_COLLAPSESETTING">Skjul og deaktiver innstillingen</string>
+      <string id="APPLIST_REMOVESETTING">Fjern og deaktiver innstillingen</string>    
+
       <string id="NoNetAndDialupConnect">Fjern Nettverkstilkoblinger fra Start-menyen</string>
       <string id="NoNetAndDialupConnect_Help">Med denne policyinnstillingen kan du fjerne Nettverkstilkoblinger fra Start-menyen.
 
@@ -289,7 +306,7 @@ Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vil s
 
 Obs!  Denne policyinnstillingen gjelder bare for målfiler på NTFS-partisjoner. FAT-partisjoner har ikke denne ID-sporingen og søkefunksjonaliteten.
 
-Se også policyinnstillingene "Ikke spor skallsnarveier ved bruk av sentrale profiler" og "Ikke bruk sporbasert metode ved løsing av skallsnarveier".</string>
+Se også policyinnstillingene Ikke spor skallsnarveier ved bruk av sentrale profiler og Ikke bruk sporbasert metode ved løsing av skallsnarveier.</string>
       <string id="NoResolveTrack">Ikke bruk sporbasert metode ved løsing av skallsnarveier</string>
       <string id="NoResolveTrack_Help">Denne policyinnstillingen forhindrer systemet fra å bruke NTFS-sporingsfunksjoner til å løse en snarvei.
 
@@ -299,7 +316,7 @@ Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vil s
 
 Obs!  Denne policyinnstillingen gjelder bare for målfiler på NTFS-partisjoner. FAT-partisjoner har ikke denne ID-sporingen og søkefunksjonaliteten.
 
-Se også policyinnstillingene "Ikke spor skallsnarveier ved bruk av sentrale profiler" og "Ikke bruk søkbasert metode ved løsing av skallsnarveier".</string>
+Se også policyinnstillingene Ikke spor skallsnarveier ved bruk av sentrale profiler og Ikke bruk søkbasert metode ved løsing av skallsnarveier.</string>
       <string id="NoRun">Fjern Kjør-menyen fra Start-menyen</string>
       <string id="NoRun_Help">Tillater fjerning av kommandoen Kjør fra Start-menyen, Internet Explorer og Oppgavebehandling.
 
@@ -467,17 +484,17 @@ Se også policyinnstillingen Skjul alternativet "Legg til programmer fra Microso
 
 Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, blir knappen Koble fra PC værende på den enkle Start-menyen, og PCen kan kobles fra.</string>
       <string id="StartMenuLogOff">Fjern Logg av fra Start-menyen</string>
-      <string id="StartMenuLogOff_Help">Med denne policyinnstillingen kan du fjerne elementet "Logg av &lt;brukernavn&gt;" fra Start-menyen, og hindre brukerne fra å gjenopprette det.
+      <string id="StartMenuLogOff_Help">Med denne policyinnstillingen kan du fjerne elementet Logg av &lt;username&gt; fra Start-menyen og hindre brukerne fra å gjenopprette det.
 
-Hvis du aktiverer denne policyinnstillingen, vises ikke elementet "Logg av &lt;brukernavn&gt;" på Start-menyen. Denne policyinnstillingen fjerner også elementet Vis avloggingsvalg fra Start-menyalternativer. Brukerne kan derfor ikke gjenopprette elementet Logg av &lt;brukernavn&gt; på Start-menyen.
+Hvis du aktiverer denne policyinnstillingen, vises ikke elementet Logg av &lt;username&gt; på Start-menyen. Denne policyinnstillingen fjerner også elementet Vis avloggingsvalg fra Start-menyalternativer. Brukerne kan derfor ikke gjenopprette elementet Logg av &lt;username&gt; på Start-menyen.
 
 Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, kan brukerne bruke elementet Vis avloggingsvalg til å legge til og fjerne elementet Logg av.
 
-Denne policyinnstillingen påvirker bare Start-menyen. Den påvirker ikke elementet Logg av i dialogboksen Windows-sikkerhet som vises når du trykker Ctrl+Alt+Del, og den forhindrer ikke brukerne i å bruke andre metoder til å logge av.
+Denne policyinnstillingen påvirker bare Start-menyen. Den påvirker ikke elementet Logg av i dialogboksen Windows Sikkerhet som vises når du trykker på Ctrl+Alt+Del, og den forhindrer ikke brukerne i å bruke andre metoder til å logge av.
 
-Tips! Hvis du vil legge til eller fjerne elementet Logg av fra en datamaskin, klikker du Start, Innstillinger, Oppgavelinje og Start-meny. Klikk deretter kategorien Start-menyalternativer, og klikk deretter Vis avloggingsvalg i boksen Innstillinger for Start-menyen.
+Tips! Hvis du vil legge til eller fjerne elementet Logg av fra en datamaskin, klikker du på Start, Innstillinger, Oppgavelinje og Start-meny. Klikk deretter på kategorien Start-menyalternativer, og klikk deretter på Vis avloggingsvalg i boksen Innstillinger for Start-menyen.
 
-Se også policyinnstillingen "Fjern Logg av" i Brukerkonfigurasjon\Administrative maler\System\På-/avlogging.</string>
+Se også policyinnstillingen Fjern Logg av i Brukerkonfigurasjon\Administrative maler\System\På-/avlogging.</string>
         <string id="NoUninstallFromStart">Hindre brukerne fra å avinstallere programmer fra Start-menyen</string>
         <string id="NoUninstallFromStart_Help">Hvis du aktiverer denne policyinnstillingen, kan ikke brukerne avinstallere programmer fra Start-menyen.
 
@@ -515,6 +532,18 @@ Hvis du ikke konfigurerer denne policyinnstillingen, kan brukerne aktivere og de
 Hvis du aktiverer denne policyinnstillingen, vises ikke en kobling til Nedlastinger-mappen på Start-menyen.
 
 Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, er koblingen Nedlastinger tilgjengelig fra Start-menyen.</string>
+      <string id="NoStartMenuExplorerPlace">Fjern Filutforsker-koblingen fra Steder-feltet på Start-menyen</string>
+      <string id="NoStartMenuExplorerPlace_Help">Med denne policyinnstillingen kan du fjerne Filutforsker-koblingen fra Steder-linjen på Start-menyen.
+
+Hvis du aktiverer denne policyinnstillingen, vises ikke Filutforsker i Steder-listen på Start-menyen.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan Filutforsker vises i Steder-listen på Start-menyen.</string>
+      <string id="NoStartMenuSettingsPlace">Fjern Innstillinger-koblingen fra Steder-feltet på Start-menyen</string>
+      <string id="NoStartMenuSettingsPlace_Help">Med denne policyinnstillingen kan du fjerne Innstillinger-koblingen fra Steder-linjen på Start-menyen.
+
+Hvis du aktiverer denne policyinnstillingen, vises ikke Innstillinger i Steder-listen på Start-menyen.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan Innstillinger vises i Steder-listen på Start-menyen.</string>
       <string id="NoStartMenuRecordedTV">Fjern koblingen TV-opptak fra Start-menyen</string>
       <string id="NoStartMenuRecordedTV_Help">Med denne policyinnstillingen kan du fjerne koblingen TV-opptak fra Start-menyen.
 
@@ -575,8 +604,23 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vises sta
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vil Windows automatisk velge størrelse basert på maskinvareformfaktor, og brukerne vil kunne endre størrelsen på Start i innstillingene.</string>
       <string id="ForceLauncherSize_Collapsed">Start-meny</string>
       <string id="ForceLauncherSize_Expanded">Start i fullskjermmodus</string>
+      <string id="HidePeopleBar_DisplayName">Fjern Personer-linjen fra oppgavelinjen</string>
+      <string id="HidePeopleBar_ExplainText">Med denne policyen kan du fjerne Personer-linjen fra oppgavelinjen og deaktivere Gjengen min-funksjonaliteten.
+
+Hvis du aktiverer denne policyen, fjernes personikonet fra oppgavelinjen, den tilsvarende veksleknappen for innstillinger fjernes fra innstillingssiden for oppgavelinjen, og brukere kan ikke feste personer på oppgavelinjen.</string>
+      <string id="HideRecentlyAddedApps">Fjern listen Nylig lagt til fra Start-menyen</string>
+      <string id="HideRecentlyAddedApps_Help">Med denne policyen kan du forhindre at Start-menyen viser en liste over nylig installerte apper.
+
+Hvis du aktiverer denne policyen, vises ikke lenger listen Nylig lagt til på Start-menyen.  Tilsvarende innstilling blir også deaktivert i Innstillinger.</string>
+      <string id="DisableContextMenusInStart">Deaktiver hurtigmenyer i Start-menyen</string>
+      <string id="DisableContextMenusInStart_Help">Med denne policyen kan du hindre at brukere kan åpne hurtigmenyer i Start-menyen.
+
+Hvis du aktiverer denne policyen, ignoreres start av hurtigmenyer i Start-menyen.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Velg én av følgende handlinger</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Velg en av følgende handlinger</dropdownList>
       </presentation>

@@ -143,6 +143,7 @@ Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, werden die Umleitung 
       <string id="TS_CLIENT_HELP">Steuert die Clienteinstellungen für die Remotedesktopverbindung.</string>
       <string id="TS_CLIENT_LPT">LPT-Anschlussumleitung nicht zulassen</string>
       <string id="TS_CLIENT_PNP">Umleitung bei unterstützten Plug &amp; Play-Geräten nicht zulassen</string>
+      <string id="TS_CAMERA_REDIRECTION">Keine Umleitung von Videoaufnahmen zulassen</string>
       <string id="TS_CLIENT_PRINTER">Clientdruckerumleitung nicht zulassen</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Diese Richtlinieneinstellung legt fest, ob die Freigabe von Inhalten der Zwischenablage (Zwischenablageumleitung) zwischen Remote- und Clientcomputern während einer Remotedesktopdienste-Sitzung verhindert werden soll.
 
@@ -197,6 +198,15 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, können Benutzer ihre unters
 Wenn Sie diese Richtlinieneinstellung aktivieren, können Benutzer ihre unterstützten Plug &amp; Play-Geräte nicht an den Remotecomputer umleiten. Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer ihre unterstützten Plug &amp; Play-Geräte nur dann an den Remotecomputer umleiten, wenn sie Windows Server 2012 R2 oder eine frühere Version verwenden.
 
 Hinweis: Sie können die Umleitung bestimmter unterstützter Plug &amp; Play-Gerätetypen mithilfe der Richtlinieneinstellungen unter "Computerkonfiguration\Administrative Vorlagen\System\Geräteinstallation\Einschränkungen bei der Geräteinstallation" deaktivieren.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie in einer Remotedesktopdienste-Sitzung die Umleitung von Videoaufnahmegeräten zum Remotecomputer steuern. 
+
+Remotedesktopdienste lassen standardmäßig die Umleitung von Videoaufnahmegeräten zu.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Benutzer ihre Videoaufnahmegeräte nicht zum Remotecomputer umleiten.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer ihre Videoaufnahmegeräte zum Remotecomputer umleiten. Um die Videoaufnahmegeräte auszuwählen, die zum Remotecomputer umgeleitet werden sollen, können Benutzer unter "Remotedesktopverbindung" auf der Registerkarte "Lokale Ressourcen" die Option "Weitere" verwenden.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie die Anzahl Überwachungen begrenzen, die ein Benutzer zur Anzeige einer Remotedesktopdienste-Sitzung verwenden kann. Durch die Begrenzung der Anzahl Überwachungen zum Anzeigen einer Remotedesktopdienste-Sitzung lässt sich die Verbindungsleistung (insbesondere für langsame Verbindungen) verbessern und die Serverauslastung reduzieren.
@@ -320,12 +330,13 @@ Hinweis: Die Konsolensitzung wird auch als "Sitzung 0" bezeichnet. Der Konsolenz
       <string id="TS_GATEWAY_BASIC">Anmeldeinformationen anfordern, Standardprotokoll verwenden</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Lokale Anmeldeinformationen verwenden</string>
       <string id="TS_GATEWAY_NTLM">Anmeldeinformationen anfordern, NTLM-Protokoll verwenden</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Anmeldeinformationen anfordern, Negotiate-Protokoll verwenden</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Authentifizierungsmethode für Remotedesktopgateway festlegen</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Legt die Authentifizierungsmethode fest, die Clients verwenden müssen, wenn sie über einen Remotedesktop-Gatewayserver eine Verbindung mit einem Remotedesktopsitzungs-Hostserver herstellen. Sie können diese Richtlinieneinstellung erzwingen oder Benutzern das Außerkraftsetzen dieser Richtlinieneinstellung erlauben. Wenn Sie diese Richtlinieneinstellung aktivieren, wird sie standardmäßig erzwungen. Bei Erzwingung dieser Richtlinieneinstellung können Benutzer die Einstellung nicht außer Kraft setzen, auch dann nicht, wenn sie auf dem Client die Option "Diese Einstellungen für den Remotedesktop-Gatewayserver verwenden" wählen.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Legt die Authentifizierungsmethode fest, die Clients verwenden müssen, wenn sie über einen Remotedesktop-Gatewayserver eine Verbindung mit einem Remotedesktopsitzungs-Hostserver herstellen. Sie können diese Richtlinieneinstellung erzwingen oder Benutzern das Außerkraftsetzen dieser Richtlinieneinstellung erlauben. Wenn Sie diese Richtlinieneinstellung aktivieren, wird sie standardmäßig erzwungen. Bei Erzwingung dieser Richtlinieneinstellung können Benutzer die Einstellung nicht außer Kraft setzen, auch dann nicht, wenn sie auf dem Client die Option "Diese Einstellungen für Remotedesktop-Gatewayserver verwenden" auswählen.
 
 Wenn Sie Benutzern das Außerkraftsetzen dieser Richtlinieneinstellung erlauben möchten, aktivieren Sie das Kontrollkästchen "Benutzer können diese Einstellung ändern". In diesem Fall können Benutzer eine alternative Authentifizierungsmethode festlegen, indem sie mit einer RDP-Datei oder einem HTML-Skript Einstellungen auf dem Client konfigurieren. Wenn Benutzer keine alternative Authentifizierungsmethode festlegen, wird standardmäßig die von Ihnen in dieser Richtlinieneinstellung angegebene Methode verwendet.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird die vom Benutzer festgelegte Authentifizierungsmethode (sofern angegeben) verwendet. Wenn keine Authentifizierungsmethode angegeben wurde, können das auf dem Client aktivierte NTLM-Protokoll oder eine Smartcard zur Authentifizierung verwendet werden.</string>
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird die vom Benutzer festgelegte Authentifizierungsmethode (sofern angegeben) verwendet. Wenn keine Authentifizierungsmethode angegeben wurde, können das auf dem Client aktivierte Negotiate-Protokoll oder eine Smartcard zur Authentifizierung verwendet werden.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Verbindung über Remotedesktopgateway aktivieren</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Wenn Sie diese Richtlinieneinstellung aktivieren und über die Remotedesktopverbindung keine direkte Verbindung mit einem Remotecomputer (Remotedesktopsitzungs-Hostserver oder Computer mit aktiviertem Remotedesktop) hergestellt werden kann, versuchen die Clients, über einen Remotedesktop-Gatewayserver eine Verbindung mit dem Remotecomputer herzustellen. In diesem Fall versuchen die Clients, eine Verbindung mit dem Remotedesktop-Gatewayserver herzustellen, der in der Richtlinieneinstellung "Adresse des Remotedesktop-Gatewayservers festlegen" angegeben ist.
 
@@ -408,21 +419,24 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, werden diese Benachrichtigunge
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden die Benachrichtigungen auf dem Remotedesktopsitzungs-Hostserver angezeigt, nachdem Sie sich als lokaler Administrator angemeldet haben.</string>
       <string id="TS_LICENSING_MODE">Remotedesktop-Lizenzierungsmodus festlegen</string>
-      <string id="TS_LICENSING_MODE_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie den Typ der Remotedesktopdienste-Clientzugriffslizenz (Remotedesktopdienste-CAL) festlegen, die erforderlich ist, um eine Verbindung mit diesem Remotedesktopsitzungs-Hostserver herzustellen.
+      <string id="TS_LICENSING_MODE_EXPLAIN">
+        Mit dieser Richtlinieneinstellung können Sie den Typ der Clientzugriffslizenz für Remotedesktopdienste (RDS-CAL) festlegen, die erforderlich ist, um eine Verbindung mit diesem RD-Sitzungshostserver herzustellen.
 
-Sie können diese Richtlinieneinstellung verwenden, um einen von zwei Lizenzierungsmodi auszuwählen: "Pro Benutzer" oder "Pro Gerät".
+        Sie können diese Richtlinieneinstellung verwenden, um einen von zwei Lizenzierungsmodi auszuwählen: "Pro Benutzer" oder "Pro Gerät".
 
-Der Lizenzierungsmodus "Pro Benutzer" erfordert, dass jedes Benutzerkonto, das eine Verbindung mit diesem Remotedesktopsitzungs-Hostserver herstellt, über eine "Pro Benutzer"-Clientzugriffslizenz für Remotedesktopdienste verfügt.
+        Der Lizenzierungsmodus "Pro Benutzer" erfordert, dass für jedes Benutzerkonto, das eine Verbindung zu diesem Server mit dem RD-Sitzungshost herstellt, eine "Pro-Benutzer"-RDS-CAL von einem RD-Lizenzierungsserver ausgestellt wird.
 
-Der Lizenzierungsmodus "Pro Gerät" erfordert, dass jedes Gerät, das eine Verbindung mit diesem Remotedesktopsitzungs-Hostserver herstellt, über eine "Pro Gerät"-Clientzugriffslizenz für Remotedesktopdienste verfügt.
+        Der Lizenzierungsmodus "Pro Gerät" erfordert, dass für jedes Benutzerkonto, das eine Verbindung zu diesem Server mit dem RD-Sitzungshost herstellt, eine "Pro-Gerät"-RDS-CAL von einem RD-Lizenzierungsserver ausgestellt wird.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, wird der von Ihnen angegebene Remotedesktop-Lizenzierungsmodus vom Remotedesktop-Lizenzserver berücksichtigt.
+        Der AAD-Lizenzierungsmodus "Pro Benutzer" erfordert, dass jedes Benutzerkonto, das eine Verbindung zu diesem RD-Sitzungshostserver herstellt, über einen Dienstplan verfügt, der in AAD zugewiesene RDS-Lizenzen unterstützt.
+        
+        Wenn Sie diese Richtlinieneinstellung aktivieren, wird der von Ihnen angegebene Remotedesktop-Lizenzierungsmodus vom Remotedesktop-Lizenzserver und vom RD-Sitzungshost berücksichtigt.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der Lizenzierungsmodus nicht auf Gruppenrichtlinienebene festgelegt.
-
-</string>
+        Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der Lizenzierungsmodus nicht auf Gruppenrichtlinienebene angegeben.
+      </string>
       <string id="TS_LICENSING_MODE_PER_DEVICE">Pro Gerät</string>
       <string id="TS_LICENSING_MODE_PER_USER">Pro Benutzer</string>
+      <string id="TS_LICENSING_MODE_AAD_PER_USER">AAD pro Benutzer</string>
       <string id="TS_LPTPORTMAP_EXPLAIN">Diese Richtlinieneinstellung legt fest, ob die Umleitung von Daten an LPT-Clientanschlüsse während einer Remotedesktopdienste-Sitzung unterbunden wird.
 
 Durch diese Einstellung kann verhindert werden, dass Benutzer lokale LPT-Anschlüsse zuordnen und Daten vom Remotecomputer an lokale LPT-Anschlüsse umleiten. Standardmäßig ist die LPT-Anschlussumleitung für Remotedesktopdienste zulässig.
@@ -1006,19 +1020,40 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, verwenden die auf diesem Ser
 
     </string>
 
+    <!--WDDM Graphics Driver Mode; Introduced Win10+-->
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER">WDDM-Grafiktreiber für Remotedesktopverbindungen verwenden</string>
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_OFF_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie den WDDM-Grafiktreiber für Remotedesktopverbindungen aktivieren.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, verwenden Remotedesktopverbindungen den WDDM-Grafiktreiber.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verwenden Remotedesktopverbindungen nicht den WDDM-Grafiktreiber, sondern den XDDM-Grafiktreiber.
+
+Damit diese Änderung wirksam wird, müssen Sie Windows neu starten.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie den WDDM-Grafiktreiber für Remotedesktopverbindungen aktivieren.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren oder nicht konfigurieren, verwenden Remotedesktopverbindungen den WDDM-Grafiktreiber.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, verwenden Remotedesktopverbindungen nicht den WDDM-Grafiktreiber, sondern den XDDM-Grafiktreiber.
+
+Damit diese Änderung wirksam wird, müssen Sie Windows neu starten.
+    </string>
+
+    <string id="TS_SERVER_WDDM_GRAPHICS_DRIVER_DEFAULT_ON_SINGLEUSER_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie den WDDM-Grafiktreiber für Remotedesktopverbindungen aktivieren.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, verwenden Remotedesktopverbindungen den WDDM-Grafiktreiber.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, verwenden Remotedesktopverbindungen nicht den WDDM-Grafiktreiber, sondern den XDDM-Grafiktreiber.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, verwenden Remotedesktopverbindungen auf dem RD-Sitzungshostserver nicht den WDDM-Grafiktreiber. In allen anderen Fällen verwenden Remotedesktopverbindungen den WDDM-Grafiktreiber.
+
+Damit diese Änderung wirksam wird, müssen Sie Windows neu starten.
+    </string>
+
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">H.264/AVC-Hardwarecodierung für Remotedesktopverbindungen konfigurieren</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie die Unterstützung der H.264/AVC-Hardwarecodierung für Remotedesktopverbindungen aktivieren. Wenn Sie die Hardwarecodierung aktivieren und ein Fehler auftritt, wird versucht, die Softwarecodierung zu verwenden. Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, wird immer die Softwarecodierung verwendet.
-        
-Wenn Sie die Codierungsoption auf "Immer versuchen" festlegen, versucht Remotedesktop immer, die H.264/AVC-Hardwarecodierung zu verwenden, sofern verfügbar. Beachten Sie, dass die Richtlinie für Windows Server mit Hyper-V und aktivierter RemoteFX-vGPU auf dem Hyper-V-Hostcomputer festgelegt werden muss.
-        
-Wenn Sie die Codierungsoption auf "Nur für virtuelle RemoteFX-vGPU-Computer versuchen" festlegen, sollten Sie beachten, dass die Richtlinie für Windows Server mit Hyper-V und aktivierter RemoteFX-vGPU auf dem Hyper-V-Hostcomputer festgelegt werden muss.
-        
-Wenn Sie die Codierungsoption auf "Nur für Nicht-RemoteFX-vGPU-Szenarien versuchen" festlegen, versucht Remotedesktop, die Hardwarecodierung für alle Szenarien außer für RemoteFX-vGPU-Szenarien zu verwenden.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Immer versuchen</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Nur für virtuelle RemoteFX-vGPU-Computer versuchen</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Nur für Nicht-RemoteFX-vGPU-Szenarien versuchen</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Mit dieser Richtlinieneinstellung können Sie die Unterstützung der H.264/AVC-Hardwarecodierung für Remotedesktopverbindungen aktivieren. Wenn Sie die Hardwarecodierung aktivieren und ein Fehler auftritt, versuchen wir, die Softwarecodierung zu verwenden. Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, verwenden wir immer die Softwarecodierung.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">H.264/AVC 444-Grafikmodus für Remotedesktopverbindungen priorisieren</string>
@@ -1169,7 +1204,7 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, wird die Benutzeranmeldung bis
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der Startbildschirm angezeigt, während Apps im Hintergrund registriert werden.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Standard-Hardwaregrafikadapter für alle Remotedesktopdienste-Sitzungen verwenden</string>
+      <string id="TS_DX_USE_FULL_HWGPU">Hardwaregrafikadapter für alle Remotedesktopdienste-Sitzungen verwenden</string>
       <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Mit dieser Richtlinieneinstellung können Systemadministratoren das Rendern von Grafiken für alle Remotedesktopdienste-Sitzungen ändern.
 
 Wenn Sie diese Richtlinieneinstellung aktivieren, wird der Hardwaregrafikrenderer anstelle von Microsoft Basic Render Driver als Standardadapter für alle Remotedesktopdienste-Sitzungen verwendet.
@@ -1178,7 +1213,7 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, verwenden alle Remotedesktop
 
 Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, verwenden Remotedesktopdienste-Sitzungen auf dem RD-Sitzungshostserver Microsoft Basic Render Driver als Standardadapter. In allen anderen Fällen verwenden Remotedesktopdienste-Sitzungen standardmäßig den Hardwaregrafikrenderer.
 
-HINWEIS: Die Richtlinieneinstellung betrifft nur den Standardgrafikprozessor (Graphics Processing Unit, GPU) auf Computern mit mehreren GPUs. Alle zusätzlichen GPUs werden als sekundäre Adapter betrachtet und als Hardwarerenderer verwendet. Diese Richtlinieneinstellung wirkt sich nicht auf die GPU-Konfiguration der lokalen Sitzung aus.
+HINWEIS: Die Richtlinieneinstellung aktiviert den Lastenausgleich zwischen Grafikprozessoren (Graphics Processing Units, GPUs) auf Computern mit mehreren GPUs. Diese Richtlinieneinstellung wirkt sich nicht auf die GPU-Konfiguration der lokalen Sitzung aus.
 </string>
       
     </stringTable>
@@ -1328,9 +1363,6 @@ HINWEIS: Die Richtlinieneinstellung betrifft nur den Standardgrafikprozessor (Gr
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-Komprimierungsalgorithmus:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">AVC-Hardwarecodierung bevorzugen:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Desktopgestaltung:</dropdownList>

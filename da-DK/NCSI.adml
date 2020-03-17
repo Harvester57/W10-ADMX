@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Du kan bruge denne politikindstilling til at angive HTTPS URL-adressen for det firmawebsted, som klienter bruger til at bestemme den aktuelle domæneplacering, dvs. om computeren er inden for eller uden for firmanetværket. Hvis der kan fås forbindelse til URL-destinationen, angiver det, at klientplaceringen er inden for firmanetværket. Ellers er den uden for netværket.</string>
       <string id="NCSI_PassivePolling">Angiv passiv forespørgsler</string>
       <string id="NCSI_PassivePolling_Help">Ved hjælp af denne politikindstilling kan du angive funktionsmåden for passive forespørgsler. NCSI opretter forespørgsler til forskellige målinger via netværksstakken på et hyppigt interval for at bestemme, om netværksforbindelsen er gået tabt.  Brug indstillingerne til at styre funktionsmåden for passive forespørgsler</string>
+      <string id="NCSI_GlobalDns">Angiv global DNS</string>
+      <string id="NCSI_GlobalDns_Help">Med denne politikindstilling kan du angive, hvordan DNS-bindingen skal fungere. NCSI begrænser som standard DNS-opslag til den grænseflade, som testes. Hvis du aktiverer denne indstilling, kan DNS-opslag udføres i alle grænseflader.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>Følgende afkrydsningsfelt deaktiverer funktionen til passive forespørgsler i NCSI.   Dette kan forbedre CPU-belastningen på servere eller andre computere, hvor netværksforbindelsen er statisk.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Deaktiver passive forespørgsler</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Følgende afkrydsningsfelt deaktiverer grænsefladebinding ved DNS-opslag i NCSI. Dette kan medføre, at NCSI fungerer bedre med specielle netværkskonfigurationer, som en DNS-server, der kører på en lokal vært.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Brug global DNS</checkBox>
       </presentation>
     </presentationTable>
   </resources>

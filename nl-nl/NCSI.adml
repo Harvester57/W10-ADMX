@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Met deze beleidsinstelling kunt u HTTPS URL van de bedrijfswebsite opgeven die clienten gebruiken om de huidige domeinlocatie te bepalen (d.w.z. of de computer binnen of buiten het bedrijfsnetwerk valt). Bereikbaarheid van de URL-bestemming geeft aan dat de cliëntlocatie binnen het netwerk van de onderneming ligt. Anders ligt het buiten het netwerk.</string>
       <string id="NCSI_PassivePolling">Passieve polling opgeven</string>
       <string id="NCSI_PassivePolling_Help">Met deze beleidsinstelling kunt u het gedrag voor passieve polling opgeven. NCSI peilt verschillende metingen in de gehele netwerkstack met een frequent interval, om te bepalen of de connectiviteit met het netwerk verloren is gegaan.  Gebruik de opties om gedrag voor passief polling te regelen.</string>
+      <string id="NCSI_GlobalDns">Globale DNS opgeven</string>
+      <string id="NCSI_GlobalDns_Help">Met deze beleidsinstelling kunt u het gedrag van DNS-binding opgeven. NCSI beperkt DNS-zoekacties standaard tot de interface die momenteel wordt doorzocht. Als u deze instelling inschakelt, staat NCSI toe dat DNS-zoekacties worden uitgevoerd in een elke gewenste interface.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>De volgende controlelijst schakelt het mechanisme voor passieve polling in NCSI uit.   Dit kan de CPU-belasting verbeteren op servers of andere computers, waarvan de netwerkconnectiviteit statisch is.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Passieve polling uitschakelen</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Met het volgende selectievakje schakelt u interfacebinding voor DNS-zoekacties in NCSI uit. Zo werkt NCSI mogelijk beter bij speciale netwerkconfiguraties, zoals een DNS-server die wordt uitgevoerd op een lokale host.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Globale DNS gebruiken</checkBox>
       </presentation>
     </presentationTable>
   </resources>

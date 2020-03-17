@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Tämän käytäntöasetuksen avulla voit määrittää yrityssivuston HTTPS URL -osoitteen, jota asiakkaat käyttävät nykyisen toimialuesijainnin määrittämiseen (esimerkiksi onko tietokone yrityksen verkon ulko- vai sisäpuolella). URL-kohteen tavoitettavuus ilmaisee, että asiakas on yritysverkossa. Muussa tapauksessa se on verkon ulkopuolella.</string>
       <string id="NCSI_PassivePolling">Specify passive polling (Määritä passiivinen kysely)</string>
       <string id="NCSI_PassivePolling_Help">Tämän käytäntöasetuksen avulla voit määrittää passiivisen kyselyn toiminnan. NCSI selvittää verkkoyhteyden menettämistä kyselemällä verkkopinon välityksellä eri mittoja säännöllisin välein.  Asetusten avulla voit hallita passiivisen kyselyn toimintaa.</string>
+      <string id="NCSI_GlobalDns">Määritä yleinen DNS</string>
+      <string id="NCSI_GlobalDns_Help">Tämän käytäntöasetuksen avulla voit määrittää DNS:n sidontatavan. NCSI rajoittaa oletusarvoisesti DNS-hakuja juuri tutkittavassa käyttöliittymässä. Jos otat tämän asetuksen käyttöön, NCSI sallii DNS-hakujen suorittamisen missä tahansa käyttöliittymässä.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>Seuraava valintaruutu poistaa käytöstä passiivisen kyselymekanismin NCSI:ssä.   Tämä voi lisätä suorittimen työmäärää palvelimissa tai muissa koneissa, joiden verkkoyhteys on staattinen.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Disable passive polling (Poista passiivinen kysely käytöstä)</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Seuraava valintaruutu poistaa käyttöliittymän sidonnan käytöstä, kun NCSI:ssä suoritetaan DNS-hakuja. Näin NCSI toimii paremmin esimerkiksi localhostissa käynnissä olevan DNS-palvelimen kaltaisten erikoisverkkokoonpanojen kanssa.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Käytä yleistä DNS:ää</checkBox>
       </presentation>
     </presentationTable>
   </resources>

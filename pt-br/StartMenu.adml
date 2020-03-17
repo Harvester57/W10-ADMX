@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Pelo menos Windows Server 2008 R2 ou Windows 7. Não tem suporte no Windows 10 ou posterior</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 e Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Limpar a lista de programas recentes para novos usuários</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Se você habilitar esta configuração de política, a lista de programas recentes no menu Iniciar será exibida em branco para cada novo usuário.
 
@@ -104,7 +105,7 @@ Se esta configuração for habilitada, o sistema não personalizará os menus. T
 Observação: os menus personalizados exigem o rastreamento de usuário. Se a configuração "Desativar o rastreamento de usuário" for habilitada, o sistema desabilitará o rastreamento de usuário e os menus personalizados e ignorará esta configuração.
 
 Dica: para desativar os menus personalizados sem especificar uma configuração, clique em Iniciar, Configurações, Barra de tarefas e menu Iniciar e desmarque a opção "Usar Menus Personalizados" na guia Geral.</string>
-      <string id="LockTaskbar">Bloquear a Barra de Tarefas</string>
+      <string id="LockTaskbar">Bloquear a barra de tarefas</string>
       <string id="LockTaskbar_Help">Esta configuração afeta a barra de tarefas, que é usada para alternar entre os aplicativos em execução.
 
 A barra de tarefas inclui o botão Iniciar, uma lista das tarefas em execução no momento e a área de notificação. Por padrão, a barra de tarefas está localizada na parte inferior da tela, mas pode ser arrastada para qualquer lado da tela. Quando bloqueada, a barra de tarefas não pode ser movida ou redimensionada.
@@ -150,8 +151,8 @@ Se você desabilitar ou não definir essa configuração, permitirá que o usuá
 Se você desabilitar ou não definir essa configuração, o sistema manterá as notificações e, quando o usuário fizer logon, os blocos serão exibidos exatamente como estavam quando o usuário fez logoff, inclusive o histórico de notificações anteriores de cada bloco.
 
 Essa configuração não impede que novas notificações sejam exibidas. Consulte a configuração "Desligar Notificações de Aplicativos" para impedir novas notificações.</string>
-      <string id="StartPinAppsWhenInstalled">Fixar aplicativos na tela inicial quando instalados</string>
-      <string id="StartPinAppsWhenInstalled_Help">Essa configuração de política permite fixar os aplicativos na tela inicial por padrão, quando eles são incluídos na lista por AppID.</string>
+      <string id="StartPinAppsWhenInstalled">Fixar aplicativos em Iniciar quando instalados</string>
+      <string id="StartPinAppsWhenInstalled_Help">Essa configuração de política permite fixar os aplicativos em Iniciar por padrão, quando eles são incluídos na lista por AppID.</string>
 
       <string id="LockedStartLayout">Layout da tela inicial</string>
       <string id="LockedStartLayout_Help">Especifica o layout da tela inicial para os usuários.
@@ -170,6 +171,12 @@ Se você habilitar esta configuração de política, o botão Energia e os coman
 Se desabilitar ou não configurar esta política, o botão Energia e os comandos Desligar, Reiniciar, Dormir e Hibernar ficarão disponíveis no menu Iniciar. O botão Energia na tela Segurança do Windows também ficará disponível.
 
 Observação: O suporte a esta configuração de política requer programas de terceiros certificados como compatíveis com Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP ou Windows 2000 Professional.</string>
+      <string id="HidePowerOptions">Remover e impedir o acesso aos comandos Desligar, Reiniciar, Suspender e Hibernar</string>
+      <string id="HidePowerOptions_Help">Esta configuração de política impede que os usuários executem os comandos a seguir na tela Segurança do Windows, na tela de logon e no menu Iniciar: Desligar, Reiniciar, Suspender e Hibernar. Esta configuração de política não impede que os usuários executem programas baseados no Windows que realizam essas funções.
+
+Se você habilitar esta configuração de política, os comandos Desligar, Reiniciar, Suspender e Hibernar serão removidos do menu Iniciar. O botão Ligar/Desligar também será removido da tela Segurança do Windows, que aparece quando você pressiona CTRL+ALT+DELETE, e da tela de logon.
+
+Se desabilitar ou não configurar esta política, o botão Ligar/Desligar e os comandos Desligar, Reiniciar, Suspender e Hibernar ficarão disponíveis no menu Iniciar. O botão Ligar/Desligar na tela Segurança do Windows também ficará disponível.</string>
       <string id="NoCommonGroups">Remover grupos de programas comuns do Menu Iniciar</string>
       <string id="NoCommonGroups_Help">Remove os itens do perfil Todos os Usuários do menu Programas no menu Iniciar.
 
@@ -222,12 +229,22 @@ Se você desabilitar ou não definir essa configuração de política, o sistema
 Além disso, consulte estas configurações de política relacionadas: "Remover lista de programas frequentes do menu Iniciar" e "Desabilitar menus personalizados".
 
 Essa configuração de política não impede que os usuários fixem programas no menu Iniciar ou na Barra de Tarefas. Consulte as configurações de política "Remover lista de programas fixados do menu Iniciar" e "Não permitir a fixação de programas na Barra de Tarefas".</string>
+
       <string id="NoMoreProgramsList">Remover a lista Todos os Programas do menu Iniciar</string>
-      <string id="NoMoreProgramsList_Help">Essa configuração de política permite remover a lista Todos os Programas do menu Iniciar.
+      <string id="NoMoreProgramsList_Help">Se você habilitar essa configuração, o Menu Iniciar recolherá ou removerá a lista de todos os apps do menu Iniciar.
 
-Se você habilitar essa configuração de política, o item "Todos os Programas" será removido do menu Iniciar simples.  A tela inicial mostrará o modo de exibição Todos os Aplicativos, mas só incluirá itens fixados no menu Iniciar.
+Selecionar "Recolher" não exibirá a lista de aplicativos ao lado de blocos fixados em Iniciar. Um botão "Todos os aplicativos" será exibido em Iniciar para abrir a lista de todos os apps. Isso é equivalente a definir a opção "Mostrar lista de aplicativos no menu Iniciar" em Configurações como Desativada.
 
-Se você desabilitar ou não definir essa configuração de política, o item "Todos os Programas" permanecerá no menu Iniciar simples.</string>
+Selecionar "Recolher e desabilitar a configuração" equivale à opção Recolher e a desabilitar a opção "Mostrar lista de aplicativos no menu Iniciar" em Configurações, para que os usuários não possam ativá-la.
+
+Selecionar "Remover e desabilitar configuração" removerá a lista de todos os aplicativos do menu Iniciar e desabilitará a opção "Mostrar lista de aplicativos no menu Iniciar" em Configurações, para que os usuários não possam ativá-la. Selecione essa opção para compatibilidade com versões anteriores do Windows.
+
+Se você desabilitar ou não definir essa configuração, a lista de todos os aplicativos ficará visível por padrão, e o usuário poderá alterar "Mostrar lista de aplicativos no menu Iniciar" em Configurações.</string>
+      <string id="APPLIST_NONE">Nenhum</string>
+      <string id="APPLIST_COLLAPSE">Recolher</string>
+      <string id="APPLIST_COLLAPSESETTING">Recolher e desabilitar a configuração</string>
+      <string id="APPLIST_REMOVESETTING">Remover e desabilitar a configuração</string>    
+
       <string id="NoNetAndDialupConnect">Remover Conexões de Rede do Menu Iniciar</string>
       <string id="NoNetAndDialupConnect_Help">Essa configuração de política permite remover as Conexões de Rede do menu Iniciar.
 
@@ -515,6 +532,18 @@ Se você não definir essa configuração de política, os usuários poderão at
 Se você habilitar essa configuração de política, o menu Iniciar não mostrará um link para a pasta Downloads.
 
 Se você desabilitar ou não definir essa configuração de política, o link Downloads estará disponível no menu Iniciar.</string>
+      <string id="NoStartMenuExplorerPlace">Remover o link Explorador de Arquivos da barra Locais do Menu Iniciar</string>
+      <string id="NoStartMenuExplorerPlace_Help">Essa configuração de política permite remover o link Explorador de Arquivos da barra Locais do Menu Iniciar.
+
+Se você habilitar essa configuração de política, o Explorador de arquivos não aparecerá na lista Locais do Menu Iniciar.
+
+Se você desabilitar ou não definir essa configuração de política, o Explorador de Arquivos poderá ser exibido na lista Locais do Menu Iniciar.</string>
+      <string id="NoStartMenuSettingsPlace">Remover o link Configurações da barra Locais do Menu Iniciar</string>
+      <string id="NoStartMenuSettingsPlace_Help">Essa configuração de política permite remover o link Configurações da barra Locais do Menu Iniciar.
+
+Se você habilitar essa configuração de política, o link Configurações não aparecerá na lista Locais do Menu Iniciar.
+
+Se você desabilitar ou não definir essa configuração de política, o link Configurações poderá ser exibido na lista Locais do Menu Iniciar.</string>
       <string id="NoStartMenuRecordedTV">Remover o link TV Gravada do menu Iniciar</string>
       <string id="NoStartMenuRecordedTV_Help">Essa configuração de política permite remover o link TV Gravada do menu Iniciar.
 
@@ -575,8 +604,23 @@ Se você desabilitar ou não definir essa configuração de política, a tela in
 Se você desabilitar ou não definir essa configuração de política, o Windows selecionará automaticamente o tamanho com base no fator forma de hardware e os usuários poderão alterar o tamanho de Iniciar em Configurações.</string>
       <string id="ForceLauncherSize_Collapsed">Menu Iniciar</string>
       <string id="ForceLauncherSize_Expanded">Iniciar em tela inteira</string>
+      <string id="HidePeopleBar_DisplayName">Remover a Barra de Pessoas da barra de tarefas</string>
+      <string id="HidePeopleBar_ExplainText">Esta política permite remover a Barra de Pessoas da barra de tarefas e desabilita a experiência do recurso Minhas Pessoas.
+
+Se você habilitar esta política, o ícone de pessoas será removido da barra de tarefas, a opção de alternância de configurações correspondente será removida da página de configurações da barra de tarefas, e os usuários não poderão fixar pessoas na barra de tarefas.</string>
+      <string id="HideRecentlyAddedApps">Remover lista "Adicionados recentemente" do Menu Iniciar</string>
+      <string id="HideRecentlyAddedApps_Help">Esta política permite impedir que o Menu Iniciar exiba uma lista de aplicativos instalados recentemente.
+
+Se você habilitar esta política, o Menu Iniciar não exibirá a lista "Adicionados recentemente".  A configuração correspondente também será desabilitada em Configurações.</string>
+      <string id="DisableContextMenusInStart">Desabilitar menus de contexto no Menu Iniciar</string>
+      <string id="DisableContextMenusInStart_Help">Esta política permite impedir que os usuários abram menus de contexto no Menu Iniciar.
+
+Se você habilitar esta política, as invocações de menus de contexto no Menu Iniciar serão ignoradas.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Escolha uma das ações a seguir</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Escolha uma das ações a seguir</dropdownList>
       </presentation>

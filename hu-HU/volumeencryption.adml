@@ -47,15 +47,13 @@ Megjegyzés: A további hitelesítési lehetőségekből csak egyet igényelhet 
 
 Ha a BitLocker eszközt TPM nélküli számítógépen szeretné használni, jelölje be „A BitLocker engedélyezése kompatibilis TPM nélkül” jelölőnégyzetet. Ebben az üzemmódban az indításhoz jelszó vagy USB-meghajtó szükséges. Indítókulcs használata esetén a rendszer a meghajtó titkosításához használt kulcsadatokat az USB-meghajtón tárolja, ezzel USB-kulcsot hozva létre. Amikor behelyezik az USB-kulcsot, a rendszer hitelesíti a meghajtó használatát, és a meghajtó elérhető lesz. Ha az USB-kulcs elveszik vagy nem áll rendelkezésre, illetve ha elfelejtette a jelszót, a meghajtó eléréséhez a BitLocker helyreállítási lehetőségeinek egyikét kell használnia.
 
-Kompatibilis TPM modult tartalmazó számítógépen négy hitelesítési módszer használható az induláskor a titkosított adatok bővített védelméhez. Amikor a számítógép elindul, használhatja csak a TPM modult a hitelesítésre, vagy ezen felül kérheti az indítókulcsot tartalmazó USB flash meghajtó behelyezését is, illetve egy 4-20 számjegyű személyes azonosítószám (PIN-kód) megadását, avagy mindkettőt.
+Kompatibilis TPM modult tartalmazó számítógépen négy hitelesítési módszer használható az induláskor a titkosított adatok bővített védelméhez. Amikor a számítógép elindul, használhatja csak a TPM modult a hitelesítésre, vagy ezen felül kérheti az indítókulcsot tartalmazó USB flash meghajtó behelyezését is, illetve egy 6-20 számjegyű személyes azonosítószám (PIN-kód) megadását, avagy mindkettőt.
 
 Ha engedélyezi ezt a házirend-beállítást, a felhasználók speciális rendszerindítási beállításokat konfigurálhatnak a BitLocker telepítővarázslóban.
 
 Ha letiltja ezt a házirend-beállítást, a felhasználók csak alapvető beállításokat konfigurálhatnak a TPM modult tartalmazó számítógépeken.
 
 Megjegyzés: Ha indítási PIN-kód és USB flash meghajtó alkalmazását szeretné előírni, akkor a BitLocker beállításait a BitLocker meghajtótitkosítás telepítővarázslója helyett a manage-bde parancssori eszközzel kell konfigurálnia.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Hálózati feloldás engedélyezése indításkor</string>
@@ -285,16 +283,21 @@ Figyelmeztetés: Az alapértelmezett platformérvényesítési profilról való 
 
       <string id="PlatformValidation_BIOS_Name">A TPM platformérvényesítési profil konfigurálása a BIOS-alapú belső vezérlőprogram konfigurációk számára</string>
 
-      <string id="PlatformValidation_UEFI_Help">Ezzel a házirend-beállítással konfigurálhatja, hogy a számítógép platformmegbízhatósági moduljának (TPM) biztonsági hardvere hogyan biztosítsa a BitLocker titkosítási kulcsát. Ez a házirend-beállítás nem érvényes, ha a számítógép nem rendelkezik kompatibilis TPM modullal, vagy ha a BitLocker már be van kapcsolva TPM-védelemmel.
+      <string id="PlatformValidation_UEFI_Help">Ezzel a házirend-beállítással konfigurálhatja, hogy a számítógép platformmegbízhatósági moduljának (TPM) biztonsági hardvere hogyan védje a BitLocker titkosítási kulcsát. A házirend-beállítás nem érvényes, ha a számítógép nem rendelkezik kompatibilis TPM-mel, vagy ha a BitLocker már TPM-védelemmel lett bekapcsolva.
 
-Fontos: Ez a csoportházirend csak natív UEFI belsővezérlőprogram-konfigurációval rendelkező számítógépekre vonatkozik. A BIOS vagy UEFI belső vezérlőprogrammal és engedélyezett kompatibilitástámogató modullal (CSM) rendelkező számítógépek különböző értékeket tárolnak a platformkonfigurációs regiszterekben (PCR-ekben). „A TPM platformérvényesítési profil konfigurálása BIOS-alapú belsővezérlőprogram-konfigurációk esetében” csoportházirend-beállítás használatával konfigurálhatja a TPM PCR profilt a BIOS-konfigurációval rendelkező és az UEFI belső vezérlőprogramot használó, engedélyezett CSM modullal rendelkező számítógépek számára.
+Fontos: Ez a csoportházirend csak natív UEFI belsővezérlőprogram-konfigurációval rendelkező számítógépekre vonatkozik. A BIOS vagy UEFI belső vezérlőprogrammal rendelkező számítógépek, amelyeken engedélyezve van a Kompatibilitási szolgáltatás modul (CSM), más értékeket tárolnak a platformkonfigurációs regiszterekben (PCR). A TPM platformérvényesítési profil konfigurálása a BIOS-alapú belső vezérlőprogram konfigurációk számára” csoportházirend-beállítás használatával beállíthatja a TPM PCR-profilt a BIOS konfigurációjú vagy az UEFI belső vezérlőprogrammal rendelkező számítógépek számára, amelyeken engedélyezve van a Kompatibilitási szolgáltatás modul (CSM).
 
-Ha engedélyezi ezt a házirend-beállítást a BitLocker bekapcsolása előtt, akkor a BitLocker által titkosított operációsrendszer-meghajtóhoz való hozzáférés zárolásának feloldása előtt konfigurálhatja a rendszerindításnak a TPM által érvényesítendő összetevőit. Ha az összetevők bármelyike módosul a BitLocker-védelem alatt, a TPM nem engedi, hogy a titkosítási kulcs feloldja a meghajtó zárolását, a számítógép pedig megjeleníti a BitLocker helyreállítási konzolt, és megköveteli a helyreállítási jelszót vagy a helyreállítási kulcsot a meghajtó zárolásának feloldásához.
+Ha a BitLocker bekapcsolása előtt engedélyezi ezt a házirend-beállítást, konfigurálhatja azokat a rendszerindítási összetevőket, amelyeket a TPM érvényesíteni fog, mielőtt feloldja a BitLocker-titkosítású operációsrendszer-meghajtóhoz való hozzáférés zárolását. Ha ezen összetevők bármelyikét módosítják, miközben a BitLocker-védelem érvényben van, a TPM nem szabadítja fel a titkosítási kulcsot a meghajtó zárolásának feloldásához. A számítógép ehelyett a BitLocker helyreállítási konzolt jeleníti meg, és a helyreállítási jelszó vagy a helyreállítási kulcs megadását kéri a meghajtó zárolásának feloldásához.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a BitLocker az alapértelmezett platformérvényesítési profilt vagy a telepítő parancsfájl által megadott platformérvényesítési profilt használja. A platformérvényesítési profil platformkonfigurációs regiszterek (PCR) 0-tól 23-ig terjedő indexeiből áll. Az alapértelmezett platformérvényesítési profil pedig biztosítja a titkosítási kulcsot a fő rendszerszintű belső vezérlőprogram végrehajtható kódjának (PCR 0), a bővített vagy moduláris végrehajtható kód (PCR 2), a rendszertöltés-vezérlő (PCR 4) és a BitLocker hozzáférés-vezérlés (PCR 11) módosításai ellen.
+Ha letiltja vagy nem konfigurálja a házirend-beállítást, a BitLocker az alapértelmezett platformérvényesítési profilt használja az elérhető hardverhez vagy a telepítési parancsfájl által megadott platformérvényesítési profilhoz. 
 
-Figyelmeztetés: Az alapértelmezett platformérvényesítési profilról való átváltás hatással van a számítógép biztonságára és kezelhetőségére. A BitLocker érzékenysége a platform (rosszindulatú vagy hitelesített) módosításaira attól függően növekszik vagy csökken, hogy a PCR regisztereket hozzáadják-e a rendszerhez vagy nem. Konkrétan, ha ezt a házirendet a PCR 7 kihagyásával állítja be, azzal felülírja a „Biztonságos rendszerindítás engedélyezése az integritás-ellenőrzéshez” csoportházirendet, megakadályozva ezzel, hogy a BitLocker a biztonságos rendszerindítást használja a platformérvényesítéshez vagy a rendszerindítási konfigurációs adatokat (BCD) az integritás-ellenőrzéshez. A házirend beállítása azzal járhat, hogy a belső vezérlőprogram frissítésekor BitLocker helyreállításra kerül sor. Ha a PCR 0 regisztert is a házirend részeként adja meg, akkor függessze fel a BitLockert a belső vezérlőprogram frissítéseinek alkalmazása előtt.
-      
+A platformérvényesítési profil platformkonfigurációs regiszter- (PCR-) indexek 0 és 23 közötti készletét tartalmazza. 
+
+Azokon a számítógépeken, amelyeken a Biztonságos rendszerindítási állapot (PCR 7) nem támogatott, az alapértelmezett platformérvényesítési profil biztosítja a titkosítási kulcs védelmét a fő rendszerszintű belső vezérlőprogram végrehajtható kódja (PCR 0), a bővített vagy moduláris végrehajtható kód (PCR 2), a rendszertöltés-vezérlő (PCR 4), valamint a BitLocker hozzáférés-vezérlés (PCR 11) módosításai esetén. 
+
+Figyelmeztetés: Az alapértelmezett platformérvényesítési profil módosítása hatással van a számítógép biztonságára és kezelhetőségére. A BitLocker platformmódosításokra (rosszindulatú vagy engedélyezett) való érzékenysége a PCR-ek belefoglalásától vagy kizárásától függően nő vagy csökken. Ha ezt a házirendet a PCR 7 kihagyásával állítja be, azzal felülírja a Biztonságos rendszerindítás engedélyezése az integritás-ellenőrzéshez” csoportházirendet, és megakadályozza, hogy a BitLocker a Biztonságos rendszerindítás szolgáltatást használja a platform vagy a rendszerindítási konfigurációs adatok (BCD) integritás-ellenőrzéséhez. A házirend beállítása a belső vezérlőprogram frissítésekor BitLocker-alapú helyreállítást eredményezhet. Ha a házirendet úgy állítja be, hogy az tartalmazza a PCR 0 beállítást, a belső vezérlőprogram frissítéseinek alkalmazása előtt függessze fel a BitLocker szolgáltatást.
+
+Nem ajánlott konfigurálni ezt a házirendet, ha azt szeretné, hogy a Windows válassza ki a biztonság és használhatóság legjobb kombinációjának eléréséhez szükséges PCR-profilt az egyes számítógépeken rendelkezésre álló hardverek alapján.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">A TPM platformérvényesítési profil konfigurálása natív UEFI belsővezérlőprogram-konfigurációk esetében</string>
@@ -309,6 +312,13 @@ Ha letiltja vagy nem konfigurálja a beállítást, a számítógép újraindít
 
       </string>
       <string id="MorBehavior_Name">Memóriatartalom rendszerindítás általi felülírásának megakadályozása</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Ez a házirend-beállítás lehetővé teszi, hogy letiltsa az összes Thunderbolt üzem közben csatlakoztatható PCI lefelé irányuló portjának közvetlen memória-hozzáférését (DMA), amíg a felhasználó be nem jelentkezik a Windowsba. Miután a felhasználó bejelentkezett, a Windows számba veszi a gazda Thunderbolt PCI-portokhoz csatlakoztatott PCI-eszközöket. Minden alkalommal, amikor a felhasználó zárolja a gépet, a rendszer letiltja a DMA-t azokon az üzem közben csatlakoztatható Thunderbolt PCI-portokon, amelyekhez nem tartozik alárendelt eszköz, amíg a felhasználó újból be nem jelentkezik. A gép zárolásának feloldásakor már számba vett eszközök továbbra is működni fognak, amíg le nem választják őket, vagy a rendszert újra nem indítják, illetve nem hibernálják. Ez a házirend-beállítás csak akkor lép érvénybe, ha a BitLocker vagy az eszköztitkosítás engedélyezve van.
+
+Megjegyzés: Előfordulhat, hogy bizonyos PC-k nem kompatibilisek ezzel a házirenddel, ha a rendszer belső vezérlőprogramja engedélyezi a DMA-t az újjonnan csatlakoztatott Thunderbolt-eszközök esetén, mielőtt az új eszközöket elérhetővé tenné a Windows számára.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Az új DMA-eszközök letiltása, amikor a számítógép zárolva van</string>
 
       <string id="FVEOSCategory">Operációsrendszer-meghajtók</string>
       <string id="FVEFDVCategory">Rögzített adatmeghajtók</string>
@@ -371,13 +381,14 @@ A rendszerindítási hibakeresést vezérlő beállítás (0x16000010) érvénye
 
 
       <string id="MinimumPINLength_Name">Az indításkor szükséges PIN-kód minimális hosszának beállítása</string>
-      <string id="MinimumPINLength_Help">Ezzel a házirend-beállítással beállíthatja a platformmegbízhatósági modul (TPM) indító PIN-kódjának minimális hosszát. Ezt a házirend-beállítást a rendszer a BitLocker bekapcsolásakor alkalmazza. Az indító PIN-kód legalább 4, legfeljebb 20 számjegyből állhat.
+      <string id="MinimumPINLength_Help">
+          Ezzel a házirend-beállítással konfigurálhatja a platformmegbízhatósági modul (TPM) indító PIN-kódjának minimális hosszát. A házirend-beállítást a rendszer a BitLocker bekapcsolásakor alkalmazza. Az indító PIN-kódnak legalább 4 és legfeljebb 20 számjegyből kell állnia.
 
-Ha engedélyezi ezt a házirend-beállítást, akkor beállíthat egy ettől eltérő minimális hosszat az indító PIN-kódhoz.
+          Ha engedélyezi a házirend-beállítást, kötelezővé teheti egy minimális számú számjegy használatát az indító PIN-kód beállításakor.
 
-Ha letiltja vagy nem konfigurálja a házirend-beállítást, az indító PIN-kód 4 és 20 számjegy között tetszőleges hosszúságú lehet.
+          Ha letiltja vagy nem konfigurálja a házirend-beállítást, a felhasználók 6 és 20 számjegy között tetszőleges hosszúságú indító PIN-kódot állíthatnak be.
 
-      
+          MEGJEGYZÉS: Ha 6 számjegynél kisebb minimális PIN-kód hosszúságot állít be, a Windows úgy próbálja meg módosítani a TPM 2.0 zárolási periódust, hogy az a PIN-kód módosításakor nagyobb legyen, mint az alapérték. Ha ez sikerül, a Windows csak akkor állítja vissza az alapértékre a TPM zárolási periódust, ha a TPM-et alaphelyzetbe állítják.
 
       </string>
 
@@ -624,49 +635,46 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, az általános
 
       <string id="RDVEDrive_Name">A hardveralapú titkosítás használatának konfigurálása cserélhető adatmeghajtók esetében</string>
 
-      <string id="OSEDrive_Help">Ezen házirend-beállítás segítségével határozhatja meg a hardveralapú titkosítás BitLocker általi használatát az operációsrendszer-meghajtókon, és megadhatja, hogy mely titkosítási algoritmusokat használhatja a hardveralapú titkosításhoz. A hardveralapú titkosítás használata javíthatja azon meghajtóműveletek hatékonyságát, amelyek során a rendszer gyakran ír és olvas adatokat a meghajtóról.
+      <string id="OSEDrive_Help">Ezzel a házirend-beállítással kezelheti a BitLocker hardveralapú titkosításának az operációsrendszer-meghajtókon való használatát, és megadhatja, hogy mely titkosítási algoritmusok használhatók a hardveres titkosításhoz. A hardveralapú titkosítás használatával javíthatja a meghajtón végzett, az adatok gyakori olvasásával vagy írásával járó meghajtóműveletek teljesítményét.
 
-Ha engedélyezi ezt a házirend-beállítást, további beállításokat adhat meg, amelyek segítségével megadhatja, hogy a hardveralapú titkosítás helyett a BitLocker szoftveralapú titkosítását használják a hardveralapú titkosítást nem támogató számítógépek, és azt, hogy kívánja-e korlátozni a hardveralapú titkosításhoz használt titkosítási algoritmusokat és titkosító csomagokat.
+Ha engedélyezi ezt a házirend-beállítást, megadhatja azokat a további beállításokat, amelyekkel szabályozhatja, hogy a rendszer használja-e a BitLocker szoftveralapú titkosítását a hardveralapuló titkosítást nem támogató számítógépeken, és hogy szeretné-e korlátozni a hardveralapú titkosításhoz használt titkosítási algoritmusokat és titkosító csomagokat.
 
-Ha letiltja ezt a házirend-beállítást, a BitLocker nem lesz képes a hardveralapú titkosítás használatára operációsrendszer-meghajtók esetében, a BitLocker szoftveralapú titkosítását pedig csak akkor használja alapértelmezés szerint a rendszer, ha a meghajtó titkosított.
+Ha letiltja ezt a házirend-beállítást, a BitLocker nem tud hardveralapú titkosítást használni az operációsrendszer-meghajtókon, és titkosított meghajtók esetén a rendszer alapértelmezés szerint a BitLocker szoftveralapú titkosítását fogja használni.
 
-Ha nem konfigurálja ezt a házirend-beállítást, a BitLocker a hardveralapú titkosítást használja a meghajtóhoz beállított titkosítási algoritmussal. Ha a hardveralapú titkosítás nem érhető el, a rendszer a BitLocker szoftveralapú titkosítását használja helyette.
+Ha nem konfigurálja ezt a házirend-beállítást, a BitLocker a hardveralapú titkosítás rendelkezésre állásától függetlenül a szoftveres titkosítást fogja használni.
 
-Megjegyzés: „A meghajtótitkosítási módszer és a titkosítási erősség kiválasztása” házirend-beállítás nem vonatkozik a hardveralapú titkosításra. A hardveralapú titkosítás által használt titkosítási algoritmus beállítása a meghajtó particionálásakor történik. A BitLocker alapértelmezés szerint a meghajtón konfigurált algoritmus használatával titkosítja a meghajtót. „A hardveralapú titkosításhoz engedélyezett titkosítási algoritmusok és titkosító csomagok korlátozása” beállítás lehetővé teszi, hogy korlátozza a BitLocker számára a hardvertitkosításhoz rendelkezésre álló titkosítási algoritmusokat. Ha nem érhető el a meghajtóhoz beállított algoritmus, a BitLocker letiltja a hardveralapú titkosítás használatát.
+Megjegyzés: A meghajtótitkosítási módszer és a titkosítási erősség kiválasztása” házirend-beállítás nem vonatkozik a hardveralapú titkosításra. A hardveralapú titkosítás által használt titkosítási algoritmust a meghajtó particionálásakor kell beállítani. Alapértelmezés szerint a BitLocker a meghajtón konfigurált algoritmust használja a meghajtó titkosításához. A hardveralapú titkosításhoz engedélyezett titkosítási algoritmusok és titkosító csomagok korlátozása” beállítással korlátozhatja a BitLocker által a hardveres titkosításhoz használható titkosítási algoritmusokat. Ha a meghajtóhoz beállított algoritmus nem érhető el, a BitLocker letiltja a hardveralapú titkosítást.
 A titkosítási algoritmusokat az objektumazonosítók (OID) határozzák meg. Például:
-- AES 128 CBC-módban OID: 2.16.840.1.101.3.4.1.2
-- AES 256 CBC-módban OID: 2.16.840.1.101.3.4.1.42
-      
+– AES 128 CBC-módban – OID: 2.16.840.1.101.3.4.1.2
+– AES 256 CBC-módban – OID: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="FDVEDrive_Help">Ezen házirend-beállítás segítségével kezelheti a hardveralapú titkosítás BitLocker általi használatát a rögzített adatmeghajtókon, és megadhatja, hogy az mely titkosítási algoritmusokat használhatja a hardveralapú titkosításhoz. A hardveralapú titkosítás használata javíthatja azon meghajtóműveletek hatékonyságát, amelyek során a rendszer gyakran ír és olvas adatokat a meghajtóról.
+      <string id="FDVEDrive_Help">Ezzel a házirend-beállítással kezelheti a BitLocker hardveralapú titkosításának a rögzített adatmeghajtókon való használatát, és megadhatja, hogy mely titkosítási algoritmusok használhatók a hardveres titkosításhoz. A hardveralapú titkosítás használatával javíthatja a meghajtón végzett, az adatok gyakori olvasásával vagy írásával járó meghajtóműveletek teljesítményét.
 
-Ha engedélyezi ezt a házirend-beállítást, további beállításokat adhat meg, amelyek segítségével megadhatja, hogy a hardveralapú titkosítás helyett a BitLocker szoftveralapú titkosítását használják a hardveralapú titkosítást nem támogató számítógépek, és azt, hogy kívánja-e korlátozni a hardveralapú titkosításhoz használt titkosítási algoritmusokat és titkosító csomagokat.
+Ha engedélyezi ezt a házirend-beállítást, megadhatja azokat a további beállításokat, amelyekkel szabályozhatja, hogy a rendszer használja-e a BitLocker szoftveralapú titkosítását a hardveralapuló titkosítást nem támogató számítógépeken, és hogy szeretné-e korlátozni a hardveralapú titkosításhoz használt titkosítási algoritmusokat és titkosító csomagokat.
 
-Ha letiltja ezt a házirend-beállítást, a BitLocker nem lesz képes a hardveralapú titkosítás használatára operációsrendszer-meghajtók esetében, a BitLocker szoftveralapú titkosítását pedig csak akkor használja alapértelmezés szerint a rendszer, ha a meghajtó titkosított.
+Ha letiltja ezt a házirend-beállítást, a BitLocker nem tud hardveralapú titkosítást használni az operációsrendszer-meghajtókon, és titkosított meghajtók esetén a rendszer alapértelmezés szerint a BitLocker szoftveralapú titkosítását fogja használni.
 
-Ha nem konfigurálja ezt a házirend-beállítást, a BitLocker a hardveralapú titkosítást használja a meghajtóhoz beállított titkosítási algoritmussal. Ha a hardveralapú titkosítás nem érhető el, a rendszer a BitLocker szoftveralapú titkosítását használja helyette.
+Ha nem konfigurálja ezt a házirend-beállítást, a BitLocker a hardveralapú titkosítás rendelkezésre állásától függetlenül a szoftveres titkosítást fogja használni.
 
-Megjegyzés: „A meghajtótitkosítási módszer és a titkosítási erősség kiválasztása” házirend-beállítás nem vonatkozik a hardveralapú titkosításra. A hardveralapú titkosítás által használt titkosítási algoritmus beállítása a meghajtó particionálásakor történik. A BitLocker alapértelmezés szerint a meghajtón konfigurált algoritmus használatával titkosítja a meghajtót. „A hardveralapú titkosításhoz engedélyezett titkosítási algoritmusok és titkosító csomagok korlátozása” beállítás lehetővé teszi, hogy korlátozza a BitLocker számára a hardvertitkosításhoz rendelkezésre álló titkosítási algoritmusokat. Ha nem érhető el a meghajtóhoz beállított algoritmus, a BitLocker letiltja a hardveralapú titkosítás használatát.
+Megjegyzés: A meghajtótitkosítási módszer és a titkosítási erősség kiválasztása” házirend-beállítás nem vonatkozik a hardveralapú titkosításra. A hardveralapú titkosítás által használt titkosítási algoritmust a meghajtó particionálásakor kell beállítani. Alapértelmezés szerint a BitLocker a meghajtón konfigurált algoritmust használja a meghajtó titkosításához. „A hardveralapú titkosításhoz engedélyezett titkosítási algoritmusok és titkosító csomagok korlátozása” beállítással korlátozhatja a BitLocker által a hardveres titkosításhoz használható titkosítási algoritmusokat. Ha a meghajtóhoz beállított algoritmus nem érhető el, a BitLocker letiltja a hardveralapú titkosítást.
 A titkosítási algoritmusokat az objektumazonosítók (OID) határozzák meg. Például:
-- AES 128 CBC-módban OID: 2.16.840.1.101.3.4.1.2
-- AES 256 CBC-módban OID: 2.16.840.1.101.3.4.1.42
-      
+– AES 128 CBC-módban – OID: 2.16.840.1.101.3.4.1.2
+– AES 256 CBC-módban – OID: 2.16.840.1.101.3.4.1.42
       </string>
 
-      <string id="RDVEDrive_Help">Ezen házirend-beállítás segítségével szabályozhatja a hardveralapú titkosítás BitLocker általi használatát a cserélhető adatmeghajtókon, és megadhatja, hogy az mely titkosítási algoritmusokat használhatja a hardveralapú titkosításhoz. A hardveralapú titkosítás használata javíthatja azon meghajtóműveletek hatékonyságát, amelyek során a rendszer gyakran ír és olvas adatokat a meghajtóról.
+      <string id="RDVEDrive_Help">Ezzel a házirend-beállítással kezelheti a BitLocker hardveralapú titkosításának a cserélhető meghajtókon való használatát, és megadhatja, hogy mely titkosítási algoritmusok használhatók a hardveres titkosításhoz. A hardveralapú titkosítás használatával javíthatja a meghajtón végzett, az adatok gyakori olvasásával vagy írásával járó meghajtóműveletek teljesítményét.
 
-Ha engedélyezi ezt a házirend-beállítást, további beállításokat adhat meg, amelyek segítségével megadhatja, hogy a hardveralapú titkosítás helyett a BitLocker szoftveralapú titkosítását használják a hardveralapú titkosítást nem támogató számítógépek, és azt, hogy kívánja-e korlátozni a hardveralapú titkosításhoz használt titkosítási algoritmusokat és titkosító csomagokat.
+Ha engedélyezi ezt a házirend-beállítást, megadhatja azokat a további beállításokat, amelyekkel szabályozhatja, hogy a rendszer használja-e a BitLocker szoftveralapú titkosítását a hardveralapuló titkosítást nem támogató számítógépeken, és hogy szeretné-e korlátozni a hardveralapú titkosításhoz használt titkosítási algoritmusokat és titkosító csomagokat.
 
-Ha letiltja ezt a házirend-beállítást, a BitLocker nem lesz képes a hardveralapú titkosítás használatára operációsrendszer-meghajtók esetében, a BitLocker szoftveralapú titkosítását pedig csak akkor használja alapértelmezés szerint a rendszer, ha a meghajtó titkosított.
+Ha letiltja ezt a házirend-beállítást, a BitLocker nem tud hardveralapú titkosítást használni az operációsrendszer-meghajtókon, és titkosított meghajtók esetén a rendszer alapértelmezés szerint a BitLocker szoftveralapú titkosítását fogja használni.
 
-Ha nem konfigurálja ezt a házirend-beállítást, a BitLocker a hardveralapú titkosítást használja a meghajtóhoz beállított titkosítási algoritmussal. Ha a hardveralapú titkosítás nem érhető el, a rendszer a BitLocker szoftveralapú titkosítását használja helyette.
+Ha nem konfigurálja ezt a házirend-beállítást, a BitLocker a hardveralapú titkosítás rendelkezésre állásától függetlenül a szoftveres titkosítást fogja használni.
 
-Megjegyzés: „A meghajtótitkosítási módszer és a titkosítási erősség kiválasztása” házirend-beállítás nem vonatkozik a hardveralapú titkosításra. A hardveralapú titkosítás által használt titkosítási algoritmus beállítása a meghajtó particionálásakor történik. A BitLocker alapértelmezés szerint a meghajtón konfigurált algoritmus használatával titkosítja a meghajtót. „A hardveralapú titkosításhoz engedélyezett titkosítási algoritmusok és titkosító csomagok korlátozása” beállítás lehetővé teszi, hogy korlátozza a BitLocker számára a hardvertitkosításhoz rendelkezésre álló titkosítási algoritmusokat. Ha nem érhető el a meghajtóhoz beállított algoritmus, a BitLocker letiltja a hardveralapú titkosítás használatát.
+Megjegyzés: A meghajtótitkosítási módszer és a titkosítási erősség kiválasztása” házirend-beállítás nem vonatkozik a hardveralapú titkosításra. A hardveralapú titkosítás által használt titkosítási algoritmust a meghajtó particionálásakor kell beállítani. Alapértelmezés szerint a BitLocker a meghajtón konfigurált algoritmust használja a meghajtó titkosításához. A hardveralapú titkosításhoz engedélyezett titkosítási algoritmusok és titkosító csomagok korlátozása” beállítással korlátozhatja a BitLocker által a hardveres titkosításhoz használható titkosítási algoritmusokat. Ha a meghajtóhoz beállított algoritmus nem érhető el, a BitLocker letiltja a hardveralapú titkosítást.
 A titkosítási algoritmusokat az objektumazonosítók (OID) határozzák meg. Például:
-- AES 128 CBC-módban OID: 2.16.840.1.101.3.4.1.2
-- AES 256 CBC-módban OID: 2.16.840.1.101.3.4.1.42
-      
+– AES 128 CBC-módban – OID: 2.16.840.1.101.3.4.1.2
+– AES 256 CBC-módban – OID: 2.16.840.1.101.3.4.1.42
       </string>
 
       <string id="EnablePrebootInputProtectorsOnSlates_Name">A rendszerindítás előtt a billentyűzetről történő bevitelt megkövetelő BitLocker-hitelesítés engedélyezése érintőképernyős eszközökön</string>
@@ -682,6 +690,14 @@ Ha nem engedélyezi ezt a házirend-beállítást, akkor előfordulhat, hogy a �
 - TPM indító PIN-kód konfigurálása: Kötelező/Engedélyezve
 - TPM-indítókulcs és TPM indító PIN-kód konfigurálása: Kötelező/Engedélyezve
 - A jelszavak használatának konfigurálása operációsrendszer-meghajtók esetében.
+      </string>
+
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Rendszerindítás előtti PIN kihagyásának engedélyezése az InstantGo- vagy HSTI-kompatibilis eszközök számára.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Ez a házirend-beállítás lehetővé teszi az InstantGo- vagy HSTI-kompatibilis eszközök felhasználói számára, hogy ne használjanak PIN-kódot a rendszerindítás előtti hitelesítéshez. A beállítás felülbírálja a "További hitelesítés megkövetelése indításkor" házirendben lévő "Indító PIN-kód megkövetelése TPM alkalmazásakor" és "Indítókulcs és PIN-kód megkövetelése TPM alkalmazásakor" beállításokat a megfelelő hardvereken.
+
+Ha engedélyezi ezt a házirend-beállítást, akkor az InstantGo- és HSTI-kompatibilis eszközök felhasználói rendszerindítás előtti hitelesítés nélkül is bekapcsolhatják a BitLockert.
+
+Ha a házirend-beállítás nincs engedélyezve, akkor a "További hitelesítés megkövetelése indításkor" házirend beállításai érvényesülnek.
       </string>
 
       <string id="AllowSecureBootForIntegrity_Name">Biztonságos rendszerindítás engedélyezése az integritás-ellenőrzéshez</string>
@@ -961,7 +977,7 @@ Megjegyzés: A rendszer nem támogat minden karaktert és nyelvet a rendszerind�
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Karakterek minimális száma:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Karakterek minimális száma:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

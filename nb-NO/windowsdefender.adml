@@ -1,11 +1,15 @@
-<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/Policysecurity intelligence">
 <displayName>skriv inn visningsnavn her</displayName>
 <description>skriv inn beskrivelse her</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Windows Defender Antivirus</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Utelatelser</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Redusert angrepsoverflate</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Kontrollert mappetilgang</string>
+    <string id="ExploitGuard_NetworkProtection">Nettverksbeskyttelse</string>
     <string id="NetworkRealtimeInspection">Nettverksinspeksjonssystem</string>
     <string id="NetworkRealtimeInspection_Exclusions">Utelatelser</string>
     <string id="Quarantine">Karantene</string>
@@ -13,10 +17,11 @@
     <string id="Remediation">Utbedring</string>
     <string id="Reporting">Rapportering</string>
     <string id="Scan">Skanning</string>
-    <string id="SignatureUpdate">Signaturoppdateringer</string>
+    <string id="SignatureUpdate">Sikkerhetsintelligensoppdateringer</string>
     <string id="Spynet">MAPS</string>
     <string id="Threats">Trusler</string>
     <string id="ClientInterface">Klientgrensesnitt</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Tillate at tjenesten for beskyttelse mot skadelig programvare starter med normal prioritet</string>
     <string id="AllowFastServiceStartup_Explain">Denne policyinnstillingen kontrollerer lastingsprioriteten for tjenesten for beskyttelse mot skadelig programvare. En økning av lastingsprioriteten fører til raskere oppstart av tjenesten, men kan påvirke ytelsen.
 
@@ -25,7 +30,18 @@
     Hvis du deaktiverer denne innstillingen, lastes tjenesten for beskyttelse mot skadelig programvare som en oppgave med lav prioritet.</string>
 
     <string id="DisableAutoExclusions">Slå av automatiske utelatelser</string>
-    <string id="DisableAutoExclusions_Explain">Lar administrator angi om funksjonen for automatiske utelatelser for lagerstyringsenheter (SKU) for server skal slås av.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Lar en administrator angi om funksjonen for automatiske utelatelser for lagerstyringsenheter (SKU) for server skal deaktiveres.
+
+        Deaktivert (standard):
+        Windows Defender utelater forhåndsdefinert liste over baner fra skanningen for å forbedre ytelsen.
+
+        Aktivert:
+        Windows Defender utelater ikke forhåndsdefinert liste over baner fra skanninger. Dette kan påvirke maskinytelsen i enkelte scenarioer.
+
+        Ikke konfigurert:
+        Samme som Deaktivert.
+    </string>
     <string id="DisableAntiSpyware">Deaktiver Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Denne policyinnstillingen deaktiverer Endpoint Protection.
 
@@ -33,12 +49,16 @@ Hvis du aktiverer denne policyinnstillingene, kjøres ikke Endpoint Protection, 
 
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, er Endpoint Protection som standard aktivert, og datamaskinene blir skannet for skadelig programvare og annen potensielt uønsket programvare.
     </string>
-    <string id="DisableAntiSpywareDefender">Slå av Endpoint Protection</string>
-    <string id="DisableAntiSpywareDefender_Explain">Denne policyinnstillingen slår av Endpoint Protection.
+    <string id="DisableAntiSpywareDefender">Deaktiver Windows Defender Antivirus</string>
+    <string id="DisableAntiSpywareDefender_Explain">Denne policyinnstillingen deaktiverer Windows Defender Antivirus.
+    
+    Hvis du aktiverer denne policyinnstillingen, kjører ikke Windows Defender Antivirus, og datamaskiner kan ikke skannes for skadelig programvare.
 
-    Hvis du aktiverer denne policyinnstillingen, kjører ikke Endpoint Protection og datamaskiner blir ikke skannet for skadelig programvare.
+    Hvis du deaktiverer denne policyinnstillingen, vil Windows Defender Antivirus kjøre uavhengig av andre installerte antivirusprodukter.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kjører Endpoint Protection som standard og datamaskiner skannes for skadelig programvare og annen potensielt uønsket programvare.</string>
+    Hvis du ikke konfigurerer denne policyinnstillingen, vil Windows administrere Windows Defender Antivirus internt. Hvis du installerer et annet antivirusprogram, vil Windows automatisk deaktivere Windows Defender Antivirus. Hvis ikke vil Windows Defender Antivirus søke etter skadelig programvare på datamaskinene og andre potensielt uønskede programvarer.
+
+    Hvis du aktiverer eller deaktiverer denne policyen, kan det føre til en uventet eller ustøttet virkemåte. Det anbefales at du lar denne policyinnstillingen være ukonfigurert.</string>
     <string id="DisableLocalAdminMerge">Konfigurere sammenslåingsvirkemåte for lokal administrator for lister</string>
     <string id="DisableLocalAdminMerge_Explain">Denne policyinnstillingen kontrollerer om avanserte listeinnstillinger som er konfigurert av en lokal administrator, er slått sammen med innstillinger for Gruppepolicy eller ikke. Denne innstillingen gjelder for lister, for eksempel trusler og utelatelser.
 
@@ -47,11 +67,11 @@ Hvis du aktiverer eller ikke konfigurerer denne innstillingen, blir unike elemen
 Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert av Gruppepolicy, i den endelige policyen. Innstillinger for Gruppepolicy overstyrer systeminnstillinger som er konfigurert av den lokale administratoren.</string>
     <string id="DisableRoutinelyTakingAction">Deaktiver rutinemessig utbedring</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Med denne policyinnstillingen kan du angi om Endpoint Protection skal foreta seg noe automatisk ved alle oppdagede trusler. Handlingen som skal utføres ved en bestemt trussel, bestemmes av kombinasjonen av den policydefinerte handlingen, den brukerdefinerte handlingen og den signaturdefinerte handlingen.
+    Med denne policyinnstillingen kan du angi om Windows Defender Antivirus skal foreta seg noe automatisk ved alle oppdagede trusler. Handlingen som skal utføres ved en bestemt trussel, bestemmes av kombinasjonen av den policydefinerte handlingen, den brukerdefinerte handlingen og den signaturdefinerte handlingen.
 
-        Hvis du aktiverer denne policyinnstillingen, foretar ikke Endpoint Protection seg noe automatisk ved oppdagede trusler, men ber i stedet brukerne om å velge mellom handlingene som er tilgjengelige for hver trussel.
+        Hvis du aktiverer denne policyinnstillingen, foretar ikke Windows Defender Antivirus seg noe automatisk ved oppdagede trusler, men ber i stedet brukerne om å velge mellom handlingene som er tilgjengelige for hver trussel.
 
-        Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, foretar Endpoint Protection automatisk en handling ved alle oppdagede trusler etter en forsinkelse på omtrent fem sekunder, som ikke kan konfigureres.</string>
+        Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, foretar Windows Defender Antivirus automatisk en handling ved alle oppdagede trusler etter en forsinkelse på omtrent fem sekunder, som ikke kan konfigureres.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Med denne policyinnstillingen kan du angi om Endpoint Protection skal foreta seg noe automatisk ved alle oppdagede trusler. Handlingen som skal utføres ved en bestemt trussel, bestemmes av kombinasjonen av den policydefinerte handlingen, den brukerdefinerte handlingen og den signaturdefinerte handlingen.
 
@@ -66,7 +86,7 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir ikke proxy-serveren omgått for de angitte adressene.</string>
     <string id="ProxyPacUrl">Definer proxy auto-config (PAC) for å koble til nettverket</string>
-    <string id="ProxyPacUrl_Explain">Denne policyinnstillingen definerer URL-adressen til en proxy PAC-fil som skal brukes når klienten prøver å koble til nettverket for definisjonsoppdateringer og MAPS-rapportering. Hvis auto-config for proxy mislykkes, eller hvis det ikke er angitt noen automatisk konfigurasjon av proxy, vil klienten gå tilbake til de alternative alternativene (i rekkefølge):
+    <string id="ProxyPacUrl_Explain">Denne policyinnstillingen definerer URL-adressen til en proxy PAC-fil som skal brukes når klienten prøver å koble til nettverket for sikkerhetsintelligensoppdateringer og MAPS-rapportering. Hvis auto-config for proxy mislykkes, eller hvis det ikke er angitt noen automatisk konfigurasjon av proxy, vil klienten gå tilbake til de alternative alternativene (i rekkefølge):
       1. Proxy-server (hvis angitt)
       2. Proxy PAC URL-adresse (hvis angitt)
       3. Ingen
@@ -77,7 +97,7 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
 
       Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, hopper proxyen over dette reservetrinnet i henhold til rekkefølgen som er angitt ovenfor.</string>
     <string id="ProxyServer">Definere proxy-server for tilkobling til nettverket</string>
-    <string id="ProxyServer_Explain">Med denne policyinnstillingen kan du konfigurere den navngitte proxy-serveren som skal brukes når klienten prøver å koble til nettverket for definisjonsoppdateringer og MAPS-rapportering. Hvis den navngitte proxy-serveren mislykkes eller ingen proxy-server er angitt, brukes følgende innstillinger (i rekkefølge):
+    <string id="ProxyServer_Explain">Med denne policyinnstillingen kan du konfigurere den navngitte proxy-serveren som skal brukes når klienten prøver å koble til nettverket for sikkerhetsintelligensoppdateringer og MAPS-rapportering. Hvis den navngitte proxy-serveren mislykkes eller ingen proxy-server er angitt, brukes følgende innstillinger (i rekkefølge):
       1. Proxy-server (hvis angitt)
       2. Proxy PAC URL-adresse (hvis angitt)
       3. Ingen
@@ -89,17 +109,32 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
       Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, hopper proxyen over denne reserverekkefølgen i henhold til rekkefølgen som er angitt ovenfor.
     </string>
     <string id="RandomizeScheduleTaskTimes">Tilfeldig planlagte oppgavetidspunkter</string>
-    <string id="RandomizeScheduleTaskTimes_Explain">Med denne policyinnstillingen kan du aktivere eller deaktivere tilfeldig planlegging av skanningsstarttidspunkt og planlagt starttidspunkt for oppdatering av definisjoner. Denne innstillingen brukes til å distribuere ressurspåvirkningen av skanning. Innstillingen kan for eksempel brukes i virtuelle gjestemaskiner som deler en vert, slik at ikke flere virtuelle gjestemaskiner utfører en diskintensiv operasjon samtidig.
+    <string id="RandomizeScheduleTaskTimes_Explain">Med denne policyinnstillingen kan du aktivere eller deaktivere tilfeldig planlegging av skanningsstarttidspunkt og planlagt starttidspunkt for sikkerhetsintelligensoppdatering. Denne innstillingen brukes til å distribuere ressurspåvirkningen av skanning. Innstillingen kan for eksempel brukes i virtuelle gjestemaskiner som deler en vert, slik at ikke flere virtuelle gjestemaskiner utfører en diskintensiv operasjon samtidig.
 
     Hvis du aktiverer eller ikke konfigurerer denne innstillingen, begynner planlagte oppgaver på et tilfeldig tidspunkt med et intervall på 30 minutter før og etter det angitte starttidspunktet.
 
     Hvis du deaktiverer denne innstillingen, begynner planlagte oppgaver på det angitte starttidspunktet.</string>
     <string id="ServiceKeepAlive">Tillate at tjenesten for beskyttelse mot skadelig programvare alltid kjører</string>
-    <string id="ServiceKeepAlive_Explain">Med denne policyinnstillingen kan du konfigurere om tjenesten for beskyttelse mot skadelig programvare kjører eller ikke når definisjoner av antivirus og antispionvare deaktiveres. Det anbefales at denne innstillingen forblir deaktivert.
+    <string id="ServiceKeepAlive_Explain">Med denne policyinnstillingen kan du konfigurere om tjenesten for beskyttelse mot skadelig programvare kjører eller ikke når sikkerhetsintelligensen for antivirus og antispionvare deaktiveres. Det anbefales at denne innstillingen forblir deaktivert.
 
-    Hvis du aktiverer denne innstillingen, kjører tjenesten for beskyttelse mot skadelig programvare alltid, selv om både definisjoner av antivirus og antispionvare deaktiveres.
+    Hvis du aktiverer denne innstillingen, kjører tjenesten for beskyttelse mot skadelig programvare alltid, selv om både sikkerhetsintelligens for antivirus og antispionvare deaktiveres.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, stoppes tjenesten for beskyttelse mot skadelig programvare når både definisjoner av antivirus og antispionvare deaktiveres. Hvis datamaskinen startes på nytt, startes tjenesten hvis den er satt til å startes automatisk. Etter at tjenesten har startet, kontrolleres det om definisjonene av antivirus og antispionvare er aktivert. Hvis minst én av dem aktiveres, fortsetter tjenesten å kjøre. Hvis begge deaktiveres, blir tjenesten stoppet.</string>
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, stoppes tjenesten for beskyttelse mot skadelig programvare når sikkerhetsintelligens for både antivirus og antispionvare deaktiveres. Hvis datamaskinen startes på nytt, vil tjenesten startes hvis den er satt til automatisk oppstart. Når tjenesten er startet, må du kontrollere at det er merket av for å se om sikkerhetsintelligens for antivirus og antispionvare er aktivert. Hvis minst én er aktivert, vil tjenesten fortsatt kjøre. Hvis begge er deaktivert, stoppes tjenesten.</string>
+    <string id="Root_PUAProtection">Konfigurer gjenkjenning av potensielt uønskede programmer</string>
+    <string id="Root_PUAProtection_Explain">
+        Aktiver eller deaktiver gjenkjenning av potensielt uønskede programmer. Du kan velge å blokkere, overvåke eller tillate når potensielt uønsket programvare blir lastet ned eller prøver å installere seg på datamaskinen.
+
+        Aktivert:
+        Angi modusen i Alternativer-delen:
+        - Blokker: Potensielt uønsket programvare blir blokkert.
+        - Overvåkingsmodus: Potensielt uønsket programvare blir ikke blokkert, men hvis denne funksjonen hadde blokkert tilgangen hvis den var satt til å blokkere, vises en oppføring av hendelsen i hendelsesloggene.
+
+        Deaktivert:
+        Potensielt uønsket programvare blir ikke blokkert.
+
+        Ikke konfigurert:
+        Samme som deaktivert.
+    </string>
     <string id="Exclusions_Extensions">Utvidelsesutelatelser</string>
     <string id="Exclusions_Extensions_Explain">Med denne policyinnstillingen kan du angi en liste over filtyper som skal utelates fra planlagt skanning, tilpasset skanning og sanntidsskanning. Filtyper må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av filtypen (for eksempel "obj" eller "lib"). Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
     <string id="Exclusions_Paths">Baneutelatelser</string>
@@ -113,13 +148,13 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
 
     Hvis du deaktiverer denne policyinnstillingen, deaktiveres protokollgjenkjenning.</string>
     <string id="Nis_Consumers_IPS_DisableSignatureRetirement">Aktivere definisjonsavhending</string>
-    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Med denne policyinnstillingen kan du konfigurere definisjonsavhending for nettverksbeskyttelse mot utnyttelser av kjente sårbarheter. Definisjonsavhending sjekker om en datamaskin har de nødvendige sikkerhetsoppdateringene som skal til for å beskytte mot en bestemt sårbarhet. Hvis systemet ikke er sårbart for utnyttelsen som er gjenkjent av en definisjon, blir definisjonen "avhendet". Hvis alle definisjoner for en gitt protokoll blir avhendet, analyseres ikke den protokollen lenger. Aktivering av denne funksjonen forbedrer ytelsen. Nettverksbeskyttelse har ingen påvirkning på nettverksytelsen på en datamaskin som er oppdatert med alle de nyeste sikkerhetsoppdateringene.
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Med denne policyinnstillingen kan du konfigurere definisjonsavhending for nettverksbeskyttelse mot utnyttelser av kjente sårbarheter. Definisjonsavhending sjekker om en datamaskin har de nødvendige sikkerhetsoppdateringene som skal til for å beskytte mot en bestemt sårbarhet. Hvis systemet ikke er sårbart for utnyttelsen som er gjenkjent av en definisjon, blir definisjonen avhendet. Hvis all sikkerhetsintelligens for en gitt protokoll blir avhendet, analyseres ikke den protokollen lenger. Aktivering av denne funksjonen forbedrer ytelsen. Nettverksbeskyttelse har ingen påvirkning på nettverksytelsen på en datamaskin som er oppdatert med alle de nyeste sikkerhetsoppdateringene.
 
     Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, aktiveres definisjonsavhending.
 
     Hvis du deaktiverer denne innstillingen, deaktiveres definisjonsavhending.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Angi flere definisjonssett for undersøkelse av nettverkstrafikk</string>
-    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Denne policyinnstillingen definerer flere definisjonssett for å legge til rette for undersøkelse av nettverkstrafikk. GUIDer for definisjonssett må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av en GUID for et definisjonssett. GUIDen for et definisjonssett for å aktivere testdefinisjoner defineres for eksempel som {b54b6ac9-a737-498e-9120-6616ad3bf590}. Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Denne policyinnstillingen definerer flere definisjonssett som skal aktiveres for inspeksjon av nettverkstrafikk. GUID-er for definisjonssett må legges til under Alternativer for denne innstillingen. Hver oppføring må vises som et navneverdipar, der navnet skal være en strengrepresentasjon av en GUID for definisjonssett. Som et eksempel er definisjonssettets GUID for aktivering av testsikkerhetsintelligens definert som: {b54b6ac9-a737-498e-9120-6616ad3bf590}. Verdien brukes ikke, og det anbefales at denne settes til 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurere overstyring av lokal innstilling for fjerning av elementer fra karantenemappen</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">Denne policyinnstillingen konfigurerer en lokal overstyring for konfigurasjonen av antallet dager elementer skal beholdes i karantenemappen før de blir fjernet. Denne innstillingen kan bare angis av Gruppepolicy.
 
@@ -159,11 +194,11 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     <string id="DisableRealtimeMonitoring">Deaktiver sanntidsbeskyttelse</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">Denne policyinnstillingen deaktiverer spørsmål om sanntidsbeskyttelse for oppdaging av kjent skadelig programvare.
 
-    Endpoint Protection varsler deg når spionprogrammer eller potensielt uønsket programvare prøver å installere seg selv eller kjøre på datamaskinen.
+    Windows Defender Antivirus varsler deg når spionprogrammer eller potensielt uønsket programvare prøver å installere seg selv eller kjøre på datamaskinen.
 
-    Hvis du aktiverer denne policyinnstillingen, ber ikke Endpoint Protection brukerne om å foreta seg noe når skadelig programvare oppdages.
+    Hvis du aktiverer denne policyinnstillingen, ber ikke Windows Defender Antivirus brukerne om å foreta seg noe når skadelig programvare oppdages.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, ber Endpoint Protection brukerne om å foreta seg noe når skadelig programvare oppdages.</string>
+    Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, ber Windows Defender Antivirus brukerne om å foreta seg noe når skadelig programvare oppdages.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Denne policyinnstillingen deaktiverer beskyttelsesledetekster i sanntid for oppdaging av kjent skadelig programvare.
 
@@ -289,13 +324,21 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     <string id="Reporting_WppTracingComponents_Explain">Denne policyen konfigurerer Windows-programvare for sporing av forprosessorkomponenter (sporing av WPP-programvare).</string>
     <string id="Reporting_WppTracingLevel">Konfigurere WPP-sporingsnivå</string>
     <string id="Reporting_WppTracingLevel_Explain">Med denne policyen kan du konfigurere sporingsnivåer for Windows-programvare for sporing av forprosessor (sporing av WPP-programvare). 
-
     Sporingsnivåene er definert som:
     1 – Feil
     2 – Advarsel
     3 – Informasjon
     4 – Feilsøking</string>
-    <string id="Scan_AllowPause">Tillat at brukere stopper skanning midlertidig</string>
+    <string id="Reporting_DisableEnhancedNotifications">Deaktiver forbedrede varslinger</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Bruk denne policyinnstillingen til å angi om du vil at forbedrede Windows Defender Antivirus-varslinger skal vises på klienter.
+      
+      Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vises forbedrede Windows Defender Antivirus-varslinger på klienter.
+      
+      Hvis du aktiverer denne innstillingen, vises ikke forbedrede Windows Defender Antivirus-varslinger på klienter.
+    </string>
+
+      <string id="Scan_AllowPause">Tillat at brukere stopper skanning midlertidig</string>
     <string id="Scan_AllowPause_Explain">Med denne policyinnstillingen kan du angi om sluttbrukerne kan stoppe en skanning midlertidig eller ikke.
 
     Hvis du aktiverer eller ikke konfigurerer denne innstillingen, legges det til en ny hurtigmeny for oppgavefeltikonet slik at brukeren kan stoppe en skanning midlertidig.
@@ -319,14 +362,14 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     Hvis du aktiverer denne innstillingen, overskrider ikke prosessorbruken den angitte prosentandelen.
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, overskrider ikke prosessorbruken standardverdien.</string>
-    <string id="CheckForSignaturesBeforeRunningScan">Søke etter de nyeste virus- og spionvaredefinisjonene før kjøring av en planlagt skanning</string>
-    <string id="CheckForSignaturesBeforeRunningScan_Explain">Med denne policyinnstillingen kan du administrere om det skal søkes etter nye virus- og spionvaredefinisjoner før en skanning. 
+    <string id="CheckForSignaturesBeforeRunningScan">Se etter den nyeste sikkerhetsintelligensen for virus- og spionprogrammer før du kjører en planlagt skanning</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">Med denne policyinnstillingen kan du bestemme om det skal søkes etter ny sikkerhetsintelligens for virus- og spionprogram før de kjører en skanning. 
 
     Denne innstillingen gjelder for planlagte skanninger samt kommandolinjealternativet mpcmdrun -SigUpdate, men den har ingen innvirkning på skanninger som startes manuelt fra brukergrensesnittet.
 
-    Hvis du aktiverer denne innstillingen, søkes det etter nye definisjoner før en skanning.
+    Hvis du aktiverer denne innstillingen, vil en kontroll av den nye sikkerhetsintelligensen utføres før en skanning kjøres.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, starter skanningen ved hjelp av de eksisterende definisjonene.</string>
+    Hvis du deaktiverer denne innstillingen eller ikke konfigurerer den, vil skanningen begynne å bruke eksisterende sikkerhetsintelligens.</string>
     <string id="Scan_DisableArchiveScanning">Skanne arkivfiler</string>
     <string id="Scan_DisableArchiveScanning_Explain">Med denne policyinnstillingen kan du konfigurere skanninger for skadelig programvare og uønsket programvare i filer, for eksempel .ZIP- eller .CAB-filer.
 
@@ -496,64 +539,76 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     Hvis du aktiverer denne innstillingen, blir det utført en oppsamlingsskanning etter angitt antall utelatte planlagte skanninger.
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres en oppsamlingsskanning etter den andre etterfølgende utelatte planlagte skanningen.</string>
-    <string id="SignatureUpdate_ASSignatureDue">Definere antallet dager før spionvaredefinisjoner anses som utdaterte</string>
-    <string id="SignatureUpdate_ASSignatureDue_Explain">Med denne policyinnstillingen kan du definere antallet dager som må forløpe før spionvaredefinisjoner anses som utdaterte. Hvis definisjoner anses å være utdaterte, kan det hende denne tilstanden utløser flere handlinger, inkludert et tilbakefall til en alternativ oppdateringskilde eller visning av et advarselsikon i brukergrensesnittet. Som standard er verdien satt til 14 dager.
+    <string id="Scan_LowCpuPriority">Konfigurer lav CPU-prioritet for planlagte søk</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Med denne policyinnstillingen kan du aktivere eller deaktivere lav CPU-prioritet for planlagte søk.
 
-    Hvis du aktiverer denne innstillingen, anses spionvaredefinisjoner som utdaterte etter at antallet dager som er angitt, har forløpt uten at en oppdatering er gjennomført.
+        Hvis du aktiverer denne innstillingen, blir lav CPU-prioritet brukt under planlagte søk.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, anses spionvaredefinisjoner som utdaterte etter at standard antallet dager har forløpt uten at en oppdatering er gjennomført.</string>
-    <string id="SignatureUpdate_AVSignatureDue">Definere antallet dager før virusdefinisjoner anses som utdaterte</string>
-    <string id="SignatureUpdate_AVSignatureDue_Explain">Med denne policyinnstillingen kan du definere antallet dager som må forløpe før virusdefinisjoner anses som utdaterte. Hvis definisjoner anses å være utdaterte, kan det hende denne tilstanden utløser flere handlinger, inkludert et tilbakefall til en alternativ oppdateringskilde eller visning av et advarselsikon i brukergrensesnittet. Som standard er verdien satt til 14 dager.
+        Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir det ikke gjort endringer i CPU-prioritet for planlagte søk.
+    </string>
+    <string id="SignatureUpdate_ASSignatureDue">Definer antall dager før sikkerhetsintelligens for spionprogram anses som utdatert</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">Med denne policyinnstillingen kan du definere antallet dager som må forløpe før sikkerhetsintelligensen for spionprogram anses som utdatert. Hvis sikkerhetsintelligensen anses å være utdatert, kan det hende denne tilstanden utløser flere handlinger, inkludert et tilbakefall til en alternativ oppdateringskilde eller visning av et advarselsikon i brukergrensesnittet. Som standard er verdien satt til 14 dager.
 
-    Hvis du aktiverer denne innstillingen, anses virusdefinisjoner som utdaterte etter at antallet dager som er angitt, har forløpt uten at en oppdatering er gjennomført.
+    Hvis du aktiverer denne innstillingen, anses sikkerhetsintelligensen for spionprogram som utdatert etter at antallet dager som er angitt, har forløpt uten at en oppdatering er gjennomført.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, anses virusdefinisjoner som utdaterte etter at standard antallet dager har forløpt uten at en oppdatering er gjennomført.</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definere fildelinger for nedlasting av definisjonsoppdateringer</string>
-    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Med denne innstillingen kan du konfigurere UNC-fildelingskilder for nedlasting av definisjonsoppdateringer. Kilder blir kontaktet i den angitte rekkefølgen. Verdien for denne innstillingen bør angis som en datakanalatskilt streng som nummererer kildene for en definisjonsoppdatering. Eksempel: {\\unc1 | \\unc2 }. Listen er som standard tom.
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, anses sikkerhetsintelligensen for spionprogram som utdatert etter at standard antallet dager har forløpt uten at en oppdatering er gjennomført.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Definer antall dager før virussikkerhetsintelligens anses som utdatert</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">Med denne policyinnstillingen kan du definere antallet dager som må forløpe før virussikkerhetsintelligensen anses som utdatert. Hvis sikkerhetsintelligensen anses å være utdatert, kan det hende denne tilstanden utløser flere handlinger, inkludert et tilbakefall til en alternativ oppdateringskilde eller visning av et advarselsikon i brukergrensesnittet. Som standard er verdien satt til 14 dager.
 
-    Hvis du aktiverer denne innstillingen, blir de angitte kildene kontaktet for definisjonsoppdateringer. Når definisjonsoppdateringer har blitt lastet ned fra én angitt kilde, blir ikke de gjenværende kildene i listen kontaktet.
+    Hvis du aktiverer denne innstillingen, anses virussikkerhetsintelligensen som utdatert etter at antallet dager som er angitt, har forløpt uten at en oppdatering er gjennomført.
+
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, anses virussikkerhetsintelligens som utdatert etter at standard antallet dager har forløpt uten at en oppdatering er gjennomført.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definer delte filressurser for nedlasting av sikkerhetsintelligensoppdateringer</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Med denne innstillingen kan du konfigurere UNC-fildelingskilder for nedlasting av sikkerhetsintelligensoppdateringer. Kilder blir kontaktet i den angitte rekkefølgen. Verdien for denne innstillingen bør angis som en datakanalatskilt streng som nummererer kildene for en sikkerhetsintelligensoppdatering. Eksempel: {\\unc1 | \\unc2 }. Listen er som standard tom.
+
+    Hvis du aktiverer denne innstillingen, blir de angitte kildene kontaktet for sikkerhetsintelligensoppdateringer. Når sikkerhetsintelligensoppdateringer har blitt lastet ned fra én angitt kilde, blir ikke de gjenværende kildene i listen kontaktet.
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, forblir listen som standard tom, og ingen kilder blir kontaktet.</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate">Aktivere skanning etter signaturoppdatering</string>
-    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Med denne policyinnstillingen kan du konfigurere den automatiske skanningen som starter etter at en definisjonsoppdatering er gjennomført.
+    <string id="SignatureUpdate_SharedSignaturesLocation">Definer sikkerhetsinformasjonsplassering for VDI-klienter.</string>
+    <string id="SignatureUpdate_SharedSignaturesLocation_Explain">Med denne policyinnstillingen kan du definere sikkerhetsintelligensplasseringen for VDI-konfigurerte datamaskiner. 
 
-    Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, startes det en skanning etter en definisjonsoppdatering.
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir det referert til sikkerhetsintelligens fra standard lokal kilde.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Aktiver skanning etter sikkerhetsintelligensoppdatering</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Med denne policyinnstillingen kan du konfigurere den automatiske skanningen som starter etter at en sikkerhetsintelligensoppdatering er gjennomført.
 
-    Hvis du deaktiverer denne innstillingen, starter ikke en skanning etter en definisjonsoppdatering.</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Tillate definisjonsoppdateringer ved kjøring på batteristrøm</string>
-    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Med denne policyinnstillingen kan du konfigurere definisjonsoppdateringer når datamaskinen kjører på batteristrøm.
+    Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, startes det en skanning etter en sikkerhetsintelligensoppdatering.
 
-    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, gjennomføres definisjonsoppdateringer som vanlig uavhengig av strømtilstanden.
+    Hvis du deaktiverer denne innstillingen, starter ikke en skanning etter en sikkerhetsintelligensoppdatering.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Tillat sikkerhetsintelligensoppdateringer ved kjøring på batteristrøm</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Med denne policyinnstillingen kan du konfigurere sikkerhetsintelligensoppdateringer når datamaskinen kjører på batteristrøm.
 
-    Hvis du deaktiverer denne innstillingen, deaktiveres definisjonsoppdateringer mens datamaskinen kjører på batteristrøm.</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Starte definisjonsoppdatering ved oppstart</string>
-    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Med denne policyinnstillingen kan du konfigurere definisjonsoppdateringer ved oppstart når ingen motor for beskyttelse mot skadelig programvare er i bruk.
+    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, gjennomføres sikkerhetsintelligensoppdateringer som vanlig uavhengig av strømtilstanden.
 
-    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, startes definisjonsoppdateringer ved oppstart når ingen motor for beskyttelse mot skadelig programvare er i bruk.
+    Hvis du deaktiverer denne innstillingen, deaktiveres sikkerhetsintelligensoppdateringer mens datamaskinen kjører på batteristrøm.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Initier sikkerhetsintelligensoppdatering ved oppstart</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Med denne policyinnstillingen kan du konfigurere sikkerhetsintelligensoppdateringer ved oppstart når ingen motor for beskyttelse mot skadelig programvare er i bruk.
 
-    Hvis du deaktiverer denne innstillingen, startes ikke definisjonsoppdateringer ved oppstart når ingen motor for beskyttelse mot skadelig programvare er i bruk.</string>
-    <string id="SignatureUpdate_FallbackOrder">Definere rekkefølgen på kilder for nedlasting av definisjonsoppdateringer</string>
-    <string id="SignatureUpdate_FallbackOrder_Explain">Med denne policyinnstillingen kan du definere rekkefølgen som de forskjellige kildene til definisjonsoppdatering skal kontaktes i. Verdien for denne innstillingen bør angis som en datakanalatskilt streng som nummererer kildene for en definisjonsoppdatering i rekkefølge. Mulige verdier er: InternalDefinitionUpdateServer, MicrosoftUpdateServer, MMPC og FileShares
+    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, startes sikkerhetsintelligensoppdateringer ved oppstart når ingen motor for beskyttelse mot skadelig programvare er i bruk.
+
+    Hvis du deaktiverer denne innstillingen, startes ikke sikkerhetsintelligensoppdateringer ved oppstart når ingen motor for beskyttelse mot skadelig programvare er i bruk.</string>
+    <string id="SignatureUpdate_FallbackOrder">Definer rekkefølgen på kilder for nedlasting av sikkerhetsintelligensoppdateringer</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">Med denne policyinnstillingen kan du definere rekkefølgen som de forskjellige kildene til sikkerhesintelligensoppdatering skal kontaktes i. Verdien for denne innstillingen bør angis som en datakanalatskilt streng som nummererer kildene for en sikkerhetsintelligensoppdatering i rekkefølge. Mulige verdier er: InternalDefinitionUpdateServer, MicrosoftUpdateServer, MMPC og FileShares
 
     Eksempel: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
 
-    Hvis du aktiverer denne innstillingen, blir kilder for definisjonsoppdateringer kontaktet i den angitte rekkefølgen. Når definisjonsoppdateringer har blitt lastet ned fra én angitt kilde, blir ikke de gjenværende kildene i listen kontaktet.
+    Hvis du aktiverer denne innstillingen, blir kilder for sikkerhetsintelligensoppdateringer kontaktet i den angitte rekkefølgen. Når sikkerhetsintelligensoppdateringer har blitt lastet ned fra én angitt kilde, blir ikke de gjenværende kildene i listen kontaktet.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir kilder for definisjonsoppdateringer kontaktet i en standardrekkefølge.</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU">Tillate definisjonsoppdateringer fra Microsoft Update</string>
-    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Med denne policyen kan du aktivere nedlasting av definisjonsoppdateringer fra Microsoft Update selv om standardserveren for automatiske oppdateringer er konfigurert til en annen nedlastingskilde, for eksempel Windows Update.
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir kilder for sikkerhetsintelligensoppdateringer kontaktet i en standardrekkefølge.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Tillat sikkerhetsintelligensoppdateringer fra Microsoft Update</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Med denne policyinnstillingen kan du aktivere nedlasting av sikkerhetsintelligensoppdateringer fra Microsoft Update selv om standardserveren for automatiske oppdateringer er konfigurert til en annen nedlastingskilde, for eksempel Windows Update.
 
-    Hvis du aktiverer denne innstillingen, lastes definisjonsoppdateringer ned fra Microsoft Update.
+    Hvis du aktiverer denne innstillingen, lastes sikkerhetsintelligensoppdateringer ned fra Microsoft Update.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, lastes definisjonsoppdateringer ned fra den konfigurerte nedlastingskilden.</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery">Tillat sanntidsdefinisjonsoppdateringer basert på rapporter til Microsoft MAPS</string>
-    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Med denne policyinnstillingen kan du aktivere sanntidsdefinisjonsoppdateringer som et svar på rapporter som er sendt til Microsoft MAPS. Hvis tjenesten rapporterer en fil som ukjent og Microsoft MAPS finner ut at den nyeste definisjonsoppdateringen for en trussel involverer denne filen, mottar tjenesten alle de nyeste definisjonene for trusselen umiddelbart. Du må ha konfigurert datamaskinen slik at den er med i Microsoft MAPS, for at denne funksjonaliteten skal fungere.
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, lastes sikkerhetsintelligensoppdateringer ned fra den konfigurerte nedlastingskilden.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">Tillat sikkerhetsintelligensoppdateringer i sanntid basert på rapporter til Microsoft MAPS</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Med denne policyinnstillingen kan du aktivere sikkerhetsintelligensoppdateringer i sanntid som et svar på rapporter som er sendt til Microsoft MAPS. Hvis tjenesten rapporterer en fil som ukjent og Microsoft MAPS finner ut at den nyeste sikkerhetsintelligensoppdateringen for en trussel involverer denne filen, mottar tjenesten alle de nyeste sikkerhetsintelligensene for trusselen umiddelbart. Du må ha konfigurert datamaskinen slik at den er med i Microsoft MAPS for at denne funksjonaliteten skal fungere.
 
-    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, aktiveres sanntidsdefinisjonsoppdateringer.
+    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, aktiveres sikkerhetsintelligensoppdateringer i sanntid.
 
-    Hvis du deaktiverer denne innstillingen, deaktiveres sanntidsdefinisjonsoppdateringer.</string>
-    <string id="SignatureUpdate_ScheduleDay">Angi ukedagen da det skal søkes etter definisjonsoppdateringer</string>
-    <string id="SignatureUpdate_ScheduleDay_Explain">Med denne policyinnstillingen kan du angi ukedagen da det skal søkes etter definisjonsoppdateringer. Søket kan også konfigureres til å kjøre hver dag eller aldri kjøre i det hele tatt.
+    Hvis du deaktiverer denne innstillingen, deaktiveres sikkerhetsintelligensoppdateringer i sanntid.</string>
+    <string id="SignatureUpdate_ScheduleDay">Angi ukedagen for å se etter sikkerhetsintelligensoppdateringer</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">Med denne policyinnstillingen kan du angi ukedagen da det skal søkes etter sikkerhetsintelligensoppdateringer. Søket kan også konfigureres til å kjøre hver dag eller aldri kjøre i det hele tatt.
 
     Denne innstillingen kan konfigureres med følgende ordenstallverdier:
     (0x0) Hver dag (standard)
@@ -566,9 +621,9 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     (0x7) Lørdag
     (0x8) Aldri
 
-    Hvis du aktiverer denne innstillingen, utføres søket etter definisjonsoppdateringer med den angitte hyppigheten.
+    Hvis du aktiverer denne innstillingen, utføres søket etter sikkerhetsintelligensoppdateringer med den angitte hyppigheten.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres søket etter definisjonsoppdateringer med en standardhyppighet.</string>
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres søket etter sikkerhetsintelligensoppdateringer med en standardhyppighet.</string>
     <string id="SignatureUpdate_ScheduleDay_0">Aldri</string>
     <string id="SignatureUpdate_ScheduleDay_1">Hver dag</string>
     <string id="SignatureUpdate_ScheduleDay_2">Søndag</string>
@@ -578,24 +633,24 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     <string id="SignatureUpdate_ScheduleDay_6">Torsdag</string>
     <string id="SignatureUpdate_ScheduleDay_7">Fredag</string>
     <string id="SignatureUpdate_ScheduleDay_8">Lørdag</string>
-    <string id="SignatureUpdate_ScheduleTime">Angi tidspunktet da det skal søkes etter definisjonsoppdateringer</string>
-    <string id="SignatureUpdate_ScheduleTime_Explain">Med denne policyinnstillingen kan du angi når på dagen det skal søkes etter definisjonsoppdateringer. Tidsverdien representeres som antallet minutter etter midnatt (00:00).  120 (0 x 78) tilsvarer for eksempel 02:00. Denne innstillingen er som standard konfigurert til å søke etter definisjonsoppdateringer 15 minutter før det planlagte skanningstidspunktet. Planen er basert på lokal tid på datamaskinen der søket utføres.
+    <string id="SignatureUpdate_ScheduleTime">Angi klokkeslettet for å se etter sikkerhetsintelligensoppdateringer</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">Med denne policyinnstillingen kan du angi når på dagen det skal søkes etter sikkerhetsintelligensoppdateringer. Tidsverdien representeres som antallet minutter etter midnatt (00:00).  120 (0 x 78) tilsvarer for eksempel 02:00. Denne innstillingen er som standard konfigurert til å søke etter sikkerhetsintelligensoppdateringer 15 minutter før det planlagte skanningstidspunktet. Planen er basert på lokal tid på datamaskinen der søket utføres.
 
-    Hvis du aktiverer denne innstillingen, utføres søket etter definisjonsoppdateringer på det angitte tidspunktet.
+    Hvis du aktiverer denne innstillingen, utføres søket etter sikkerhetsintelligensoppdateringer på det angitte tidspunktet.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres søket etter definisjonsoppdateringer på standardtidspunktet.</string>
-    <string id="SignatureUpdate_SignatureDisableNotification">Tillat at varslinger deaktiverer definisjoner basert på rapporter til Microsoft MAPS</string>
-    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Med denne policyinnstillingen kan du konfigurere tjenesten for beskyttelse mot skadelig programvare slik at den mottar varslinger om å deaktivere enkeltdefinisjoner som svar på rapporter som tjenesten sender til Microsoft MAPS. Microsoft MAPS bruker disse varslingene til å deaktivere definisjoner som forårsaker falske positive rapporter. Du må ha konfigurert datamaskinen slik at den er med i Microsoft MAPS, for at denne funksjonaliteten skal fungere.
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres søket etter sikkerhetsintelligensoppdateringer på standardtidspunktet.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Tillat at varslinger deaktiverer sikkerhetsintelligens basert på rapporter til Microsoft MAPS</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Med denne policyinnstillingen kan du konfigurere tjenesten for beskyttelse mot skadelig programvare for å motta varsler for å deaktivere individuell sikkerhetsintelligens som svar på rapporter den sender til Microsoft MAPS. Microsoft MAPS bruker disse varslene til å deaktivere sikkerhetsintelligens som forårsaker feilaktige, positive rapporter. Du må ha konfigurert datamaskinen til å være med i Microsoft MAPS for at denne funksjonaliteten skal fungere.
 
-    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, mottar tjenesten for beskyttelse mot skadelig programvare varslinger om å deaktivere definisjoner.
+    Hvis du aktiverer denne policyinnstillingen eller ikke konfigurerer den, mottar tjenesten for beskyttelse mot skadelig programvare varsler om å deaktivere sikkerhetsintelligens.
 
-    Hvis du deaktiverer denne innstillingen, mottar ikke tjenesten for beskyttelse mot skadelig programvare varsler om å deaktivere definisjoner.</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definere hvor mange dager det går før en oppfølgingsdefinisjonsoppdatering kreves</string>
-    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Med denne policyinnstillingen kan du definere hvor mange dager det går før en oppfølgingsdefinisjonsoppdatering kreves. Standardverdien for denne innstillingen er 1 dag.
+    Hvis du deaktiverer denne innstillingen, mottar ikke tjenesten for beskyttelse mot skadelig programvare varsler om å deaktivere sikkerhetsintelligens.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definer antall dager før en oppdatering av en oppfølgingssikkerhetsintelligens kreves</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Med denne policyinnstillingen kan du definere hvor mange dager det går før en oppdatering for sikkerhetsintelligens kreves. Standardverdien for denne innstillingen er 1 dag.
 
-    Hvis du aktiverer denne innstillingen, utføres det en oppfølgingsdefinisjonsoppdatering etter det angitte antallet dager.
+    Hvis du aktiverer denne innstillingen, utføres det en oppdatering for sikkerhetsintelligens etter angitt antall dager.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, kreves det en oppfølgingsdefinisjonsoppdatering etter standard antallet dager.</string>
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, kreves det en oppdatering for sikkerhetsintelligens etter standard antall dager.</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Angi intervallet for varsel om utløp</string>
     <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
     Denne policyinnstillingen lar deg angi et intervall (i dager) for varsel om utløp.
@@ -603,28 +658,28 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
 
     Verdien må være større enn null for at policyen skal være aktiv.
     </string>
-    <string id="SignatureUpdate_SignatureUpdateInterval">Angi intervallet for søk etter definisjonsoppdateringer</string>
-    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Med denne policyinnstillingen kan du angi et intervall for søk etter definisjonsoppdateringer. Tidsverdien representeres som antallet timer mellom oppdateringssøk. Gyldige verdier varierer fra 1 (hver time) til 24 (én gang daglig).
+    <string id="SignatureUpdate_SignatureUpdateInterval">Angi intervallet for å se etter sikkerhetsintelligensoppdateringer</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Med denne policyinnstillingen kan du angi et intervall for å se etter sikkerhetsintelligensoppdateringer. Tidsverdien representeres som antall timer mellom oppdateringskontroller. Gyldige verdier varierer fra 1 (hver time) til 24 (én gang daglig).
 
-    Hvis du aktiverer denne innstillingen, utføres søket etter definisjonsoppdateringer med det angitte intervallet.
+    Hvis du aktiverer denne innstillingen, utføres det kontroller etter oppdateringer av sikkerhetsintelligens med det angitte intervallet.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres søket etter definisjonsoppdateringer med standardintervallet.</string>
-    <string id="SignatureUpdate_UpdateOnStartup">Søke etter de nyeste virus- og spionvaredefinisjonene ved oppstart</string>
-    <string id="SignatureUpdate_UpdateOnStartup_Explain">Med denne policyinnstillingen kan du administrere om det skal søkes etter nye virus- og spionvaredefinisjoner umiddelbart etter tjenesteoppstart.
+    Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, utføres oppdateringer av sikkerhetsintelligens med standardintervallet.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">Se etter den siste sikkerhetsintelligensen for virus- og spionprogrammer ved oppstart</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">Med denne policyinnstillingen kan du bestemme om det skal søkes etter ny sikkerhetsintelligens for virus- og spionprogram umiddelbart etter tjenesteoppstart.
 
-    Hvis du aktiverer denne innstillingen, søkes det etter nye definisjoner etter tjenesteoppstart.
+    Hvis du aktiverer denne innstillingen, vil en kontroll av den nye sikkerhetsintelligensen skje etter tjenesteoppstart.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres ikke søk etter nye definisjoner før etter tjenesteoppstart.</string>
+    Hvis du deaktiverer denne innstillingen eller ikke konfigurerer den, ses det ikke etter ny sikkerhetsintelligens etter tjenesteoppstart.</string>
     <string id="DisableBlockAtFirstSeen">Konfigurer funksjonen Blokker ved første kontakt</string>
-    <string id="DisableBlockAtFirstSeen_Explain">Denne funksjonen sikrer at enheten kontrolleres i sanntid med Microsoft Active Protection Service (MAPS) før bestemte innhold kjøres eller åpnes. Hvis denne funksjonen deaktiveres, utføres ikke kontrollen, noe som reduserer beskyttelsestilstanden for enheten.
-	Aktivert – innstillingen Blokker ved første kontakt er aktivert.
-	Deaktivert – innstillingen Blokker ved første kontakt er deaktivert.
-	
-	Denne funksjonen krever at disse gruppepolicyinnstillingene angis på følgende måte:
-	KART – Bli med i Microsoft MAPS må være aktivert, ellers fungerer ikke innstillingen Blokker ved første kontakt.
-	KART – Send fileksempler når det kreves videre analyse må settes til 1 (Send sikre eksempler) eller 3 (Send alle eksempler). Hvis innstillingen settes til 0 (Spør alltid), reduseres beskyttelsestilstanden for enheten. Hvis innstillingen settes til 2 (Send aldri), fungerer ikke funksjonen Blokker ved første kontakt.
-	Sanntidsbeskyttelse – Policyen Skanne alle nedlastede filer og vedlegg må være aktivert, ellers fungerer ikke funksjonen Blokker ved første kontakt.
-	Sanntidsbeskyttelse – Policyen Deaktiver sanntidsbeskyttelse må ikke deaktiveres, ellers fungerer ikke funksjonen Blokker ved første kontakt.</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Denne funksjonen sikrer at enheten kontrolleres i sanntid med Microsoft Active Protection Service (MAPS) før bestemt innhold kjøres eller åpnes. Hvis denne funksjonen deaktiveres, utføres ikke kontrollen, noe som reduserer beskyttelsestilstanden for enheten.
+    Aktivert – innstillingen Blokker ved første kontakt er aktivert.
+    Deaktivert – innstillingen Blokker ved første kontakt er deaktivert.
+    
+    Denne funksjonen krever at disse gruppepolicyinnstillingene angis på følgende måte:
+    MAPS –&gt; Bli med i Microsoft MAPS må være aktivert, ellers fungerer ikke innstillingen Blokker ved første kontakt.
+    MAPS –&gt; Send fileksempler når det kreves videre analyse må settes til 1 (Send sikre eksempler) eller 3 (Send alle eksempler). Hvis innstillingen settes til 0 (Spør alltid), reduseres beskyttelsestilstanden for enheten. Hvis innstillingen settes til 2 (Send aldri), fungerer ikke funksjonen Blokker ved første kontakt.
+    Sanntidsbeskyttelse –&gt; Policyen Skann alle nedlastede filer og vedlegg må være aktivert, ellers fungerer ikke funksjonen Blokker ved første kontakt.
+    Sanntidsbeskyttelse –&gt; Policyen Deaktiver sanntidsbeskyttelse må ikke deaktiveres, ellers fungerer ikke funksjonen Blokker ved første kontakt.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurer overstyring av lokal innstilling for rapportering til Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Denne policyinnstillingen konfigurerer en lokal overstyring for konfigurasjon til å bli med i Microsoft MAPS. Denne innstillingen kan bare angis av Gruppepolicy.
 
@@ -650,7 +705,7 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     <string id="SpynetReporting">Bli med i Microsoft MAPS</string>
     <string id="SpynetReporting_Explain">Med denne policyinnstillingen kan du bli med i Microsoft MAPS. Microsoft MAPS er et Internett-basert fellesskap som hjelper deg å velge hvordan du skal svare på potensielle trusler. Fellesskapet hjelper også til med å stanse spredning av nye infeksjoner fra skadelig programvare.
 
-    Du kan velge å sende grunnleggende informasjon eller tilleggsinformasjon om identifisert programvare. Mer informasjon hjelper Microsoft med å opprette nye definisjoner og bidrar til å beskytte datamaskinen. Denne informasjonen kan inneholde opplysninger om f.eks. hvor identifiserte elementer befinner seg på datamaskinen hvis skadelig programvare ble fjernet. Informasjonen samles inn og sendes automatisk. I noen tilfeller kan det hende at personlige opplysninger sendes til Microsoft utilsiktet. Microsoft vil imidlertid ikke bruke denne informasjonen til å identifisere deg eller kontakte deg.
+    Du kan velge å sende grunnleggende informasjon eller tilleggsinformasjon om identifisert programvare. Mer informasjon hjelper Microsoft med å opprette ny sikkerhetsintelligens og bidrar til å beskytte datamaskinen. Denne informasjonen kan inneholde opplysninger om for eksempel hvor identifiserte elementer befinner seg på datamaskinen hvis skadelig programvare ble fjernet. Informasjonen samles inn og sendes automatisk. I noen tilfeller kan det hende at personlige opplysninger sendes til Microsoft utilsiktet. Microsoft vil imidlertid ikke bruke denne informasjonen til å identifisere deg eller kontakte deg.
 
     Følgende alternativer finnes:
     (0x0) Deaktivert (standard)
@@ -659,7 +714,7 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
 
     Grunnleggende medlemskap sender grunnleggende informasjon til Microsoft om programvare som har blitt oppdaget, inkludert hvor programvaren kom fra, handlingene du bruker eller som trer i kraft automatisk, og om handlingene var vellykkede.
 
-    I tillegg til grunnleggende informasjon sender Avansert medlemskap mer informasjon til Microsoft om skadelig programvare, spionvare og potensielt uønsket programvare, inkludert plasseringen av programvaren, filnavn, hvordan programvaren fungerer, og hvordan den har påvirket datamaskinen.
+    I tillegg til grunnleggende informasjon sender Avansert medlemskap mer informasjon til Microsoft om skadelig programvare, spionprogram og potensielt uønsket programvare, inkludert plasseringen av programvaren, filnavn, hvordan programvaren fungerer, og hvordan den har påvirket datamaskinen.
 
     Hvis du aktiverer denne innstillingen, blir du med i Microsoft MAPS med det angitte medlemskapet.
 
@@ -701,10 +756,10 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
       Hvis du aktiverer denne innstillingen, vil ikke AM-brukergrensesnittet vise varsler om omstart.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Undertrykk alle varsler</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Bruk denne policyinnstillingen til å angi om du vil at Windows Defender-varsler skal vises på klienter.
-      Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vises Windows Defender-varsler på klienter.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Bruk denne policyinnstillingen til å angi om du vil at Windows Defender Antivirus-varsler skal vises på klienter.
+      Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vises Windows Defender Antivirus-varsler på klienter.
 
-      Hvis du aktiverer denne innstillingen, vises ikke Windows Defender-varsler på klienter.
+      Hvis du aktiverer denne innstillingen, vises ikke Windows Defender Antivirus-varsler på klienter.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Vise mer tekst til klienter når de må utføre en handling</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Med denne policyinnstillingen kan du konfigurere om mer tekst skal vises til klienter eller ikke når de må utføre en handling. Teksten som vises, er en tilpasset administratordefinert streng. Et eksempel kan være telefonnummeret til selskapets kundeservice. Klientgrensesnittet viser bare maksimalt 1024 tegn. Lenger strenger trunkeres før visning.
@@ -712,6 +767,202 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     Hvis du aktiverer denne innstillingen, vises mer tekst som er angitt.
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vises det ikke mer tekst.</string>
+    <string id="MpCloudBlockLevel">Velg skybeskyttelsesnivå</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Denne policyinnstillingen bestemmer hvor aggressiv Windows Defender Antivirus skal være ved blokkering og skanning av mistenkelige filer.
+
+      Hvis denne innstillingen er aktivert, vil Windows Defender Antivirus være mer aggressiv ved identifisering av mistenkelige filer som skal blokkeres eller skannes. Ellers vil programmet være mindre aggressivt og derfor blokkere og skanne sjeldnere. 
+      
+       Du kan finne mer informasjon om bestemte verdier som støttes, på nettstedet med dokumentasjon for Windows Defender Antivirus.
+
+      Obs! Denne funksjonen krever at innstillingen Bli med i Microsoft MAPS er aktivert for å kunne fungere.
+
+      Mulige alternativer er:
+      (0x0) Standardblokkeringsnivå i Windows Defender
+      (0x2) Høyt blokkeringsnivå – blokkerer aggressivt ukjente mens det optimaliserer klientytelse (større mulighet for falske positiver)
+      (0x4) Høyt+ blokkeringsnivå – blokkerer aggressivt ukjente og tar i bruke ekstra beskyttelsestiltak (kan påvirke klientytelse)
+      (0x6) Blokkeringsnivå med nulltoleranse – blokkerer alle ukjente kjørbare filer
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Standardblokkeringsnivå i Windows Defender Antivirus</string>
+    <string id="MpCloudBlockLevel_High_Level">Høyt blokkeringsnivå</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Høyt+ blokkeringsnivå</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Blokkeringsnivå med nulltoleranse</string>
+    <string id="MpBafsExtendedTimeout">Konfigurer utvidet skykontroll</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Denne funksjonen gir Windows Defender Antivirus mulighet til å blokkere en mistenkelig fil i opptil 60 sekunder, og skanne den i skyen for å kontrollere at den er sikker.
+      
+      Vanlig tidsavbrudd for kontroll i skyen er ti sekunder. Hvis du vil aktivere den utvidede skykontrollen, angir du den utvidede tiden i sekunder, opptil ytterligere 50 sekunder.
+
+      Hvis for eksempel ønsket tidsavbrudd er 60 sekunder, angir du 50 sekunder i denne innstillingen. Dermed aktiveres den utvidede skykontrollfunksjonen, og den totale tiden blir 60 sekunder.
+
+      Obs!  Denne funksjonen er avhengig av at tre andre MAPS-innstillinger er aktivert: Konfigurer funksjonen Blokker ved første kontakt, Bli med i Microsoft MAPS og Send fileksempler når det kreves videre analyse.
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Hindrer brukere og apper fra å åpne farlige nettsteder</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Aktiver eller deaktiver Windows Defender Exploit Guard nettverksbeskyttelse for å hindre medarbeidere fra å bruke apper til å åpne farlige domener som kan være vert for phishing, utnyttende nettsteder og annet skadelig innhold på Internett.
+
+        Aktivert:
+        Angi modusen i Alternativer-delen:
+        – Blokker: Brukere og apper vil ikke kunne åpne farlige domener
+        – Overvåk: Brukere og apper kan koble til farlige domener, men hvis denne funksjonen har blokkert tilgang hvis den ble angitt til Blokker, vises en oppføringen av hendelsen i Windows Defender Sikkerhetssenter
+
+        Deaktivert:
+        Brukere og apper vil ikke være blokkert fra å koble til farlige domener.
+
+        Ikke konfigurert:
+        Samme som Deaktivert.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Utelat filer og baner fra Attack Surface Reduction-regler</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Utelat filer og baner fra ASR-regler (Attack Surface Reduction).
+
+        Aktivert:
+        Angi mappene eller filene og ressursene som skal utelates fra ASR-reglene, i Alternativer-delen.
+        Angi hver regel på en ny linje som et navn-verdi-par:
+        – Navn-kolonne: Angi en mappebane eller et fullstendig kvalifisert ressursnavn. ""C:\Windows"" vil for eksempel utelate alle filer i den katalogen. ""C:\Windows\App.exe"" vil bare utelate den bestemte filen i den bestemte mappen
+        – Verdi-kolonne: Angi ""0"" for hvert element
+
+        Deaktivert:
+        Ingen utelatelser blir tatt i bruk i ASR-reglene.
+
+        Ikke konfigurert:
+        Samme som Deaktivert.
+
+        Du kan konfigurere ASR-regler i gruppepolicyinnstillingen Konfigurer Attack Surface Reduction-regler.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Konfigurer Attack Surface Reduction-regler</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Angi statusen for hver ASR-regel (Attack Surface Reduction).
+
+        Når du har aktivert denne innstillingen, kan du angi hver regel for følgende i Alternativer-delen:
+    – Blokker: Regelen blir tatt i bruk
+        – Overvåk: Hvis regelen normalt forårsaker en hendelse, blir den registrert (selv om regelen faktisk ikke blir tatt i bruk)
+        – Av: Regelen blir ikke tatt i bruk
+
+        Aktivert:
+        Angi statusen for hver ASR-regel under Alternativer-delen for denne innstillingen.
+        Angi hver regel på en ny linje som et navn-verdi-par:
+        – Navn-kolonne: Angi en gyldig ID for ASR-regel
+        – Verdi-kolonne: Angi status-ID-en som er knyttet til statusen du vil angi for den tilknyttede regelen
+
+        Følgende status-ID-er er tillatt under verdi-kolonnen:
+        – 1 (Blokker)
+        – 0 (Av)
+        – 2 (Overvåk)
+
+    Eksempel:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Deaktivert:
+    Ingen ASR-regler blir konfigurert.
+
+        Ikke konfigurert:
+        Samme som Deaktivert.
+
+        Du kan utelate mapper eller filer og ressurser i gruppepolicyinnstillingen Utelat mapper eller filer og ressurser.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Konfigurer kontrollert mappetilgang</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Aktivere eller deaktiver kontrollert mappetilgang for ikke-klarerte programmer. Du kan velge å blokkere, overvåke eller tillate forsøk av ikke-klarerte programmer til:
+    –Endre eller slette filer i beskyttede mapper, for eksempel Dokumenter-mappen
+    –Skriv til disksektorer
+
+    Du kan også velge bare å blokkere eller overvåke skriving til disksektorer samtidig som du tillater endring eller sletting av filer i beskyttede mapper.
+
+    Windows Defender Antivirus bestemmer automatisk hvilke programmer som kan klareres. Du kan legge til flere klarerte programmer i Konfigurer tillatte programmer GP-innstillingen.
+    Standard systemmapper beskyttes automatisk, men du kan legge til mapper i innstillingen Konfigurer beskyttede mapper-GP.
+
+    Blokker:
+    Følgende vil bli blokkert:
+    –Ikke-klarerte programmers forsøk på å endre eller slette filer i beskyttede mapper
+    –Ikke-klarerte programmers forsøk på å skrive til disksektorer
+    Hendelsesloggen i Windows registrerer disse blokkeringene under Program- og tjenestelogger &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Drift &gt; ID 1123.
+
+
+    Deaktivert:
+    Følgende vil ikke bli blokkert og kan kjøres:
+    –Ikke-klarerte programmers forsøk på å endre eller slette filer i beskyttede mapper
+    –Ikke-klarerte programmers forsøk på å skrive til disksektorer
+    Disse forsøkene vil ikke bli registrert i hendelsesloggen i Windows.
+
+
+    Overvåkingsmodus:
+    Følgende vil ikke bli blokkert og kan kjøres:
+    –Ikke-klarerte programmers forsøk på å endre eller slette filer i beskyttede mapper
+    –Ikke-klarerte programmers forsøk på å skrive til disksektorer
+    Hendelsesloggen i Windows registrerer disse forsøkene under Program- og tjenestelogger &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Drift &gt; ID 1124.
+
+
+    Bare endring av diskblokkering:
+    Følgende vil bli blokkert:
+    –Ikke-klarerte programmers forsøk på å skrive til disk sektorer
+    Hendelsesloggen i Windows registrerer disse forsøkene under Program- og tjenestelogger &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Drift &gt; ID 1123.
+
+    Følgende vil ikke bli blokkert og kan kjøres:
+    –Ikke-klarerte programmers forsøk på å endre eller slette filer i beskyttede mapper
+    Disse forsøkene vil ikke bli registrert i hendelsesloggen i Windows.
+
+
+    Bare overvåking av diskendring:
+    Følgende vil ikke bli blokkert og kan kjøres:
+    –Ikke-klarerte programmers forsøk på å skrive til disk sektorer
+    –Ikke-klarerte programmers forsøk på å endre eller slette filer i beskyttede mapper
+    Bare forsøk på å skrive til beskyttede disksektorer blir registrert i hendelsesloggen i Windows (under Program- og tjenestelogger &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Drift &gt; ID 1124).
+    Forsøk på å endre eller slette filer i beskyttede mapper vil ikke bli registrert.
+
+    Ikke konfigurert:
+    Samme som deaktivert.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Deaktiver (standard)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Blokker</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Overvåkingsmodus</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Bare blokker diskendring</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Bare overvåk diskendring</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Konfigurer tillatte apper</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Legg til flere apper som skal anses klarert av kontrollert mappetilgang.
+
+    Disse appene kan endre eller slette filer i kontrollert mappetilgang-mapper.
+
+    Windows Defender Antivirus fastsetter automatisk hvilke apper som skal klareres. Du kan konfigurere denne innstillingen for å legge til flere apper.
+
+    Aktivert:
+    Angi flere tillatte apper i Alternativer-delen.
+
+    Deaktivert:
+    Ingen flere apper blir lagt til på den klarerte listen.
+
+    Ikke konfigurert:
+    Samme som Deaktivert.
+
+    Du kan aktivere kontrollert mappetilgang i gruppepolicyinnstillingen Konfigurer kontrollert mappetilgang.
+
+    Standard systemmapper beskyttes automatisk, men du kan legge til mapper i gruppepolicyinnstillingen Konfigurer beskyttede mapper.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Konfigurer beskyttede mapper</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Angi flere mapper som skal beskyttes av funksjonen Kontrollert mappetilgang.
+
+    Filer i disse mappene kan ikke endres eller slettes av uklarerte apper.
+
+    Standard systemmapper beskyttes automatisk. Du kan konfigurere denne innstillingen for å legge til flere mapper. 
+    Listen over standard systemmapper som er beskyttet, vises i Windows Sikkerhet.
+
+    Aktivert:
+    Angi flere mapper som skal beskyttes i Alternativer-delen.
+
+    Deaktivert:
+    Ingen flere mapper blir beskyttet.
+
+    Ikke konfigurert:
+    Samme som deaktivert.
+
+    Du kan aktivere kontrollert mappetilgang i GP-innstillingen for Konfigurer kontrollert mappetilgang.
+
+    Windows Defender Antivirus bestemmer automatisk hvilke apper du kan stole på. Du kan legge til flere klarerte apper i GP-innstillingen Konfigurer tillatte apper.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -805,32 +1056,37 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Angi når på dagen en planlagt skanning skal kjøres</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_ASSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definere antallet dager før spionvaredefinisjoner anses som utdaterte</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definer antall dager før sikkerhetsintelligens for spionprogram anses som utdatert</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_AVSignatureDue">
-    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definere antallet dager før virusdefinisjoner anses som utdaterte</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definer antall dager før virussikkerhetsintelligens anses som utdatert</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
     <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
-        <label>Definere fildelinger for nedlasting av definisjonsoppdateringer</label>
+        <label>Definer delte filressurser for nedlasting av sikkerhetsintelligensoppdateringer</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SharedSignaturesLocation">
+    <textBox refId="SignatureUpdate_SharedSignaturesLocation">
+        <label>Definer fildeling for nedlasting av sikkerhetsintelligensoppdateringer i virtuelle miljøer</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_FallbackOrder">
     <textBox refId="SignatureUpdate_FallbackOrder">
-        <label>Definere rekkefølgen på kilder for nedlasting av definisjonsoppdateringer</label>
+        <label>Definer rekkefølgen på kilder for nedlasting av sikkerhetsintelligensoppdateringer</label>
     </textBox>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleDay">
-    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Angi ukedagen da det skal søkes etter definisjonsoppdateringer</dropdownList>
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Angi ukedagen for å se etter sikkerhetsintelligensoppdateringer</dropdownList>
     </presentation>
     <presentation id="SignatureUpdate_ScheduleTime">
-    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Angi tidspunktet da det skal søkes etter definisjonsoppdateringer</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Angi klokkeslettet for å se etter sikkerhetsintelligensoppdateringer</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definere hvor mange dager det går før en oppfølgingsdefinisjonsoppdatering kreves</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definer antall dager før en oppdatering av en oppfølgingssikkerhetsintelligens kreves</decimalTextBox>
     </presentation>
     <presentation id="SignatureUpdate_SignatureUpdateInterval">
-    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Angi intervallet for søk etter definisjonsoppdateringer</decimalTextBox>
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Angi intervallet for å se etter sikkerhetsintelligensoppdateringer</decimalTextBox>
     </presentation>
     <presentation id="SpynetReporting">
     <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Bli med i Microsoft MAPS</dropdownList>
@@ -852,6 +1108,33 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Angi intervallet for varsel om utløp</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Velg skyblokkeringsnivå</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Angi den utvidede skykontrolltiden i sekunder</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Konfigurer funksjonen for å beskytte mappene mine</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Utelatelser fra ASR-regler:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Angi statusen for hver ASR-regel:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Angi appene som skal klareres:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Angi mappene som skal beskyttes:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

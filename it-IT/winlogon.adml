@@ -72,12 +72,34 @@ Se si disabilita o non si configura questa impostazione, l'impostazione verrà i
 
 Suggerimento: per individuare le cartelle indicate dalla variabile d'ambiente PATH, fare clic su Proprietà sistema nel Pannello di controllo, fare clic sulla scheda Avanzate, scegliere il pulsante Variabili d'ambiente e quindi fare clic su Path nella casella Variabili di sistema.</string>
 
-      <string id="AutomaticRestartSignOnDescription">Esegui automaticamente l'accesso per l'ultimo utente interattivo dopo un riavvio richiesto dal sistema</string>
-      <string id="AutomaticRestartSignOnDescription_Help">Questa impostazione dei criteri determina se un dispositivo eseguirà automaticamente l'accesso per l'ultimo utente interattivo dopo il riavvio del sistema eseguito da Windows Update.
+      <string id="AutomaticRestartSignOnDescription">Accedi e blocca automaticamente ultimo utente interattivo dopo un riavvio</string>
+      <string id="AutomaticRestartSignOnDescription_Help">Questa impostazione dei criteri consente di stabilire se un dispositivo eseguirà automaticamente l'accesso e bloccherà l'ultimo utente interattivo dopo il riavvio del sistema o dopo un'operazione di arresto e avvio a freddo.
 
-Se si abilita o non si configura questa impostazione dei criteri, il dispositivo salva in modo sicuro le credenziali dell'utente (incluso nome utente, dominio e password crittografata) per configurare l'accesso automatico dopo un riavvio eseguito da Windows Update. Dopo il riavvio di Windows Update, l'utente viene connesso automaticamente e la sessione viene bloccata automaticamente con tutte le app della schermata di blocco configurate per tale utente.
+Questa situazione si verifica solo se l'ultimo utente interattivo non si è disconnesso prima del riavvio o dell'arresto.  
 
-Se si disabilita questa impostazione dei criteri, il dispositivo non archivia le credenziali dell'utente per l'accesso automatico dopo un riavvio eseguito da Windows Update. Le app della schermata di blocco degli utenti non vengono riavviate dopo il riavvio del sistema.</string>
+Se il dispositivo fa parte di Active Directory o di Azure Active Directory, questo criterio verrà applicato solo ai riavvii di Windows Update. In caso contrario, verrà applicato sia ai riavvii di Windows Update che ai riavvii e agli arresti dell'utente.  
+
+Se non la configuri, questa configurazione dei criteri sarà abilitata per impostazione predefinita. Quando il criterio è abilitato, l'utente viene connesso automaticamente e la sessione viene bloccata automaticamente con tutte le app della schermata di blocco configurate per tale utente dopo l'avvio del dispositivo.  
+
+Dopo l'abilitazione di questo criterio, puoi configurarne le impostazioni tramite il criterio ConfigAutomaticRestartSignOn, che consente di configurare la modalità di accesso automatico e di bloccare l'ultimo utente interattivo dopo un riavvio o un avvio a freddo.  
+
+Se disabiliti questa impostazione dei criteri, il dispositivo non configurerà l'accesso automatico. Le app della schermata di blocco dell'utente non vengono riavviate dopo il riavvio del sistema.</string>
+
+      <string id="ConfigAutomaticRestartSignOnDescription">Configura la modalità di accesso e blocco automatico dell'ultimo utente interattivo dopo un riavvio o un avvio a freddo</string>
+      <string id="ConfigAutomaticRestartSignOnDescription_Help">Questa impostazione dei criteri consente di controllare la configurazione con cui si verifica un riavvio automatico, l'accesso e il blocco dopo un riavvio o un avvio a freddo. Se scegli "Disabilitato" nel criterio "Accedi e blocca automaticamente ultimo utente interattivo dopo un riavvio", l'accesso automatico non verrà eseguito e non sarà necessario configurare questo criterio.
+
+Se abiliti questa impostazione dei criteri, potrai scegliere una delle due opzioni seguenti:
+
+1. "Abilitato se BitLocker è attivato e non sospeso" specifica che l'accesso automatico e il blocco si verificheranno solo se BitLocker è attivo e non sospeso durante il riavvio o l'arresto. È possibile accedere ai dati personali sull'unità disco rigido del dispositivo in questo momento se BitLocker non è attivato o sospeso durante un aggiornamento. La sospensione di BitLocker rimuove temporaneamente la protezione per i componenti del sistema e i dati, ma potrebbe essere necessaria in determinate circostanze per aggiornare correttamente i componenti critici per l'avvio.
+     BitLocker viene sospeso durante gli aggiornamenti se:
+        - Il dispositivo non ha TPM 2.0 e PCR7 o
+        - Il dispositivo non utilizza una protezione con solo TPM
+2."Sempre abilitato" specifica che l'accesso automatico verrà eseguito anche se BitLocker è disattivato o sospeso durante il riavvio o l'arresto.
+
+Se disabiliti o non configuri questa impostazione, l'accesso automatico verrà configurato per impostazione predefinita su "Abilitato se BitLocker è attivato e non sospeso".</string>
+
+      <string id="ConfigAutomaticRestartSignOn_EnableIfSecure">Abilitato se BitLocker è attivato e non sospeso</string>
+      <string id="ConfigAutomaticRestartSignOn_EnableAlways">Sempre abilitato</string>
 
     </stringTable>
     <presentationTable>
@@ -86,6 +108,9 @@ Se si disabilita questa impostazione dei criteri, il dispositivo non archivia le
       </presentation>
       <presentation id="SoftwareSASGenerationDescription">
         <dropdownList refId="SoftwareSASGenerationDescription" noSort="true">Impostare il software che può generare la Secure Attention Sequence</dropdownList>
+      </presentation>
+      <presentation id="ConfigAutomaticRestartSignOnDescription">
+        <dropdownList refId="ConfigAutomaticRestartSignOnDescription" noSort="true">Configura la modalità di accesso e blocco automatico dell'ultimo utente interattivo dopo un riavvio o un avvio a freddo</dropdownList>
       </presentation>
       <presentation id="CustomShell">
         <textBox refId="CustomShellInst">

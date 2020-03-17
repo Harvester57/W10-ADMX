@@ -32,7 +32,7 @@
       <parentCategory ref="DeviceInstall_Category" />
       <supportedOn ref="windows:SUPPORTED_Windows7" />
       <elements>
-        <decimal id="DeviceInstall_InstallTimeout_Time" valueName="InstallTimeout" minValue="300" maxValue="4294968" />
+        <decimal id="DeviceInstall_InstallTimeout_Time" valueName="InstallTimeout" minValue="240" maxValue="4294968" />
       </elements>
     </policy>
     <policy name="DeviceInstall_SystemRestore" class="Machine" displayName="$(string.DeviceInstall_SystemRestore)" explainText="$(string.DeviceInstall_SystemRestore_Help)" key="Software\Policies\Microsoft\Windows\DeviceInstall\Settings" valueName="DisableSystemRestore">
@@ -124,6 +124,40 @@
       <elements>
         <list id="DeviceInstall_IDs_Deny_List" key="Software\Policies\Microsoft\Windows\DeviceInstall\Restrictions\DenyDeviceIDs" valuePrefix="" />
         <boolean id="DeviceInstall_IDs_Deny_Retroactive" valueName="DenyDeviceIDsRetroactive" >
+          <trueValue>
+            <decimal value="1" />
+          </trueValue>
+          <falseValue>
+            <decimal value="0" />
+          </falseValue>
+        </boolean>
+      </elements>
+    </policy>
+    <policy name="DeviceInstall_Instance_IDs_Allow" class="Machine" displayName="$(string.DeviceInstall_Instance_IDs_Allow)" explainText="$(string.DeviceInstall_Instance_IDs_Allow_Help)" presentation="$(presentation.DeviceInstall_Instance_IDs_Allow)" key="Software\Policies\Microsoft\Windows\DeviceInstall\Restrictions" valueName="AllowInstanceIDs">
+      <parentCategory ref="DeviceInstall_Restrictions_Category" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <list id="DeviceInstall_Instance_IDs_Allow_List" key="Software\Policies\Microsoft\Windows\DeviceInstall\Restrictions\AllowInstanceIDs" valuePrefix="" />
+      </elements>
+    </policy>
+    <policy name="DeviceInstall_Instance_IDs_Deny" class="Machine" displayName="$(string.DeviceInstall_Instance_IDs_Deny)" explainText="$(string.DeviceInstall_Instance_IDs_Deny_Help)" presentation="$(presentation.DeviceInstall_Instance_IDs_Deny)" key="Software\Policies\Microsoft\Windows\DeviceInstall\Restrictions" valueName="DenyInstanceIDs">
+      <parentCategory ref="DeviceInstall_Restrictions_Category" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0_RS6" />
+      <enabledValue>
+        <decimal value="1" />
+      </enabledValue>
+      <disabledValue>
+        <decimal value="0" />
+      </disabledValue>
+      <elements>
+        <list id="DeviceInstall_Instance_IDs_Deny_List" key="Software\Policies\Microsoft\Windows\DeviceInstall\Restrictions\DenyInstanceIDs" valuePrefix="" />
+        <boolean id="DeviceInstall_Instance_IDs_Deny_Retroactive" valueName="DenyInstanceIDsRetroactive" >
           <trueValue>
             <decimal value="1" />
           </trueValue>

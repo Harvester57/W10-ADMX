@@ -33,7 +33,7 @@ Notas:
       <string id="CplPrinters">Impressoras</string>
       <string id="CplPrinters_Help">Gere as opções de configuração e publicação da impressora de rede.</string>
       <string id="CustomizedSupportUrl">URL de suporte personalizado, no painel esquerdo da pasta Impressoras</string>
-      <string id="CustomizedSupportUrl_Help">Por predefinição, a pasta Impressoras inclui uma ligação para a página Web de suporte da Microsoft denominada "Obter ajuda para impressão". Também pode incluir uma ligação para uma página Web fornecida pelo fabricante da impressora atualmente selecionada.
+      <string id="CustomizedSupportUrl_Help">Por predefinição, a pasta Impressoras inclui uma ligação para a página Web de Suporte da Microsoft denominada "Obter ajuda para impressão". Também pode incluir uma ligação para uma página Web fornecida pelo fabricante da impressora atualmente selecionada.
 
           Se ativar esta definição de política, substitui a ligação predefinida "Obter ajuda para impressão" por uma ligação a uma página Web personalizada para a sua empresa.
 
@@ -44,20 +44,25 @@ Notas:
           Consulte também a definição "Ativar a impressão através da Internet" desta pasta de definições e a definição "Verificar um Web site comum para localizar impressoras" em Configuração do Utilizador\Modelos Administrativos\Painel de Controlo\Impressoras.
 
           A vista Web é afetada pelas definições "Ativar a Shell Clássica" e "Não permitir a abertura de Opções de Pastas a partir do botão Opções no separador Ver do friso" em Configuração do Utilizador\Modelos Administrativos\Componentes do Windows\Explorador do Windows e pela definição "Ativar o Active Desktop" em Configuração do Utilizador\Modelos Administrativos\Ambiente de Trabalho\Active Desktop.</string>
-      <string id="DomainDisplayPrinters_Help">Se ativar esta definição de política, define o número máximo de impressoras (de cada tipo) que o Assistente para Adicionar Impressoras irá apresentar no computador numa rede gerida (quando o computador tem acesso a um controlador de domínio, por exemplo, um portátil que aderiu a um domínio de uma rede empresarial).
+      <string id="DomainDisplayPrinters_Help">Se ativar esta definição de política, a mesma define o número máximo de impressoras (de cada tipo) que o assistente Adicionar Impressora apresentará num computador numa rede gerida (quando o computador consegue alcançar um controlador de domínio, por exemplo, um portátil associado a um domínio numa rede empresarial).
 
-          Se esta definição de política estiver desativada, a página de pesquisa de rede não será apresentada.
+          Se esta definição de política for desativada, a página de análise de rede não será apresentada.
 
-          Se esta definição não estiver configurada, o Assistente para Adicionar Impressoras apresentará o número predefinido de impressoras de cada tipo:
+          Se esta definição de política não for configurada, o assistente Adicionar Impressora apresentará o número predefinido de impressoras de cada tipo:
           Impressoras de diretório: 20
           Impressoras TCP/IP: 0
           Impressoras de Serviços Web: 0
           Impressoras Bluetooth: 10
           Impressoras partilhadas: 0
 
-          Para ver as impressoras de Serviços Web disponíveis na sua rede, certifique-se de que a deteção de rede está ativada. Para ativar a deteção de rede, clique em "Iniciar", clique em "Painel de Controlo" e clique em "Rede e Internet". Na página "Rede e Internet", clique em "Centro de Rede e Partilha". Na página Centro de Rede e Partilha, clique em "Alterar definições de partilha avançadas". Na página Definições de partilha avançadas, clique na seta junto a "Domínio", clique em "Ativar a deteção de rede" e clique em "Guardar alterações".
+          Para ver as impressoras de Serviços Web disponíveis na rede, certifique-se de que a deteção de redes está ativada. Para ligar a deteção de redes, clique em "Iniciar", clique em "Painel de Controlo" e, em seguida, clique em "Rede e Internet". Na página "Rede e Internet", clique em "Centro de Rede e Partilha". Na página Centro de Rede e Partilha, clique em "Alterar definições de partilha avançadas". Na página Definições de partilha avançadas, clique na seta junto à seta "Domínio", clique em "Ativar deteção de rede" e, em seguida, clique em "Guardar alterações".
 
-          Se não pretender apresentar impressoras de um determinado tipo, ative esta política e defina o número de impressoras a apresentar como 0.</string>
+          Se não quiser apresentar impressoras de um determinado tipo, ative esta política e defina o número de impressoras a apresentar para 0.
+
+          No Windows 10 e posteriores, apenas as impressoras TCP/IP podem ser apresentadas no assistente. Se ativar esta definição de política, apenas são aplicáveis os limites de impressoras TCP/IP. Apenas no Windows 10, se desativar ou não configurar esta definição de política, o limite predefinido é aplicado.
+          
+          No Windows 8 e posteriores, as impressoras Bluetooth não são apresentadas, pelo que os respetivos limites não se aplicam a essas versões do Windows.
+      </string>
       <string id="DomainPrinters">Assistente para Adicionar Impressoras - Página de procura de rede (Rede gerida)</string>
       <string id="DownlevelBrowse">Procurar impressoras na rede</string>
       <string id="DownlevelBrowse_Help">Permite aos utilizadores utilizarem o Assistente para Adicionar Impressoras para procurar impressoras partilhadas na rede.
@@ -129,17 +134,21 @@ Nota: ao aplicar esta política, os controladores de modo kernel existentes ser�
           Esta definição não impede que os utilizadores executem outros programas para eliminar uma impressora.
 
           Se esta política estiver desativada ou não tiver sido configurada, os utilizadores podem eliminar impressoras utilizando os métodos descritos anteriormente.</string>
-      <string id="NonDomainDisplayPrinters_Help">Esta política define o número máximo de impressoras (de cada tipo) que o Assistente para Adicionar Impressoras irá apresentar no computador numa rede não gerida (quando o computador não consegue aceder a um controlador de domínio; por exemplo, um portátil que aderiu a um domínio de uma rede doméstica).
+      <string id="NonDomainDisplayPrinters_Help">Esta política define o número máximo de impressoras (de cada tipo) que o assistente Adicionar Impressora apresentará num computador numa rede não gerida (quando o computador não consegue alcançar um controlador de domínio, por exemplo, um portátil associado a um domínio numa rede doméstica.)
 
-Se esta definição estiver desativada, a página de pesquisa de rede não será apresentada.
+Se esta definição for desativada, a página de análise de rede não será apresentada.
 
-Se esta definição não estiver configurada, o Assistente para Adicionar Impressoras apresentará o número predefinido de impressoras de cada tipo:
+Se esta definição não for configurada, o assistente Adicionar Impressora apresentará o número predefinido de impressoras de cada tipo:
 Impressoras TCP/IP: 50
 Impressoras de Serviços Web: 50
 Impressoras Bluetooth: 10
 Impressoras partilhadas: 50
 
-Se não pretender apresentar impressoras de um determinado tipo, ative esta política e defina o número de impressoras a apresentar como 0.</string>
+Se não quiser apresentar impressoras de um determinado tipo, ative esta política e defina o número de impressoras a apresentar para 0.
+
+No Windows 10 e posteriores, apenas as impressoras TCP/IP podem ser apresentadas no assistente. Se ativar esta definição de política, apenas são aplicáveis os limites de impressoras TCP/IP. Apenas no Windows 10, se desativar ou não configurar esta definição de política, o limite predefinido é aplicado.
+          
+No Windows 8 e posteriores, as impressoras Bluetooth não são apresentadas, pelo que os respetivos limites não se aplicam a essas versões do Windows.</string>
       <string id="NonDomainPrinters">Assistente para Adicionar Impressoras - Página de pesquisa de rede (Rede não gerida)</string>
       <string id="PackagePointAndPrintOnly">Utilizar apenas Apontar e Imprimir Pacote</string>
       <string id="PackagePointAndPrintOnly_Help">Esta política restringe os computadores cliente a só apontarem e imprimirem pacotes.
@@ -269,11 +278,19 @@ Por predefinição e desde que necessário, os SKUs do Windows Ultimate, Profess
 
         Se desativar ou não configurar esta definição de política, todas as extensões de impressora instaladas poderão ser executadas.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Alterar o formato de saída Microsoft XPS Document Writer (MXDW) predefinido para o formato Microsoft XPS (*.xps) legado</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Por predefinição, o Microsoft XPS Document Writer (MXDW) gera ficheiros OpenXPS (*.oxps) no Windows 10, Windows 10 e Windows Server 2016 Technical Preview 4.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Por predefinição, o Microsoft XPS Document Writer (MXDW) gera ficheiros OpenXPS (*.oxps) no Windows 10, Windows 10 e Windows Server 2019.
 
-          Se ativar esta definição de política de grupo, o formato de saída MXDW predefinido será o formato Microsoft XPS (*.xps) legado.
+          Se ativar esta definição de política de grupo, o formato de saída MXDW predefinido será o Microsoft XPS (*.xps) legado.
 
-          Se desativar ou não configurar esta definição de política, o formato de saída MXDW predefinido será OpenXPS (*.oxps).</string>
+          Se desativar ou não configurar esta definição de política, o formato de saída MXDW predefinido será o OpenXPS (*.oxps).</string>
+      <string id="SetDefaultPrinterMRUModeOff">Desativar a gestão de impressoras predefinidas do Windows</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">Esta preferência permite alterar a gestão de impressoras predefinidas.
+
+Se ativar esta definição, o Windows não irá gerir a impressora predefinida.
+ 
+Se desativar esta definição, o Windows irá gerir a impressora predefinida.
+
+Se não configurar esta definição, a gestão de impressoras predefinidas não será alterada. </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">

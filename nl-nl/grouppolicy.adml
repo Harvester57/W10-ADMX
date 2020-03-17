@@ -12,6 +12,32 @@
       <string id="FontMitigation_Off">Niet-vertrouwde lettertypen niet blokkeren</string>
       <string id="FontMitigation_Audit">Gebeurtenissen in logboek registreren zonder niet-vertrouwde lettertypen te blokkeren</string>
 
+	  <string id="ProcessMitigationOptions_List">Opties voor risicobeperking verwerken</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Deze beveiligingsfunctie biedt een manier om de MitigationOptions-instellingen van een afzonderlijk proces te negeren. Dit is handig voor het afdwingen van een aantal beveiligingsbeleidsregels die specifiek zijn voor een toepassing. De toepassingsnaam wordt opgegeven als waardenaam, inclusief extensies. De waarde wordt opgegeven als een bitveld met een reeks vlaggen op bepaalde locaties. Bits kunnen worden ingesteld op 0 (instelling is geforceerd uitgeschakeld), 1 (instelling is geforceerd ingeschakeld) of ? (instelling behoudt de waarde van voor de GPO-evaluatie). De erkende bitlocaties zijn:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        DEP (Data Execution Prevention) inschakelen voor het onderliggende proces
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        DEP-ATL thunk-emulatie inschakelen voor het onderliggende proces. DEP-ATL thunk-emulatie zorgt ervoor dat het systeem NX-fouten onderschept die afkomstig zijn van de Active Template Library (ATL)-thunk-laag. 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        SEHOP (Structured Exception Handler Overwrite Protection) inschakelen voor het onderliggende proces. SEHOP blokkeert aanvallen waarbij gebruik wordt gemaakt van de overschrijftechniek van SEH (Structured Exception Handler).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Met het forceren van het ASLR (Address Space Layout Randomization)-beleid worden installatiekopieën die niet compatibel zijn met de dynamische basis, geforceerd van een nieuwe basislocatie voorzien door net te doen alsof er een installatiekopiebasisconflict is opgetreden tijdens het laden. Als er nieuwe locaties moeten worden toegewezen, worden installatiekopieën zonder herlocatie van de basis niet geladen.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Het willekeurig bottom-up-beleid, inclusief willekeurige stapelopties, zorgt ervoor dat een willekeurige locatie wordt gebruikt als laagste gebruikersadres.
+
+        Als u bijvoorbeeld PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE en PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON wilt inschakelen, PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF wilt uitschakelen en voor alle andere opties de standaardwaarden wilt gebruiken, geeft u een waarde op van:
+        ???????????????0???????1???????1
+
+        Als u vlaggen die hier niet zijn vermeld, instelt op een andere waarde dan ?, zal dit leiden tot ongedefinieerd gedrag.
+</string>
+
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Schakel de synchronisatie van de AD/DFS-domeincontroller tijdens de beleidsvernieuwing in</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Door deze instelling in te schakelen wordt de Group Policy Client-met dezelfde domeincontroller voor gedeelde DFS's verbonden als die voor de de Active Directory wordt gebruikt.
 
@@ -24,21 +50,60 @@
 
 
 </string>
+      <string id="EnableCDP">Ervaringen voortzetten op dit apparaat</string>
+      <string id="EnableCDP_Help">
+Met deze beleidsinstelling bepaalt u of het Windows-apparaat mag deelnemen aan apparaatoverschrijdende ervaringen (ervaringsvoortzetting).
+
+Als u deze beleidsinstelling inschakelt, kan het Windows-apparaat worden gevonden door andere Windows-apparaten die in het bezit zijn van dezelfde gebruiker en kan het deelnemen aan apparaatoverschrijdende ervaringen.
+
+Als u deze beleidsinstelling uitschakelt, is het Windows-apparaat niet vindbaar voor andere apparaten en kan het niet deelnemen aan deze ervaringen.
+
+Als u deze beleidsinstelling niet configureert, hangt het standaardgedrag af van de Windows-versie. Wijzigingen in dit beleid worden van kracht na opnieuw opstarten.
+      </string>
+      <string id="EnableMMX">Koppelen van telefoon en pc op dit apparaat</string>
+      <string id="EnableMMX_Help">
+Met dit beleid kunnen IT-beheerders de mogelijkheid uitschakelen om een telefoon te koppelen met een pc om verder te kunnen lezen, e-mails te verzenden en andere taken uit te voeren waarvoor een koppeling tussen de telefoon en de pc vereist is.
+
+Als u deze beleidsinstelling inschakelt, kan het Windows-apparaat worden ingeschreven voor de functionaliteit voor het koppelen van telefoon en pc en deelnemen aan 'Doorgaan op pc'-ervaringen.
+
+Als u deze beleidsinstelling uitschakelt, mag het Windows-apparaat niet worden gekoppeld aan telefoons, verwijdert het zichzelf uit de apparaatlijst van eventuele gekoppelde telefoons en kan het apparaat niet deelnemen aan 'Doorgaan op pc'-ervaringen.
+
+Als u deze beleidsinstelling niet configureert, is het standaardgedrag afhankelijk van de Windows-versie. Wijzigingen van dit beleid worden van kracht bij het opnieuw opstarten.
+      </string>
+      <string id="EnableAppUriHandlers">Web-naar-app-koppeling configureren met App URI-handlers</string>
+      <string id="EnableAppUriHandlers_Help">
+Met deze beleidsinstelling bepaalt u of Windows web-naar-app-koppeling met App URI-handlers ondersteunt.
+
+Door deze beleidsinstelling in te schakelen maakt u web-naar-app-koppeling mogelijk zodat apps kunnen worden gestart met een http(s)-URI.
+
+Door deze instelling uit te schakelen schakelt u web-naar-app-koppeling uit en worden http(s)-URI´s geopend in de standaardbrowser in plaats van dat de gekoppelde app wordt gestart.
+
+Als u deze beleidsinstelling niet configureert, is het standaardgedrag afhankelijk van de Windows-versie. Wijzigingen in dit beleid worden van kracht als de computer opnieuw is opgestart.
+      </string>
+      <string id="Fonts">Lettertypen</string>
+      <string id="EnableFontProviders">Providers van lettertypen inschakelen</string>
+      <string id="EnableFontProviders_Help">
+        Deze beleidsinstelling bepaalt of Windows lettertypen en gegevens uit lettertypecatalogussen mag downloaden bij een onlineprovider van lettertypen.
+        
+        Als u deze beleidsinstelling inschakelt, raadpleegt Windows periodiek een onlineprovider van lettertypen om te controleren of er een nieuwe lettertypecatalogus beschikbaar is. Windows kan ook lettertypegegevens downloaden als dat nodig is om tekst op te maken of weer te geven.
+        
+        Als u deze beleidsinstelling uitschakelt, maakt Windows geen verbinding met een onlineprovider van lettertypen en worden alleen lokaal geïnstalleerde lettertypen geïnventariseerd.
+      
+        Als u deze beleidsinstelling niet configureert, hangt het standaardgedrag af van de Windows-versie. Wijzigingen van dit beleid worden van kracht bij het opnieuw opstarten.
+      </string>
       <string id="EnableLogonOptimization">Cache van Groepsbeleid configureren</string>
       <string id="EnableLogonOptimization_Help">
-        
         Met deze beleidsinstelling kunt u het gedrag van de cache voor het Groepsbeleid configureren.
-        
+
         Als u deze beleidsinstelling inschakelt of niet configureert, slaat Groepsbeleid beleidsgegevens op in de cache na elke achtergrondverwerkingssessie. In deze cache worden de relevant groepsbeleidsobjecten (GPO's) opgeslagen, evenals de daarin opgenomen instellingen. Wanneer Groepsbeleid in de synchrone voorgrondmodus wordt uitgevoerd, verwijst het naar deze cache, waardoor het beleid sneller kan worden uitgevoerd. Wanneer de cache wordt gelezen, probeert Groepsbeleid contact te leggen met een aanmeldingsdomeincontroller om de verbindingssnelheid te bepalen. Wanneer Groepsbeleid in de achtergrondmodus of asynchrone voorgrondmodus wordt uitgevoerd, gaat het door met het downloaden van de recentste versie van de beleidsgegevens en schat het de bandbreedte in om de drempelwaarden voor de langzame verbinding te bepalen. (Raadpleeg de beleidsinstelling 'Configureer Detectie van langzame verbinding voor Groepsbeleid' om het asynchrone voorgrondgedrag te configureren.)
-        
+
         De waarde voor de langzame verbinding die in deze beleidsinstelling wordt gedefinieerd, bepaalt hoe lang Groepsbeleid op antwoord van de domeincontroller wacht voordat het bepaalt dat de verbindingssnelheid langzaam is. De standaardwaarde is 500 milliseconden.
-        
-        De time-outwaarde die in deze beleidsinstelling wordt gedefinieerd, bepaalt hoe lang Groepsbeleid op antwoord van de domeincontroller wacht voordat vaststelt dat er geen netwerkverbinding is. Hierdoor wordt de verwerking van het huidige Groepsbeleid gestopt. De volgende keer dat er een verbinding met een domeincontroller tot stand wordt gebracht, wordt Groepsbeleid in de achtergrond uitgevoerd. Als u deze waarde te hoog afstelt, kan dit ertoe leiden dat de gebruiker langer moet wachten tijdens het opstarten of aanmelden. De standaardwaarde is 5.000 milliseconden.
-        
+
+        De time-outwaarde die in deze beleidsinstelling wordt gedefinieerd, bepaalt hoe lang Groepsbeleid op antwoord van de domeincontroller wacht voordat vaststelt dat er geen netwerkverbinding is. Hierdoor wordt de verwerking van het huidige Groepsbeleid gestopt. De volgende keer dat er een verbinding met een domeincontroller tot stand wordt gebracht, wordt Groepsbeleid in de achtergrond uitgevoerd. Als u deze waarde te hoog afstelt, kan dit ertoe leiden dat de gebruiker langer moet wachten tijdens het opstarten of aanmelden. De standaardwaarde is 5000 milliseconden.
+
         Als u deze beleidsinstelling uitschakelt, slaat de client van Groepsbeleid de relevante GPO's of instellingen binnen de GPO's niet op in een cache. Wanneer Groepsbeleid synchroon wordt uitgevoerd, downloadt het de recentste versie van het beleid vanaf het netwerk en schat deze de bandbreedte in om de drempelwaarden voor de langzame verbinding te bepalen. (Raadpleeg de beleidsinstelling 'Configureer Detectie van langzame verbinding voor groepsbeleid' om het asynchrone voorgrondgedrag te configureren.)
-      
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Opslag van Groepsbeleid voor servers inschakelen</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -49,54 +114,47 @@
         Als u deze beleidsinstelling uitschakelt of niet configureert, slaat de client van Groepsbeleid de relevante GPO's of instellingen binnen de GPO's niet op in een cache. Wanneer Groepsbeleid synchroon wordt uitgevoerd, downloadt het de recentste versie van het beleid vanaf het netwerk en schat het de bandbreedte om de drempelwaarden voor de langzame verbinding te bepalen. (Raadpleeg de beleidsinstelling 'Configureer Detectie van langzame verbinding voor groepsbeleid' om het asynchrone voorgrondgedrag te configureren.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Vertraging aanmeldingsscript configureren</string>
       <string id="LogonScriptDelay_Help">
-        
         Voer '0' in om Vertraging aanmeldingsscript uit te schakelen.
-        
+
         Met deze beleidsinstelling kunt u bepalen hoe lang de client van Groepsbeleid na aanmelding moet wachten voordat er scripts worden uitgevoerd.
-        
-        Standaard wacht de client van Groepsbeleid vijf minuten alvorens aanmeldingsscripts uit te voeren. Dit bevordert een snel reagerende bureaubladomgeving door het voorkomen van teveel gelijktijdige schijfverzoeken.
-        
+
+        Standaard wacht de client van Groepsbeleid vijf minuten alvorens aanmeldingsscripts uit te voeren. Dit bevordert een snel reagerende bureaubladomgeving door het voorkomen van te veel gelijktijdige schijfverzoeken.
+
         Als u deze beleidsinstelling inschakelt, wacht Groepsbeleid gedurende de opgegeven tijd voordat het aanmeldingsscripts uitvoert.
-        
+
         Als u deze beleidsinstelling uitschakelt, voert Groepsbeleid scripts onmiddellijk na aanmelding uit.
-        
+
         Als u deze beleidsinstelling niet configureert, wacht Groepsbeleid vijf minuten voordat het aanmeldingsscripts uitvoert.
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Direct Access-verbindingen configureren als snelle netwerkverbinding</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Met deze beleidsinstelling kan een beheerder definiëren welke Direct Access-verbinding moet worden beschouwd als snelle netwerkverbinding ten behoeve van het toepassen en bijwerken van Groepsbeleid. 
- 
-Wanneer met Groepsbeleid de bandbreedtesnelheid van een Direct Access-verbinding wordt gedetecteerd, kunnen soms mogelijk geen gegevens over deze snelheid worden verstrekt. Als er met Groepsbeleid een bandbreedtesnelheid wordt gedetecteerd, worden de normale regels voor evaluatie gevolgd wanneer de Direct Access-verbinding een snelle of langzame internetverbinding is. Als er geen bandbreedtesnelheid wordt gedetecteerd, wordt Groepsbeleid standaard ingesteld op een langzame netwerkverbinding. Met deze beleidsinstelling kan de administrator de standaardinstelling voor een langzame netwerkverbinding overschrijven, zodat in plaats hiervan standaard een snelle netwerkverbinding wordt gebruikt mocht de bandbreedtesnelheid van het netwerk niet worden vastgesteld.
- 
-Opmerking: wanneer met Groepsbeleid een langzame netwerkverbinding wordt gedetecteerd, worden extensies van de client alleen verwerkt als ze zijn geconfigureerd voor verwerking via een langzame netwerkverbinding.  
- 
+      <string id="SlowLinkDefaultForDirectAccess_Help">Met deze beleidsinstelling kan een beheerder definiëren welke Direct Access-verbinding moet worden beschouwd als snelle netwerkverbinding ten behoeve van het toepassen en bijwerken van Groepsbeleid.
+
+Wanneer met Groepsbeleid de bandbreedtesnelheid van een Direct Access-verbinding wordt gedetecteerd, kunnen soms mogelijk geen gegevens over deze snelheid worden verstrekt. Als er met Groepsbeleid een bandbreedtesnelheid wordt gedetecteerd, worden de normale regels voor evaluatie gevolgd wanneer de Direct Access-verbinding een snelle of langzame internetverbinding is. Als er geen bandbreedtesnelheid wordt gedetecteerd, wordt Groepsbeleid standaard ingesteld op een langzame netwerkverbinding. Met deze beleidsinstelling kan de beheerder de standaardinstelling voor een langzame netwerkverbinding overschrijven, zodat in plaats hiervan standaard een snelle netwerkverbinding wordt gebruikt mocht de bandbreedtesnelheid van het netwerk niet worden vastgesteld.
+
+Opmerking: wanneer met Groepsbeleid een langzame netwerkverbinding wordt gedetecteerd, worden extensies van de client alleen verwerkt als ze zijn geconfigureerd voor verwerking via een langzame netwerkverbinding.
+
 Als u dit beleid inschakelt en de bandbreedtesnelheid voor Direct Access niet kan worden bepaald met Groepsbeleid, wordt de netwerkverbinding als snel beoordeeld en worden alle extensies van de client verwerkt.
- 
+
 Als u deze instelling uitschakelt of niet configureert, wordt de netwerkverbinding als langzaam beoordeeld en worden alleen extensies van de client verwerkt die zijn geconfigureerd voor verwerking via een langzame verbinding.
-          
-      
-          
+
       </string>
      <string id="SlowlinkDefaultToAsync">Zorg ervoor dat Groepsbeleid asynchroon wordt verwerkt wanneer er een langzame netwerkverbinding wordt gedetecteerd.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Met dit beleid worden extensies van de client niet verwerkt als deze synchroon moeten worden verwerkt (dus of computers wachten totdat het netwerk volledig is geïnitialiseerd wanneer ze worden opgestart en gebruikers zich aanmelden) wanneer een langzame netwerkverbinding is gedetecteerd.  
- 
+      <string id="SlowlinkDefaultToAsync_Help">Met dit beleid worden extensies van de client niet verwerkt als deze synchroon moeten worden verwerkt (dus of computers wachten totdat het netwerk volledig is geïnitialiseerd wanneer ze worden opgestart en gebruikers zich aanmelden) wanneer een langzame netwerkverbinding is gedetecteerd.
+
 Als u deze beleidsinstelling inschakelt en er een langzame netwerkverbinding wordt gedetecteerd, wordt Groepsbeleid altijd asynchroon verwerkt.
-Tijdens het opstarten en aanmelden van clientcomputers wordt niet gewacht totdat het netwerk volledig is geïnitialiseerd. Bestaande gebruikers worden aangemeld met referenties die in de cache zijn opgeslagen. 
-Zodoende worden ze sneller aangemeld. Groepsbeleid wordt op de achtergrond toegepast zodra het netwerk beschikbaar is.   
+Tijdens het opstarten en aanmelden van clientcomputers wordt niet gewacht totdat het netwerk volledig is geïnitialiseerd. Bestaande gebruikers worden aangemeld met referenties die in de cache zijn opgeslagen. Zodoende worden ze sneller aangemeld. Groepsbeleid wordt op de achtergrond toegepast zodra het netwerk beschikbaar is.
 Omdat deze vernieuwing op de achtergrond wordt uitgevoerd, worden extensies die synchroon moeten worden verwerkt, zoals Software-installatie, Mapomleiding
 en de voorkeursextensie Stationstoewijzingen, niet toegepast.
- 
+
 Opmerking: er zijn twee voorwaarden waardoor Groepsbeleid synchroon wordt verwerkt, zelfs als deze beleidsinstelling is ingeschakeld:
 1 - Wanneer de computer voor het eerst wordt opgestart nadat de clientcomputer lid is geworden van het domein.
 2 - Als de beleidsinstelling Altijd wachten op het netwerk bij het opstarten van de computer en het aanmelden is ingeschakeld.
- 
-Als u deze beleidsinstelling uitschakelt of niet configureert, is de detectie van een langzame netwerkverbinding niet van invloed op het feit of Groepsbeleid synchroon of asynchroon wordt uitgevoerd.
 
-      
+Als u deze beleidsinstelling uitschakelt of niet configureert, is de detectie van een langzame netwerkverbinding niet van invloed op het feit of Groepsbeleid synchroon of asynchroon wordt uitgevoerd.
 
       </string>
       <string id="DisableLGPOProcessing">Verwerking van lokale groepsbeleidsobjecten uitschakelen</string>
@@ -117,7 +175,7 @@ N.B.: Voor computers die lid zijn van een domein, wordt u aangeraden deze beleid
 Als u deze beleidsinstelling inschakelt, gebruikt groepsbeleid deze geconfigureerde maximumwachttijd in plaats van de standaard- of door het systeem berekende wachttijd.
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, wordt door groepsbeleid een standaardwachttijd van 30 seconden gebruikt op computers met het besturingssysteem Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Sta crossforest-gebruikersbeleid en zwervende crossforest-gebruikersprofielen toe</string>
@@ -491,6 +549,12 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, wordt door groeps
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Opties voor risicobeperking</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Opties voor risicobeperking verwerken</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">De Windows Font Cache-service moet worden toegestaan om lettertypen en gegevens uit lettertypecatalogussen te downloaden bij onlineproviders van lettertypen.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">waarde voor langzame verbinding:[number field] milliseconden</decimalTextBox>
