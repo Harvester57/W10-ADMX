@@ -6,20 +6,48 @@
   <resources>
     <stringTable>
       <string id="CloudContent">Skyinnhold</string>
+      <string id="ConfigureWindowsSpotlight">Konfigurer Windows-søkelys på låseskjermen</string>
+      <string id="ConfigureWindowsSpotlight_Help">Denne policyinnstillingen lar deg konfigurere Windows-søkelys på låseskjermen.
+
+Hvis du aktiverer denne policyinnstillingen, brukes Windows-søkelys som låseskjermleverandør, og brukerne kan ikke endre låseskjermen sin. Windows-søkelys viser daglige bilder fra Microsoft på låseskjermen.
+
+Hvis du merker av for Ta med innhold fra Enterprise-søkelys og organisasjonen din har konfigurert en innholdstjeneste for Enterprise-søkelys i Azure, vil låseskjermen også vise interne meldinger og beskjeder som er konfigurert i denne tjenesten, når dette er tilgjengelig. Denne avmerkingsboksen har ingen effekt hvis organisasjonen ikke har noen innholdstjeneste for Enterprise-søkelys.
+
+Hvis du deaktiverer denne policyinnstillingen, deaktiveres Windows-søkelys, og brukerne kan ikke lenger velge dette som låseskjermen sin. Brukerne ser det standard låseskjermbildet og kan velge et annet bilde med mindre du har aktivert policyen Hindre endring av låseskjermbilde.
+
+Hvis du ikke konfigurerer denne policyen, vil Windows-søkelys være tilgjengelig på låseskjermen og velges som standard med mindre du har konfigurert et annet låseskjermbilde ved hjelp av policyen Fremtving spesifikt standard låseskjermbilde.
+
+Obs! Denne policyen er bare tilgjengelig for Enterprise-SKU-er.</string>
+      <string id="DisableWindowsSpotlightFeatures">Deaktiver alle funksjonene til Windows-søkelys</string>
+      <string id="DisableWindowsSpotlightFeatures_Help">Denne policyinnstillingen lar deg deaktivere alle funksjonene til Windows-søkelys samtidig.
+
+Hvis du aktiverer denne policyinnstillingen, slår dette av Windows-søkelys på låseskjermen, Windows-tips, Microsofts forbrukerfunksjoner og andre relaterte funksjoner. Du bør aktivere denne policyinnstillingen hvis målet er å minimere nettverkstrafikk fra målenheter.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, tillates funksjonene til Windows-søkelys, og de kan styres individuelt ved hjelp av de tilsvarende policyinnstillingene.</string>
       <string id="DisableWindowsConsumerFeatures">Deaktiver Microsoft-forbrukeropplevelser</string>
       <string id="DisableWindowsConsumerFeatures_Help">Denne policyinnstillingen aktiverer opplevelser som hjelper forbrukere å utnytte enhetene sine og Microsoft-kontoen.
 
 Hvis du aktiverer denne policyinnstillingen, kan ikke brukerne se tilpassede anbefalinger fra Microsoft og varsler om Microsoft-kontoen.
 
-Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan brukere se forslag fra Microsoft og varsler om Microsoft-kontoen.</string>
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan brukere se forslag fra Microsoft og varsler om Microsoft-kontoen.
+
+Denne innstillingen gjelder bare for Enterprise- og Education-SKU-er.</string>
       <string id="DisableSoftLanding">Ikke vis Windows-tips</string>
       <string id="DisableSoftLanding_Help">Denne policyinnstillingen hindrer at Windows-tips vises til brukerne.
 
-Hvis denne policyinnstillingen aktiveres, vil ikke brukerne se Windows-tips lenger.
+Hvis du aktiverer denne policyinnstillingen, vil ikke brukerne lenger se Windows-tips.
 
-Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan brukere se kontekstavhengige popup-vinduer som forklarer hvordan de bruker Windows. Microsoft bruker diagnose-og bruksdata for å bestemme hvilke tips som skal vises.
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan brukerne se kontekstavhengige popup-vinduer som forklarer hvordan de bruker Windows. Microsoft bruker diagnose- og bruksdata for å bestemme hvilke tips som skal vises.
 
-Obs!  Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, men aktiverer policyinnstillingen "Datamaskinkonfigurasjon\Administrative maler\Windows-komponenter\Datainnsamling og Forhåndsversjonsbygg\Tillat telemetri" med nivået "Grunnleggende" eller lavere, kan brukerne se et begrenset sett med tips.</string>
+Obs! Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, men aktiverer policyinnstillingen Datamaskinkonfigurasjon\Administrative maler\Windows-komponenter\Datainnsamling og forhåndsversjonsbuilds\Tillat telemetri med nivået Grunnleggende eller lavere, kan brukerne se et begrenset sett med tips.
+I tillegg gjelder denne innstillingen bare for Enterprise- og Education-SKU-er.</string>
+      <string id="DisableThirdPartySuggestions">Do not suggest third-party content in Windows spotlight</string>
+      <string id="DisableThirdPartySuggestions_Help">If you enable this policy, Windows spotlight on lock screen, Windows tips, Microsoft consumer features and other related features will no longer suggest apps and content from third-party software publishers. Users may still see suggestions and tips to make them more productive with Microsoft features and apps.</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="ConfigureWindowsSpotlight">
+        <checkBox refId="ConfigureWindowsSpotlight_Checkbox">Ta med innhold fra Enterprise-søkelys</checkBox>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

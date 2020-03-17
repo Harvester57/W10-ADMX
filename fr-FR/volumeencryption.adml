@@ -236,7 +236,7 @@ Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, BitLock
       </string>
       <string id="EncryptionMethodWithXts_Help">Ce paramètre de stratégie vous permet de configurer l'algorithme et de chiffrement minimal utilisé par le chiffrement de lecteur BitLocker. Ce paramètre de stratégie est appliqué lorsque vous activez BitLocker. La modification de la méthode de chiffrement n'a aucun effet si le lecteur est déjà chiffré ou si le chiffrement est en cours d'exécution.
 
-Si vous activez ce paramètre de stratégie, vous serez en mesure de configurer un algorithme de chiffrement et la puissance de chiffrement de clé pour les lecteurs de données fixes, les lecteurs de système d'exploitation et les lecteurs de données amovibles individuellement. Pour les lecteurs du système fixe et de fonctionnement, nous vous recommandons d'utiliser l'algorithme AES-XTS. Pour les lecteurs amovibles, vous devez utiliser AES 128 bits ou AES 256 bits.
+Si vous activez ce paramètre de stratégie, vous serez en mesure de configurer un algorithme de chiffrement et la puissance de chiffrement de clé pour les lecteurs de données fixes, les lecteurs de système d'exploitation et les lecteurs de données amovibles individuellement. Pour les lecteurs du système fixe et de fonctionnement, nous vous recommandons d'utiliser l'algorithme AES-XTS. Pour les lecteurs amovibles, vous devez utiliser AES 128 bits ou AES 256 bits si le lecteur est utilisé sur d’autres appareils qui n’exécutent pas Windows 10 (version 1511).
 
 Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, BitLocker utiliser AES avec la même force bits (128 bits ou 256 bits) en tant que le « Choisir la méthode de chiffrement de lecteur et de chiffrement minimal (Windows Vista, Windows Server 2008, Windows 7) » paramètre de stratégie, si elle est définie. Si aucune stratégie n'est définie, BitLocker utilise la méthode de chiffrement par défaut AES 128 bits ou la méthode de chiffrement spécifié par le script de configuration.
 
@@ -381,13 +381,11 @@ Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, les uti
       <string id="OSAllowDRA_Name">Autoriser les agents de récupération de données basés sur des certificats</string>
 
       <string id="FDVDenyWriteAccess_Name">Refuser l’accès en écriture aux lecteurs fixes non protégés par BitLocker</string>
-      <string id="FDVDenyWriteAccess_Help">Ce paramètre de stratégie détermine si les lecteurs de données fixes d’un ordinateur doivent être protégés par BitLocker pour être accessibles en écriture. Ce paramètre est appliqué lorsque vous activez BitLocker.
+      <string id="FDVDenyWriteAccess_Help">Ce paramètre de stratégie détermine si les lecteurs de données fixes accessibles en écriture sur un ordinateur doivent être protégés par BitLocker.
 
-Si vous activez ce paramètre, les lecteurs de données fixes non protégés par BitLocker seront montés en lecture seule. En revanche, les lecteurs protégés par BitLocker sont accessibles en lecture et en écriture.
+Si vous activez ce paramètre de stratégie, tous les lecteurs de données fixes non protégés par BitLocker sont montés en lecture seule. En revanche, les lecteurs protégés par BitLocker sont accessibles en lecture et en écriture.
 
 Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, tous les lecteurs de données fixes de l’ordinateur sont montés en lecture et en écriture.
-
-      
 
       </string>
 

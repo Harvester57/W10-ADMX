@@ -156,18 +156,25 @@ TERMSRV/*.humanresources.fabrikam.com .humanresources.fabrikam.com 内のすべ�
 
 このポリシー設定は、"保存された資格情報の委任を許可する" ポリシー設定と組み合わせて使用できます。こうすることにより、"保存された資格情報の委任を許可する" サーバー一覧でワイルドカード文字を使用した場合に許可される特定のサーバーに対し、例外を定義できます。</string>
       <string id="RestrictedRemoteAdministration">リモート サーバーへの資格情報の委任を制限する</string>
-      <string id="RestrictedRemoteAdministration_Explain">制限モードで実行すると、参加アプリはリモート コンピューターに資格情報を公開しません (委任方法は問いません)。制限モードでは、資格情報が委任されないため、目的のコンピューター以外の他のサーバーまたはネットワークに存在するリソースに対するアクセスが制限されることがあります。
+      <string id="RestrictedRemoteAdministration_Explain">制限付き管理モードで実行中の場合、またはデバイスが Remote Credential Guard を使用している場合、参加アプリはリモート デバイスに資格情報を公開しません (委任方法は問いません)。制限付き管理モードでは、資格情報が委任されないため、目的のコンピューター以外の他のサーバーまたはネットワークに存在するリソースへのアクセスが制限されることがあります。Remote Credential Guard では、すべての要求がリダイレクトによってクライアント デバイスに戻され、リソースへのアクセスは制限されません。
 
 参加アプリ:
 リモート デスクトップ クライアント
 
-このポリシー設定を有効にした場合、制限モードが実施され、参加アプリはリモート コンピューターに資格情報を委任しません。
+このポリシー設定を有効にした場合、制限付き管理モードまたは Remote Credential Guard が適用され、参加アプリはリモート デバイスに資格情報を委任しません。
 
-このポリシー設定を無効にした場合、または構成しなかった場合、制限モードが実施されず、参加アプリはリモート コンピューターに資格情報を委任できます。
+このポリシー設定を無効にするか、構成しなかった場合、制限付き管理モードと Remote Credential Guard は適用されず、参加アプリはリモート デバイスに資格情報を委任できます。
 
-注: ほとんどの資格情報の委任を無効にするには、管理用テンプレート設定を修正して、Credential Security Support Provider (CredSSP) での委任を禁止するだけで十分です (この設定は、"コンピューターの構成\管理用テンプレート\システム\資格情報" にあります)。</string>
+注意: ほとんどの資格情報の委任を無効にするには、管理用テンプレートの設定を変更して、Credential Security Support Provider (CredSSP) での委任を拒否するだけで十分です (この設定は、"コンピューターの構成\管理用テンプレート\システム\資格情報の委任" にあります)。
+
+注意: Windows 8.1 および Windows Server 2012 R2 では、このポリシーを有効にすると、選択しているモードに関係なく制限付き管理モードが適用されます。これらのバージョンでは、Remote Credential Guard はサポートされていません。
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Remote Credential Guard を優先</string>
+      <string id="RequireRemoteCredentialGuard">Remote Credential Guard が必要</string>
+      <string id="RequireRestrictedAdmin">制限付き管理が必要</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">サーバーを一覧に追加:</listBox>
@@ -204,6 +211,9 @@ TERMSRV/*.humanresources.fabrikam.com .humanresources.fabrikam.com 内のすべ�
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">サーバーを一覧に追加:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">OS の既定値と上記の入力値を連結する</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">次の制限付きモードを使用する:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

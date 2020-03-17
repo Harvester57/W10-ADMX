@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Zeitlimit für Standbymodus des Systems angeben (Netzbetrieb)</string>
       <string id="ACStandbyWithHiberfileEnable">Hybriden Standbymodus deaktivieren (Netzbetrieb)</string>
       <string id="ACSystemLidAction">Gewünschte Aktion beim Schließen des Deckels auswählen (Netzbetrieb)</string>
+      <string id="ACConnectivityInStandby">Netzwerkverbindungen im verbundenen Standbymodus zulassen (Netzbetrieb)</string>
       <string id="BatteryDischargeAction0Explain">Diese Richtlinieneinstellung gibt die Aktion an, die Windows ausführt, wenn die Akkukapazität die Benachrichtigungsebene für kritische Akkukapazität erreicht.
 
 Wenn Sie diese Richtlinieneinstellung aktivieren, wählen Sie eine der folgenden Aktionen aus:
@@ -82,6 +83,7 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, kan
       <string id="DCStandbyTimeOut">Zeitlimit für Standbymodus des Systems angeben (Akkubetrieb)</string>
       <string id="DCStandbyWithHiberfileEnable">Hybriden Standbymodus deaktivieren (Akkubetrieb)</string>
       <string id="DCSystemLidAction">Gewünschte Aktion beim Schließen des Deckels auswählen (Akkubetrieb)</string>
+      <string id="DCConnectivityInStandby">Netzwerkverbindungen im verbundenen Standbymodus zulassen (Akkubetrieb)</string>
       <string id="DiskACPowerDownTimeOut">Festplatte ausschalten (Netzbetrieb)</string>
       <string id="DiskDCPowerDownTimeOut">Festplatte ausschalten (Akkubetrieb)</string>
       <string id="DiskPowerDownTimeOutExplain">Diese Richtlinieneinstellung gibt den Zeitraum der Inaktivität an, nach dem Windows die Festplatte ausschaltet.
@@ -270,6 +272,23 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, müssen Sie einen numerischen 
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, kann diese Einstellung von den Benutzern angezeigt und geändert werden.</string>
     
+      <string id="EnergySaverSettingsCat">Einstellungen für Energiesparmodus</string>
+      <string id="EsBattThresholdAC">Akkuschwellenwert für Energiesparmodus (Netzbetrieb)</string>
+      <string id="EsBattThresholdDC">Akkuschwellenwert für Energiesparmodus (Akkubetrieb)</string>
+      <string id="EsBattThresholdExplain">Mit dieser Richtlinieneinstellung können Sie den Akkustand angeben, bei dem der Energiesparmodus aktiviert wird.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, müssen Sie einen prozentualen Wert für den Akkustand angeben. Der Energiesparmodus wird automatisch aktiviert, sobald der angegebene (oder ein niedrigerer) Akkustand erreicht wird.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird diese Einstellung durch den Benutzer gesteuert.</string>
+
+      <string id="ConnectivityInStandbyExplain">Mit dieser Richtlinieneinstellung können Sie den Netzwerkkonnektivitätsstatus im Standbymodus auf modernen, standbyfähigen Systemen steuern.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, bleiben Netzwerkverbindungen im Standby bestehen.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist nicht gewährleistet, dass Netzwerkverbindungen im Standby aufrechterhalten werden. Diese Verbindungseinschränkung gilt derzeit nur für WLAN-Netzwerke und kann sich ändern.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, wird diese Einstellung durch den Benutzer gesteuert.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, kan
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Benachrichtigungsebene für Reservestrom (Prozent):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Akkuschwellenwert für Energiesparmodus (prozentual):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

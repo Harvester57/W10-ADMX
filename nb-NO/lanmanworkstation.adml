@@ -36,6 +36,28 @@ Hvis denne policyinnstillingen deaktiveres, avviser SMB-klienten pålogging av u
 
 Pålogging av usikre gjester brukes av filservere som tillater uautorisert tilgang til delte mapper. Mens det er uvanlig i et bedriftsmiljø, brukes pålogging av usikre gjester ofte av NAS-forbrukerapparater (Network Attached Storage) som fungerer som filservere. Windows-filservere krever godkjenning og bruker ikke pålogging av usikre gjester som standard. Siden pålogging av usikre gjester ikke er godkjent, er viktige sikkerhetsfunksjoner som SMB-signering og kryptering for SMB, deaktivert. Derfor er klienter som tillater pålogging av usikre gjester, utsatt for en rekke mellommannbaserte angrep som kan føre til tap av data, skadde data og fare for skadelig programvare. I tillegg er alle data som er skrevet på en filserver ved hjelp av en usikker gjestepålogging, potensielt tilgjengelige for alle på nettverket. Microsoft anbefaler å deaktivere usikre gjestepålogginger og konfigurere filservere til å kreve godkjent tilgang."
       </string>
+
+      <string id="Pol_EnableCSCforCAShares_Name">Tilgjengelighet for frakoblede filer på delte ressurser for Kontinuerlig tilgjengelig</string>
+      <string id="Pol_EnableCSCforCAShares_Help">
+        Denne policyinnstillingen bestemmer virkemåten av frakoblede filer på klienter som kobler seg til en SMB-ressurs der flagget Kontinuerlig tilgjengelighet (CA) er aktivert.
+
+        Hvis du aktiverer denne policyinnstillingen, vises alternativet Alltid tilgjengelig i frakoblet modus i rullegardinmenyen Filutforsker på en Windows-datamaskin når du kobler til en CA-aktivert delt ressurs. Låsing av filer på CA-aktiverte delte ressurser med hurtigbufring på klientsiden vil også være mulig.
+
+        Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, hindrer Windows bruk av frakoblede filer med CA-aktiverte delte ressurser.
+
+        Obs! Microsoft anbefaler ikke at du aktiverer denne gruppepolicyen. Bruk av CA med frakoblede filer vil føre til svært lange overgangstider mellom tilkoblede og frakoblede tilstander.
+      </string>
+
+      <string id="Pol_EnableHandleCachingForCAFiles_Name">Håndtere bufring på delte ressurser for Kontinuerlig tilgjengelig</string>
+      <string id="Pol_EnableHandleCachingForCAFiles_Help">
+        Denne policyinnstillingen bestemmer virkemåten til hurtigbufring av SMB-referanse for klienter som kobler seg til en SMB-ressurs der flagget Kontinuerlig tilgjengelighet (CA) er aktivert.
+
+        Hvis du aktiverer denne policyinnstillingen, gir SMB-klienten bufrede referanser til filer på CA-ressurser. Dette kan føre til bedre ytelse ved gjentatt bruk av et stort antall ustrukturerte datafiler på CA-ressurser som kjører i Microsoft Azure-filer.
+
+        Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, hindrer Windows bruk av bufrede referanser til filer som er åpnet via CA-ressurser.
+
+        Obs! Denne policyen har ingen effekt når du kobler til delte ressurser for en filserver for utskalering fra en Windows Server. Microsoft anbefaler ikke at du aktiverer denne policyen for klienter som rutinemessig kobler til filer som driftes i en Windows Failover-klynge med filserveren for rollen Generell bruk. Dette kan føre til negative Failover-tider og økt minne- og CPU-bruk.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_CipherSuiteOrder">

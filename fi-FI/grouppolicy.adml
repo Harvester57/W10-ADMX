@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Estä fontit, joihin ei luoteta, ja kirjaa tapahtumat</string>
       <string id="FontMitigation_Off">Älä estä fontteja, joihin ei luoteta</string>
       <string id="FontMitigation_Audit">Kirjaa tapahtumat estämättä fontteja, joihin ei luoteta</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Prosessin lievennysasetukset</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Tämän suojausominaisuuden avulla voi korvata yksittäisiä MitigationOptions-prosessiasetuksia. Näin voidaan pakottaa sovelluksille ominaisia suojauskäytäntöjä. Arvon nimeksi määritetään sovelluksen nimi (mukaan lukien tiedostotunniste). Arvo määritetään bittikenttänä, jossa on sarja merkintöjä tietyissä sijainneissa. Bitin arvo voi olla joko 0 (asetus on pakotettu pois), 1 (asetus on pakotettu päälle), tai ? (asetus säilyttää olemassa olevan arvon ennen ryhmäkäytäntöobjektin arviointia). Tunnistetut bittien sijainnit ovat:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Ottaa käyttöön tietojen suorittamisen estämisen aliprosessille.
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Ottaa käyttöön DEP-ATL-välitysosaemulaation aliprosessille. DEP-ATL-välitysosaemulaation ansiosta järjestelmä sieppaa NX-virheet, jotka ovat peräisin ATL (Active Template Library) -alirutiinitasolta. 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Ottaa käyttöön strukturoidun poikkeuskäsittelijän korvaussuojauksen(SEHOP) aliprosessille. SEHOP estää heikkoutta hyödyntävät ohjelmat, jotka käyttävät strukturoidun poikkeuskäsittelijän (SEH) korvaustekniikkaa.
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        ASLR (Address Space Layout Randomization) -käytäntö määrittää uudelleen kuvat, jotka eivät ole yhteensopivia dynaamisen kannan kanssa toimimalla aivan kuin latauksen aikana olisi ilmennyt kuvakannan ristiriita. Jos sijaintia pitää siirtää, sellaisia kuvia ei ladata, joilla ei ole kannan uudelleensijoitusosaa.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Alhaalta ylös -satunnaistamiskäytäntö, joka sisältää pinosatunnaistamisasetuksia, johtaa siihen, että alimpana käyttäjäosoitteena käytetään satunnaista sijaintia.
+
+        Jos esimerkiksi haluat ottaa käyttöön PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE:n ja PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON:n, poista käytöstä PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF ja jätä muut asetukset oletusarvoihinsa. Määritä arvo:
+        ???????????????0???????1???????1
+
+        Asetustunnukset, joita ei ole määritetty tässä muille kuin ?-arvolle käyttäytyvät määrittämättömästi.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Ota käyttöön AD/DFS-toimialueen ohjauskoneen synkronointi käytännön päivityksen aikana</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Kun tämä asetus otetaan käyttöön, ryhmäkäytäntöasiakas muodostaa yhteyden samaan jaettujen DFS-resurssien toimialueen ohjauskoneeseen kuin Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Fontit</string>
+      <string id="EnableFontProviders">Ota fonttipalvelut käyttöön</string>
+      <string id="EnableFontProviders_Help">
+        Tämä käytäntöasetus määrittää, voiko Windows ladata fontteja ja fonttiluettelotietoja verkkofonttipalveluista.
+        
+        Jos otat tämän käytäntöasetuksen käyttöön, Windows kyselee säännöllisesti verkkofonttipalvelusta, onko uutta fonttiluetteloa saatavilla. Windows voi myös ladata fonttitietoja, jos niitä tarvitaan tekstin muotoilemiseen tai hahmontamiseen.
+        
+        Jos poistat tämän käytäntöasetuksen käytöstä, Windows ei muodosta yhteyttä verkkofonttipalveluun vaan luetteloi vain paikallisesti asennetut fontit.
+      
+        Jos et määritä tätä käytäntöasetusta, oletuskäytäntö määräytyy Windows-version mukaan. Käytännön muutokset tulevat voimaan uudelleenkäynnistyksen yhteydessä.
+      </string>
       <string id="EnableLogonOptimization">Määritä ryhmäkäytäntöjen tallentaminen välimuistiin</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ry
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Vaikutuksen heikentämisen asetukset</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Prosessin lievennysasetukset</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Salli Windowsin fonttivälimuistipalvelun ladata fontteja ja fonttiluettelotietoja verkkofonttipalveluista.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Hitaan linkin arvo: [arvokenttä] millisekuntia</decimalTextBox>

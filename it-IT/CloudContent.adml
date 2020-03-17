@@ -6,6 +6,24 @@
   <resources>
     <stringTable>
       <string id="CloudContent">Contenuto cloud</string>
+      <string id="ConfigureWindowsSpotlight">Configura Contenuti in evidenza di Windows nella schermata di blocco</string>
+      <string id="ConfigureWindowsSpotlight_Help">Questa impostazione dei criteri consente di configurare Contenuti in evidenza di Windows nella schermata di blocco.
+
+Se si abilita questa impostazione dei criteri, "Contenuti in evidenza di Windows" verrà impostato come provider della schermata di blocco e gli utenti non potranno modificare la schermata di blocco. "Contenuti in evidenza di Windows" mostrerà quotidianamente immagini fornite da Microsoft nella schermata di blocco.
+
+Inoltre, se si seleziona la casella di controllo "Includi contenuti da Contenuti in evidenza aziendali" e l'organizzazione ha impostato un servizio Contenuti in evidenza aziendali in Azure, la schermata di blocco visualizzerà comunicazioni e messaggi interni configurati in tale servizio, quando disponibili. Se l'organizzazione non dispone di un servizio Contenuti in evidenza aziendali, la casella di controllo non avrà effetto.
+
+Se si disabilita questa impostazione dei criteri, Contenuti in evidenza di Windows sarà disattivato e gli utenti non potranno più selezionare questa opzione per la schermata di blocco. Gli utenti visualizzeranno l'immagine predefinita per la schermata di blocco e potranno selezionare un'altra immagine, a meno che non sia stato abilitato il criterio "Impedisci modifica dell'immagine della schermata di blocco".
+
+Se non si configura questa impostazione dei criteri, Contenuti in evidenza di Windows sarà disponibile nella schermata di blocco e sarà selezionato per impostazione predefinita, a meno che non sia stata configurata un'altra immagine predefinita della schermata di blocco usando il criterio "Imponi immagine specifica per la schermata di blocco predefinita".
+
+Nota: questo criterio è disponibile solo per le SKU Enterprise</string>
+      <string id="DisableWindowsSpotlightFeatures">Disattiva tutte le funzionalità di Contenuti in evidenza di Windows</string>
+      <string id="DisableWindowsSpotlightFeatures_Help">Questa impostazione dei criteri consente di disattivare tutte le funzionalità di Contenuti in evidenza di Windows contemporaneamente.
+
+Se si abilita questa impostazione dei criteri, Contenuti in evidenza di Windows nella schermata di blocco, i suggerimenti di Windows, le funzionalità Microsoft per gli utenti consumer e altre funzionalità correlate verranno disattivati. È consigliabile abilitare questa impostazione dei criteri per ridurre al minimo il traffico di rete dai dispositivi di destinazione.
+
+Se si disabilita o non si configura questa impostazione dei criteri, le funzionalità di Contenuti in evidenza di Windows sono consentite e possono essere controllate singolarmente usando le impostazioni dei criteri corrispondenti.</string>
       <string id="DisableWindowsConsumerFeatures">Disattiva le esperienze per gli utenti consumer Microsoft</string>
       <string id="DisableWindowsConsumerFeatures_Help">Questa impostazione dei criteri disattiva le esperienze che consentono agli utenti consumer di usare al meglio i loro dispositivi e l'account Microsoft.
 
@@ -19,7 +37,15 @@ Se si abilita questa impostazione dei criteri, agli utenti non vengono più visu
 
 Se si disabilita o non si configura questa impostazione dei criteri, gli utenti possono vedere popup contestuali che spiegano come usare Windows. Microsoft usa i dati di diagnostica e sull'uso per determinare quali suggerimenti visualizzare.
 
-Nota: se si disabilita o non si configura questa impostazione dei criteri, ma si abilita l'impostazione dei criteri "Configurazione computer\Modelli amministrativi\Componenti di Windows\Raccolta dati e versioni di anteprima\Consenti telemetria" con un livello "Di base" o inferiore, gli utenti possono vedere un set limitato di suggerimenti.</string>
+Nota: se si disabilita o non si configura questa impostazione dei criteri, ma si abilita l'impostazione dei criteri "Configurazione computer\Modelli amministrativi\Componenti di Windows\Raccolta dati e versioni di anteprima\Consenti telemetria" con un livello "Di base" o inferiore, gli utenti possono vedere un set limitato di suggerimenti.
+Inoltre, questa impostazione si applica solo agli SKU Enterprise ed Education.</string>
+      <string id="DisableThirdPartySuggestions">Do not suggest third-party content in Windows spotlight</string>
+      <string id="DisableThirdPartySuggestions_Help">If you enable this policy, Windows spotlight on lock screen, Windows tips, Microsoft consumer features and other related features will no longer suggest apps and content from third-party software publishers. Users may still see suggestions and tips to make them more productive with Microsoft features and apps.</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="ConfigureWindowsSpotlight">
+        <checkBox refId="ConfigureWindowsSpotlight_Checkbox">Includi contenuti da Contenuti in evidenza aziendali</checkBox>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

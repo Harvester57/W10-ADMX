@@ -24,6 +24,19 @@ Jos poistat tämän käytäntöasetuksen käytöstä, kaikki kokeilut poistetaan
 
 Jos et määritä tätä käytäntöasetusta, käyttäjä voi määrittää Asetuksissa Anna Microsoftin kokeilla ominaisuuksia tässä esiversiossa -vaihtoehdon.
 </string>
+      <string id="TelemetryProxy">Määritä yhdistetty käyttökokemus ja telemetria</string>
+      <string id="TelemetryProxy_Explain">Tämän käytäntöasetuksen avulla voit välittää yhdistetyn käyttökokemuksen ja telemetrian pyyntöjä välityspalvelimeen.
+
+Jos otat tämän käytäntöasetuksen käyttöön, voit määrittää organisaation verkossa olevan kohdelaitteen täydellisen toimialuenimen tai IP-osoitteen (ja halutessasi portin numeron). Yhteys muodostetaan SSL (Secure Sockets Layer) -yhteytenä. Jos nimetty välityspalvelin epäonnistuu tai jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, yhdistetyn käyttökokemuksen ja telemetrian tiedot lähetetään Microsoftille käyttämällä välityspalvelimen oletusmäärityksiä.
+
+Tämän asetuksen muoto on &lt;palvelin&gt;:&lt;portti&gt; 
+</string>
+      
+      <string id="CommercialId">Määritä kaupallinen tunnus</string>
+      <string id="CommercialId_Explain">Tämä käytäntöasetus määrittää tunnuksen, jonka avulla tämän laitteen telemetriatiedot liitetään yksilöllisesti tietylle organisaatiolle kuuluviksi. Jos organisaatiosi osallistuu ohjelmaan, joka edellyttää tämän laitteen määrittämistä organisaatiolle kuuluvaksi, määritä kyseinen tieto tämän asetuksen avulla. Microsoft antaa tämän asetuksen arvon osana ohjelman käyttöönottoprosessia. 
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Microsoft ei voi liittää tätä laitetta ja sen telemetriatietoja organisaatioosi tämän tunnuksen avulla.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@ Jos et määritä tätä käytäntöasetusta, käyttäjä voi määrittää Aset
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Välityspalvelimen nimi:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>Kaupallinen tunnus:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

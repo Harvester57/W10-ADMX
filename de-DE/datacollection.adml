@@ -24,6 +24,19 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, wird der Experimentiermodus 
 
 Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer die Option "Microsoft das Testen von Features in diesem Build gestatten" in den Einstellungen konfigurieren.
 </string>
+      <string id="TelemetryProxy">Benutzererfahrung und Telemetrie im verbundenen Modus konfigurieren</string>
+      <string id="TelemetryProxy_Explain">Mit dieser Richtlinieneinstellung können Sie Anfragen des Diensts "Benutzererfahrung und Telemetrie im verbundenen Modus" an einen Proxyserver weiterleiten.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, können Sie den FQDN oder die IP-Adresse des Zielgeräts in Ihrem Unternehmensnetzwerk (und optional eine Portnummer) angeben. Die Verbindung erfolgt über SSL (Secure Sockets Layer). Bei einem Fehler mit dem benannten Proxy oder bei deaktivierter oder nicht konfigurierter Richtlinieneinstellung werden die Daten zu "Benutzererfahrung und Telemetrie im verbundenen Modus" über die Standardproxykonfiguration an Microsoft gesendet.
+
+Das Format für diese Einstellung ist &lt;Server&gt;:&lt;Port&gt;. 
+</string>
+      
+      <string id="CommercialId">Organisations-ID konfigurieren</string>
+      <string id="CommercialId_Explain">Mit dieser Richtlinieneinstellung wird der Bezeichner definiert, durch den die Telemetriedaten des Geräts eindeutig einer bestimmten Organisation zugeordnet werden. Wenn Ihre Organisation an einem Programm teilnimmt, das die Identifizierung des Geräts als zur Organisation gehörig erfordert, erfolgt die Identifizierung über diese Einstellung. Der Wert der Einstellung wird von Microsoft im Rahmen des Onboardingprozesses für das Programm bereitgestellt. 
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, kann Microsoft den Bezeichner nicht verwenden, um den Computer einschließlich seiner Telemetriedaten Ihrer Organisation zuzuordnen.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@ Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer die 
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Proxyservername:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>Organisations-ID:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

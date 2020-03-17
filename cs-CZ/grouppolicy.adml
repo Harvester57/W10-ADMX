@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Blokovat nedůvěryhodná písma a protokolovat události</string>
       <string id="FontMitigation_Off">Neblokovat nedůvěryhodná písma</string>
       <string id="FontMitigation_Audit">Protokolovat události bez blokování nedůvěryhodných písem</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Možnosti pro zmírnění rizik u procesu</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Tato funkce zabezpečení slouží k přepisu nastavení možností pro zmírnění rizik u jednotlivých procesů. Díky tomu je možné vynutit určitý počet zásad zabezpečení specifických pro aplikace. Název aplikace se zadává jako hodnota, včetně rozšíření. Hodnota se zadává jako bitové pole s řadou příznaků na konkrétních pozicích. Bity je možné nastavit na 0 (nastavení je vypnuté), na 1 (nastavení je zapnuté) nebo na ? (nastavení si před vyhodnocením objektů zásad skupiny zachová svou aktuální hodnotu). Rozpoznávané bitové pozice:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Povolí u podřízeného procesu Zabránění spuštění dat (DEP).
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Povolí u podřízeného procesu emulaci převodních rutin DEP-ATL. Tato emulace způsobí, že systém bude zachycovat chyby NX pocházející z vrstvy převodních rutin knihovny ATL (Active Template Library). 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Povolí u podřízeného procesu ochranu před přepisem popisovačů strukturovaných výjimek (SEHOP). Metoda SEHOP blokuje pokusy o zneužití, které využívají techniku přepisu popisovačů strukturovaných výjimek (SEH).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Zásada randomizace rozložení adresního prostoru (ASLR) nuceně změní základnu imagí, které nejsou kompatibilní s dynamickou základnou – chová se při tom, jako by v době načítání došlo ke kolizi základen imagí. Pokud se relokace vyžadují, image bez sekce pro přemístění základny se nenačtou.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Zásady pro randomizaci odspodu nahoru, které zahrnují možnosti pro randomizaci zásobníku, způsobí použití náhodné pozice jako nejnižší uživatelské adresy.
+
+        Pokud chcete například povolit PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE a PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, zakažte PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, a pokud chcete ponechat u všech možností výchozí nastavení, zadejte hodnotu:
+        ???????????????0???????1???????1
+
+        Nastavení zde neuvedených příznaků na jakoukoli jinou hodnotu než ? bude mít za následek nedefinované chování.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Povolit synchronizaci řadiče domény služby AD/DFS během aktualizace zásad</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Při povolení tohoto nastavení se Klient Zásad skupiny u sdílených složek systému souborů DFS připojí ke stejnému řadiči domény, jaký se používá pro službu Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Písma</string>
+      <string id="EnableFontProviders">Povolit poskytovatele písem</string>
+      <string id="EnableFontProviders_Help">
+        Toto nastavení zásad určuje, jestli má systém Windows povoleno stahovat písma a data katalogu písem od online poskytovatele písem.
+        
+        Pokud toto nastavení zásad povolíte, systém Windows se bude pravidelně dotazovat poskytovatele online písem, aby zjistil, jestli není dostupný nový katalog písem. Systém Windows může také v případě potřeby stahovat data písem za účelem formátování a vykreslení textu.
+        
+        Pokud toto nastavení zásad zakážete, systém Windows se nepřipojí k online poskytovateli písem a pouze vytvoří výčet místně nainstalovaných písem.
+        
+        Pokud toto nastavení zásad nenakonfigurujete, bude výchozí chování záviset na edici systému Windows. Změny této zásady se projeví po restartování.
+      </string>
       <string id="EnableLogonOptimization">Konfigurovat ukládání zásad skupiny do mezipaměti</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, použijí zásad
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Možnosti zmírnění problémů</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Možnosti pro zmírnění rizik u procesu</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Služba Mezipaměť písem Windows by měla mít povoleno stahovat písma a data katalogu písem od online poskytovatelů písem.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Hodnota pomalého připojení: [číselné pole] milisekund</decimalTextBox>

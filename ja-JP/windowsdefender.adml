@@ -58,22 +58,36 @@
         このポリシー設定を有効にした場合は、Endpoint Protection は、検出された脅威に対する自動の操作を実行しなくなります。ただし、ユーザーは、それぞれの脅威に対して実行可能な操作を選択するように要求されます。
 
         このポリシー設定を無効にするか、または構成しない場合、Endpoint Protection は、検出されたすべての脅威に対する自動の操作を、約 5 秒 (設定不可) 遅れで行います。
-    </string>
+    </string>      
     <string id="ProxyBypass">プロキシ サーバーをバイパスするアドレスを定義する</string>
     <string id="ProxyBypass_Explain">このポリシーを定義した場合、指定された IP アドレスと通信するときに、マルウェア対策では構成済みのプロキシ サーバーが使用されなくなります。アドレス値には有効な URL を入力してください。
 
 この設定を有効にした場合、指定されたアドレスに対してプロキシ サーバーがバイパスされます。
 
 このポリシー設定を無効にした場合、または構成しなかった場合、指定されたアドレスに対してプロキシ サーバーはバイパスされません。</string>
+    <string id="ProxyPacUrl">ネットワークに接続するためのプロキシ自動構成 (.pac) を定義する</string>
+    <string id="ProxyPacUrl_Explain">このポリシー設定では、プロキシ .pac ファイルの URL を定義します。この URL は、定義の更新や MAPS レポートの作成のためにクライアントがネットワークへ接続しようとしたときに使用されます。プロキシの自動構成が失敗した場合、またはプロキシの自動構成が指定されていない場合、クライアントは次の代替オプション (使用順) にフォールバックします。
+      1. プロキシ サーバー (指定されている場合)
+      2. プロキシ .pac の URL (指定されている場合)
+      3. なし
+      4. Internet Explorer のプロキシ設定
+      5. 自動検出
+
+      この設定を有効にした場合、プロキシ設定は上で示した順番に従って指定された proxy .pac を使用するように設定されます。
+
+      この設定を無効にした場合、または構成しなかった場合、プロキシは上で示した順番に従ってフォールバック ステップをスキップします。</string>
     <string id="ProxyServer">ネットワークへ接続するためのプロキシ サーバーを定義する</string>
-    <string id="ProxyServer_Explain">このポリシー設定を使用すると、指定されたプロキシを構成できます。このプロキシは、定義の更新や MAPS レポートの作成のためにクライアントがネットワークへ接続しようとしたときに使用されます。指定されたプロキシが失敗した場合、またはプロキシが指定されていない場合、以下の設定が (記載された順番に) 使用されます。
-1. Internet Explorer のプロキシ設定
-2. 自動検出
-3. なし
+    <string id="ProxyServer_Explain">このポリシー設定を使用すると、指定されたプロキシを構成できます。このプロキシは、定義の更新や MAPS レポートの作成のためにクライアントがネットワークへ接続しようとしたときに使用されます。指定されたプロキシが失敗した場合、またはプロキシが指定されていない場合、クライアントは次の代替オプション (使用順) にフォールバックします。
+      1. プロキシ サーバー (指定されている場合)
+      2. プロキシ .pac の URL (指定されている場合)
+      3. なし
+      4. Internet Explorer のプロキシ設定
+      5. 自動検出
 
-この設定を有効にした場合、プロキシが指定された URL に設定されます。
+      この設定を有効にした場合、プロキシは上で示した順番に従って指定された URL に設定されます。URL は http:// または https:// で始まる必要があります。
 
-この設定を無効にした場合、または構成しなかった場合、プロキシは上に示された順番に従って設定されます。</string>
+      この設定を無効にした場合、または構成しなかった場合、プロキシは上で示した順番に従ってこのフォールバック ステップをスキップします。
+    </string>
     <string id="RandomizeScheduleTaskTimes">スケジュールされたタスクの時間をランダム化する</string>
     <string id="RandomizeScheduleTaskTimes_Explain">このポリシー設定を使用すると、スケジュールされたスキャンの開始時間およびスケジュールされた定義更新の開始時間のランダム化を有効または無効にすることができます。この設定は、スキャンによるリソースへの影響を分散させるために使用します。たとえば、ホストを共有するゲスト仮想マシンで使用すると、複数のゲスト仮想マシンが、多くのディスク領域を使用する操作を同時に行うことを防止できます。
 
@@ -104,20 +118,6 @@
 この設定を有効にした場合、または構成していない場合、定義の廃棄が有効になります。
 
 この設定を無効にした場合、定義の廃棄が無効になります。</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">検出イベントの割合をログ用に定義する</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">このポリシー設定を使用すると、既に知られている脆弱性の悪用からネットワークを保護するための検出イベントをログに記録する際の割合を制限できます。記録されるイベントは、定義した間隔ごとに 1 件のみに制限されます。間隔の値は分の単位で定義されます。既定の間隔は 60 分間です。
-
-この設定を有効にした場合、指定した分数の間に複数の類似レポート (定義 GUID ごと) があると、検出イベントは記録されません。
-
-この設定を無効にした場合、または構成しなかった場合、既定の割合で検出イベントが記録されます。</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">IP アドレス範囲の除外</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">このポリシーを定義した場合、既に知られている脆弱性の悪用からネットワークを保護する際に、指定した IP アドレスが検査されなくなります。IP アドレスは、この設定の [オプション] の下に追加してください。各項目は、名前と値のペアとして一覧に追加します。この名前は、IP アドレスの範囲を表す文字列です。たとえば、範囲を 157.1.45.123-60.1.1.1 と定義できます。このペアの値は使用されないため、0 に設定することをお勧めします。</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">ポート番号の除外</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">このポリシー設定で TCP ポート番号の一覧を定義すると、これらのポートでのネットワーク トラフィック検査が無効になります。ポート番号は、この設定の [オプション] の下に追加してください。各項目は、名前と値のペアとして一覧に追加します。この名前は、TCP ポート番号を表す文字列です。たとえば、ポート番号を 8080 と定義できます。このペアの値は使用されないため、0 に設定することをお勧めします。</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">送信トラフィックのプロセスの除外</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">このポリシー設定でプロセスを定義すると、これらのプロセスで送信ネットワーク トラフィックが検査されなくなります。 プロセス名は、この設定の [オプション] の下に追加してください。各項目は、名前と値のペアとして一覧に追加します。この名前は、プロセスのパスと名前を表す文字列です。たとえば、プロセスを "C:\Windows\System32\App.exe" と定義できます。このペアの値は使用されないため、0 に設定することをお勧めします。</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">脅威 ID の除外</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">このポリシー設定で脅威を定義すると、それらの脅威がネットワーク トラフィック検査中に検出されなくなります。脅威は、この設定の [オプション] の下に追加してください。各項目は、名前と値のペアとして一覧に追加します。この名前は、脅威 ID を表す文字列です。たとえば、脅威 ID を 2925110632 と定義できます。このペアの値は使用されないため、0 に設定することをお勧めします。</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">ネットワーク トラフィック検査の追加の定義セットを指定する</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">このポリシー設定では、ネットワーク トラフィック検査で利用できる追加の定義セットを定義します。定義セット GUID は、この設定の [オプション] の下に追加してください。各項目は、名前と値のペアとして一覧に追加します。この名前は、定義セット GUID を表す文字列です。たとえば、テスト定義に使用できる定義セット GUID を "{b54b6ac9-a737-498e-9120-6616ad3bf590}" と定義できます。このペアの値は使用されないため、0 に設定することをお勧めします。</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">[検疫] フォルダーから項目を削除する場合のローカル設定の優先を構成する</string>
@@ -138,18 +138,6 @@
 この設定を有効にした場合、または構成しなかった場合、動作の監視が有効になります。
 
 この設定を無効にした場合、動作の監視が無効になります。</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Information Protection Control を有効にする</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">このポリシー設定を使用すると、Information Protection Control (IPC) を構成できます。
-
-この設定を有効にした場合、IPC が有効になります。
-
-この設定を無効にした場合、または構成しなかった場合、IPC が無効になります。</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">既に知られている脆弱性の悪用に対してネットワークの保護を有効にする</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">このポリシー設定を使用すると、既に知られている脆弱性の悪用に対するネットワーク保護を構成できます。
-
-この設定を有効にした場合、または構成しなかった場合、ネットワーク保護が有効になります。
-
-この設定を無効にした場合、ネットワーク保護が無効になります。</string>
     <string id="RealtimeProtection_DisableIOAVProtection">すべてのダウンロード ファイルと添付ファイルをスキャンする</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">このポリシー設定を使用すると、すべてのダウンロード ファイルと添付ファイルのスキャンを構成できます。
 
@@ -205,12 +193,6 @@
 この設定を無効にした場合、または構成しなかった場合、グループ ポリシーがローカルの基本設定よりも優先されます。</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">コンピューターでファイルとプログラムの動作を監視する場合のローカル設定の優先を構成する</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">このポリシー設定では、コンピューターでのファイルとプログラムの動作監視の構成について、ローカル設定を優先するように構成します。これは、グループ ポリシーでのみ設定できます。
-
-この設定を有効にした場合、ローカルの基本設定がグループ ポリシーよりも優先されます。
-
-この設定を無効にした場合、または構成しなかった場合、グループ ポリシーがローカルの基本設定よりも優先されます。</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">侵入防止システムを無効にする場合のローカル設定の優先を構成する</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">このポリシー設定では、既に知られている脆弱性の悪用に対するネットワーク保護の構成について、ローカル設定を優先するように構成します。これは、グループ ポリシーでのみ設定できます。
 
 この設定を有効にした場合、ローカルの基本設定がグループ ポリシーよりも優先されます。
 
@@ -633,6 +615,16 @@
 この設定を有効にした場合、サービスのスタートアップ後に新しい定義の有無がチェックされます。
 
 この設定を無効にした場合、または構成しなかった場合、サービスのスタートアップ後に新しい定義の有無がチェックされません。</string>
+    <string id="DisableBlockAtFirstSeen">'事前ブロック' 機能を構成する</string>
+    <string id="DisableBlockAtFirstSeen_Explain">この機能により、デバイスで特定のコンテンツの実行または特定のコンテンツへのアクセスを許可する前に、Microsoft Active Protection Service (MAPS) にリアルタイムで確認が行われます。この機能を無効にすると、確認は行われず、デバイスの保護の状態が低下します。
+	有効 – 事前ブロックの設定がオンになります。
+	無効 –  事前ブロックの設定がオフになります。
+	
+	この機能を使うには、これらのグループ ポリシー設定を次のように設定する必要があります:
+	MAPS -&gt; [Microsoft MAPS に参加する] をオンにする必要があります。そうしないと "事前ブロック" 機能は動作しません。
+	MAPS -&gt; [詳細な分析が必要な場合はファイルのサンプルを送信する] を 1 (安全なサンプルを送信する) または 3 (すべてのサンプルを送信する) に設定する必要があります。0 (常に確認する) に設定すると、デバイスの保護の状態が低下します。2 (送信しない) に設定すると、"事前ブロック" 機能は動作しません。
+	リアルタイム保護 -&gt; "すべてのダウンロード ファイルと添付ファイルをスキャンする" ポリシーを有効にする必要があります。そうしないと、"事前ブロック" 機能は動作しません。
+	リアルタイム保護 -&gt; "リアルタイム保護を無効にする" ポリシーを有効にしないでください。これに従わないと "事前ブロック" 機能は動作しません。</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Microsoft MAPS へのレポートに対してローカル設定の優先を構成する</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">このポリシー設定では、Microsoft MAPS へ参加するための構成について、ローカル設定を優先するように構成します。これは、グループ ポリシーでのみ設定できます。
 
@@ -647,7 +639,7 @@
         (0x0) 常に確認する
         (0x1) 安全なサンプルを自動的に送信する
         (0x2) 送信しない
-        (0x2) すべてのサンプルを自動的に送信する
+        (0x3) すべてのサンプルを自動的に送信する
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">常に確認する</string>
@@ -658,20 +650,22 @@
     <string id="SpynetReporting">Microsoft MAPS に参加する</string>
     <string id="SpynetReporting_Explain">このポリシー設定を使用すると、Microsoft MAPS に参加できます。Microsoft MAPS は、潜在的な脅威への対処方法を選択する場合に役立つオンライン コミュニティです。このコミュニティは、新しい悪意のあるソフトウェアの感染拡大を防止するためにも役立ちます。
 
-検出されたソフトウェアに関しては、基本情報または追加情報を選択して送信できます。追加情報は、Microsoft が新しい定義を作成する際に利用させていただき、コンピューターの保護に役立てます。この情報には、害を及ぼすソフトウェアが削除された場合のコンピューター上の項目検出場所などの情報を含めることができます。この情報は、自動的に収集されて送信されます。場合によっては、意図せず個人情報が Microsoft に送信されることがあります。ただし、Microsoft がお客様個人を特定するためや、お客様と連絡をとるために、この情報を使用することはありません。
+    検出されたソフトウェアに関しては、基本情報または追加情報を選択して送信できます。追加情報は、Microsoft が新しい定義を作成する際に利用させていただき、コンピューターの保護に役立てます。この情報には、害を及ぼすソフトウェアが削除された場合のコンピューター上の項目検出場所などの情報を含めることができます。この情報は、自動的に収集されて送信されます。場合によっては、意図せず個人情報が Microsoft に送信されることがあります。ただし、Microsoft がお客様個人を特定するためや、お客様と連絡をとるために、この情報を使用することはありません。
 
-選択可能なオプションは次のとおりです。
-(0x0) 無効 (既定)
-(0x1) 基本メンバーシップ
-(0x2) 上級メンバーシップ
+    選択可能なオプションは次のとおりです。
+    (0x0) 無効 (既定)
+    (0x1) 基本メンバーシップ
+    (0x2) 上級メンバーシップ
 
-基本メンバーシップの場合、検出されたソフトウェアに関する基本情報 (そのソフトウェアの入手元、ユーザーの対処内容、自動的に適用された対処内容、およびその対処が正常に行われたかどうかなど) が、Microsoft に送信されます。
+    基本メンバーシップの場合、検出されたソフトウェアに関する基本情報 (そのソフトウェアの入手元、ユーザーの対処内容、自動的に適用された対処内容、およびその対処が正常に行われたかどうかなど) が、Microsoft に送信されます。
 
-上級メンバーシップの場合、基本情報に加えて、悪意のあるソフトウェア、スパイウェア、および不要となる可能性のあるソフトウェアに関する情報 (ソフトウェアの場所、ファイル名、ソフトウェアの動作内容、コンピューターへの影響度など) が Microsoft に送信されます。
+    上級メンバーシップの場合、基本情報に加えて、悪意のあるソフトウェア、スパイウェア、および不要となる可能性のあるソフトウェアに関する情報 (ソフトウェアの場所、ファイル名、ソフトウェアの動作内容、コンピューターへの影響度など) が Microsoft に送信されます。
 
-この設定を有効にした場合、指定したメンバーシップで Microsoft MAPS に参加します。
+    この設定を有効にした場合、指定したメンバーシップで Microsoft MAPS に参加します。
 
-この設定を無効にした場合、または構成しなかった場合、Microsoft MAPS に参加しません。</string>
+    この設定を無効にした場合、または構成しなかった場合、Microsoft MAPS に参加しません。
+  
+    Windows 10 では基本メンバーシップは利用できません。値を 1 または 2 に設定すると、デバイスが上級メンバーシップに登録されます。</string>
     <string id="SpynetReporting_Disabled">無効</string>
     <string id="SpynetReporting_Basic">MAPS 基本メンバーシップ</string>
     <string id="SpynetReporting_Advanced">MAPS 上級メンバーシップ</string>
@@ -706,16 +700,12 @@
 
       この設定を有効にした場合は、AM UI は再起動の通知を表示しません。
     </string>
-    <string id="UX_Configuration_Notification_Suppress">操作を実行する必要があるときにクライアントに通知を表示する</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">このポリシー設定を使用すると、クライアントが次の操作を実行する必要がある場合に、通知を表示するかどうかを構成できます。
-フル スキャンの実行
-最新のウイルスおよびスパイウェア定義のダウンロード
-スタンドアロン システム スウィーパーのダウンロード
+    <string id="UX_Configuration_Notification_Suppress">すべての通知を非表示にする</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">このポリシー設定では、Windows Defender の通知をクライアントに表示するかどうかを指定します。
+      この設定を無効にした場合、または構成しなかった場合、Windows Defender の通知がクライアントに表示されます。
 
-
-この設定を有効にした場合、または構成しなかった場合、指定した操作を実行する必要があるときに、クライアントに通知が表示されます。
-
-このポリシー設定を無効にした場合、指定した動作を実行する必要があるときでも、クライアントに通知は表示されません。</string>
+      この設定を有効にした場合、Windows Defender の通知はクライアントに表示されません。
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">操作を実行する必要があるときにクライアントに追加のテキストを表示する</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">このポリシー設定を使用すると、クライアントが操作を実行する必要がある場合に、追加のテキストを表示するかどうかを構成できます。表示されるテキストは、管理者が定義したカスタムの文字列です。たとえば、会社のヘルプ デスクを呼び出すための電話番号などです。クライアント インターフェイスには、最大で 1,024 文字まで表示できます。これよりも長い文字列は切り捨てられてから表示されます。
 
@@ -728,6 +718,11 @@
     <textBox refId="ProxyBypass">
         <label>プロキシ サーバーをバイパスするアドレスを定義する</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>ネットワークに接続するためのプロキシ自動構成 (.pac) を定義する</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">プロセスの除外</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">検出イベントの割合をログ用に定義する</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">IP アドレス範囲の除外</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">ポート番号の除外</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">送信トラフィックのプロセスの除外</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">脅威 ID の除外</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">ネットワーク トラフィック検査の追加の定義セットを指定する</listBox>

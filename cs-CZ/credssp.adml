@@ -156,18 +156,25 @@ TERMSRV/*.humanresources.fabrikam.com (Hostitel relací vzdálené plochy na lib
 
 Pomocí tohoto nastavení zásad lze v kombinaci s nastavením Povolit delegování uložených přihlašovacích údajů definovat výjimky pro určité servery, které by jinak byly povoleny v případě použití zástupných znaků v seznamu serverů v nastavení Povolit delegování uložených přihlašovacích údajů.</string>
       <string id="RestrictedRemoteAdministration">Omezit delegování přihlašovacích údajů na vzdálené servery</string>
-      <string id="RestrictedRemoteAdministration_Explain">Při spouštění v omezeném režimu zapojené aplikace nezpřístupňují přihlašovací údaje vzdáleným počítačům (bez ohledu na způsob delegování). Omezený režim může omezit přístup k prostředkům umístěným na jiných serverech či v jiných sítích, kam cílový počítač nepatří, protože přihlašovací údaje nejsou delegovány.
+      <string id="RestrictedRemoteAdministration_Explain">Při spouštění v režimu s omezeným přístupem pro správu nebo v případě, že zařízení používá Remote Credential Guard, nezpřístupňují zapojené aplikace přihlašovací údaje vzdáleným počítačům (bez ohledu na způsob delegování). Režim s omezeným přístupem pro správu může omezit přístup k prostředkům umístěným na jiných serverech nebo v jiných sítích, kam cílový počítač nepatří, protože přihlašovací údaje se nedelegují. Remote Credential Guard neomezuje přístup díky tomu, že všechny žádosti přesměrovává zpátky na klientské zařízení.
 
 Zapojené aplikace:
 Klient vzdálené plochy
 
-Když toto nastavení zásad povolíte, bude vynucen omezený režim a zapojené aplikace nebudou delegovat přihlašovací údaje na vzdálené počítače.
+Když toto nastavení zásad povolíte, vynutí se režim s omezeným přístupem pro správu nebo Remote Credential Guard a zapojené aplikace nebudou delegovat přihlašovací údaje na vzdálené počítače.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, omezený režim nebude vynucen a zapojené aplikace budou moci delegovat přihlašovací údaje na vzdálené počítače
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, režim s omezeným přístupem pro správu a Remote Credential Guard se nevynutí a zapojené aplikace budou moct delegovat přihlašovací údaje na vzdálené počítače
 
-Poznámka: Chcete-li zabránit delegování přihlašovacích údajů ve většině situací, může být dostatečným řešením odmítnout delegování v protokolu Credential Security Support Provider (CredSSP) tak, že upravíte nastavení šablony pro správu (je umístěna v adresáři Computer Configuration\Administrative Templates\System\Credentials Delegation).</string>
+Poznámka: Pokud chcete zabránit delegování přihlašovacích údajů, může stačit odmítnout delegování u CredSSP (Credential Security Support Provider) úpravou nastavení šablony pro správu (nachází se v Konfigurace počítače\Šablony pro správu\Systém\Delegování přihlašovacích údajů).
+
+Poznámka: V systémech Windows 8.1 a Windows Server 2012 R2 se při povolení tohoto nastavení bude vynucovat režim s omezeným přístupem pro správu, a to bez ohledu na zvolený režim. Tyto verze nepodporují Remote Credential Guard.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Preferovat Remote Credential Guard</string>
+      <string id="RequireRemoteCredentialGuard">Vyžadovat Remote Credential Guard</string>
+      <string id="RequireRestrictedAdmin">Vyžadovat režim s omezeným přístupem pro správu</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Přidat servery do seznamu:</listBox>
@@ -204,6 +211,9 @@ Poznámka: Chcete-li zabránit delegování přihlašovacích údajů ve větši
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Přidat servery do seznamu:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Zřetězit výchozí nastavení operačního systému s výše uvedeným vstupem</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Použít následující režim s omezeným přístupem:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

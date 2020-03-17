@@ -24,6 +24,19 @@ Hvis du deaktiverer denne politikindstilling, slås alle eksperimenter fra.
 
 Hvis du undlader at konfigurere denne indstilling, kan brugeren konfigurere indstillingen "Lad Microsoft prøve funktioner på dette build" under Indstillinger.
 </string>
+      <string id="TelemetryProxy">Konfigurer brugeroplevelser for tilsluttede brugere samt telemetri</string>
+      <string id="TelemetryProxy_Explain">Med denne politikindstilling kan du videresende anmodninger om Tilsluttet brugeroplevelse og telemetri til en proxyserver.
+
+Hvis du aktiverer politikindstillingen, kan du angive FQDN eller IP-adressen på destinationsenheden i din organisations netværk (og eventuelt et portnummer, hvis der er brug for det). Tilslutningen sker via en SSL-forbindelse (Secure Sockets Layer). Hvis den navngivne proxyanmodning ikke lykkes, eller hvis du deaktiverer eller undlader at konfigurere politikindstillingen, bliver data om Tilsluttet brugeroplevelse og telemetri sendt til Microsoft ved brug af standardproxykonfigurationen.
+
+Formatet af denne indstilling er &lt;server&gt;:&lt;port&gt; 
+</string>
+      
+      <string id="CommercialId">Konfigurer det kommercielle id</string>
+      <string id="CommercialId_Explain">Denne politikindstilling definerer det id, der bruges til entydigt at tilknytte denne enheds telemetridata som tilhørende en given organisation. Hvis din organisation deltager i et program, der kræver, at denne enhed skal identificeres som tilhørende din organisation, kan du bruge denne indstilling til at levere dette id. Værdien til denne indstilling leveres af Microsoft som en del af programmets onboardingproces. 
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vil Microsoft ikke kunne bruge dette id til at knytte denne computer og dens telemetridata til din organisation.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@ Hvis du undlader at konfigurere denne indstilling, kan brugeren konfigurere inds
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Navn på proxyserver:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>Kommercielt id:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

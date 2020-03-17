@@ -36,6 +36,28 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren, lehnt der SMB-Client unsiche
 
 Unsichere Gastanmeldungen werden von Dateiservern verwendet, um den nicht authentifizierten Zugriff auf freigegebene Ordner zuzulassen. Während unsichere Gastanmeldungen in einer Unternehmensumgebung unüblich sind, werden sie häufig von Consumer-NAS (Network Attached Storage)-Appliances verwendet, die als Dateiserver fungieren. Windows-Dateiserver erfordern eine Authentifizierung und verwenden standardmäßig keine unsicheren Gastanmeldungen. Da unsichere Gastanmeldungen nicht authentifiziert werden, sind wichtige Sicherheitsfeatures wie SMB-Signatur und SMB-Verschlüsselung deaktiviert. Folglich haben Clients, die unsichere Gastanmeldungen zulassen, ein erhöhtes Risiko für eine Vielzahl von Man-in-the-Middle-Angriffen, die zu Datenverlust, Datenbeschädigung und Problemen durch Schadsoftware führen können. Zusätzlich kann jede Person im Netzwerk auf Daten zugreifen, die über eine unsichere Gastanmeldung auf einen Dateiserver geschrieben werden. Microsoft empfiehlt, unsichere Gastanmeldungen zu deaktivieren und Dateiserver so zu konfigurieren, dass sie den authentifizierten Zugriff erfordern.
       </string>
+
+      <string id="Pol_EnableCSCforCAShares_Name">Verfügbarkeit von Offlinedateien auf CA (Continuous Availability)-Freigaben</string>
+      <string id="Pol_EnableCSCforCAShares_Help">
+        Diese Richtlinieneinstellung bestimmt das Verhalten von Offlinedateien für Clients, die eine Verbindung mit einer SMB-Freigabe herstellen, für die das CA (Continuous Availability)-Kennzeichen aktiviert ist.
+
+        Wenn Sie die Richtlinieneinstellung aktivieren, wird die Option "Immer offline verfügbar" im Datei-Explorer-Menü eines Windows-Computers angezeigt, wenn eine Verbindung mit einer CA-fähigen Freigabe hergestellt wird. Zudem können Dateien mithilfe des clientseitigen Cachings an CA-fähige Freigaben angeheftet werden.
+
+        Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verhindert Windows die Verwendung von Offlinedateien mit CA-fähigen Freigaben.
+
+        Hinweis: Microsoft rät davon ab, diese Gruppenrichtlinie zu aktivieren. Die Verwendung von CA mit Offlinedateien führt zu langen Übergangszeiten zwischen Online- und Offlinezustand.
+      </string>
+
+      <string id="Pol_EnableHandleCachingForCAFiles_Name">Caching von Handles auf CA (Continuous Availability)-Freigaben</string>
+      <string id="Pol_EnableHandleCachingForCAFiles_Help">
+        Diese Richtlinieneinstellung bestimmt das Verhalten beim Caching von SMB-Handles für Clients, die eine Verbindung mit einer SMB-Freigabe herstellen, für die das CA (Continuous Availability)-Kennzeichen aktiviert ist.
+
+        Wenn Sie diese Richtlinieneinstellung aktivieren, lässt der SMB-Client zwischengespeicherte Handles zu Dateien auf CA-Freigaben zu. Dies kann die Leistung verbessern, wenn wiederholt auf eine große Anzahl unstrukturierter Datendateien auf CA-Freigaben zugegriffen wird, die in Microsoft Azure Files ausgeführt werden.
+
+        Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verhindert Windows die Verwendung zwischengespeicherter Handles zu Dateien, die über CA-Freigaben geöffnet werden.
+
+        Hinweis: Diese Richtlinie hat keine Auswirkung, wenn eine Verbindung mit Freigaben des Dateiservers mit horizontaler Skalierung hergestellt wird, die von einem Windows Server bereitgestellt werden. Microsoft rät davon ab, diese Richtlinie für Clients zu aktivieren, die regelmäßig eine Verbindung mit Dateien herstellen, die auf einem Windows-Failovercluster mit der Rolle "Dateiserver zur allgemeinen Verwendung" gehostet sind, da dies zu ungünstigen Failoverzeiten sowie höherer Speicher- und CPU-Auslastung führen kann.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_CipherSuiteOrder">

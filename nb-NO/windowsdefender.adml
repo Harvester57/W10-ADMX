@@ -58,22 +58,36 @@ Hvis du deaktiverer denne innstillingen, brukes bare elementer som er definert a
         Hvis du aktiverer denne policyinnstillingen, foretar ikke Endpoint Protection seg noe automatisk ved oppdagede trusler, men ber i stedet brukerne om å velge mellom handlingene som er tilgjengelige for hver trussel.
 
         Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, foretar Endpoint Protection automatisk en handling ved alle oppdagede trusler etter en forsinkelse på omtrent fem sekunder, som ikke kan konfigureres.
-    </string>
+    </string>      
     <string id="ProxyBypass">Definere adresser for å omgå proxy-server</string>
     <string id="ProxyBypass_Explain">Hvis denne policyen er definert, kan ikke beskyttelse mot skadelig programvare bruke den konfigurerte proxy-serveren under kommunikasjon med de angitte IP-adressene. Adresseverdien bør være angitt som en gyldig URL-adresse.
 
     Hvis du aktiverer denne innstillingen, blir proxy-serveren omgått for de angitte adressene.
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir ikke proxy-serveren omgått for de angitte adressene.</string>
+    <string id="ProxyPacUrl">Definer proxy auto-config (PAC) for å koble til nettverket</string>
+    <string id="ProxyPacUrl_Explain">Denne policyinnstillingen definerer URL-adressen til en proxy PAC-fil som skal brukes når klienten prøver å koble til nettverket for definisjonsoppdateringer og MAPS-rapportering. Hvis auto-config for proxy mislykkes, eller hvis det ikke er angitt noen automatisk konfigurasjon av proxy, vil klienten gå tilbake til de alternative alternativene (i rekkefølge):
+      1. Proxy-server (hvis angitt)
+      2. Proxy PAC URL-adresse (hvis angitt)
+      3. Ingen
+      4. Proxy-innstillinger for Internet Explorer
+      5. Identifiser automatisk
+
+      Hvis du aktiverer denne innstillingen, settes proxy-innstillingen til å bruke den angitte proxy-PAC i henhold til rekkefølgen som er angitt ovenfor.
+
+      Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, hopper proxyen over dette reservetrinnet i henhold til rekkefølgen som er angitt ovenfor.</string>
     <string id="ProxyServer">Definere proxy-server for tilkobling til nettverket</string>
     <string id="ProxyServer_Explain">Med denne policyinnstillingen kan du konfigurere den navngitte proxy-serveren som skal brukes når klienten prøver å koble til nettverket for definisjonsoppdateringer og MAPS-rapportering. Hvis den navngitte proxy-serveren mislykkes eller ingen proxy-server er angitt, brukes følgende innstillinger (i rekkefølge):
-    1. Proxy-innstillinger for Internet Explorer
-    2. Identifiser automatisk
-    3. Ingen
+      1. Proxy-server (hvis angitt)
+      2. Proxy PAC URL-adresse (hvis angitt)
+      3. Ingen
+      4. Proxy-innstillinger for Internet Explorer
+      5. Identifiser automatisk
 
-Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte URL-adressen.
+      Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte URL-adressen i henhold til rekkefølgen som er angitt ovenfor. Du må angi enten http:// eller https:// for URL-adressen.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir proxy-serveren angitt i henhold til den angitte rekkefølgen ovenfor.</string>
+      Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, hopper proxyen over denne reserverekkefølgen i henhold til rekkefølgen som er angitt ovenfor.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Tilfeldig planlagte oppgavetidspunkter</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Med denne policyinnstillingen kan du aktivere eller deaktivere tilfeldig planlegging av skanningsstarttidspunkt og planlagt starttidspunkt for oppdatering av definisjoner. Denne innstillingen brukes til å distribuere ressurspåvirkningen av skanning. Innstillingen kan for eksempel brukes i virtuelle gjestemaskiner som deler en vert, slik at ikke flere virtuelle gjestemaskiner utfører en diskintensiv operasjon samtidig.
 
@@ -104,20 +118,6 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
     Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, aktiveres definisjonsavhending.
 
     Hvis du deaktiverer denne innstillingen, deaktiveres definisjonsavhending.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definere hyppigheten av gjenkjenningshendelser for logging</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Denne policyinnstillingen begrenser hvor ofte gjenkjenningshendelser for nettverksbeskyttelse mot utnyttelser av kjente sårbarheter blir logget. Logging blir begrenset til ikke oftere enn én hendelse per definerte tidsintervall. Intervallverdien er definert i minutter. Standardintervallet er 60 minutter.
-
-    Hvis du aktiverer denne innstillingen, logges gjenkjenningshendelser hvis det finnes mer enn én lignende rapport (med definisjons-GUID) i det angitte antallet minutter.
-
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, logges gjenkjenningshendelser med standard hyppighet.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Utelatelser for IP-adresseområde</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Hvis denne policyen er definert, hindrer den at nettverksbeskyttelse mot utnyttelser av kjente sårbarheter undersøker de angitte IP-adressene. IP-adresser må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av et IP-adresseområde. Et område kan for eksempel defineres som 157.1.45.123-60.1.1.1. Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Utelatelser for portnummer</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Denne policyinnstillingen definerer en liste over TCP-portnumre der undersøkelsen av nettverkstrafikken fra disse portnumrene blir deaktivert. Portnumre må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av et TCP-portnummer. Et område kan for eksempel defineres som 8080. Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Prosessutelatelser for utgående trafikk</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Denne policyinnstillingen definerer prosesser der utgående nettverkstrafikk fra prosessene ikke blir undersøkt.  Prosessnavn må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av en prosessbane og et prosessnavn. En prosess kan for eksempel defineres som C:\Windows\System32\App.exe. Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Utelatelser for trussel-ID</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Denne policyinnstillingen definerer trusler som blir utelatt fra gjenkjenningen i løpet av undersøkelsen av nettverkstrafikk. Trusler må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av en trussel-ID. En trussel-ID kan for eksempel defineres som 2925110632. Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Angi flere definisjonssett for undersøkelse av nettverkstrafikk</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Denne policyinnstillingen definerer flere definisjonssett for å legge til rette for undersøkelse av nettverkstrafikk. GUIDer for definisjonssett må legges til under Alternativer for denne innstillingen. Hver oppføring må være oppført som et navn/verdi-par, der navnet må være en strengrepresentasjon av en GUID for et definisjonssett. GUIDen for et definisjonssett for å aktivere testdefinisjoner defineres for eksempel som {b54b6ac9-a737-498e-9120-6616ad3bf590}. Verdien er ikke i bruk, og det anbefales at den settes til 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurere overstyring av lokal innstilling for fjerning av elementer fra karantenemappen</string>
@@ -138,18 +138,6 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
     Hvis du aktiverer eller ikke konfigurerer denne policyinnstillingen, aktiveres overvåking av virkemåte.
 
     Hvis du deaktiverer denne policyinnstillingen, deaktiveres overvåking av virkemåte.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Aktivere kontroll av informasjonsbeskyttelse</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Med denne policyinnstillingen kan du konfigurere kontroll av informasjonsbeskyttelse (IPC).
-
-    Hvis du aktiverer denne innstillingen, aktiveres IPC.
-
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, deaktiveres IPC.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Aktivere nettverksbeskyttelse mot utnyttelser av kjente sårbarheter</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Med denne policyinnstillingen kan du konfigurere nettverksbeskyttelse mot utnyttelser av kjente sårbarheter.
-
-    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, aktiveres nettverksbeskyttelsen.
-
-    Hvis du deaktiverer denne innstillingen, deaktiveres nettverksbeskyttelsen.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Skanne alle nedlastede filer og vedlegg</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Du kan bruke denne policyinnstillingen til å konfigurere skanning av alle nedlastede filer og vedlegg.
 
@@ -205,12 +193,6 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, prioriteres Gruppepolicy før den lokale systeminnstillingen.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Konfigurere overstyring av lokal innstilling for overvåking av fil- og programaktivitet på datamaskinen</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Denne policyinnstillingen konfigurerer en lokal overstyring for konfigurasjonen av overvåking av fil- og programaktivitet på datamaskinen. Denne innstillingen kan bare angis av Gruppepolicy.
-
-    Hvis du aktiverer denne innstillingen, prioriteres den lokale systeminnstillingen før Gruppepolicy.
-
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, prioriteres Gruppepolicy før den lokale systeminnstillingen.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Konfigurere overstyring av lokal innstilling for deaktivering av system for inntrengingshindring</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Denne policyinnstillingen konfigurerer en lokal overstyring for konfigurasjon av nettverksbeskyttelse mot utnyttelser av kjente sårbarheter. Denne innstillingen kan bare angis av Gruppepolicy.
 
     Hvis du aktiverer denne innstillingen, prioriteres den lokale systeminnstillingen før Gruppepolicy.
 
@@ -633,6 +615,16 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
     Hvis du aktiverer denne innstillingen, søkes det etter nye definisjoner etter tjenesteoppstart.
 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, utføres ikke søk etter nye definisjoner før etter tjenesteoppstart.</string>
+    <string id="DisableBlockAtFirstSeen">Konfigurer funksjonen Blokker ved første kontakt</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Denne funksjonen sikrer at enheten kontrolleres i sanntid med Microsoft Active Protection Service (MAPS) før bestemte innhold kjøres eller åpnes. Hvis denne funksjonen deaktiveres, utføres ikke kontrollen, noe som reduserer beskyttelsestilstanden for enheten.
+	Aktivert – innstillingen Blokker ved første kontakt er aktivert.
+	Deaktivert – innstillingen Blokker ved første kontakt er deaktivert.
+	
+	Denne funksjonen krever at disse gruppepolicyinnstillingene angis på følgende måte:
+	KART – Bli med i Microsoft MAPS må være aktivert, ellers fungerer ikke innstillingen Blokker ved første kontakt.
+	KART – Send fileksempler når det kreves videre analyse må settes til 1 (Send sikre eksempler) eller 3 (Send alle eksempler). Hvis innstillingen settes til 0 (Spør alltid), reduseres beskyttelsestilstanden for enheten. Hvis innstillingen settes til 2 (Send aldri), fungerer ikke funksjonen Blokker ved første kontakt.
+	Sanntidsbeskyttelse – Policyen Skanne alle nedlastede filer og vedlegg må være aktivert, ellers fungerer ikke funksjonen Blokker ved første kontakt.
+	Sanntidsbeskyttelse – Policyen Deaktiver sanntidsbeskyttelse må ikke deaktiveres, ellers fungerer ikke funksjonen Blokker ved første kontakt.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurer overstyring av lokal innstilling for rapportering til Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Denne policyinnstillingen konfigurerer en lokal overstyring for konfigurasjon til å bli med i Microsoft MAPS. Denne innstillingen kan bare angis av Gruppepolicy.
 
@@ -641,13 +633,13 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
     Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, prioriteres Gruppepolicy før den lokale systeminnstillingen.</string>
     <string id="SubmitSamplesConsent">Send fileksempler når det kreves videre analyse</string>
     <string id="SubmitSamplesConsent_Explain">
-        Denne policyinnstillingen konfigurerer virkemåten for innsending av eksempler når deltakelse for MAPS-telemetri er angitt.
+        Denne policyinnstillingen konfigurerer virkemåten for innsending av eksempler når deltakelse i MAPS-telemetri er valgt.
 
-        Mulige alternativer:
+        De mulige alternativene er:
         (0x0) Spør alltid
         (0x1) Send sikre eksempler automatisk
         (0x2) Send aldri
-        (0x2) Send alle eksempler automatisk
+        (0x3) Send alle eksempler automatisk
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Spør alltid</string>
@@ -658,12 +650,12 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
     <string id="SpynetReporting">Bli med i Microsoft MAPS</string>
     <string id="SpynetReporting_Explain">Med denne policyinnstillingen kan du bli med i Microsoft MAPS. Microsoft MAPS er et Internett-basert fellesskap som hjelper deg å velge hvordan du skal svare på potensielle trusler. Fellesskapet hjelper også til med å stanse spredning av nye infeksjoner fra skadelig programvare.
 
-    Du kan velge å sende grunnleggende informasjon eller tilleggsinformasjon om identifisert programvare. Mer informasjon hjelper Microsoft med å opprette nye definisjoner og bidrar til å beskytte datamaskinen. Denne informasjonen kan inneholde ting som identifiserte elementers plassering på datamaskinen hvis skadelig programvare ble fjernet. Informasjonen samles automatisk inn og sendes. I noen tilfeller kan det hende at personlige opplysninger sendes til Microsoft utilsiktet. Microsoft vil imidlertid ikke bruke denne informasjonen til å identifisere deg eller kontakte deg.
+    Du kan velge å sende grunnleggende informasjon eller tilleggsinformasjon om identifisert programvare. Mer informasjon hjelper Microsoft med å opprette nye definisjoner og bidrar til å beskytte datamaskinen. Denne informasjonen kan inneholde opplysninger om f.eks. hvor identifiserte elementer befinner seg på datamaskinen hvis skadelig programvare ble fjernet. Informasjonen samles inn og sendes automatisk. I noen tilfeller kan det hende at personlige opplysninger sendes til Microsoft utilsiktet. Microsoft vil imidlertid ikke bruke denne informasjonen til å identifisere deg eller kontakte deg.
 
     Følgende alternativer finnes:
-(0x0) Deaktivert (standard)
-(0x1) Grunnleggende medlemskap
-(0x2) Avansert medlemskap
+    (0x0) Deaktivert (standard)
+    (0x1) Grunnleggende medlemskap
+    (0x2) Avansert medlemskap
 
     Grunnleggende medlemskap sender grunnleggende informasjon til Microsoft om programvare som har blitt oppdaget, inkludert hvor programvaren kom fra, handlingene du bruker eller som trer i kraft automatisk, og om handlingene var vellykkede.
 
@@ -671,7 +663,9 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
 
     Hvis du aktiverer denne innstillingen, blir du med i Microsoft MAPS med det angitte medlemskapet.
 
-    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir du ikke med i Microsoft MAPS.</string>
+    Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, blir du ikke med i Microsoft MAPS.
+  
+    I Windows 10 er ikke grunnleggende medlemskap lenger tilgjengelig, og enheten registreres derfor med avansert medlemskap hvis verdien settes til 1 eller 2.</string>
     <string id="SpynetReporting_Disabled">Deaktivert</string>
     <string id="SpynetReporting_Basic">Grunnleggende MAPS</string>
     <string id="SpynetReporting_Advanced">Avansert MAPS</string>
@@ -706,16 +700,12 @@ Hvis du aktiverer denne innstillingen, blir proxy-serveren satt til den angitte 
 
       Hvis du aktiverer denne innstillingen, vil ikke AM-brukergrensesnittet vise varsler om omstart.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Vise varslinger til klienter når de må utføre handlinger</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Med denne policyinnstillingen kan du konfigurere om varslinger skal vises til klienter eller ikke når de må utføre følgende handlinger:
-    Kjøre en fullstendig skanning
-Laste ned de nyeste virus- og spionvaredefinisjonene 
-    Laste ned frittstående systemsveiper
+    <string id="UX_Configuration_Notification_Suppress">Undertrykk alle varsler</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Bruk denne policyinnstillingen til å angi om du vil at Windows Defender-varsler skal vises på klienter.
+      Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vises Windows Defender-varsler på klienter.
 
-    
-    Hvis du aktiverer eller ikke konfigurerer denne innstillingen, vises varslinger til klienter når de må utføre de angitte handlingene.
-
-        Hvis du deaktiverer denne innstillingen, vises ikke varslinger til klienter når de må utføre de angitte handlingene.</string>
+      Hvis du aktiverer denne innstillingen, vises ikke Windows Defender-varsler på klienter.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Vise mer tekst til klienter når de må utføre en handling</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Med denne policyinnstillingen kan du konfigurere om mer tekst skal vises til klienter eller ikke når de må utføre en handling. Teksten som vises, er en tilpasset administratordefinert streng. Et eksempel kan være telefonnummeret til selskapets kundeservice. Klientgrensesnittet viser bare maksimalt 1024 tegn. Lenger strenger trunkeres før visning.
 
@@ -728,6 +718,11 @@ Laste ned de nyeste virus- og spionvaredefinisjonene
     <textBox refId="ProxyBypass">
         <label>Definere adresser for å omgå proxy-server</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definer proxy auto-config (PAC) for å koble til nettverket</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Laste ned de nyeste virus- og spionvaredefinisjonene
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Prosessutelatelser</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definere hyppigheten av gjenkjenningshendelser for logging</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Utelatelser for IP-adresseområde</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Utelatelser for portnummer</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Prosessutelatelser for utgående trafikk</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Utelatelser for trussel-ID</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Angi flere definisjonssett for undersøkelse av nettverkstrafikk</listBox>

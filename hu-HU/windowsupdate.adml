@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
-<!-- 
+<!--
   Note that white space is preserved as is in the text shown in the Group Policy UI.
   Don't add extra line breaks at the beginning and end of text strings,
   and make sure that lines of text start in the FIRST column.
@@ -85,11 +85,11 @@ A beállítással megadhatja, hogy az automatikus frissítések engedélyezettek
 Ha a házirend-beállítás le van tiltva, a Windows Update webhelyen elérhető frissítéseket manuálisan kell letölteni és telepíteni. Ehhez írja be a Windows Update keresőkifejezést a kezdőképernyőn.
 
 Ha nem konfigurálja a beállítást, a rendszer nem szabályozza az Automatikus frissítések szolgáltatás használatát a csoportházirend szintjén. Egy rendszergazdai jogosultságú felhasználó azonban továbbra is konfigurálhatja az automatikus frissítéseket a Vezérlőpulton keresztül.</string>
-      
+
       <string id="AutoUpdateModeAdminChooses">5 - A helyi rendszergazda adja meg a beállítást</string>
       <string id="AutoUpdateModeAuto">4 - Automatikus letöltés és ütemezés szerinti telepítés</string>
       <string id="AutoUpdateModeDownload">3 - Automatikus letöltés és értesítés a telepítés előtt</string>
-      <string id="AutoUpdateModeNotify">2 - Értesítés letöltés és telepítés előtt egyaránt</string>
+      <string id="AutoUpdateModeNotify">2 - Notify for download and auto install</string>
       <string id="AutoUpdateSchDay_Everyday">0 - Minden nap</string>
       <string id="AutoUpdateSchDay_Friday">6 - Minden péntek</string>
       <string id="AutoUpdateSchDay_Monday">2 - Minden hétfő</string>
@@ -123,19 +123,24 @@ Ha nem konfigurálja a beállítást, a rendszer nem szabályozza az Automatikus
       <string id="AutoUpdateSchTime8">08:00</string>
       <string id="AutoUpdateSchTime9">09:00</string>
       <string id="CorpWuURL">Az intranetes Microsoft Update szolgáltatás helyének megadása</string>
-      <string id="CorpWuURL_Help">Itt adható meg a Microsoft Update webhelyről letöltött frissítéseket tároló intranetes kiszolgáló. A frissítési szolgáltatásról így a hálózatban működő összes számítógép frissítése automatikusan végrehajtható.
+      <string id="CorpWuURL_Help">
+        Specifies an intranet server to host updates from Microsoft Update. You can then use this update service to automatically update computers on your network.
 
-A beállítás révén a hálózat egyik kiszolgálóját belső frissítési szolgáltatásként használhatja. Ekkor a hálózat egyes számítógépein futó Automatikus frissítés ügyfélprogram ezen a szolgáltatáson fogja megkeresni az adott számítógépre alkalmazható frissítéseket.
+        This setting lets you specify a server on your network to function as an internal update service. The Automatic Updates client will search this service for updates that apply to the computers on your network.
 
-A beállítás használata esetén két kiszolgálónevet kell megadnia: az egyik annak a kiszolgálónak a neve, melyen az automatikus frissítési ügyfélprogram a szükséges frissítéseket keresi, és melyről letölti ezeket, a másik pedig annak a kiszolgálónak a neve, amelyre a frissített munkaállomások feltöltik a statisztikai adatokat. A két különböző szerepkörre megadhatja ugyanazt a kiszolgálót is.
+        To use this setting, you must set two server name values: the server from which the Automatic Updates client detects and downloads updates, and the server to which updated workstations upload statistics. You can set both values to be the same server. An optional server name value can be specified to configure Windows Update Agent to download updates from an alternate download server instead of WSUS Server.
 
-Ha a beállítás engedélyezett, az Automatikus frissítés ügyfélprogramja a Windows Update webhely helyett a megadott intranetes frissítési szolgáltatáson fogja megkeresni és onnan letölteni a frissítéseket. A beállítás engedélyezése révén a szervezet végfelhasználói a tűzfal használata nélkül hozzájuthatnak a frissítésekhez, emellett lehetőség nyílik a frissítések telepítés előtti tesztelésére.
+        If the status is set to Enabled, the Automatic Updates client connects to the specified intranet Microsoft update service (or alternate download server), instead of Windows Update, to search for and download updates. Enabling this setting means that end users in your organization don't have to go through a firewall to get updates, and it gives you the opportunity to test updates before deploying them.
 
-Ha a beállítás Letiltott vagy Nem konfigurált állapotú, és az Automatikus frissítés szolgáltatást nem tiltja le semmilyen házirend vagy egyéni felhasználói beállítás, akkor az Automatikus frissítés ügyfélprogramja közvetlenül az internetes Windows Update webhelyre csatlakozik.
+        If the status is set to Disabled or Not Configured, and if Automatic Updates is not disabled by policy or user preference, the Automatic Updates client connects directly to the Windows Update site on the Internet.
 
-Megjegyzés: Ha „Az automatikus frissítés konfigurálása” házirend letiltott, akkor ez a házirend nem befolyásolja a rendszer működését.
+        The alternate download server Configures the Windows Update Agent to download files from an alternative download server instead of the WSUS Server.
 
-Megjegyzés: Ez a házirend Windows RT rendszerben nem támogatott. A házirend beállítása Windows RT rendszerű számítógépeken nincs semmilyen hatással.</string>
+        Note: If the "Configure Automatic Updates" policy is disabled, then this policy has no effect.
+
+        Note: If the "Alternate Download Server" is not set, it will use the WSUS server by default to download updates.
+
+        Note: This policy is not supported on Windows RT. Setting this policy will not have any effect on Windows RT PCs.</string>
       <string id="DetectionFrequency_Help">Az az óraszám, amely alapján a Windows rendszer meghatározza, hogy meddig várjon a frissítések keresése előtt. A pontos várakozási időt a rendszer úgy értelmezi, hogy a megadott időt csökkenti annak 0-tól 20 százalékáig terjedő értékével. Ha például a házirend 20 óránkénti észlelési gyakoriságot ad meg, a házirend hatálya alá tartozó összes ügyfél 16 és 20 óra közötti időközönként keres frissítéseket.
 
 Ha az állapot Engedélyezett, a Windows a megadott időközönként keres frissítéseket.
@@ -148,25 +153,25 @@ Megjegyzés: Ha „Az automatikus frissítés konfigurálása” házirend letil
 
 Megjegyzés: Ez a házirend Windows RT rendszerben nem támogatott. A házirend beállítása Windows RT rendszerű számítógépeken nincs semmilyen hatással.</string>
       <string id="DetectionFrequency_Title">Automatikus frissítések észlelési gyakorisága</string>
-      <string id="ElevateNonAdmins_Help">Ezzel a házirend-beállítással meghatározhatja, hogy a nem rendszergazda felhasználók kapjanak-e frissítési értesítéseket „Az automatikus frissítés konfigurálása” házirend-beállítás alapján.
-      
-Ha engedélyezi ezt a házirend-beállítást, a Windows automatikus frissítése és a Microsoft Update a nem rendszergazda felhasználókat is figyelembe veszi annak eldöntésekor, hogy mely bejelentkezett felhasználók kapjanak frissítési értesítéseket. A nem rendszergazda felhasználók az összes olyan nem kötelező, ajánlott és fontos tartalmat telepíthetik, amelyről kapnak értesítést. A felhasználók számára nem fog megjelenni a Felhasználói fiókok felügyelete ablak, és nem kell emelt szintű engedéllyel rendelkezniük a frissítések telepítéséhez, kivéve azokat a frissítéseket, amelyek a felhasználói felületre, a végfelhasználói licencszerződésre vagy a Windows Update beállításaira vonatkozó módosításokat tartalmaznak.
+      <string id="ElevateNonAdmins_Help">Ezzel a házirend-beállítással meghatározhatja, hogy a nem rendszergazda felhasználók kapjanak-e frissítési értesítéseket Az Automatikus frissítések konfigurálása házirend-beállítás alapján.
 
-Két helyzet fordulhat elő, amelyek esetében a beállítás hatása az operációs rendszertől függ: a frissítések elrejtése/visszaállítása, illetve a telepítésmegszakítás.
+Ha engedélyezi ezt a házirend-beállítást, a Windows automatikus frissítése és a Microsoft Update a nem rendszergazda felhasználókat is figyelembe veszi annak eldöntésekor, hogy mely bejelentkezett felhasználók kapjanak frissítési értesítéseket. A nem rendszergazda felhasználók az összes olyan választható, ajánlott és fontos tartalmat telepíthetik, amelyről értesítést kapnak. A felhasználóknak nem fog megjelenni a Felhasználói fiókok felügyelete ablak, és nem kell emelt szintű engedéllyel rendelkezniük a frissítések telepítéséhez, kivéve azokat a frissítéseket, amelyek a felhasználói felületre, a végfelhasználói licencszerződésre vagy a Windows Update beállításaira vonatkozó módosításokat tartalmaznak.
 
-Windows XP rendszerben: Ha engedélyezi ezt a házirend-beállítást, a felhasználók számára nem jelenik meg a Felhasználói fiókok felügyelete ablak, és nincs szükségük emelt szintű engedélyekre ezeknek a frissítéssel kapcsolatos feladatoknak a végrehajtásához.
+Két olyan eset lehetséges, amikor a beállítás hatása az operációs rendszertől függ: a frissítések elrejtése vagy visszaállítása, illetve a telepítés megszakítása.
 
-Windows Vista rendszerben: Ha engedélyezi ezt a házirend-beállítást, a felhasználók számára nem fog megjelenni a Felhasználói fiókok felügyelete ablak, és nincs szükségük emelt szintű engedélyekre ezen feladatok elvégzésére. Ha nem engedélyezi ezt a házirend-beállítást, akkor a felhasználók számára mindig megjelenik a Felhasználói fiókok felügyelete ablak, és emelt szintű engedélyekre van szükség ezeknek a feladatoknak a végrehajtásához.
+Windows XP rendszerben: Ha engedélyezi ezt a házirend-beállítást, nem jelenik meg a felhasználóknak a Felhasználói fiókok felügyelete ablak, és nincs szükségük emelt szintű engedélyekre a frissítéssel kapcsolatos feladatokhoz.
 
-Windows 7 rendszerben a házirend-beállításnak nincs hatása. A felhasználók számára mindig megjelenik a Felhasználói fiókok felügyelete ablak, és emelt szintű engedélyekre van szükségük e feladatok végrehajtásához.
+Windows Vista rendszerben: Ha engedélyezi ezt a házirend-beállítást, nem jelenik meg a felhasználóknak a Felhasználói fiókok felügyelete ablak, és nincs szükségük emelt szintű engedélyekre ezen feladatok elvégzéséhez. Ha nem engedélyezi ezt a házirend-beállítást, mindig megjelenik a felhasználóknak a Felhasználói fiókok felügyelete ablak, és emelt szintű engedélyekre van szükségük e feladatokhoz.
 
-Windows 8 rendszerben a házirend-beállításnak nincs hatása. A felhasználók számára mindig megjelenik a Felhasználói fiókok felügyelete ablak, és emelt szintű engedélyekre van szükségük e feladatok végrehajtásához.
+Windows 7 rendszerben nincs hatása ennek a házirend-beállításnak. Mindig megjelenik a felhasználóknak a Felhasználói fiókok felügyelete ablak, és emelt szintű engedélyekre van szükségük ezekhez a feladatokhoz.
+
+Windows 8 és Windows RT rendszerben szintúgy nincs hatása ennek a házirend-beállításnak. Mindig megjelenik a felhasználóknak a Felhasználói fiókok felügyelete ablak, és emelt szintű engedélyekre van szükségük a feladatokhoz.
 
 Ha letiltja a házirend-beállítást, csak a rendszergazdák kapnak frissítési értesítéseket.
 
-Megjegyzés: Windows 8 és Windows RT rendszerben ez a házirend-beállítás alapértelmezés szerint engedélyezve van. A Windows minden korábbi verziójában a házirend-beállítás alapértelmezés szerint le van tiltva.
+Megjegyzés: Windows 8 és Windows RT rendszerben alapértelmezés szerint engedélyezve van ez a házirend-beállítás, a korábbi Windows-verziókban azonban le van tiltva.
 
-Ha „Az automatikus frissítések konfigurálása” házirend-beállítás le van tiltva vagy nincs konfigurálva, az emelt szintű engedélyek nem rendszergazda felhasználóknak való megadását szabályozó házirend-beállításnak nincs hatása.</string>
+Ha Az Automatikus frissítések konfigurálása házirend-beállítás le van tiltva vagy nincs konfigurálva, az emelt szintű engedélyek nem rendszergazda felhasználóknak való megadását szabályozó házirend-beállításnak nincs hatása.</string>
       <string id="ElevateNonAdmins_Title">A nem rendszergazda felhasználók is kapnak frissítési értesítést</string>
       <string id="ImmediateInstall_Help">Annak meghatározása, hogy az automatikus frissítések automatikusan telepíthetnek-e olyan frissítéseket, amelyek nem szakítják meg a Windows szolgáltatásait, és nem indítják újra a Windows rendszert.
 
@@ -280,36 +285,195 @@ Megjegyzés: Ez a házirend Windows RT rendszerben nem támogatott. A házirend 
       <string id="TargetGroup_Title">Ügyféloldali célcsoport-meghatározás engedélyezése</string>
       <string id="WindowsUpdateCat">Windows Update</string>
       <string id="TrustedPublisher_Title">Az intraneten futó Microsoft frissítési szolgáltatás helyéről származó aláírt frissítések engedélyezése  </string>
-      <string id="TrustedPublisher_Help">Ezzel a házirend-beállítással megadhatja, hogy az Automatikus frissítések funkció elfogadja-e a Microsofttól különböző entitások által aláírt frissítéseket, ha azok az intraneten futó Microsoft frissítési szolgáltatás helyén találhatók. 
+      <string id="TrustedPublisher_Help">Ezzel a házirend-beállítással megadhatja, hogy az Automatikus frissítések szolgáltatás elfogadja-e a Microsofttól eltérő entitások által aláírt frissítéseket, ha azok a Microsoft frissítési szolgáltatásának valamely intranetes helyén találhatók.
 
-Ha engedélyezi a beállítást, az Automatikus frissítések funkció elfogadja az intranetes Microsoft frissítési szolgáltatáshelyen talált frissítéseket, ha olyan tanúsítvánnyal vannak aláírva, amely megtalálható a helyi gép "Megbízható gyártók" tanúsítványtárolójában.
+Ha engedélyezi ezt a házirend-beállítást, az Automatikus frissítések szolgáltatás elfogadja az intranetes frissítési helyeken talált frissítéseket, feltéve, hogy olyan tanúsítvánnyal vannak aláírva, amely megtalálható a helyi gép Megbízható közzétevők tanúsítványtárolójában.
 
-Ha letiltja vagy nem adja meg a beállítást, akkor a Microsoftnak kell aláírnia az intranetes Microsoft frissítési szolgáltatáshelyen található frissítéseket.
+Ha letiltja vagy nem adja meg ezt a házirend-beállítást, a Microsoftnak kell aláírnia az intranetes frissítési helyeken lévő frissítéseket.
 
-Megjegyzés: Az olyan frissítéseket, amelyek nem az intranetes Microsoft frissítési szolgáltatástól származnak, mindig a Microsoftnak kell aláírnia, és ezekre a házirend-beállítás nincs hatással.
-Megjegyzés: Ez a házirend Windows RT rendszerben nem támogatott. A házirend beállítása Windows RT rendszerű számítógépeken nincs semmilyen hatással.</string>
+Megjegyzés: Azokat a frissítéseket, amelyek nem a Microsoft intranetes frissítési szolgáltatásától származnak, mindig a Microsoftnak kell aláírnia, és ezekre nincs hatással a házirend-beállítás.
+Megjegyzés: Ez a házirend nem használható Windows RT rendszerben, Windows RT rendszerű gépeken pedig nincs hatása.</string>
       <string id="DoNotConnectToWindowsUpdateInternetLocations_Title">A számítógép ne kapcsolódjon semmilyen internetes Windows Update-helyhez</string>
       <string id="DoNotConnectToWindowsUpdateInternetLocations_Help">Még abban az esetben is, ha úgy van beállítva, hogy egy intranetes frissítés szolgáltatástól kapja a frissítéseket, a Windows Update rendszeres időközönként információkat olvas be a nyilvános Windows Update szolgáltatásból a Windows Update, a Microsoft Update, a Windows Áruház és más hasonló szolgáltatásokhoz való jövőbeli kapcsolódás lehetővé tétele érdekében.
 
 Ha engedélyezi a házirendet, letiltja ezt a funkciót, és a továbbiakban nem lehet kapcsolódni a Windows Áruház és egyéb nyilvános szolgáltatásokhoz.
 
 Megjegyzés: a házirendnek csak akkor van hatása, ha a számítógép úgy van beállítva, hogy kapcsolódjon egy intranetes frissítési szolgáltatáshoz „Az intranetes Microsoft Update szolgáltatás helyének megadása” házirend használatával.</string>
+      <string id="DeferUpdateCat">Windows-frissítések elhalasztása</string>
+      <string id="CurrentBranchFeatureUpdates">Aktuális ág</string>
+      <string id="BusinessReadyFeatureUpdates">Aktuális üzleti ág</string>
+      <string id="DeferFeatureUpdates_Title">Funkciófrissítések fogadási idejének megadása</string>
+      <string id="DeferFeatureUpdates_Help">Enable this policy to specify what type of feature updates to receive, and when.
 
-      <string id="DeferUpgrade_Title">Verziófrissítések és egyéb frissítések elhalasztása</string>
-      <string id="DeferUpgrade_Help">Enable this policy in order to defer upgrades for up to eight months.
-      
-You can also choose to delay updates for up to one month. If you do not delay updates, your PC will remain up to date with security updates as they become available.
+The branch readiness level for each new Windows 10 feature update is initially considered a "Current Branch" (CB) release, to be used by organizations for initial deployments. Once Microsoft has verified the feature update should be considered for enterprise deployment, it will be declared a branch readiness level of "Current Branch for Business" (CBB).
 
-If an issue arises with an update or upgrade, select "Pause Upgrades and Updates". This will delay updates and upgrades until the next monthly update or upgrade becomes available. Once a new update or upgrade it available, the value will go back to the previously selected option, re-enabling your validation groups.
+You can defer receiving feature updates for up to 180 days.
 
-Note: Definition updates will not be impacted by this policy.
+To prevent feature updates from being received on their scheduled time, you can temporarily pause feature updates. The pause will remain in effect for 60 days or until you clear the start date field.
 
-Note: If the "Specify intranet Microsoft update service location" policy is enabled, then the “Defer upgrades by”, “Defer updates by” and “Pause Updates and Upgrades” settings have no effect.
- 
-Note: If the “Allow Telemetry” policy is enabled and the Options value is set to 0, then the “Defer upgrades by”, “Defer updates by” and “Pause Updates and Upgrades” settings have no effect.
+To resume receiving Feature Updates which are paused, clear the start date field.
 
-To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?LinkID=529169.</string>
+If you disable or do not configure this policy, Windows Update will not alter its behavior.
+
+Note: If the "Allow Telemetry" policy is set to 0, this policy will have no effect.</string>
+      <string id="DeferQualityUpdates_Title">Minőségi frissítések fogadási idejének megadása</string>
+      <string id="DeferQualityUpdates_Help">Enable this policy to specify when to receive quality updates.
+
+You can defer receiving quality updates for up to 30 days.
+
+To prevent quality updates from being received on their scheduled time, you can temporarily pause quality updates. The pause will remain in effect for 35 days or until you clear the start date field.
+
+To resume receiving Quality Updates which are paused, clear the start date field.
+
+If you disable or do not configure this policy, Windows Update will not alter its behavior.
+
+Note: If the "Allow Telemetry" policy is set to 0, this policy will have no effect.</string>
+      <string id="ExcludeWUDriversInQualityUpdate_Title">Illesztőprogramok kihagyása a Windows-frissítésekből</string>
+      <string id="ExcludeWUDriversInQualityUpdate_Help">Enable this policy to not include drivers with Windows quality updates.
+
+If you disable or do not configure this policy, Windows Update will include updates that have a Driver classification.</string>
+      <string id="ActiveHours_Title">Frissítéseket követő automatikus újraindítás letiltása az aktív időszakban</string>
+      <string id="ActiveHours_Help">If you enable this policy, the PC will not automatically restart after updates during active hours. The PC will attempt to restart outside of active hours.
+
+Note that the PC must restart for certain updates to take effect.
+
+If you disable or do not configure this policy and have no other reboot group policies, the user selected active hours will be in effect.
+
+If any of the following two policies are enabled, this policy has no effect:
+    1. No auto-restart with logged on users for scheduled automatic updates installations.
+    2. Always automatically restart at scheduled time.
+
+Note that the default max active hours range is 18 hours from the active hours start time unless otherwise configured via the Specify active hours range for auto-restarts policy.</string>
+      <string id="ActiveHoursTime10AM">10 óra</string>
+      <string id="ActiveHoursTime10PM">22 óra</string>
+      <string id="ActiveHoursTime11AM">11 óra</string>
+      <string id="ActiveHoursTime11PM">23 óra</string>
+      <string id="ActiveHoursTime12AM">0 óra</string>
+      <string id="ActiveHoursTime12PM">12 óra</string>
+      <string id="ActiveHoursTime1AM">1 óra</string>
+      <string id="ActiveHoursTime1PM">13 óra</string>
+      <string id="ActiveHoursTime2AM">2 óra</string>
+      <string id="ActiveHoursTime2PM">14 óra</string>
+      <string id="ActiveHoursTime3AM">3 óra</string>
+      <string id="ActiveHoursTime3PM">15 óra</string>
+      <string id="ActiveHoursTime4AM">4 óra</string>
+      <string id="ActiveHoursTime4PM">16 óra</string>
+      <string id="ActiveHoursTime5AM">5 óra</string>
+      <string id="ActiveHoursTime5PM">17 óra</string>
+      <string id="ActiveHoursTime6AM">6 óra</string>
+      <string id="ActiveHoursTime6PM">18 óra</string>
+      <string id="ActiveHoursTime7AM">7 óra</string>
+      <string id="ActiveHoursTime7PM">19 óra</string>
+      <string id="ActiveHoursTime8AM">8 óra</string>
+      <string id="ActiveHoursTime8PM">20 óra</string>
+      <string id="ActiveHoursTime9AM">9 óra</string>
+      <string id="ActiveHoursTime9PM">21 óra</string>
+
+      <string id="AutoRestartDeadline_Title">Specify deadline before auto-restart for update installation</string>
+      <string id="AutoRestartDeadline_Help">Specify the deadline in days before automatically executing a scheduled restart outside of active hours. The deadline can be set between 2 and 14 days from the time the restart is scheduled.
+
+Note that the PC must restart for certain updates to take effect.
+
+If you enable this policy, a restart will automatically occur the specified number of days after the restart was scheduled.
+
+If you disable or do not configure this policy, the PC will restart according to the default schedule.
+
+If any of the following two policies are enabled, this policy has no effect:
+    1. No auto-restart with logged on users for scheduled automatic updates installations.
+    2. Always automatically restart at scheduled time.
+      </string>
+      <string id="AutoRestartDeadlineDay2">2</string>
+      <string id="AutoRestartDeadlineDay3">3</string>
+      <string id="AutoRestartDeadlineDay4">4</string>
+      <string id="AutoRestartDeadlineDay5">5</string>
+      <string id="AutoRestartDeadlineDay6">6</string>
+      <string id="AutoRestartDeadlineDay7">7</string>
+      <string id="AutoRestartDeadlineDay8">8</string>
+      <string id="AutoRestartDeadlineDay9">9</string>
+      <string id="AutoRestartDeadlineDay10">10</string>
+      <string id="AutoRestartDeadlineDay11">11</string>
+      <string id="AutoRestartDeadlineDay12">12</string>
+      <string id="AutoRestartDeadlineDay13">13</string>
+      <string id="AutoRestartDeadlineDay14">14</string>
+
+      <string id="DisableUXWUAccess_Title">Az összes Windows Update-funkció hozzáférésének tiltása</string>
+      <string id="DisableUXWUAccess_Help">Ezzel a beállítással letilthatja a Windows Update frissítéskeresőjéhez való hozzáférést.
+
+Ha engedélyezi ezt a beállítást, nem lehet elérni a Windows Update frissítéskeresőjét.
+      </string>
+      <string id="ActiveHoursMaxRange_Title">Specify active hours range for auto-restarts</string>
+      <string id="ActiveHoursMaxRange_Help">Enable this policy to specify the maximum number of hours from the start time that users can set their active hours.
+
+The max active hours range can be set between 8 and 18 hours.
+
+If you disable or do not configure this policy, the default max active hours range will be used.
+      </string>
+      <string id="ActiveHoursMaxRange8">8</string>
+      <string id="ActiveHoursMaxRange9">9</string>
+      <string id="ActiveHoursMaxRange10">10</string>
+      <string id="ActiveHoursMaxRange11">11</string>
+      <string id="ActiveHoursMaxRange12">12</string>
+      <string id="ActiveHoursMaxRange13">13</string>
+      <string id="ActiveHoursMaxRange14">14</string>
+      <string id="ActiveHoursMaxRange15">15</string>
+      <string id="ActiveHoursMaxRange16">16</string>
+      <string id="ActiveHoursMaxRange17">17</string>
+      <string id="ActiveHoursMaxRange18">18</string>
+
+      <string id="AutoRestartRequiredNotificationDismissal_Title">Configure auto-restart required notification for updates</string>
+      <string id="AutoRestartRequiredNotificationDismissal_Help">Enable this policy to specify the method by which the auto-restart required notification is dismissed. When a restart is required to install updates, the auto-restart required notification is displayed. By default, the notification is automatically dismissed after 25 seconds.
+
+The method can be set to require user action to dismiss the notification.
+
+If you disable or do not configure this policy, the default method will be used.
+      </string>
+      <string id="AutoDismissal">1 - Auto</string>
+      <string id="UserAction">2 - User Action</string>
+
+      <string id="AutoRestartNotificationConfig_Title">Configure auto-restart reminder notifications for updates</string>
+      <string id="AutoRestartNotificationConfig_Help">Enable this policy to specify the type of notification used for auto-restart reminders and when they are displayed.
+
+Specifies the type of notification used when notifying the user about a scheduled restart to install updates.
+
+You can specify the amount of time prior to a scheduled restart to notify the user.
+
+If you disable or do not configure this policy, the default style and period will be used.
+      </string>
+      <string id="AutoRestartNotificationStyleFull">1 - Full Screen</string>
+      <string id="AutoRestartNotificationStylePartial">2 - Partial Screen</string>
+      <string id="AutoRestartNotificationSchd15">15</string>
+      <string id="AutoRestartNotificationSchd30">30</string>
+      <string id="AutoRestartNotificationSchd60">60</string>
+      <string id="AutoRestartNotificationSchd120">120</string>
+      <string id="AutoRestartNotificationSchd240">240</string>
+
+      <string id="AutoRestartNotificationDisable_Title">Turn off auto-restart notifications for update installations</string>
+      <string id="AutoRestartNotificationDisable_Help">This policy setting allows you to control whether users receive notifications for auto restarts for update installations including reminder and warning notifications.
+
+Enable this policy to turn off all auto restart notifications.
+
+If you disable or do not configure this policy, the default notification behaviors will be unchanged.
+      </string>
+
+      <string id="RestartWarningSchd_Title">Configure auto-restart warning notifications schedule for updates</string>
+      <string id="RestartWarningSchd_Help">Enable this policy to control when notifications are displayed to warn users about a scheduled restart for the update installation deadline. Users are not able to postpone the scheduled restart once the deadline has been reached and the restart is automatically executed.
+
+Specifies the amount of time prior to a scheduled restart to display the warning reminder to the user.
+
+You can specify the amount of time prior to a scheduled restart to notify the user that the auto restart is imminent to allow them time to save their work.
+
+If you disable or do not configure this policy, the default notification behaviors will be used.
+      </string>
+      <string id="RestartWarnRemindHours2">2</string>
+      <string id="RestartWarnRemindHours4">4</string>
+      <string id="RestartWarnRemindHours8">8</string>
+      <string id="RestartWarnRemindHours12">12</string>
+      <string id="RestartWarnRemindHours24">24</string>
+      <string id="RestartWarnMins15">15</string>
+      <string id="RestartWarnMins30">30</string>
+      <string id="RestartWarnMins60">60</string>
     </stringTable>
+
     <presentationTable>
       <presentation id="RemoveWindowsUpdate">
         <dropdownList refId="RemoveWindowsUpdateMode" defaultItem="0">Értesítések konfigurálása:</dropdownList>
@@ -317,9 +481,10 @@ To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?
       <presentation id="AutoUpdateCfg">
         <dropdownList refId="AutoUpdateMode" defaultItem="1">Az automatikus frissítés konfigurálása:</dropdownList>
         <text>A következő beállítások kizárólag a 4. lehetőség megadása esetén szükségesek és alkalmazhatók.</text>
-        <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Telepítés az automatikus karbantartás során</checkBox>          
+        <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Telepítés az automatikus karbantartás során</checkBox>
         <dropdownList refId="AutoUpdateSchDay" defaultItem="0">Az ütemezett telepítés napja:  </dropdownList>
         <dropdownList refId="AutoUpdateSchTime" defaultItem="3">Az ütemezett telepítés időpontja:</dropdownList>
+        <checkBox refId="AllowMUUpdateServiceId" defaultChecked="false">Egyéb Microsoft-termékek frissítéseinek telepítése</checkBox>
       </presentation>
       <presentation id="CorpWuURL">
         <textBox refId="CorpWUURL_Name">
@@ -327,6 +492,9 @@ To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?
         </textBox>
         <textBox refId="CorpWUStatusURL_Name">
           <label>Adja meg a statisztikát tároló intranetkiszolgálót:</label>
+        </textBox>
+        <textBox refId="CorpWUContentHost_Name">
+          <label>Set the alternate download server:</label>
         </textBox>
         <text>(például http://IntranetFriss01)</text>
       </presentation>
@@ -358,17 +526,53 @@ To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?
         <text>leállítaná a szolgáltatást</text>
         <decimalTextBox refId="IdleShutdownTimerDuration_Minutes" defaultValue="10">tétlenség esetén (perc):  </decimalTextBox>
       </presentation>
-      <presentation id="AlwaysAutoRebootAtScheduledTime_Presentation">       
+      <presentation id="AlwaysAutoRebootAtScheduledTime_Presentation">
         <text>Az újraindítási időzítő ennyi időt biztosít a felhasználóknak</text>
         <text>munkájuk mentéséhez</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">(perc):  </decimalTextBox>
       </presentation>
-      <presentation id="DeferUpgrade_Title">
-        <text>Verziófrissítések elhalasztása</text>
-        <decimalTextBox refId="DeferUpgradePeriodId" defaultValue="0">ennyi hónapig: </decimalTextBox>
-        <text>Frissítések elhalasztása</text>
-        <decimalTextBox refId="DeferUpdatePeriodId" defaultValue="0">ennyi hétig: </decimalTextBox>
-        <checkBox refId="PauseDeferralsId" defaultChecked="false">Verziófrissítések és egyéb frissítések felfüggesztése</checkBox>
+      <presentation id="DeferFeatureUpdates">
+        <dropdownList refId="BranchReadinessLevelId" noSort="true" defaultItem="0">Fogadni kívánt funkciófrissítések készültségi szintjéhez tartozó ág:</dropdownList>
+        <decimalTextBox refId="DeferFeatureUpdatesPeriodId" defaultValue="0">Kiadásuk után ennyi nappal történjen a funkciófrissítések fogadása:</decimalTextBox>
+        <textBox refId="PauseFeatureUpdatesStartId">
+          <label>Pause Feature Updates starting</label>
+        </textBox>
+        <text>(format yyyy-mm-dd example: 2016-09-16)</text>
+      </presentation>
+      <presentation id="DeferQualityUpdates">
+        <decimalTextBox refId="DeferQualityUpdatesPeriodId" defaultValue="0">Kiadásuk után ennyi nappal történjen a minőségi frissítések fogadása:</decimalTextBox>
+        <textBox refId="PauseQualityUpdatesStartId">
+          <label>Pause Quality Updates starting</label>
+        </textBox>
+        <text>(format yyyy-mm-dd example: 2016-09-16)</text>
+      </presentation>
+      <presentation id="ActiveHours_Title">
+        <text>Aktív időszak</text>
+        <dropdownList refId="ActiveHoursStartTime" noSort="true" defaultItem="8">Kezdés: </dropdownList>
+        <dropdownList refId="ActiveHoursEndTime" noSort="true" defaultItem="17">Befejezés:</dropdownList>
+      </presentation>
+      <presentation id="AutoRestartDeadline_Title">
+        <dropdownList refId="AutoRestartDeadline" noSort="true" defaultItem="5">Specify the number of days before a pending restart will automatically be executed outside of active hours: </dropdownList>
+      </presentation>
+      <presentation id="ActiveHoursMaxRange_Title">
+        <text>Specify the max active hours range:</text>
+        <dropdownList refId="ActiveHoursMaxRange" noSort="true" defaultItem="10">Max range: </dropdownList>
+      </presentation>
+      <presentation id="AutoRestartRequiredNotificationDismissal_Title">
+        <text>Specify the method by which the auto-restart required notification is dismissed:</text>
+        <dropdownList refId="AutoRestartRequiredNotificationDismissal" noSort="true" defaultItem="0">Method: </dropdownList>
+      </presentation>
+      <presentation id="AutoRestartNotificationConfig_Title">
+        <text>Specify the style used for auto-restart reminder notifications:</text>
+        <dropdownList refId="AutoRestartNotificationStyle" noSort="true" defaultItem="0">Style: </dropdownList>
+        <text>Specify the period for auto-restart reminder notifications:</text>
+        <dropdownList refId="AutoRestartNotificationSchd" noSort="true" defaultItem="0">Period (min): </dropdownList>
+      </presentation>
+      <presentation id="RestartWarningSchd_Title">
+        <text>Specify the period for auto-restart warning reminder notifications:</text>
+        <dropdownList refId="RestartWarnRemind" noSort="true" defaultItem="1">Reminder (hours):</dropdownList>
+        <text>Specify the period for auto-restart immiment warning notifications:</text>
+        <dropdownList refId="RestartWarn" noSort="true" defaultItem="0">Warning (mins): </dropdownList>
       </presentation>
     </presentationTable>
   </resources>

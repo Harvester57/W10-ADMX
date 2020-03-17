@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Zadat časový limit pro přechod systému do režimu spánku (napájení ze sítě)</string>
       <string id="ACStandbyWithHiberfileEnable">Vypnout hybridní režim spánku (napájení ze sítě)</string>
       <string id="ACSystemLidAction">Vybrat akci při zavření krytu počítače (napájení ze sítě)</string>
+      <string id="ACConnectivityInStandby">Povolit připojení k síti v úsporném režimu s připojením (napájení ze sítě)</string>
       <string id="BatteryDischargeAction0Explain">Nastavení této zásady určuje akci, kterou systém Windows provede, když kapacita baterie dosáhne úrovně oznámení kritického stavu.
 
 Pokud nastavení této zásady povolíte, vyberte jednu z následujících akcí:
@@ -82,6 +83,7 @@ Pokud nastavení této zásady zakážete nebo nenakonfigurujete, mohou toto nas
       <string id="DCStandbyTimeOut">Zadat časový limit pro přechod systému do režimu spánku (napájení z baterie)</string>
       <string id="DCStandbyWithHiberfileEnable">Vypnout hybridní režim spánku (napájení z baterie)</string>
       <string id="DCSystemLidAction">Vybrat akci při zavření krytu počítače (napájení z baterie)</string>
+      <string id="DCConnectivityInStandby">Povolit připojení k síti v úsporném režimu s připojením (napájení z baterie)</string>
       <string id="DiskACPowerDownTimeOut">Vypnout pevný disk (napájení ze sítě)</string>
       <string id="DiskDCPowerDownTimeOut">Vypnout pevný disk (napájení z baterie)</string>
       <string id="DiskPowerDownTimeOutExplain">Nastavení této zásady určuje dobu nečinnosti, po jejímž uplynutí systém Windows vypne pevný disk.
@@ -270,6 +272,23 @@ Pokud nastavení této zásady povolíte, zadáním číselné hodnoty v procent
 
 Pokud nastavení této zásady zakážete nebo nenakonfigurujete, mohou toto nastavení zobrazit a změnit uživatelé.</string>
     
+      <string id="EnergySaverSettingsCat">Nastavení spořiče energie</string>
+      <string id="EsBattThresholdAC">Prahová hodnota baterie spořiče energie (napájení ze sítě)</string>
+      <string id="EsBattThresholdDC">Prahová hodnota baterie spořiče energie (napájení z baterie)</string>
+      <string id="EsBattThresholdExplain">Toto nastavení zásady umožňuje určovat úroveň nabití baterie, při kterém se zapne spořič energie.
+
+Pokud toto nastavení zásady povolíte, musíte zadat procentuální hodnotu úrovně nabití baterie. Spořič energie se automaticky aktivuje při zadané úrovni (a pod ní).
+
+Pokud toto nastavení zásady zakážete nebo nenakonfigurujete, budou toto nastavení řídit uživatelé.</string>
+
+      <string id="ConnectivityInStandbyExplain">Toto nastavení zásad umožňuje řídit stav připojení k síti v úsporném režimu v moderních systémech s možností úsporného režimu.
+
+Pokud toto nastavení zásad povolíte, připojení k síti se bude v úsporném režimu udržovat.
+
+Pokud toto nastavení zásad zakážete, nebude připojení k síti v úsporném režimu garantované. Toto omezení připojení se aktuálně uplatňuje jenom pro sítě WLAN a může se změnit.
+
+Pokud toto nastavení zásad nenakonfigurujete, budou moct toto nastavení řídit uživatelé.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Pokud nastavení této zásady zakážete nebo nenakonfigurujete, mohou toto nas
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Úroveň oznámení rezervní kapacity baterie (procento):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Prahová hodnota baterie spořiče energie (procenta):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

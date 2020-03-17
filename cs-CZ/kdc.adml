@@ -79,6 +79,22 @@ Pokud toto nastavení zásad povolíte, budou řadiče domény požadovat slože
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, vrátí řadiče domén lístky služby, které obsahují složené ověřování, vždy, když klient odešle žádost o složené ověřování, bez ohledu na konfiguraci účtu.
 
 </string>
+      <string id="PKINITFreshness">Podpora KDC pro rozšíření PKInit Freshness Extension</string>
+      <string id="PKINITFreshness_explain">Pro podporu rozšíření PKInit Freshness Extension se vyžaduje úroveň funkčnosti domény Windows Server 2016. Pokud doména řadiče domény není na úrovni funkčnosti Windows Server 2016 nebo vyšší, tato zásada se nepoužije.
+
+Toto nastavení zásad umožňuje nakonfigurovat řadič domény tak, aby podporoval rozšíření PKInit Freshness Extension.
+
+Pokud toto nastavení zásad povolíte, podporují se následující možnosti:
+
+Podporováno: Rozšíření PKInit Freshness Extension se podporuje na požádání. Klienti Kerberos, kteří se úspěšně ověří u rozšíření PKInit Freshness Extension, dostanou čerstvý identifikátor SID identity veřejného klíče.
+
+Požadováno: Rozšíření PKInit Freshness Extension je nezbytné k úspěšnému ověření. Klienti Kerberos, kteří rozšíření PKInit Freshness Extension nepodporují, narazí při použití přihlašovacích údajů veřejného klíče vždycky na chybu.
+
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, řadič domény nebude rozšíření PKInit Freshness Extension nikdy nabízet a bude přijímat platné žádosti o ověření bez kontroly čerstvosti. Uživatelé nikdy nedostanou čerstvý identifikátor SID identity veřejného klíče.
+</string>
+      <string id="NoPKINITFreshness">Zakázáno</string>
+      <string id="SupportPKINITFreshness">Podporováno</string>
+      <string id="RequirePKINITFreshness">Požadováno</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -103,6 +119,9 @@ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, vrátí řadiče
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Prahová hodnota velikosti lístku</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Možnosti rozšíření PKInit Freshness Extension:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

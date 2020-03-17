@@ -1,224 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>enter display name here</displayName>
-  <description>enter description here</description>
+  <displayName>表示名をここに入力する</displayName>
+  <description>説明をここに入力する</description>
   <resources>
     <stringTable>
-      <string id="AppPrivacy">App Privacy</string>
-      <string id="UserInControl">User is in control</string>
-      <string id="ForceAllow">Force Allow</string>
-      <string id="ForceDeny">Force Deny</string>
-      <string id="LetAppsAccessCalendar_Name">Let Windows apps access the calendar</string>
-      <string id="LetAppsAccessCalendar_Explain">This policy setting specifies whether Windows apps can access the calendar.
+      <string id="AppPrivacy">アプリのプライバシー</string>
+      <string id="UserInControl">ユーザーが制御</string>
+      <string id="ForceAllow">強制的に許可</string>
+      <string id="ForceDeny">強制的に拒否</string>
+      <string id="LetAppsAccessAccountInfo_Name">Windows アプリでアカウント情報にアクセスする</string>
+      <string id="LetAppsAccessAccountInfo_Explain">このポリシー設定では、Windows アプリがアカウント情報にアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the calendar by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the calendar and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがアカウント情報にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the calendar and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはアカウント情報にアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the calendar by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはアカウント情報にアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがアカウント情報にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessCallHistory_Name">Let Windows apps access call history</string>
-      <string id="LetAppsAccessCallHistory_Explain">This policy setting specifies whether Windows apps can access call history.
+      <string id="LetAppsAccessCalendar_Name">Windows アプリでカレンダーにアクセスする</string>
+      <string id="LetAppsAccessCalendar_Explain">このポリシー設定では、Windows アプリがカレンダーにアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access call history by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the call history and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがカレンダーにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the call history and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはカレンダーにアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the call history by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはカレンダーにアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがカレンダーにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessCamera_Name">Let Windows apps access the camera</string>
-      <string id="LetAppsAccessCamera_Explain">This policy setting specifies whether Windows apps can access the camera.
+      <string id="LetAppsAccessCallHistory_Name">Windows アプリで通話履歴にアクセスする</string>
+      <string id="LetAppsAccessCallHistory_Explain">このポリシー設定では、Windows アプリが通話履歴にアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the camera by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the camera and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリが通話履歴にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the camera and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリは通話履歴にアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the camera by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリは通話履歴にアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが通話履歴にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessContacts_Name">Let Windows apps access contacts</string>
-      <string id="LetAppsAccessContacts_Explain">This policy setting specifies whether Windows apps can access contacts.
+      <string id="LetAppsAccessCamera_Name">Windows アプリでカメラにアクセスする</string>
+      <string id="LetAppsAccessCamera_Explain">このポリシー設定では、Windows アプリがカメラにアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access contacts by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access contacts and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがカメラにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access contacts and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはカメラにアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access contacts by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはカメラにアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがカメラにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessEmail_Name">Let Windows apps access email</string>
-      <string id="LetAppsAccessEmail_Explain">This policy setting specifies whether Windows apps can access email.
+      <string id="LetAppsAccessContacts_Name">Windows アプリで連絡先にアクセスする</string>
+      <string id="LetAppsAccessContacts_Explain">このポリシー設定では、Windows アプリが連絡先にアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access email by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access email and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリが連絡先にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access email and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリは連絡先にアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access email by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリは連絡先にアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが連絡先にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessLocation_Name">Let Windows apps access location</string>
-      <string id="LetAppsAccessLocation_Explain">This policy setting specifies whether Windows apps can access location.
+      <string id="LetAppsAccessEmail_Name">Windows アプリでメールにアクセスする</string>
+      <string id="LetAppsAccessEmail_Explain">このポリシー設定では、Windows アプリがメールにアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access location by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access location and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがメールにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access location and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはメールにアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access location by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはメールにアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがメールにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessMessaging_Name">Let Windows apps access messaging</string>
-      <string id="LetAppsAccessMessaging_Explain">This policy setting specifies whether Windows apps can read or send messages (text or MMS).
+      <string id="LetAppsAccessLocation_Name">Windows アプリで位置情報にアクセスする</string>
+      <string id="LetAppsAccessLocation_Explain">このポリシー設定では、Windows アプリが位置情報にアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can read or send messages by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps can read or send messages and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリが位置情報にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps cannot read or send messages and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリは位置情報にアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can read or send messages by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリは位置情報にアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが位置情報にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessMicrophone_Name">Let Windows apps access the microphone</string>
-      <string id="LetAppsAccessMicrophone_Explain">This policy setting specifies whether Windows apps can access the microphone.
+      <string id="LetAppsAccessMessaging_Name">Windows アプリでメッセージングにアクセスする</string>
+      <string id="LetAppsAccessMessaging_Explain">このポリシー設定では、Windows アプリがメッセージ (テキストまたは MMS) の読み取りや送信を実行できるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the microphone by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the microphone and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがメッセージの読み取りや送信を実行できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the microphone and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはメッセージの読み取りや送信を実行できます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the microphone by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはメッセージの読み取りや送信を実行できません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがメッセージの読み取りや送信を実行できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessMotion_Name">Let Windows apps access motion</string>
-      <string id="LetAppsAccessMotion_Explain">This policy setting specifies whether Windows apps can access motion data.
+      <string id="LetAppsAccessMicrophone_Name">Windows アプリでマイクにアクセスする</string>
+      <string id="LetAppsAccessMicrophone_Explain">このポリシー設定では、Windows アプリがマイクにアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access motion data by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access motion data and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがマイクにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access motion data and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはマイクにアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access motion data by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはマイクにアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがマイクにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessRadios_Name">Let Windows apps control radios</string>
-      <string id="LetAppsAccessRadios_Explain">This policy setting specifies whether Windows apps have access to control radios.
+      <string id="LetAppsAccessMotion_Name">Windows アプリでモーションにアクセスする</string>
+      <string id="LetAppsAccessMotion_Explain">このポリシー設定では、Windows アプリがモーション データにアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps have access to control radios by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps will have access to control radios and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリがモーション データにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps will not have access to control radios and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリはモーション データにアクセスできます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps have access to control radios by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリはモーション データにアクセスできません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがモーション データにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessAccountInfo_Name">Let Windows apps access account information</string>
-      <string id="LetAppsAccessAccountInfo_Explain">This policy setting specifies whether Windows apps can access account information.
+      <string id="LetAppsAccessNotifications_Name">Windows アプリで通知にアクセスする</string>
+      <string id="LetAppsAccessNotifications_Explain">このポリシー設定では、Windows アプリが通知にアクセスできるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access account information by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access account information and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリが通知にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access account information and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリは通知にアクセスできます。組織の従業員はこの設定を変更できません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access account information by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリは通知にアクセスできません。組織の従業員はこの設定を変更できません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが通知にアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsSyncWithDevices_Name">Let Windows apps sync with devices</string>
-      <string id="LetAppsSyncWithDevices_Explain">This policy setting specifies whether Windows apps can sync with devices.
+      <string id="LetAppsAccessPhone_Name">Windows アプリが電話をかけることを許可する</string>
+      <string id="LetAppsAccessPhone_Explain">このポリシー設定では、Windows アプリが電話をかけることができるかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can sync with devices by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to sync with devices and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリが電話をかけることができるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to sync with devices and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリは電話をかけることができます。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can sync with devices by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリは電話をかけることができません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが電話をかけることができるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
-      <string id="LetAppsAccessTrustedDevices_Name">Let Windows apps access trusted devices</string>
-      <string id="LetAppsAccessTrustedDevices_Explain">This policy setting specifies whether Windows apps can access trusted devices.
+      <string id="LetAppsAccessRadios_Name">Windows アプリで無線を制御する</string>
+      <string id="LetAppsAccessRadios_Explain">このポリシー設定では、Windows アプリが無線を制御するためのアクセス権を保持するかどうかを指定します。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access trusted devices by using Settings &gt; Privacy on the device.
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access trusted devices and employees in your organization cannot change it.
+[ユーザーが制御] オプションを選ぶと、Windows アプリが無線を制御するためのアクセス権を保持するかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access trusted devices and employees in your organization cannot change it.
+[強制的に許可] オプションを選ぶと、Windows アプリは無線を制御するためのアクセス権を保持します。組織の従業員はこの設定を変更することはできません。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access trusted devices by using Settings &gt; Privacy on the device.
+[強制的に拒否] オプションを選ぶと、Windows アプリは無線を制御するためのアクセス権を保持しません。組織の従業員はこの設定を変更することはできません。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが無線を制御するためのアクセス権を保持するかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
 
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsSyncWithDevices_Name">Windows アプリでデバイスと同期する</string>
+      <string id="LetAppsSyncWithDevices_Explain">このポリシー設定では、Windows アプリがデバイスと同期できるかどうかを指定します。
+
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
+
+[ユーザーが制御] オプションを選ぶと、Windows アプリがデバイスと同期できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリはデバイスと同期できます。組織の従業員はこの設定を変更することはできません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリはデバイスと同期できません。組織の従業員はこの設定を変更することはできません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリがデバイスと同期できるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
+      </string>
+      <string id="LetAppsAccessTrustedDevices_Name">Windows アプリで信頼済みデバイスにアクセスする</string>
+      <string id="LetAppsAccessTrustedDevices_Explain">このポリシー設定では、Windows アプリが信頼済みデバイスにアクセスできるかどうかを指定します。
+
+すべてのアプリに既定の設定を適用するか、パッケージ ファミリ名を指定してアプリごとの設定を適用するかを指定できます。アプリのパッケージ ファミリ名を取得するには、Get-AppPackage Windows PowerShell コマンドレットを使います。既定の設定はアプリごとの設定によって上書きされます。
+
+[ユーザーが制御] オプションを選ぶと、Windows アプリが信頼済みデバイスにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+[強制的に許可] オプションを選ぶと、Windows アプリは信頼済みデバイスにアクセスできます。組織の従業員はこの設定を変更することはできません。
+
+[強制的に拒否] オプションを選ぶと、Windows アプリは信頼済みデバイスにアクセスできません。組織の従業員はこの設定を変更することはできません。
+
+このポリシー設定を無効にした場合や構成しなかった場合、Windows アプリが信頼済みデバイスにアクセスできるかどうかを、組織の従業員が選ぶことができます (デバイスで [設定] &gt; [プライバシー] を使います)。
+
+このグループ ポリシー オブジェクトがデバイスに適用されているときに、アプリを開く場合、従業員は、アプリやデバイスを再起動してポリシーの変更をアプリに適用する必要があります。
       </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
-        <dropdownList refId="LetAppsAccessCalendar_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCalendar_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessPhone">
+        <dropdownList refId="LetAppsAccessPhone_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessPhone_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessPhone_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessPhone_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessCallHistory">
-        <dropdownList refId="LetAppsAccessCallHistory_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCallHistory_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessCamera">
-        <dropdownList refId="LetAppsAccessCamera_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCamera_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCamera_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCamera_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessCamera_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessContacts">
-        <dropdownList refId="LetAppsAccessContacts_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessContacts_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessContacts_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessContacts_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessContacts_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessEmail">
-        <dropdownList refId="LetAppsAccessEmail_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessEmail_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessEmail_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessEmail_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessEmail_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessLocation">
-        <dropdownList refId="LetAppsAccessLocation_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessLocation_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessLocation_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessLocation_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessLocation_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMessaging">
-        <dropdownList refId="LetAppsAccessMessaging_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMessaging_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMicrophone">
-        <dropdownList refId="LetAppsAccessMicrophone_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMicrophone_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMotion">
-        <dropdownList refId="LetAppsAccessMotion_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMotion_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMotion_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMotion_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessMotion_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessNotifications">
+        <dropdownList refId="LetAppsAccessNotifications_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessRadios">
-        <dropdownList refId="LetAppsAccessRadios_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessRadios_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessRadios_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessRadios_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessRadios_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessAccountInfo">
-        <dropdownList refId="LetAppsAccessAccountInfo_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessAccountInfo_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsSyncWithDevices">
-        <dropdownList refId="LetAppsSyncWithDevices_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsSyncWithDevices_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessTrustedDevices">
-        <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">すべてのアプリの既定値:</dropdownList>
+        <text>ユーザーをこれらの特定のアプリで管理 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_UserInControlOfTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に許可 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_ForceAllowTheseApps_List"/>
+        <text>これらの特定のアプリを強制的に拒否 (パッケージ ファミリ名を使用):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

@@ -78,6 +78,22 @@ Hvis du aktiverer denne policyinnstillingen, ber domenekontrollere om sammensatt
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, returnerer domenekontrollere tjenestebilletter som inneholder sammensatt godkjenning hver gang klienten sender en forespørsel om sammensatt godkjenning, uavhengig av kontokonfigurasjonen.
 
 </string>
+      <string id="PKINITFreshness">KDC-støtte for PKInit Freshness-utvidelse</string>
+      <string id="PKINITFreshness_explain">Støtte for PKInit Freshness-filtypen krever Windows Server 2016-domenefunksjonsnivået (DFL). Denne policyen vil ikke brukes hvis domenekontrollerens domene ikke er på Windows Server 2016 DFL eller høyere.
+
+Ved hjelp av denne policyinnstillingen kan du konfigurere en domenekontroller (DC) for å støtte PKInit Freshness-utvidelsen.
+
+Hvis du aktiverer denne policyinnstillingen, støttes følgende alternativer:
+
+Støttet: PKInit Freshness-filtypen støttes etter anmodning. Kerberos-klienter som blir godkjent med PKInit Freshness-utvidelsen, mottar den nye offentlige nøkkelidentiteten SID.
+
+Obligatorisk: PKInit Freshness-utvidelsen kreves for vellykket godkjenning. Kerberos-klienter som ikke støtter PKInit Freshness-utvidelsen, vil alltid mislykkes ved bruk av legitimasjon for offentlig nøkkel.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vil domenekontrolleren aldri tilby PKInit Freshness-utvidelsen og godta gyldige godkjenningsforespørsler uten å se etter oppdateringer. Brukere vil aldri kunne motta den nye offentlig nøkkelidentiteten SID.
+</string>
+      <string id="NoPKINITFreshness">Deaktivert</string>
+      <string id="SupportPKINITFreshness">Støttes</string>
+      <string id="RequirePKINITFreshness">Obligatorisk</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, returnere
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Terskel for billettstørrelse</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Alternativer for PKInit Freshness-utvidelse:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

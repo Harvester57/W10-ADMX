@@ -58,22 +58,36 @@ Ha letiltja a beállítást, az érvényes eredő házirend csak a csoportházir
     Ha engedélyezi ezt a házirend-beállítást, az Endpoint Protection nem reagál automatikusan az észlelt veszélyforrásokra, hanem minden fenyegetés esetén felajánlja a felhasználónak, hogy válasszon a rendelkezésre álló műveletek közül.
 
     Ha letiltja vagy nem konfigurálja a házirend-beállítást, az Endpoint Protection automatikusan reagál minden észlelt fenyegetésre, körülbelül öt másodperc késéssel (ez az érték nem módosítható).
-    </string>
+    </string>      
     <string id="ProxyBypass">Proxykiszolgáló használatát mellőző címek megadása</string>
     <string id="ProxyBypass_Explain">E házirend definiálásával megakadályozhatja, hogy a kártevőirtó szolgáltatás a beállított proxykiszolgálót használja a megadott IP-címekkel való kommunikáció során. A cím értékének érvényes URL-címnek kell lennie.
 
 Ha engedélyezi a beállítást, a szolgáltatás a megadott címek esetében mellőzi a proxykiszolgáló használatát.
 
 Ha letiltja vagy nem konfigurálja a beállítást, a szolgáltatás a megadott címek esetében nem mellőzi a proxykiszolgáló használatát.</string>
+    <string id="ProxyPacUrl">A hálózati csatlakozáshoz használt automatikus proxykonfiguráció (.pac) megadása</string>
+    <string id="ProxyPacUrl_Explain">Ez a házirend-beállítás az ügyfél  hálózati csatlakozási próbálkozásaihoz és a MAPS-jelentésekhez használatos .pac fájlnak az URL-címét adja meg. Ha a proxy automatikus konfigurációja sikertelen, vagy nincs megadva automatikus proxykonfiguráció, az ügyfél (sorrendben) a következő lehetőségekkel próbálkozik:
+      1. Proxykiszolgáló (ha meg van adva)
+      2. Proxy .pac URL-cím (ha meg van adva)
+      3. Semmi
+      4. Az Internet Explorer proxybeállításai
+5. Automatikus
+
+      Ha engedélyezi ezt a beállítást, a proxy a megadott .pac fájl használatára lesz beállítva a fenti sorrendnek megfelelően.
+
+      Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően kihagyja ezt a pótlási lépést.</string>
     <string id="ProxyServer">Proxykiszolgáló definiálása a hálózathoz való csatlakozáshoz</string>
-    <string id="ProxyServer_Explain">Ez a házirend-beállítás lehetővé teszi annak a nevesített proxynak a beállítását, amelyet a definíciófrissítéseket letöltő és a MAPS-jelentéseket elküldő ügyfeleknek használniuk kell a hálózathoz való csatlakozáskor. Ha a nevesített proxy nem érhető el, vagy nincs megadva proxy, a szolgáltatás az alábbi beállításokat fogja használni (az itt látható sorrendben):
-1. Az Internet Explorer proxybeállításai
-2. Automatikus
-3. Nincs
+    <string id="ProxyServer_Explain">Ez a házirend-beállítás lehetővé teszi annak a nevesített proxynak a beállítását, amelyet a definíciófrissítéseket letöltő és a MAPS-jelentéseket elküldő ügyfeleknek használniuk kell a hálózathoz való csatlakozáskor. Ha a nevesített proxy nem érhető el, vagy nincs megadva proxy, az ügyfél (sorrendben) az alábbi lehetőségekkel próbálkozik:
+1. Proxykiszolgáló (ha meg van adva)
+      2. Proxy .pac URL-cím (ha meg van adva)
+      3. Semmi
+      4. Az Internet Explorer proxybeállításai
+5. Automatikus
 
-Ha engedélyezi ezt a beállítást, a proxy a megadott URL-címre lesz beállítva.
+      Ha engedélyezi ezt a beállítást, a proxy a megadott URL-címre lesz beállítva a fenti sorrendnek megfelelően. Az URL-nek a http:// vagy a https:// előtaggal kell kezdődnie.
 
-Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően lesz beállítva.</string>
+      Ha letiltja vagy nem konfigurálja a beállítást, a proxy a fenti sorrendnek megfelelően kihagyja ezt a pótlási lépést.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Véletlenszerű feladat-végrehajtási időpontok</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Ezzel a házirend-beállítással engedélyezheti vagy letilthatja az ütemezett ellenőrzések és definíciófrissítések véletlenszerű időpontokban való végrehajtását. Ez a beállítás az ellenőrzéssel járó erőforrás-terhelés elosztására szolgál. Ezzel a beállítással például az egyazon gazdagépen futtatott vendég virtuális gépek esetében megakadályozhatja, hogy több virtuális gép egyszerre hajtson végre intenzív lemezhasználatot igénylő műveleteket.
 
@@ -104,20 +118,6 @@ Ha kikapcsolja a beállítást, a protokollfelismerés le lesz tiltva.</string>
 Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a definíció-visszavonás engedélyezve lesz.
 
 Ha kikapcsolja a beállítást, a definíció-visszavonás le lesz tiltva.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">A naplózott észlelési események gyakoriságának definiálása</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Ez a házirend-beállítás az ismert biztonsági rések kihasználása elleni hálózatvédelem naplózott észlelési eseményeinek gyakoriságát korlátozza. A naplózás a megadott időközönként legfeljebb egy eseményre van korlátozva. Az időköz értékét percben kell megadni. Az alapértelmezett időköz 60 perc.
-
-Ha engedélyezi ezt a beállítást, a rendszer leállítja az észlelési események naplózását, ha a megadott számú perc alatt egynél több hasonló GUID azonosítójú jelentés készül.
-
-Ha letiltja vagy nem konfigurálja ezt a beállítást, a rendszer az alapértelmezett gyakorisággal naplózza az észlelési eseményeket.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">IP-címtartományok kizárása</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Ha definiálja ezt a házirendet, megakadályozza, hogy az ismert biztonsági rések kihasználása elleni hálózatvédelem megvizsgálja a megadott IP-címeket. Az IP-címeket a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott IP-címtartományt azonosító karakterláncnak kell lennie. Példa tartomány definiálására: 157.1.45.123-60.1.1.1. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Portszámkizárások</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Ezzel a házirend-beállítással megadhatja azoknak a TCP-portszámoknak a listáját, amelyek esetében a hálózati forgalom vizsgálatát le kívánja tiltani. A portszámokat a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott TCP-portszámot azonosító karakterláncnak kell lennie. Példa portszám definiálására: 8080. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Folyamatkizárások kimenő forgalom esetén</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Az ezzel a házirend-beállítással definiált folyamatok esetében a hálózatvédelmi szolgáltatás a kimenő forgalmat nem vizsgálja.  A folyamatneveket a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott folyamat-elérésiutat és -nevet azonosító karakterláncnak kell lennie. Példa folyamat definiálására: C:\windows\app.exe. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Veszélyforrás-azonosítók kizárása</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Ezzel a házirend-beállítással azok a veszélyforrások definiálhatók, amelyek ki lesznek zárva az észlelésből a hálózati forgalom vizsgálata során. A veszélyforrásokat a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott veszélyforrás-azonosító nevét megadó karakterláncnak kell lennie. Példa veszélyforrás-azonosító definiálására: 2925110632. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">További definíciókészletek megadása a hálózati forgalom vizsgálatához</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Ezzel a házirend-beállítással további definíciókészletek használatát teheti lehetővé a hálózati forgalom vizsgálata során. A definíciókészletek azonosítóit a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott definíciókészlet GUID azonosítóját megadó karakterláncnak kell lennie. Példa tesztdefiníciók használatát lehetővé tevő definíciókészlet GUID azonosítójára: {b54b6ac9-a737-498e-9120-6616ad3bf590}. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">A Quarantine (Karantén) mappában lévő elemekre vonatkozó eltávolítási konfiguráció felülbírálása helyi beállítással</string>
@@ -138,18 +138,6 @@ Ha letiltja vagy nem konfigurálja a beállítást, az elemek meghatározatlan i
 Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a viselkedésfigyelés engedélyezve lesz.
 
 Ha kikapcsolja a beállítást, a viselkedésfigyelés le lesz tiltva.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Az információvédelmi és szabályozási szolgáltatás bekapcsolása</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Ezzel a házirend-beállítással az információvédelmi és szabályozási szolgáltatást (IPC) konfigurálhatja.
-
-Ha bekapcsolja ezt a beállítást, az IPC engedélyezve lesz.
-
-Ha kikapcsolja vagy nem konfigurálja a beállítást, az IPC le lesz tiltva.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Az ismert biztonsági rések kihasználása elleni hálózatvédelem bekapcsolása</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Ez a házirend-beállítás lehetővé teszi az ismert biztonsági rések kihasználása elleni hálózatvédelem konfigurálását.
-
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a hálózatvédelem engedélyezve lesz.
-
-Ha kikapcsolja a beállítást, a hálózatvédelem le lesz tiltva.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Az összes letöltött fájl és csatolmány vizsgálata</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Ez a házirend-beállítás lehetővé teszi az összes letöltött fájl és csatolmány ellenőrzésének konfigurálását.
 
@@ -205,12 +193,6 @@ Ha engedélyezi a beállítást, a helyi beállítás felülbírálja a csoporth
 Ha letiltja vagy nem konfigurálja a beállítást, a csoportházirend felülbírálja a helyi beállítást.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">A fájl- és programtevékenység számítógépen való figyelésének felülbírálása helyi beállítás megadásával</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Ez a házirend-beállítás lehetővé teszi a fájl- és programtevékenység számítógépen való figyelésének helyi beállítással való felülbírálását. Ez a beállítás csak a csoportházirend használatával adható meg.
-
-Ha engedélyezi a beállítást, a helyi beállítás felülbírálja a csoportházirendet.
-
-Ha letiltja vagy nem konfigurálja a beállítást, a csoportházirend felülbírálja a helyi beállítást.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">A behatolásvédelmi rendszer kikapcsolásának felülbírálása helyi beállítás megadásával</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Ez a házirend-beállítás lehetővé teszi az ismert biztonsági rések kihasználása elleni hálózatvédelem konfigurációjának helyi beállítással való felülbírálását. Ez a beállítás csak a csoportházirend használatával adható meg.
 
 Ha engedélyezi a beállítást, a helyi beállítás felülbírálja a csoportházirendet.
 
@@ -633,6 +615,16 @@ Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmeze
 Ha engedélyezi a beállítást, a rendszer új definíciókat keres a szolgáltatás elindítása után.
 
 Ha letiltja vagy nem konfigurálja a beállítást, a rendszer nem keres új definíciókat a szolgáltatás elindítása után.</string>
+    <string id="DisableBlockAtFirstSeen">A Blokkolás első látásra funkció konfigurálása</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Ezzel a funkcióval állítható be, hogy bizonyos tartalmak futtatásának vagy használatának engedélyezése előtt az eszköz valós időben kérjen engedélyt a Microsoft Active Protection Service (MAPS) szolgáltatástól. Ha le van tiltva ez a funkció, nem kér engedélyt az eszköz, így védtelenebb lesz a veszélyforrásokkal szemben.
+	Engedélyezve: a Blokkolás első látásra beállítás be van kapcsolva.
+	Letiltva: a Blokkolás első látásra beállítás nincs bekapcsolva.
+	
+	A funkció használatához meg kell adni az alábbi csoportházirend-beállításokat és azok megfelelő értékeit:
+	MAPS -&gt; Engedélyezni kell a Csatlakozás a Microsoft MAPS közösséghez beállítást, mert a Blokkolás első látásra funkció csak így fog működni.
+	MAPS -&gt; A Fájlminták küldése további elemzési igény esetén beállítás értékét 1-re (A biztonságos minták elküldése) vagy 3-ra (Minden minta elküldése) kell állítani. Ha a 0 értéket (Mindig rákérdez) adja meg, kevésbé lesz védett az eszköz. Amennyiben 2-re állítja a beállítás értékét (Nincs küldés), a Blokkolás első látásra funkció nem fog működni.
+	Valós idejű védelem -&gt; Az összes letöltött fájl és csatolmány vizsgálata nevű házirendet engedélyezni kell, mert csak így fog működni a Blokkolás első látásra funkció.
+	Valós idejű védelem -&gt; A Valós idejű védelem kikapcsolása nevű házirendet nem szabad engedélyezni, mert a Blokkolás első látásra funkció nem fog működni.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">A Microsoft MAPS-jelentésekre vonatkozó konfiguráció felülbírálása helyi beállítással</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösséghez való csatlakozás konfigurációjának helyi beállítással való felülbírálását. Ez a beállítás csak a csoportházirend használatával adható meg.
 
@@ -644,10 +636,10 @@ Ha letiltja vagy nem konfigurálja a beállítást, a csoportházirend felülbí
         Ez a házirend-beállítás határozza meg, hogy miképpen működik a minták küldése a MAPS telemetriában való részvétel beállítása esetén.
 
         A következő lehetőségek állnak rendelkezésre:
-        (0x0) Mindig rákérdez
+        (0x0) Rákérdezés minden esetben
         (0x1) A biztonságos minták elküldése automatikusan
         (0x2) Nincs küldés
-        (0x2) Minden minta elküldése automatikusan
+        (0x3) Minden minta elküldése automatikusan
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Mindig rákérdez</string>
@@ -658,20 +650,22 @@ Ha letiltja vagy nem konfigurálja a beállítást, a csoportházirend felülbí
     <string id="SpynetReporting">Csatlakozás a Microsoft MAPS közösséghez</string>
     <string id="SpynetReporting_Explain">Ez a házirend-beállítás lehetővé teszi a Microsoft MAPS közösséghez való csatlakozást. A Microsoft MAPS egy online közösség, amely segítséget nyújt annak eldöntésében, hogy miként reagáljon egy adott fenyegetésre. A közösség emellett a kártevők terjedését is segít meggátolni.
 
-Megadhatja, hogy az észlelt szoftverekről alapszintű vagy kiegészítő információkat kíván-e küldeni. A kiegészítő információk segítséget nyújtanak a Microsoftnak abban, hogy új definíciós listák készítésével fokozza a számítógépek védettségét. Ezek az információk tartalmazhatják például az észlelt elemek helyét, ha kártékony szoftvert távolított el a számítógépéről. Ezeket az információkat a rendszer automatikusan gyűjti össze és küldi el. Bizonyos esetekben a rendszer véletlenül személyes információkat is küldhet a Microsoftnak. A Microsoft azonban ezeket nem használja azonosításra és kapcsolatfelvételre.
+    Megadhatja, hogy az észlelt szoftverekről alapszintű vagy kiegészítő információkat kíván-e küldeni. A kiegészítő információk segítséget nyújtanak a Microsoftnak abban, hogy új definíciós listák készítésével fokozza a számítógépek védettségét. Ezek az információk tartalmazhatják például az észlelt elemek helyét, ha kártékony szoftvert távolított el a számítógépéről. Ezeket az információkat a rendszer automatikusan gyűjti össze és küldi el. Bizonyos esetekben a rendszer véletlenül személyes információkat is küldhet a Microsoftnak. A Microsoft azonban ezeket nem használja azonosításra és kapcsolatfelvételre.
 
-Az alábbi értékeket adhatja meg:
-(0x0) Letiltva (alapértelmezett)
-(0x1) Alapszintű tagság
-(0x2) Kiemelt tagság
+    Az alábbi értékeket adhatja meg:
+    (0x0) Letiltva (alapértelmezett)
+    (0x1) Alapszintű tagság
+    (0x2) Kiemelt tagság
 
-Alapszintű tagság esetén a rendszer olyan alapvető adatokat küld a Microsoftnak az észlelt szoftverről, mint például hogy honnan származik a szoftver, hogy milyen műveleteket hajtott végre a felhasználó vagy a rendszer, és hogy a műveletek sikeresek voltak-e.
+    Alapszintű tagság esetén a rendszer alapvető adatokat küld a Microsoftnak az észlelt szoftverről, például arról, hogy honnan származik a szoftver, milyen műveleteket hajtott végre a felhasználó vagy a rendszer, és sikeresek voltak-e a műveletek.
 
-Kiemelt tagság esetén a rendszer az alapvető adatok mellett további információkat is küld a Microsoftnak a kártevő szoftverekről, a kémprogramokról és a potenciálisan nemkívánatos szoftverekről, beleértve a szoftverek helyét és működési módját, a számítógépre gyakorolt hatásukat, valamint a fájlneveket.
+    Kiemelt tagság esetén a rendszer az alapvető adatok mellett további információkat is küld a Microsoftnak a kártevő szoftverekről, a kémprogramokról és a potenciálisan nemkívánatos szoftverekről, beleértve a szoftverek helyét és működési módját, a számítógépre gyakorolt hatásukat, valamint a fájlneveket.
 
-Ha engedélyezi ezt a beállítást, a megadott tagsági szinten csatlakozni fog a Microsoft MAPS közösséghez.
+    Ha engedélyezi ezt a beállítást, a megadott tagsági szinten csatlakozni fog a Microsoft MAPS közösséghez.
 
-Ha letiltja vagy nem konfigurálja a beállítást, nem fog csatlakozni a Microsoft MAPS közösséghez.</string>
+    Ha letiltja vagy nem konfigurálja a beállítást, nem fog csatlakozni a Microsoft MAPS közösséghez.
+  
+    A Windows 10 rendszerben az alapszintű tagság már nem érhető el, ezért az érték 1-re vagy 2-re állításakor is a kiemelt tagság lép érvénybe az eszközön.</string>
     <string id="SpynetReporting_Disabled">Letiltva</string>
     <string id="SpynetReporting_Basic">Basic MAPS-tagság</string>
     <string id="SpynetReporting_Advanced">Kiemelt MAPS-tagság</string>
@@ -706,16 +700,12 @@ A szervizelési műveletként megadható értékek a következők:
 
       A beállítás engedélyezése esetén nem jelennek meg az újraindítási értesítések az AM felhasználói felületén.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Értesítések megjelenítése, ha az ügyfélnek műveleteket kell végrehajtania</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjenek-e értesítések, ha az ügyfélnek az alábbi műveleteket kell végrehajtania:
-Teljes ellenőrzés futtatása
-A legújabb vírus- és kémprogram-definíciók letöltése
-A Standalone System Sweeper letöltése
+    <string id="UX_Configuration_Notification_Suppress">Az összes értesítés elrejtése</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender értesítései.
+      Ha letiltja vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender értesítései.
 
-
-Ha engedélyezi vagy nem konfigurálja ezt a beállítást, értesítések jelennek meg, ha az ügyfélnek a megadott műveleteket végre kell hajtania.
-
-A beállítás letiltása esetén nem jelennek meg értesítések, ha az ügyfélnek a megadott műveleteket végre kell hajtania.</string>
+      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender értesítései.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Kiegészítő szöveg megjelenítése, ha az ügyfélnek műveleteket kell végrehajtania</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjen-e kiegészítő szöveg, ha az ügyfélnek műveletet kell végrehajtania. A megjelenített szöveg egy rendszergazda által megadott egyéni karakterlánc, például a vállalat ügyfélszolgálatának telefonszáma. Az ügyfél kezelőfelülete csak legfeljebb 1024 karaktert tud megjeleníteni. Az ennél hosszabb karakterláncok csonkolva jelennek meg.
 
@@ -728,6 +718,11 @@ Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészít�
     <textBox refId="ProxyBypass">
         <label>Proxykiszolgáló használatát mellőző címek megadása</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>A hálózati csatlakozáshoz használt automatikus proxykonfiguráció (.pac) megadása</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészít�
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Folyamatkizárások</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">A naplózott észlelési események gyakoriságának definiálása</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">IP-címtartományok kizárása</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Portszámkizárások</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Folyamatkizárások kimenő forgalom esetén</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Veszélyforrás-azonosítók kizárása</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">További definíciókészletek megadása a hálózati forgalom vizsgálatához</listBox>

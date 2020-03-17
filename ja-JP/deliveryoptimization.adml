@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>配信の最適化 GP</displayName>
+  <description>このファイルには、配信の最適化 GP 設定が記述されています</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">配信の最適化</string>
+      <string id="DownloadMode">ダウンロード モード</string>
+      <string id="DownloadMode_Help">Windows 更新プログラム、アプリ、アプリ更新プログラムのダウンロード時に配信の最適化に使用できるダウンロード方法を指定します。サポートされている値は次のとおりです: 0 = HTTP のみ、ピアリングなし。1 = HTTP と同じ NAT でのピアリングの組み合わせ。2 = HTTP とプライベート グループでのピアリングの組み合わせ。既定では、ピアリングは同じ Active Directory サイト (存在する場合) または同じドメインにあるデバイスで発生します。このオプションを選択した場合、ピアリングは複数の NAT にまたがって実行されます。カスタム グループを作成するには、グループ ID とモード 2 を組み合わせて使用します。3 = HTTP とインターネット ピアリングの組み合わせ。99 = ピアリングなしの簡易ダウンロード モード。配信の最適化によるダウンロードは HTTP のみを使用して行われ、配信の最適化クラウド サービスへのアクセスは行われません。100 = バイパス モード。配信の最適化は使用されず、代わりに BITS が使用されます。</string>
+      <string id="DownloadMode_CdnOnly">HTTP のみ</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
-      <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Group">グループ</string>
+      <string id="DownloadMode_Internet">インターネット</string>
+      <string id="DownloadMode_Simple">簡易</string>
+      <string id="DownloadMode_Bypass">バイパス</string>
+      <string id="GroupId">グループ ID</string>
+      <string id="GroupId_Help">グループ ID は、GUID として設定する必要があります。このポリシーでは、デバイスが属している任意のグループ ID を指定します。異なるドメイン上にある支社や、同じ LAN 上にない支社のローカル ネットワーク ピアリング用に 1 つのグループを作成する必要がある場合、このポリシーを使います。注意を別のドメインでは、または同じ LAN に含まれていない支社の 1 つのグループを作成する必要がある場合は、このオプションを使用します。注意: これはベスト エフォートな最適化です。ID を認証する際は、このポリシーに依存しないでください。</string>
+      <string id="MaxUploadBandwidth">最大アップロード帯域幅 (KB/秒)</string>
+      <string id="MaxUploadBandwidth_Help">すべての同時アップロード操作で配信の最適化によって使用されるアップロード最大帯域幅を KB/秒単位で指定します。既定値 0 (ゼロ) は無制限の使用を許可し、アップロード帯域幅の使用を最小にするようにアップロードが動的に最適化されます。</string>
+      <string id="MaxCacheSize">最大キャッシュ サイズ (パーセント)</string>
+      <string id="MaxCacheSize_Help">配信の最適化によって使用される最大キャッシュ サイズを、使用可能なディスクのサイズに対する割合 (1 から 100 まで) として指定します。</string>
+      <string id="AbsoluteMaxCacheSize">絶対最大キャッシュ サイズ (GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">配信の最適化キャッシュの最大サイズを GB 単位で指定します。このポリシーは、DOMaxCacheSize ポリシーを上書きします。値 0 (ゼロ) は "無制限" のキャッシュを意味します。デバイスのディスク領域が不足すると、配信の最適化によってキャッシュがクリアされます。</string>
+      <string id="MaxCacheAge">最大キャッシュ時間 (秒)</string>
+      <string id="MaxCacheAge_Help">正常にダウンロードされた各ファイルが配信の最適化キャッシュに保持される最長時間 (秒単位) を指定します。値 0 (ゼロ) は "無制限" を意味し、配信の最適化によって、キャッシュ サイズを超えない限りファイルをキャッシュに長く保持しておき、それらのファイルを他のデバイスへのアップロードに使用できます。</string>
+      <string id="MonthlyUploadDataCap">月単位のデータ アップロード上限 (GB)</string>
+      <string id="MonthlyUploadDataCap_Help">配信の最適化でカレンダー月ごとにインターネット ピアへのアップロードが許可されている合計バイト数の最大値 (GB) を指定します。値 0 (ゼロ) は "無制限" を意味し、0 が設定されている場合は、月単位のアップロード上限はありません。</string>
+      <string id="MinBackgroundQos">最小バックグラウンド QoS (KB/秒)</string>
+      <string id="MinBackgroundQos_Help">バックグラウンド ダウンロード (KB/秒) の最小ダウンロード QoS (速度) を指定します。このポリシーは、ピア ソースと HTTP ソースの混在環境に影響します。指定された最小 QoS 値を実現するために、HTTP ソースからのダウンロードが配信の最適化によって補われます。</string>
+      <string id="ModifyCacheDrive">キャッシュ ドライブの変更</string>
+      <string id="ModifyCacheDrive_Help">配信の最適化によってキャッシュに使用されるドライブを指定します。既定では、%SystemDrive% を使用してキャッシュを保存します。ドライブの場所は、環境変数、ドライブ文字、または完全なパスを使用して指定できます。</string>
+      <string id="MaxDownloadBandwidth">最大ダウンロード帯域幅 (KB/秒)</string>
+      <string id="MaxDownloadBandwidth_Help">配信の最適化を採用したすべての同時ダウンロード操作でデバイスが使用できるダウンロード最大帯域幅 (KB/秒) を指定します。既定値 0 (ゼロ) は、配信の最適化によって、使用可能な帯域幅をダウンロードに使用するように動的に調整されることを意味します。</string>
+      <string id="PercentageMaxDownloadBandwidth">最大ダウンロード帯域幅 (パーセント)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">すべての同時ダウンロード操作で配信の最適化によって使用されるダウンロード最大帯域幅を、使用可能なダウンロード帯域幅に対する割合として指定します。既定値 0 (ゼロ) は、配信の最適化によって、使用可能な帯域幅をダウンロードに使用するように動的に調整されることを意味します。</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">ダウンロード モード:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>グループ ID:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">最大アップロード帯域幅 (KB/秒):</decimalTextBox>
+        <text>既定値は 0 (無制限) です</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">最大キャッシュ サイズ (パーセント):</decimalTextBox>
+        <text>既定値は 20％ です</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">絶対最大キャッシュ サイズ (GB):</decimalTextBox>
+        <text>既定値は 10 GB です</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">最大キャッシュ時間 (秒):</decimalTextBox>
+        <text>既定値は 3 日です</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">月単位のデータ アップロード上限 (GB):</decimalTextBox>
+        <text>既定値は 20 GB です</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">最小バックグラウンド QoS (KB/秒):</decimalTextBox>
+        <text>既定値は 500 KB/秒です</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>キャッシュ ドライブの変更:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">最大ダウンロード帯域幅 (KB/秒):</decimalTextBox>
+        <text>既定値は 0 (無制限) です</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">最大ダウンロード帯域幅 (パーセント):</decimalTextBox>
+        <text>既定値は 0 (無制限) です</text>
       </presentation>
     </presentationTable>
   </resources>

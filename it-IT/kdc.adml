@@ -78,6 +78,22 @@ Se si abilita questa impostazione dei criteri, i controller di dominio richieder
 Se si disabilita o non si configura questa impostazione dei criteri, i controller di dominio restituiranno ticket di servizio contenenti l'autenticazione composta ogni volta che il client invia una richiesta per questo tipo di autenticazione, indipendentemente dalla configurazione dell'account.
 
 </string>
+      <string id="PKINITFreshness">Supporto KDC per estensione di aggiornamento PKInit</string>
+      <string id="PKINITFreshness_explain">Il supporto per l'estensione di aggiornamento PKInit richiede il livello di funzionalità del dominio di Windows Server 2016. Se il dominio del controller di domino non è al livello di funzionalità del dominio di Windows Server 2016 o versione successiva, questo criterio non verrà applicato.
+
+Questa impostazione dei criteri consente di configurare un controller di dominio per il supporto dell'estensione di aggiornamento PKInit.
+
+Se si abilita questa impostazione dei criteri, sono supportate le opzioni seguenti:
+
+Supportata: l'estensione di aggiornamento PKInit è supportata su richiesta. I client Kerberos che eseguono correttamente l'autenticazione con l'estensione di aggiornamento PKInit otterranno il SID dell'identità chiave pubblica aggiornato.
+
+Richiesta: l'estensione di aggiornamento PKInit è richiesta per l'autenticazione. I client Kerberos che non supportano l'estensione di aggiornamento PKInit avranno sempre esito negativo quando usano credenziali con chiave pubblica.
+
+Se si disabilita o non si configura questa impostazione dei criteri, il controller di dominio non offrirà mai l'estensione di aggiornamento PKInit e accetterà le richieste di autenticazione valide senza verificare l'aggiornamento. Gli utenti non riceveranno mai il SID dell'identità chiave pubblica aggiornato.
+</string>
+      <string id="NoPKINITFreshness">Disabilitato</string>
+      <string id="SupportPKINITFreshness">Supportato</string>
+      <string id="RequirePKINITFreshness">Richiesto</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Se si disabilita o non si configura questa impostazione dei criteri, i controlle
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Soglia dimensioni ticket</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Opzioni estensione di aggiornamento PKInit:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

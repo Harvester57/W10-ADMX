@@ -156,18 +156,25 @@ TERMSRV/*.humanresources.fabrikam.com Vert for ekstern skrivebordsøkt kjører p
 
 Denne policyinnstillingen kan brukes sammen med policyinnstillingen "Tillat delegering av lagret legitimasjon" til å definere unntak for bestemte servere som ellers tillates når du bruker jokertegn i serverlisten Tillat delegering av lagret legitimasjon.</string>
       <string id="RestrictedRemoteAdministration">Begrense delegering av legitimasjon til eksterne servere</string>
-      <string id="RestrictedRemoteAdministration_Explain">Når du kjører i begrenset modus, viser ikke deltakende apper legitimasjon til eksterne datamaskiner (uavhengig av delegeringsmetoden). Begrenset modus kan begrense tilgang til ressurser på andre servere eller nettverk utover målmaskinen, fordi legitimasjon ikke er delegert.
+      <string id="RestrictedRemoteAdministration_Explain">Når du kjører i modus for begrenset administrasjon, eller hvis enheten bruker ekstern Credential Guard, eksponerer ikke apper som deltar, legitimasjon til eksterne enheter (uavhengig av delegeringsmetoden). Modus for begrenset administrasjon kan begrense tilgangen til ressurser som finnes på andre servere eller nettverk utenfor måldatamaskinen fordi legitimasjonen ikke er delegert. Ekstern Credential Guard begrenser ikke tilgang til ressurser ved å omdirigere alle forespørsler tilbake til klientenheten.
 
 Deltakende apper:
 Eksternt skrivebord-klient
 
-Hvis du aktiverer denne policyinnstillingen, blir begrenset modus tatt i bruk, og deltakende apper delegerer ikke legitimasjon til eksterne datamaskiner.
+Hvis du aktiverer denne policyinnstillingen, blir modus for begrenset administrasjon eller ekstern Credential Guard tatt i bruk, og deltakende apper vil ikke delegere legitimasjon til eksterne enheter.
 
-Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blir ikke begrenset modus tatt i bruk, og deltakende apper kan delegere legitimasjon til eksterne datamaskiner.
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blir ikke modus for begrenset administrasjon og ekstern Credential Guard tatt i bruk, og deltakende apper kan delegere legitimasjon til eksterne enheter.
 
-Obs!  Hvis du vil deaktivere de fleste delegeringene av legitimasjon, kan det være tilstrekkelig å hindre delegering i CredSSP (Credential Security Support Provider) ved å endre de midlertidige administrative innstillingene. (Disse finner du i mappen Computer Configuration\Administrative Templates\System\Credentials Delegation).</string>
+Obs! Hvis du vil deaktivere de fleste delegeringene av legitimasjon, kan det være tilstrekkelig å hindre delegering i CredSSP (Credential Security Support Provider) ved å endre de midlertidige administrative innstillingene. (Disse finner du under Computer Configuration\Administrative Templates\System\Credentials Delegation).
+
+Obs! Hvis du aktiverer denne policyen i Windows 8.1 og Windows Server 2012 R2, blir modus for begrenset administrasjon tatt i bruk, uavhengig av hvilken modus som er valgt. Disse versjonene støtter ikke ekstern Credential Guard.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Foretrekk ekstern Credential Guard</string>
+      <string id="RequireRemoteCredentialGuard">Krev ekstern Credential Guard</string>
+      <string id="RequireRestrictedAdmin">Krev begrenset administrasjon</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Legg til servere i listen:</listBox>
@@ -204,6 +211,9 @@ Obs!  Hvis du vil deaktivere de fleste delegeringene av legitimasjon, kan det v�
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Legg til servere i listen:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Sammenkjede standarder i operativsystemet med inndataene ovenfor</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Bruk følgende begrensede modus:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

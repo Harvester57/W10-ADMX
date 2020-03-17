@@ -24,6 +24,19 @@ Si deshabilita esta configuración de directiva, se desactivarán todas las func
 
 Si no establece esta configuración de directiva, el usuario puede configurar la opción "Dejar que Microsoft pruebe características en esta compilación" en Configuración.
 </string>
+      <string id="TelemetryProxy">Configurar Experiencia del usuario y telemetría asociadas</string>
+      <string id="TelemetryProxy_Explain">Con esta configuración de directiva, puedes reenviar solicitudes de Experiencia del usuario y telemetría asociadas a un servidor proxy.
+
+Si habilitas esta configuración de directiva, puedes especificar el FQDN o la dirección IP del dispositivo de destino dentro de la red de tu organización (y, opcionalmente, un número de puerto, si lo prefieres). La conexión se establecerá mediante una conexión de capa de sockets seguros (SSL). Si se produce un error en el proxy con nombre o si deshabilitas o no estableces esta configuración de directiva, los datos de Experiencia del usuario y telemetría asociadas se enviarán a Microsoft mediante la configuración de proxy predeterminada.
+
+El formato de esta configuración es &lt;servidor&gt;:&lt;puerto&gt;. 
+</string>
+      
+      <string id="CommercialId">Configurar el Id. comercial</string>
+      <string id="CommercialId_Explain">Esta configuración de directiva define el identificador usado de forma única para asociar los datos de telemetría de este dispositivo como pertenecientes a una organización determinada. Si tu organización está participando en un programa que necesita que este dispositivo esté identificado como perteneciente a tu organización, usa esta opción para proporcionar la identificación. Microsoft proporcionará el valor de esta configuración como parte del proceso de implementación del programa. 
+
+Si deshabilitas o no configuras esta configuración de directiva, Microsoft no podrá usar este identificador para asociar este equipo y sus datos de telemetría con tu organización.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@ Si no establece esta configuración de directiva, el usuario puede configurar la
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Nombre de servidor proxy:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>Id. comercial:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

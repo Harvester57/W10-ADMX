@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Blocca i tipi di carattere non attendibili e registra gli eventi</string>
       <string id="FontMitigation_Off">Non bloccare i tipi di carattere non attendibili</string>
       <string id="FontMitigation_Audit">Registra gli eventi senza bloccare i tipi di carattere non attendibili</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Opzioni di mitigazione processo</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Questa funzionalità di sicurezza offre un sistema per sostituire le singole impostazioni MitigationOptions dei processi. Può essere usata per applicare numerosi criteri di sicurezza specifici alle applicazioni. Il nome dell'applicazione è specificato come nome del valore, inclusa l'estensione. Il valore è specificato come un campo bit con una serie di flag in posizioni particolari. I bit possono essere impostati su 0 (l'impostazione è forzata come disattivata), 1 (l'impostazione è forzata come attivata) o ? (l'impostazione mantiene il proprio valore esistente prima della valutazione del GPO). Le posizioni dei bit riconosciute sono:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Abilita Protezione esecuzione programmi per il processo figlio
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Abilita l'emulazione thunk DEP-ATL per il processo figlio. L'emulazione thunk DEP-ATL consente al sistema di intercettare gli errori NX originati dal livello thunk ATL (Active Template Library). 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Abilita SEHOP (Structured Exception Handler Overwrite Protection) per il processo figlio. SEHOP blocca gli exploit che usano la tecnica di sovrascrittura SEH (Structured Exception Handler).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Il criterio ASLR (Address Space Layout Randomization) riassegna forzatamente le immagini che non sono compatibili con le basi dinamiche operando come se fosse avvenuta una collisione delle basi delle immagini in fase di caricamento. Se sono richieste rilocazioni, le immagini che non hanno una sezione di rilocazione della base non verranno caricate.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Il criterio di assegnazione casuale bottom-up, che include opzioni di assegnazione casuale dello stack, determina l'uso di una posizione casuale come indirizzo utente più basso.
+
+        Ad esempio, per abilitare PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE e PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, disabilita PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF e per mantenere i valori predefiniti di tutte le altre opzioni specifica un valore:
+        ???????????????0???????1???????1
+
+        L'impostazione dei flag non specificati qui su qualsiasi valore diverso da ? determina un comportamento indefinito.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Abilita sincronizzazione controller di dominio AD/DFS durante l'aggiornamento dei criteri</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Se si abilita questa impostazione dei criteri, per le condivisioni DFS il client di Criteri di gruppo si connetterà allo stesso controller di dominio utilizzato per Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Tipi di carattere</string>
+      <string id="EnableFontProviders">Abilita provider di tipi di carattere</string>
+      <string id="EnableFontProviders_Help">
+        Questa impostazione dei criteri determina se Windows può scaricare i tipi di carattere e i dati del catalogo dei tipi di carattere da un provider di tipi di carattere online.
+        
+        Se si abilita questa impostazione dei criteri, Windows interroga periodicamente un provider di tipi di carattere online per determinare se è disponibile un nuovo catalogo di tipi di carattere. Windows può anche scaricare dati sui tipi di carattere se necessario per la formattazione o il rendering del testo.
+        
+        Se si disabilita questa impostazione dei criteri, Windows non si connette a un provider di tipi di carattere online ed enumera solo i tipi di carattere installati in locale.
+      
+        Se non si configura questa impostazione dei criteri, il comportamento predefinito dipende dall'edizione di Windows. Le modifiche di questo criterio hanno effetto dopo il riavvio del sistema.
+      </string>
       <string id="EnableLogonOptimization">Configura memorizzazione nella cache per Criteri di gruppo</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ Se si disabilita o non si configura questa impostazione dei criteri, nei compute
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Opzioni di prevenzione</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Opzioni di mitigazione processo</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Per il Servizio cache tipi di carattere di Windows deve essere consentito il download dei tipi di carattere e dei dati del catalogo dei tipi di carattere dai provider di tipi di carattere online.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Valore collegamento lento: [campo numero] millisecondi</decimalTextBox>

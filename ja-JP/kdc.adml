@@ -78,6 +78,22 @@ Windows ログオンでこの機能を利用するには、[Windows コンポー
 このポリシー設定を無効にした場合、または構成しなかった場合、ドメイン コントローラーは、アカウントの構成にかかわらず、クライアントが複合認証要求を送信するたびに、複合認証を含むサービス チケットを返します。
 
 </string>
+      <string id="PKINITFreshness">PKInit 鮮度拡張機能の KDC サポート</string>
+      <string id="PKINITFreshness_explain">PKInit 鮮度拡張機能のサポートには、Windows Server 2016 のドメイン機能レベル (DFL) が必要です。ドメイン コントローラーのドメインが Windows Server 2016 DFL 以上でない場合、このポリシーは適用されません。
+
+このポリシー設定では、PKInit 鮮度拡張機能をサポートするようにドメイン コントローラー (DC) を構成できます。
+
+このポリシー設定を有効にした場合、次のオプションがサポートされます。
+
+サポート: PKInit 鮮度拡張機能が要求に応じてサポートされます。PKInit 鮮度拡張機能で正常に認証された Kerberos クライアントは、最新の公開キー ID の SID を受け取ります。
+
+必要: 認証には PKInit 鮮度拡張機能が必要です。PKInit 鮮度拡張機能をサポートしていない Kerberos クライアントが公開キー資格情報を使用すると、常に失敗します。
+
+このポリシー設定を無効にした場合、または構成しなかった場合、DC で PKInit 鮮度拡張機能は提供されず、有効な認証要求が、最新かどうか確認されないまま受け付けられます。ユーザーは最新の公開キー ID の SID を受け取りません。
+</string>
+      <string id="NoPKINITFreshness">無効</string>
+      <string id="SupportPKINITFreshness">サポート</string>
+      <string id="RequirePKINITFreshness">必要</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Windows ログオンでこの機能を利用するには、[Windows コンポー
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">チケット サイズのしきい値</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKInit 鮮度拡張機能のオプション:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -6,12 +6,32 @@
   <resources>
     <stringTable>
       <string id="CloudContent">Contenido de la nube</string>
+      <string id="ConfigureWindowsSpotlight">Configurar Contenido destacado de Windows en la pantalla de bloqueo</string>
+      <string id="ConfigureWindowsSpotlight_Help">Esta configuración de directiva permite configurar Contenido destacado de Windows en la pantalla de bloqueo.
+
+Si habilitas esta configuración de directiva, "Contenido destacado de Windows" se establecerá como proveedor de la pantalla de bloqueo y los usuarios no podrán modificar la pantalla de bloqueo. "Contenido destacado de Windows" mostrará imágenes diarias de Microsoft en la pantalla de bloqueo.
+
+Además, si activas la casilla "Incluir contenido destacado de Enterprise" y tu organización tiene configurado un servicio de contenido destacado de Enterprise en Azure, la pantalla de bloqueo mostrará mensajes internos y comunicaciones configuradas en dicho servicio, si están disponibles. Si tu organización no tiene un servicio de contenido destacado de Enterprise, la casilla no tendrá efecto.
+
+Si deshabilitas esta configuración de directiva, Contenido destacado de Windows se desactivará y los usuarios ya no podrán esta opción como su pantalla de bloqueo. Los usuarios verán la imagen de la pantalla de bloqueo predeterminada y podrán seleccionar otra imagen, salvo que tengan habilitada la directiva "Evitar el cambio de la imagen de la pantalla de bloqueo".
+
+Si no configuras esta directiva, Contenido destacado de Windows estará disponible en la pantalla de bloqueo y se seleccionará de forma predeterminada, a menos que hayas configurado otra imagen de pantalla de bloqueo predeterminada mediante la directiva "Aplicar una imagen de pantalla de bloqueo predeterminada específica".
+
+Nota: Esta directiva solo está disponible para las SKU de Enterprise.</string>
+      <string id="DisableWindowsSpotlightFeatures">Desactivar todas las ventanas de Contenido destacado de Windows</string>
+      <string id="DisableWindowsSpotlightFeatures_Help">Esta configuración de directiva permite desactivar todas las características de Contenido destacado de Windows a la vez.
+
+Si habilitas esta configuración de directiva, se desactivará Contenido destacado de Windows en la pantalla de bloqueo, las sugerencias de Windows, las características de consumidor de Microsoft y otras características relacionadas. Debes habilitar esta configuración de directiva si tu objetivo es minimizar el tráfico de red de los dispositivos de destino.
+
+Si deshabilitas o no estableces esta configuración de directiva, las características de Contenido destacado de Windows estarán permitidas y se podrán controlar individualmente mediante la configuración de directiva correspondiente.</string>
       <string id="DisableWindowsConsumerFeatures">Desactivar experiencias del consumidor de Microsoft</string>
       <string id="DisableWindowsConsumerFeatures_Help">Esta opción de directiva desactiva las experiencias que ayudan a los consumidores a aprovechar al máximo sus dispositivos y la cuenta de Microsoft.
 
 Si habilitas esta opción de directiva, los usuarios dejarán de ver recomendaciones personalizadas de Microsoft y notificaciones sobre su cuenta de Microsoft.
 
-Si deshabilitas esta opción, o no la configuras, los usuarios pueden ver sugerencias de Microsoft y notificaciones sobre su cuenta de Microsoft.</string>
+Si deshabilitas esta opción, o no la configuras, los usuarios pueden ver sugerencias de Microsoft y notificaciones sobre su cuenta de Microsoft.
+
+Nota: Esta configuración solo se aplica a las SKU de Enterprise y Education.</string>
       <string id="DisableSoftLanding">No mostrar sugerencias de Windows</string>
       <string id="DisableSoftLanding_Help">Esta configuración de directiva impide que las sugerencias de Windows se muestren a los usuarios.
 
@@ -19,7 +39,15 @@ Si habilitas esta configuración de directiva, los usuarios ya no verán las sug
 
 Si deshabilitas o no estableces esta configuración de directiva, los usuarios podrán ver elementos emergentes contextuales en los que se explicará cómo usar Windows. Microsoft usa los datos de diagnóstico y de uso para determinar las sugerencias que se muestran.
 
-Nota: si deshabilitas o no estableces esta configuración de directiva, pero habilitas la configuración de directiva "Computer Configuration\Administrative Templates\Windows Components\Data Collection and Preview Builds\Allow Telemetry" con un nivel "Basic" o inferior, es posible que los usuarios vean un conjunto limitado de sugerencias.</string>
+Nota: Si deshabilitas o no estableces esta configuración de directiva, pero habilitas la configuración de directiva "Computer Configuration\Administrative Templates\Windows Components\Data Collection and Preview Builds\Allow Telemetry" con un nivel "Basic" o inferior, es posible que los usuarios vean un conjunto limitado de sugerencias.
+Además, esta configuración solo se aplica a las SKU de Enterprise y Education.</string>
+      <string id="DisableThirdPartySuggestions">Do not suggest third-party content in Windows spotlight</string>
+      <string id="DisableThirdPartySuggestions_Help">If you enable this policy, Windows spotlight on lock screen, Windows tips, Microsoft consumer features and other related features will no longer suggest apps and content from third-party software publishers. Users may still see suggestions and tips to make them more productive with Microsoft features and apps.</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="ConfigureWindowsSpotlight">
+        <checkBox refId="ConfigureWindowsSpotlight_Checkbox">Incluir contenido destacado de Enterprise</checkBox>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

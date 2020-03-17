@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Microsoft Windows-enhetsvern</displayName>
-  <description>Sikkerhet for Windows-enhetsvern</description>
+  <displayName>Microsoft Windows Device Guard</displayName>
+  <description>Windows Device Guard-sikkerhet</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">Enhetsvern</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Aktiver virtualiseringsbasert sikkerhet</string>
-      <string id="VirtualizationBasedSecurityHelp">Angir om virtualiseringsbasert sikkerhet er aktivert.
+      <string id="VirtualizationBasedSecurityHelp">Angir om Virtualiseringsbasert sikkerhet er aktivert.
 
-Virtualiseringsbasert sikkerhet bruker Windows Hypervisor til å formidle støtte for sikkerhetstjenester. Virtualiseringsbasert sikkerhet krever Sikker oppstart, og funksjonen kan aktiveres ved hjelp av DMA-beskyttelser. DMA-beskyttelser krever maskinvarestøtte, og blir bare aktivert på enheter som er konfigurert på riktig måte.
+Virtualiseringsbasert sikkerhet bruker Windows Hypervisor for å gi støtte for sikkerhetstjenester. Virtualiseringsbasert sikkerhet krever sikker oppstart, og du kan også aktiveres ved hjelp av DMA-beskyttelse. DMA-beskyttelse krever maskinvarestøtte og aktiveres bare på riktig konfigurerte enheter.
 
 Virtualiseringsbasert beskyttelse av kodeintegritet
 
-Denne innstillingen aktiverer virtualiseringsbasert beskyttelse av kodeintegritet i kjernemodus. Når denne innstillingen er aktivert, trer beskyttelse av kjernemodusminne i kraft, og valideringsbanen for kodeintegritet beskyttes av funksjonen Virtualiseringsbasert sikkerhet.
+denne innstillingen lar virtualisering basert beskyttelse av kodeintegritet for kjerne-modus. Når dette er aktivert, kjernen modus minne beskyttelse håndheves og kodeintegritet validering banen er beskyttet av funksjonen Virtualiseringsbasert sikkerhet.
 
-Advarsel! Alle drivere i systemet må være kompatible med denne funksjonen, ellers kan det hende systemet krasjer. Sørg for at denne policyen bare distribueres til datamaskiner som er kompatible. 
+Alternativet "Deaktivert" deaktiverer Virtualiseringsbasert beskyttelse av kodeintegritet eksternt hvis det tidligere ble aktivert med alternativet "Aktivert uten Lås".
+ 
+Alternativet "Aktivert med UEFI-Lås" sikrer at Virtualiseringsbasert beskyttelse av kodeintegritet ikke kan deaktiveres eksternt. Hvis du vil deaktivere funksjonen, må du sette gruppepolicyen til "Deaktivert" samt Fjern sikkerhetsfunksjonene fra hver enkelt datamaskin med en fysisk til stede bruker for å fjerne konfigurasjonen beholdt i UEFI.
+ 
+"Aktivert uten Lås"-alternativet kan Virtualiseringsbasert beskyttelse av kodeintegritet deaktiveres eksternt ved hjelp av gruppepolicy. 
+
+Advarsel: alle drivere på systemet må være kompatibel med denne funksjonen, eller systemet kan krasje. Sørg for at denne policyinnstillingen brukes bare til datamaskiner som er kjent for å være kompatibel. 
 
 Legitimasjonsvern
 
-Denne innstillingen lar brukere aktivere legitimasjonsvern med virtualiseringsbasert sikkerhet for å beskytte legitimasjon.
+Denne innstillingen lar brukere aktivere Legitimasjonsvern med virtualisering-sikkerhet til å beskytte legitimasjon.
 
-Alternativet Deaktiver deaktiverer legitimasjonsvern eksternt hvis det tidligere var aktivert med Aktivert uten lås.
- 
-Alternativet Aktivert med UEFI-lås sikrer at legitimasjonsvern ikke kan deaktiveres eksternt. Hvis du vil deaktivere funksjonen, må du sette gruppepolicyen til Deaktivert og fjerne sikkerhetsfunksjonaliteten fra hver datamaskin, med en bruker fysisk til stede, for å kunne fjerne alle konfigurasjoner fra UEFI.
+Alternativet "Deaktivert" deaktiverer Legitimasjonsvern eksternt hvis det tidligere ble aktivert med alternativet "Aktivert uten Lås".
 
-Alternativet Aktivert lar legitimasjonsvern deaktiveres eksternt med gruppepolicy. Enhetene som bruker innstillingen må kjøre minst Windows 10 (versjon 1511).
+Alternativet "Aktivert med UEFI-Lås" sikrer at Legitimasjonsvern ikke kan deaktiveres eksternt. Hvis du vil deaktivere funksjonen, må du sette gruppepolicyen til "Deaktivert" samt Fjern sikkerhetsfunksjonene fra hver enkelt datamaskin med en fysisk til stede bruker for å fjerne konfigurasjonen beholdt i UEFI.
+
+"Aktivert uten Lås"-alternativet kan Legitimasjonsvern deaktiveres eksternt ved hjelp av gruppepolicy. Enheter som bruker denne innstillingen må kjøre minst Windows 10 (versjon 1511).
       </string>
       <string id="SecureBoot">Sikker oppstart</string>
       <string id="SecureBootAndDmaProtection">Sikker oppstart og DMA-beskyttelse</string>
@@ -50,9 +56,9 @@ Hvis du bruker en signert og beskyttet policy, vil deaktivering av denne policye
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Velg plattformsikkerhetsnivå:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Aktiver virtualiseringsbasert beskyttelse av kodeintegritet</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfigurasjon for legitimasjonsvern:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Velg plattformsikkerhetsnivå:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Virtualiseringsbasert beskyttelse av kodeintegritet:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfigurasjon for Credential Guard:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

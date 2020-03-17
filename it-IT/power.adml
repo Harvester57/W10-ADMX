@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Specifica il timeout di sospensione del sistema (alimentazione da rete elettrica)</string>
       <string id="ACStandbyWithHiberfileEnable">Disattiva la sospensione ibrida (alimentazione da rete elettrica)</string>
       <string id="ACSystemLidAction">Seleziona l'azione associata al pulsante del coperchio (alimentazione da rete elettrica)</string>
+      <string id="ACConnectivityInStandby">Consenti la connettività di rete durante lo standby connesso (collegato alla rete elettrica)</string>
       <string id="BatteryDischargeAction0Explain">Questa impostazione dei criteri specifica l'azione intrapresa da Windows quando la capacità della batteria raggiunge il livello di notifica batteria quasi scarica.
 
 Se si abilita questa impostazione dei criteri, selezionare una delle azioni seguenti:
@@ -82,6 +83,7 @@ Se si disabilita o non si configura questa impostazione dei criteri, gli utenti 
       <string id="DCStandbyTimeOut">Specifica il timeout di sospensione del sistema (a batteria)</string>
       <string id="DCStandbyWithHiberfileEnable">Disattiva la sospensione ibrida (a batteria)</string>
       <string id="DCSystemLidAction">Seleziona l'azione associata al pulsante del coperchio (a batteria)</string>
+      <string id="DCConnectivityInStandby">Consenti la connettività di rete durante lo standby connesso (alimentato a batteria)</string>
       <string id="DiskACPowerDownTimeOut">Spegnimento del disco rigido (alimentazione da rete elettrica)</string>
       <string id="DiskDCPowerDownTimeOut">Spegnimento del disco rigido (a batteria)</string>
       <string id="DiskPowerDownTimeOutExplain">Questa impostazione dei criteri specifica il periodo di inattività prima che il disco rigido venga spento.
@@ -270,6 +272,23 @@ Se si abilita questa impostazione dei criteri, sarà necessario immettere un val
 
 Se si disabilita o non si configura questa impostazione dei criteri, gli utenti potranno visualizzare e modificare l'impostazione.</string>
     
+      <string id="EnergySaverSettingsCat">Impostazioni risparmio energia</string>
+      <string id="EsBattThresholdAC">Soglia batteria risparmio energia (collegato alla rete elettrica)</string>
+      <string id="EsBattThresholdDC">Soglia batteria risparmio energia (alimentato a batteria)</string>
+      <string id="EsBattThresholdExplain">Questa impostazione dei criteri consente di specificare il livello di carica della batteria per l'attivazione del risparmio energia.
+
+Se si abilita questa impostazione dei criteri, è necessario specificare un valore in percentuale per indicare il livello di carica della batteria. Il risparmio energia verrà attivato automaticamente al livello specificato (e al di sotto di esso).
+
+Se si disabilita o non si configura questa impostazione dei criteri, l'impostazione verrà controllata dagli utenti.</string>
+
+      <string id="ConnectivityInStandbyExplain">Questa impostazione dei criteri consente di controllare lo stato della connettività di rete in standby nei sistemi moderni che supportano lo standby connesso.
+
+Se si abilita questa impostazione dei criteri, la connettività di rete verrà mantenuta in standby.
+
+Se si disabilita questa impostazione dei criteri, la connettività di rete in standby non è garantita. Questa restrizione della connettività attualmente si applica solo alle reti WLAN ed è soggetta a modifiche.
+
+Se non si configura questa impostazione dei criteri, l'impostazione verrà controllata dagli utenti.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Se si disabilita o non si configura questa impostazione dei criteri, gli utenti 
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Livello di notifica batteria di riserva (percentuale):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Soglia batteria risparmio energia (percentuale):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -5,7 +5,7 @@
   <description>説明をここに入力する</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">Windows 10 以降または Windows Server 2016 Technical Preview 4 以降</string>
+      <string id="TS_SUPPORTED_Windows10">Windows 10 以降または Windows Server 2016 以降</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Windows 8 または Windows RT 以降</string>
       <string id="TS_SUPPORTED_Windows8_Server">Windows Server 2012 以降</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Windows 8 Enterprise 以降または Windows Server 2012 以降</string>
@@ -1171,6 +1171,18 @@ UDP 接続に成功しなかった場合、または [TCP のみを使用] を�
 
 このポリシー設定を無効にした場合、または構成しなかった場合、スタート画面が表示され、バックグラウンドでアプリが登録されます。</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">すべてのリモート デスクトップ サービス セッションにハードウェアの既定のグラフィックス アダプターを使用する</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">このポリシー設定を使用すると、システム管理者はリモート デスクトップ セッション ホスト (RD セッション ホスト) サーバー上のすべてのリモート デスクトップ サービス セッションのグラフィックス レンダリングを変更できます。
+
+このポリシー設定を有効にした場合、RD セッション ホスト サーバー上のすべてのリモート デスクトップ サービス セッションでは、Microsoft Basic レンダー ドライバーではなく、ハードウェアのグラフィックス レンダーが既定のアダプターとして使用されます。
+
+このポリシー設定を無効にした場合、RD セッション ホスト サーバー上のすべてのリモート デスクトップ サービス セッションでは、Microsoft Basic レンダー ドライバーが既定のアダプターとして使用されます。
+
+このポリシー設定を構成しなかった場合、RD セッション ホスト サーバー上のリモート デスクトップ サービス セッションでは、Microsoft Basic レンダー ドライバーが既定のアダプターとして使用されます。その他すべての場合、リモート デスクトップ サービス セッションではハードウェアのグラフィックス レンダーが既定のアダプターとして使用されます。
+
+注: ポリシー設定は、複数のグラフィックス処理ユニット (GPU) がインストールされているコンピューターの既定の GPU にのみ作用します。その他のすべての GPU は、セカンダリ アダプターと見なされ、ハードウェアのレンダラーとして使用されます。ローカル セッションの GPU 構成は、このポリシー設定の影響を受けません。
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">

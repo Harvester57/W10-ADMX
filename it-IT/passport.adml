@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Microsoft Passport for Work</displayName>
-  <description>Configurazione di Microsoft Passport for Work</description>
+  <displayName>Windows Hello per le aziende</displayName>
+  <description>Configurazione per Windows Hello per le aziende</description>
   <resources>
     <stringTable>
-        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkCategory">Windows Hello per le aziende</string>
         <string id="MSPassportForWorkPINComplexityCategory">Complessità PIN</string>
-        <string id="MSPassportForWorkRemoteCategory">Passport remoto</string>
-        <string id="MSPassport_UsePassportForWork">Usa Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkRemoteCategory">Accesso tramite telefono</string>
+        <string id="MSPassport_UsePassportForWork">Usa Windows Hello per le aziende</string>
         <!-- DropdownList Button strings -->
-        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport for Work è un metodo alternativo per accedere a Windows con l'account di Active Directory o di Azure Active Directory che può sostituire password, smart card e smart card virtuali.
+        <string id="MSPassport_UsePassportForWorkExplain">Windows Hello per le aziende è un metodo alternativo per accedere a Windows con l'account di Active Directory o di Azure Active Directory che può sostituire password, smart card e smart card virtuali.
 
-Se non si configura questa impostazione dei criteri, gli utenti possono eseguire il provisioning di Microsoft Passport for Work, che crittografa la loro password di dominio.
+Se si abilita questa impostazione dei criteri, il dispositivo esegue il provisioning di Windows Hello per le aziende tramite chiavi o certificati per tutti gli utenti.
 
-Se si abilita questa impostazione dei criteri, il dispositivo esegue il provisioning di Microsoft Passport for Work tramite chiavi o certificati per tutti gli utenti.
+Se si disabilita questa impostazione dei criteri, il dispositivo non esegue il provisioning di Windows Hello per le aziende per alcun utente.
 
-Se si disabilita questa impostazione dei criteri, il dispositivo non esegue il provisioning di Microsoft Passport for Work per alcun utente.
+Se non si configura questa impostazione dei criteri, gli utenti possono eseguire il provisioning di Windows Hello per le aziende, che crittografa la loro password di dominio.
         </string>
         <string id="MSPassport_RequireSecurityDevice">Usa un dispositivo di sicurezza hardware</string>
         <string id="MSPassport_RequireSecurityDeviceExplain">Un modulo TPM (Trusted Platform Module) offre vantaggi aggiuntivi a livello di sicurezza rispetto a una soluzione software, perché i dati in esso archiviati non possono essere usati in altri dispositivi.
 
-Se si abilita questa impostazione dei criteri, solo i dispositivi con un TPM utilizzabile possono eseguire il provisioning di Microsoft Passport for Work.
+Se si abilita questa impostazione dei criteri, solo i dispositivi con un TPM utilizzabile possono eseguire il provisioning di Windows Hello per le aziende.
 
-Se si disabilita o non si configura questa impostazione dei criteri, TPM è comunque preferito, ma tutti i dispositivi possono eseguire il provisioning di Microsoft Passport for Work tramite software se il modulo TPM non è funzionale o non è disponibile.
+Se si disabilita o non si configura questa impostazione dei criteri, il TPM è comunque preferito, ma tutti i dispositivi possono eseguire il provisioning di Windows Hello per le aziende tramite software se il TPM non è funzionale o non è disponibile.
         </string>
         <string id="MSPassport_MinimumPINLength">Lunghezza minima PIN</string>
         <string id="MSPassport_MinimumPINLengthExplain">Lunghezza minima PIN configura il numero minimo di caratteri necessari per il PIN. Il numero minimo configurabile per questa impostazione dei criteri è 4. Il numero massimo configurabile deve essere minore del numero configurato nell'impostazione dei criteri Lunghezza massima PIN oppure 127, a seconda di quello minore.
@@ -44,32 +44,32 @@ Se si disabilita o non si configura questa impostazione dei criteri, la lunghezz
 NOTA: se le condizioni sopra specificate per la lunghezza massima del PIN non vengono soddisfatte, verranno usati valori predefiniti sia per la lunghezza massima che per la lunghezza minima del PIN.
         </string>
         <string id="MSPassport_UppercaseLetters">Richiedi lettere maiuscole</string>
-        <string id="MSPassport_UppercaseLettersExplain">Usare questa impostazione dei criteri per configurare l'uso delle lettere maiuscole nel PIN di Microsoft Passport for Work.
+        <string id="MSPassport_UppercaseLettersExplain">Usa questa impostazione dei criteri per configurare l'uso delle lettere maiuscole nel PIN.
 
-Se si abilita questa impostazione dei criteri, Microsoft Passport for Work richiede agli utenti di includere almeno una lettera maiuscola nel PIN.
+Se si abilita questa impostazione dei criteri, Windows Hello per le aziende richiede agli utenti di includere almeno una lettera maiuscola nel PIN.
 
-Se si disabilita o non si configura questa impostazione dei criteri, Microsoft Passport for Work non consente agli utenti di usare lettere maiuscole nei PIN.
+Se si disabilita o non si configura questa impostazione dei criteri, Windows Hello per le aziende non consente agli utenti di usare lettere maiuscole nel PIN.
         </string>
         <string id="MSPassport_LowercaseLetters">Richiedi lettere minuscole</string>
-        <string id="MSPassport_LowercaseLettersExplain">Usare questa impostazione dei criteri per configurare l'uso delle lettere minuscole nel PIN di Microsoft Passport for Work.
+        <string id="MSPassport_LowercaseLettersExplain">Usa questa impostazione dei criteri per configurare l'uso delle lettere minuscole nel PIN.
 
-Se si abilita questa impostazione dei criteri, Microsoft Passport for Work richiede agli utenti di includere almeno una lettera minuscola nel PIN.
+Se si abilita questa impostazione dei criteri, Windows Hello per le aziende richiede agli utenti di includere almeno una lettera minuscola nel PIN.
 
-Se si disabilita o non si configura questa impostazione dei criteri, Microsoft Passport for Work non consente agli utenti di usare lettere minuscole nei PIN.
+Se si disabilita o non si configura questa impostazione dei criteri, Windows Hello per le aziende non consente agli utenti di usare lettere minuscole nel PIN.
         </string>
         <string id="MSPassport_SpecialCharacters">Richiedi caratteri speciali</string>
-        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Usare questa impostazione dei criteri per configurare l'uso dei caratteri speciali nel PIN di Microsoft Passport for Work. I caratteri speciali consentiti sono: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Usa questa impostazione dei criteri per configurare l'uso dei caratteri speciali nel PIN. I caratteri speciali consentiti sono: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
 
-Se si abilita questa impostazione dei criteri, Microsoft Passport for Work richiede agli utenti di includere almeno un carattere speciale nel PIN.
+Se si abilita questa impostazione dei criteri, Windows Hello per le aziende richiede agli utenti di includere almeno un carattere speciale nel PIN.
 
-Se si disabilita o non si configura questa impostazione dei criteri, Microsoft Passport for Work non consente agli utenti di usare caratteri speciali nei PIN.]]>
+Se si disabilita o non si configura questa impostazione dei criteri, Windows Hello per le aziende non consente agli utenti di usare caratteri speciali nei PIN.]]>
         </string>
         <string id="MSPassport_Digits">Richiedi numeri</string>
-        <string id="MSPassport_DigitsExplain">Usare questa impostazione dei criteri per configurare l'uso dei numeri nel PIN di Microsoft Passport for Work.
+        <string id="MSPassport_DigitsExplain">Usa questa impostazione dei criteri per configurare l'uso dei numeri nel PIN.
 
-Se si abilita o non si configura questa impostazione dei criteri, Microsoft Passport for Work richiede agli utenti di includere almeno un numero nel PIN.
+Se si abilita o non si configura questa impostazione dei criteri, Windows Hello per le aziende richiede agli utenti di includere almeno un numero nel PIN.
 
-Se si disabilita o non si configura questa impostazione dei criteri, Microsoft Passport for Work non consente agli utenti di usare numeri nei PIN.
+Se si disabilita questa impostazione dei criteri, Windows Hello per le aziende non consente agli utenti di usare numeri nel PIN.
         </string>
         <string id="MSPassport_PINHistory">Cronologia</string>
         <string id="MSPassport_PINHistoryExplain">Questa impostazione specifica il numero di PIN precedenti associati a un account utente che non possono essere riutilizzati. Questo criterio consente agli amministratori di migliorare la sicurezza garantendo che i PIN precedenti non vengano riutilizzati continuamente. La cronologia dei PIN non viene mantenuta in caso di reimpostazione dei PIN.
@@ -84,20 +84,20 @@ Valore predefinito: 0.
 Valore predefinito: 0.
         </string>
         <string id="MSPassport_UseBiometrics">Usa biometria</string>
-        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport for Work consente agli utenti di usare movimenti biometrici, come il volto e le impronte digitali, in alternativa al PIN. Gli utenti devono comunque configurare un PIN da usare in caso di errori.
+        <string id="MSPassport_UseBiometricsExplain">Windows Hello per le aziende consente agli utenti di usare movimenti biometrici, come il volto e le impronte digitali, in alternativa al PIN. Gli utenti devono comunque configurare un PIN da usare in caso di errori.
 
-Se si abilita o non si configura questa impostazione dei criteri, Microsoft Passport for Work consente l'uso di movimenti biometrici.
+Se si abilita o non si configura questa impostazione dei criteri, Windows Hello per le aziende consente l'uso di movimenti biometrici.
 
-Se si disabilita questa impostazione dei criteri, Microsoft Passport for Work impedisce l'uso di movimenti biometrici.
+Se si disabilita questa impostazione dei criteri, Windows Hello per le aziende impedisce l'uso di movimenti biometrici.
 
 NOTA: la disabilitazione di questo criterio impedisce l'uso dei movimenti biometrici nel dispositivo per tutti i tipi di account.
         </string>
-        <string id="MSPassport_UseRemote">Usa Passport remoto</string>
-        <string id="MSPassport_UseRemoteExplain">Usare questa impostazione dei criteri per configurare l'uso di Passport remoto. Con Passport remoto è possibile usare un dispositivo portatile registrato come dispositivo complementare per l'autenticazione del desktop. Per usare Passport remoto è necessario che il desktop sia aggiunto ad Azure Active Directory e che il dispositivo complementare disponga di un PIN di Passport for Work.
+        <string id="MSPassport_UseRemote">Usa l'accesso tramite telefono</string>
+        <string id="MSPassport_UseRemoteExplain">Usa questa impostazione dei criteri per configurare l'uso dell'accesso tramite telefono. L'accesso tramite telefono offre la possibilità di usare un telefono come dispositivo complementare per l'autenticazione del desktop. L'accesso tramite telefono richiede che sia il PC che il telefono siano registrati con lo stesso tenant Azure AD. Il telefono deve inoltre essere registrato in Windows Hello per le aziende.
 
-Se si abilita questa impostazione dei criteri, Passport remoto sarà abilitato e sarà possibile usare un dispositivo portatile registrato come dispositivo complementare per l'autenticazione del desktop.
+Se si abilita questa impostazione dei criteri, l'accesso tramite telefono sarà abilitato e sarà possibile usare un telefono come dispositivo complementare per l'autenticazione del desktop.
 
-Se si disabilita o non si configura questa impostazione dei criteri, Passport remoto sarà disabilitato e non sarà possibile usare un dispositivo portatile registrato come dispositivo complementare per l'autenticazione del desktop.
+Se si disabilita o non si configura questa impostazione dei criteri, l'accesso tramite telefono sarà disabilitato e non sarà possibile usare un telefono come dispositivo complementare per l'autenticazione del desktop.
         </string>
     </stringTable>
     <presentationTable>

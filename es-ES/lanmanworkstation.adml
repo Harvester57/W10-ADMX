@@ -36,6 +36,28 @@ Si deshabilitas esta configuración de directiva, el cliente SMB rechazará los 
 
 Los servidores de archivos usan los inicios de sesión de invitado no seguros para permitir el acceso no autenticado a las carpetas compartidas. Aunque no son habituales en un entorno empresarial, los inicios de sesión de invitado no seguros se usan a menudo por dispositivos de Almacenamiento conectado a la red (NAS) de consumidor que actúan como servidores de archivos. Los servidores de archivos de Windows requieren autenticación y no usa inicios de sesión de invitado no seguros de forma predeterminada. Dado que no se autentican los inicios de sesión de invitado no seguros, hay importantes características de seguridad, como la firma SMB y el cifrado de SMB, deshabilitadas. Como resultado, los clientes que permiten los inicios de sesión de invitado no seguros son vulnerables a diversos ataques de tipo " Man-in-the-middle" que pueden provocar la pérdida de datos, daños en los datos y la exposición al malware. Además, los datos escritos en un servidor de archivos mediante un inicio de sesión de invitado no seguro son potencialmente accesibles para todos los usuarios de la red. Microsoft recomienda deshabilitar los inicios de sesión de invitado no seguros y configurar los servidores de archivos para requerir acceso autenticado."
       </string>
+
+      <string id="Pol_EnableCSCforCAShares_Name">Disponibilidad de archivos sin conexión en recursos compartidos de disponibilidad continua</string>
+      <string id="Pol_EnableCSCforCAShares_Help">
+        Esta configuración de directiva determina el comportamiento de la característica Archivos sin conexión en los clientes que se conectan a un recurso compartido de SMB en el que la marca de disponibilidad continua (CA) está habilitada.
+
+        Si habilitas esta configuración de directiva, la opción "Siempre disponible sin conexión" aparecerá en el menú Explorador de archivos de un equipo Windows al conectarte a un recurso compartido con CA habilitada. El anclaje de archivos a recursos compartidos con CA habilitada mediante el uso del almacenamiento en caché del lado cliente también es posible.
+
+        Si deshabilitas o no estableces esta configuración de directiva, Windows impedirá el uso de Archivos sin conexión con recursos compartido con CA habilitada.
+
+        Nota: Microsoft no recomienda habilitar esta directiva de grupo. El uso de CA con Archivos sin conexión dará lugar a tiempos de transición muy prolongados entre los estados en línea y sin conexión.
+      </string>
+
+      <string id="Pol_EnableHandleCachingForCAFiles_Name">Almacenamiento en caché de controladores en recursos compartidos de disponibilidad continua</string>
+      <string id="Pol_EnableHandleCachingForCAFiles_Help">
+        Esta configuración de directiva determina el comportamiento del almacenamiento en caché de controladores de SMB para los clientes que se conectan a un recurso compartido de SMB en el que la marca de disponibilidad continua (CA) está habilitada.
+
+        Si habilitas esta configuración de directiva, el cliente de SMB permitirá controladores almacenados en caché para los archivos que se encuentren en recursos compartidos de CA. Esto puede generar un mejor rendimiento cuando se accede repetidamente a un gran número de archivos de datos no estructurados en los recursos compartidos de CA que se ejecutan en archivos de Microsoft Azure.
+
+        Si deshabilitas o no estableces esta configuración de directiva, Windows impedirá el uso de controladores en caché para archivos abiertos a través de recursos compartidos de CA.
+
+        Nota: Esta directiva no tiene efecto al conectarse a recursos compartidos de servidor de archivos de escalabilidad horizontal proporcionados por un servidor de Windows Server. Microsoft no recomienda habilitar esta directiva para los clientes que suelen conectarse a archivos hospedados en un clúster de conmutación por error de Windows con el servidor de archivos para el rol de uso general, ya que puede dar lugar periodos de conmutación por error negativa y un mayor uso de la memoria y la CPU.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_CipherSuiteOrder">

@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Αποκλεισμός μη αξιόπιστων γραμματοσειρών και καταγραφή συμβάντων</string>
       <string id="FontMitigation_Off">Να μην αποκλείονται οι μη αξιόπιστες γραμματοσειρές</string>
       <string id="FontMitigation_Audit">Να γίνεται καταγραφή συμβάντων χωρίς τον αποκλεισμό μη αξιόπιστων γραμματοσειρών</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Επεξεργασία επιλογών άμβλυνσης</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Αυτή η δυνατότητα ασφάλειας παρέχει έναν τρόπο παράκαμψης μεμονωμένων ρυθμίσεων MitigationOptions. Αυτό μπορεί να χρησιμοποιηθεί για την επιβολή μιας σειράς πολιτικών ασφαλείας για συγκεκριμένες εφαρμογές. Το όνομα εφαρμογής καθορίζεται ως όνομα τιμής, συμπεριλαμβανομένης της επέκτασης. Η τιμή καθορίζεται ως πεδίο bit με μια σειρά από σημαίες σε συγκεκριμένες θέσεις. Τα bit μπορούν να οριστούν σε 0 (επιβολή απενεργοποίησης ρύθμισης), 1 (επιβολή ενεργοποίησης ρύθμισης) ή ? (η ρύθμιση διατηρεί την υπάρχουσα τιμή της πριν από την αξιολόγηση GPO). Οι αναγνωρισμένες θέσεις bit είναι:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Ενεργοποιεί την αποτροπή εκτέλεσης δεδομένων (DEP) για τη θυγατρική διεργασία
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Ενεργοποιεί την προσομοίωση μετατροπής διευθύνσεων από 16 bit σε 32 bit και αντίστροφα DEP-ATL για τη θυγατρική διεργασία. Η προσομοίωση μετατροπής διευθύνσεων από 16 bit σε 32 bit και αντίστροφα DEP-ATL προκαλεί την ανάσχεση σφαλμάτων NX από το σύστημα τα οποία προέρχονται από το επίπεδο μετατροπής διευθύνσεων από 16 bit σε 32 bit και αντίστροφα της βιβλιοθήκης ενεργών προτύπων (ATL). 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Ενεργοποιεί την προστασία αντικατάστασης δομημένου χειρισμού εξαιρέσεων (SEHOP) για τη θυγατρική διεργασία. Το SEHOP αποκλείει ευπάθειες που χρησιμοποιούν την τεχνική αντικατάστασης δομημένου χειρισμού εξαιρέσεων (SEH).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Η πολιτική επιβολής τυχαίας ρύθμισης διάταξης χώρου διευθύνσεων (ASLR) επαναλαμβάνει υποχρεωτικά την αντιστοίχιση ειδώλων που δεν είναι συμβατά με δυναμική βάση, ενεργώντας σαν να συνέβη διένεξη βάσεων ειδώλων κατά τη στιγμή της φόρτωσης. Αν απαιτούνται μετατοπίσεις, τα είδωλα που δεν διαθέτουν τμήμα μετατόπισης βάσης δεν θα φορτώνονται.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Η πολιτική τυχαίας ρύθμισης από τη βάση, η οποία περιλαμβάνει επιλογές τυχαίας ρύθμισης στοίβας, προκαλεί τη χρήση μιας τυχαίας θέσης ως κατώτατης διεύθυνσης χρήστη.
+
+        Για παράδειγμα, για να ενεργοποιήσετε τα PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE και PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, απενεργοποιήστε το PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF και, για να αφήσετε όλες τις άλλες επιλογές στις προεπιλεγμένες τιμές τους, καθορίστε τιμή:
+        ???????????????0???????1???????1
+
+        Η ρύθμιση σημαιών που δεν καθορίζονται εδώ σε οποιαδήποτε διαφορετική τιμή από ? έχει ως αποτέλεσμα μη καθορισμένη συμπεριφορά.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Ενεργοποίηση συγχρονισμού ελεγκτή τομέα AD/DFS κατά την ανανέωση πολιτικής</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Η ενεργοποίηση αυτής της ρύθμισης πολιτικής θα έχει ως αποτέλεσμα το πρόγραμμα-πελάτης της πολιτικής ομάδας να συνδέεται στον ίδιο ελεγκτή τομέα για κοινόχρηστα στοιχεία DFS με αυτόν που χρησιμοποιείται για την υπηρεσία καταλόγου Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Γραμματοσειρές</string>
+      <string id="EnableFontProviders">Ενεργοποίηση υπηρεσιών παροχής γραμματοσειρών</string>
+      <string id="EnableFontProviders_Help">
+        Αυτή η ρύθμιση πολιτικής καθορίζει αν επιτρέπεται στα Windows η λήψη γραμματοσειρών και δεδομένων καταλόγου γραμματοσειρών από μια ηλεκτρονική υπηρεσία παροχής γραμματοσειρών.
+        
+        Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τα Windows υποβάλλουν περιοδικά ερωτήματα σε μια ηλεκτρονική υπηρεσία παροχής γραμματοσειρών, για να προσδιορίσουν αν είναι διαθέσιμος νέος κατάλογος γραμματοσειρών. Τα Windows μπορεί επίσης να κάνουν λήψη δεδομένων γραμματοσειρών, αν χρειάζονται για τη μορφοποίηση ή την απόδοση κειμένου.
+        
+        Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τα Windows δεν συνδέονται με ηλεκτρονική υπηρεσία παροχής γραμματοσειρών και απαριθμούν μόνο γραμματοσειρές που έχουν εγκατασταθεί τοπικά.
+      
+        Αν δεν ρυθμίσετε τις παραμέτρους αυτής της ρύθμισης πολιτικής, η προεπιλεγμένη συμπεριφορά εξαρτάται από την έκδοση των Windows. Οι αλλαγές σε αυτήν την πολιτική τίθενται σε ισχύ κατά την επανεκκίνηση.
+      </string>
       <string id="EnableLogonOptimization">Ρύθμιση παραμέτρων προσωρινής αποθήκευσης πολιτικής ομάδας</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -368,7 +415,7 @@
 
 Αυτή η πολιτική εμφανίζεται στους φακέλους "Ρυθμίσεις υπολογιστή" και "Ρυθμίσεις χρήστη". Η ρύθμιση στο φάκελο "Ρυθμίσεις υπολογιστή" ορίζει μία αργή σύνδεση για τις πολιτικές του φακέλου "Ρυθμίσεις υπολογιστή". Η ρύθμιση στο φάκελο "Ρυθμίσεις χρήστη" ορίζει μια αργή σύνδεση για τις ρυθμίσεις του φακέλου "Ρυθμίσεις χρήστη".
 
-Επίσης, ανατρέξτε στην πολιτική "Χωρίς εντοπισμό αργών συνδέσεων δικτύου" και σε σχετικές πολιτικές στη διαδρομή Ρυθμίσεις υπολογιστή\Πρότυπα διαχείρισης\Σύστημα\Προφίλ χρήστη. Σημείωση: Αν ο διακομιστής προφίλ έχει σύνδεση IP, θα χρησιμοποιηθεί η ρύθμιση ταχύτητας σύνδεσης. Αν ο διακομιστής προφίλ δεν έχει σύνδεση IP, θα χρησιμοποιηθεί ο χρονισμός SMB.</string>
+Επίσης, ανατρέξτε στην πολιτική "Χωρίς εντοπισμό αργών συνδέσεων δικτύου" και σε σχετικές πολιτικές στη διαδρομή Ρυθμίσεις υπολογιστή\Πρότυπα διαχείρισης\Σύστημα\Προφίλ χρήστη. Σημείωση: Αν ο διακομιστής προφίλ έχει συνδεσιμότητα IP, θα χρησιμοποιηθεί η ρύθμιση ταχύτητας σύνδεσης. Αν ο διακομιστής προφίλ δεν έχει συνδεσιμότητα IP, θα χρησιμοποιηθεί ο χρονισμός SMB.</string>
       <string id="GroupPolicyRefreshRate">Ορισμός διαστήματος ανανέωσης της πολιτικής ομάδας για υπολογιστές</string>
       <string id="GroupPolicyRefreshRate_Help">Αυτή η ρύθμιση πολιτικής καθορίζει τη συχνότητα με την οποία ενημερώνεται η πολιτική ομάδας για υπολογιστές ενώ ο υπολογιστής βρίσκεται σε χρήση (στο παρασκήνιο). Αυτή η ρύθμιση καθορίζει το ρυθμό ενημέρωσης παρασκηνίου μόνο για πολιτικές ομάδας στο φάκελο "Ρυθμίσεις υπολογιστή".
 
@@ -490,6 +537,12 @@
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Επιλογές μετριασμού</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Επεξεργασία επιλογών άμβλυνσης</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Θα πρέπει να επιτρέπεται στην Υπηρεσία προσωρινής αποθήκευσης γραμματοσειρών των Windows η λήψη γραμματοσειρών και δεδομένων καταλόγου γραμματοσειρών από ηλεκτρονικές υπηρεσίες παροχής γραμματοσειρών.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Τιμή αργής σύνδεσης: [αριθμητικό πεδίο] χιλιοστά του δευτερολέπτου</decimalTextBox>

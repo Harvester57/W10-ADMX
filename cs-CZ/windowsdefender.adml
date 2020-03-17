@@ -58,22 +58,36 @@ Pokud toto nastavení zakážete, budou ve výsledných platných zásadách pou
     Pokud toto nastavení zásad povolíte, Endpoint Protection nebude u zjištěných hrozeb provádět automaticky žádné akce, ale vyzve uživatele, aby zvolili jednu z akcí, které jsou k dispozici pro jednotlivé hrozby.
 
     Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Endpoint Protection bude provádět akci automaticky u všech zjištěných hrozeb po uplynutí nenakonfigurovatelné prodlevy v délce přibližně 5 sekund.
-    </string>
+    </string>      
     <string id="ProxyBypass">Definovat adresy pro vynechání proxy serveru</string>
     <string id="ProxyBypass_Explain">Pokud jsou tyto zásady definovány, zabrání antimalwaru používat při komunikaci se zadanými IP adresami nakonfigurovaný proxy server. Hodnota adresy by měla být zadána jako platná adresa URL.
 
 Pokud toto nastavení povolíte, nebude proxy server pro zadané adresy použit.
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete, bude proxy server pro zadané adresy použit.</string>
+    <string id="ProxyPacUrl">Definujte soubor pro automatickou konfiguraci proxy serveru (.pac) pro připojení k síti.</string>
+    <string id="ProxyPacUrl_Explain">Nastavení této zásady definuje adresu URL souboru .pac proxy serveru, který se má použít v případě, že se klient pokusí připojit k síti a získat aktualizace definic a oznámení komunity MAPS. Pokud se automatická konfigurace nepovede nebo pokud není soubor pro automatickou konfiguraci proxy serveru zadaný, přejde klient k následujícím záložním alternativám (v uvedeném pořadí):
+      1. Proxy server (pokud je zadaný)
+      2. Adresa URL .pac proxy serveru (pokud je zadaná)
+      3. Žádný
+      4. Nastavení proxy serveru pro Internet Explorer
+      5. Automatické rozpoznávání
+
+      Pokud toto nastavení povolíte, nastaví se proxy server na použití zadaného souboru .pac podle výše uvedeného pořadí.
+
+      Pokud toto nastavení zakážete nebo nenakonfigurujete, proxy server přeskočí tento krok pro nalezení zálohy podle výše uvedeného pořadí.</string>
     <string id="ProxyServer">Definovat proxy server pro připojení k síti</string>
-    <string id="ProxyServer_Explain">Toto nastavení zásad umožňuje nakonfigurovat pojmenovaný proxy server, který by měl být použit v případě, že se klient pokusí připojit k síti a získat aktualizace definic a oznámení komunity MAPS. Pokud dojde na pojmenovaném proxy serveru k chybě nebo pokud není zadán žádný proxy server, bude použito následující nastavení (v uvedeném pořadí):
-1. Nastavení proxy serveru aplikace Internet Explorer
-2. Automatické rozpoznávání
-3. Žádný
+    <string id="ProxyServer_Explain">Nastavení této zásady umožňuje nakonfigurovat pojmenovaný proxy server, který by se měl použít v případě, že se klient pokusí připojit k síti a získat aktualizace definic a oznámení komunity MAPS. Pokud na pojmenovaném proxy serveru dojde k chybě nebo pokud není zadaný žádný proxy server, přejde klient k následujícím záložním alternativám (v uvedeném pořadí):
+      1. Proxy server (pokud je zadaný)
+      2. Adresa URL .pac proxy serveru (pokud je zadaná)
+      3. Žádný
+      4. Nastavení proxy serveru pro Internet Explorer
+      5. Automatické rozpoznávání
 
-Pokud toto nastavení povolíte, bude pro proxy server nastavena zadaná adresa URL.
+     Pokud toto nastavení povolíte, nastaví se proxy server na zadanou adresu URL podle výše uvedeného pořadí. Adresa URL by měla začínat na http:// nebo https://.
 
-Pokud toto nastavení zakážete nebo nenakonfigurujete, bude proxy server nastaven podle výše uvedeného pořadí.</string>
+     Pokud toto nastavení zakážete nebo nenakonfigurujete, proxy server přeskočí tento krok pro nalezení zálohy podle výše uvedeného pořadí.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Nastavit náhodný čas plánovaných úloh</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Toto nastavení zásad umožňuje povolit nebo zakázat náhodný čas spuštění plánovaných kontrol a plánovaných aktualizací definic. Účelem tohoto nastavení je distribuovat dopad kontrol na prostředky. Jeho použitím lze například zabránit tomu, aby v případě, že hostované virtuální počítače sdílejí hostitele, provádělo více hostovaných virtuálních počítačů operace náročné na disk ve stejnou dobu.
 
@@ -104,20 +118,6 @@ Pokud toto nastavení zásad zakážete, bude rozpoznávání protokolu vypnuto.
 Pokud toto nastavení povolíte nebo nenakonfigurujete, bude vyřazení definic zapnuto.
 
 Pokud toto nastavení zakážete, bude vyřazení definic vypnuto.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definovat frekvenci událostí detekce pro protokolování</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Toto nastavení zásad omezuje frekvenci, se kterou budou protokolovány události detekce pro ochranu sítě před zneužitím známých chyb zabezpečení. Protokolování bude omezeno maximálně na jednu událost na definovaný interval. Hodnota intervalu je definována v minutách. Výchozí interval je 60 minut.
-
-Pokud toto nastavení povolíte a během zadaného počtu minut bude existovat více podobných sestav (podle identifikátoru GUID definice), nebudou události detekce protokolovány.
-
-Pokud toto nastavení zakážete nebo nenakonfigurujete, budou události detekce protokolovány s výchozí frekvencí.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Vyloučení rozsahu IP adres</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Pokud jsou tyto zásady definovány, budou ochraně sítě před zneužitím známých chyb zabezpečení bránit v kontrole zadaných IP adres. IP adresy by měly být přidány v části Možnosti pro toto nastavení. Každou položku je třeba uvést jako dvojici názvu a hodnoty, kde název by měl být řetězec představující rozsah IP adres. Rozsah je možné definovat například jako 157.1.45.123–60.1.1.1. Hodnota se nepoužívá a doporučujeme ji nastavit na 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Vyloučení čísel portů</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Toto nastavení zásad definuje seznam čísel portů TCP, ze kterých bude zakázána kontrola přenosů v síti. Čísla portů by měla být přidána v části Možnosti pro toto nastavení. Každou položku je třeba uvést jako dvojici názvu a hodnoty, kde název by měl být řetězec představující číslo portu TCP. Rozsah je možné definovat například jako 8080. Hodnota se nepoužívá a doporučujeme ji nastavit na 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Vyloučení procesů pro odchozí přenosy</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Toto nastavení zásad definuje procesy, ze kterých nebudou kontrolovány odchozí přenosy v síti.  Názvy procesů by měly být přidány v části Možnosti pro toto nastavení. Každou položku je třeba uvést jako dvojici názvu a hodnoty, kde název by měl být řetězec představující cestu k procesu a jeho název. Proces je například možné definovat jako C:\Windows\System32\App.exe. Hodnota se nepoužívá a doporučujeme ji nastavit na 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Vyloučení ID hrozeb</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Toto nastavení zásad definuje hrozby, které budou vyloučeny z detekce během kontroly přenosů v síti. Hrozby by měly být přidány v části Možnosti pro toto nastavení. Každou položku je třeba uvést jako dvojici názvu a hodnoty, kde název by měl být řetězec představující ID hrozby. ID hrozby je možné definovat například jako 2925110632. Hodnota se nepoužívá a doporučujeme ji nastavit na 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Zadat další sady definic pro kontrolu přenosů v síti</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Toto nastavení zásad definuje další sady definic, které mají být povoleny pro kontrolu přenosů v síti. Identifikátory GUID sad definic by měly být přidány v části Možnosti pro toto nastavení. Každou položku je třeba uvést jako dvojici názvu a hodnoty, kde název by měl být řetězec představující identifikátor GUID sady definic. Identifikátor GUID sady definic pro povolení definic testů je definován například jako {b54b6ac9-a737-498e-9120-6616ad3bf590}. Hodnota se nepoužívá a doporučujeme ji nastavit na 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurovat přepsání místního nastavení pro odebrání položek ze složky Karanténa</string>
@@ -138,18 +138,6 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, zůstanou položky ve s
 Pokud toto nastavení povolíte nebo nenakonfigurujete, bude monitorování chování zapnuto.
 
 Pokud toto nastavení zakážete, bude monitorování chování vypnuto.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Zapnout funkci kontroly a ochrany informací</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Toto nastavení zásad umožňuje nakonfigurovat funkci kontroly a ochrany informací.
-
-Pokud toto nastavení povolíte, bude funkce kontroly a ochrany informací zapnuta.
-
-Pokud toto nastavení zakážete nebo nenakonfigurujete, bude funkce kontroly a ochrany informací vypnuta.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Zapnout ochranu sítě před zneužitím známých chyb zabezpečení</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Toto nastavení zásad umožňuje nakonfigurovat ochranu sítě před zneužitím známých chyb zabezpečení.
-
-Pokud toto nastavení povolíte nebo nenakonfigurujete, bude ochrana sítě zapnuta.
-
-Pokud toto nastavení zakážete, bude ochrana sítě vypnuta.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Kontrolovat všechny stažené soubory a přílohy</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Toto nastavení zásad umožňuje nakonfigurovat kontrolu všech stažených souborů a příloh.
 
@@ -205,12 +193,6 @@ Pokud toto nastavení povolíte, bude mít nastavení místní předvolby předn
 Pokud toto nastavení zakážete nebo nenakonfigurujete, budou mít zásady skupiny přednost před nastavením místní předvolby.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Konfigurovat přepsání místního nastavení pro monitorování aktivity souborů a programů v tomto počítači</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Toto nastavení zásad konfiguruje místní přepsání konfigurace monitorování aktivity souborů a programů v počítači. Toto nastavení lze nastavit pouze prostřednictvím zásad skupiny.
-
-Pokud toto nastavení povolíte, bude mít nastavení místní předvolby přednost před zásadami skupiny.
-
-Pokud toto nastavení zakážete nebo nenakonfigurujete, budou mít zásady skupiny přednost před nastavením místní předvolby.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Konfigurovat přepsání místního nastavení pro vypnutí systému ochrany před neoprávněným vniknutím</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Toto nastavení zásad konfiguruje místní přepsání konfigurace ochrany sítě před zneužitím známých chyb zabezpečení. Toto nastavení lze nastavit pouze prostřednictvím zásad skupiny.
 
 Pokud toto nastavení povolíte, bude mít nastavení místní předvolby přednost před zásadami skupiny.
 
@@ -633,6 +615,16 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, bude kontrola aktualiza
 Pokud toto nastavení povolíte, kontrola nových definic se uskuteční po spuštění služby.
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete, kontrola nových definic neproběhne po spuštění služby.</string>
+    <string id="DisableBlockAtFirstSeen">Konfigurovat funkci Blokovat při prvním zobrazení</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Tato funkce zajišťuje kontroly zařízení v reálném čase pomocí služby Microsoft Active Protection Service (MAPS) před povolením spuštění určitého obsahu nebo přístupu k němu. Pokud je tato funkce zakázaná, kontrola neproběhne, což znamená snížení stavu ochrany zařízení.
+	Povoleno – Nastavení Blokovat při prvním zobrazení je zapnuté.
+	Zakázáno – Nastavení Blokovat při prvním zobrazení je vypnuté.
+	
+	Tato funkce vyžaduje, aby následující zásady skupiny byly nastavené takto:
+	MAPS -&gt; Možnost Připojit se ke komunitě Microsoft MAPS musí být povolená, jinak funkce Blokovat při prvním zobrazení nebude fungovat.
+	MAPS -&gt; Možnost „Posílat vzorky souborů, pokud se vyžaduje další analýza“ by měla být nastavená na 1 (Posílat bezpečné vzorky) nebo 3 (Posílat všechny vzorky). Nastavení na 0 (Vždycky se zeptat) znamená snížení stavu ochrany zařízení. Nastavení na 2 (Nikdy neposílat) znamená, že funkce Blokovat při prvním zobrazení nebude fungovat.
+	Ochrana v reálném čase -&gt; Zásada Kontrolovat všechny stažené soubory a přílohy musí být povolená, jinak funkce Blokovat při prvním zobrazení nebude fungovat.
+	Ochrana v reálném čase -&gt; Nepovolujte zásadu Vypnout ochranu v reálném čase, jinak funkce Blokovat při prvním zobrazení nebude fungovat.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurovat přepsání místního nastavení pro hlášení komunitě Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Toto nastavení zásad konfiguruje místní přepsání konfigurace pro připojení ke komunitě Microsoft MAPS. Toto nastavení lze nastavit pouze prostřednictvím zásad skupiny.
 
@@ -641,13 +633,13 @@ Pokud toto nastavení povolíte, bude mít nastavení místní předvolby předn
 Pokud toto nastavení zakážete nebo nenakonfigurujete, budou mít zásady skupiny přednost před nastavením místní předvolby.</string>
     <string id="SubmitSamplesConsent">Posílat vzorky souborů, pokud se vyžaduje další analýza</string>
     <string id="SubmitSamplesConsent_Explain">
-        Toto nastavení zásad konfiguruje chování odesílání vzorků, pokud je vyjádřen výslovný souhlas pro telemetrii služby MAPS.
+        Nastavení této zásady konfiguruje chování odesílání vzorků, pokud je vyjádřen výslovný souhlas pro telemetrii služby MAPS.
 
         Dostupné možnosti:
         (0x0) Vždycky se zeptat
         (0x1) Posílat bezpečné vzorky automaticky
         (0x2) Nikdy neposílat
-        (0x2) Posílat všechny vzorky automaticky
+        (0x3) Posílat všechny vzorky automaticky
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Vždycky se zeptat</string>
@@ -656,22 +648,24 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, budou mít zásady skup
     <string id="SubmitSamplesConsent_Send_All">Posílat všechny vzorky</string>
 
     <string id="SpynetReporting">Připojit se ke komunitě Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Toto nastavení zásad umožňuje připojení ke komunitě Microsoft MAPS. Microsoft MAPS je online komunita, která poskytuje pomoc při výběru reakce na potenciální hrozby. Tato komunita rovněž pomáhá zastavit šíření nových infekcí škodlivým softwarem.
+    <string id="SpynetReporting_Explain">Nastavení této zásady umožňuje připojení ke komunitě Microsoft MAPS. Microsoft MAPS je online komunita, která poskytuje pomoc při výběru reakce na potenciální hrozby. Tato komunita rovněž pomáhá zastavit šíření nových infekcí škodlivým softwarem.
 
-Můžete si vybrat, zda o zjištěném softwaru zašlete základní nebo dodatečné informace. Na základě dodatečných informací může společnost Microsoft vytvářet nové definice umožňující lépe chránit váš počítač. Tyto informace mohou obsahovat například umístění zjištěných položek ve vašem počítači, pokud byl odebrán škodlivý software. Informace budou automaticky shromážděny a odeslány. V některých případech mohou být do společnosti Microsoft neúmyslně odesílány osobní údaje. Společnost Microsoft však tyto informace nebude používat k tomu, aby vás identifikovala nebo kontaktovala.
+    Můžete si vybrat, jestli o zjištěném softwaru zašlete základní, nebo i dodatečné informace. Na základě dodatečných informací může Microsoft vytvářet nové definice umožňující lépe chránit váš počítač. Tyto informace můžou zahrnovat například umístění zjištěných položek ve vašem počítači, pokud byl odebrán škodlivý software. Informace se budou shromažďovat a odesílat automaticky. V některých případech se můžou do Microsoftu neúmyslně odeslat osobní údaje. Microsoft ale tyto informace nebude používat k tomu, aby vás identifikoval nebo kontaktoval.
 
-Mezi možné volby patří:
-(0x0) Zakázáno (výchozí)
-(0x1) Základní členství
-(0x2) Pokročilé členství
+    Mezi možné volby patří:
+    (0x0) Zakázáno (výchozí)
+    (0x1) Základní členství
+    (0x2) Pokročilé členství
 
-V případě základního členství budou společnosti Microsoft odesílány základní informace o nalezeném softwaru včetně původu tohoto softwaru, akcí, které provedete nebo které jsou provedeny automaticky, a úspěšnosti těchto akcí.
+    V případě základního členství se budou do Microsoftu odesílat základní informace o nalezeném softwaru včetně původu tohoto softwaru, akcí, které provedete nebo které se provedou automaticky, a úspěšnosti těchto akcí.
 
-V rámci pokročilého členství budou do společnosti Microsoft odesílány také další informace o škodlivém softwaru, spywaru a potenciálně nežádoucím softwaru včetně umístění softwaru, názvů souborů, způsobu práce softwaru a vlivu softwaru na váš počítač.
+    V rámci pokročilého členství se budou do Microsoftu odesílat taky další informace o škodlivém softwaru, spywaru a potenciálně nežádoucím softwaru včetně umístění softwaru, názvů souborů, způsobu fungování softwaru a vlivu softwaru na váš počítač.
 
-Pokud toto nastavení povolíte, připojíte se ke komunitě Microsoft MAPS se zadaným členstvím.
+    Pokud toto nastavení povolíte, připojíte se ke komunitě Microsoft MAPS na základě určeného členství.
 
-Pokud toto nastavení zakážete nebo nenakonfigurujete, ke komunitě Microsoft MAPS se nepřipojíte.</string>
+    Pokud toto nastavení zakážete nebo nenakonfigurujete, ke komunitě Microsoft MAPS se nepřipojíte.
+  
+    Ve Windows 10 už základní členství není k dispozici, takže při nastavení hodnoty 1 nebo 2 se zařízení zaregistruje do pokročilého členství.</string>
     <string id="SpynetReporting_Disabled">Zakázáno</string>
     <string id="SpynetReporting_Basic">Základní členství v komunitě MAPS</string>
     <string id="SpynetReporting_Advanced">Pokročilé členství v komunitě  MAPS</string>
@@ -706,16 +700,12 @@ Platné hodnoty nápravné akce jsou:
 
       Pokud toto nastavení povolíte, nebudou se v uživatelském rozhraní AM UI zobrazovat oznámení o restartování.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Zobrazit upozornění klientům, když je potřeba provést akce</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Toto nastavení zásad umožňuje konfigurovat, zda se mají klientům zobrazovat upozornění, když je třeba, aby provedli následující akce:
-Spustit úplnou kontrolu
-Stáhnout nejnovější definice virů a spywaru 
-Stáhnout nástroj Standalone System Sweeper
+    <string id="UX_Configuration_Notification_Suppress">Potlačit všechna oznámení</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Nastavením této zásady můžete určit, jestli se mají na klientech zobrazovat oznámení Windows Defenderu:
+      Pokud toto nastavení zakážete nebo nenakonfigurujete, na klientech se budou oznámení Windows Defenderu zobrazovat.
 
-
-Pokud toto nastavení zásady povolíte nebo nenakonfigurujete, klientům se zobrazí upozornění, když je třeba provést zadané akce.
-
-Pokud toto nastavení zakážete, klientům se nezobrazí upozornění, když je třeba provést zadané akce.</string>
+      Pokud toto nastavení povolíte, oznámení Windows Defenderu se na klientech zobrazovat nebudou.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Zobrazit klientům další text, když je potřeba provést akci</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Toto nastavení zásady umožňuje konfigurovat, zda se má klientům zobrazit další text, když je třeba, aby provedli akci. Zobrazený text je vlastní řetězec definovaný správcem. Jedná se například o telefonní číslo linky podpory společnosti. V rozhraní klienta se zobrazí maximálně 1 024 znaků. Delší řetězce budou před zobrazením zkráceny.
 
@@ -728,6 +718,11 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, žádný další text z
     <textBox refId="ProxyBypass">
         <label>Definovat adresy pro vynechání proxy serveru</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definujte soubor pro automatickou konfiguraci proxy serveru (.pac) pro připojení k síti.</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, žádný další text z
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Vyloučení procesů</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definovat frekvenci zjišťování událostí pro protokolování</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Vyloučení rozsahu IP adres</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Vyloučení čísel portů</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Vyloučení procesů pro odchozí přenosy</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Vyloučení ID hrozeb</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Zadat další sady definic pro kontrolu přenosu v síti</listBox>

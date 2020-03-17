@@ -155,18 +155,25 @@ TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen
 
 Diese Richtlinieneinstellung kann zusammen mit "Delegierung von gespeicherten Anmeldeinformationen zulassen" verwendet werden, um Ausnahmen für bestimmte Server festzulegen, die bei der Verwendung von Platzhaltern in der Serverliste von "Delegierung von gespeicherten Anmeldeinformationen zulassen" ansonsten zugelassen wären.</string>
       <string id="RestrictedRemoteAdministration">Delegierung von Anmeldeinformationen an Remoteserver einschränken</string>
-      <string id="RestrictedRemoteAdministration_Explain">Bei der Ausführung im eingeschränkten Modus machen teilnehmende Apps Anmeldeinformationen nicht für Remotecomputer verfügbar (unabhängig von der Delegierungsmethode). Im eingeschränkten Modus kann der Zugriff nicht nur auf den Zielcomputer, sondern auch auf Ressourcen auf anderen Servern oder in anderen Netzwerken beschränkt sein, da die Anmeldeinformationen nicht delegiert werden.
+      <string id="RestrictedRemoteAdministration_Explain">Bei der Ausführung im eingeschränkten Verwaltungsmodus, oder wenn das Gerät Remote Credential Guard verwendet, machen teilnehmende Apps Anmeldeinformationen (unabhängig von der Delegierungsmethode) nicht für Remotegeräte verfügbar. Im eingeschränkten Verwaltungsmodus kann der Zugriff nicht nur auf den Zielcomputer, sondern auch auf Ressourcen auf anderen Servern oder in anderen Netzwerken beschränkt sein, da die Anmeldeinformationen nicht delegiert werden. Remote Credential Guard beschränkt nicht den Zugriff auf Ressourcen, indem alle Anforderungen an das Clientgerät umgeleitet werden.
 
 Teilnehmende Apps:
 Remotedesktopclient
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, wird der eingeschränkte Modus erzwungen, und Anmeldeinformationen werden von teilnehmenden Apps nicht an Remotecomputer delegiert.
+Wenn Sie die Richtlinieneinstellung aktivieren, wird der eingeschränkte Verwaltungsmodus oder Remote Credential Guard erzwungen, und Anmeldeinformationen werden von teilnehmenden Apps nicht an Remotegeräte delegiert.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der eingeschränkte Modus nicht erzwungen, und teilnehmende Apps können Anmeldeinformationen an Remotecomputer delegieren.
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden der eingeschränkte Verwaltungsmodus und Remote Credential Guard nicht erzwungen, und teilnehmende Apps können Anmeldeinformationen an Remotegeräte delegieren.
 
-Hinweis: Zum Deaktivieren der Delegierung von Anmeldeinformationen reicht es möglicherweise aus, die Delegierung in CredSSP (Credential Security Support Provider) zu verweigern. Ändern Sie dazu die Einstellungen in der administrativen Vorlage (unter "Computerkonfiguration\Administrative Vorlagen\System\Delegierung von Anmeldeinformationen").</string>
+Hinweis: Zum Deaktivieren der Delegierung von Anmeldeinformationen reicht es möglicherweise aus, die Delegierung in CredSSP (Credential Security Support Provider) zu verweigern. Ändern Sie dazu die Einstellungen in der administrativen Vorlage (unter "Computerkonfiguration\Administrative Vorlagen\System\Delegierung von Anmeldeinformationen").
+
+Hinweis: Unter Windows 8.1 und Windows Server 2012 R2 wird durch das Aktivieren der Richtlinie der eingeschränkte Verwaltungsmodus (unabhängig vom ausgewählten Modus) erzwungen. Remote Credential Guard wird von diesen Versionen nicht unterstützt.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Remote Credential Guard bevorzugen</string>
+      <string id="RequireRemoteCredentialGuard">Remote Credential Guard anfordern</string>
+      <string id="RequireRestrictedAdmin">Eingeschränkte Verwaltung anfordern</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Server zur Liste hinzufügen:</listBox>
@@ -203,6 +210,9 @@ Hinweis: Zum Deaktivieren der Delegierung von Anmeldeinformationen reicht es mö
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Server zur Liste hinzufügen:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Verwenden Sie den folgenden eingeschränkten Modus:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

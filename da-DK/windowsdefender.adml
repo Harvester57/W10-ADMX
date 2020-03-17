@@ -58,22 +58,36 @@ Hvis du deaktiverer denne politikindstilling, bruges kun elementer, der er defin
     Hvis du aktiverer denne politikindstilling, vil Endpoint Protection ikke automatisk reagere over for de fundne trusler, men i stedet bede brugeren vælge ud fra de handlinger, der er mulige for den enkelte trussel.
 
     Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vil Endpoint Protection automatisk reagere over for alle de fundne trusler efter ca. 10 minutter (længden af perioden kan ikke tilpasses).
-    </string>
+    </string>      
     <string id="ProxyBypass">Definer adresser for at undlade at bruge proxyserver</string>
     <string id="ProxyBypass_Explain">Hvis denne politikindstilling er defineret, forhindrer den, at antimalware bruger den konfigurerede proxyserver under kommunikation med de angivne IP-adresser. Adresseværdien skal angives som en gyldig URL-adresse.
 
 Hvis du aktiverer denne politikindstilling, bruges proxyserveren ikke til de angivne adresser.
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, bruges proxyserveren til de angivne adresser.</string>
+    <string id="ProxyPacUrl">Angiv automatisk proxykonfiguration (.pac) for forbindelse til netværket</string>
+    <string id="ProxyPacUrl_Explain">Denne politikindstilling definerer URL-adressen for en proxy . pac-fil, der skal bruges, når klienten forsøger at oprette forbindelse til netværket for definitionsopdateringer og MAPS-rapportering. Hvis den automatiske proxykonfiguration mislykkes, bruger klienten de alternative indstillinger i stedet (i rækkefølge):
+      1. Proxyserver (hvis den er angivet)
+      2. URL-adresse for proxy .pac-fil (hvis den er angivet)
+      3. Ingen
+      4. Internet Explorer-proxyindstillinger
+      5. Automatisk genkendelse
+
+      Hvis du aktiverer denne indstilling, bliver proxyindstillingen angivet til at bruge den angivne proxy .pac i ovenstående rækkefølge.
+
+      Hvis du deaktiverer eller ikke konfigurerer denne indstilling, springer proxyen over dette sikkerhedstrin i den rækkefølge, der er angivet ovenfor.</string>
     <string id="ProxyServer">Definer proxyserver for at oprette forbindelse til netværket</string>
     <string id="ProxyServer_Explain">Med denne politikindstilling kan du konfigurere den nævnte proxyserver, som skal bruges, når klienten forsøger at oprette forbindelse til netværket for definitionsopdateringer og MAPS-rapportering. Hvis den nævnte proxy ikke kan bruges, eller hvis der ikke er angivet en proxy, bruges følgende indstillinger (i nævnte rækkefølge):
-1. Internet Explorer-proxyindstillinger
-2. Automatisk søgning
-3. Ingen
+      1. Proxyserver (hvis den er angivet)
+      2. Proxy .pac URL-adresse (hvis den er angivet)
+      3. Ingen
+      4. Internet Explorer-proxyindstillinger
+      5. Automatisk genkendelse
 
-Hvis du aktiverer denne politikindstilling, indstilles proxyserveren til den angivne URL-adresse.
+      Hvis du aktiverer denne indstilling, indstilles proxyserveren til den angivne URL-adresse i den rækkefølge, der er angivet ovenfor. URL-adressen skal begynde med enten http:// eller https://.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, indstilles proxyen i den rækkefølge, der er angivet ovenfor.</string>
+      Hvis du deaktiverer eller ikke konfigurerer denne indstilling, springer proxyen dette sikkerhedstrin over i den rækkefølge, der er angivet ovenfor.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Tilfældige tidspunkter for planlagte opgaver</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Med denne politikindstilling kan du aktivere eller deaktivere et tilfældigt starttidspunkt for den planlagte scanning og den planlagte definitionsopdatering. Denne politikindstilling bruges til at distribuere ressourcepåvirkningen af scanningen. Den kan f.eks. bruges i virtuelle gæstemaskiner, som deler en vært, til at forhindre, at flere virtuelle gæstemaskiner starter en diskintensiv handling samtidig.
 
@@ -104,20 +118,6 @@ Hvis du deaktiverer denne politikindstilling, deaktiveres protokolgenkendelse.</
 Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, aktiveres definitionstilbagetrækning.
 
 Hvis du deaktiverer denne politikindstilling, deaktiveres definitionstilbagetrækning.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definer registreringshastigheden for hændelser, der skal logges</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Denne politikindstilling begrænser den hastighed, som registreringshændelser for netværksbeskyttelse mod udnyttelse af kendte sårbarheder logges. Logføringen begrænses til højst én hændelse pr. defineret interval. Intervalværdien defineres i minutter. Standardintervallet er 60 minutter.
-
-Hvis du aktiverer denne politikindstilling, logges registreringshændelser ikke, hvis der er mere end én tilsvarende rapport (pr. definitions-GUID) i det angivne antal minutter.
-
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, logges registreringshændelser med standardhastigheden.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Udeladelse af IP-adresseintervaller</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Hvis denne politikindstilling er defineret, forhindrer det, at netværksbeskyttelse mod udnyttelse af kendte sårbarheder kan kontrollere de angivne IP-adresser. IP-adresser skal tilføjes under Indstillinger for denne politikindstilling. Hver filtype skal angives som et navneværdipar, hvor navnet skal være en strengrepræsentation af et IP-adresseinterval. Et interval kan f.eks. defineres som: 157.1.45.123-60.1.1.1. Værdien bruges ikke, og du anbefales at indstille den til 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Udeladelser af portnumre</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Denne politikindstilling definerer en liste over TCP-portnumre, som kontrol af netværkstrafik deaktiveres fra. Portnumre skal tilføjes under Indstillinger for denne politikindstilling. Hver filtype skal angives som et navneværdipar, hvor navnet skal være en strengrepræsentation af et TCP-portnummer. Et interval kan f.eks. defineres som: 8080. Værdien bruges ikke, og du anbefales at indstille den til 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Procesudeladelser for udgående trafik</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Denne politikindstilling definerer processer, som udgående netværkstrafik ikke kontrolleres fra.  Procesnavne skal tilføjes under Indstillinger for denne politikindstilling. Hver filtype skal angives som et navneværdipar, hvor navnet skal være en strengrepræsentation af en processti og et procesnavn. En proces kan f.eks. defineres som: "C:\Windows\System32\App.exe". Værdien bruges ikke, og du anbefales at indstille den til 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Udeladelse af trussels-id'er</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Denne politikindstilling definerer trusler, som ikke bliver medtaget i registreringen under kontrol af netværkstrafik. Trusler skal tilføjes under Indstillinger for denne politikindstilling. Hver filtype skal angives som et navneværdipar, hvor navnet skal være en strengrepræsentation af et trussels-id. Et trussels-id kan f.eks. defineres som: 2925110632. Værdien bruges ikke, og du anbefales at indstille den til 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Angiv yderligere definitionssæt til kontrol af netværkstrafik</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Denne politikindstilling definerer yderligere definitionssæt, som kan aktiveres under kontrol af netværkstrafik. GUID'er, der er angivet pr. definition, skal tilføjes under Indstillinger for denne politikindstilling. Hver filtype skal angives som et navneværdipar, hvor navnet skal være en strengrepræsentation af et GUID, der er angivet pr. definition. For eksempel defineres det GUID, der er angivet pr. definition for at aktivere testdefinitioner, som: "{b54b6ac9-a737-498e-9120-6616ad3bf590}". Værdien bruges ikke, og du anbefales at indstille den til 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurer tilsidesættelse af lokal indstilling for fjernelse af elementer fra karantænemappen</string>
@@ -138,18 +138,6 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, gemm
 Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, aktiveres handlingsovervågning.
 
 Hvis du deaktiverer denne politikindstilling, deaktiveres handlingsovervågning.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Aktivér Information Protection Control</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Med denne politikindstilling kan du konfigurere IPC (Information Protection Control).
-
-Hvis du aktiverer denne politikindstilling, aktiveres IPC.
-
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, deaktiveres IPC.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Aktivér netværksbeskyttelse mod udnyttelse af kendte sårbarheder</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Med denne politikindstilling kan du konfigurere netværksbeskyttelse, så netværket beskyttes mod udnyttelse af kendte sårbarheder.
-
-Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, aktiveres netværksbeskyttelsen.
-
-Hvis du deaktiverer denne politikindstilling, deaktiveres netværksbeskyttelsen.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Scan alle hentede filer og vedhæftede filer</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Med denne politikindstilling kan du konfigurere scanning for alle hentede filer og vedhæftede filer.
 
@@ -205,12 +193,6 @@ Hvis du aktiverer denne politikindstilling, tilsidesætter den foretrukne lokale
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, tilsidesætter gruppepolitikken den foretrukne lokale indstilling.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Konfigurer tilsidesættelse af lokal indstilling for overvågning af fil- og programaktivitet på din computer</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Denne politikindstilling konfigurerer en lokal tilsidesættelse af konfigurationen af overvågning af fil- og programaktivitet på din computer. Denne politikindstilling kan kun indstilles af gruppepolitikken.
-
-Hvis du aktiverer denne politikindstilling, tilsidesætter den foretrukne lokale indstilling gruppepolitikken.
-
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, tilsidesætter gruppepolitikken den foretrukne lokale indstilling.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Konfigurer tilsidesættelse af lokal indstilling for at deaktivere systemet til forebyggelse af uautoriseret brug</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Denne politikindstilling konfigurerer en lokal tilsidesættelse af konfigurationen af netværksbeskyttelse mod udnyttelse af kendte sårbarheder. Denne politikindstilling kan kun indstilles af gruppepolitikken.
 
 Hvis du aktiverer denne politikindstilling, tilsidesætter den foretrukne lokale indstilling gruppepolitikken.
 
@@ -633,6 +615,16 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, sker
 Hvis du aktiverer denne politikindstilling, søges der efter nye definitioner, når tjenesten er startet.
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, søges der ikke efter nye definitioner efter start af tjenesten.</string>
+    <string id="DisableBlockAtFirstSeen">Konfigurer funktionen "Bloker, når den ses første gang"</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Denne funktion sikrer, at enheden kontrollerer i realtid med MAPS (Microsoft Active Protection Service), inden der køres eller opnås adgang til indhold. Hvis denne funktion deaktiveres, sker der ingen kontrol, hvilket medfører, at enheden får en lavere beskyttelsesstatus.
+	Aktiveret – Indstillingen Bloker, når den ses første gang er aktiveret.
+	Deaktiveret – Indstillingen Bloker, når den ses første gang er deaktiveret.
+	
+	Denne funktion kræver, at disse indstillinger for gruppepolitik indstilles på følgende måde:
+	MAPS -&gt; "Deltag i Microsoft MAPS" skal være aktiveret, ellers fungerer funktionen "Bloker, når den ses første gang" ikke.
+	MAPS -&gt; "Send fileksempler, når der kræves yderligere analyse" skal indstilles til 1 (Send automatisk sikre eksempler) eller 3 (Send alle eksempler). Hvis du indstiller denne til 0 (Spørg altid), får enheden en lavere beskyttelsesstatus. Hvis du indstiller den til 2 (Send aldrig) medfører det, at funktionen "Bloker, når den ses første gang" ikke fungerer.
+	Beskyttelse i realtid -&gt; Politikken "Scan alle hentede filer og vedhæftede filer" skal være aktiveret, ellers fungerer funktionen "Bloker, når den ses første gang" ikke.
+	Beskyttelse i realtid -&gt; Aktiver ikke politikken "Deaktiver beskyttelse i realtid", ellers fungerer funktionen "Bloker, når den ses første gang" ikke.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurer tilsidesættelse af lokal indstilling for at rapportere til Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Denne politikindstilling konfigurerer en lokal tilsidesættelse af konfigurationen med henblik på deltagelse i Microsoft MAPS. Denne politikindstilling kan kun indstilles af gruppepolitikken.
 
@@ -647,7 +639,7 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, tils
         (0x0) Spørg altid
         (0x1) Send automatisk sikre eksempler
         (0x2) Send aldrig
-        (0x2) Send automatisk alle eksempler
+        (0x3) Send automatisk alle eksempler
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Spørg altid</string>
@@ -658,20 +650,22 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, tils
     <string id="SpynetReporting">Deltag i Microsoft MAPS</string>
     <string id="SpynetReporting_Explain">Med denne politikindstilling kan du deltage i Microsoft MAPS. Microsoft MAPS er et onlinefællesskab, hvor du kan få hjælp til at vælge, hvordan du skal reagere på potentielle trusler. I fællesskabet kan du også få hjælp til at stoppe spredningen af nye skadelige softwareinficeringer.
 
-Du kan vælge at sende de grundlæggende eller yderligere oplysninger om den registrerede software. Hvis du sender flere oplysninger, hjælper du Microsoft med at oprette nye definitioner, så din computer er bedre beskyttet. Disse oplysninger kan omfatte ting som placeringen af de fundne elementer på computeren, hvis der blev fjernet skadelig software. Disse oplysninger indsamles og sendes automatisk. I nogle tilfælde kan der utilsigtet blive sendt personlige oplysninger til Microsoft. Microsoft bruger dog ikke disse oplysninger til at identificere eller kontakte dig.
+    Du kan vælge at sende de grundlæggende eller yderligere oplysninger om den registrerede software. Hvis du sender flere oplysninger, hjælper du Microsoft med at oprette nye definitioner, så din computer er bedre beskyttet. Disse oplysninger kan omfatte ting som placeringen af de fundne elementer på computeren, hvis der blev fjernet skadelig software. Disse oplysninger indsamles og sendes automatisk. I nogle tilfælde kan der utilsigtet blive sendt personlige oplysninger til Microsoft. Microsoft bruger dog ikke disse oplysninger til at identificere eller kontakte dig.
 
-Der er følgende muligheder:
-(0x0) Deaktiveret (standard)
-(0x1) Basismedlemskab
-(0x2) Avanceret medlemskab
+    Der er følgende muligheder:
+    (0x0) Deaktiveret (standard)
+    (0x1) Basismedlemskab
+    (0x2) Avanceret medlemskab
 
-Grundlæggende medlemskab sender grundlæggende oplysninger til Microsoft om den software, der er fundet, herunder hvor softwaren kom fra, de handlinger, du anvender, eller som anvendes automatisk, og om handlingerne kunne gennemføres.
+    Basismedlemskab sender grundlæggende oplysninger til Microsoft om den software, der er fundet, herunder hvor softwaren kom fra, de handlinger, du anvender, eller som anvendes automatisk, og om handlingerne kunne gennemføres.
 
-Ud over de grundlæggende oplysninger sender Avanceret medlemskab flere oplysninger til Microsoft om skadelig software, spyware og potentielt uønsket software, herunder placeringen af softwaren, filnavne, hvordan softwaren fungerer, og hvordan softwaren har påvirket computeren.
+    Ud over de grundlæggende oplysninger sender Avanceret medlemskab flere oplysninger til Microsoft om skadelig software, spyware og potentielt uønsket software, herunder placeringen af softwaren, filnavne, hvordan softwaren fungerer, og hvordan softwaren har påvirket computeren.
 
-Hvis du aktiverer denne politikindstilling, deltager du i Microsoft MAPS med det angivne medlemskab.
+    Hvis du aktiverer denne politikindstilling, deltager du i Microsoft MAPS med det angivne medlemskab.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, deltager du ikke i Microsoft MAPS.</string>
+    Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, deltager du ikke i Microsoft MAPS.
+  
+    I Windows 10 er basismedlemskabet ikke længere tilgængeligt, så hvis du angiver værdien til 1 eller 2, bliver enheden tilmeldt Avanceret medlemskab.</string>
     <string id="SpynetReporting_Disabled">Deaktiveret</string>
     <string id="SpynetReporting_Basic">Grundlæggende MAPS</string>
     <string id="SpynetReporting_Advanced">Avanceret MAPS</string>
@@ -706,16 +700,12 @@ Gyldige handlingsværdier for afhjælpning er:
 
       Hvis du aktiverer denne indstilling, viser AM-brugergrænsefladen ikke beskeder om genstart.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Vis meddelelser til klienter, når de skal udføre handlinger</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Med denne politikindstilling kan du konfigurere, om der skal vises meddelelser til klienter, når de har brug for at udføre følgende handlinger:
-Kør en fuld scanning
-Hent de seneste virus- og spywaredefinitioner 
-Hent Standalone System Sweeper
+    <string id="UX_Configuration_Notification_Suppress">Undertrykke alle meddelelser</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Brug denne politikindstilling til at angive, om Windows Defender-meddelelser skal vises på klienter.
+      Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vises Windows Defender-meddelelser på klienter.
 
-
-Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, vises meddelelser til klienter, når de har brug for at udføre de angivne handlinger.
-
-Hvis du deaktiverer denne politikindstilling, vises der meddelelser til klienter, når de har brug for at udføre de angivne handlinger.</string>
+      Hvis du aktiverer denne indstilling, vises Windows Defender-meddelelser ikke på klienter.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Vis yderligere tekst til klienter, når de skal udføre en handling</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Med denne politikindstilling kan du konfigurere, om der skal vises yderligere tekst til klienter, når de har brug for at udføre en handling. Den viste tekst er en tilpasset, administratordefineret streng. For eksempel telefonnummeret til virksomhedens helpdesk. Brugergrænsefladen i klienten viser højst 1024 tegn. Længere strenge afkortes før visning.
 
@@ -728,6 +718,11 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vise
     <textBox refId="ProxyBypass">
         <label>Definer adresser for at undlade at bruge proxyserver</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Angiv automatisk proxykonfiguration (.pac) for forbindelse til netværket</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vise
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Udeladelser af processer</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definer registreringshastigheden for hændelser, der skal logges</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Udeladelse af IP-adresseintervaller</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Udeladelser af portnumre</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Procesudeladelser for udgående trafik</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Udeladelse af trussels-id'er</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Angiv yderligere definitionssæt til kontrol af netværkstrafik</listBox>

@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Microsoft Windows Eszközvédelem</displayName>
-  <description>Windows Eszközvédelem biztonsága</description>
+  <displayName>Microsoft Windows Device Guard</displayName>
+  <description>Windows Device Guard biztonsága</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">Eszközvédelem</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Virtualizálás-alapú biztonság bekapcsolása</string>
-      <string id="VirtualizationBasedSecurityHelp">Itt adhatja meg, hogy engedélyezve van-e a virtualizálásalapú biztonság.
+      <string id="VirtualizationBasedSecurityHelp">Itt adhatja meg, hogy engedélyezve van-e a virtualizálás-alapú biztonság.
 
-A virtualizálásalapú biztonság a Windows hipervizor használatával nyújt támogatást a biztonsági szolgáltatásoknak. A virtualizálásalapú biztonsághoz szükséges a Biztonságos rendszerindítás, és engedélyezhető a DMA-védelmekkel együttes használata is. A DMA-védelmekhez megfelelő hardver szükséges, és csak a megfelelően konfigurált eszközökön engedélyezhető.
+A virtualizálás-alapú biztonság a Windows hipervizorával nyújt támogatást a biztonsági szolgáltatásoknak. A virtualizálás-alapú biztonsághoz elengedhetetlen a biztonságos rendszerindítás, és DMA-védelemmel is engedélyezhető. Ez utóbbihoz megfelelő hardver szükséges, és csak a megfelelően konfigurált eszközökön lehetséges.
 
-Kódintegritás virtualizálásalapú biztonsága
+Kódintegritás virtualizálás-alapú védelme
 
-Ez a beállítás engedélyezi a kernel módú kódintegritás virtualizálásalapú biztonságát. Ha engedélyezve van, a rendszer betartatja a kernel módú memóriavédelmet, és a kódintegritás ellenőrzési útvonalát a virtualizálásalapú biztonság védi.
+Ez a beállítás engedélyezi a kernelmódú kódintegritás virtualizálás-alapú védelmét. Ha engedélyezve van a beállítás, a Windows kényszerített módon biztosítja a kernelmódú memóriavédelmet, a kódintegritás ellenőrzési útvonalát pedig a virtualizálás-alapú biztonság védi.
 
-Figyelmeztetés: A rendszer összes illesztőprogramjának kompatibilisnek kell lennie ezzel a szolgáltatással, különben a rendszer összeomolhat. Csak olyan számítógépeken helyezze üzembe ezt a házirend-beállítást, amelyeknek a kompatibilitása nem kétséges. 
+A Letiltva beállítás távolról letiltja a kódintegritás virtualizálás-alapú védelmét, ha az korábban az Engedélyezve zárolás nélkül beállítással volt bekapcsolva.
 
-Hitelesítőadat-védelem
+Az Engedélyezve UEFI-zárolással beállítás esetén nem lehet távolról letiltani a kódintegritás virtualizálás-alapú védelmét. Ha le szeretné tiltani a funkciót, akkor a csoportházirendet a Letiltva értékre kell állítania, ezenkívül minden egyes gépről (egy fizikailag jelen lévő felhasználóval) el kell távolítania ezt a biztonsági funkciót ahhoz, hogy törlődjön az UEFI által mentett konfiguráció.
 
-Ezzel a beállítással engedélyezi a felhasználók számára a virtualizálásalapú biztonságot használó hitelesítőadat-védelem bekapcsolását.
+Az Engedélyezve zárolás nélkül beállítás esetén távolról, csoportházirenddel is le lehet tiltani a kódintegritás virtualizálás-alapú védelmét.
 
-A Letiltva beállítás távolról letiltja a hitelesítőadat-védelmet, ha korábban az Engedélyezve zárolás nélkül beállítással volt bekapcsolva.
+Figyelmeztetés: A Windows összes illesztőjének kompatibilisnek kell lennie ezzel a funkcióval, különben a rendszer összeomolhat. Csak olyan gépeken léptesse érvénybe ezt a házirend-beállítást, amelyeknek a kompatibilitása nem kétséges.
 
-Az Engedélyezve UEFI zárolással beállítás esetén nem lehet távolról letiltani a hitelesítőadat-védelmet. Ha le szeretné tiltani a funkciót, akkor a csoportházirendet a Letiltva értékre kell állítania, de minden egyes számítógépnél egy fizikailag jelen lévő felhasználónak el kell távolítania ezt a biztonsági funkciót ahhoz, hogy törlődjön az UEFI által tárolt konfiguráció.
+Credential Guard
 
-Az Engedélyezve zárolás nélkül beállítás esetén távolról, csoportházirenddel is le lehet tiltani a hitelesítőadat-védelmet. Az ezt a beállítást használó rendszereken legalább a Windows 10-nek (az 1511-es verziónak) kell futnia.
+Ezzel a beállítással engedélyezheti a felhasználóknak a hitelesítő adatokat virtualizálás-alapú biztonsággal védő Credential Guard bekapcsolását.
+
+A Letiltva beállítás távolról letiltja a Credential Guardot, ha az korábban az Engedélyezve zárolás nélkül beállítással volt bekapcsolva.
+
+Az Engedélyezve UEFI-zárolással beállítás esetén nem lehet távolról letiltani a Credential Guardot. Ha le szeretné tiltani a funkciót, akkor a csoportházirendet a Letiltva értékre kell állítania, ezenkívül minden egyes gépről (egy fizikailag jelen lévő felhasználóval) el kell távolítania ezt a biztonsági funkciót ahhoz, hogy törlődjön az UEFI által mentett konfiguráció.
+
+Az Engedélyezve zárolás nélkül beállítás esetén távolról, csoportházirenddel is le lehet tiltani a Credential Guardot. Az ezt a beállítást használó eszközökön legalább 1511-es verziójú Windows 10-nek kell futnia.
       </string>
       <string id="SecureBoot">Biztonságos rendszerindítás</string>
       <string id="SecureBootAndDmaProtection">Biztonságos rendszerindítás és DMA-védelem</string>
@@ -50,9 +56,9 @@ Ha aláírt és védett házirendet használ, akkor ennek a házirend-beállít�
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Platformbiztonsági szint megadása:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Kódintegritás virtualizálás-alapú védelmének engedélyezése</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Hitelesítőadat-védelem konfigurálása:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Platformbiztonsági szint megadása:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Kódintegritás virtualizálás-alapú védelme:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">A Credential Guard konfigurálása:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

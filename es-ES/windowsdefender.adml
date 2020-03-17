@@ -58,22 +58,36 @@ Si habilita a esta configuración de directiva, Endpoint Protection no automáti
         Si habilita esta configuración de directiva, Endpoint Protection no toma medidas automáticamente acerca de las amenazas detectadas, pero pide a los usuarios que elijan entre las medidas disponibles para cada amenaza.
 
         Si deshabilita o no establece esta configuración de directiva, Endpoint Protection toma medidas automáticamente acerca de todas las amenazas detectadas tras un plazo no configurable de aproximadamente diez minutos.
-    </string>
+    </string>      
     <string id="ProxyBypass">Definir direcciones para omitir el servidor proxy</string>
     <string id="ProxyBypass_Explain">Si esta directiva se define, evitará que el antimalware use el servidor proxy configurado cuando se establezcan comunicaciones con las direcciones IP especificadas. El valor de dirección se debe especificar como una dirección URL válida.
 
 Si habilita esta configuración, el servidor proxy se omitirá en las direcciones especificadas.
 
 Si deshabilita o no establece esta configuración, el servidor proxy no se omitirá en las direcciones especificadas.</string>
+    <string id="ProxyPacUrl">Definir la configuración automática de proxy (.pac) para conectarse a la red</string>
+    <string id="ProxyPacUrl_Explain">Esta configuración de directiva define la dirección URL de un archivo proxy .pac, que debería usarse en el momento en que el cliente intente conectarse a la red para obtener actualizaciones de definiciones e informes de MAPS. Si surge un error en el proxy con nombre o si no hay un proxy especificado, el cliente recurrirá a las siguientes opciones alternativas (en orden):
+      1. Servidor proxy (si está especificado)
+      2. URL de proxy .pac (si está especificada)
+      3. Ninguna
+      4. Configuración de proxy de Internet Explorer
+      5. Detección automática
+
+      Si habilitas esta configuración, la configuración de proxy se establecerá para usar el proxy .pac especificado en función del orden indicado anteriormente.
+
+      Si deshabilitas o no estableces esta configuración, el proxy se saltará este paso de reserva según el orden especificado más arriba.</string>
     <string id="ProxyServer">Definir servidor proxy para las conexiones con la red</string>
-    <string id="ProxyServer_Explain">Esta configuración de directiva permite configurar el proxy con nombre que se debe usar cuando el cliente trata de conectarse a la red en busca de actualizaciones de definiciones e informes de MAPS. Si surge un error en el proxy con nombre o si no hay un proxy especificado, se usarán las siguientes configuraciones (en orden):
-1. Configuración de proxy de Internet Explorer
-2. Detección automática
-3. Ninguna
+    <string id="ProxyServer_Explain">Esta configuración de directiva te permite configurar el proxy con nombre que debería usarse en el momento en que el cliente intente conectarse a la red para obtener actualizaciones de definiciones e informes de MAPS. Si surge un error en el proxy con nombre o si no hay un proxy especificado, se usarán las siguientes configuraciones (en orden):
+      1. Servidor proxy (si está especificado)
+      2. URL de proxy .paca (si está especificada)
+      3. Ninguna
+      4. Configuración de proxy de Internet Explorer
+      5. Detección automática
 
-Si habilita esta configuración, el proxy se establecerá en la dirección URL especificada.
+      Si habilitas esta configuración, el proxy se establecerá en la dirección URL especificada en función del orden indicado anteriormente. Asimismo, la dirección URL debe ir precedida de http:// o https://.
 
-Si deshabilita o no establece esta configuración, el proxy se establecerá según el orden antes indicado.</string>
+      Si deshabilitas o no estableces esta configuración, el proxy se saltará este paso de reserva según el orden especificado más arriba.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Seleccionar horas de tareas programadas aleatoriamente</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Esta configuración de directiva permite habilitar o deshabilitar la selección aleatoria de las horas de inicio programadas de las detecciones y las actualizaciones de definiciones. Esta configuración sirve para distribuir el impacto de las detecciones en los recursos. Podría usarse, por ejemplo, en equipos virtuales huésped que comparten un host, a fin de impedir que varios equipos virtuales huésped hagan un uso intensivo del disco al mismo tiempo.
 
@@ -104,20 +118,6 @@ Si deshabilita esta configuración, el reconocimiento de protocolo se deshabilit
 Si habilita o no establece esta configuración, la retirada de definiciones se habilitará.
 
 Si deshabilita esta configuración, la retirada de definiciones se deshabilitará.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definir la frecuencia de registro de eventos de detección</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Esta configuración de directiva limita la frecuencia con la que se van a registrar eventos de detección para la protección de la red frente a vulnerabilidades conocidas. El registro quedará limitado a una frecuencia no superior a un evento por intervalo definido. El valor de intervalo se establece en minutos. El intervalo predeterminado es 60 minutos.
-
-Si habilita esta configuración, los eventos de detección no se registrarán si existe más de un informe similar (según el GUID de la definición) en el número de minutos especificado.
-
-Si deshabilita o no establece esta configuración, los eventos de detección se registrarán a la frecuencia predeterminada.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Exclusiones de intervalo de direcciones IP</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Si se define, esta directiva evitará que la protección de red frente a vulnerabilidades conocidas inspeccione las direcciones IP especificadas. Las direcciones IP se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un intervalo de direcciones IP. Como ejemplo, un intervalo podría definirse como 157.1.45.123-60.1.1.1. El valor no se usa y se recomienda establecerlo en 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Exclusiones de números de puerto</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Esta configuración de directiva define una lista de números de puerto TCP en los que la inspección del tráfico de red va a estar deshabilitada. Los números de puerto se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un número de puerto TCP. Como ejemplo, un número de puerto podría definirse como 8080. El valor no se usa y se recomienda establecerlo en 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Exclusiones de procesos del tráfico saliente</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Esta configuración de directiva define los procesos en los que el tráfico de red saliente no se va a inspeccionar.  Los nombres de proceso se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena del nombre y ruta de acceso de un proceso. Por ejemplo, un proceso se podría definir como "C:\Windows\System32\App.exe". El valor no se usa y se recomienda establecerlo en 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Exclusiones de identificador de amenaza</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Esta configuración de directiva define las amenazas que se van a excluir de la detección durante la inspección del tráfico de red. Las amenazas se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un identificador de amenaza. Como ejemplo, un identificador de amenaza podría definirse como 2925110632. El valor no se usa y se recomienda establecerlo en 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Especificar más conjuntos de definiciones para la inspección del tráfico de red</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Esta configuración de directiva habilita más conjuntos de definiciones para la inspección del tráfico de red. Los GUID de los conjuntos de definiciones se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un GUID de conjunto de definiciones. Como ejemplo, el GUID de conjunto de definiciones para habilitar definiciones de prueba se define como “{b54b6ac9-a737-498e-9120-6616ad3bf590}”. El valor no se usa y se recomienda establecerlo en 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Definir reemplazo de configuración local para eliminar elementos de la carpeta Cuarentena</string>
@@ -138,18 +138,6 @@ Si deshabilita o no establece esta configuración, los elementos permanecerán e
 Si habilita o no establece esta configuración, la supervisión de comportamiento se habilitará.
 
 Si deshabilita esta configuración, la supervisión de comportamiento se deshabilitará.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Activar control de protección de la información</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Esta configuración de directiva permite configurar el control de protección de la información.
-
-Si habilita esta configuración, el control de protección de la información se habilitará.
-
-Si deshabilita o no establece esta configuración, el control de protección de la información se deshabilitará.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Activar protección de red frente a vulnerabilidades conocidas</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Esta configuración de directiva permite configurar la protección de red frente a vulnerabilidades conocidas.
-
-Si habilita o no establece esta configuración, la protección de red se habilitará.
-
-Si deshabilita esta configuración, la protección de red se deshabilitará.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Examinar todos los archivos y datos adjuntos descargados</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Esta configuración de directiva permite configurar el examen de todos los archivos y datos adjuntos descargados.
 
@@ -205,12 +193,6 @@ Si habilita esta configuración, la configuración de preferencias local tendrá
 Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Definir reemplazo de configuración local para supervisar la actividad de archivos y programas en el equipo</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la supervisión de la actividad de archivos y programas en el equipo. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
-
-Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
-
-Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Definir reemplazo de configuración local para desactivar el sistema de prevención de intrusiones</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la protección de red frente a vulnerabilidades conocidas. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
 
 Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
 
@@ -633,6 +615,16 @@ Si deshabilita o no establece esta configuración, las búsquedas de actualizaci
 Si habilita esta configuración, se realizará una búsqueda de nuevas definiciones después de que el servicio se inicie.
 
 Si deshabilita o no establece esta configuración, no se realizará una búsqueda de nuevas definiciones después de que el servicio se inicie.</string>
+    <string id="DisableBlockAtFirstSeen">Configurar la característica "Bloqueo a primera vista"</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Esta característica garantiza que el dispositivo realiza comprobaciones en tiempo real con Microsoft Active Protection Service (MAPS) antes de permitir la ejecución o el acceso a cierto contenido. Si esta característica está deshabilitada, no se producirá la comprobación y se reducirá el estado de protección del dispositivo.
+	Habilitada: la opción de configuración Bloqueo a primera vista está activada.
+	Deshabilitada: la opción de configuración Bloqueo a primera vista está desactivada.
+	
+	Esta característica necesita que la configuración de directiva de grupo esté establecida del siguiente modo:
+	MAPS -&gt; "Únete a Microsoft MAPS" debe estar habilitado para que la característica "Bloqueo a primera vista" funcione.
+	MAPS -&gt; "Enviar muestras de archivos cuando se requieran más análisis" debe establecerse en 1 (Enviar muestras seguras) o 3 (Enviar todas las muestras). Si se establece en 0 (Preguntar siempre), se reducirá el estado de protección del dispositivo. Con la opción 2 (No enviar nunca), la característica "Bloqueo a primera vista" no funcionará.
+	Protección en tiempo real -&gt; La directiva "Examinar todos los archivos y datos adjuntos descargados" debe estar habilitada para que la característica "Bloqueo a primera vista" funcione.
+	Protección en tiempo real -&gt; No habilites la directiva "Desactivar protección en tiempo real" o la característica "Bloqueo a primera vista" no funcionará.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Definir reemplazo de configuración local para enviar informes a Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Esta configuración de directiva define un reemplazo local para la configuración para unirse a Microsoft MAPS. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
 
@@ -643,11 +635,11 @@ Si deshabilita o no establece esta configuración, la directiva de grupo tendrá
     <string id="SubmitSamplesConsent_Explain">
         Esta configuración de directiva define el comportamiento de envío de muestras cuando la opción de telemetría de MAPS está configurada.
 
-Las opciones posibles son:
-            (0x0) Preguntar siempre
-            (0x1) Enviar muestras seguras automáticamente
-            (0x2) No enviar nunca
-            (0x2) Enviar todas las muestras automáticamente
+        Las opciones posibles son:
+        (0x0) Preguntar siempre
+        (0x1) Enviar muestras seguras automáticamente
+        (0x2) No enviar nunca
+        (0x3) Enviar todas las muestras automáticamente
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Preguntar siempre</string>
@@ -656,22 +648,24 @@ Las opciones posibles son:
     <string id="SubmitSamplesConsent_Send_All">Enviar todas las muestras</string>
 
     <string id="SpynetReporting">Únase a Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Esta configuración de directiva le permite unirse a Microsoft MAPS. Microsoft MAPS es la comunidad en línea que le ayuda a elegir la respuesta a las amenazas potenciales. La comunidad también le ayuda a detener la propagación de nuevas infecciones de software malintencionado.
+    <string id="SpynetReporting_Explain">Esta configuración de directiva te permite unirte a Mapas de Microsoft. Mapas de Microsoft es la comunidad en línea que te ayuda a elegir la respuesta a las amenazas potenciales. La comunidad también te ayuda a detener la propagación de nuevas infecciones de software malintencionado.
 
-Puede optar por enviar información básica o adicional acerca del software detectado. La información adicional ayuda a Microsoft a crear definiciones nuevas y le ayuda a proteger el equipo. Esta información puede incluir aspectos como la ubicación de los elementos detectados en el equipo en caso de que se haya eliminado software dañino. La información se recopila y envía de manera automática. En algunos casos, es posible que se envíe de forma no intencionada información personal a Microsoft. No obstante, Microsoft no usará esta información para identificarlo ni para ponerse en contacto con usted.
+    Puedes optar por enviar información básica o adicional acerca del software detectado. La información adicional permite a Microsoft crear definiciones nuevas y le ayuda a proteger tu equipo. Esta información puede incluir aspectos como la ubicación de los elementos detectados en el equipo en caso de que se haya eliminado software dañino. La información se recopila y se envía de manera automática. En algunos casos, es posible que se envíe de forma no intencionada información personal a Microsoft. No obstante, Microsoft no usará esta información para identificarte ni para ponerse en contacto contigo.
 
-Las opciones posibles son:
-(0x0) Deshabilitado (predeterminado)
-(0x1) Pertenencia básica
-(0x2) Pertenencia avanzada
+    Las opciones posibles son:
+    (0x0) Deshabilitado (predeterminado)
+    (0x1) Suscripción básica
+    (0x2) Suscripción avanzada
 
-Con la pertenencia básica se enviará a Microsoft información básica sobre el software que se ha detectado, como el origen del software, las acciones que se realizan o que se han realizado automáticamente y si dichas acciones tuvieron el efecto adecuado.
+    Con la suscripción básica se enviará a Microsoft información básica sobre el software detectado, como el origen del software, las acciones que realizas o que se realizan automáticamente y si dichas acciones se realizaron correctamente.
 
-Con la pertenencia avanzada, además de la información básica se enviará más información a Microsoft sobre software malintencionado, spyware y software potencialmente no deseado, incluida la ubicación del software, los nombres de archivos, cómo funciona el software y cómo afectó al equipo.
+    Con la suscripción avanzada, además de la información básica, se enviará más información a Microsoft sobre software malintencionado, spyware y software potencialmente no deseado, incluida la ubicación del software, los nombres de archivos, cómo funciona el software y cómo afectó al equipo.
 
-Si habilita esta configuración, se unirá a Microsoft MAPS con la pertenencia especificada.
+    Si habilitas esta configuración, te unirás a Mapas de Microsoft con la suscripción especificada.
 
-Si deshabilita o no establece esta configuración, no se unirá a Microsoft MAPS.</string>
+    Si deshabilitas o no estableces esta configuración, no te unirás a Mapas de Microsoft.
+  
+    En Windows 10, la suscripción básica ya no está disponible y, al definir el valor 1 o 2, se registra el dispositivo a una suscripción avanzada.</string>
     <string id="SpynetReporting_Disabled">Deshabilitado</string>
     <string id="SpynetReporting_Basic">MAPS básico</string>
     <string id="SpynetReporting_Advanced">MAPS avanzado</string>
@@ -706,16 +700,12 @@ Los valores de acción de corrección válidos son:
 
       Si habilita a esta configuración, la interfaz de usuario de AM no mostrará las notificaciones de reinicio.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Mostrar notificaciones a los clientes cuando deban realizar acciones</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Esta configuración de directiva permite configurar si se van a mostrar o no notificaciones a los clientes cuando deban realizar las siguientes acciones:
-Ejecutar un examen completo
-Descargar las definiciones de virus y spyware más recientes 
-Descargar el Sistema independiente de limpieza
+    <string id="UX_Configuration_Notification_Suppress">Suprimir todas las notificaciones</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Usa esta configuración de directiva para especificar si quieres que las notificaciones de Windows Defender se muestren en los clientes.
+      Si deshabilitas o no estableces esta configuración, las notificaciones de Windows Defender se mostrarán en los clientes.
 
-
-Si habilita o no establece esta configuración, se mostrarán notificaciones a los clientes cuando deban realizar las acciones especificadas.
-
-Si deshabilita esta configuración, no se mostrarán notificaciones a los clientes cuando deban realizar las acciones especificadas.</string>
+      Si habilitas esta configuración, las notificaciones de Windows Defender no se mostrarán en los clientes.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Mostrar más texto a los clientes cuando deban realizar una acción</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Esta configuración de directiva permite configurar si se va a mostrar o no más texto a los clientes cuando deban realizar una acción. El texto que se muestra es una cadena definida por el administrador personalizada (por ejemplo, el número de teléfono para llamar al servicio de asistencia de la compañía). La interfaz de cliente solo mostrará un máximo de 1024 caracteres. Las cadenas que sean más largas se truncarán antes de mostrarse.
 
@@ -728,6 +718,11 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
     <textBox refId="ProxyBypass">
         <label>Definir direcciones para omitir el servidor proxy</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definir la configuración automática de proxy (.pac) para conectarse a la red</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Si deshabilita o no establece esta configuración, no se mostrará ningún texto
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Exclusiones de proceso</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definir la frecuencia de registro de eventos de detección</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Exclusiones de intervalo de direcciones IP</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Exclusiones de números de puerto</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Exclusiones de procesos del tráfico saliente</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Exclusiones de identificador de amenaza</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Especificar más conjuntos de definiciones para la inspección del tráfico de red</listBox>

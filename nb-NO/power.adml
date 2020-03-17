@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Angi tidsavbrudd for system i hvilemodus (koblet til)</string>
       <string id="ACStandbyWithHiberfileEnable">Slå av hybrid hvilemodus (koblet til)</string>
       <string id="ACSystemLidAction">Merk dekselbryterhandling (koblet til)</string>
+      <string id="ACConnectivityInStandby">Tillat nettverkstilkobling under tilkoblet-ventemodus (på nettstrøm)</string>
       <string id="BatteryDischargeAction0Explain">Denne policyinnstillingen angir hvilken handling som skal utføres i Windows når batterikapasiteten når det kritiske batterivarslingsnivået.
 
 Hvis du aktiverer denne policyinnstillingen, velger du en av følgende handlinger:
@@ -82,6 +83,7 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan bruke
       <string id="DCStandbyTimeOut">Angi tidsavbrudd for system i hvilemodus (batteridrift)</string>
       <string id="DCStandbyWithHiberfileEnable">Slå av hybrid hvilemodus (batteridrift)</string>
       <string id="DCSystemLidAction">Merk dekselbryterhandling (batteridrift)</string>
+      <string id="DCConnectivityInStandby">Tillat nettverkstilkobling under tilkoblet ventemodus (på batteri)</string>
       <string id="DiskACPowerDownTimeOut">Slå av harddisken (koblet til)</string>
       <string id="DiskDCPowerDownTimeOut">Slå av harddisken (batteridrift)</string>
       <string id="DiskPowerDownTimeOutExplain">Denne policyinnstillingen angir inaktivitetstidsrom før Windows slår av harddisken.
@@ -270,6 +272,23 @@ Hvis du aktiverer denne policyinnstillingen, må du angi en tallverdi (prosent) 
 
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan brukere se og endre denne innstillingen.</string>
     
+      <string id="EnergySaverSettingsCat">Innstillinger for energisparing</string>
+      <string id="EsBattThresholdAC">Terskelverdi for energisparing for batteri (på nettstrøm)</string>
+      <string id="EsBattThresholdDC">Terskelverdi for energisparing for batteri (på batteri)</string>
+      <string id="EsBattThresholdExplain">Denne policyinnstillingen lar deg angi batteriladenivået der energisparing slås på.
+
+Hvis du aktiverer denne policyinnstillingen, må du angi en prosentverdi for batteriladenivå. Energisparing blir automatisk aktivert på (og under) det angitte nivået.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, styrer brukerne denne innstillingen.</string>
+
+      <string id="ConnectivityInStandbyExplain">Denne policyinnstillingen lar deg kontrollere statusen for tilkobling til nettverk i ventemodus på moderne systemer som støtter ventemodus.
+
+Hvis du aktiverer denne policyinnstillingen, beholdes nettverkstilkobling i ventemodus.
+
+Hvis du deaktiverer denne policyinnstillingen, garanteres ikke nettverkstilkobling i ventemodus. Denne tilkoblingsbegrensningen gjelder for øyeblikket bare for WLAN-nettverk, og kan endres.
+
+Hvis du ikke konfigurerer denne policyinnstillingen, styrer brukerne denne innstillingen.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan bruke
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Varselnivå for reservebatterinivå (prosent):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Terskelverdi for batterisparing (prosent):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

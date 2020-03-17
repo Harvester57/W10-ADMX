@@ -24,6 +24,19 @@ Pokud toto nastavení zásad zakážete, bude experimentování úplně vypnuté
 
 Pokud toto nastavení zásad nenakonfigurujete, může uživatel v nastavení nakonfigurovat následující možnost: Microsoft může zkoušet funkce na tomto buildu.
 </string>
+      <string id="TelemetryProxy">Konfigurovat propojené uživatelské prostředí a telemetrii</string>
+      <string id="TelemetryProxy_Explain">Pomocí tohoto nastavení zásad můžete předávat žádosti služby Propojené uživatelské prostředí a telemetrie na proxy server.
+
+Pokud toto nastavení zásad povolíte, můžete zadat plně kvalifikovaný název domény nebo IP adresu cílového zařízení v síti vaší organizace (a pokud chcete, tak i číslo portu). Připojení bude využívat protokol SSL (Secure Sockets Layer). Pokud bude určený proxy server v chybovém stavu nebo pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou data služby Propojené uživatelské prostředí a telemetrie odcházet do Microsoftu s využitím výchozí konfigurace proxy serveru.
+
+Formát pro toto nastavení je &lt;server&gt;:&lt;port&gt;. 
+</string>
+      
+      <string id="CommercialId">Konfigurovat komerční ID</string>
+      <string id="CommercialId_Explain">Toto nastavení zásad určuje identifikátor používaný k jednoznačnému přiřazení telemetrických dat tohoto zařízení jako dat patřících k dané organizaci. Pokud se vaše organizace účastní programu, který vyžaduje, aby se toto zařízení identifikovalo jako zařízení patřící k vaší organizaci, pak pomocí tohoto nastavení tuto identifikaci poskytněte. Hodnota pro toto nastavení bude poskytnuta společností Microsoft jako součást procesu nasazování programu.
+
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Microsoft nebude moct používat tento identifikátor k přidružení tohoto počítače a jeho telemetrických dat k vaší organizaci.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@ Pokud toto nastavení zásad nenakonfigurujete, může uživatel v nastavení na
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Název serveru proxy:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>Komerční ID:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

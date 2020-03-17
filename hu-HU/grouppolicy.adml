@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Nem megbízható betűkészletek blokkolása és az események naplózása</string>
       <string id="FontMitigation_Off">Ne blokkolja a nem megbízható betűkészleteket</string>
       <string id="FontMitigation_Audit">Naplózza az eseményeket és ne blokkolja a nem megbízható betűkészleteket</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Kockázatcsökkentési folyamatbeállítások</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Ezzel a biztonsági funkcióval felülbírálhatók a folyamatok kockázatcsökkentési beállításai, így biztosítható egyes alkalmazásspecifikus biztonsági házirendek betartatása. Az alkalmazásnevet maga az érték neve jelöli a kiterjesztéssel együtt. Az érték megadása bitmezőként történik úgy, hogy jelzősorozatok állnak bizonyos helyeken. A bitek értéke lehet 0 (beállítás kikapcsolva), 1 (beállítás bekapcsolva) vagy ? (megmarad a beállítás GPO-értékelés előtti értéke). Az érvényes bithelyek az alábbiak:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Engedélyezi a gyermekfolyamathoz az adatvégrehajtás megakadályozását (DEP).
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Engedélyezi a gyermekfolyamathoz a DEP-ATL típusú tönkemulálást, amelynek hatására a Windows elfogja az ATL tönkrétegből érkező NX-hibákat. 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Engedélyezi a gyermekfolyamathoz a strukturált kivételkezelő felülírása elleni védelmet (SEHOP), amely blokkolja a strukturált kivételkezelő (SEH) felülírási módját kihasználó biztonsági réseket.
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        A Véletlenszerű címtérelrendezés (ASLR) megkövetelése házirend kényszerűen áthelyezi a nem dinamikus báziscímű programkódokat, mivel úgy tesz, mintha betöltéskor báziscím-ütközés lépett volna fel. Ha áthelyezés szükséges, a bázisáthelyezési szakasz nélküli programkódok nem töltődnek be.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        A véletlenszerűséget kiváltó, felfelé irányuló házirend (benne a vermek véletlenszerűségét okozó beállítások) hatására egy véletlenszerű hely lesz a legalsóbb szintű felhasználói cím.
+
+        Ha engedélyezni szeretné például a PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE és a PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON bithelyet, le szeretné tiltani a PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF bithelyet, a többi beállítást pedig az alapértelmezett értékükkel kívánja használni, adja meg az alábbi értéket:
+        ???????????????0???????1???????1
+
+        Ha az itt nem említett jelzők értéke nem ?, nem várt módon fog működni a funkció.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">AD/DFS tartományvezérlők szinkronizálásának engedélyezése a házirendfrissítés során</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">A beállítás engedélyezése esetén a Csoportházirend-ügyfél ugyanahhoz a tartományvezérlőhöz csatlakozik a DFS-megosztások esetében, mint amit az Active Directory esetében használ.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Betűkészletek</string>
+      <string id="EnableFontProviders">Betűkészlet-szolgáltatók engedélyezése</string>
+      <string id="EnableFontProviders_Help">
+        Ezzel a házirend-beállítással adható meg, hogy a Windows letölthet-e betűkészleteket és hozzájuk tartozó katalógusadatokat online betűkészlet-szolgáltatóktól.
+
+Ha engedélyezi ezt a házirend-beállítást, a Windows rendszeres időközönként lekérdezi a beállított online betűkészlet-szolgáltatót, és megállapítja, hogy rendelkezésre áll-e új betűkészlet-katalógus. A szöveg formázásához és megjelenítéséhez emellett betűkészletadatok letöltésére is szükség lehet.
+
+Ha letiltja a házirend-beállítást, a Windows nem csatlakozik online betűkészlet-szolgáltatókhoz, és csak a helyileg telepített betűkészleteket enumerálja.
+
+Ha nem konfigurálja a házirend-beállítást, a betűkészletekkel kapcsolatos alapértelmezett működési mód a Windows-kiadás függvénye. A házirend módosításai csak újraindítás után lépnek érvénybe.
+      </string>
       <string id="EnableLogonOptimization">Csoportházirend gyorsítótárazásának konfigurálása</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -490,6 +537,12 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a csoportházi
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Beavatkozási beállítások</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Kockázatcsökkentési folyamatbeállítások</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Engedélyezze, hogy a Windows Betűkészlet-gyorsítótárazás szolgáltatás betűkészleteket és hozzájuk tartozó katalógusadatokat töltsön le online betűkészlet-szolgáltatóktól.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Lassú kapcsolat értéke:[számmező] ezredmásodperc</decimalTextBox>

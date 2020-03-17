@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Microsoft Passport for Work</displayName>
-  <description>Configuration de Microsoft Passport for Work</description>
+  <displayName>Windows Hello for Business</displayName>
+  <description>Configuration de Windows Hello for Business</description>
   <resources>
     <stringTable>
-        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkCategory">Windows Hello for Business</string>
         <string id="MSPassportForWorkPINComplexityCategory">Complexité du code confidentiel</string>
-        <string id="MSPassportForWorkRemoteCategory">Passport à distance</string>
-        <string id="MSPassport_UsePassportForWork">Utiliser Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkRemoteCategory">Informations d’identification du téléphone</string>
+        <string id="MSPassport_UsePassportForWork">Utiliser Windows Hello for Business</string>
         <!-- DropdownList Button strings -->
-        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport for Work est une autre méthode de connexion à Windows avec votre compte Active Directory ou Azure Active Directory qui peut remplacer les mots de passe, les cartes à puce et les cartes à puce virtuelles.
+        <string id="MSPassport_UsePassportForWorkExplain">Windows Hello for Business est une autre méthode de connexion à Windows avec votre compte Active Directory ou Azure Active Directory qui peut remplacer les mots de passe, les cartes à puce et les cartes à puce virtuelles.
 
-Si vous ne configurez pas ce paramètre de stratégie, les utilisateurs peuvent mettre en service Microsoft Passport for Work qui chiffre leur mot de passe de domaine.
+Si vous activez ce paramètre de stratégie, l’appareil approvisionne Windows Hello for Business à l’aide de clés ou de certificats pour l’ensemble des utilisateurs.
 
-Si vous activez ce paramètre de stratégie, l'appareil met en service Microsoft Passport for Work à l'aide de clés ou de certificats pour tous les utilisateurs.
+Si vous désactivez ce paramètre de stratégie, l’appareil n’approvisionne pas Windows Hello for Business pour les utilisateurs.
 
-Si vous désactivez ce paramètre de stratégie, l'appareil ne met pas en service Microsoft Passport for Work, pour aucun utilisateur.
+Si vous ne configurez pas ce paramètre de stratégie, les utilisateurs peuvent approvisionner Windows Hello for Business en tant qu’informations d’identification pour chiffrer leur mot de passe de domaine.
         </string>
         <string id="MSPassport_RequireSecurityDevice">Utiliser un périphérique de sécurité matériel</string>
-        <string id="MSPassport_RequireSecurityDeviceExplain">Un Module de plateforme sécurisée (TPM) offre des avantages de sécurité supplémentaires par rapport au logiciel, car les données qui y sont stockées ne peuvent pas être utilisées sur d'autres appareils.
+        <string id="MSPassport_RequireSecurityDeviceExplain">Un module de plateforme sécurisée (TPM) offre des avantages de sécurité supplémentaires par rapport au logiciel, car les données qui y sont stockées ne peuvent pas être utilisées sur d’autres appareils.
 
-Si vous activez ce paramètre de stratégie, seuls les appareils dotés d'une TPM utilisable mettent en service Microsoft Passport for Work.
+Si vous activez ce paramètre de stratégie, seuls les appareils dotés d’un module TPM utilisable peuvent approvisionner Windows Hello for Business.
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, la TPM est toujours préférée, mais tous les appareils peuvent mettre en service Microsoft Passport for Work via le logiciel si la TPM n'est pas opérationnelle ou si elle n'est pas disponible.
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, le module TPM est toujours préféré, mais tous les appareils peuvent approvisionner Windows Hello for Business via le logiciel si le module TPM n’est pas opérationnel ou s’il n’est pas disponible.
         </string>
         <string id="MSPassport_MinimumPINLength">Longueur minimale du code PIN</string>
         <string id="MSPassport_MinimumPINLengthExplain">Longueur minimale du code PIN configure le nombre minimum de caractères requis pour le code confidentiel. Le plus petit nombre que vous pouvez configurer pour ce paramètre de stratégie est 4. Le plus grand nombre que vous pouvez configurer doit être inférieur au nombre configuré dans le paramètre de stratégie Longueur maximale du code confidentiel ou le nombre 127, selon le plus petit des deux.
@@ -44,32 +44,32 @@ Si vous désactivez ou ne configurez pas ce paramètre de stratégie, la longueu
 REMARQUE : si les conditions ci-dessus pour la longueur maximale du code confidentiel ne sont pas remplies, les valeurs par défaut seront utilisées pour les longueurs maximale et minimale du code confidentiel.
         </string>
         <string id="MSPassport_UppercaseLetters">Exiger des lettres majuscules</string>
-        <string id="MSPassport_UppercaseLettersExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de lettres majuscules dans le code confidentiel de Microsoft Passport for Work.
+        <string id="MSPassport_UppercaseLettersExplain">Utilisez ce paramètre de stratégie pour configurer l’utilisation des lettres majuscules dans le code confidentiel.
 
-Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins une lettre majuscule dans leur code confidentiel.
+Si vous activez ce paramètre de stratégie, Windows Hello for Business exige des utilisateurs qu’ils incluent au moins une lettre majuscule dans leur code confidentiel.
 
-Si vous désactivez ce paramètre de stratégie ou si vous le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des lettres majuscules dans leur code confidentiel.
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, Windows Hello for Business n’autorise pas les utilisateurs à utiliser des lettres majuscules dans leur code confidentiel.
         </string>
         <string id="MSPassport_LowercaseLetters">Exiger des lettres minuscules</string>
-        <string id="MSPassport_LowercaseLettersExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de lettres minuscules dans le code PIN de Microsoft Passport for Work.
+        <string id="MSPassport_LowercaseLettersExplain">Utilisez ce paramètre de stratégie pour configurer l’utilisation des lettres minuscules dans le code confidentiel.
 
-Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins une lettre minuscule dans leur code confidentiel.
+Si vous activez ce paramètre de stratégie, Windows Hello for Business exige des utilisateurs qu’ils incluent au moins une lettre minuscule dans leur code confidentiel.
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des lettres minuscules dans leur code PIN.
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, Windows Hello for Business n’autorise pas les utilisateurs à utiliser des lettres minuscules dans leur code confidentiel.
         </string>
         <string id="MSPassport_SpecialCharacters">Exiger des caractères spéciaux</string>
-        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Utilisez ce paramètre de stratégie pour configurer l'utilisation de caractères spéciaux dans le code PIN de Microsoft Passport for Work. Les caractères spéciaux valides incluent les suivants : ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Utilisez ce paramètre de stratégie pour configurer l’utilisation des caractères spéciaux dans le code confidentiel. Les caractères spéciaux autorisés sont les suivants : ! " # $ % & ’ ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
 
-Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins un caractère spécial dans leur code confidentiel.
+Si vous activez ce paramètre de stratégie, Windows Hello for Business exige des utilisateurs qu’ils incluent au moins un caractère spécial dans leur code confidentiel.
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des caractères spéciaux dans leur code confidentiel.]]>
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, Windows Hello for Business empêche les utilisateurs d’utiliser des caractères spéciaux dans leur code confidentiel.]]>
         </string>
         <string id="MSPassport_Digits">Exiger des chiffres</string>
-        <string id="MSPassport_DigitsExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de chiffres dans le code PIN de Microsoft Passport for Work.
+        <string id="MSPassport_DigitsExplain">Utilisez ce paramètre de stratégie pour configurer l’utilisation des chiffres dans le code confidentiel.
 
-Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins un chiffre dans leur code confidentiel.
+Si vous activez ce paramètre de stratégie ou ne le configurez pas, Windows Hello for Business exige des utilisateurs qu’ils incluent au moins un chiffre dans leur code confidentiel.
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des chiffres dans leur code confidentiel.
+Si vous désactivez ce paramètre de stratégie, Windows Hello for Business n’autorise pas les utilisateurs à utiliser des chiffres dans leur code confidentiel.
         </string>
         <string id="MSPassport_PINHistory">Historique</string>
         <string id="MSPassport_PINHistoryExplain">Ce paramètre spécifie le nombre de codes confidentiels pouvant être associés à un compte d'utilisateur qui ne peuvent pas être réutilisés. Cette stratégie permet aux administrateurs d'améliorer la sécurité en veillant à ce que les anciens codes confidentiels ne soient pas réutilisés continuellement. L'historique de code confidentiel n'est pas conservé par le biais d'une réinitialisation du code confidentiel.
@@ -84,20 +84,20 @@ Par défaut : 0.
 Par défaut : 0.
         </string>
         <string id="MSPassport_UseBiometrics">Utiliser la biométrie</string>
-        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport for Work permet aux utilisateurs d'utiliser des mouvements biométriques comme le visage et les empreintes digitales à la place du mouvement de code confidentiel. Toutefois, les utilisateurs peuvent toujours configurer un code confidentiel en cas d'échec.
+        <string id="MSPassport_UseBiometricsExplain">Windows Hello for Business permet aux utilisateurs d’utiliser des données biométriques comme le visage et les empreintes digitales à la place du code confidentiel. Toutefois, les utilisateurs doivent toujours configurer un code confidentiel en cas de défaillances.
 
-Si vous activez ce paramètre de stratégie ou si vous ne configurez pas, Microsoft Passport for Work autorise l'utilisation de mouvements biométriques.
+Si vous activez ce paramètre de stratégie ou ne le configurez pas, Windows Hello for Business autorise l’utilisation des données biométriques.
 
-Si vous désactivez ce paramètre de stratégie, Microsoft Passport for Work empêche l'utilisation de mouvements biométriques.
+Si vous désactivez ce paramètre de stratégie, Windows Hello for Business empêche l’utilisation des données biométriques.
 
-REMARQUE : la désactivation de cette stratégie empêche l'utilisateur d'utiliser des mouvements biométriques sur l'appareil pour tous les types de comptes.
+REMARQUE : la désactivation de cette stratégie empêche l’utilisateur d’utiliser des données biométriques sur l’appareil pour tous les types de compte.
         </string>
-        <string id="MSPassport_UseRemote">Utiliser passport à distance</string>
-        <string id="MSPassport_UseRemoteExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de Passport à distance. Passport à distance permet à un périphérique portable, inscrit d'être utilisable en tant que complément de périphérique pour l'authentification du bureau. Passport à distance exige que le bureau soit joint à Azure Active Directory et que le complément de périphérique dispose d'un code confidentiel Passport for Work.
+        <string id="MSPassport_UseRemote">Utiliser les informations d’identification du téléphone</string>
+        <string id="MSPassport_UseRemoteExplain">Utilisez ce paramètre de stratégie pour configurer l’utilisation des informations d’identification du téléphone. Les informations d’identification du téléphone permettent à un téléphone d’être utilisé comme appareil mobile pour l’authentification du Bureau. Les informations d’identification du téléphone exigent que le PC et le téléphone soient enregistrés avec le même client Azure AD. Le téléphone doit également être inscrit dans Windows Hello for Business.
 
-Si vous activez ce paramètre de stratégie, Passport à distance est activé et un périphérique portable, inscrit peut être utilisé en tant que complément de périphérique pour l'authentification du bureau.
+Si vous activez ce paramètre de stratégie, les informations d’identification du téléphone sont activées, permettant ainsi d’utiliser un téléphone comme appareil mobile pour l’authentification du Bureau.
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Passport à distance sera désactivé et un périphérique mobile, inscrit ne peut pas être utilisé en tant que complément de périphérique pour l'authentification du bureau.
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, les informations d’identification du téléphone sont désactivées, empêchant ainsi l’utilisation d’un téléphone en tant qu’appareil mobile pour l’authentification du Bureau.
         </string>
     </stringTable>
     <presentationTable>

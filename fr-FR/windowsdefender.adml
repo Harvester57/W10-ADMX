@@ -58,22 +58,36 @@ Si vous désactivez ce paramètre, seuls les éléments définis par la stratég
         Si vous activez ce paramètre de stratégie, Endpoint Protection n'entreprend pas automatiquement une action pour les menaces détectées, mais invite les utilisateurs à choisir l'action à entreprendre parmi les actions possibles pour chaque menace.
 
         Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, Endpoint Protection entreprend automatiquement une action pour chaque menace détectée au terme d'un délai non configurable de cinq secondes environ.
-    </string>
+    </string>      
     <string id="ProxyBypass">Définir des adresses pour lesquelles ignorer le serveur proxy</string>
     <string id="ProxyBypass_Explain">Cette stratégie, si elle est définie, empêche les logiciels anti-programme malveillant d’utiliser le serveur proxy configuré lors de communications avec les adresses IP spécifiées. La valeur d’adresse doit être entrée sous la forme d’une URL valide.
 
 Si vous activez ce paramètre, le serveur proxy est ignoré pour les adresses spécifiées.
 
 Si vous désactivez ou ne configurez pas ce paramètre, le serveur proxy n’est pas ignoré pour les adresses spécifiées.</string>
+    <string id="ProxyPacUrl">Définir la configuration automatique de proxy (.pac) pour la connexion au réseau</string>
+    <string id="ProxyPacUrl_Explain">Ce paramètre de stratégie définit l’URL d’un fichier .pac de proxy qui doit être utilisé lorsque le client tente de se connecter au réseau pour les mises à jour des définitions et les rapports MAPS. Si la configuration automatique de proxy échoue ou si aucune configuration automatique de proxy n’est spécifiée, le client utile les options de remplacement (dans l’ordre) :
+      1. Serveur proxy (si spécifié)
+      2. URL du fichier .pac de proxy (si spécifiée)
+      3. Aucune
+      4. Paramètres du proxy d’Internet Explorer
+      5. Détection automatique
+
+      Si vous activez ce paramètre, le paramètre du proxy est défini pour utiliser le fichier .pac de proxy en respectant l’ordre spécifié ci-dessus.
+
+      Si vous désactivez ce paramètre ou ne le configurez pas, le proxy ignore cette étape de remplacement en respectant l’ordre spécifié ci-dessus.</string>
     <string id="ProxyServer">Définir un serveur proxy pour la connexion au réseau</string>
-    <string id="ProxyServer_Explain">Ce paramètre de stratégie vous permet de configurer le proxy nommé qui doit être utilisé lorsque le client tente de se connecter au réseau pour les mises à jour des définitions et les rapports MAPS. Si le proxy nommé échoue ou si aucun proxy n’est spécifié, les paramètres suivants sont utilisés (dans l’ordre) :
-1. Paramètres de proxy Internet Explorer
-2. Détection automatique
-3. Aucun
+    <string id="ProxyServer_Explain">Ce paramètre de stratégie vous permet de configurer le proxy nommé qui doit être utilisé lorsque le client tente de se connecter au réseau pour les mises à jour des définitions et les rapports MAPS. Si le proxy nommé échoue ou si aucun proxy n’est spécifié, le client utilise les options de remplacement (dans l’ordre) :
+      1. Serveur proxy (si spécifié)
+      2. URL du fichier .pac de proxy (si spécifiée)
+      3. Aucune
+      4. Paramètres du proxy d’Internet Explorer
+      5. Détection automatique
 
-Si vous activez ce paramètre, le proxy prend la valeur de l’URL spécifiée.
+      Si vous activez ce paramètre, le proxy est défini sur l’URL spécifiée en respectant l’ordre spécifié ci-dessus. L’URL doit utiliser http:// ou https://.
 
-Si vous désactivez ou ne configurez pas ce paramètre, le proxy est défini selon l’ordre indiqué ci-dessus.</string>
+      Si vous désactivez ce paramètre ou ne le configurez pas, le proxy ignore cette étape de remplacement en respectant l’ordre spécifié ci-dessus.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Rendre aléatoires les heures des tâches planifiées</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Ce paramètre de stratégie vous permet d’activer ou de désactiver la randomisation de l’heure de début de l’analyse planifiée et de l’heure de début de la mise à jour de définition planifiée. Ce paramètre permet de répartir l’impact de l’analyse sur les ressources. Par exemple, il peut être utilisé sur les ordinateurs virtuels invités qui partagent un hôte, pour empêcher plusieurs d’entre eux d’entreprendre une opération sollicitant le disque de manière intensive en même temps.
 
@@ -104,20 +118,6 @@ Si vous désactivez ce paramètre, la reconnaissance de protocole est désactiv�
 Si vous activez ou ne configurez pas ce paramètre, le retrait de définition est activé.
 
 Si vous désactivez ce paramètre, le retrait de définition est désactivé.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Définir le taux des événements de détection pour l’enregistrement</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Ce paramètre de stratégie limite le taux auquel les événements de détection pour la protection réseau contre les attaques des vulnérabilités connues sont enregistrés. L’enregistrement est limité à une fréquence d’un événement selon l’intervalle défini. La valeur d’intervalle est définie en minutes. L’intervalle par défaut est de 60 minutes.
-
-Si vous activez ce paramètre, les événements de détection ne sont pas enregistrés s’il existe plusieurs rapports similaires (par GUID de définition) dans le nombre spécifié de minutes.
-
-Si vous désactivez ou ne configurez pas ce paramètre, les événements de détection sont enregistrés selon le taux par défaut.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Exclusions de plages d’adresses IP</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Cette stratégie, si elle est définie, empêche la protection réseau contre les attaques des vulnérabilités connues d’inspecter les adresses IP spécifiées. Les adresses IP doivent être ajoutées sous Options pour ce paramètre. Chaque entrée doit être répertoriée en tant que paire nom/valeur, où le nom doit être une représentation sous forme de chaîne d’une plage d’adresses IP. Par exemple, une plage peut être définie en tant que 157.1.45.123-60.1.1.1. La valeur n’est pas utilisée et il est recommandé qu’elle soit égale à 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Exclusions de numéros de port</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Ce paramètre de stratégie définit une liste de numéros de port TCP à partir desquels l’inspection du trafic réseau est désactivée. Les numéros de port doivent être ajoutés sous Options pour ce paramètre. Chaque entrée doit être répertoriée en tant que paire nom/valeur, où le nom doit être une représentation sous forme de chaîne d’un numéro de port TCP. Par exemple, un numéro de port peut être défini en tant que 8080. La valeur n’est pas utilisée et il est recommandé qu’elle soit égale à 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Exclusions de processus pour le trafic sortant</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Ce paramètre de stratégie définit les processus à partir desquels le trafic réseau sortant n’est pas inspecté.  Les noms de processus doivent être ajoutés sous Options pour ce paramètre. Chaque entrée doit être répertoriée en tant que paire nom/valeur, où le nom doit être une représentation sous forme de chaîne du chemin d’accès et du nom d’un processus. Par exemple, un processus peut être défini en tant que « C:\Windows\System32\App.exe ». La valeur n’est pas utilisée et il est recommandé qu’elle soit égale à 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Exclusions d’ID de menace</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Ce paramètre de stratégie définit les menaces qui sont exclues de la détection lors de l’inspection du trafic réseau. Les menaces doivent être ajoutées sous Options pour ce paramètre. Chaque entrée doit être répertoriée en tant que paire nom/valeur, où le nom doit être une représentation sous forme de chaîne d’un ID de menace. Par exemple, un ID de menace peut être défini en tant que 2925110632. La valeur n’est pas utilisée et il est recommandé qu’elle soit égale à 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Spécifier d’autres jeux de définitions pour l’inspection du trafic réseau</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Ce paramètre de stratégie définit d’autres jeux de définitions à activer pour l’inspection du trafic réseau. Les GUID des jeux de définitions doivent être ajoutés sous Options pour ce paramètre. Chaque entrée doit être répertoriée en tant que paire nom/valeur, où le nom doit être une représentation sous forme de chaîne d’un GUID de jeu de définitions. Par exemple, le GUID de jeu de définitions pour activer les définitions de tests est défini en tant que « {b54b6ac9-a737-498e-9120-6616ad3bf590} ». La valeur n’est pas utilisée et il est recommandé qu’elle soit égale à 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Configurer une valeur de remplacement de paramètre locale pour la suppression des éléments dans le dossier Quarantaine</string>
@@ -138,18 +138,6 @@ Si vous désactivez ou ne configurez pas ce paramètre, les éléments sont cons
 Si vous activez ou ne configurez pas ce paramètre, l’analyse du comportement est activée.
 
 Si vous désactivez ce paramètre, l’analyse du comportement est désactivée.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Activer Information Protection Control</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Ce paramètre de stratégie vous permet de configurer IPC (Information Protection Control).
-
-Si vous activez ce paramètre, IPC est activé.
-
-Si vous désactivez ou ne configurez pas ce paramètre, IPC est désactivé.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Activer la protection réseau contre les attaques des vulnérabilités connues</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Ce paramètre de stratégie vous permet de configurer la protection réseau contre les attaques des vulnérabilités connues.
-
-Si vous activez ou ne configurez pas ce paramètre, la protection réseau est activée.
-
-Si vous désactivez ce paramètre, la protection réseau est désactivée.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Analyser tous les fichiers et pièces jointes téléchargés</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Ce paramètre de stratégie vous permet de configurer l’analyse de tous les fichiers et pièces jointes téléchargés.
 
@@ -205,12 +193,6 @@ Si vous activez ce paramètre, le paramètre de préférence locale est priorita
 Si vous désactivez ou ne configurez pas ce paramètre, la stratégie de groupe est prioritaire sur le paramètre de préférence locale.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Configurer une valeur de remplacement de paramètre locale pour analyser l’activité des fichiers et programmes sur votre ordinateur</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Ce paramètre de stratégie configure une valeur de remplacement locale pour la configuration de l’analyse de l’activité des fichiers et programmes sur votre ordinateur. Ce paramètre peut uniquement être défini par une stratégie de groupe.
-
-Si vous activez ce paramètre, le paramètre de préférence locale est prioritaire sur la stratégie de groupe.
-
-Si vous désactivez ou ne configurez pas ce paramètre, la stratégie de groupe est prioritaire sur le paramètre de préférence locale.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Configurer une valeur de remplacement de paramètre locale pour désactiver le système de prévention d’intrusion</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Ce paramètre de stratégie configure une valeur de remplacement locale pour la configuration de la protection réseau contre les attaques des vulnérabilités connues. Ce paramètre peut uniquement être défini par une stratégie de groupe.
 
 Si vous activez ce paramètre, le paramètre de préférence locale est prioritaire sur la stratégie de groupe.
 
@@ -633,6 +615,16 @@ Si vous désactivez ou ne configurez pas ce paramètre, les recherches des mises
 Si vous activez ce paramètre, une recherche de nouvelles définitions est effectuée après le démarrage du service.
 
 Si vous désactivez ou ne configurez pas ce paramètre, une recherche de nouvelles définitions n’est pas effectuée après le démarrage du service.</string>
+    <string id="DisableBlockAtFirstSeen">Configurer la fonctionnalité « Bloquer à la première consultation »</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Cette fonctionnalité garantit que l’appareil vérifie en temps réel auprès du Microsoft Active Protection Service (MAPS) avant d’autoriser l’exécution ou l’accès à certains contenus. Si cette fonctionnalité est désactivée, la vérification n’est pas effectuée, ce qui diminue l’état de protection de l’appareil.
+	Activé : le paramètre Bloquer à la première consultation est activé.
+	Désactivé : le paramètre Bloquer à la première consultation est désactivé.
+	
+	Cette fonctionnalité exige que les paramètres de cette stratégie de groupe soient définis comme suit :
+	MAPS -&gt; L’option « Rejoindre Microsoft MAPS » doit être activée, sans quoi la fonctionnalité « Bloquer à la première consultation » ne fonctionnera pas.
+	MAPS -&gt; L’option « Envoyer des exemples de fichier lorsqu’une analyse supplémentaire est nécessaire » doit être définie sur 1 (Envoyer des échantillons sécurisés) ou 3 (Envoyer tous les échantillons). Si l’option est définie sur 0 (Toujours demander), l’état de protection de l’appareil diminue. Si l’option est définie sur 2 (Ne jamais envoyer), la fonctionnalité « Bloquer à la première consultation » ne fonctionnera pas.
+	Protection en temps réel -&gt; La stratégie « Analyser tous les fichiers et pièces jointes téléchargés » doit être activée, sans quoi la fonctionnalité « Bloquer à la première consultation » ne fonctionnera pas.
+	Protection en temps réel -&gt; N’activez pas la stratégie « Désactiver la protection en temps réel », sans quoi la fonctionnalité « Bloquer à la première consultation » ne fonctionnera pas.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Configurer une valeur de remplacement de paramètre locale pour l’envoi de rapports à Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Ce paramètre de stratégie configure une valeur de remplacement locale pour la configuration permettant de rejoindre Microsoft MAPS. Ce paramètre peut uniquement être défini par une stratégie de groupe.
 
@@ -641,7 +633,7 @@ Si vous activez ce paramètre, le paramètre de préférence locale est priorita
 Si vous désactivez ou ne configurez pas ce paramètre, la stratégie de groupe est prioritaire sur le paramètre de préférence locale.</string>
     <string id="SubmitSamplesConsent">Envoyer des exemples de fichier lorsqu'une analyse supplémentaire est nécessaire</string>
     <string id="SubmitSamplesConsent_Explain">
-        Ce paramètre de stratégie configure le comportement d'envoi d'échantillons lorsque la télémétrie MAPS est acceptée.
+        Ce paramètre de stratégie configure le comportement d’envoi d’échantillons lorsque la télémétrie MAPS est acceptée.
 
         Les options possibles sont les suivantes :
         (0x0) Toujours demander
@@ -658,20 +650,22 @@ Si vous désactivez ou ne configurez pas ce paramètre, la stratégie de groupe 
     <string id="SpynetReporting">Rejoindre Microsoft MAPS</string>
     <string id="SpynetReporting_Explain">Ce paramètre de stratégie vous permet de rejoindre Microsoft MAPS. Microsoft MAPS est la communauté en ligne qui vous aide à choisir comment répondre aux menaces potentielles. Elle contribue également à enrayer la propagation des infections de nouveaux programmes malveillants.
 
-Vous avez le choix d’envoyer des informations de base ou des informations complémentaires sur les logiciels détectés. Grâce aux informations complémentaires, Microsoft peut créer de nouvelles définitions et ainsi mieux protéger votre ordinateur. Ces informations peuvent par exemple contenir l’emplacement des éléments détectés sur votre ordinateur si un logiciel dangereux a été supprimé. Ces informations sont automatiquement recueillies et envoyées. Dans certains cas, des informations personnelles peuvent être accidentellement envoyées à Microsoft. Cependant, Microsoft n’utilise pas ces informations pour vous identifier ni vous contacter.
+    Vous avez le choix d’envoyer des informations de base ou des informations complémentaires sur les logiciels détectés. Grâce aux informations complémentaires, Microsoft peut créer de nouvelles définitions et ainsi mieux protéger votre ordinateur. Ces informations peuvent par exemple contenir l’emplacement des éléments détectés sur votre ordinateur si un logiciel dangereux a été supprimé. Ces informations sont automatiquement recueillies et envoyées. Dans certains cas, des informations personnelles peuvent être accidentellement envoyées à Microsoft. Cependant, Microsoft n’utilise pas ces informations pour vous identifier ni vous contacter.
 
-Les options possibles sont les suivantes :
-(0x0) Désactivé (valeur par défaut)
-(0x1) Abonnement de base
-(0x2) Abonnement avancé
+    Les options possibles sont les suivantes :
+    (0x0) Désactivé (valeur par défaut)
+    (0x1) Abonnement de base
+    (0x2) Abonnement avancé
 
-L’option Abonnement de base envoie des informations de base à Microsoft sur les logiciels qui ont été détectés, y compris leur provenance, les mesures que vous appliquez ou appliquées automatiquement, et si ces mesures ont réussi.
+    L’option Abonnement de base envoie des informations de base à Microsoft sur les logiciels qui ont été détectés, y compris leur provenance, les mesures que vous appliquez ou appliquées automatiquement, et si ces mesures ont réussi.
 
-L’option Abonnement avancé, outre les informations de base, envoie des informations supplémentaires à Microsoft au sujet des programmes malveillants, logiciels espions et programmes potentiellement indésirables, notamment l’emplacement de ces logiciels, les noms de fichiers, la manière dont ces logiciels opèrent et leur impact sur l’ordinateur.
+    L’option Abonnement avancé, outre les informations de base, envoie des informations supplémentaires à Microsoft au sujet des programmes malveillants, logiciels espions et programmes potentiellement indésirables, notamment l’emplacement de ces logiciels, les noms de fichiers, la manière dont ces logiciels opèrent et leur impact sur l’ordinateur.
 
-Si vous activez ce paramètre, vous rejoignez Microsoft MAPS avec l’abonnement spécifié.
+    Si vous activez ce paramètre, vous rejoignez Microsoft MAPS avec l’abonnement spécifié.
 
-Si vous désactivez ou ne configurez pas ce paramètre, vous ne rejoignez pas Microsoft MAPS.</string>
+    Si vous désactivez ou ne configurez pas ce paramètre, vous ne rejoignez pas Microsoft MAPS.
+  
+    Avec Windows 10, l’option Abonnement de base n’est plus disponible, la valeur 1 ou 2 inscrit donc l’appareil pour l’option Abonnement avancé.</string>
     <string id="SpynetReporting_Disabled">Désactivé</string>
     <string id="SpynetReporting_Basic">MAPS de base</string>
     <string id="SpynetReporting_Advanced">MAPS avancé</string>
@@ -706,16 +700,12 @@ Les valeurs de l’action de mise à jour valides sont les suivantes :
 
       Si vous activez ce paramètre, l'interface utilisateur du logiciel anti-programme malveillant n'affiche pas les notifications de redémarrage.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Afficher des notifications pour les clients lorsqu’ils doivent effectuer des actions</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Ce paramètre de stratégie vous permet de configurer s’il convient ou non d’afficher des notifications pour les clients lorsqu’ils doivent effectuer les actions suivantes :
-Lancer une analyse complète
-Télécharger les dernières définitions de virus et de logiciels espions 
-Télécharger le Nettoyeur système autonome
+    <string id="UX_Configuration_Notification_Suppress">Supprimer toutes les notifications</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Utilisez ce paramètre de stratégie pour indiquer si vous souhaitez que les notifications Windows Defender s’affichent sur les clients.
+      Si vous désactivez ce paramètre ou ne le configurez pas, les notifications Windows Defender s’affichent sur les clients.
 
-
-Si vous activez ou ne configurez pas ce paramètre, les notifications sont affichées pour les clients lorsqu’ils doivent effectuer les actions spécifiées.
-
-Si vous désactivez ce paramètre, les notifications ne sont pas affichées pour les clients lorsqu’ils doivent effectuer les actions spécifiées.</string>
+      Si vous activez ce paramètre, les notifications Windows Defender ne s’affichent pas sur les clients.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Afficher du texte supplémentaire pour les clients lorsqu’ils doivent effectuer une action</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Ce paramètre de stratégie vous permet de configurer s’il convient ou non d’afficher du texte supplémentaire pour les clients lorsqu’ils doivent effectuer une action. Le texte affiché est une chaîne définie par l’administrateur personnalisée. Il peut s’agir, par exemple, du numéro de téléphone pour appeler l’assistance de la société. L’interface client affiche uniquement un maximum de 1 024 caractères. Les chaînes plus longues sont tronquées avant d’être affichées.
 
@@ -728,6 +718,11 @@ Si vous désactivez ou ne configurez pas ce paramètre, aucun texte supplémenta
     <textBox refId="ProxyBypass">
         <label>Définir des adresses pour lesquelles ignorer le serveur proxy</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Définir la configuration automatique de proxy (.pac) pour la connexion au réseau</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Si vous désactivez ou ne configurez pas ce paramètre, aucun texte supplémenta
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Exclusions de processus</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Définir le taux des événements de détection pour l’enregistrement</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Exclusions de plages d’adresses IP</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Exclusions de numéros de port</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Exclusions de processus pour le trafic sortant</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Exclusions d’ID de menace</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Spécifier d’autres jeux de définitions pour l’inspection du trafic réseau</listBox>

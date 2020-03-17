@@ -58,22 +58,36 @@ Wenn diese Einstellung deaktiviert wird, werden nur von der Gruppenrichtlinie de
     Wenn Sie die Richtlinieneinstellung aktivieren, führt Endpoint Protection keine automatische Aktion für die erkannten Bedrohungen aus, fordert die Benutzer jedoch auf, aus den für die Bedrohung jeweils verfügbaren Aktionen auszuwählen.
 
         Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, führt Endpoint Protection nach einer nicht konfigurierbaren Verzögerung von ca. fünf Sekunden automatisch Aktionen für alle erkannten Bedrohungen aus.
-    </string>
+    </string>      
     <string id="ProxyBypass">Definieren von Adressen zur Umgehung eines Proxyservers</string>
     <string id="ProxyBypass_Explain">Wenn diese Richtlinie definiert wird, wird die AntiMalware-Anwendung daran gehindert, bei der Kommunikation mit der angegebenen IP-Adresse den konfigurierten Proxyserver zu verwenden. Der Adresswert muss als gültige URL eingegeben werden.
 
 Wenn diese Einstellung aktiviert wird, wird der Proxyserver für die angegebenen Adressen umgangen.
 
 Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, wird der Proxyserver für die angegebenen Adressen nicht umgangen.</string>
+    <string id="ProxyPacUrl">Automatische Proxykonfiguration (PAC) für Netzwerkverbindungen definieren</string>
+    <string id="ProxyPacUrl_Explain">Mit dieser Richtlinieneinstellung wird die URL einer PAC-Proxydatei definiert, die verwendet werden soll, wenn der Client zum Zweck von Definitionsupdates und MAPS-Berichten eine Verbindung mit dem Netzwerk herstellt. Wenn die automatische Konfiguration des Proxys fehlerhaft ist oder keine automatische Proxykonfiguration angegeben wurde, führt der Client einen Fallback auf alternative Optionen in der angegebenen Reihenfolge aus:
+      1. Proxyserver (falls angegeben)
+      2. PAC-URL des Proxys (falls angegeben)
+      3. Keine
+      4. Internet Explorer-Proxyeinstellungen
+      5. Automatische Erkennung
+
+      Wenn Sie diese Einstellung aktivieren, wird die Proxyeinstellung in der oben aufgeführten Reihenfolge auf die Verwendung der angegebenen PAC-Proxydatei festgelegt.
+
+      Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, überspringt der Proxy diesen Fallbackschritt (gemäß der oben angegebenen Reihenfolge).</string>
     <string id="ProxyServer">Definieren des Proxyservers für das Herstellen einer Verbindung mit dem Netzwerk</string>
-    <string id="ProxyServer_Explain">Mit dieser Richtlinieneinstellung kann der benannte Proxy konfiguriert werden, der verwendet werden sollte, wenn der Client zum Zweck von Definitionsupdates und MAPS-Berichten eine Verbindung mit dem Netzwerk herstellt. Wenn der benannte Proxy fehlschlägt oder wenn kein Proxy angegeben wurde, werden die folgenden Einstellungen verwendet (der Reihenfolge nach):
-1. Internet Explorer-Proxyeinstellungen
-2. Automatisch erkennen
-3. Keine
+    <string id="ProxyServer_Explain">Mit dieser Richtlinieneinstellung kann der benannte Proxy konfiguriert werden, der verwendet werden sollte, wenn der Client zum Zweck von Definitionsupdates und MAPS-Berichten eine Verbindung mit dem Netzwerk herstellt. Wenn der benannte Proxy einen Fehler verursacht oder wenn kein Proxy angegeben wurde, führt der Client einen Fallback auf alternative Optionen in der angegebenen Reihenfolge aus:
+      1. Proxyserver (falls angegeben)
+      2. PAC-URL des Proxys (falls angegeben)
+      3. Keine
+      4. Internet Explorer-Proxyeinstellungen
+      5. Automatische Erkennung
 
-Wenn Sie diese Einstellung aktivieren, wird der Proxy auf die angegebene URL festgelegt.
+      Wenn Sie diese Einstellung aktivieren, wird der Proxy in der oben aufgeführten Reihenfolge auf die angegebene URL festgelegt. Der URL sollte "http://" oder "https://" vorangestellt sein.
 
-Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, wird der Proxy gemäß der oben angegebenen Reihenfolge festgelegt.</string>
+      Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, überspringt der Proxy diesen Fallbackschritt (gemäß der oben angegebenen Reihenfolge).
+    </string>
     <string id="RandomizeScheduleTaskTimes">Zufälliges Festlegen von Zeiten für geplante Aufgaben</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Mit dieser Richtlinieneinstellung können Sie die zufällige Festlegung der geplanten Scanstartzeit und der geplanten Startzeit für Definitionsupdates aktivieren oder deaktivieren. Mit dieser Einstellung wird die durch Scanvorgänge entstehende Ressourcenauslastung verteilt. Beispiel: Die Einstellung kann auf virtuellen Gastcomputern, die gemeinsam einen Host nutzen, verwendet werden, um zu verhindern, dass mehrere virtuelle Gastcomputer gleichzeitig einen Vorgang ausführen, der eine hohe Speicherkapazität erfordert.
 
@@ -104,20 +118,6 @@ Wenn diese Einstellung deaktiviert wird, wird die Protokollerkennung deaktiviert
 Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, wird die Aufhebung der Definitionsverwendung aktiviert.
 
 Wenn diese Einstellung deaktiviert wird, wird die Verwendung der Definitionsaufhebung deaktiviert.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definieren der Rate der Erkennungsereignisse für die Protokollierung</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Diese Richtlinieneinstellung beschränkt die Rate, mit der Erkennungsereignisse für den Netzwerkschutz vor Angriffen auf bekannte Schwachstellen protokolliert werden. Die Protokollierung wird auf ein Ereignis pro definiertem Intervall beschränkt. Der Intervallwert wird in Minuten definiert. Das Standardintervall beträgt 60 Minuten.
-
-Wenn diese Einstellung aktiviert wird, werden die Erkennungsereignisse nicht protokolliert, wenn im angegebenen Zeitraum (in Minuten) mehr als ein ähnlicher Bericht (nach Definitions-GUID) vorhanden ist.
-
-Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, werden Erkennungsereignisse mit der Standardrate protokolliert.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Ausschlüsse von IP-Adressbereichen</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Wenn diese Richtlinie definiert ist, wird der Netzwerkschutz vor Angriffen auf bekannte Schwachstellen an der Überprüfung der angegebenen IP-Adresse gehindert. IP-Adressen sollten unter den Optionen für diese Einstellung hinzugefügt werden. Jeder Eintrag muss als Name/Wert-Paar aufgelistet werden, wobei der Name eine Zeichenfolgendarstellung eines IP-Adressbereichs sein sollte. Beispielsweise kann ein Bereich folgendermaßen definiert werden: 157.1.45.123-60.1.1.1. Der Wert wird nicht verwendet und sollte auf 0 festgelegt werden.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Ausschlüsse von Portnummern</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Mit dieser Richtlinieneinstellung wird eine Liste von TCP-Portnummern definiert, in der die Überprüfung von Netzwerkdatenverkehr deaktiviert wird. Portnummern sollten unter den Optionen für diese Einstellung hinzugefügt werden. Jeder Eintrag muss als Name/Wert-Paar aufgelistet werden, wobei der Name eine Zeichenfolgendarstellung einer TCP-Portnummer sein sollte. Beispielsweise kann ein Bereich folgendermaßen definiert werden: 8080. Der Wert wird nicht verwendet und sollte auf 0 festgelegt werden.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Prozessausschlüsse für ausgehenden Datenverkehr</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Mit dieser Richtlinieneinstellung werden Prozesse definiert, in denen ausgehender Netzwerkdatenverkehr nicht überprüft wird.  Prozessnamen sollten unter den Optionen für diese Einstellung hinzugefügt werden. Jeder Eintrag muss als Name/Wert-Paar aufgelistet werden, wobei der Name eine Zeichenfolgendarstellung eines Prozesspfads und -namens sein sollte. Zum Beispiel kann ein Prozess folgendermaßen definiert werden: "C:\Windows\System32\App.exe" Der Wert wird nicht verwendet und sollte auf 0 festgelegt werden.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Ausschlüsse von Bedrohungs-IDs</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Mit dieser Richtlinieneinstellung werden Bedrohungen definiert, die während der Überprüfung von Netzwerkdatenverkehr aus der Erkennung ausgeschlossen werden. Bedrohungen sollten unter den Optionen für diese Einstellung hinzugefügt werden. Jeder Eintrag muss als Name/Wert-Paar aufgeführt werden, wobei der Name eine Zeichenfolgendarstellung einer Bedrohungs-ID sein sollte. Beispielsweise kann eine Bedrohungs-ID wie folgt definiert sein: 2925110632. Der Wert wird nicht verwendet und sollte auf 0 festgelegt werden.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Angeben zusätzlicher Definitionssätze für die Überprüfung von Netzwerkdatenverkehr</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Mit dieser Richtlinieneinstellung werden zusätzliche Definitionssätze definiert, um die die Überprüfung von Netzwerkdatenverkehr zu ermöglichen- GUIDs von Definitionssätzen sollten unter den Optionen für diese Einstellung hinzugefügt werden. Jeder Eintrag muss als Name/Wert-Paar aufgelistet werden, wobei der Name eine Zeichenfolgendarstellung der GUID eines Definitionssatzes sein sollte. Beispielsweise wird die GUID des Definitionssatzes zum Aktivieren von Testdefinitionen folgendermaßen definiert: "{b54b6ac9-a737-498e-9120-6616ad3bf590}". Der Wert wird nicht verwendet und sollte auf 0 festgelegt werden.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurieren der Außerkraftsetzung von lokalen Einstellungen für das Entfernen von Elementen aus dem Quarantäneordner</string>
@@ -138,18 +138,6 @@ Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, verbleiben die 
 Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, wird die Verhaltensüberwachung aktiviert.
 
 Wenn diese Einstellung deaktiviert wird, wird die Verhaltensüberwachung deaktiviert.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Aktivieren der Informationsschutzüberwachung</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Mit dieser Richtlinieneinstellung kann die Informationsschutzüberwachung (IPC) konfiguriert werden.
-
-Wenn diese Einstellung aktiviert wird, wird IPC aktiviert.
-
-Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, wird IPC deaktiviert.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Aktivieren des Netzwerkschutzes vor Angriffen auf bekannte Schwachstellen</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Diese Richtlinieneinstellung ermöglicht die Konfiguration von Netzwerkschutz vor Angriffen auf bekannte Schwachstellen.
-
-Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, wird der Netzwerkschutz aktiviert.
-
-Wenn diese Einstellung deaktiviert wird, wird der Netzwerkschutz deaktiviert.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Scannen aller heruntergeladenen Dateien und Anlagen</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Mit dieser Richtlinieneinstellung können Scanvorgänge für alle heruntergeladenen Dateien und Anlagen konfiguriert werden.
 
@@ -205,12 +193,6 @@ Wenn diese Einstellung aktiviert wird, besitzt die lokale Einstellung Priorität
 Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, besitzt die Gruppenrichtlinie Priorität gegenüber der lokalen Einstellung.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Konfigurieren der Außerkraftsetzung von lokalen Einstellungen für die Überwachung von Datei- und Programmaktivitäten auf dem Computer</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Mit dieser Richtlinieneinstellung wird eine lokale Außerkraftsetzung für die Konfiguration der Überwachung für Datei- und Programmaktivitäten auf dem Computer konfiguriert. Diese Einstellung kann nur mithilfe der Gruppenrichtlinie festgelegt werden.
-
-Wenn diese Einstellung aktiviert wird, besitzt die lokale Einstellung Priorität gegenüber der Gruppenrichtlinie.
-
-Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, besitzt die Gruppenrichtlinie Priorität gegenüber der lokalen Einstellung.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Konfigurieren der Außerkraftsetzung von lokalen Einstellungen, um das Eindringschutzsystem zu deaktivieren</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Mit dieser Richtlinieneinstellung wird eine lokale Außerkraftsetzung für die Konfiguration von Netzwerkschutz vor Angriffen auf bekannte Schwachstellen konfiguriert. Diese Einstellung kann nur mithilfe der Gruppenrichtlinie festgelegt werden.
 
 Wenn diese Einstellung aktiviert wird, besitzt die lokale Einstellung Priorität gegenüber der Gruppenrichtlinie.
 
@@ -633,6 +615,16 @@ Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, werden die Such
 Wenn diese Einstellung aktiviert wird, wird nach dem Start des Diensts nach neuen Definitionen gesucht.
 
 Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, wird nach dem Start des Diensts keine Suche nach neuen Definitionen ausgeführt.</string>
+    <string id="DisableBlockAtFirstSeen">Feature "Bei erster Anzeige blockieren" konfigurieren</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Dieses Feature stellt sicher, dass das Gerät mithilfe von Microsoft Active Protection Service (MAPS) eine Echtzeitüberprüfung ausführt, bevor bestimmte Inhalte ausgeführt bzw. abgerufen werden dürfen. Wenn dieses Feature deaktiviert ist, findet keine Überprüfung statt, wodurch der Schutzstatus des Geräts gemindert wird.
+	Aktiviert – Die Einstellung "Bei erster Anzeige blockieren" ist aktiviert.
+	Deaktiviert – Die Einstellung "Bei erster Anzeige blockieren" ist deaktiviert.
+	
+	Für dieses Feature müssen die folgenden Gruppenrichtlinieneinstellungen wie hier angegeben festgelegt werden:
+	MAPS -&gt; Das Feature "Bei erster Anzeige blockieren" funktioniert nur, wenn "Beitritt zu Microsoft MAPS" aktiviert ist.
+	MAPS -&gt; "Dateibeispiele senden, wenn eine weitere Analyse erforderlich ist" sollte auf 1 (Sichere Beispiele senden) oder 3 (Alle Beispiele senden) festgelegt werden. Durch die Einstellung 0 (Immer auffordern) wird der Schutzstatus des Geräts gemindert. Bei Verwendung der Einstellung 2 (Nie senden) funktioniert das Feature "Bei erster Anzeige blockieren" nicht.
+	Echtzeitschutz -&gt; Die Richtlinie "Alle heruntergeladenen Dateien und Anlagen überprüfen" muss aktiviert sein, damit das Feature "Bei erster Anzeige blockieren" funktioniert.
+	Echtzeitschutz -&gt; Die Richtlinie "Deaktivieren von Echtzeitschutz" darf nicht aktiviert werden, da das Feature "Bei erster Anzeige blockieren" andernfalls nicht funktioniert.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurieren der Außerkraftsetzung von lokalen Einstellungen für Berichte an Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Mit dieser Richtlinieneinstellung wird eine lokale Außerkraftsetzung für die Konfiguration des Beitritts zu Microsoft MAPS konfiguriert. Diese Einstellung kann nur mithilfe der Gruppenrichtlinie festgelegt werden.
 
@@ -647,7 +639,7 @@ Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, besitzt die Gru
         (0x0) Immer auffordern
         (0x1) Automatisch sichere Beispiele senden
         (0x2) Nie senden
-        (0x2) Automatisch alle Beispiele senden
+        (0x3) Automatisch alle Beispiele senden
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Immer auffordern</string>
@@ -656,22 +648,24 @@ Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, besitzt die Gru
     <string id="SubmitSamplesConsent_Send_All">Alle Beispiele senden</string>
 
     <string id="SpynetReporting">Beitritt zu Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Diese Richtlinieneinstellung ermöglicht den Beitritt zu Microsoft MAPS. Microsoft MAPS ist die Onlinecommunity, die Ihnen bei der Entscheidung hilft, wie Sie auf mögliche Bedrohungen reagieren. Die Community hilft auch dabei, die Verbreitung neuer Infektionen durch bösartige Software aufzuhalten.
+    <string id="SpynetReporting_Explain">Diese Richtlinieneinstellung ermöglicht den Beitritt zu Microsoft MAPS. Microsoft MAPS ist die Onlinecommunity, die Ihnen bei der Entscheidung hilft, wie Sie auf mögliche Bedrohungen reagieren. Die Community hilft auch dabei, die Verbreitung neuer Infektionen durch Schadsoftware zu verhindern.
 
-Sie können entscheiden, ob Sie Standardinformationen oder zusätzliche Informationen über die erkannte Software senden möchten. Zusätliche Informationen helfen Microsoft bei der Erstellung neuer Definitionen und beim Schutz Ihres Computers. Diese Informationen können sich zum Beispiel auf den Ort von erkannten Elementen auf dem Computer beziehen, wenn Schadsoftware entfernt wurde. Die Informationen werden automatisch erfasst und gesendet. In einigen Fällen werden möglicherweise ohne Absicht persönliche Informationen an Microsoft gesendet. Microsoft wird diese Informationen jedoch nicht dazu verwenden, Sie zu identifizieren oder zu kontaktieren.
+   Sie können entscheiden, ob Sie allgemeine oder zusätzliche Informationen zu erkannter Software senden. Zusätzliche Informationen helfen Microsoft bei der Erstellung neuer Definitionen und beim Schutz Ihres Computers. Diese Informationen können z. B. angeben, wo schädliche Elemente auf dem Computer erkannt wurden, falls Schadsoftware entfernt wurde. Die Informationen werden automatisch erfasst und gesendet. In einigen Fällen können unbeabsichtigt personenbezogene Informationen an Microsoft gesendet werden. Microsoft wird diese Informationen jedoch nicht dazu verwenden, Sie zu identifizieren oder zu kontaktieren.
 
-Mögliche Optionen:
-(0x0) Deaktiviert (Standard)
-(0x1) Basis-Mitgliedschaft
-(0x2) Premium-Mitgliedschaft
+    Mögliche Optionen:
+    (0x0) Deaktiviert (Standard)
+    (0x1) Einfache Mitgliedschaft
+    (0x2) Erweiterte Mitgliedschaft
 
-Bei der Basis-Mitgliedschaft werden grundlegende Informationen zu erkannter Software an Microsoft gesendet. Dazu zählen der Ursprungsort der Software, die vom Benutzer oder automatisch ausgeführten Aktionen und Angaben dazu, ob die Aktionen erfolgreich verlaufen sind.
+    Bei der einfachen Mitgliedschaft werden grundlegende Informationen zu erkannter Software an Microsoft gesendet. Dazu zählen der Ursprungsort der Software, die vom Benutzer oder automatisch ausgeführten Aktionen und Angaben dazu, ob die Aktionen erfolgreich verlaufen sind.
 
-Bei der Premium-Mitgliedschaft werden neben den grundlegenden Informationen weitere Informationen zu Schadsoftware, Spyware und potenziell unerwünschter Software an Microsoft gesendet. Dazu zählen der Ort der Software, Dateinamen, der Betrieb der Software und die Auswirkungen auf den Computer.
+    Bei der erweiterten Mitgliedschaft werden neben den grundlegenden Informationen weitere Informationen zu Schadsoftware, Spyware und potenziell unerwünschter Software an Microsoft gesendet. Dazu zählen der Speicherort der Software, Dateinamen, die Ausführungsweise der Software und deren Auswirkungen auf Ihren Computer.
 
-Wenn diese Einstellung aktiviert wird, treten Sie Microsoft MAPS mit der angegebenen Mitgliedschaft bei.
+    Wenn Sie diese Einstellung aktivieren, treten Sie Microsoft MAPS mit der angegebenen Mitgliedschaft bei.
 
-Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, erfolgt kein Beitritt zu Microsoft MAPS.</string>
+    Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, erfolgt kein Beitritt zu Microsoft MAPS.
+  
+    Da in Windows 10 keine einfache Mitgliedschaft mehr angeboten wird, wird das Gerät als erweitertes Mitglied registriert, wenn Sie den Wert auf 1 oder 2 festlegen.</string>
     <string id="SpynetReporting_Disabled">Deaktiviert</string>
     <string id="SpynetReporting_Basic">MAPS (Basis)</string>
     <string id="SpynetReporting_Advanced">MAPS (erweitert)</string>
@@ -706,16 +700,12 @@ Gültige Werte für Wartungsaktionen:
 
       Wenn Sie die Einstellung aktivieren, werden auf der AM-Benutzeroberfläche keine Neustartbenachrichtigungen angezeigt.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Anzeigen von Benachrichtigungen für Clients, wenn Aktionen ausgeführt werden müssen</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Mit dieser Richtlinieneinstellung kann konfiguriert werden, ob Clients Benachrichtigungen angezeigt werden sollen, wenn die folgenden Aktionen ausgeführt werden müssen:
-Vollständigen Scan ausführen
-Aktuelle Viren- und Spywaredefinitionen herunterladen
-Autonomen System Sweeper von Microsoft herunterladen
+    <string id="UX_Configuration_Notification_Suppress">Alle Benachrichtigungen unterdrücken</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Mit dieser Richtlinieneinstellung können Sie angeben, ob Windows Defender-Benachrichtigungen auf Clients angezeigt werden sollen.
+      Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, werden Windows Defender-Benachrichtigungen auf Clients angezeigt.
 
-
-Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, werden für die Clients Benachrichtigungen angezeigt, wenn die angegebenen Aktionen ausgeführt werden müssen.
-
-Wenn diese Einstellung deaktiviert wird, werden Clients keine Benachrichtigungen angezeigt, wenn die angegebenen Aktionen ausgeführt werden müssen.</string>
+      Wenn Sie diese Einstellung aktivieren, werden keine Windows Defender-Benachrichtigungen auf Clients angezeigt.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Anzeigen von zusätzlichem Text für Clients, wenn eine Aktion ausgeführt werden muss</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Mit dieser Richtlinieneinstellung können Sie konfigurieren, ob zusätzlicher Text für Clients angezeigt wird, wenn eine Aktion ausgeführt werden muss Der angezeigte Test ist eine vom Administrator benutzerdefinierte Zeichenfolge. Beispielsweise kann es sich dabei um die Helpdesk-Telefonnummer des Unternehmens handeln. Die Clientschnittstelle zeigt höchstens 1024 Zeichen an. Längere Zeichenfolgen werden vor dem Anzeigen gekürzt.
 
@@ -728,6 +718,11 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird kein zus�
     <textBox refId="ProxyBypass">
         <label>Definieren von Adressen zur Umgehung eines Proxyservers</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Automatische Proxykonfiguration (PAC) für Netzwerkverbindungen definieren</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird kein zus�
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Prozessausschlüsse</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definieren der Rate der Erkennungsereignisse für die Protokollierung</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Ausschlüsse von IP-Adressbereichen</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Ausschlüsse von Portnummern</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Prozessausschlüsse für ausgehenden Datenverkehr</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Ausschlüsse von Bedrohungs-IDs</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Angeben zusätzlicher Definitionssätze für die Überprüfung von Netzwerkdatenverkehr</listBox>

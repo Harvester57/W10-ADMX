@@ -6,20 +6,48 @@
   <resources>
     <stringTable>
       <string id="CloudContent">クラウド コンテンツ</string>
+      <string id="ConfigureWindowsSpotlight">ロック画面での Windows スポットライトの構成</string>
+      <string id="ConfigureWindowsSpotlight_Help">このポリシー設定を使用すると、ロック画面で Windows スポットライトを構成できます。
+
+このポリシー設定を有効にした場合、"Windows スポットライト" がロック画面プロバイダーとして設定され、ユーザーはロック画面を変更できなくなります。"Windows スポットライト" を使用すると、Microsoft が提供するイメージが日替わりでロック画面に表示されます。
+
+また、組織が Azure でエンタープライズ スポットライト コンテンツ サービスを設定している場合に [エンタープライズ スポットライトのコンテンツを含める] チェック ボックスをオンにすると、そのサービスで設定されている組織内のメッセージや連絡事項 (使用可能な場合) がロック画面に表示されます。組織でエンタープライズ スポットライト コンテンツ サービスを利用していない場合、チェック ボックスは有効になりません。
+
+このポリシー設定を無効にした場合は、Windows スポットライトが無効になり、ユーザーはロック画面として Windows スポットライトを選択できなくなります。ユーザーには既定のロック画面イメージが表示されます。[ロック画面イメージを変更できないようにする] ポリシーを有効にしていない限り、別のイメージを選択できます。
+
+このポリシーを構成しなかった場合は、[特定の既定のロック画面イメージを強制する] ポリシーを使用して既定のロック画面イメージを別途構成していない限り、Windows スポットライトがロック画面で使用可能になり、既定で選択されます。
+
+注意: このポリシーは Enterprise SKU でのみ使用できます。</string>
+      <string id="DisableWindowsSpotlightFeatures">Windows スポットライト機能をすべて無効にする</string>
+      <string id="DisableWindowsSpotlightFeatures_Help">このポリシー設定を使用すると、Windows スポットライト機能をまとめて無効にすることができます。
+
+このポリシー設定を有効にした場合、ロック画面上の Windows スポットライト、Windows のヒント、Microsoft のコンシューマー向け機能、およびその他の関連機能が無効になります。ターゲット デバイスからのネットワーク トラフィックを最小限に抑える場合は、このポリシー設定を有効にする必要があります。
+
+このポリシー設定を無効にした場合または構成しなかった場合は、Windows スポットライト機能が使用可能になり、対応するポリシー設定を使用して個々に制御できます。</string>
       <string id="DisableWindowsConsumerFeatures">Microsoft コンシューマー エクスペリエンスを無効にする</string>
       <string id="DisableWindowsConsumerFeatures_Help">このポリシー設定では、コンシューマーがデバイスと Microsoft アカウントを最大限に活用するためのエクスペリエンスが無効になります。
 
-このポリシー設定を有効にした場合は、個人用に設定されたマイクロソフトからのおすすめ情報と、Microsoft アカウントに関する通知が表示されなくなります。
+このポリシー設定を有効にした場合は、個人用に設定された Microsoft からのおすすめ情報と、Microsoft アカウントに関する通知が表示されなくなります。
 
-このポリシー設定を無効にした場合または構成しなかった場合は、マイクロソフトからのおすすめ情報と、Microsoft アカウントに関する通知がユーザーに表示される可能性があります。</string>
+このポリシー設定を無効にした場合または構成しなかった場合は、Microsoft からのおすすめ情報と、Microsoft アカウントに関する通知がユーザーに表示されることがあります。
+
+注意: この設定は、Enterprise SKU と Education SKU にのみ適用されます。</string>
       <string id="DisableSoftLanding">Windows のヒントを表示しない</string>
       <string id="DisableSoftLanding_Help">このポリシー設定では、ユーザーに表示される Windows のヒントを無効にします。
 
 このポリシー設定を有効にした場合、ユーザーに Windows のヒントが表示されなくなります。
 
-このポリシー設定を無効にした場合または構成しなかった場合も、コンテキストに応じて Windows の使用方法を説明するポップアップがユーザーに表示されることがあります。どのようなヒントが表示されるかは、診断データと使用状況データによって決まります。
+このポリシー設定を無効にした場合または構成しなかった場合、コンテキストに応じて Windows の使用方法を説明するポップアップがユーザーに表示されることがあります。どのようなヒントが表示されるかは、Microsoft で使われている診断データと使用状況データによって決まります。
 
-注意: このポリシー設定を無効にした場合または構成しなかった場合に、"Computer Configuration\Administrative Templates\Windows Components\Data Collection and Preview Builds\Allow Telemetry" ポリシー設定が "基本" 以下のレベルで有効であれば、一部のヒントがユーザーに表示されることがあります。</string>
+注意: このポリシー設定を無効にした場合または構成しなかった場合に、"Computer Configuration\Administrative Templates\Windows Components\Data Collection and Preview Builds\Allow Telemetry" ポリシー設定が "基本" 以下のレベルで有効であれば、一部のヒントがユーザーに表示されることがあります。
+また、この設定は、Enterprise SKU と Education SKU にのみ適用されます。</string>
+      <string id="DisableThirdPartySuggestions">Do not suggest third-party content in Windows spotlight</string>
+      <string id="DisableThirdPartySuggestions_Help">If you enable this policy, Windows spotlight on lock screen, Windows tips, Microsoft consumer features and other related features will no longer suggest apps and content from third-party software publishers. Users may still see suggestions and tips to make them more productive with Microsoft features and apps.</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="ConfigureWindowsSpotlight">
+        <checkBox refId="ConfigureWindowsSpotlight_Checkbox">エンタープライズ スポットライトのコンテンツを含める</checkBox>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

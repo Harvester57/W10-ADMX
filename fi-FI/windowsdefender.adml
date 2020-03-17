@@ -58,22 +58,36 @@ Jos poistat tämän käytäntöasetuksen käytöstä, ainoastaan ryhmäkäytänn
         Jos otat tämän käytäntöasetuksen käyttöön, Endpoint Protection ei tee automaattisesti toimintoja havaituille uhkille, vaan näyttää käyttäjille kehotteen valita kullekin uhkalle käytettävissä olevista toiminnoista.
 
         Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Endpoint Protection tekee automaattisesti toimintoja kaikille havaituille uhkille, kun on kulunut noin viiden sekunnin viive (jota ei voi muuttaa).
-    </string>
+    </string>      
     <string id="ProxyBypass">Ohita välityspalvelin määrittämällä osoitteet</string>
     <string id="ProxyBypass_Explain">Jos tämä käytäntöasetus määritetään, se estää haittaohjelmien torjuntaohjelmaa käyttämästä määritettyä välityspalvelinta, kun se viestii määritettyjen IP-osoitteiden kanssa. Osoitteen arvo on annettava kelvollisena URL-osoitteena.
 
 Jos otat tämän käytäntöasetuksen käyttöön, välityspalvelin ohitetaan paikallisissa osoitteissa.
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, välityspalvelinta ei ohiteta määritetyissä osoitteissa.</string>
+    <string id="ProxyPacUrl">Määritä välityspalvelimen automaattinen kokoonpano (.pac) verkkoyhteyden muodostamista varten</string>
+    <string id="ProxyPacUrl_Explain">Tämä käytäntöasetus määrittää sen välityspalvelimen .pac-tiedoston URL-osoitteen, jota käytetään yritettäessä muodostaa verkkoyhteyttä päivityksien ja MAPS-raportoinnin määritystä varten. Jos välityspalvelimen automaattinen määritys epäonnistuu tai sitä ei ole määritetty, asiakas palaa vaihtoehtoisiin asetuksiin (järjestyksessä):
+      1. Välityspalvelin (jos määritetty)
+      2. Välityspalvelimen .pac-URL (jos määritetty)
+      3. Ei mitään
+      4. Internet Explorerin välityspalvelinasetukset
+      5. Automaattinen tunnistus
+
+      Jos otat tämän asetuksen käyttöön, välityspalvelinasetus määritetään käyttämään määritettyä välityspalvelimen .pac-osoitetta edellä määritetyssä järjestyksessä.
+
+      Jos poistat asetuksen käytöstä tai et määritä tätä asetusta, välityspalvelin ohittaa varavaiheen edellä määritetyssä järjestyksessä.</string>
     <string id="ProxyServer">Määritä välityspalvelin verkkoyhteyden muodostamista varten</string>
     <string id="ProxyServer_Explain">Tämän käytäntöasetuksen avulla voit määrittää nimetyn välityspalvelimen, jota on käytettävä, kun asiakas yrittää muodostaa yhteyden verkkoon kuvauspäivityksiä tai MAPS-raportointia varten. Jos nimetty välityspalvelin epäonnistuu tai jos välityspalvelinta ei ole määritetty, käytetään seuraavia asetuksia (järjestyksessä):
-1. Internet Explorerin välityspalvelinasetukset
-2. Automaattinen tunnistus
-3. Ei mitään
+      1. Välityspalvelin (jos määritetty)
+      2. Välityspalvelimen .pac-URL (jos määritetty)
+      3. Ei mitään
+      4. Internet Explorerin välityspalvelinasetukset
+      5. Automaattinen tunnistus
 
-Jos otat tämän käytäntöasetuksen käyttöön, välityspalvelimeksi asetetaan määritetty URL-osoite.
+      Jos otat tämän asetuksen käyttöön, välityspalvelimeksi asetetaan määritetty URL edellä määritetyssä järjestyksessä. URL-osoitteen edellä pitää olla http:// tai https://.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, välityspalvelin määritetään aiemmin määritetyn järjestyksen mukaan.</string>
+      Jos poistat tämän asetuksen käytöstä tai et määritä sitä, välityspalvelin ohittaa tämän varavaiheen edellä mainitussa järjestyksessä.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Satunnaista ajoitettujen tehtävien ajat</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Tämän käytäntöasetuksen avulla voit ottaa käyttöön tai poistaa käytöstä aikataulun mukaisen tarkistuksen aloitusajan ja ajoitetun kuvauspäivityksen aloitusajan satunnaistamisen. Tämän käytäntöasetuksen avulla voit jakaa tarkistuksen resurssivaikutuksen. Tätä käytäntöasetusta voidaan esimerkiksi käyttää vierasvirtuaalikoneissa, joilla on yhteinen isäntä. Sen avulla voidaan estää se, että useat vierasvirtuaalikoneet aloittavat paljon levyä käyttäviä toimintoja samanaikaisesti.
 
@@ -104,20 +118,6 @@ Jos poistat tämän käytäntöasetuksen käytöstä, protokollan tunnistaminen 
 Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, kuvauksen käytöstä poistaminen otetaan käyttöön.
 
 Jos poistat tämän käytäntöasetuksen käytöstä, kuvauksen käytöstä poistaminen poistetaan käytöstä.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Määritä, miten usein tunnistustapahtumia kirjataan</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Tämä käytäntöasetus rajoittaa sitä, miten usein tunnetuilta heikkouksia hyödyntäviltä ohjelmilta suojaavan verkon suojauksen tunnistustapahtumia kirjataan. Määritetyn aikavälin aikana kirjataan yksi tapahtuma. Aikaväliarvo määritetään minuuteissa. Oletusaikaväli on 60 minuuttia.
-
-Jos otat tämän käytäntöasetuksen käyttöön, tunnistustapahtumia ei kirjata, jos määritetyn minuuttimäärän aikana on useita samanlaisia raportteja (kuvauksen GUID-tunnuksen mukaan).
-
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, tunnistustapahtumat kirjataan oletusarvon mukaan.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">IP-osoitealuepoikkeukset</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Jos tämä käytäntöasetus määritetään, se estää tunnetuilta heikkouksia hyödyntäviltä ohjelmilta suojaavaa verkon suojausta tarkastamasta määritettyjä IP-osoitteita. IP-osoitteet on lisättävä tämän käytäntöasetuksen Asetukset-kohdassa. Kukin merkintä on lueteltava nimi-arvoparina, jossa nimi on esitettävä IP-osoitealueen merkkijonona. Alue voidaan esimerkiksi määrittää muodossa 157.1.45.123–60.1.1.1. Arvoa ei käytetä, ja tämän käytäntöasetuksen arvoksi on suositeltavaa määrittää arvo 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Porttinumeropoikkeukset</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Tämä käytäntöasetus määrittää niiden TCP-porttien numerojen luettelon, joissa verkkoliikenteen tarkastus poistetaan käytöstä. Portin numerot on lisättävä tämän käytäntöasetuksen Asetukset-kohdassa. Kukin merkintä on lueteltava nimi-arvoparina, jossa nimi on esitettävä TCP-portin numeron merkkijonona. Alue voidaan esimerkiksi määrittää muodossa 8080. Arvoa ei käytetä, ja tämän käytäntöasetuksen arvoksi on suositeltavaa määrittää arvo 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Lähtevän liikenteen prosessipoikkeukset</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Tämä käytäntöasetus määrittää prosessit, joissa lähtevää verkkoliikennettä ei tarkasteta.  Prosessien nimet on lisättävä tämän käytäntöasetuksen Asetukset-kohdassa. Kukin merkintä on lueteltava nimi-arvoparina, jossa nimi on esitettävä prosessin polun tai nimen merkkijonona. Prosessi voidaan esimerkiksi määrittää muodossa C:\Windows\System32\App.exe. Arvoa ei käytetä, ja tämän käytäntöasetuksen arvoksi on suositeltavaa määrittää arvo 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Uhkatekijän tunnuksen poikkeukset</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Tämä käytäntöasetus määrittää uhkat, jotka jätetään pois tunnistuksesta verkkoliikenteen tarkastuksen aikana. Uhkat on lisättävä tämän käytäntöasetuksen Asetukset-kohdassa. Kukin merkintä on lueteltava nimi-arvoparina, jossa nimi on esitettävä uhkan tunnuksen merkkijonona. Uhkan tunnus voidaan esimerkiksi määrittää muodossa 2925110632. Arvoa ei käytetä, ja tämän käytäntöasetuksen arvoksi on suositeltavaa määrittää arvo 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Määritä verkkoliikenteen tarkastuksen lisäkuvausjoukot</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Tämä käytäntöasetus määrittää verkkoliikenteen tarkastuksessa käytettävät lisäkuvausjoukot. Kuvausjoukon GUID-tunnukset on lisättävä tämän käytäntöasetuksen Asetukset-kohdassa. Kukin merkintä on lueteltava nimi-arvoparina, jossa nimi on esitettävä kuvausjoukon GUID-tunnuksen merkkijonona. Testimääritysten käyttöönoton kuvausjoukon GUID-tunnus voidaan esimerkiksi määrittää muodossa {b54b6ac9-a737-498e-9120-6616ad3bf590}. Arvoa ei käytetä, ja tämän käytäntöasetuksen arvoksi on suositeltavaa määrittää arvo 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Määritä karanteenikansion kohteiden poistamisen paikallisen asetuksen ohitus</string>
@@ -138,18 +138,6 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ko
 Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, toiminnan valvonta otetaan käyttöön.
 
 Jos poistat tämän käytäntöasetuksen käytöstä, toiminnan valvonta poistetaan käytöstä.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Ota käyttöön tietojensuojauksen hallinta</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Tämän käytäntöasetuksen avulla voit määrittää tietojensuojauksen hallinnan.
-
-Jos otat tämän käytäntöasetuksen käyttöön, tietojensuojauksen hallinta otetaan käyttöön.
-
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, tietojensuojauksen hallinta poistetaan käytöstä.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Ota käyttöön verkon suojaus tunnettuja heikkouksia hyödyntäviä ohjelmia vastaan</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Tämän käytäntöasetuksen avulla voit määrittää verkon suojauksen tunnettuja heikkouksia hyödyntäviä ohjelmia vastaan.
-
-Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, verkon suojaus otetaan käyttöön.
-
-Jos poistat tämän käytäntöasetuksen käytöstä, verkon suojaus poistetaan käytöstä.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Tarkista kaikki ladatut tiedostot ja liitteet</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Tämän käytäntöasetuksen avulla voit määrittää kaikkien ladattujen tiedostojen ja liitteiden tarkistuksen.
 
@@ -205,12 +193,6 @@ Jos otat tämän käytäntöasetuksen käyttöön, paikallinen asetus kumoaa ryh
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ryhmäkäytäntö kumoaa paikallisen asetuksen.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Määritä tietokoneen tiedostojen ja ohjelmien toimintojen valvonnan paikallisen asetuksen ohitus</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Tämä käytäntöasetus määrittää tietokoneen tiedostojen ja ohjelmien toiminnan valvonnan kokoonpanon paikallisen ohituksen. Tämä käytäntöasetus voidaan määrittää vain ryhmäkäytännön avulla.
-
-Jos otat tämän käytäntöasetuksen käyttöön, paikallinen asetus kumoaa ryhmäkäytännön.
-
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ryhmäkäytäntö kumoaa paikallisen asetuksen.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Määritä tunkeutumisen estojärjestelmän käytöstä poiston paikallisen asetuksen ohitus</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Tämä käytäntöasetus määrittää tunnetuilta heikkouksia hyödyntäviltä ohjelmilta suojaavan verkon suojauksen kokoonpanon paikallisen ohituksen. Tämä käytäntöasetus voidaan määrittää vain ryhmäkäytännön avulla.
 
 Jos otat tämän käytäntöasetuksen käyttöön, paikallinen asetus kumoaa ryhmäkäytännön.
 
@@ -633,6 +615,16 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ku
 Jos otat tämän käytäntöasetuksen käyttöön, uudet kuvaukset tarkistetaan palvelun käynnistymisen jälkeen.
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, uusia kuvauksia ei tarkisteta palvelun käynnistymisen jälkeen.</string>
+    <string id="DisableBlockAtFirstSeen">Määritä Estä ensi näkemältä -ominaisuus</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Tämä ominaisuus varmistaa, että laite tarkistaa reaaliaikaisesti Microsoft Active Protection Service (MAPS) -palvelun avulla, ennen kuin laite sallii tietyn sisällön suorittamisen tai käytön. Jos tämä ominaisuus poistetaan käytöstä, tarkistusta ei tehdä, mikä heikentää laitteen suojauksen tilaa.
+	Käytössä – Estä ensi näkemältä -asetus on käytössä.
+	Poistettu käytöstä – Estä ensi näkemältä -asetus on poistettu käytöstä.
+	
+	Tämä toiminto edellyttää, että ryhmäkäytännön asetukset on määritetty seuraavasti:
+	MAPS -&gt; Liity Microsoft MAPS -palveluun -asetuksen on oltava käytössä, muuten Estä ensi näkemältä -ominaisuus ei toimi.
+	MAPS -&gt; Lähetä tiedostonäytteitä, kun lisäanalyysi on tarpeen -asetuksen arvoksi on määritettävä 1 (Lähetä turvalliset näytteet) tai 3 (Lähetä kaikki näytteet). Asetuksen arvo 0 (Näytä kehote aina) heikentää laitteen suojauksen tilaa. Asetuksen arvo 2 (Älä lähetä koskaan) tarkoittaa sitä, ettei Estä ensi näkemältä -ominaisuus toimi.
+	Reaaliaikainen suojaus -&gt; Tarkista kaikki ladatut tiedostot ja liitteet -käytännön on oltava käytössä, muuten Estä ensi näkemältä -ominaisuus ei toimi.
+	Reaaliaikainen suojaus -&gt; Älä ota käyttöön Poista reaaliaikainen suojaus käytöstä -käytäntöä, muuten Estä ensi näkemältä -ominaisuus ei toimi.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Määritä Microsoft MAPSiin raportoinnin paikallisen asetuksen ohitus</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Tämä käytäntöasetus määrittää Microsoft MAPSiin liittymisen kokoonpanon paikallisen ohituksen. Tämä käytäntöasetus voidaan määrittää vain ryhmäkäytännön avulla.
 
@@ -647,7 +639,7 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ry
         (0x0) Näytä kehote aina
         (0x1) Lähetä turvalliset näytteet automaattisesti
         (0x2) Älä lähetä koskaan
-        (0x2) Lähetä kaikki näytteet automaattisesti
+        (0x3) Lähetä kaikki näytteet automaattisesti
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Näytä kehote aina</string>
@@ -658,20 +650,22 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ry
     <string id="SpynetReporting">Liity Microsoft MAPSiin</string>
     <string id="SpynetReporting_Explain">Tämän käytäntöasetuksen avulla voit liittyä Microsoft MAPSiin. Microsoft MAPS on verkkoyhteisö, joka auttaa valitsemaan reagointitavan mahdollisiin uhkiin. Yhteisö auttaa myös estämään uusien haittaohjelmatartuntojen leviämistä.
 
-Voit valita, haluatko lähettää havaitusta ohjelmasta perustiedot vai lisätiedot. Lisätietojen avulla Microsoft voi luoda uusia kuvauksia ja suojata tietokonettasi. Tiedot voivat ilmaista esimerkiksi havaittujen kohteiden sijainnin tietokoneessasi, jos haittaohjelma on poistettu. Tiedot kerätään ja lähetetään automaattisesti. Joissakin tapauksissa Microsoftille saatetaan lähettää henkilötietoja tahattomasti. Microsoft ei kuitenkaan käytä näitä tietoja henkilöllisyytesi tunnistamiseen tai ottaakseen sinuun yhteyttä.
+    Voit valita, haluatko lähettää havaitusta ohjelmasta perustiedot vai lisätiedot. Lisätietojen avulla Microsoft voi luoda uusia kuvauksia ja suojata tietokonettasi. Tiedot voivat ilmaista esimerkiksi havaittujen kohteiden sijainnin tietokoneessasi, jos haittaohjelma on poistettu. Tiedot kerätään ja lähetetään automaattisesti. Joissakin tapauksissa Microsoftille saatetaan lähettää henkilötietoja tahattomasti. Microsoft ei kuitenkaan käytä näitä tietoja henkilöllisyytesi tunnistamiseen tai ottaakseen sinuun yhteyttä.
 
-Mahdolliset asetukset ovat seuraavat:
-(0x0) Poistettu käytöstä (oletus)
-(0x1) Perusjäsenyys
-(0x2) Erityisjäsenyys
+    Mahdolliset asetukset ovat seuraavat:
+    (0x0) Poistettu käytöstä (oletus)
+    (0x1) Perusjäsenyys
+    (0x2) Erityisjäsenyys
 
-Perusjäsenyys lähettää Microsoftille perustiedot havaitusta ohjelmasta, kuten ohjelman lähteen, tekemäsi toimet tai automaattisesti tehdyt toimet ja tiedon toimien onnistumisesta tai epäonnistumisesta.
+    Perusjäsenyys lähettää Microsoftille perustiedot havaitusta ohjelmasta, kuten ohjelman lähteen, tekemäsi toimet tai automaattisesti tehdyt toimet ja tiedon toimien onnistumisesta tai epäonnistumisesta.
 
-Erityisjäsenyys lähettää perustietojen lisäksi Microsoftille lisätietoja haittaohjelmista, vakoiluohjelmista ja mahdollisista ei-toivotuista ohjelmista. Tällaisia tietoja ovat esimerkiksi ohjelman sijainti, tiedostonimet, ohjelman toimintatapa ja sen vaikutus tietokoneeseesi.
+    Erityisjäsenyys lähettää perustietojen lisäksi Microsoftille lisätietoja haittaohjelmista, vakoiluohjelmista ja mahdollisista ei-toivotuista ohjelmista. Tällaisia tietoja ovat esimerkiksi ohjelman sijainti, tiedostonimet, ohjelman toimintatapa ja sen vaikutus tietokoneeseesi.
 
-Jos otat tämän käytäntöasetuksen käyttöön, liityt Microsoft MAPSiin määritetyn jäsenyyden avulla.
+    Jos otat tämän käytäntöasetuksen käyttöön, liityt Microsoft MAPSiin määritetyllä jäsenyydellä.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, et liity Microsoft MAPSiin.</string>
+    Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, et liity Microsoft MAPSiin.
+  
+    Perusjäsenyys ei ole enää saatavilla Windows 10:ssä, joten jos arvoksi valitaan 1 tai 2, laite rekisteröidään erityisjäsenyyteen.</string>
     <string id="SpynetReporting_Disabled">Poistettu käytöstä</string>
     <string id="SpynetReporting_Basic">MAPS-perusjäsenyys</string>
     <string id="SpynetReporting_Advanced">MAPS-erityisjäsenyys</string>
@@ -706,16 +700,12 @@ Kelvollisia korjaustoiminnon arvoja ovat seuraavat:
 
       Jos otat tämän asetuksen käyttöön, AM:n käyttöliittymä ei näytä uudelleenkäynnistyksen ilmoituksia.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Näytä ilmoitukset asiakkaille, kun heidän on suoritettava toimintoja</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Tämän käytäntöasetuksen avulla voit määrittää, näytetäänkö ilmoitukset asiakkaille, kun heidän on suoritettava seuraavat toiminnot:
-täyden tarkistuksen suorittaminen
-uusimpien virus- ja vakoiluohjelmakuvausten lataaminen 
-erillisen järjestelmän tarkistuksen lataaminen.
+    <string id="UX_Configuration_Notification_Suppress">Estä kaikki ilmoitukset</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Tämän käytäntöasetuksen avulla voit määrittää Windows Defender -ilmoitusten näyttämisen asiakaskoneissa.
+      Jos poistat asetuksen käytöstä tai et määritä sitä, Windows Defender -ilmoitukset näytetään asiakaskoneissa.
 
-
-Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, ilmoitukset näytetään asiakkaille, kun heidän on suoritettava määritetyt toiminnot.
-
-Jos poistat tämän käytäntöasetuksen käytöstä, ilmoituksia ei näytetä asiakkaille, kun heidän on suoritettava määritetyt toiminnot.</string>
+      Jos otat asetuksen käyttöön, Windows Defender -ilmoituksia ei näytetä asiakaskoneissa.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Näytä lisäteksti asiakkaille, kun heidän on suoritettava toiminto</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Tämän käytäntöasetuksen avulla voit määrittää, näytetäänkö asiakkaille lisäteksti, kun heidän on suoritettava toiminto. Teksti näytetään mukautettuna järjestelmänvalvojan määrittämänä merkkijonona. Esimerkiksi puhelinnumero, jotta asiakas voi soittaa yrityksen asiakaspalveluun. Asiakasliittymä näyttää enintään 1 024 merkkiä. Jos merkkimäärä ylittyy, merkkijono katkaistaan ennen näyttämistä.
 
@@ -728,6 +718,11 @@ Jos poistat tämän asetuksen käytöstä tai et määritä sitä, lisätekstiä
     <textBox refId="ProxyBypass">
         <label>Ohita välityspalvelin määrittämällä osoitteet</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Määritä välityspalvelimen automaattinen kokoonpano (.pac) verkkoyhteyden muodostamista varten</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Jos poistat tämän asetuksen käytöstä tai et määritä sitä, lisätekstiä
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Prosessipoikkeukset</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Määritä, miten usein tunnistustapahtumia kirjataan</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">IP-osoitealuepoikkeukset</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Porttinumeropoikkeukset</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Lähtevän liikenteen prosessipoikkeukset</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Uhkatekijän tunnuksen poikkeukset</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Määritä verkkoliikenteen tarkastuksen lisäkuvausjoukot</listBox>

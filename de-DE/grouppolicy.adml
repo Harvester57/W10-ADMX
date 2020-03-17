@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Nicht vertrauenswürdige Schriftarten blockieren und Ereignisse protokollieren</string>
       <string id="FontMitigation_Off">Keine vertrauenswürdigen Schriftarten blockieren</string>
       <string id="FontMitigation_Audit">Ereignisse ohne Blockierung nicht vertrauenswürdiger Schriftarten protokollieren</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Optionen für den Prozessausgleich</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Dieses Sicherheitsfeature bietet eine Möglichkeit, die MitigationOptions-Einstellungen einzelner Prozesse zu überschreiben. Auf diese Weise können eine Reihe von Sicherheitsrichtlinien für Anwendungen erzwungen werden. Der Anwendungsname wird als Wertname einschließlich Erweiterung angegeben. Der Wert wird als Bitfeld mit einer Reihe von Kennzeichen an bestimmten Positionen angegeben. Bits können auf 0 (Deaktivierung der Einstellung erzwungen), 1 (Aktivierung der Einstellung erzwungen) oder ? (Einstellung behält den aktuellen Wert vor der GPO-Auswertung) festgelegt werden. Die erkannten Bitpositionen sind:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Aktiviert die Datenausführungsverhinderung (DEP) für den untergeordneten Prozess.
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Aktiviert die Emulation von DEP-ATL-Thunks für den untergeordneten Prozess. Die Emulation von DEP-ATL-Thunks führt dazu, dass das System NX-Fehler von der Active Template Library (ATL)-Thunkebene abfängt. 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Aktiviert SEHOP (Structured Exception Handler Overwrite Protection) für den untergeordneten Prozess. SEHOP blockiert Exploits, die das SEH (Structured Exception Handler)-Überschreibungsverfahren verwenden.
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        Die Richtlinie zum Erzwingen von ASLR (Address Space Layout Randomization) erzwingt die Neubasierung von Images, die nicht DynamicBase-kompatibel sind. Dabei verhalten sie sich so, als ob zur Ladezeit ein Imagebasiskonflikt aufgetreten wäre. Wenn eine Neupositionierung erforderlich ist, werden Images, die über keinen Abschnitt für die Basisneupositionierung verfügen, nicht geladen.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Die Richtlinie für die zufällige Anordnung von unten nach oben, die Optionen für die zufällige Stapelanordnung enthält, führt dazu, dass eine zufällige Position als niedrigste Benutzeradresse verwendet wird.
+
+        Zum Aktivieren von PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE und PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON deaktivieren Sie z. B. PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, und um die Standardwerte aller anderen Optionen beizubehalten, geben Sie den folgenden Wert an:
+        ???????????????0???????1???????1
+
+        Das Festlegen von Kennzeichen, die hier nicht angegeben sind, auf einen anderen Wert als ?, führt zu einem undefinierten Verhalten.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Synchronisierung der AD/DFS-Domänencontroller während der Richtlinienaktualisierung aktivieren</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Wenn Sie diese Richtlinieneinstellung aktivieren, wird vom Gruppenrichtlinienclient eine Verbindung mit demselben Domänencontroller für DFS-Freigaben hergestellt, der für Active Directory verwendet wird.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Schriftarten</string>
+      <string id="EnableFontProviders">Schriftartenanbieter aktivieren</string>
+      <string id="EnableFontProviders_Help">
+        Mit dieser Richtlinieneinstellung wird festgelegt, ob Windows Schriftarten und Schriftartenkatalogdaten von einem Onlineschriftartenanbieter herunterladen darf.
+        
+        Wenn Sie die Richtlinieneinstellung aktivieren, sendet Windows regelmäßig Abfragen an einen Onlineschriftartenanbieter, um zu ermitteln, ob ein neuer Schriftartenkatalog verfügbar ist. Windows kann auch Schriftartdaten herunterladen, die zum Formatieren oder Rendern von Text benötigt werden.
+        
+        Wenn Sie die Richtlinieneinstellung deaktivieren, stellt Windows keine Verbindung mit einem Onlineschriftartenanbieter her und zählt nur lokal installierte Schriftarten auf.
+      
+        Wenn Sie die Richtlinieneinstellung nicht konfigurieren, richtet sich das Standardverhalten nach der Windows-Edition. Änderungen an dieser Richtlinie werden beim Neustart wirksam.
+      </string>
       <string id="EnableLogonOptimization">Zwischenspeichern von Gruppenrichtlinien konfigurieren</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -491,6 +538,12 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, ver
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Ausgleichsoptionen</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Optionen für den Prozessausgleich</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Der Windows-Dienst für den Schriftartencache soll Schriftarten und Schriftartenkatalogdaten von Onlineschriftartenanbietern herunterladen dürfen.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Wert für langsame Verbindung: [Zahlenfeld] Millisekunden</decimalTextBox>

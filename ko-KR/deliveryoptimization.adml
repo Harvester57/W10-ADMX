@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>배달 최적화 GP</displayName>
+  <description>이 파일은 배달 최적화 GP 설정을 설명합니다.</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">배달 최적화</string>
+      <string id="DownloadMode">다운로드 모드</string>
+      <string id="DownloadMode_Help">Windows 업데이트, 앱 및 앱 업데이트의 다운로드에서 배달 최적화가 사용할 수 있는 다운로드 방법을 지정합니다. 지원되는 값은 다음과 같습니다. 0=HTTP만, 피어링 없음. 1=동일한 NAT 뒤의 피어링과 혼합된 HTTP. 2=개인 그룹에서의 피어링과 혼합된 HTTP. 피어링은 동일한 Active Directory 사이트(있는 경우) 또는 기본적으로 동일한 도메인의 디바이스에서 발생합니다. 이 옵션을 선택하면 피어링이 NAT를 벗어납니다. 사용자 지정 그룹을 만들려면 모드 2와 함께 그룹 ID를 사용하세요. 3=인터넷 피어링과 혼합된 HTTP. 99=피어링이 없는 단순 다운로드 모드. 배달 최적화가 HTTP만 사용하여 다운로드하고 배달 최적화 클라우드 서비스에 연결하려고 시도하지 않습니다. 100=우회 모드. 배달 최적화를 사용하지 말고 대신 BITS를 사용하세요.</string>
+      <string id="DownloadMode_CdnOnly">HTTP만</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
-      <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Group">그룹</string>
+      <string id="DownloadMode_Internet">인터넷</string>
+      <string id="DownloadMode_Simple">단순</string>
+      <string id="DownloadMode_Bypass">우회</string>
+      <string id="GroupId">그룹 ID</string>
+      <string id="GroupId_Help">그룹 ID는 GUID로 설정되어야 합니다. 이 정책은 디바이스가 속한 임의 그룹 ID를 지정합니다. 서로 다른 도메인에 있거나 동일한 NAT에 있지 않은 분기에 대해 로컬 네트워크 피어링의 단일 그룹을 만들어야 하는 경우 이 정책을 사용합니다. 참고: 이는 최상의 최적화이며, ID 인증에 사용해서는 안 됩니다.</string>
+      <string id="MaxUploadBandwidth">최대 업로드 대역폭(KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">배달 최적화가 모든 동시 업로드 작업에서 사용하는 최대 업로드 대역폭을 KB/초 단위로 지정합니다. 기본값 0(영)은 업로드 대역폭을 최소한으로 사용하도록 업로드가 동적으로 최적화되는 제한 없는 사용을 허용합니다.</string>
+      <string id="MaxCacheSize">최대 캐시 크기(백분율)</string>
+      <string id="MaxCacheSize_Help">배달 최적화에서 사용 가능한 디스크 크기의 백분율(1-100)로 사용하는 최대 캐시 크기를 지정합니다.</string>
+      <string id="AbsoluteMaxCacheSize">절대 최대 캐시 크기(GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">배달 최적화 캐시의 최대 크기(GB)를 지정합니다. 이 정책은 DOMaxCacheSize 정책을 재정의합니다. 값 0(영)은 “제한 없는” 캐시를 의미합니다. 배달 최적화는 디바이스의 디스크 공간이 부족할 때 캐시를 지웁니다.</string>
+      <string id="MaxCacheAge">최대 캐시 보관 기간(초)</string>
+      <string id="MaxCacheAge_Help">각 파일이 다운로드된 후 배달 최적화 캐시에 저장되는 최대 시간(초)을 지정합니다. 값 0(영)은 "제한 없음"을 의미합니다. 배달 최적화는 캐시 크기가 초과되지 않는 한 파일을 캐시에 오래 저장하고 다른 디바이스에 업로드할 수 있도록 합니다.</string>
+      <string id="MonthlyUploadDataCap">월간 업로드 데이터 상한(GB)</string>
+      <string id="MonthlyUploadDataCap_Help">매월 인터넷 피어에 업로드할 수 있도록 배달 최적화에 허용되는 최대 총 바이트(GB)를 지정합니다. 값 0(영)은 "제한 없음"을 의미합니다. 0이 설정된 경우 월간 업로드 제한이 적용되지 않습니다.</string>
+      <string id="MinBackgroundQos">최소 백그라운드 QoS(KB/s)</string>
+      <string id="MinBackgroundQos_Help">백그라운드 다운로드에 대한 최소 다운로드 QoS(서비스 또는 속도 품질)를 지정합니다(KB/초). 이 정책은 피어 및 HTTP 원본의 혼합에 영향을 줍니다. 배달 최적화는 지정된 최소 QoS 값을 달성하도록 HTTP 원본에서의 다운로드를 보완합니다.</string>
+      <string id="ModifyCacheDrive">캐시 드라이브 수정</string>
+      <string id="ModifyCacheDrive_Help">배달 최적화가 캐시에 사용할 드라이브를 지정합니다. 기본적으로 %SystemDrive%가 캐시를 저장하는 데 사용됩니다. 환경 변수, 드라이브 문자 또는 전체 경로를 사용하여 드라이브 위치를 지정할 수 있습니다.</string>
+      <string id="MaxDownloadBandwidth">최대 다운로드 대역폭(KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">디바이스가 배달 최적화를 사용하는 모든 동시 다운로드 작업에서 사용할 수 있는 최대 다운로드 대역폭을 KB/초 단위로 지정합니다. 기본값 0(영)은 배달 최적화가 다운로드에 사용 가능한 대역폭을 사용하기 위해 동적으로 조정됨을 의미합니다.</string>
+      <string id="PercentageMaxDownloadBandwidth">최대 다운로드 대역폭(%)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">배달 최적화가 모든 동시 다운로드 작업에서 사용하는 최대 다운로드 대역폭을 사용 가능한 다운로드 대역폭의 백분율로 지정합니다. 기본값 0(영)은 배달 최적화가 다운로드에 사용 가능한 대역폭을 사용하기 위해 동적으로 조정됨을 의미합니다.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">다운로드 모드:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>그룹 ID:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">최대 업로드 대역폭(KB/s):</decimalTextBox>
+        <text>기본값은 0(제한 없음)입니다.</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">최대 캐시 크기(백분율):</decimalTextBox>
+        <text>기본값은 20%입니다.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">절대 최대 캐시 크기(GB):</decimalTextBox>
+        <text>기본값은 10GB입니다.</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">최대 캐시 보관 기간(초):</decimalTextBox>
+        <text>기본값은 3일입니다.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">월간 업로드 데이터 상한(GB):</decimalTextBox>
+        <text>기본값은 20GB입니다.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">최소 백그라운드 QoS(KB/s):</decimalTextBox>
+        <text>기본값은 500KB/s입니다.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>캐시 드라이브 수정:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">최대 다운로드 대역폭(KB/s):</decimalTextBox>
+        <text>기본값은 0(제한 없음)입니다.</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">최대 다운로드 대역폭(백분율):</decimalTextBox>
+        <text>기본값은 0(제한 없음)입니다.</text>
       </presentation>
     </presentationTable>
   </resources>

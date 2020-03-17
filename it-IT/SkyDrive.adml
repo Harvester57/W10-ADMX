@@ -19,6 +19,34 @@ Se si abilita questa impostazione dei criteri:
 * Gli utenti non potranno caricare automaticamente foto e video dalla cartella Rullino.
 
 Se si disabilita o non si configura questa impostazione dei criteri, le app e le funzionalità potranno utilizzare l'area di archiviazione dei file di OneDrive.</string>
-   </stringTable>
+
+      <!-- prevent file sync for Blue-->
+      <string id="PreventOneDriveFileSyncForBlue">Impedisci l'uso di OneDrive per l'archiviazione dei file in Windows 8.1</string>
+      <string id="PreventOneDriveFileSyncForBlue_help">Questa impostazione dei criteri consente di impedire alle app e alle funzionalità di usare i file in OneDrive per Windows 8.1.
+Se si abilita questa impostazione dei criteri:
+
+* Gli utenti non potranno accedere a OneDrive da selezione file e dall'app OneDrive.
+* Le app di Windows Store non potranno accedere a OneDrive mediante l'API WinRT.
+* OneDrive non verrà visualizzato nel riquadro di spostamento di Esplora file.
+* I file di OneDrive non verranno mantenuti sincronizzati con il cloud.
+* Gli utenti non potranno caricare automaticamente foto e video dalla cartella Rullino.
+
+Se si disabilita o non si configura questa impostazione dei criteri, le app e le funzionalità potranno usare l'area di archiviazione dei file di OneDrive.</string>
+
+      <!-- metered network settings -->
+      <string id="PreventOneDriveFileSyncOnMeteredNetwork">Impedisci la sincronizzazione dei file di OneDrive su connessioni a consumo</string>
+      <string id="PreventOneDriveFileSyncOnMeteredNetwork_help">Questa impostazione dei criteri consente la configurazione del comportamento di sincronizzazione dei file di OneDrive con le connessioni a consumo.</string>
+      <string id="OneDriveNeverSyncOnMeteredRoaming">Blocca la sincronizzazione su tutte le connessioni a consumo</string>
+      <string id="OneDriveSyncOnMeteredNotRoaming">Blocca la sincronizzazione sulle connessioni a consumo solo in roaming</string>
+
+      <!-- default save to OneDrive -->
+      <string id="DisableLibrariesDefaultSaveToOneDrive_Title">Salva i documenti in OneDrive per impostazione predefinita</string>
+      <string id="DisableLibrariesDefaultSaveToOneDrive_Description">Questa impostazione dei criteri consente di disabilitare OneDrive come percorso di salvataggio predefinito. Questo non impedisce alle app e agli utenti di salvare i file in OneDrive. Se si disabilita questa impostazione dei criteri, i file verranno salvati in locale per impostazione predefinita. Gli utenti potranno comunque modificare il valore di questa impostazione per eseguire il salvataggio in OneDrive per impostazione predefinita. Potranno inoltre aprire e salvare i file in OneDrive usando l'app OneDrive e la selezione file. Le app di Windows Store potranno comunque accedere a OneDrive usando l'API WinRT. Se si abilita o non si configura questa impostazione dei criteri, gli utenti con un account connesso salveranno i documenti in OneDrive per impostazione predefinita.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PreventOneDriveFileSyncOnMeteredNetwork">
+        <dropdownList refId="OneDriveMeteredNetwork_Dropdown" noSort="true" defaultItem="0">Impostazione rete a consumo</dropdownList>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

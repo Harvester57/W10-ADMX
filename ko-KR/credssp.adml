@@ -156,18 +156,25 @@ TERMSRV/*.humanresources.fabrikam.com - .humanresources.fabrikam.com의 모든 �
 
 이 정책 설정과 "저장된 자격 증명 위임 허용" 정책 설정을 함께 사용하여 "저장된 자격 증명 위임 허용" 서버 목록에서 와일드카드 문자를 사용할 때 허용할 특정 서버에 대한 예외를 정의할 수 있습니다.</string>
       <string id="RestrictedRemoteAdministration">Restrict delegation of credentials to remote servers(원격 서버에 대한 자격 증명 위임 제한)</string>
-      <string id="RestrictedRemoteAdministration_Explain">제한 모드에서 실행할 경우 참여 앱은 자격 증명을 원격 컴퓨터에 공개하지 않습니다(위임 방법과 상관없음). 제한 모드에서는 자격 증명이 위임되지 않으므로 다른 서버 또는 대상 컴퓨터 외부 네트워크에 위치한 리소스에 대한 액세스가 제한될 수 있습니다.
+      <string id="RestrictedRemoteAdministration_Explain">제한된 관리 모드에서 실행되고 있거나 디바이스에서 원격 Credential Guard를 사용하고 있는 경우 참여 앱은 자격 증명을 원격 디바이스에 공개하지 않습니다(위임 방법과 상관없음). 제한된 관리 모드에서는 자격 증명이 위임되지 않으므로 대상 컴퓨터 외부의 다른 서버나 네트워크에 위치한 리소스에 대한 액세스가 제한될 수 있습니다. 원격 Credential Guard는 모든 요청을 클라이언트 디바이스로 리디렉션하여 리소스에 대한 액세스를 제한하지 않습니다.
 
 참여 앱:
 원격 데스크톱 클라이언트
 
-이 정책 설정을 사용하면 제한 모드가 적용되며 참여 앱이 원격 컴퓨터에 자격 증명을 위임하지 않습니다.
+이 정책 설정을 사용하면 제한된 관리 모드 또는 원격 Credential Guard가 적용되며 참여 앱이 원격 디바이스에 자격 증명을 위임하지 않습니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 제한 모드가 적용되지 않으며 참여 앱이 원격 컴퓨터에 자격 증명을 위임할 수 있습니다.
+이 정책 설정을 사용하지 않거나 구성하지 않으면 제한된 관리 모드 및 원격 Credential Guard가 적용되지 않으며 참여 앱이 원격 디바이스에 자격 증명을 위임할 수 있습니다.
 
-참고: 대부분의 자격 증명 위임을 사용하지 않으려면 컴퓨터 구성\관리 템플릿\시스템\자격 증명 위임에 위치한 관리 템플릿 설정을 수정하여 CredSSP(Credential Security Support Provider)에서 증명 위임을 거부하면 충분할 수 있습니다.</string>
+참고: 대부분의 자격 증명 위임을 사용하지 않으려면 컴퓨터 구성\관리 템플릿\시스템\자격 증명 위임에 위치한 관리 템플릿 설정을 수정하여 CredSSP(Credential Security Support Provider)에서 위임을 거부하면 충분할 수 있습니다.
+
+참고: Windows 8.1 및 Windows Server 2012 R2에서 이 정책을 사용하면 선택한 모드에 관계없이 제한된 관리 모드가 적용됩니다. 이러한 버전에서는 원격 Credential Guard를 지원하지 않습니다.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">원격 Credential Guard 선호</string>
+      <string id="RequireRemoteCredentialGuard">원격 Credential Guard 필요</string>
+      <string id="RequireRestrictedAdmin">제한된 관리 필요</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">목록에 서버 추가:</listBox>
@@ -204,6 +211,9 @@ TERMSRV/*.humanresources.fabrikam.com - .humanresources.fabrikam.com의 모든 �
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">목록에 서버 추가:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">OS 기본값을 위의 입력과 연결</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">다음 제한 모드 사용:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

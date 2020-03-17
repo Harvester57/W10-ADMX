@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Angiv timeout for systemslumring (tilsluttet)</string>
       <string id="ACStandbyWithHiberfileEnable">Slå hybrid slumring fra (tilsluttet)</string>
       <string id="ACSystemLidAction">Vælg handling for lågets knap (tilsluttet)</string>
+      <string id="ACConnectivityInStandby">Tillad netværksforbindelse under tilsluttet standbytilstand (tilsluttet)</string>
       <string id="BatteryDischargeAction0Explain">Denne politikindstilling angiver, hvilken handling Windows skal udføre, når batteriets kapacitet når niveauet for meddelelse om kritisk batteriniveau.
 
 Hvis du aktiverer denne politikindstilling, skal du vælge en af følgende handlinger:
@@ -82,6 +83,7 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan 
       <string id="DCStandbyTimeOut">Angiv timeout for systemslumring (kørsel på batteri)</string>
       <string id="DCStandbyWithHiberfileEnable">Slå hybrid slumring fra (kørsel på batteri)</string>
       <string id="DCSystemLidAction">Vælg handling for lågets knap (kørsel på batteri)</string>
+      <string id="DCConnectivityInStandby">Tillad netværksforbindelse under tilsluttet standbytilstand (på batteri)</string>
       <string id="DiskACPowerDownTimeOut">Sluk for harddisken (tilsluttet)</string>
       <string id="DiskDCPowerDownTimeOut">Sluk for harddisken (kørsel på batteri)</string>
       <string id="DiskPowerDownTimeOutExplain">Denne politikindstilling angiver perioden uden aktivitet, før Windows slukker for harddisken.
@@ -271,6 +273,23 @@ Hvis du aktiverer denne politikindstilling, skal du angive en numerisk værdi (p
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugerne se og ændre denne indstilling.</string>
     
+      <string id="EnergySaverSettingsCat">Indstillinger for energibesparelse</string>
+      <string id="EsBattThresholdAC">Grænse for strømsparetilstand for batteri (tilsluttet)</string>
+      <string id="EsBattThresholdDC">Grænse for strømsparetilstand for batteri (på batteri)</string>
+      <string id="EsBattThresholdExplain">Med denne politikindstilling kan du angive det batteriopladningsniveau, hvor energibesparelse slås til.
+
+Hvis du aktiverer denne politikindstilling, skal du vælge en procentværdi, der angiver batteriopladningsniveau. Strømsparetilstand aktiveres automatisk ved (og under) det angivne niveau.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugerne styre denne indstilling.</string>
+
+      <string id="ConnectivityInStandbyExplain">Med denne politikindstilling kan du styre netværksforbindelsestilstanden i standby på moderne standby-kompatible systemer.
+
+Hvis du aktiverer denne politikindstilling, bevares netværksforbindelsen i standby.
+
+Hvis du deaktiverer denne politikindstilling, er der ingen garanti for netværksforbindelse i standby. Denne forbindelsesbegrænsning gælder i øjeblikket kun for WLAN-netværk og kan ændres.
+
+Hvis du ikke konfigurerer denne politikindstilling, kan brugerne styre denne indstilling.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -420,6 +439,9 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan 
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Meddelelse om strømniveau på reservebatteri (procent):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Grænse for strømsparetilstand for batteri (procent):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -78,6 +78,22 @@ Windows 로그온에서 이 기능을 활용하려면 Windows 로그온 옵션 �
 이 정책 설정을 사용하지 않거나 구성하지 않으면 계정 구성에 관계없이 클라이언트가 복합 인증 요청을 보낼 때마다 도메인 컨트롤러에서 복합 인증이 포함된 서비스 티켓을 반환합니다.
 
 </string>
+      <string id="PKINITFreshness">PKInit Freshness Extension에 대한 KDC 지원</string>
+      <string id="PKINITFreshness_explain">PKInit Freshness Extension 지원에는 Windows Server 2016 DFL(도메인 기능 수준)이 필요합니다. 도메인 컨트롤러의 도메인이 Windows Server 2016 DFL 이상이 아니면 이 정책이 적용되지 않습니다.
+
+이 정책 설정을 사용하여 DC(도메인 컨트롤러)에서 PKInit Freshness Extension을 지원하도록 구성할 수 있습니다.
+
+이 정책 설정을 사용하도록 설정하면 다음 옵션이 지원됩니다.
+
+지원: 요청 시 PKInit Freshness Extension이 지원됩니다. PKInit Freshness Extension으로 인증된 Kerberos 클라이언트는 새로운 공개 키 ID SID를 얻습니다.
+
+필수: PKInit Freshness Extension이 인증에 필수입니다. 공개 키 자격 증명을 사용하는 경우 PKInit Freshness Extension을 지원하지 않는 Kerberos 클라이언트는 항상 실패합니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 DC에서 PKInit Freshness Extension을 제공하지 않으며 유효성 확인 없이 유효한 인증 요청을 승인합니다. 사용자에게 새로운 공개 키 ID SID가 제공되지 않습니다.
+</string>
+      <string id="NoPKINITFreshness">사용 안 함</string>
+      <string id="SupportPKINITFreshness">지원</string>
+      <string id="RequirePKINITFreshness">필수</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Windows 로그온에서 이 기능을 활용하려면 Windows 로그온 옵션 �
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">티켓 크기 임계값</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKInit Freshness Extension 옵션:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

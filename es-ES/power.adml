@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Especificar el tiempo de espera para la suspensión del sistema (conectado)</string>
       <string id="ACStandbyWithHiberfileEnable">Desactivar suspensión híbrida (conectado)</string>
       <string id="ACSystemLidAction">Seleccionar la acción del interruptor de la tapa (conectado)</string>
+      <string id="ACConnectivityInStandby">Permitir la conectividad de red con el modo de espera conectado (cuando el dispositivo esté enchufado)</string>
       <string id="BatteryDischargeAction0Explain">Esta configuración de directiva especifica la acción que realiza Windows cuando la capacidad de la batería alcanza el nivel de notificación de batería crítica.
 
 Si habilita esta configuración de directiva, seleccione una de las siguientes acciones:
@@ -82,6 +83,7 @@ Si deshabilita o no establece esta configuración de directiva, los usuarios pod
       <string id="DCStandbyTimeOut">Especificar el tiempo de espera para la suspensión del sistema (con batería)</string>
       <string id="DCStandbyWithHiberfileEnable">Desactivar suspensión híbrida (con batería)</string>
       <string id="DCSystemLidAction">Seleccionar la acción del interruptor de la tapa (con batería)</string>
+      <string id="DCConnectivityInStandby">Permitir la conectividad de red con el modo de espera conectado (cuando se esté usando la batería)</string>
       <string id="DiskACPowerDownTimeOut">Desactivar el disco duro (conectado)</string>
       <string id="DiskDCPowerDownTimeOut">Desactivar el disco duro (con batería)</string>
       <string id="DiskPowerDownTimeOutExplain">Esta configuración de directiva especifica el período de inactividad antes de que Windows desactive el disco duro.
@@ -270,6 +272,23 @@ Si habilita esta configuración de directiva, debe escribir un valor numérico (
 
 Si deshabilita o no establece esta configuración de directiva, los usuarios podrán ver y modificar esta configuración.</string>
     
+      <string id="EnergySaverSettingsCat">Configuración de ahorro de energía</string>
+      <string id="EsBattThresholdAC">Umbral de batería para el ahorro de energía (cuando el dispositivo esté enchufado)</string>
+      <string id="EsBattThresholdDC">Umbral de batería para el ahorro de energía (cuando se esté usando la batería)</string>
+      <string id="EsBattThresholdExplain">Esta configuración de directiva te permite especificar el nivel de carga de la batería en el cual se activa la opción Ahorro de energía.
+
+Si habilitas esta configuración de directiva, debes proporcionar un valor porcentual que indique el nivel de carga de la batería. La opción Ahorro de energía se activará automáticamente en el nivel especificado y por debajo del mismo.
+
+Si deshabilitas o no configuras esta directiva, los usuarios se encargarán de administrarla.</string>
+
+      <string id="ConnectivityInStandbyExplain">Esta configuración de directiva te permite controlar el estado de la conectividad de red en modo de espera en sistemas modernos compatibles con el modo de espera.
+
+Si habilitas esta configuración de directiva, la conectividad de red se mantendrá en modo de espera.
+
+Si deshabilitas esta configuración de directiva, no se garantiza la conectividad de red en modo de espera. Esta restricción de la conectividad actualmente se aplica solo a redes WLAN y está sujeta a cambios.
+
+Si no estableces esta configuración de directiva, los usuarios controlarán esta configuración.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Si deshabilita o no establece esta configuración de directiva, los usuarios pod
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Nivel de notificación sobre batería en la reserva (porcentaje):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Umbral de batería para el ahorro de energía (porcentaje):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -15,17 +15,23 @@ Seguridad basada en la virtualización de la integridad de código
 
 Esta configuración permite la seguridad basada en la virtualización de la integridad de código del modo Kernel. Cuando esta opción esté habilitada, se aplicarán las protecciones de memoria del modo Kernel y la ruta de validación de la integridad de código estará protegida por la característica de seguridad basada en la virtualización.
 
+La opción "Deshabilitado" desactiva la protección basada en la virtualización de la integridad de código de manera remota si se había activado anteriormente mediante la opción "Habilitado sin bloqueo".
+ 
+La opción "Habilitado con bloqueo UEFI" garantiza que la protección basada en la virtualización de la integridad de código no se pueda deshabilitar de manera remota. Para deshabilitar la función, tienes que establecer la directiva de grupo en "Deshabilitado", así como quitar la funcionalidad de seguridad de cada PC, con un usuario presente físicamente, con el fin de borrar la configuración que persiste en UEFI.
+ 
+La opción "Habilitado sin bloqueo" permite deshabilitar la protección basada en la virtualización de la integridad de código de manera remota al usar una directiva de grupo. 
+
 Advertencia: Todos los controladores del sistema deben ser compatibles con esta característica o el sistema puede bloquearse. Asegúrate de que esta configuración de directiva solo se haya implementado en PC que sean compatibles. 
 
-Protección de credenciales
+Credential Guard
 
-Esta opción permite a los usuarios activar la protección de credenciales con seguridad basada en la virtualización para ayudar a proteger las credenciales.
+Esta opción permite a los usuarios activar Credential Guard con seguridad basada en la virtualización para ayudar a proteger las credenciales.
 
-La opción "Deshabilitado" desactiva la protección de credenciales de manera remota si se había activado anteriormente mediante la opción "Habilitado sin bloqueo".
+La opción "Deshabilitado" desactiva Credential Guard de manera remota si se había activado anteriormente mediante la opción "Habilitado sin bloqueo".
 
-La opción "Habilitado con bloqueo UEFI" garantiza que la protección de credenciales no se pueda deshabilitar de manera remota. Para deshabilitar la función, tienes que establecer la directiva de grupo en "Deshabilitado", así como quitar la funcionalidad de seguridad de cada PC, con un usuario presente físicamente, con el fin de borrar la configuración que persiste en UEFI.
+La opción "Habilitado con bloqueo UEFI" garantiza que Credential Guard no se pueda deshabilitar de manera remota. Para deshabilitar la función, tienes que establecer la directiva de grupo en "Deshabilitado", así como quitar la funcionalidad de seguridad de cada PC, con un usuario presente físicamente, con el fin de borrar la configuración que persiste en UEFI.
 
-La opción "Deshabilitado sin bloqueo" permite deshabilitar la protección de credenciales de manera remota al usar una directiva de grupo. Los dispositivos que usan esta opción deben ejecutar al menos Windows 10 (versión 1511).
+La opción "Habilitado sin bloqueo" permite deshabilitar Credential Guard de manera remota al usar una directiva de grupo. Los dispositivos que usan esta opción deben ejecutar al menos Windows 10 (versión 1511).
       </string>
       <string id="SecureBoot">Arranque seguro</string>
       <string id="SecureBootAndDmaProtection">Arranque seguro y protección de DMA</string>
@@ -50,9 +56,9 @@ Si usas una directiva firmada y protegida, no se eliminará la característica d
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Selecciona el nivel de seguridad de la plataforma:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Habilitar la protección basada en la virtualización de la integridad de código</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuración de protección de credenciales:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Selecciona el nivel de seguridad de la plataforma:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Protección basada en la virtualización de la integridad de código:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuración de Credential Guard:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>GP Βελτιστοποίησης παράδοσης</displayName>
+  <description>Αυτό το αρχείο περιγράφει τις ρυθμίσεις GP Βελτιστοποίησης παράδοσης</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Βελτιστοποίηση παράδοσης</string>
+      <string id="DownloadMode">Λειτουργία λήψης</string>
+      <string id="DownloadMode_Help">Καθορίζει τη μέθοδο λήψης που μπορεί να χρησιμοποιήσει η Βελτιστοποίηση παράδοσης σε λήψεις του Windows Update, εφαρμογών και ενημερώσεων εφαρμογών. Η ακόλουθη λίστα εμφανίζει τις τιμές που υποστηρίζονται: 0=HTTP μόνο, χωρίς ομοτιμία. 1=HTTP σε συνδυασμό με ομοτιμία στο ίδιο NAT. 2=HTTP σε συνδυασμό με ομοτιμία σε μια ιδιωτική ομάδα. Η ομοτιμία πραγματοποιείται σε συσκευές που βρίσκονται στην ίδια τοποθεσία Active Directory (αν υπάρχει) ή στον ίδιο τομέα από προεπιλογή. Όταν είναι ενεργοποιημένη αυτή η επιλογή, η ομοτιμία θα μεταφέρεται ανάμεσα στα NAT. Για να δημιουργήσετε μια προσαρμοσμένη ομάδα, χρησιμοποιήστε το αναγνωριστικό της ομάδας σε συνδυασμό με τη Λειτουργία 2. 3=HTTP σε συνδυασμό με ομοτιμία Internet. 99=Απλή λειτουργία λήψης χωρίς ομοτιμία. Η Βελτιστοποίηση παράδοσης πραγματοποιεί λήψη μόνο με HTTP και δεν επιχειρεί να επικοινωνήσει με τις υπηρεσίες cloud της Βελτιστοποίηση παράδοσης. 100=Λειτουργία παράκαμψης. Μην χρησιμοποιήσετε τη Βελτιστοποίηση παράδοσης και χρησιμοποιήστε εναλλακτικά το BITS.</string>
+      <string id="DownloadMode_CdnOnly">Μόνο HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
+      <string id="DownloadMode_Group">Ομάδα</string>
       <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Simple">Απλή</string>
+      <string id="DownloadMode_Bypass">Παράκαμψη</string>
+      <string id="GroupId">Αναγνωριστικό ομάδας</string>
+      <string id="GroupId_Help">Το αναγνωριστικό ομάδας πρέπει να οριστεί ως GUID. Αυτή η πολιτική καθορίζει ένα αυθαίρετο αναγνωριστικό ομάδας στην οποία ανήκει η συσκευή. Χρησιμοποιήστε το αν θέλετε να καθορίσετε μία ομάδα για ομότιμη συνεργασία τοπικού δικτύου σε διακλαδώσεις που βρίσκονται σε διαφορετικούς τομείς ή δεν βρίσκονται στο ίδιο LAN. Σημείωση: πρόκειται για μια βελτιστοποίηση βέλτιστης μεθόδου και δεν θα πρέπει να βασίζεστε σε αυτή για έλεγχο ταυτότητας.</string>
+      <string id="MaxUploadBandwidth">Μέγ. εύρος ζώνης αποστολής (KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Καθορίζει το μέγιστο εύρος ζώνης αποστολής που θα χρησιμοποιεί η Βελτιστοποίηση παράδοσης σε όλες τις ταυτόχρονες δραστηριότητες αποστολής (ορισμένο σε KB/s). Η προεπιλεγμένη τιμή 0 (μηδέν) επιτρέπει απεριόριστη χρήση, κατά την οποία οι δραστηριότητες αποστολής βελτιστοποιούνται δυναμικά ώστε να κάνουν ελάχιστη χρήση τους εύρους ζώνης αποστολής.</string>
+      <string id="MaxCacheSize">Μέγ. μέγεθος cache (ποσοστό)</string>
+      <string id="MaxCacheSize_Help">Καθορίζει το μέγιστο μέγεθος cache που χρησιμοποιεί η Βελτιστοποίηση παράδοσης ως ποσοστό του διαθέσιμου χώρου στο δίσκο (1-100).</string>
+      <string id="AbsoluteMaxCacheSize">Απόλυτο μέγιστο μέγεθος cache (GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Καθορίζει το μέγιστο μέγεθος σε GB του cache βελτιστοποίησης παράδοσης. Αυτή η πολιτική παρακάμπτει την πολιτική DOMaxCacheSize. Η τιμή 0 (μηδέν) σημαίνει "απεριόριστο" cache. Η Βελτιστοποίηση παράδοσης θα καθαρίσει το cache όταν εξαντληθεί ο ελεύθερος χώρος στη μονάδα δίσκου της συσκευής.</string>
+      <string id="MaxCacheAge">Μέγ. ηλικία cache (σε δευτερόλεπτα)</string>
+      <string id="MaxCacheAge_Help">Καθορίζει το μέγιστο χρονικό διάστημα σε δευτερόλεπτα που διατηρούνται τα αρχεία στο cache της Βελτιστοποίησης παράδοσης, αφού ολοκληρωθεί η λήψη τους με επιτυχία. Η τιμή "0" σημαίνει "Απεριόριστο". Η Βελτιστοποίηση παράδοσης θα διατηρήσει τα αρχεία στο cache για περισσότερο χρόνο και θα καταστήσει τα αρχεία διαθέσιμα για αποστολές σε άλλες συσκευές, εφόσον δεν έχει γίνει υπέρβαση του μεγέθους του cache.</string>
+      <string id="MonthlyUploadDataCap">Μηνιαίο όριο αποστολής δεδομένων (GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Καθορίζει το μέγιστο συνολικό αριθμό byte σε GB που επιτρέπεται να αποστείλει η Βελτιστοποίηση παράδοσης σε ομότιμους υπολογιστές στο Internet σε κάθε ημερολογιακό μήνα. Η τιμή 0 (μηδέν) σημαίνει "απεριόριστος". Αν ορίσετε την τιμή "0", δεν εφαρμόζεται κανένα μηνιαίο όριο αποστολής.</string>
+      <string id="MinBackgroundQos">Ελάχιστη ποιότητα υπηρεσίας παρασκηνίου (KB/s)</string>
+      <string id="MinBackgroundQos_Help">Καθορίζει την ελάχιστη QoS λήψης (Ποιότητα υπηρεσίας ή ταχύτητα) για λήψεις παρασκηνίου, σε KiloByte/δευτερόλεπτο. Αυτή η πολιτική επηρεάζει το συνδυασμό ομότιμων προελεύσεων και προελεύσεων HTTP. Η Βελτιστοποίηση παράδοσης συμπληρώνει τη λήψη από τις προελεύσεις HTTP για να επιτύχει την ελάχιστη καθορισμένη τιμή QoS.</string>
+      <string id="ModifyCacheDrive">Τροποποίηση μονάδας δίσκου cache</string>
+      <string id="ModifyCacheDrive_Help">Καθορίζει τη μονάδα δίσκου που θα χρησιμοποιήσει η Βελτιστοποίηση παράδοσης για το cache της. Από προεπιλογή, χρησιμοποιείται η μονάδα δίσκου %SystemDrive% για την αποθήκευση του cache. Η θέση της μονάδας δίσκου μπορεί να καθοριστεί χρησιμοποιώντας μεταβλητές περιβάλλοντος, ένα γράμμα μονάδας δίσκου ή μια πλήρη διαδρομή.</string>
+      <string id="MaxDownloadBandwidth">Μέγιστο όριο εύρους ζώνης λήψης (KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Καθορίζει το μέγιστο εύρος ζώνης λήψης (σε KiloByte/δευτερόλεπτο) που θα χρησιμοποιεί μια συσκευή σε όλες τις ταυτόχρονες δραστηριότητες λήψης μέσω της Βελτιστοποίησης παράδοσης. Η προεπιλεγμένη τιμή 0 (μηδέν) σημαίνει ότι η Βελτιστοποίηση παράδοσης θα προσαρμόζεται δυναμικά ώστε να χρησιμοποιεί το διαθέσιμο εύρος ζώνης για τις λήψεις.</string>
+      <string id="PercentageMaxDownloadBandwidth">Μέγιστο εύρος ζώνης λήψης (ποσοστό)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Καθορίζει το μέγιστο εύρος ζώνης λήψης που χρησιμοποιεί η Βελτιστοποίηση παράδοσης σε όλες τις ταυτόχρονες δραστηριότητες λήψης ως ποσοστό του διαθέσιμου εύρους ζώνης λήψης. Η προεπιλεγμένη τιμή 0 (μηδέν) σημαίνει ότι η Βελτιστοποίηση παράδοσης προσαρμόζεται δυναμικά ώστε να χρησιμοποιεί το διαθέσιμο εύρος ζώνης για λήψεις.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Λειτουργία λήψης:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>Αναγνωριστικό ομάδας:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Μέγιστο εύρος ζώνης αποστολής (σε KB/s):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 0 (απεριόριστο)</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Μέγ. μέγεθος cache (ποσοστό):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 20%</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Απόλυτο μέγιστο μέγεθος cache (GB):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 10 GB</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Μέγ. ηλικία cache (σε δευτερόλεπτα):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 3 ημέρες</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Μηνιαίο όριο αποστολής δεδομένων (GB):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 20 GB</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">Ελάχιστη ποιότητα υπηρεσίας παρασκηνίου (KB/s):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 500 KB/δευτ.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Τροποποίηση μονάδας δίσκου cache:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Μέγιστο όριο εύρους ζώνης λήψης (KB/s):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 0 (απεριόριστο)</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Μέγιστο όριο εύρους ζώνης λήψης (ποσοστό):</decimalTextBox>
+        <text>Η προεπιλεγμένη τιμή είναι 0 (απεριόριστο)</text>
       </presentation>
     </presentationTable>
   </resources>

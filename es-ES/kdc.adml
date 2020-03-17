@@ -78,6 +78,22 @@ Si habilita esta configuración de directiva, los controladores de dominio solic
 Si deshabilita o no establece esta configuración de directiva, los controladores de dominio devolverán valores de servicio que contienen autenticación compuesta siempre que el cliente envíe una solicitud de autenticación compuesta, independientemente de la configuración de la cuenta.
 
 </string>
+      <string id="PKINITFreshness">Compatibilidad de KDC con la extensión de actualización PKInit</string>
+      <string id="PKINITFreshness_explain">La compatibilidad con la extensión de actualización PKInit requiere el nivel funcional del dominio (DFL) de Windows Server 2016. Si el dominio del controlador dominio no está en DFL o superior de Windows Server 2016, no se aplicará la directiva.
+
+Esta configuración de directiva permite configurar un controlador de dominio (DC) para que admita la extensión de actualización PKInit.
+
+Si habilitas esta configuración de directiva, se admitirán las siguientes opciones:
+
+Compatible: la extensión de actualización PKInit es compatible con la solicitud. Los cliente de Kerberos que se autentiquen correctamente con la extensión de actualización PKInit recibirán el nuevo identificador de seguridad (SID) de identidad de clave pública.
+
+Requerido: la extensión de actualización PKInit es necesaria para la autenticación correcta. Los clientes de Kerberos que no son compatibles con la extensión de actualización PKInit siempre producirán un error al usar credenciales de clave pública.
+
+Si deshabilitas o no estableces esta configuración de directiva, el controlador de dominio nunca ofrecerá la extensión de actualización PKInit y aceptará solicitudes de autenticación válidas sin comprobar su actualización. Los usuarios nunca recibirán un nuevo SID de identidad de clave pública.
+</string>
+      <string id="NoPKINITFreshness">Deshabilitado</string>
+      <string id="SupportPKINITFreshness">Compatible</string>
+      <string id="RequirePKINITFreshness">Requerido</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Si deshabilita o no establece esta configuración de directiva, los controladore
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Umbral de tamaño de vale</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Opciones de extensión de actualización PKInit:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

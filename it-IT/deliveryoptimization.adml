@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>Criteri di gruppo per Ottimizzazione recapito</displayName>
+  <description>Questo file descrive le impostazioni di Criteri di gruppo per Ottimizzazione recapito</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Ottimizzazione recapito</string>
+      <string id="DownloadMode">Modalità download</string>
+      <string id="DownloadMode_Help">Specifica il metodo di download che Ottimizzazione recapito può usare nei download di aggiornamenti di Windows, app e aggiornamenti di app. Di seguito sono elencati i valori supportati: 0=solo HTTP, nessun peering. 1=HTTP misto con peering nella stessa NAT. 2=HTTP misto con peering in un gruppo privato. Per impostazione predefinita, il peering avviene tra i dispositivi nello stesso sito di Active Directory (se presente) o nello stesso dominio. Quando questa opzione è selezionata, il peering attraversa le NAT. Per creare un gruppo personalizzato, usa l'ID gruppo in combinazione con la modalità 2. 3=HTTP misto con peering Internet. 99=modalità di download semplice senza peering. Ottimizzazione recapito esegue il download usando solo HTTP e non tenta di contattare i servizi cloud di Ottimizzazione recapito. 100=modalità Bypass. Invece di Ottimizzazione recapito viene usato BITS.</string>
+      <string id="DownloadMode_CdnOnly">Solo HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
+      <string id="DownloadMode_Group">Gruppo</string>
       <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Simple">Semplice</string>
+      <string id="DownloadMode_Bypass">Bypass</string>
+      <string id="GroupId">ID gruppo</string>
+      <string id="GroupId_Help">L'ID gruppo deve essere impostato come un GUID. Questo criterio specifica un ID gruppo arbitrario a cui appartiene il dispositivo. Usa questa impostazione se devi creare un singolo gruppo per il peering nella rete locale per filiali in domini diversi o che non sono nella stessa rete LAN. Nota: si tratta di un'ottimizzazione, da non usare per l'autenticazione dell'identità.</string>
+      <string id="MaxUploadBandwidth">Larghezza di banda caricamento massima (in KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Specifica la larghezza di banda massima per il caricamento usata da Ottimizzazione recapito per tutte le attività di caricamento simultanee in KB al secondo. Il valore predefinito 0 (zero) consente un uso illimitato, in cui i caricamenti sono ottimizzati in modo dinamico per un uso minimo della larghezza di banda di caricamento.</string>
+      <string id="MaxCacheSize">Dimensione massima cache (percentuale)</string>
+      <string id="MaxCacheSize_Help">Specifica la dimensione massima della cache usata da Ottimizzazione recapito come percentuale della dimensione del disco disponibile (1-100).</string>
+      <string id="AbsoluteMaxCacheSize">Dimensione massima assoluta cache (in GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Specifica la dimensione massima in GB della cache di Ottimizzazione recapito. Questo criterio sostituisce il criterio DOMaxCacheSize. Il valore 0 (zero) indica una cache “illimitata”: Ottimizzazione recapito cancellerà la cache quando lo spazio su disco nel dispositivo diventa insufficiente.</string>
+      <string id="MaxCacheAge">Durata massima cache (in secondi)</string>
+      <string id="MaxCacheAge_Help">Specifica il periodo di tempo massimo in secondi per cui ogni file viene mantenuto nella cache di Ottimizzazione recapito dopo il download. Il valore 0 (zero) significa “illimitato” e indica che Ottimizzazione recapito manterrà i file scaricati nella cache più a lungo e renderà disponibili i file per i caricamenti in altri dispositivi, purché la dimensione della cache non sia stata superata.</string>
+      <string id="MonthlyUploadDataCap">Limite dati caricamento mensile (in GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Specifica i byte totali massimi in GB che Ottimizzazione recapito può caricare nei peer Internet in ogni mese di calendario. Il valore 0 (zero) indica “illimitato”: non viene applicato alcun limite mensile per il caricamento se è impostato 0.</string>
+      <string id="MinBackgroundQos">QoS in background minimo (in KB/s)</string>
+      <string id="MinBackgroundQos_Help">Specifica il QoS (Quality of Service o velocità) di download minimo per i download in background in kilobyte al secondo. Questo criterio influisce sulla fusione di origini peer e HTTP. Ottimizzazione recapito integra il download dall'origine HTTP per ottenere il valore QoS minimo impostato.</string>
+      <string id="ModifyCacheDrive">Modifica unità cache</string>
+      <string id="ModifyCacheDrive_Help">Specifica l'unità che dovrà essere usata da Ottimizzazione recapito per la propria cache. Per impostazione predefinita, viene usato %SystemDrive% per l'archiviazione della cache. Il percorso dell'unità può essere specificato tramite variabili di ambiente, una lettera di unità o un percorso completo.</string>
+      <string id="MaxDownloadBandwidth">Larghezza di banda download massima (in KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Specifica la larghezza di banda massima per il download in kilobyte al secondo che il dispositivo può usare per tutte le attività di download simultanee tramite Ottimizzazione recapito. Il valore predefinito 0 (zero) indica che Ottimizzazione recapito viene regolato in modo dinamico per usare la larghezza di banda disponibile per i download.</string>
+      <string id="PercentageMaxDownloadBandwidth">Larghezza di banda download massima (percentuale)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Specifica la larghezza di banda massima per il download usata da Ottimizzazione recapito per tutte le attività di download simultanee come percentuale della larghezza di banda di download disponibile. Il valore predefinito 0 (zero) indica che Ottimizzazione recapito viene regolato in modo dinamico per usare la larghezza di banda disponibile per i download.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Modalità download:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>ID gruppo:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Larghezza di banda massima caricamento (in KB/s):</decimalTextBox>
+        <text>Il valore predefinito è 0 (illimitato)</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Dimensione massima cache (percentuale):</decimalTextBox>
+        <text>Il valore predefinito è 20%</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Dimensione massima assoluta cache (in GB):</decimalTextBox>
+        <text>Il valore predefinito è 10 GB</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Durata massima cache (in secondi):</decimalTextBox>
+        <text>Il valore predefinito è 3 giorni</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Limite dati caricamento mensile (in GB):</decimalTextBox>
+        <text>Il valore predefinito è 20 GB</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">QoS in background minimo (in KB/s):</decimalTextBox>
+        <text>Il valore predefinito è 500 KB/s</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Modifica unità cache:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Larghezza di banda download massima (in KB/s):</decimalTextBox>
+        <text>Il valore predefinito è 0 (illimitato)</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Larghezza di banda download massima (percentuale):</decimalTextBox>
+        <text>Il valore predefinito è 0 (illimitato)</text>
       </presentation>
     </presentationTable>
   </resources>

@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">시스템 절전 모드 시간 제한 지정(전원 사용)</string>
       <string id="ACStandbyWithHiberfileEnable">하이브리드 절전 모드 끄기(전원 사용)</string>
       <string id="ACSystemLidAction">덮개 스위치 동작 선택(전원 사용)</string>
+      <string id="ACConnectivityInStandby">연결된 대기 상태(전원 사용) 중 네트워크 연결 허용</string>
       <string id="BatteryDischargeAction0Explain">이 정책 설정은 배터리 용량이 배터리 위험 알림 수준에 도달할 때 Windows에서 수행되는 동작을 지정합니다.
 
 이 정책 설정을 사용하는 경우 다음 동작 중 하나를 선택하십시오.
@@ -82,6 +83,7 @@
       <string id="DCStandbyTimeOut">시스템 절전 모드 시간 제한 지정(배터리 사용)</string>
       <string id="DCStandbyWithHiberfileEnable">하이브리드 절전 모드 끄기(배터리 사용)</string>
       <string id="DCSystemLidAction">덮개 스위치 동작 선택(배터리 사용)</string>
+      <string id="DCConnectivityInStandby">연결된 대기 상태(배터리 사용) 중 네트워크 연결 허용</string>
       <string id="DiskACPowerDownTimeOut">하드 디스크 끄기(전원 사용)</string>
       <string id="DiskDCPowerDownTimeOut">하드 디스크 끄기(배터리 사용)</string>
       <string id="DiskPowerDownTimeOutExplain">이 정책 설정은 Windows에서 하드 디스크를 끄기 전의 비활성 기간을 지정합니다.
@@ -270,6 +272,23 @@ Windows에서는 컴퓨터 컴퓨터에 연결된 기본 디스플레이의 밝�
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 이 설정을 보고 변경할 수 있습니다.</string>
     
+      <string id="EnergySaverSettingsCat">절전 설정</string>
+      <string id="EsBattThresholdAC">절전 배터리 임계값(전원 사용)</string>
+      <string id="EsBattThresholdDC">절전 배터리 임계값(배터리 사용)</string>
+      <string id="EsBattThresholdExplain">이 정책 설정을 통해 절전이 켜지는 배터리 충전 수준을 지정할 수 있습니다.
+
+이 정책 설정을 사용하는 경우 배터리 충전 수준을 나타내는 퍼센트 값을 지정해야 합니다. 지정된 수준 이하가 되면 절전이 자동으로 켜집니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 이 설정을 제어합니다.</string>
+
+      <string id="ConnectivityInStandbyExplain">이 정책 설정을 통해 최신 대기 상태 지원 시스템에서 대기 상태의 네트워크 연결 상태를 제어할 수 있습니다.
+
+이 정책 설정을 사용하면 네트워크 연결이 대기 상태에서 유지 관리됩니다.
+
+이 정책 설정을 사용하지 않으면 대기 상태에서 네트워크 연결이 보장되지 않습니다. 이 연결 제한은 현재 WLAN 네트워크에만 적용되며 변경될 수 있습니다.
+
+이 정책 설정을 구성하지 않으면 사용자가 이 설정을 제어합니다.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Windows에서는 컴퓨터 컴퓨터에 연결된 기본 디스플레이의 밝�
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">예비 배터리 알림 수준(백분율):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">절전 배터리 임계값(퍼센트):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

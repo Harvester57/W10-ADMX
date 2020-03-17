@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Bloquer les polices non approuvés et enregistrer les événements</string>
       <string id="FontMitigation_Off">Ne pas bloquer les polices non approuvées</string>
       <string id="FontMitigation_Audit">Enregistrer les événements sans bloquer les polices non approuvées</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Options de traitement des préventions</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Cette fonctionnalité de sécurité permet de remplacer les paramètres individuels des options de traitement des préventions. Elle peut être utilisée pour appliquer plusieurs stratégies de sécurité propres aux applications. Le nom de l’application est spécifié comme nom de valeur, y compris l’extension. La valeur est spécifiée en tant que champ de bits avec une série d’indicateurs à des emplacements particuliers. Les bits peuvent être définis sur 0 (le paramètre est désactivé), 1 (le paramètre est activé) ou ? (le paramètre conserve sa valeur existant avant l’évaluation d’objet de stratégie de groupe). Les emplacements de bit reconnus sont les suivants :
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Active la prévention de l’exécution des données (PED) pour le processus enfant
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Active l’émulation thunk PED-ATL pour le processus enfant. Cette émulation entraîne l’interception par le système des erreurs NX qui proviennent de la couche thunk Active Template Library (ATL). 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Active la protection SEHOP (Structured Exception Handler Overwrite Protection) pour le processus enfant. La protection SEHOP bloque les codes malveillants exploitant une faille de sécurité qui ont recours à la technique de remplacement SEH (Structured Exception Handler).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        La stratégie de randomisation du format d’espace d’adresse (ASLR) de force rebase de force les images qui ne sont pas compatibles avec la base dynamique en agissant même si une collision de base d’image s’est produite lors du chargement. Si des réadressages sont requis, les images dépourvues de section de réadressage de base ne sont pas chargées.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        La stratégie de randomisation ascendante, qui inclut des options de randomisation de pile, provoque l’utilisation d’un emplacement aléatoire comme adresse de l’utilisateur la plus basse.
+
+        Par exemple, pour activer PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE et PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, désactivez PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, laissez toutes les autres options sur leurs valeurs par défaut, puis spécifiez la valeur 
+        ???????????????0???????1???????1
+
+        La définition des indicateurs non spécifiés ici sur une valeur autre que ? entraîne un comportement indéfini.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Activer la synchronisation des contrôleurs de domaine AD/DFS durant l’actualisation de stratégie</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Lorsque ce paramètre est activé, le client de stratégie de groupe se connecte pour les partages DFS au même contrôleur de domaine que celui utilisé pour Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Polices</string>
+      <string id="EnableFontProviders">Activer les fournisseurs de polices</string>
+      <string id="EnableFontProviders_Help">
+        Ce paramètre de stratégie détermine si Windows est autorisé à télécharger les polices et les données des catalogues de polices d’un fournisseur de polices en ligne.
+        
+        Si vous activez ce paramètre de stratégie, Windows interroge régulièrement un fournisseur de polices en ligne pour déterminer si un nouveau catalogue de polices est disponible. Windows peut également télécharger des données de police si nécessaire pour mettre en forme ou restituer du texte.
+        
+        Si vous désactivez ce paramètre de stratégie, Windows ne se connecte pas à un fournisseur de polices en ligne, et énumère uniquement les polices installées localement.
+      
+        Si vous ne configurez pas ce paramètre de stratégie, le comportement par défaut dépend de l’édition Windows. Les modifications apportées à cette stratégie prennent effet au redémarrage.
+      </string>
       <string id="EnableLogonOptimization">Configurer la mise en cache des stratégies de groupe</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas,
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Options d'atténuation</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Options de traitement des préventions</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Le service de mise en cache de polices Windows doit être autorisé à télécharger les polices et les données des catalogues de polices des fournisseurs de polices en ligne.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Valeur de liaison lente : [champ numérique] millisecondes</decimalTextBox>

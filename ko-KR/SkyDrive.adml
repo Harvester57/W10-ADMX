@@ -19,6 +19,34 @@
 * 사용자가 카메라 앨범 폴더에서 사진과 동영상을 자동으로 업로드할 수 없습니다.
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 앱 및 기능이 OneDrive 파일 저장소를 사용하여 작업할 수 있습니다.</string>
-   </stringTable>
+
+      <!-- prevent file sync for Blue-->
+      <string id="PreventOneDriveFileSyncForBlue">Windows 8.1에서 파일 저장에 OneDrive 사용 방지</string>
+      <string id="PreventOneDriveFileSyncForBlue_help">이 정책 설정을 통해 앱 및 기능이 Windows 8.1용 OneDrive에 있는 파일을 사용하여 작업하는 것을 방지할 수 있습니다.
+이 정책 설정을 사용하면
+
+* 사용자가 OneDrive 앱 및 파일 선택기에서 OneDrive에 액세스할 수 없습니다.
+* Windows 스토어 앱이 WinRT API를 사용하여 OneDrive에 액세스할 수 없습니다.
+* OneDrive가 파일 탐색기의 탐색 창에 나타나지 않습니다.
+* OneDrive 파일이 클라우드와 동기화되지 않습니다.
+* 사용자가 카메라 앨범 폴더에서 사진과 동영상을 자동으로 업로드할 수 없습니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 앱 및 기능이 OneDrive 파일 저장소를 사용하여 작업할 수 있습니다.</string>
+
+      <!-- metered network settings -->
+      <string id="PreventOneDriveFileSyncOnMeteredNetwork">데이터 통신 연결을 통한 OneDrive 파일의 동기화 방지</string>
+      <string id="PreventOneDriveFileSyncOnMeteredNetwork_help">이 정책 설정을 통해 데이터 통신 연결에서 OneDrive 파일 동기화 동작을 구성할 수 있습니다.</string>
+      <string id="OneDriveNeverSyncOnMeteredRoaming">모든 데이터 통신 연결에서 동기화 차단</string>
+      <string id="OneDriveSyncOnMeteredNotRoaming">로밍 시에만 모든 데이터 통신 연결에서 동기화 차단</string>
+
+      <!-- default save to OneDrive -->
+      <string id="DisableLibrariesDefaultSaveToOneDrive_Title">기본적으로 OneDrive에 문서 저장</string>
+      <string id="DisableLibrariesDefaultSaveToOneDrive_Description">이 정책 설정을 통해 OneDrive를 기본 저장 위치로 사용하지 않도록 설정할 수 있습니다. 앱과 사용자가 OneDrive에 파일을 저장하는 것이 차단되지는 않습니다. 이 정책 설정을 사용하지 않으면 파일이 기본적으로 로컬로 저장됩니다. 사용자는 기본적으로 OneDrive에 저장하도록 이 설정의 값을 변경할 수 있습니다. 또한 사용자는 OneDrive 앱 및 파일 선택기를 사용하여 OneDrive에서 파일을 열고 저장할 수 있으며, Windows 스토어 앱은 WinRT API를 사용하여 OneDrive에 액세스할 수 있습니다. 이 정책 설정을 사용하거나 구성하지 않으면 연결된 계정이 있는 사용자가 기본적으로 OneDrive에 문서를 저장합니다.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="PreventOneDriveFileSyncOnMeteredNetwork">
+        <dropdownList refId="OneDriveMeteredNetwork_Dropdown" noSort="true" defaultItem="0">데이터 통신 연결 네트워크 설정</dropdownList>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

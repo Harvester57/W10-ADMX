@@ -155,18 +155,25 @@ TERMSRV/*.humanresources.fabrikam.com - kaikissa kohteessa .humanresources.fabri
 
 Tätä asetusta voidaan käyttää yhdessä Salli tallennettujen tunnistetietojen delegointi -asetuksen kanssa, jos halutaan määrittää poikkeuksiksi tietyt palvelimet, jotka ovat muuten sallittuja, kun Salli tallennettujen tunnistetietojen delegointi -palvelinluettelossa käytetään yleismerkkejä.</string>
       <string id="RestrictedRemoteAdministration">Rajoita tunnistetietojen delegointia etäpalvelimiin</string>
-      <string id="RestrictedRemoteAdministration_Explain">Kun käytetään rajoitettua tilaa, osallistuvat sovellukset eivät paljasta tunnistetietoja etätietokoneille (delegointimenetelmästä huolimatta). Rajoitettu tila saattaa rajoittaa sellaisten resurssien käyttöä, jotka sijaitsevat toisissa palvelimissa tai verkoissa kuin kohdetietokone, koska tunnistetietoja ei delegoida.
+      <string id="RestrictedRemoteAdministration_Explain">Kun käytetään rajoitettua tilaa, osallistuvat sovellukset eivät paljasta tunnistetietoja etätietokoneille (delegointimenetelmästä huolimatta). Rajoitettu tila saattaa rajoittaa sellaisten resurssien käyttöä, jotka sijaitsevat toisissa palvelimissa tai verkoissa kuin kohdetietokone, koska tunnistetietoja ei delegoida. Remote Credential Guard ei rajoita pääsyä resursseihin ohjaamalla kaikkia pyyntöjä takaisin asiakaslaitteeseen.
 
 Osallistuvat sovellukset:
 etätyöpöytäasiakas
 
-Jos otat tämän käytäntöasetuksen käyttöön, rajoitettu tila pakotetaan, eivätkä osallistuvat sovellukset delegoi tunnistetietoja etätietokoneisiin.
+Jos otat tämän käytäntöasetuksen käyttöön, rajoitettu tila tai Remote Credential Guard pakotetaan, eivätkä osallistuvat sovellukset delegoi tunnistetietoja etätietokoneisiin.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, rajoitettua tilaa ei pakoteta, ja osallistuvat sovellukset voivat delegoida tunnistetietoja etätietokoneisiin.
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, rajoitettua tilaa ja Remote Credential Guardia ei pakoteta, ja osallistuvat sovellukset voivat delegoida tunnistetietoja etätietokoneisiin.
 
-Huomautus: jos haluat poistaa käytöstä suurimman osan tunnistetietojen delegoinnista, voi olla riittävää estää delegointi Credential Security Support Provider (CredSSP) -tunnisteessa muokkaamalla hallintamalliasetuksia (kohteessa Tietokoneasetukset\Hallintamallit\Järjestelmä\Tunnistetietojen delegointi).</string>
+Huomautus: jos haluat poistaa käytöstä suurimman osan tunnistetietojen delegoinnista, voi olla riittävää estää delegointi Credential Security Support Provider (CredSSP) -tunnisteessa muokkaamalla hallintamalliasetuksia (kohteessa Tietokoneasetukset\Hallintamallit\Järjestelmä\Tunnistetietojen delegointi).
+
+Huomautus: Windows 8.1:ssä ja Windows Server 2012 R2:ssa tämän käytäntöasetuksen ottaminen käyttöön pakottaa rajoitetun tilan valitusta tilasta riippumatta. Nämä versiot eivät tue Remote Credential Guardia.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Suosi Remote Credential Guardia</string>
+      <string id="RequireRemoteCredentialGuard">Vaadi Remote Credential Guard</string>
+      <string id="RequireRestrictedAdmin">Vaadi Rajoitettu järjestelmänvalvojatila</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Lisää palvelimet luetteloon:</listBox>
@@ -203,6 +210,9 @@ Huomautus: jos haluat poistaa käytöstä suurimman osan tunnistetietojen delego
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Lisää palvelimet luetteloon:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Yhdistä käyttöjärjestelmän oletusarvot määrityksiin</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Käytä seuraavaa rajoitettua tilaa:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

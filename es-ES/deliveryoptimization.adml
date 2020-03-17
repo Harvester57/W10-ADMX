@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>Directiva de grupo de Optimización de distribución</displayName>
+  <description>Este archivo describe la configuración de directiva de grupo de Optimización de distribución</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Optimización de entrega</string>
+      <string id="DownloadMode">Modo de descarga</string>
+      <string id="DownloadMode_Help">Especifica el método de descarga que el servicio Optimización de distribución puede usar al descargar actualizaciones de Windows, aplicaciones y actualizaciones de aplicaciones. En la siguiente lista encontrarás los valores admitidos: solo 0=HTTP, sin emparejamientos. 1=HTTP combinado con el emparejamiento que se encuentra en la misma NAT. 2=HTTP combinado con el emparejamiento de un grupo privado. El emparejamiento se lleva a cabo de forma predeterminada en los dispositivos del mismo sitio de Active Directory (si existiera) o del mismo dominio. Cuando selecciones esta opción, el emparejamiento cruzará las NAT. Si quieres crear un grupo personalizado, usa el id. de grupo junto con el modo 2. 3=HTTP combinado con el emparejamiento de Internet. 99=Simple es un modo de descarga sin emparejamientos. El servicio Optimización de distribución realiza las descargas solo mediante HTTP y no intenta ponerse en contacto con los servicios en la nube de Optimización de distribución. Modo 100=Bypass. No usa el servicio Optimización de distribución; en su lugar usa BITS.</string>
+      <string id="DownloadMode_CdnOnly">Solo HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
+      <string id="DownloadMode_Group">Grupo</string>
       <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Simple">Simple</string>
+      <string id="DownloadMode_Bypass">Omitir</string>
+      <string id="GroupId">Id. de grupo</string>
+      <string id="GroupId_Help">Debes establecer el id. de grupo como un GUID. Esta directiva especifica un id. de grupo aleatorio al cual pertenece el dispositivo, por lo que puedes usarlo si necesitas crear un solo grupo de emparejamientos de red local para aquellas ramas que estén en dominios diferentes o que no estén en la misma red LAN. Nota: esta es solo una opción para mejorar la optimización, por lo que no debes confiar en ella para autenticar una identidad.</string>
+      <string id="MaxUploadBandwidth">Ancho de banda de carga máximo (en KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Especifica, en kilobytes/segundo, el ancho de banda de carga máximo que usa el servicio Optimización de distribución en todas las actividades simultáneas de carga. El valor predeterminado 0 (cero) permite usar esta opción sin límites; además, las cargas se optimizarán de forma dinámica para que así usen el mínimo de ancho de banda de carga.</string>
+      <string id="MaxCacheSize">Tamaño de caché máximo (porcentaje)</string>
+      <string id="MaxCacheSize_Help">Especifica el tamaño máximo de la memoria caché que usa el servicio Optimización de distribución. Para ello, se usa un porcentaje que indica el tamaño en disco disponible (1-100).</string>
+      <string id="AbsoluteMaxCacheSize">Tamaño de caché máximo absoluto (en GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Especifica, en GB, el tamaño máximo de la memoria caché del servicio Optimización de distribución. Esta directiva invalida la directiva DOMaxCacheSize. El valor 0 (cero) significa una memoria caché "sin límite", por lo que el servicio Optimización de distribución limpiará la memoria caché cuando el dispositivo tenga poco espacio en disco.</string>
+      <string id="MaxCacheAge">Antigüedad máxima de la memoria caché (en segundos)</string>
+      <string id="MaxCacheAge_Help">Especifica el tiempo máximo (en segundos) que cada archivo se retiene en la memoria caché del servicio Optimización de distribución después de descargarse correctamente. El valor 0 (cero) significa "sin límite"; mediante este valor, el servicio Optimización de distribución mantendrá los archivos en la memoria caché más tiempo y se encargará de que estén disponibles para cargarlos en otros dispositivos (siempre y cuando no se supere el tamaño de la memoria caché).</string>
+      <string id="MonthlyUploadDataCap">Capacidad de carga de datos mensual (en GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Especifica el máximo total de bytes (en GB) que el servicio Optimización de distribución puede cargar en sus homólogos de Internet cada mes. El valor 0 (cero) indica "sin límites"; ten en cuenta que no se aplicará un límite de carga mensual si se establece el valor 0.</string>
+      <string id="MinBackgroundQos">QoS mínima en segundo plano (en KB/s)</string>
+      <string id="MinBackgroundQos_Help">Especifica, en kilobytes/segundo, la calidad del servicio (QoS) o la velocidad de descarga mínima para realizar descargas en segundo plano. Esta directiva afecta a la combinación de los orígenes del mismo nivel y de HTTP. El servicio Optimización de distribución complementa la descarga del origen HTTP para alcanzar el valor mínimo de QoS establecido.</string>
+      <string id="ModifyCacheDrive">Modificar la unidad de caché</string>
+      <string id="ModifyCacheDrive_Help">Especifica la unidad que el servicio Optimización de distribución debe usar para su caché, aunque de forma predeterminada se use %SystemDrive% para almacenar la memoria caché. Puedes especificar la ubicación de la unidad mediante variables de entorno, una letra de unidad o una ruta de acceso completa.</string>
+      <string id="MaxDownloadBandwidth">Ancho de banda de descarga máximo (en KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Especifica, en kilobytes/segundo, el ancho de banda de descarga máximo que el dispositivo puede usar en todas las actividades de descarga simultáneas mediante el servicio Optimización de distribución. El valor predeterminado 0 (cero) significa que el servicio de Optimización de distribución ajusta de forma dinámica el ancho de banda disponible para realizar las descargas.</string>
+      <string id="PercentageMaxDownloadBandwidth">Ancho de banda de descarga máximo (porcentaje)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Especifica el ancho de banda de descarga máximo que usa el servicio Optimización de distribución en todas las actividades simultáneas de descarga; para ello, muestra un porcentaje que indica el ancho de banda de descarga disponible. El valor predeterminado 0 (cero) significa que el servicio Optimización de distribución se ajusta automáticamente para usar el ancho de banda que haya disponible para realizar las descargas.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Modo de descarga:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>Id. de grupo:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Ancho de banda de carga máximo (en KB/s):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Tamaño de caché máximo (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 20 %.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Tamaño de caché máximo absoluto (en GB):</decimalTextBox>
+        <text>El valor predeterminado es 10 GB.</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Antigüedad máxima de la memoria caché (en segundos):</decimalTextBox>
+        <text>El valor predeterminado es 3 días.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Capacidad de carga de datos mensual (en GB):</decimalTextBox>
+        <text>El valor predeterminado es 20 GB.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">QoS mínima en segundo plano (en KB/s):</decimalTextBox>
+        <text>El valor predeterminado es 500 KB/s.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Modificar la unidad de caché:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Ancho de banda de descarga máximo (en KB/s):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Ancho de banda de descarga máximo (porcentaje):</decimalTextBox>
+        <text>El valor predeterminado es 0 (ilimitado).</text>
       </presentation>
     </presentationTable>
   </resources>

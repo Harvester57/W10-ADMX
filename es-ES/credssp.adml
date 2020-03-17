@@ -155,18 +155,25 @@ TERMSRV/*.humanresources.fabrikam.com El host de sesión de Escritorio remoto se
 
 Esta configuración de directiva se puede usar en combinación con "Permitir delegación de credenciales guardadas" para definir excepciones para servidores específicos que se permiten al usar caracteres comodín en la lista de servidores de "Permitir delegación de credenciales guardadas".</string>
       <string id="RestrictedRemoteAdministration">Restringir delegación de credenciales a servidores remotos</string>
-      <string id="RestrictedRemoteAdministration_Explain">Cuando se ejecuta el modo restringido, las aplicaciones participantes no exponen credenciales a los equipos remotos (independientemente del método de delegación). El modo restringido puede limitar el acceso a los recursos que están en otros servidores o redes más allá del equipo de destino, ya que las credenciales no se delegan.
+      <string id="RestrictedRemoteAdministration_Explain">Cuando se ejecutan en el modo Administración restringida o si el dispositivo está usando Credential Guard remoto, las aplicaciones participantes no exponen credenciales a los dispositivos remotos (independientemente del método de delegación). El modo Administración restringida puede limitar el acceso a los recursos que están en otros servidores o redes más allá del equipo de destino, ya que las credenciales no se delegan. Credential Guard remoto no limita el acceso a los recursos mediante el redireccionamiento de todas las solicitudes al dispositivo de cliente.
 
 Aplicaciones participantes:
-Cliente de Escritorio remoto
+Cliente de escritorio remoto
 
-Si habilita esta configuración de directiva, el modo restringido se impone de manera forzosa y las aplicaciones participantes no delegarán credenciales a los equipos remotos.
+Si habilitas esta configuración de directiva, se exige el modo Administración restringida o Credential Guard remoto y las aplicaciones participantes no podrán delegar credenciales para dispositivos remotos.
 
-Si deshabilita o no establece esta configuración de directiva, el modo restringido no se impone y las aplicaciones participantes pueden delegar credenciales a los equipos remotos.
+Si deshabilitas o no estableces esta configuración de directiva, no se exigen el modo Administración restringida y Credential Guard remoto y las aplicaciones participantes pueden delegar las credenciales para dispositivos remotos.
 
-Nota: para deshabilitar la delegación de la mayoría de las credenciales, puede bastar con denegar la delegación en el proveedor de compatibilidad para seguridad de credenciales (CredSSP); para ello, hay que modificar la configuración Plantillas administrativas (que se encuentra en Configuración del equipo\Plantillas administrativas\System\Credentials Delegation).</string>
+Nota: para deshabilitar la mayoría de delegación de credenciales, puede ser suficiente denegar la delegación en el proveedor de servicios de seguridad de credenciales (CredSSP) modificando la configuración de plantillas administrativas (que se encuentra en Configuración del equipo\Plantillas administrativas\Sistema\Delegación de credenciales).
+
+Nota: en Windows 8.1 y Windows Server 2012 R2, la habilitación de esta directiva forzará el modo Administración restringida, independientemente del modo elegido. Estas versiones no son compatibles con Credential Guard remoto.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Preferir Credential Guard remoto</string>
+      <string id="RequireRemoteCredentialGuard">Necesitar Credential Guard remoto</string>
+      <string id="RequireRestrictedAdmin">Necesitar un administrador restringido</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Agregar servidores a la lista:</listBox>
@@ -203,6 +210,9 @@ Nota: para deshabilitar la delegación de la mayoría de las credenciales, puede
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Agregar servidores a la lista:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concatenar las opciones predeterminadas de SO con la entrada anterior</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Usar el siguiente modo restringido:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

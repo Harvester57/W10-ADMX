@@ -24,6 +24,19 @@ Se si disabilita questa impostazione dei criteri, tutte le sperimentazioni verra
 
 Se non si configura questa impostazione dei criteri, l'utente può configurare l'opzione “Consenti a Microsoft di provare funzionalità in questa build” in Impostazioni.
 </string>
+      <string id="TelemetryProxy">Configura esperienze utente connesse e telemetria</string>
+      <string id="TelemetryProxy_Explain">Questa impostazione dei criteri consente di inoltrare a un server proxy le richieste di Esperienze utente connesse e telemetria.
+
+Se si abilita questa impostazione dei criteri, è possibile specificare il FQDN o l'indirizzo IP del dispositivo di destinazione nella rete dell'organizzazione (ed eventualmente un numero di porta). La connessione verrà stabilita tramite una connessione SSL (Secure Sockets Layer). In caso di problemi del proxy denominato, o se si disabilita o non si configura questa impostazione dei criteri, i dati di Esperienze utente connesse e telemetria verranno inviati a Microsoft usando la configurazione del proxy predefinita.
+
+Il formato per questa impostazione è &lt;server&gt;:&lt;porta&gt; 
+</string>
+      
+      <string id="CommercialId">Configura l'ID commerciale</string>
+      <string id="CommercialId_Explain">Questa impostazione dei criteri definisce l'identificatore usato per associare in modo univoco i dati di telemetria di questo dispositivo come appartenenti a una determinata organizzazione. Se la tua organizzazione partecipa a un programma che richiede l'identificazione del dispositivo come appartenente all'organizzazione, usa questa impostazione per fornire tale identificazione. Il valore di questa impostazione sarà fornito da Microsoft nell'ambito del processo di caricamento per il programma. 
+
+Se si disabilita o non si configura questa impostazione dei criteri, Microsoft non sarà in grado di usare questo identificatore per associare il dispositivo e i relativi dati di telemetria all'organizzazione.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@ Se non si configura questa impostazione dei criteri, l'utente può configurare l
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Nome server proxy:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>ID commerciale:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

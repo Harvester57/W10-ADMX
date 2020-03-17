@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Microsoft Windows Enhedssikring</displayName>
+  <displayName>Microsoft Windows Device Guard</displayName>
   <description>Windows Device Guard Security</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">Enhedssikring</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Aktivér virtualiseringsbaseret sikkerhed</string>
-      <string id="VirtualizationBasedSecurityHelp">Angiver, om Virtualiseringsbaseret sikkerhed er aktiveret.
+      <string id="VirtualizationBasedSecurityHelp">Angiver, om Virtualiseringsbaseret beskyttelse af kodeintegritet er aktiveret.
 
-Virtualiseringsbaseret sikkerhed bruger Windows Hypervisor til at yde understøttelse til sikkerhedstjenester. Virtualiseringsbaseret sikkerhed kræver Sikker bootstart og kan aktiveres ved hjælp af DMA-beskyttelser. DMA-beskyttelser kræver hardwareunderstøttelse og bliver kun aktiveret på de enheder, der er konfigureret i øjeblikket.
+Virtualiseringsbaseret sikkerhed bruger Windows Hypervisor til at yde understøttelse til sikkerhedstjenester. Virtualiseringsbaseret sikkerhed kræver Sikker bootstart og kan aktiveres ved hjælp af DMA-beskyttelser. DMA-beskyttelser kræver hardwareunderstøttelse og bliver kun aktiveret på korrekt konfigurerede enheder.
 
-Virtualiseringsbaseret beskyttelse af kodeintegritet
+Virtualiseringsbaseret beskyttelse af kodeintegritet.
 
-Denne indstilling giver mulighed for virtualiseringsbaseret beskyttelse af Kernel Mode Code Integrity. Når den indstilling er aktiveret, gennemtvinges beskyttelser af kernetilstandshukommelsen, og valideringsstien til kodeintegriteten beskyttes af den virtualiseringsbaserede sikkerhedsfunktion.
+Denne indstilling giver mulighed for virtualiseringsbaseret beskyttelse af Kernel Mode Code Integrity. Når indstillingen er aktiveret, håndhæves beskyttelser af kernetilstandshukommelsen, og stien til validering af kodeintegritet beskyttes af den virtualiseringsbaserede sikkerhedsfunktion.
 
-Advarsel! Alle driverne i systemet skal være kompatible med denne funktion, eller også kan systemet gå ned. Sørg for, at denne politikindstilling kun implementeres på computere, hvor du ved, at de er kompatible. 
-
-Konfiguration af Beskyttelse af legitimationsoplysninger
-
-Denne indstilling gør det muligt at beslutte, om brugerne kan aktivere Konfiguration af Beskyttelse af legitimationsoplysninger med virtualiseringsbaseret sikkerhed for at beskytte legitimationsoplysningerne.
+Indstillingen "Deaktiveret" slår Virtualiseringsbaseret beskyttelse af kodeintegritet fra eksternt, hvis den tidligere er aktiveret med parameteren "Aktiveret uden Lås".
  
-Indstillingen "Deaktiveret" slår Beskyttelse af legitimationsoplysninger fra eksternt, hvis den tidligere var slået til med indstillingen "Aktiveret uden lås".
+Indstillingen "Aktiveret med UEFI-lås" sikrer, at Virtualiseringsbaseret beskyttelse af kodeintegritet ikke kan deaktiveres eksternt. Hvis du vil deaktivere funktionen, skal du indstille gruppepolitikken til "Deaktiveret" samt fjerne sikkerhedsfunktionen fra hver enkelt computer, hvor brugeren fysisk skal være til stede, for at rydde den konfiguration, der er bevaret i UEFI.
+ 
+Indstillingen "Aktiveret uden lås" tillader, at Virtualiseringsbaseret beskyttelse af kodeintegritet kan aktiveres eksternt ved brug af en gruppepolitik. 
 
-Indstillingen "Aktiveret med UEFI-lås" sikrer, at Beskyttelse af legitimationsoplysninger ikke kan deaktiveres eksternt. Hvis du vil deaktivere funktionen, skal du indstille gruppepolitikken til "Deaktiveret" samt fjerne sikkerhedsfunktionen fra hver enkelt computer, hvor brugeren fysisk skal være til stede, for at rydde den konfiguration, der er bevaret i UEFI.
+Advarsel! Alle driverne i systemet skal være kompatible med denne funktion, ellers kan systemet gå ned. Sørg for, at denne politikindstilling kun implementeres på computere, hvor du ved, at de er kompatible. 
 
-Indstillingen "Aktiveret uden lås" betyder, at Beskyttelse af legitimationsoplysninger kan deaktiveres eksternt ved hjælp af gruppepolitikken. De enheder, der bruger denne indstilling, skal som minimum køre Windows 10 (Version 1511).
+Credential Guard
+
+Denne indstilling giver brugerne mulighed for at aktivere Credential Guard med virtualiseringsbaseret sikkerhed for at beskytte legitimationsoplysningerne.
+
+Indstillingen "Deaktiveret" slår Credential Guard fra eksternt, hvis den tidligere er aktiveret med indstillingen "Aktiveret uden lås".
+
+Indstillingen "Aktiveret med UEFI-lås" sikrer, at Credential Guard ikke kan deaktiveres eksternt. Hvis du vil deaktivere funktionen, skal du indstille gruppepolitikken til "Deaktiveret" samt fjerne sikkerhedsfunktionen fra hver enkelt computer, hvor brugeren fysisk skal være til stede, for at rydde den konfiguration, der er bevaret i UEFI.
+
+Indstillingen "Aktiveret uden lås" tillader, at Credential Guard kan aktiveres eksternt ved brug af en gruppepolitik. De enheder, der bruger denne indstilling, skal som minimum køre Windows 10 (version 1511).
       </string>
       <string id="SecureBoot">Sikker bootstart</string>
       <string id="SecureBootAndDmaProtection">Sikker bootstart og DMA-beskyttelse</string>
@@ -50,9 +56,9 @@ Hvis der bruges en signeret eller beskyttet politik, så vil en deaktivering af 
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Vælg sikkerhedsniveau for platform:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Aktivér virtualiseringsbaseret beskyttelse af kodeintegritet</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfiguration af Beskyttelse af legitimationsoplysninger:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Vælg sikkerhedsniveau for platform:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Virtualiseringsbaseret beskyttelse af kodeintegritet:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfiguration af Credential Guard:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

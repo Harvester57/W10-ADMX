@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">信頼されていないフォントをブロックしてイベントをログに記録する</string>
       <string id="FontMitigation_Off">信頼されていないフォントをブロックしない</string>
       <string id="FontMitigation_Audit">信頼されていないフォントをブロックせずにイベントをログに記録する</string>
+	  
+	  <string id="ProcessMitigationOptions_List">プロセス軽減策オプション</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        このセキュリティ機能は、個々のプロセス MitigationOptions の設定を上書きする手段を提供します。この機能を使用して、アプリケーションに固有のセキュリティ ポリシーを適用できます。アプリケーション名は、拡張子を含む値の名前として指定されます。値は、特定の位置に一連のフラグを立てたビット フィールドとして指定されます。ビットは 0 (設定は強制的にオフ)、1 (設定は強制的にオン)、または ? (設定は GPO 評価の前に既存の値を保持) のいずれかに設定できます。認識されるビットの場所は次のとおりです:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        子プロセスのデータ実行防止 (DEP) を有効にします
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        子プロセスの DEP-ATL サンク エミュレーションを有効にします。DEP-ATL サンク エミュレーションにより、アクティブ テンプレート ライブラリ (ATL) サンク レイヤーから生じた NX フォールトがインターセプトされるようになります。 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        子プロセスの構造化例外ハンドラーの上書き保護 (SEHOP) を有効にします。SEHOP は構造化例外ハンドラー (SEH) の上書き手法が悪用されるのをブロックします。
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        強制的な Address Space Layout Randomization (ASLR) ポリシーにより、読み込み時にイメージのベース競合が生じたものとして動作することで、動的ベース互換ではないイメージの再ベースが強制的に実施されます。再配置が必要な場合、ベース再配置セクションのないイメージは読み込まれません。
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        スタック ランダム化オプションを含むボトムアップのランダム化ポリシーにより、最も低いユーザー アドレスとして任意の場所が使用されます。
+
+        たとえば、PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE と PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON を有効にして PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF を無効にし、他のすべてのオプションを既定値のままにするには、次の値を指定します:
+        ???????????????0???????1???????1
+
+        ここで指定されていないフラグを ? 以外の任意の値に設定すると、未定義の動作が生じます。	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">ポリシーの更新中の AD/DFS ドメイン コントローラーの同期を有効にする</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">この設定を有効にすると、グループ ポリシー クライアントは、Active Directory に使用されているのと同じドメイン コントローラーに接続して DFS 共有に使用します。
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">フォント</string>
+      <string id="EnableFontProviders">フォント プロバイダーを有効にします</string>
+      <string id="EnableFontProviders_Help">
+        このポリシー設定では、Windows でオンライン フォント プロバイダーからフォントとフォント カタログ データをダウンロードできるかどうかを決定します。
+        
+        このポリシー設定を有効にすると、Windows は定期的にオンライン フォント プロバイダーに照会して、新しいフォント カタログが利用できるかどうかを判断します。また、テキストの書式設定またはレンダリングに必要な場合は、フォント データをダウンロードすることもできます。
+        
+        このポリシー設定を無効にした場合、Windows はオンライン フォント プロバイダーに接続せず、ローカルにインストールされているフォントのみを列挙します。
+      
+        このポリシー設定を構成しなかった場合、既定の動作は Windows のエディションによって異なります。このポリシーに対する変更は再起動時に反映されます。
+      </string>
       <string id="EnableLogonOptimization">グループ ポリシーのキャッシュを構成する</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ RSoP は、クライアントに適用されたグループ ポリシー設定�
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">軽減策オプション</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">プロセス軽減策オプション</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Windows フォント キャッシュ サービスがオンライン フォント プロバイダーからフォントとフォント カタログ データをダウンロードできるようにします。</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">低速リンク値: [数値フィールド] ミリ秒</decimalTextBox>

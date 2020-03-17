@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>Kézbesítésoptimalizálás csoportházirend</displayName>
+  <description>Ez a fájl a Kézbesítésoptimalizálás csoportházirend-beállításait ismerteti</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Kézbesítésoptimalizálás</string>
+      <string id="DownloadMode">Letöltési mód</string>
+      <string id="DownloadMode_Help">Ezzel a beállítással adható meg, hogy milyen módon töltheti le a kézbesítésoptimalizálási szolgáltatás a Windows frissítéseit, az alkalmazásokat és azok frissítéseit. A választható értékek a következők: 0 = csak HTTP (nincs társviszony), 1 = HTTP és az ugyanazon a helyi hálózaton lévő társak, 2 = HTTP és privát csoportos társviszony. Alapértelmezés szerint az egyazon Active Directory-helyen (ha van ilyen hely) működő vagy az egyazon tartományban lévő gépek között létesül társviszony. Ha a 2-es lehetőséget választja, a társviszony minden helyi hálózatra kiterjed. Amennyiben egyéni csoportot szeretne létrehozni, használjon csoportazonosítót a 2-es lehetőséggel együtt. 3 = HTTP és internetes társviszony. 99 = egyszerű letöltési mód társviszony nélkül. A kézbesítésoptimalizálási szolgáltatás csak HTTP-kapcsolattal végzi a letöltéseket, és nem próbál meg csatlakozni a kézbesítésoptimalizálási felhőszolgáltatásokhoz. 100 = megkerülő mód (a BITS használata a kézbesítésoptimalizálási szolgáltatás helyett).</string>
+      <string id="DownloadMode_CdnOnly">Csak HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
+      <string id="DownloadMode_Group">Csoport</string>
       <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Simple">Egyszerű</string>
+      <string id="DownloadMode_Bypass">Megkerülés</string>
+      <string id="GroupId">Csoportazonosító</string>
+      <string id="GroupId_Help">A csoportazonosítót GUID azonosítóként kell beállítani. Ezzel a házirenddel tetszés szerinti csoportazonosító rendelhető ahhoz a csoporthoz, amelyhez az eszköz tartozik. Akkor ajánlott ezt a házirendet használni, ha közös csoportot kell létrehozni helyi hálózati társviszony létesítése végett a különböző tartományokban vagy különböző helyi hálózatokon működő ágakhoz. Megjegyzés: Ez egy gyakorlati optimalizáló eljárás, amelyre identitáshitelesítés céljából nem tanácsos hagyatkozni.</string>
+      <string id="MaxUploadBandwidth">Maximális feltöltési sávszélesség (KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Ez a beállítás szabja meg, hogy legfeljebb mekkora (KB/s-ban kifejezett) feltöltési sávszélességet használhat a kézbesítésoptimalizálási szolgáltatás az egyidejű feltöltésekhez. Az alapértelmezett érték 0 (nulla). Ez azt jelenti, hogy nincs korlátozás, és a feltöltések dinamikus optimalizálása biztosítja, hogy a lehető legkisebb feltöltési sávszélességre legyen szükség.</string>
+      <string id="MaxCacheSize">Gyorsítótár maximális mérete (%)</string>
+      <string id="MaxCacheSize_Help">A kézbesítésoptimalizálási szolgáltatás által használt gyorsítótár maximális mérete a szabad lemezterület százalékos arányaként kifejezve (1–100).</string>
+      <string id="AbsoluteMaxCacheSize">Gyorsítótár abszolút maximális mérete (GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Ezzel a házirenddel állítható be a kézbesítésoptimalizálási szolgáltatás gyorsítótárának gigabájtban megadott maximális mérete. A házirend felülbírálja a DOMaxCacheSize házirendet. A 0 (nulla) érték azt jelenti, hogy bármekkora lehet a gyorsítótár. Ha már kevés a szabad lemezterület az eszközön, a kézbesítésoptimalizálási szolgáltatás kiüríti a gyorsítótárat.</string>
+      <string id="MaxCacheAge">Gyorsítótár maximális kora (másodpercben)</string>
+      <string id="MaxCacheAge_Help">Ezzel a beállítással adható meg az a (másodpercben kifejezett) maximális időtartam, ameddig az egyes fájlok a kézbesítésoptimalizálási gyorsítótárban maradnak a sikeres letöltésüket követően. A 0 (nulla) érték korlátlan megőrzési időt jelent: a letöltött fájlok hosszabb ideig maradnak a gyorsítótárban, hogy más eszközökre is fel lehessen tölteni őket (feltéve, hogy a művelet nem lépné túl a gyorsítótár méretkorlátját).</string>
+      <string id="MonthlyUploadDataCap">Havi adatfeltöltési kapacitás (GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Ezzel a beállítással adható meg, hogy a kézbesítésoptimalizálási szolgáltatás legfeljebb hány gigabájtnyi adatot tölthet fel naptári havonként az internetes társakra. A 0 (nulla) érték azt jelenti, hogy nincs ilyen korlátozás, tehát a havi feltöltés mennyisége nem korlátozott.</string>
+      <string id="MinBackgroundQos">Háttérbeli letöltés minimális sebessége (KB/s)</string>
+      <string id="MinBackgroundQos_Help">Ez a beállítás szabja meg a háttérbeli letöltések (kilobájt/s-ban kifejezett) minimális letöltési sebességét (azaz szolgáltatásminőségét). A házirend hatással van a társ- és HTTP-források együttes használatára. A kézbesítésoptimalizálási szolgáltatás úgy szabályozza a HTTP-forrásból indított letöltést, hogy annak sebessége elérje a beállított minimális sebességet.</string>
+      <string id="ModifyCacheDrive">Gyorsítótár áthelyezése másik meghajtóra</string>
+      <string id="ModifyCacheDrive_Help">Ezzel a beállítással adható meg, hogy melyik meghajtón helyezze el a kézbesítésoptimalizálási szolgáltatás a gyorsítótárát. Az alapértelmezett hely a %SystemDrive% jelölésű meghajtó. A pontos hely megadható környezeti változókkal, meghajtóbetűjellel vagy teljes elérési úttal.</string>
+      <string id="MaxDownloadBandwidth">Maximális letöltési sávszélesség (KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Ezzel a beállítással adható meg, hogy kézbesítésoptimalizálás használatakor mekkora lehet az eszköz (kilobájt/másodpercben kifejezett) maximális letöltési sávszélessége az egyidejű letöltések közben. Az alapértelmezett érték 0 (nulla). Ez azt jelenti, hogy a kézbesítésoptimalizálási szolgáltatás dinamikusan állítja be a rendelkezésre álló sávszélesség letöltés közbeni felhasználását.</string>
+      <string id="PercentageMaxDownloadBandwidth">Maximális letöltési sávszélesség (%)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Ezzel a beállítással adható meg, hogy kézbesítésoptimalizálás használatakor mekkora lehet a rendelkezésre álló letöltési sávszélesség százalékos arányaként kifejezett maximális letöltési sávszélesség az egyidejű letöltések közben. Az alapértelmezett érték 0 (nulla). Ez azt jelenti, hogy a kézbesítésoptimalizálási szolgáltatás dinamikusan állítja be a rendelkezésre álló sávszélesség letöltés közbeni felhasználását.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Letöltési mód:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>Csoportazonosító:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Maximális feltöltési sávszélesség (KB/s):</decimalTextBox>
+        <text>Az alapértelmezett érték 0 (nincs korlátozás).</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Gyorsítótár maximális mérete (%):</decimalTextBox>
+        <text>Az alapértelmezett érték 20%.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Gyorsítótár abszolút maximális mérete (GB):</decimalTextBox>
+        <text>Az alapértelmezett érték 10 GB.</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Gyorsítótár maximális kora (másodpercben):</decimalTextBox>
+        <text>Az alapértelmezett érték 3 nap.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Havi adatfeltöltési kapacitás (GB):</decimalTextBox>
+        <text>Az alapértelmezett érték 20 GB.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">Háttérbeli letöltés minimális sebessége (KB/s):</decimalTextBox>
+        <text>Az alapértelmezett érték 500 KB/s.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Gyorsítótár-meghajtó kiválasztása:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Maximális letöltési sávszélesség (KB/s):</decimalTextBox>
+        <text>Az alapértelmezett érték 0 (nincs korlátozás).</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Maximális letöltési sávszélesség (%):</decimalTextBox>
+        <text>Az alapértelmezett érték 0 (nincs korlátozás).</text>
       </presentation>
     </presentationTable>
   </resources>

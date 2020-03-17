@@ -156,18 +156,25 @@ TERMSRV/*.humanresources.fabrikam.com A .humanresources.fabrikam.com összes sz�
 
 A beállítást a „Mentett hitelesítő adatok delegálásának engedélyezése” beállítással együtt használva kivételeket definiálhat olyan kiszolgálókhoz, amelyeket egyébként a rendszer engedélyez, ha helyettesítő karaktereket használ a „Mentett hitelesítő adatok delegálásának engedélyezése” beállítás kiszolgálólistájában.</string>
       <string id="RestrictedRemoteAdministration">Hitelesítő adatok távoli kiszolgálókra történő delegálásának korlátozása</string>
-      <string id="RestrictedRemoteAdministration_Explain">Korlátozott üzemmódban az érintett alkalmazások semmilyen delegálási módszer esetén nem teszik elérhetővé távoli számítógépek számára a hitelesítő adatokat. Mivel nem kerül sor a hitelesítő adatok delegálására, korlátozott üzemmódban a célszámítógéptől eltérő kiszolgálókon vagy hálózatokon található erőforrásokhoz való hozzáférés korlátozott lehet.
+      <string id="RestrictedRemoteAdministration_Explain">Korlátozott rendszergazdai módban vagy távoli Credential Guard használata esetén az érintett alkalmazások semmilyen delegálási módszer esetén nem teszik elérhetővé távoli eszközök számára a hitelesítő adatokat. Mivel nem kerül sor a hitelesítő adatok delegálására, korlátozott rendszergazdai módban a célszámítógéptől eltérő kiszolgálókon vagy hálózatokon található erőforrásokhoz való hozzáférés korlátozott lehet. A távoli Credential Guard nem korlátozza az erőforrások elérését, mert az összes kérést visszairányítja az ügyféleszközre.
 
 Érintett alkalmazások:
 Távoli asztali ügyfél
 
-Ha engedélyezi ezt a házirend-beállítást, a rendszer korlátozott módban működik, és az érintett alkalmazások nem küldenek hitelesítő adatokat a távoli számítógépek számára.
+Ha engedélyezi ezt a házirend-beállítást, a rendszer korlátozott rendszergazdai módban vagy távoli Credential Guard használatával működik, és az érintett alkalmazások nem küldenek hitelesítő adatokat a távoli eszközöknek.
 
-Ha letiltja vagy nem konfigurálja ezt a házirendet, nem kerül sor a korlátozott mód kényszerítésére, és az érintett alkalmazások küldhetnek hitelesítő adatokat a távoli számítógépeknek.
+Ha letiltja vagy nem konfigurálja ezt a házirendet, nem kerül sor a korlátozott rendszergazdai mód vagy a távoli Credential Guard kényszerítésére, és az érintett alkalmazások küldhetnek hitelesítő adatokat a távoli eszközöknek.
 
-Megjegyzés: A legtöbb hitelesítő adat delegálásának letiltásához elegendő lehet a delegálás CredSSP protokollban történő letiltása. Ez a Számítógép konfigurációja\Felügyeleti sablonok\Rendszer\Hitelesítő adatok delegálása helyen található felügyeleti sablonok beállításainak módosításával történhet.</string>
+Megjegyzés: A legtöbb hitelesítő adat delegálásának letiltásához elegendő lehet a delegálás CredSSP-ben történő letiltása. Ez a Számítógép konfigurációja\Felügyeleti sablonok\Rendszer\Hitelesítő adatok delegálása helyen található felügyeleti sablonok beállításainak módosításával történhet.
+
+Megjegyzés: Windows 8.1 és Windows Server 2012 R2 rendszerben a házirend engedélyezése a választott módtól függetlenül a korlátozott rendszergazdai módot kényszeríti ki, mert ezekben a verziókban nem használható a távoli Credential Guard.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Távoli Credential Guard preferálása</string>
+      <string id="RequireRemoteCredentialGuard">Távoli Credential Guard megkövetelése</string>
+      <string id="RequireRestrictedAdmin">Korlátozott rendszergazdai mód megkövetelése</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Kiszolgálók hozzáadása a listához:</listBox>
@@ -204,6 +211,9 @@ Megjegyzés: A legtöbb hitelesítő adat delegálásának letiltásához elegen
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Kiszolgálók hozzáadása a listához:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Operációs rendszer alapértelmezések összefűzése a fenti bevitellel</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">A következő korlátozott mód használata:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

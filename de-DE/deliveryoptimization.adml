@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>Übermittlungsoptimierung (GR)</displayName>
+  <description>Diese Datei beschreibt die Gruppenrichtlinieneinstellungen für die Übermittlungsoptimierung.</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Übermittlungsoptimierung</string>
+      <string id="DownloadMode">Downloadmodus</string>
+      <string id="DownloadMode_Help">Gibt die Downloadmethode an, die die Übermittlungsoptimierung für Downloads von Windows-Updates, Apps und App-Updates verwenden kann. Die folgende Liste enthält die unterstützten Werte: 0 = Nur HTTP, kein Peering. 1 = HTTP kombiniert mit Peering hinter derselben NAT. 2 = HTTP kombiniert mit Peering über eine private Gruppe. Das Peering erfolgt standardmäßig auf Geräten am selben Active Directory-Standort (falls vorhanden) oder in derselben Domäne. Bei Auswahl dieser Option ist das Peering NAT-übergreifend. Um eine benutzerdefinierte Gruppe zu erstellen, verwenden Sie die Gruppen-ID in Kombination with Modus 2. 3 = HTTP kombiniert mit Internetpeering. 99 = Einfacher Downloadmodus ohne Peering. Downloads der Übermittlungsoptimierung verwenden nur HTTP. Es wird nicht versucht, Kontakt mit den Clouddiensten der Übermittlungsoptimierung aufzunehmen. 100 = Umgehungsmodus. Die Übermittlungsoptimierung wird nicht und stattdessen BITS verwendet.</string>
+      <string id="DownloadMode_CdnOnly">Nur HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
+      <string id="DownloadMode_Group">Gruppe</string>
       <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Simple">Einfach</string>
+      <string id="DownloadMode_Bypass">Umgehen</string>
+      <string id="GroupId">Gruppen-ID</string>
+      <string id="GroupId_Help">Die Gruppen-ID muss als GUID festgelegt werden. Mit dieser Richtlinie wird eine beliebige Gruppen-ID für das Gerät angegeben. Verwenden Sie die Einstellung zum Erstellen einer einzelnen Local Network Peering-Gruppe für Verzweigungen, die sich in unterschiedlichen Domänen bzw. nicht im selben LAN befinden. Hinweis: Dies ist eine "Best Effort"-Optimierung, die nicht zur Identitätsauthentifizierung verwendet werden sollte.</string>
+      <string id="MaxUploadBandwidth">Max. Uploadbandbreite (in KB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Gibt die maximale Uploadbandbreite an, die von der Übermittlungsoptimierung für alle gleichzeitigen Uploadaktivitäten genutzt wird, in KB/s an. Der Standardwert 0 (null) lässt eine unbegrenzte Nutzung zu. Dabei werden Uploads dynamisch optimiert, um eine minimale Ausnutzung der Uploadbandbreite zu gewährleisten.</string>
+      <string id="MaxCacheSize">Max. Cachegröße (Prozentsatz)</string>
+      <string id="MaxCacheSize_Help">Gibt die maximale Cachegröße, die von der Übermittlungsoptimierung verwendet wird, als Prozentsatz der verfügbaren Datenträgergröße (1-100) an.</string>
+      <string id="AbsoluteMaxCacheSize">Absolute max. Cachegröße (in GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Gibt die maximale Größe des Übermittlungsoptimierungscaches in GB an. Diese Richtlinie überschreibt die DOMaxCacheSize-Richtlinie. Der Wert 0 (null) steht für einen "unbegrenzten" Cache. Wenn der Speicherplatz auf dem Gerät knapp wird, bereinigt die Übermittlungsoptimierung den Cache.</string>
+      <string id="MaxCacheAge">Max. Cachealter (in Sekunden)</string>
+      <string id="MaxCacheAge_Help">Gibt die maximale Dauer in Sekunden an, die jede Datei nach erfolgreichem Download im Übermittlungsoptimierungscache verbleibt. Der Wert 0 (null) bedeutet "Unbegrenzt". Die Übermittlungsoptimierung speichert die Dateien länger im Cache und macht sie für Uploads auf andere Geräte verfügbar, solange die Cachegröße nicht überschritten wird.</string>
+      <string id="MonthlyUploadDataCap">Monatliche Obergrenze für Uploaddaten (in GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Gibt die maximale Anzahl von Bytes (in GB) an, die die Übermittlungsoptimierung jeden Kalendermonat insgesamt auf Internetpeers hochladen darf. Der Wert 0 (null) bedeutet "Unbegrenzt". Beim Wert 0 gilt keine monatliche Obergrenze für Uploads.</string>
+      <string id="MinBackgroundQos">Minimaler Hintergrund-QoS-Wert (in KB/s)</string>
+      <string id="MinBackgroundQos_Help">Gibt die minimale Download-QoS (Geschwindigkeit) für Downloads im Hintergrund in Kilobytes/Sekunde an. Die Richtlinie wirkt sich auf die Kombination von Peer- und HTTP-Quellen aus. Die Übermittlungsoptimierung ergänzt den Download aus der HTTP-Quelle, um den angegebenen minimalen QoS-Wert zu erreichen.</string>
+      <string id="ModifyCacheDrive">Cachelaufwerk ändern</string>
+      <string id="ModifyCacheDrive_Help">Gibt das Laufwerk an, das die Übermittlungsoptimierung für den Cache verwenden soll. Standardmäßig wird %SystemDrive% zum Speichern des Caches verwendet. Der Speicherort des Laufwerks kann mit Umgebungsvariablen, dem Laufwerkbuchstaben oder einem vollständigen Pfad angegeben werden.</string>
+      <string id="MaxDownloadBandwidth">Maximale Downloadbandbreite (in KB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Gibt die maximale Downloadbandbreite in Kilobytes/Sekunde an, die das Gerät für alle gleichzeitigen Downloadaktivitäten unter Verwendung der Übermittlungsoptimierung nutzen kann. Der Standardwert 0 (null) bedeutet, dass die Übermittlungsoptimierung die Verwendung der verfügbaren Bandbreite für Downloads dynamisch anpasst.</string>
+      <string id="PercentageMaxDownloadBandwidth">Maximale Downloadbandbreite (Prozentsatz)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Gibt die maximale Downloadbandbreite, die von der Übermittlungsoptimierung für alle gleichzeitigen Downloadaktivitäten genutzt wird, als Prozentsatz der verfügbaren Downloadbandbreite an. Der Standardwert 0 (null) bedeutet, dass die Übermittlungsoptimierung die Verwendung der verfügbaren Bandbreite für Downloads dynamisch anpasst.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Downloadmodus:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>Gruppen-ID:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Max. Uploadbandbreite (in KB/s):</decimalTextBox>
+        <text>Der Standardwert ist 0 (unbegrenzt).</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Max. Cachegröße (Prozentsatz):</decimalTextBox>
+        <text>Der Standardwert ist 20 %.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Absolute max. Cachegröße (in GB):</decimalTextBox>
+        <text>Der Standardwert ist 10 GB.</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Max. Cachealter (in Sekunden):</decimalTextBox>
+        <text>Der Standardwert ist 3 Tage.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Monatliche Obergrenze für Uploaddaten (in GB):</decimalTextBox>
+        <text>Der Standardwert ist 20 GB.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">Minimaler Hintergrund-QoS-Wert (in KB/s):</decimalTextBox>
+        <text>Der Standardwert ist 500 KB/s.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Cachelaufwerk ändern:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Maximale Downloadbandbreite (in KB/s):</decimalTextBox>
+        <text>Der Standardwert ist 0 (unbegrenzt).</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Maximale Downloadbandbreite (Prozentsatz):</decimalTextBox>
+        <text>Der Standardwert ist 0 (unbegrenzt).</text>
       </presentation>
     </presentationTable>
   </resources>

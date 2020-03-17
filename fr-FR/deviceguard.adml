@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Protection de périphérique Microsoft Windows</displayName>
-  <description>Sécurité de la protection de périphérique Windows</description>
+  <displayName>Microsoft Windows Device Guard</displayName>
+  <description>Windows Device Guard Security</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">Protection de périphérique</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Activer la sécurité basée sur la virtualisation</string>
       <string id="VirtualizationBasedSecurityHelp">Spécifie si la sécurité basée sur la virtualisation est activée.
 
-La sécurité basée sur la virtualisation utilise l'hyperviseur Windows pour prendre en charge les services de sécurité. La sécurité basée sur la virtualisation nécessite le démarrage sécurisé et peut éventuellement être activée à l'aide des protections DMA. Les protections DMA nécessitent une prise en charge matérielle et ne seront activées que sur les périphériques correctement configurés.
+La sécurité basée sur la virtualisation utilise l’hyperviseur Windows pour prendre en charge les services de sécurité. La sécurité basée sur la virtualisation nécessite le démarrage sécurisé et peut éventuellement être activée à l’aide des protections DMA. Les protections DMA nécessitent une prise en charge matérielle et ne seront activées que sur les périphériques correctement configurés.
 
-Protection basée sur la virtualisation de l'intégrité du code
+Protection basée sur la virtualisation de l’intégrité du code
 
-Ce paramètre permet la protection basée sur la virtualisation de l'intégrité du code en mode noyau. Lorsque cette option est activée, les protections de mémoire en mode noyau sont appliquées, et le chemin de validation de l'intégrité du code est protégé par la fonctionnalité de sécurité basée sur la virtualisation.
+Ce paramètre permet la protection basée sur la virtualisation de l’intégrité du code en mode noyau. Lorsque cette option est activée, les protections de mémoire en mode noyau sont appliquées, et le chemin de validation de l’intégrité du code est protégé par la fonctionnalité de sécurité basée sur la virtualisation.
 
-Avertissement : tous les pilotes du système doivent être compatibles avec cette fonctionnalité, sinon le système peut se bloquer. Assurez-vous que ce paramètre de stratégie est uniquement déployé sur les ordinateurs qui sont réputés compatibles. 
+L’option Désactivé désactive la protection basée sur la virtualisation de l’intégrité du code à distance si elle a été préalablement activée à l’aide de l’option Activé sans verrouillage.
 
-Protection des informations d'identification
+L’option Activé avec le verrouillage UEFI garantit que la protection basée sur la virtualisation de l’intégrité du code ne peut pas être désactivée à distance. Pour pouvoir la désactiver, vous devez définir la Stratégie de groupe sur Désactivé et supprimer la fonction de sécurité de chaque ordinateur, avec un utilisateur présent physiquement, afin d’effacer la configuration incluse dans UEFI.
 
-Ce paramètre vous permet de décider si les utilisateurs activent la protection des informations d'identification avec sécurité basée sur la virtualisation afin de protéger les informations d'identification.
+L’option Activé sans verrouillage permet de désactiver la protection basée sur la virtualisation de l’intégrité du code à distance à l’aide de la Stratégie de groupe.
 
-L'option Désactivé désactive la protection des informations d'identification à distance si elle a été préalablement activée à l'aide de l'option Activé sans verrouillage.
+Avertissement : tous les pilotes du système doivent être compatibles avec cette fonctionnalité, sinon le système peut se bloquer. Assurez-vous que ce paramètre de stratégie est uniquement déployé sur les ordinateurs qui sont réputés compatibles
 
-L'option Activé avec le verrouillage UEFI garantit que la protection des informations d'identification ne peut pas être désactivée à distance. Pour pouvoir la désactiver, vous devez définir la Stratégie de groupe sur Désactivé et supprimer la fonction de sécurité de chaque ordinateur, avec un utilisateur présent physiquement, afin d'effacer la configuration incluse dans UEFI.
+Credential Guard
 
-L'option Activé sans verrouillage permet de désactiver la protection des informations d'identification à distance à l'aide de la Stratégie de groupe. Les périphériques utilisant ce paramètre doivent exécuter au moins Windows 10 (Version 1511).
+Ce paramètre vous permet de décider si les utilisateurs activent Credential Guard avec sécurité basée sur la virtualisation afin de protéger les informations d’identification.
+
+L’option Désactivé désactive Credential Guard à distance si elle a été préalablement activée à l’aide de l’option Activé sans verrouillage.
+
+L’option Activé avec le verrouillage UEFI garantit que Credential Guard ne peut pas être désactivé à distance. Pour pouvoir le désactiver, vous devez définir la Stratégie de groupe sur Désactivé et supprimer la fonction de sécurité de chaque ordinateur, avec un utilisateur présent physiquement, afin d’effacer la configuration incluse dans UEFI.
+
+L’option Activé sans verrouillage permet de désactiver Credential Guard à distance à l’aide de la Stratégie de groupe. Les périphériques utilisant ce paramètre doivent exécuter au moins Windows 10 (Version 1511).
       </string>
       <string id="SecureBoot">Démarrage sécurisé</string>
       <string id="SecureBootAndDmaProtection">Démarrage sécurisé et protection contre les DMA</string>
@@ -50,9 +56,9 @@ Si vous utilisez une stratégie signée et protégée, la désactivation de ce p
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Sélectionner le niveau de sécurité de plateforme :</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Activer la protection de l'intégrité du code basée sur la virtualisation</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuration de la protection des informations d'identification :</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Sélectionner le niveau de sécurité de plateforme :</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Protection basée sur la virtualisation de l’intégrité du code :</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuration Credential Guard :</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

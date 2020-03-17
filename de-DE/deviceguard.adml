@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Microsoft Windows-DeviceGuard</displayName>
-  <description>Windows-DeviceGuard-Sicherheit</description>
+  <displayName>Microsoft Windows Device Guard</displayName>
+  <description>Windows Device Guard-Sicherheit</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">DeviceGuard</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Virtualisierungsbasierte Sicherheit aktivieren</string>
       <string id="VirtualizationBasedSecurityHelp">Gibt an, ob die virtualisierungsbasierte Sicherheit aktiviert ist.
 
@@ -13,19 +13,25 @@ Die virtualisierungsbasierte Sicherheit verwendet Windows-Hypervisor, um Sicherh
 
 Virtualisierungsbasierter Schutz der Codeintegrität
 
-Diese Einstellung aktiviert den virtualisierungsbasierten Schutz der Codeintegrität im Kernelmodus. Wenn diese Einstellung aktiviert ist, werden Speicherschutzmechanismen im Kernelmodus erzwungen. Außerdem wird der Überprüfungspfad der Codeintegrität durch die virtualisierungsbasierte Sicherheitsfunktion geschützt.
+Diese Einstellung aktiviert den virtualisierungsbasierten Schutz der Codeintegrität im Kernelmodus. Wenn diese Einstellung aktiviert ist, werden Speicherschutzmechanismen im Kernelmodus erzwungen. Außerdem wird der Überprüfungspfad der Codeintegrität durch das virtualisierungsbasierte Sicherheitsfeature geschützt.
 
-Warnung: Alle Treiber im System müssen mit dieser Funktion kompatibel sein, da das System andernfalls abstürzen kann. Stellen Sie sicher, dass diese Richtlinieneinstellung nur für Computer bereitgestellt wird, die bekanntermaßen kompatibel sind. 
+Durch die Option "Deaktiviert" wird der virtualisierungsbasierte Schutz der Codeintegrität remote deaktiviert, wenn er zuvor mit der Option "Ohne Sperre aktiviert" aktiviert wurde.
+ 
+Die Option "Mit UEFI-Sperre aktiviert" stellt sicher, dass der virtualisierungsbasierte Schutz der Codeintegrität nicht remote deaktiviert werden kann. Um das Feature zu deaktivieren, müssen Sie die Gruppenrichtlinie auf "Deaktiviert" festlegen und die Sicherheitsfunktionen von jedem Computer entfernen, um die in UEFI persistent gespeicherte Konfiguration zu löschen. Bei diesem Vorgang muss ein Benutzer physisch anwesend sein.
+ 
+Durch die Option "Ohne Sperre aktiviert" kann der virtualisierungsbasierte Schutz der Codeintegrität mithilfe der Gruppenrichtlinie remote deaktiviert werden. 
 
-Überwachung von Anmeldeinformationen
+Warnung: Alle Treiber im System müssen mit diesem Feature kompatibel sein, da das System andernfalls abstürzen kann. Stellen Sie sicher, dass diese Richtlinieneinstellung nur für Computer bereitgestellt wird, die bekanntermaßen kompatibel sind. 
 
-Mit dieser Einstellung können Benutzer die Überwachung von Anmeldeinformationen mit virtualisierungsbasierter Sicherheit aktivieren, um Anmeldeinformationen zu schützen.
+Credential Guard
 
-Durch die Option "Deaktiviert" wird die Überwachung von Anmeldeinformationen remote deaktiviert, wenn sie zuvor mit der Option "Ohne Sperre aktiviert" aktiviert wurde.
+Mit dieser Einstellung können Benutzer Credential Guard mit virtualisierungsbasierter Sicherheit aktivieren, um Anmeldeinformationen zu schützen.
 
-Die Option "Mit UEFI-Sperre aktiviert" stellt sicher, dass die Überwachung von Anmeldeinformationen nicht remote deaktiviert werden kann. Um die Funktion zu deaktivieren, müssen Sie die Gruppenrichtlinie auf "Deaktiviert" festlegen und die Sicherheitsfunktionen von jedem Computer entfernen, um die in UEFI persistent gespeicherte Konfiguration zu löschen. Bei diesem Vorgang muss ein Benutzer physisch anwesend sein.
+Durch die Option "Deaktiviert" wird Credential Guard remote deaktiviert, wenn sie zuvor mit der Option "Ohne Sperre aktiviert" aktiviert wurde.
 
-Durch die Option "Ohne Sperre aktiviert" kann die Überwachung von Anmeldeinformationen mithilfe der Gruppenrichtlinie remote deaktiviert werden. Auf Geräten, die diese Einstellung verwenden, muss mindestens Windows 10 (Version 1511) ausgeführt werden.
+Die Option "Mit UEFI-Sperre aktiviert" stellt sicher, dass Credential Guard nicht remote deaktiviert werden kann. Um das Feature zu deaktivieren, müssen Sie die Gruppenrichtlinie auf "Deaktiviert" festlegen und die Sicherheitsfunktionen von jedem Computer entfernen, um die in UEFI persistent gespeicherte Konfiguration zu löschen. Bei diesem Vorgang muss ein Benutzer physisch anwesend sein.
+
+Durch die Option "Ohne Sperre aktiviert" kann Credential Guard mithilfe der Gruppenrichtlinie remote deaktiviert werden. Auf Geräten, die diese Einstellung verwenden, muss mindestens Windows 10 (Version 1511) ausgeführt werden.
       </string>
       <string id="SecureBoot">Sicherer Start</string>
       <string id="SecureBootAndDmaProtection">Sicherer Start und DMA-Schutz</string>
@@ -50,9 +56,9 @@ Bei Verwendung einer signierten, geschützten Richtlinie wird die Funktion nicht
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Plattform-Sicherheitsstufe auswählen:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Virtualisierungbasierten Schutz der Codeintegrität aktivieren</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfiguration der Überwachung von Anmeldeinformationen:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Plattform-Sicherheitsstufe auswählen:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Virtualisierungsbasierter Schutz der Codeintegrität:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Credential Guard-Konfiguration:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

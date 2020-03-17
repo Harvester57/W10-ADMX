@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
-<!-- 
+<!--
   Note that white space is preserved as is in the text shown in the Group Policy UI.
   Don't add extra line breaks at the beginning and end of text strings,
   and make sure that lines of text start in the FIRST column.
@@ -85,11 +85,11 @@
 Εάν η κατάσταση οριστεί σε "Απενεργοποίηση", η λήψη και η εγκατάσταση τυχόν ενημερώσεων που είναι διαθέσιμες από το Windows Update θα πρέπει να γίνεται μη αυτόματα. Για να ορίσετε την κατάσταση, κάντε αναζήτηση στην οθόνη έναρξης για το Windows Update.
 
 Εάν η κατάσταση οριστεί σε "Χωρίς ρύθμιση παραμέτρων", η χρήση των Αυτόματων ενημερώσεων δεν καθορίζεται στο επίπεδο της πολιτικής ομάδας. Ωστόσο, ένας διαχειριστής εξακολουθεί να έχει τη δυνατότητα ρύθμισης των παραμέτρων των Αυτόματων ενημερώσεων, μέσω του Πίνακα Ελέγχου.</string>
-      
+
       <string id="AutoUpdateModeAdminChooses">5 - Δυνατότητα επιλογής ρυθμίσεων από τοπικό διαχειριστή</string>
       <string id="AutoUpdateModeAuto">4 - Αυτόματη λήψη και προγραμματισμός εγκατάστασης</string>
       <string id="AutoUpdateModeDownload">3 - Αυτόματη λήψη και ειδοποίηση για εγκατάσταση</string>
-      <string id="AutoUpdateModeNotify">2 - Ειδοποίηση για λήψη και για εγκατάσταση</string>
+      <string id="AutoUpdateModeNotify">2 - Notify for download and auto install</string>
       <string id="AutoUpdateSchDay_Everyday">0 - Κάθε ημέρα</string>
       <string id="AutoUpdateSchDay_Friday">6 - Κάθε Παρασκευή</string>
       <string id="AutoUpdateSchDay_Monday">2 - Κάθε Δευτέρα</string>
@@ -123,19 +123,24 @@
       <string id="AutoUpdateSchTime8">08:00</string>
       <string id="AutoUpdateSchTime9">09:00</string>
       <string id="CorpWuURL">Καθορισμός θέσης της υπηρεσίας ενημέρωσης της Microsoft στο intranet</string>
-      <string id="CorpWuURL_Help">Καθορίζει ένα διακομιστή intranet για την εγκατάσταση των ενημερώσεων από την υπηρεσία Microsoft Update. Στη συνέχεια, μπορείτε να χρησιμοποιήσετε αυτήν την υπηρεσία ενημέρωσης, για την αυτόματη ενημέρωση υπολογιστών στο δίκτυό σας.
+      <string id="CorpWuURL_Help">
+        Specifies an intranet server to host updates from Microsoft Update. You can then use this update service to automatically update computers on your network.
 
-Αυτή η ρύθμιση σας επιτρέπει να καθορίσετε έναν διακομιστή στο δίκτυό σας που θα λειτουργεί ως εσωτερική υπηρεσία ενημέρωσης. Το πρόγραμμα-πελάτης Αυτόματων ενημερώσεων θα αναζητά σε αυτήν την υπηρεσία ενημερώσεις που ισχύουν για υπολογιστές του δικτύου σας.
+        This setting lets you specify a server on your network to function as an internal update service. The Automatic Updates client will search this service for updates that apply to the computers on your network.
 
-Για να χρησιμοποιήσετε αυτήν τη ρύθμιση, πρέπει να ορίσετε δύο τιμές ονομάτων διακομιστή: τον διακομιστή από τον οποίο το πρόγραμμα-πελάτης Αυτόματων ενημερώσεων εντοπίζει και κάνει λήψη ενημερώσεων και τον διακομιστή στον οποίο οι ενημερωμένοι σταθμοί εργασίας αποστέλλουν στατιστικά στοιχεία. Μπορείτε να ορίσετε τον ίδιο διακομιστή και για τις δύο τιμές.
+        To use this setting, you must set two server name values: the server from which the Automatic Updates client detects and downloads updates, and the server to which updated workstations upload statistics. You can set both values to be the same server. An optional server name value can be specified to configure Windows Update Agent to download updates from an alternate download server instead of WSUS Server.
 
-Εάν αυτή η ρύθμιση ενεργοποιηθεί, το πρόγραμμα-πελάτης Αυτόματων ενημερώσεων συνδέεται με την καθορισμένη υπηρεσία ενημέρωσης της Microsoft στο intranet, αντί για το Windows Update, ώστε να αναζητήσει και να κάνει λήψη ενημερώσεων. Η ενεργοποίηση αυτής της ρύθμισης σημαίνει ότι οι τελικοί χρήστες στην εταιρεία σας δεν χρειάζεται να υπερβούν το τείχος προστασίας για να λάβουν ενημερώσεις, ενώ σας δίνει τη δυνατότητα να ελέγχετε τις ενημερώσεις πριν πραγματοποιήσετε την ανάπτυξή τους.
+        If the status is set to Enabled, the Automatic Updates client connects to the specified intranet Microsoft update service (or alternate download server), instead of Windows Update, to search for and download updates. Enabling this setting means that end users in your organization don't have to go through a firewall to get updates, and it gives you the opportunity to test updates before deploying them.
 
-Εάν αυτή η ρύθμιση απενεργοποιηθεί ή δεν οριστεί και αν οι Αυτόματες ενημερώσεις δεν έχουν απενεργοποιηθεί από πολιτική ή από προτιμήσεις του χρήστη, το πρόγραμμα-πελάτης Αυτόματων ενημερώσεων συνδέεται απευθείας με την τοποθεσία του Windows Update στο Internet.
+        If the status is set to Disabled or Not Configured, and if Automatic Updates is not disabled by policy or user preference, the Automatic Updates client connects directly to the Windows Update site on the Internet.
 
-Σημείωση: Εάν η πολιτική "Ρύθμιση παραμέτρων αυτόματων ενημερώσεων" είναι απενεργοποιημένη, τότε η πολιτική αυτή δεν έχει ισχύ.
+        The alternate download server Configures the Windows Update Agent to download files from an alternative download server instead of the WSUS Server.
 
-Σημείωση: Αυτή η πολιτική δεν υποστηρίζεται στα Windows RT. Η ρύθμιση αυτής της πολιτικής δεν θα επηρεάσει τους υπολογιστές με Windows RT.</string>
+        Note: If the "Configure Automatic Updates" policy is disabled, then this policy has no effect.
+
+        Note: If the "Alternate Download Server" is not set, it will use the WSUS server by default to download updates.
+
+        Note: This policy is not supported on Windows RT. Setting this policy will not have any effect on Windows RT PCs.</string>
       <string id="DetectionFrequency_Help">Καθορίζει τη συχνότητα με την οποία ελέγχουν τα Windows για διαθέσιμες ενημερώσεις. Το ακριβές χρονικό διάστημα αναμονής υπολογίζεται από τις καθορισμένες ώρες μείον μηδέν έως είκοσι τοις εκατό αυτών. Για παράδειγμα, αν η πολιτική αυτή καθορίζει μια συχνότητα 20 ωρών, όλοι οι υπολογιστές-πελάτες που εφαρμόζουν αυτή την πολιτική θα πραγματοποιούν έλεγχο για ενημερώσεις κάθε 16 έως 20 ώρες.
 
 Εάν αυτή η ρύθμιση ενεργοποιηθεί, τα Windows θα πραγματοποιούν έλεγχο για διαθέσιμες ενημερώσεις στο καθορισμένο διάστημα.
@@ -149,24 +154,24 @@
 Σημείωση: Αυτή η πολιτική δεν υποστηρίζεται στα Windows RT. Η ρύθμιση αυτής της πολιτικής δεν θα επηρεάσει τους υπολογιστές με Windows RT.</string>
       <string id="DetectionFrequency_Title">Συχνότητα εντοπισμού Αυτόματων ενημερώσεων</string>
       <string id="ElevateNonAdmins_Help">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να ελέγχετε αν οι χρήστες που δεν είναι διαχειριστές, θα λαμβάνουν ειδοποιήσεις ενημέρωσης σύμφωνα με τη ρύθμιση πολιτικής "Ρύθμιση παραμέτρων των Αυτόματων ενημερώσεων".
-      
-Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι Αυτόματες ενημερώσεις των Windows και το Microsoft Update θα συμπεριλαμβάνουν και τους μη διαχειριστές κατά τον καθορισμό των συνδεδεμένων χρηστών που θα λαμβάνουν ειδοποιήσεις ενημέρωσης. Οι χρήστες που δεν είναι διαχειριστές θα έχουν τη δυνατότητα να εγκαθιστούν όλο το προαιρετικό, το προτεινόμενο και το σημαντικό περιεχόμενο για το οποίο έχουν ειδοποιηθεί. Οι χρήστες δεν θα βλέπουν παράθυρα Ελέγχου λογαριασμού χρήστη και δεν θα χρειάζονται αναβαθμισμένα δικαιώματα για να εγκαταστήσουν αυτές τις ενημερώσεις, εκτός και αν πρόκειται για ενημερώσεις που περιέχουν αλλαγές ρυθμίσεων για το περιβάλλον εργασίας χρήστη, την άδεια χρήσης τελικού χρήστη ή το Windows Update.
 
-Υπάρχουν δύο περιπτώσεις όπου τα αποτελέσματα αυτής της ρύθμισης εξαρτώνται από το λειτουργικό σύστημα: η Απόκρυψη/επαναφορά ενημερώσεων και η Ακύρωση μιας εγκατάστασης.
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι Αυτόματες ενημερώσεις των Windows και το Microsoft Update θα συμπεριλαμβάνουν και τους μη διαχειριστές κατά τον καθορισμό των συνδεδεμένων χρηστών που θα λαμβάνουν ειδοποιήσεις ενημέρωσης. Οι χρήστες που δεν είναι διαχειριστές θα έχουν τη δυνατότητα να εγκαθιστούν όλο το προαιρετικό, το προτεινόμενο και το σημαντικό περιεχόμενο για το οποίο έχουν ειδοποιηθεί. Οι χρήστες δεν θα βλέπουν παράθυρα ελέγχου λογαριασμού χρήστη και δεν θα χρειάζονται αναβαθμισμένα δικαιώματα για να εγκαταστήσουν αυτές τις ενημερώσεις, εκτός και αν πρόκειται για ενημερώσεις που περιέχουν αλλαγές ρυθμίσεων για το περιβάλλον εργασίας χρήστη, την άδεια χρήσης τελικού χρήστη ή το Windows Update.
 
-Στα Windows XP: Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι χρήστες δεν θα βλέπουν ένα παράθυρο Ελέγχου λογαριασμού χρήστη και δεν χρειάζονται αναβαθμισμένα δικαιώματα για να πραγματοποιήσουν αυτές τις εργασίες που σχετίζονται με ενημερώσεις.
+Υπάρχουν δύο περιπτώσεις όπου τα αποτελέσματα αυτής της ρύθμισης εξαρτώνται από το λειτουργικό σύστημα: η απόκρυψη/επαναφορά ενημερώσεων και η ακύρωση μιας εγκατάστασης.
 
-Στα Windows Vista: Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι χρήστες δεν θα βλέπουν ένα παράθυρο Ελέγχου λογαριασμού χρήστη και δεν χρειάζονται αναβαθμισμένα δικαιώματα για να πραγματοποιήσουν αυτές τις εργασίες. Εάν δεν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τότε οι χρήστες θα βλέπουν πάντα ένα παράθυρο Ελέγχου λογαριασμού χρήστη και θα χρειάζονται αναβαθμισμένα δικαιώματα για να πραγματοποιήσουν αυτές τις εργασίες.
+Στα Windows XP: Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι χρήστες δεν θα βλέπουν ένα παράθυρο ελέγχου λογαριασμού χρήστη και δεν χρειάζονται αναβαθμισμένα δικαιώματα για να πραγματοποιήσουν αυτές τις εργασίες που σχετίζονται με ενημερώσεις.
+
+Στα Windows Vista: Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι χρήστες δεν θα βλέπουν ένα παράθυρο ελέγχου λογαριασμού χρήστη και δεν χρειάζονται αναβαθμισμένα δικαιώματα για να πραγματοποιήσουν αυτές τις εργασίες που σχετίζονται με ενημερώσεις. Αν δεν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τότε οι χρήστες θα βλέπουν πάντα ένα παράθυρο ελέγχου λογαριασμού χρήστη και θα χρειάζονται αναβαθμισμένα δικαιώματα για να πραγματοποιήσουν αυτές τις εργασίες.
 
 Στα Windows 7: Αυτή η ρύθμιση πολιτικής δεν έχει κανένα αποτέλεσμα. Οι χρήστες θα βλέπουν πάντα ένα παράθυρο ελέγχου λογαριασμού και θα χρειάζονται αναβαθμισμένα δικαιώματα για να κάνουν αυτές τις εργασίες.
 
 Στα Windows 8 και τα Windows RT: Αυτή η ρύθμιση πολιτικής δεν έχει κανένα αποτέλεσμα. Οι χρήστες θα βλέπουν πάντα ένα παράθυρο ελέγχου λογαριασμού και θα χρειάζονται αναβαθμισμένα δικαιώματα για να κάνουν αυτές τις εργασίες.
 
-Εάν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τότε μόνο οι χρήστες που είναι διαχειριστές θα λαμβάνουν ειδοποιήσεις ενημερώσεων.
+Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, τότε μόνο οι χρήστες που είναι διαχειριστές θα λαμβάνουν ειδοποιήσεις ενημερώσεων.
 
-Στα Windows 8 και τα Windows RT: Αυτή η ρύθμιση πολιτικής είναι ενεργοποιημένη από προεπιλογή. Σε όλες τις προηγούμενες εκδόσεις των Windows, είναι απενεργοποιημένη από προεπιλογή.
+Σημείωση: Στα Windows 8 και τα Windows RT αυτή η ρύθμιση πολιτικής είναι ενεργοποιημένη από προεπιλογή. Σε όλες τις προηγούμενες εκδόσεις των Windows, είναι απενεργοποιημένη από προεπιλογή.
 
-Εάν η ρύθμιση πολιτικής "Ρύθμιση παραμέτρων των Αυτόματων ενημερώσεων" είναι απενεργοποιημένη ή δεν έχει οριστεί, τότε η ρύθμιση πολιτικής "Προβιβασμός μη διαχειριστών" δεν έχει κανένα αποτέλεσμα.</string>
+Αν η ρύθμιση πολιτικής "Ρύθμιση παραμέτρων των Αυτόματων ενημερώσεων" είναι απενεργοποιημένη ή δεν έχει οριστεί, τότε η ρύθμιση πολιτικής "Προβιβασμός μη διαχειριστών" δεν έχει κανένα αποτέλεσμα.</string>
       <string id="ElevateNonAdmins_Title">Να επιτρέπεται η λήψη ειδοποιήσεων ενημέρωσης από μη διαχειριστές</string>
       <string id="ImmediateInstall_Help">Καθορίζει αν οι Αυτόματες ενημερώσεις θα εγκαθιστούν αυτόματα τις ενημερώσεις που δεν απαιτούν διακοπή των υπηρεσιών των Windows ή επανεκκίνηση του υπολογιστή.
 
@@ -280,11 +285,11 @@
       <string id="TargetGroup_Title">Ενεργοποίηση ομαδοποίησης από τη μεριά του προγράμματος-πελάτη</string>
       <string id="WindowsUpdateCat">Windows Update</string>
       <string id="TrustedPublisher_Title">Να επιτρέπονται οι υπογεγραμμένες ενημερώσεις από μια θέση της υπηρεσίας ενημέρωσης της Microsoft στο intranet  </string>
-      <string id="TrustedPublisher_Help">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να επιλέγετε εάν οι Αυτόματες ενημερώσεις θα αποδέχονται ενημερώσεις που είναι υπογεγραμμένες από οντότητες εκτός της Microsoft, όταν η ενημέρωση προέρχεται από μια θέση της υπηρεσίας ενημέρωσης της Microsoft στο intranet. 
+      <string id="TrustedPublisher_Help">Αυτή η ρύθμιση πολιτικής σάς επιτρέπει να επιλέγετε αν οι Αυτόματες ενημερώσεις θα αποδέχονται ενημερώσεις που είναι υπογεγραμμένες από οντότητες εκτός της Microsoft, όταν η ενημέρωση προέρχεται από μια θέση της υπηρεσίας ενημέρωσης της Microsoft στο intranet.
 
-Εάν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι Αυτόματες ενημερώσεις αποδέχονται ενημερώσεις που λαμβάνονται μέσω μιας θέσης της υπηρεσίας ενημέρωσης της Microsoft στο intranet, εάν έχουν ψηφιακή υπογραφή με πιστοποιητικό που βρίσκεται στο χώρο αποθήκευσης πιστοποιητικών "Αξιόπιστοι εκδότες" του τοπικού υπολογιστή.
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, οι Αυτόματες ενημερώσεις αποδέχονται ενημερώσεις που λαμβάνονται μέσω μιας θέσης της υπηρεσίας ενημέρωσης της Microsoft στο intranet, αν έχουν ψηφιακή υπογραφή με πιστοποιητικό που βρίσκεται στο χώρο αποθήκευσης πιστοποιητικών "Αξιόπιστοι εκδότες" του τοπικού υπολογιστή.
 
-Εάν απενεργοποιήσετε ή δεν ορίσετε τις παραμέτρους αυτής της ρύθμισης, οι ενημερώσεις από μια θέση της υπηρεσίας ενημέρωσης της Microsoft στο intranet θα πρέπει να είναι υπογεγραμμένες από τη Microsoft.
+Αν απενεργοποιήσετε αυτήν τη ρύθμιση ή δεν ορίσετε τις παραμέτρους της, οι ενημερώσεις από μια θέση της υπηρεσίας ενημέρωσης της Microsoft στο intranet θα πρέπει να είναι υπογεγραμμένες από τη Microsoft.
 
 Σημείωση: Οι ενημερώσεις από μια υπηρεσία εκτός της υπηρεσίας ενημέρωσης της Microsoft στο intranet πρέπει να είναι πάντα υπογεγραμμένες από τη Microsoft και δεν επηρεάζονται από αυτήν τη ρύθμιση πολιτικής.
 Σημείωση: Αυτή η πολιτική δεν υποστηρίζεται στα Windows RT. Η ρύθμιση αυτής της πολιτικής δεν θα επηρεάσει τους υπολογιστές με Windows RT.</string>
@@ -294,22 +299,181 @@
 Η ενεργοποίηση αυτής της πολιτικής θα έχει ως αποτέλεσμα την απενεργοποίηση αυτής της λειτουργίας και ενδέχεται να προκαλέσει τη διακοπή λειτουργίας υπηρεσιών όπως το Windows Store.
 
 Σημείωση: Αυτή η πολιτική ισχύει μόνο όταν αυτός ο υπολογιστής είναι ρυθμισμένος ώστε να συνδέεται με μια υπηρεσία ενημέρωσης intranet μέσω της πολιτικής "Καθορισμός θέσης της υπηρεσίας ενημέρωσης της Microsoft στο intranet".</string>
+      <string id="DeferUpdateCat">Αναβολή ενημερώσεων των Windows</string>
+      <string id="CurrentBranchFeatureUpdates">Τρέχων κλάδος</string>
+      <string id="BusinessReadyFeatureUpdates">Τρέχων κλάδος για επιχειρήσεις</string>
+      <string id="DeferFeatureUpdates_Title">Επιλογή χρόνου λήψης ενημερώσεων δυνατοτήτων</string>
+      <string id="DeferFeatureUpdates_Help">Enable this policy to specify what type of feature updates to receive, and when.
 
-      <string id="DeferUpgrade_Title">Αναβολή αναβαθμίσεων και ενημερώσεων</string>
-      <string id="DeferUpgrade_Help">Enable this policy in order to defer upgrades for up to eight months.
-      
-You can also choose to delay updates for up to one month. If you do not delay updates, your PC will remain up to date with security updates as they become available.
+The branch readiness level for each new Windows 10 feature update is initially considered a "Current Branch" (CB) release, to be used by organizations for initial deployments. Once Microsoft has verified the feature update should be considered for enterprise deployment, it will be declared a branch readiness level of "Current Branch for Business" (CBB).
 
-If an issue arises with an update or upgrade, select "Pause Upgrades and Updates". This will delay updates and upgrades until the next monthly update or upgrade becomes available. Once a new update or upgrade it available, the value will go back to the previously selected option, re-enabling your validation groups.
+You can defer receiving feature updates for up to 180 days.
 
-Note: Definition updates will not be impacted by this policy.
+To prevent feature updates from being received on their scheduled time, you can temporarily pause feature updates. The pause will remain in effect for 60 days or until you clear the start date field.
 
-Note: If the "Specify intranet Microsoft update service location" policy is enabled, then the “Defer upgrades by”, “Defer updates by” and “Pause Updates and Upgrades” settings have no effect.
- 
-Note: If the “Allow Telemetry” policy is enabled and the Options value is set to 0, then the “Defer upgrades by”, “Defer updates by” and “Pause Updates and Upgrades” settings have no effect.
+To resume receiving Feature Updates which are paused, clear the start date field.
 
-To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?LinkID=529169.</string>
+If you disable or do not configure this policy, Windows Update will not alter its behavior.
+
+Note: If the "Allow Telemetry" policy is set to 0, this policy will have no effect.</string>
+      <string id="DeferQualityUpdates_Title">Επιλογή χρόνου λήψης ενημερώσεων ποιότητας</string>
+      <string id="DeferQualityUpdates_Help">Enable this policy to specify when to receive quality updates.
+
+You can defer receiving quality updates for up to 30 days.
+
+To prevent quality updates from being received on their scheduled time, you can temporarily pause quality updates. The pause will remain in effect for 35 days or until you clear the start date field.
+
+To resume receiving Quality Updates which are paused, clear the start date field.
+
+If you disable or do not configure this policy, Windows Update will not alter its behavior.
+
+Note: If the "Allow Telemetry" policy is set to 0, this policy will have no effect.</string>
+      <string id="ExcludeWUDriversInQualityUpdate_Title">Μη συμπερίληψη προγραμμάτων οδήγησης με τις ενημερώσεις των Windows</string>
+      <string id="ExcludeWUDriversInQualityUpdate_Help">Enable this policy to not include drivers with Windows quality updates.
+
+If you disable or do not configure this policy, Windows Update will include updates that have a Driver classification.</string>
+      <string id="ActiveHours_Title">Απενεργοποίηση αυτόματης επανεκκίνησης για ενημερώσεις κατά τις ώρες ενεργής χρήσης</string>
+      <string id="ActiveHours_Help">If you enable this policy, the PC will not automatically restart after updates during active hours. The PC will attempt to restart outside of active hours.
+
+Note that the PC must restart for certain updates to take effect.
+
+If you disable or do not configure this policy and have no other reboot group policies, the user selected active hours will be in effect.
+
+If any of the following two policies are enabled, this policy has no effect:
+    1. No auto-restart with logged on users for scheduled automatic updates installations.
+    2. Always automatically restart at scheduled time.
+
+Note that the default max active hours range is 18 hours from the active hours start time unless otherwise configured via the Specify active hours range for auto-restarts policy.</string>
+      <string id="ActiveHoursTime10AM">10 π.μ.</string>
+      <string id="ActiveHoursTime10PM">10 μ.μ.</string>
+      <string id="ActiveHoursTime11AM">11 π.μ.</string>
+      <string id="ActiveHoursTime11PM">11 μ.μ.</string>
+      <string id="ActiveHoursTime12AM">12 π.μ.</string>
+      <string id="ActiveHoursTime12PM">12 μ.μ.</string>
+      <string id="ActiveHoursTime1AM">1 π.μ.</string>
+      <string id="ActiveHoursTime1PM">1 μ.μ.</string>
+      <string id="ActiveHoursTime2AM">2 π.μ.</string>
+      <string id="ActiveHoursTime2PM">2 μ.μ.</string>
+      <string id="ActiveHoursTime3AM">3 π.μ.</string>
+      <string id="ActiveHoursTime3PM">3 μ.μ.</string>
+      <string id="ActiveHoursTime4AM">4 π.μ.</string>
+      <string id="ActiveHoursTime4PM">4 μ.μ.</string>
+      <string id="ActiveHoursTime5AM">5 π.μ.</string>
+      <string id="ActiveHoursTime5PM">5 μ.μ.</string>
+      <string id="ActiveHoursTime6AM">6 π.μ.</string>
+      <string id="ActiveHoursTime6PM">6 μ.μ.</string>
+      <string id="ActiveHoursTime7AM">7 π.μ.</string>
+      <string id="ActiveHoursTime7PM">7 μ.μ.</string>
+      <string id="ActiveHoursTime8AM">8 π.μ.</string>
+      <string id="ActiveHoursTime8PM">8 μ.μ.</string>
+      <string id="ActiveHoursTime9AM">9 π.μ.</string>
+      <string id="ActiveHoursTime9PM">9 μ.μ.</string>
+
+      <string id="AutoRestartDeadline_Title">Specify deadline before auto-restart for update installation</string>
+      <string id="AutoRestartDeadline_Help">Specify the deadline in days before automatically executing a scheduled restart outside of active hours. The deadline can be set between 2 and 14 days from the time the restart is scheduled.
+
+Note that the PC must restart for certain updates to take effect.
+
+If you enable this policy, a restart will automatically occur the specified number of days after the restart was scheduled.
+
+If you disable or do not configure this policy, the PC will restart according to the default schedule.
+
+If any of the following two policies are enabled, this policy has no effect:
+    1. No auto-restart with logged on users for scheduled automatic updates installations.
+    2. Always automatically restart at scheduled time.
+      </string>
+      <string id="AutoRestartDeadlineDay2">2</string>
+      <string id="AutoRestartDeadlineDay3">3</string>
+      <string id="AutoRestartDeadlineDay4">4</string>
+      <string id="AutoRestartDeadlineDay5">5</string>
+      <string id="AutoRestartDeadlineDay6">6</string>
+      <string id="AutoRestartDeadlineDay7">7</string>
+      <string id="AutoRestartDeadlineDay8">8</string>
+      <string id="AutoRestartDeadlineDay9">9</string>
+      <string id="AutoRestartDeadlineDay10">10</string>
+      <string id="AutoRestartDeadlineDay11">11</string>
+      <string id="AutoRestartDeadlineDay12">12</string>
+      <string id="AutoRestartDeadlineDay13">13</string>
+      <string id="AutoRestartDeadlineDay14">14</string>
+
+      <string id="DisableUXWUAccess_Title">Κατάργηση πρόσβασης για χρήση όλων των δυνατοτήτων του Windows Update</string>
+      <string id="DisableUXWUAccess_Help">Αυτή η ρύθμιση σας επιτρέπει να καταργήσετε την πρόσβαση για σάρωση του Windows Update.
+
+Αν ενεργοποιήσετε αυτήν τη ρύθμιση, η πρόσβαση για σάρωση του Windows Update θα καταργηθεί.
+      </string>
+      <string id="ActiveHoursMaxRange_Title">Specify active hours range for auto-restarts</string>
+      <string id="ActiveHoursMaxRange_Help">Enable this policy to specify the maximum number of hours from the start time that users can set their active hours.
+
+The max active hours range can be set between 8 and 18 hours.
+
+If you disable or do not configure this policy, the default max active hours range will be used.
+      </string>
+      <string id="ActiveHoursMaxRange8">8</string>
+      <string id="ActiveHoursMaxRange9">9</string>
+      <string id="ActiveHoursMaxRange10">10</string>
+      <string id="ActiveHoursMaxRange11">11</string>
+      <string id="ActiveHoursMaxRange12">12</string>
+      <string id="ActiveHoursMaxRange13">13</string>
+      <string id="ActiveHoursMaxRange14">14</string>
+      <string id="ActiveHoursMaxRange15">15</string>
+      <string id="ActiveHoursMaxRange16">16</string>
+      <string id="ActiveHoursMaxRange17">17</string>
+      <string id="ActiveHoursMaxRange18">18</string>
+
+      <string id="AutoRestartRequiredNotificationDismissal_Title">Configure auto-restart required notification for updates</string>
+      <string id="AutoRestartRequiredNotificationDismissal_Help">Enable this policy to specify the method by which the auto-restart required notification is dismissed. When a restart is required to install updates, the auto-restart required notification is displayed. By default, the notification is automatically dismissed after 25 seconds.
+
+The method can be set to require user action to dismiss the notification.
+
+If you disable or do not configure this policy, the default method will be used.
+      </string>
+      <string id="AutoDismissal">1 - Auto</string>
+      <string id="UserAction">2 - User Action</string>
+
+      <string id="AutoRestartNotificationConfig_Title">Configure auto-restart reminder notifications for updates</string>
+      <string id="AutoRestartNotificationConfig_Help">Enable this policy to specify the type of notification used for auto-restart reminders and when they are displayed.
+
+Specifies the type of notification used when notifying the user about a scheduled restart to install updates.
+
+You can specify the amount of time prior to a scheduled restart to notify the user.
+
+If you disable or do not configure this policy, the default style and period will be used.
+      </string>
+      <string id="AutoRestartNotificationStyleFull">1 - Full Screen</string>
+      <string id="AutoRestartNotificationStylePartial">2 - Partial Screen</string>
+      <string id="AutoRestartNotificationSchd15">15</string>
+      <string id="AutoRestartNotificationSchd30">30</string>
+      <string id="AutoRestartNotificationSchd60">60</string>
+      <string id="AutoRestartNotificationSchd120">120</string>
+      <string id="AutoRestartNotificationSchd240">240</string>
+
+      <string id="AutoRestartNotificationDisable_Title">Turn off auto-restart notifications for update installations</string>
+      <string id="AutoRestartNotificationDisable_Help">This policy setting allows you to control whether users receive notifications for auto restarts for update installations including reminder and warning notifications.
+
+Enable this policy to turn off all auto restart notifications.
+
+If you disable or do not configure this policy, the default notification behaviors will be unchanged.
+      </string>
+
+      <string id="RestartWarningSchd_Title">Configure auto-restart warning notifications schedule for updates</string>
+      <string id="RestartWarningSchd_Help">Enable this policy to control when notifications are displayed to warn users about a scheduled restart for the update installation deadline. Users are not able to postpone the scheduled restart once the deadline has been reached and the restart is automatically executed.
+
+Specifies the amount of time prior to a scheduled restart to display the warning reminder to the user.
+
+You can specify the amount of time prior to a scheduled restart to notify the user that the auto restart is imminent to allow them time to save their work.
+
+If you disable or do not configure this policy, the default notification behaviors will be used.
+      </string>
+      <string id="RestartWarnRemindHours2">2</string>
+      <string id="RestartWarnRemindHours4">4</string>
+      <string id="RestartWarnRemindHours8">8</string>
+      <string id="RestartWarnRemindHours12">12</string>
+      <string id="RestartWarnRemindHours24">24</string>
+      <string id="RestartWarnMins15">15</string>
+      <string id="RestartWarnMins30">30</string>
+      <string id="RestartWarnMins60">60</string>
     </stringTable>
+
     <presentationTable>
       <presentation id="RemoveWindowsUpdate">
         <dropdownList refId="RemoveWindowsUpdateMode" defaultItem="0">Ρύθμιση παραμέτρων ειδοποιήσεων:</dropdownList>
@@ -317,9 +481,10 @@ To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?
       <presentation id="AutoUpdateCfg">
         <dropdownList refId="AutoUpdateMode" defaultItem="1">Ρύθμιση παραμέτρων της αυτόματης ενημέρωσης:</dropdownList>
         <text>Οι ακόλουθες ρυθμίσεις απαιτούνται και εφαρμόζονται μόνο αν έχει ενεργοποιηθεί η επιλογή 4.</text>
-        <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Εγκατάσταση κατά τη διάρκεια της αυτόματης συντήρησης</checkBox>          
+        <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Εγκατάσταση κατά τη διάρκεια της αυτόματης συντήρησης</checkBox>
         <dropdownList refId="AutoUpdateSchDay" defaultItem="0">Προγραμματισμένη ημέρα εγκατάστασης:  </dropdownList>
         <dropdownList refId="AutoUpdateSchTime" defaultItem="3">Προγραμματισμένη ώρα εγκατάστασης:</dropdownList>
+        <checkBox refId="AllowMUUpdateServiceId" defaultChecked="false">Εγκατάσταση ενημερώσεων για άλλα προϊόντα της Microsoft</checkBox>
       </presentation>
       <presentation id="CorpWuURL">
         <textBox refId="CorpWUURL_Name">
@@ -327,6 +492,9 @@ To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?
         </textBox>
         <textBox refId="CorpWUStatusURL_Name">
           <label>Καθορισμός του διακομιστή στατιστικών στοιχείων στο intranet:</label>
+        </textBox>
+        <textBox refId="CorpWUContentHost_Name">
+          <label>Set the alternate download server:</label>
         </textBox>
         <text>(παράδειγμα: http://IntranetUpd01)</text>
       </presentation>
@@ -358,17 +526,53 @@ To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?
         <text>τον τερματισμό της υπηρεσίας κατά την κατάσταση</text>
         <decimalTextBox refId="IdleShutdownTimerDuration_Minutes" defaultValue="10">αδράνειας (λεπτά):  </decimalTextBox>
       </presentation>
-      <presentation id="AlwaysAutoRebootAtScheduledTime_Presentation">       
+      <presentation id="AlwaysAutoRebootAtScheduledTime_Presentation">
         <text>Το χρονόμετρο επανεκκίνησης θα παρέχει στους χρήστες</text>
         <text>το εξής χρονικό περιθώριο για να αποθηκεύσουν</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">την εργασία τους (σε λεπτά):  </decimalTextBox>
       </presentation>
-      <presentation id="DeferUpgrade_Title">
-        <text>Αναβολή αναβαθμίσεων για τα παρακάτω</text>
-        <decimalTextBox refId="DeferUpgradePeriodId" defaultValue="0">διάρκεια (μήνες): </decimalTextBox>
-        <text>Αναβολή ενημερώσεων για τα παρακάτω</text>
-        <decimalTextBox refId="DeferUpdatePeriodId" defaultValue="0">διάρκεια (εβδομάδες): </decimalTextBox>
-        <checkBox refId="PauseDeferralsId" defaultChecked="false">Παύση αναβαθμίσεων και ενημερώσεων</checkBox>
+      <presentation id="DeferFeatureUpdates">
+        <dropdownList refId="BranchReadinessLevelId" noSort="true" defaultItem="0">Επιλέξτε το επίπεδο ετοιμότητας κλάδου για τις ενημερώσεις δυνατοτήτων που θέλετε να λαμβάνετε:</dropdownList>
+        <decimalTextBox refId="DeferFeatureUpdatesPeriodId" defaultValue="0">Μετά την κυκλοφορία μιας ενημέρωσης δυνατοτήτων, να αναβάλλεται η λήψη της για τον εξής αριθμό ημερών:</decimalTextBox>
+        <textBox refId="PauseFeatureUpdatesStartId">
+          <label>Pause Feature Updates starting</label>
+        </textBox>
+        <text>(format yyyy-mm-dd example: 2016-09-16)</text>
+      </presentation>
+      <presentation id="DeferQualityUpdates">
+        <decimalTextBox refId="DeferQualityUpdatesPeriodId" defaultValue="0">Μετά την κυκλοφορία μιας ενημέρωσης ποιότητας, να αναβάλλεται η λήψη της για τον εξής αριθμό ημερών:</decimalTextBox>
+        <textBox refId="PauseQualityUpdatesStartId">
+          <label>Pause Quality Updates starting</label>
+        </textBox>
+        <text>(format yyyy-mm-dd example: 2016-09-16)</text>
+      </presentation>
+      <presentation id="ActiveHours_Title">
+        <text>Ώρες ενεργής χρήσης</text>
+        <dropdownList refId="ActiveHoursStartTime" noSort="true" defaultItem="8">Έναρξη: </dropdownList>
+        <dropdownList refId="ActiveHoursEndTime" noSort="true" defaultItem="17">Λήξη:</dropdownList>
+      </presentation>
+      <presentation id="AutoRestartDeadline_Title">
+        <dropdownList refId="AutoRestartDeadline" noSort="true" defaultItem="5">Specify the number of days before a pending restart will automatically be executed outside of active hours: </dropdownList>
+      </presentation>
+      <presentation id="ActiveHoursMaxRange_Title">
+        <text>Specify the max active hours range:</text>
+        <dropdownList refId="ActiveHoursMaxRange" noSort="true" defaultItem="10">Max range: </dropdownList>
+      </presentation>
+      <presentation id="AutoRestartRequiredNotificationDismissal_Title">
+        <text>Specify the method by which the auto-restart required notification is dismissed:</text>
+        <dropdownList refId="AutoRestartRequiredNotificationDismissal" noSort="true" defaultItem="0">Method: </dropdownList>
+      </presentation>
+      <presentation id="AutoRestartNotificationConfig_Title">
+        <text>Specify the style used for auto-restart reminder notifications:</text>
+        <dropdownList refId="AutoRestartNotificationStyle" noSort="true" defaultItem="0">Style: </dropdownList>
+        <text>Specify the period for auto-restart reminder notifications:</text>
+        <dropdownList refId="AutoRestartNotificationSchd" noSort="true" defaultItem="0">Period (min): </dropdownList>
+      </presentation>
+      <presentation id="RestartWarningSchd_Title">
+        <text>Specify the period for auto-restart warning reminder notifications:</text>
+        <dropdownList refId="RestartWarnRemind" noSort="true" defaultItem="1">Reminder (hours):</dropdownList>
+        <text>Specify the period for auto-restart immiment warning notifications:</text>
+        <dropdownList refId="RestartWarn" noSort="true" defaultItem="0">Warning (mins): </dropdownList>
       </presentation>
     </presentationTable>
   </resources>

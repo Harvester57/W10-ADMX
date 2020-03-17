@@ -58,22 +58,36 @@ Se si disabilita o non si configura questa impostazione dei criteri, Windows Def
 Se si abilita questa impostazione dei criteri, Endpoint Protection non interverrà automaticamente per le minacce rilevate, ma chiederà all'utente di scegliere tra le azioni disponibili per ciascuna minaccia.
 
 Se si disabilita o non si configura questa impostazione dei criteri, Endpoint Protection interverrà automaticamente per tutte le minacce rilevate dopo un ritardo non configurabile di circa cinque secondi.
-    </string>
+    </string>      
     <string id="ProxyBypass">Definisci indirizzi per ignorare il server proxy</string>
     <string id="ProxyBypass_Explain">Questa impostazione dei criteri, se definita, impedirà all'antimalware di utilizzare il server proxy configurato per le comunicazioni con gli indirizzi IP specificati. Il valore dell'indirizzo deve essere immesso in formato di URL valido.
 
 Se si abilita questa impostazione dei criteri, il server proxy verrà ignorato per gli indirizzi specificati.
 
 Se si disabilita o non si configura questa impostazione dei criteri, il server proxy non verrà ignorato per gli indirizzi specificati.</string>
+    <string id="ProxyPacUrl">Definisci autoconfigurazione proxy (.pac) per la connessione alla rete</string>
+    <string id="ProxyPacUrl_Explain">Questa impostazione dei criteri definisce l'URL di un file .pac del proxy da usare quando il client tenta la connessione alla rete per gli aggiornamenti delle definizioni e le segnalazioni a MAPS. In caso di errore dell'autoconfigurazione proxy o se non è specificata alcuna autoconfigurazione proxy, verrà eseguito il fallback alle opzioni alternative, nell'ordine indicato:
+      1. Server proxy (se specificato)
+      2. URL .pac del proxy (se specificato)
+      3. Nessuno
+      4. Impostazioni proxy di Internet Explorer
+      5. Rilevamento automatico
+
+      Se si abilita questa impostazione, l'impostazione del proxy verrà configurata per l'uso del file .pac del proxy specificato, in base all'ordine specificato in precedenza.
+
+      Se si disabilita o non si configura questa impostazione, il proxy ignorerà questo passaggio di fallback, in base all'ordine specificato in precedenza.</string>
     <string id="ProxyServer">Definisci server proxy per la connessione alla rete</string>
-    <string id="ProxyServer_Explain">Questa impostazione dei criteri consente di configurare il proxy denominato da utilizzare quando il client tenta la connessione alla rete per gli aggiornamenti delle definizioni e le segnalazioni a MAPS. In caso di errore del proxy denominato o se non è specificato alcun proxy, verranno utilizzate le impostazioni seguenti nell'ordine indicato:
-1. Impostazioni proxy di Internet Explorer
-2. Rilevamento automatico
-3. Nessuno
+    <string id="ProxyServer_Explain">Questa impostazione dei criteri consente di configurare il proxy denominato da usare quando il client tenta la connessione alla rete per gli aggiornamenti delle definizioni e le segnalazioni a MAPS. In caso di errore del proxy denominato o se non è specificato alcun proxy, verrà eseguito il fallback alle opzioni alternative, nell'ordine indicato:
+      1. Server proxy (se specificato)
+      2. URL .pac del proxy (se specificato)
+      3. Nessuno
+      4. Impostazioni proxy di Internet Explorer
+      5. Rilevamento automatico
 
-Se si abilita questa impostazione dei criteri, il proxy verrà impostato sull'URL specificato.
+      Se si abilita questa impostazione, il proxy verrà impostato sull'URL specificato, in base all'ordine specificato in precedenza. L'URL deve essere preceduto da http:// o https://.
 
-Se si disabilita o non si configura questa impostazione dei criteri, il proxy verrà impostato in base all'ordine sopra specificato.</string>
+      Se si disabilita o non si configura questa impostazione, il proxy ignorerà questo passaggio di fallback, in base all'ordine specificato in precedenza.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Utilizza ore casuali per le attività pianificate</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Questa impostazione dei criteri consente di abilitare o disabilitare la scelta casuale dell'ora di inizio per le analisi pianificate e dell'ora di inizio per gli aggiornamenti delle definizioni pianificati. Questa impostazione dei criteri viene utilizzata per distribuire l'impatto a livello di risorse delle operazioni di analisi. Potrebbe essere utilizzata, ad esempio, nelle macchine virtuali guest che condividono un host, per evitare che più macchine virtuali guest eseguano contemporaneamente un'operazione con utilizzo intensivo del disco.
 
@@ -104,20 +118,6 @@ Se si disabilita questa impostazione dei criteri, il riconoscimento del protocol
 Se si abilita o non si configura questa impostazione dei criteri, il ritiro delle definizioni verrà abilitato.
 
 Se si disabilita questa impostazione dei criteri, il ritiro delle definizioni verrà disabilitato.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definisci frequenza di registrazione degli eventi di rilevamento</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Questa impostazione dei criteri limita la frequenza di registrazione degli eventi di rilevamento per la protezione dalla rete da exploit di vulnerabilità note. La registrazione sarà limitata al massimo di un evento per l'intervallo definito. Il valore dell'intervallo è definito in minuti. L'intervallo predefinito è di 60 minuti.
-
-Se si abilita questa impostazione dei criteri, gli eventi di rilevamento non verranno registrati se esiste più di una segnalazione simile (in base al GUID della definizione) nel numero di minuti specificato.
-
-Se si disabilita o non si configura questa impostazione dei criteri, gli eventi di rilevamento verranno registrati con la frequenza predefinita.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Esclusioni di intervalli di indirizzi IP</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Questa impostazione dei criteri, se definita, impedirà alla funzionalità di protezione della rete da exploit di vulnerabilità note di ispezionare gli indirizzi IP specificati. Gli indirizzi IP devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa dell'intervallo di indirizzi IP. Un esempio di definizione dell'intervallo potrebbe essere 157.1.45.123-60.1.1.1. Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Esclusioni di numeri di porta</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Questa impostazione dei criteri definisce un elenco di numeri di porta TCP dai quali verrà disabilitata l'ispezione del traffico di rete. I numeri di porta devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa di un numero di porta TCP. Un esempio di definizione dell'intervallo potrebbe essere 8080. Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Esclusioni di processi per il traffico in uscita</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Questa impostazione dei criteri definisce i processi da cui non verrà ispezionato il traffico di rete in uscita.  I nomi dei processi devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa di percorso e nome di un processo. Un esempio di definizione di processo, ad esempio, potrebbe essere "C:\Windows\System32\App.exe". Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Esclusioni di ID di rischio</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Questa impostazione dei criteri definisce i rischi che verranno esclusi dal rilevamento durante l'ispezione del traffico di rete. I rischi devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa dell'ID del rischio. Un esempio di definizione dell'ID di rischio potrebbe essere 2925110632. Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Specifica set di definizioni aggiuntivi per l'ispezione del traffico di rete</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Questa impostazione dei criteri definisce i set di definizioni aggiuntivi da abilitare per l'ispezione del traffico di rete. I GUID dei set di definizioni devono essere aggiunti nelle opzioni per questa impostazione dei criteri. Ogni voce deve essere elencata come coppia nome-valore, nella quale il nome deve essere una rappresentazione stringa di un GUID di set di definizioni. Ad esempio, il GUID del set di definizioni per abilitare le definizioni di prova viene definito come "{b54b6ac9-a737-498e-9120-6616ad3bf590}". Il valore non viene utilizzato ed è consigliabile impostarlo su 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Configura sostituzione dell'impostazione locale per la rimozione degli elementi dalla cartella di quarantena</string>
@@ -138,18 +138,6 @@ Se si disabilita o non si configura questa impostazione dei criteri, gli element
 Se si abilita o non si configura questa impostazione dei criteri, il monitoraggio del comportamento verrà abilitato.
 
 Se si disabilita questa impostazione dei criteri, il monitoraggio del comportamento verrà disabilitato.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Attiva controllo protezione informazioni</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Questa impostazione del criteri consente di configurare il controllo di protezione delle informazioni (IPC, Information Protection Control).
-
-Se si abilita questa impostazione dei criteri, IPC verrà abilitato.
-
-Se si disabilita o non si configura questa impostazione dei criteri, IPC verrà disabilitato.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Attiva protezione della rete da exploit di vulnerabilità note</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Questa impostazione dei criteri consente di configurare la protezione della rete da exploit di vulnerabilità note.
-
-Se si abilita o non si configura questa impostazione dei criteri, la protezione della rete verrà abilitata.
-
-Se si disabilita questa impostazione dei criteri, la protezione della rete verrà disabilitata.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Analizza tutti i file e gli allegati scaricati</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Questa impostazione dei criteri consente di configurare l'analisi per tutti i file e gli allegati scaricati.
 
@@ -205,12 +193,6 @@ Se si abilita questa impostazione dei criteri, l'impostazione della preferenza l
 Se si disabilita o non si configura questa impostazione dei criteri, Criteri di gruppo avrà la priorità rispetto all'impostazione della preferenza locale.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Configura sostituzione dell'impostazione locale per il monitoraggio dell'attività per file e programmi nel computer</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Questa impostazione dei criteri consente di configurare una sostituzione locale per la configurazione del monitoraggio dell'attività per file e programmi nel computer. Questa impostazione dei criteri può essere configurata solo da Criteri di gruppo.
-
-Se si abilita questa impostazione dei criteri, l'impostazione della preferenza locale avrà la priorità rispetto a Criteri di gruppo.
-
-Se si disabilita o non si configura questa impostazione dei criteri, Criteri di gruppo avrà la priorità rispetto all'impostazione della preferenza locale.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Configura sostituzione dell'impostazione locale per disattivare il sistema di prevenzione intrusioni</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Questa impostazione dei criteri consente di configurare una sostituzione locale per la configurazione della protezione di rete dagli exploit di vulnerabilità note. Questa impostazione dei criteri può essere configurata solo da Criteri di gruppo.
 
 Se si abilita questa impostazione dei criteri, l'impostazione della preferenza locale avrà la priorità rispetto a Criteri di gruppo.
 
@@ -633,6 +615,16 @@ Se si disabilita o non si configura questa impostazione dei criteri, il controll
 Se si abilita questa impostazione dei criteri, verrà eseguito un controllo della disponibilità di nuove definizioni dopo l'avvio del servizio.
 
 Se si disabilita o non si configura questa impostazione dei criteri, non verrà eseguito un controllo della disponibilità di nuove definizioni dopo l'avvio del servizio.</string>
+    <string id="DisableBlockAtFirstSeen">Configura la funzionalità 'Blocco al primo rilevamento'</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Questa funzionalità assicura che il dispositivo esegua una verifica in tempo reale con Microsoft Active Protection Service (MAPS) prima di consentire l'esecuzione o l'accesso a determinato contenuto. Se la funzionalità è disabilitata, la verifica non verrà eseguita, riducendo lo stato di protezione del dispositivo.
+	Abilitato - L'impostazione Blocco al primo rilevamento è attivata.
+	Disabilitato - L'impostazione Blocco al primo rilevamento è disattivata.
+	
+	La funzionalità richiede che queste impostazioni di Criteri di gruppo siano impostate come segue:
+	MAPS -&gt; Il criterio “Partecipa a Microsoft MAPS” deve essere abilitato. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.
+	MAPS -&gt; Il criterio “Invia campioni di file se sono necessarie ulteriori analisi” deve essere impostato su 1 (Invia campioni sicuri) o 3 (Invia tutti i campioni). L'impostazione su 0 (Richiedi sempre conferma) ridurrà lo stato di protezione del dispositivo. Se si esegue l'impostazione su 2 (Non inviare mai), la funzionalità “Blocco al primo rilevamento” non funzionerà.
+	Protezione in tempo reale -&gt; Il criterio “Analizza tutti i file e gli allegati scaricati” deve essere abilitato. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.
+	Protezione in tempo reale -&gt; Non abilitare il criterio “Disattiva protezione in tempo reale”. In caso contrario, la funzionalità “Blocco al primo rilevamento” non funzionerà.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Configura sostituzione dell'impostazione locale per le segnalazioni a Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Questa impostazione dei criteri consente di configurare una sostituzione locale per la configurazione della partecipazione a Microsoft MAPS. Questa impostazione dei criteri può essere configurata solo da Criteri di gruppo.
 
@@ -647,7 +639,7 @@ Se si disabilita o non si configura questa impostazione dei criteri, Criteri di 
         (0x0) Richiedi sempre conferma
         (0x1) Invia automaticamente i campioni sicuri
         (0x2) Non inviare mai
-        (0x2) Invia automaticamente tutti i campioni
+        (0x3) Invia automaticamente tutti i campioni
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Richiedi sempre conferma</string>
@@ -658,7 +650,7 @@ Se si disabilita o non si configura questa impostazione dei criteri, Criteri di 
     <string id="SpynetReporting">Partecipa a Microsoft MAPS</string>
     <string id="SpynetReporting_Explain">Questa impostazione dei criteri consente di partecipare a Microsoft MAPS. Microsoft MAPS è la community online che fornisce assistenza agli utenti su come rispondere a potenziali rischi. Questa community contribuisce inoltre ad arrestare la diffusione di nuove infezioni da malware.
 
-È possibile scegliere di inviare informazioni di base o aggiuntive in relazione al software rilevato. Le informazioni aggiuntive aiutano Microsoft a creare nuove definizioni e a proteggere i computer degli utenti. Queste informazioni possono includere, ad esempio, il percorso degli elementi rilevati nel computer nel caso sia stato rimosso software dannoso. Le informazioni verranno raccolte e inviate automaticamente. In alcuni casi, potrebbero essere accidentalmente inviati a Microsoft dati personali. Tuttavia Microsoft non utilizzerà tali dati per identificare o contattare l'utente.
+È possibile scegliere di inviare informazioni di base o aggiuntive in relazione al software rilevato. Le informazioni aggiuntive aiutano Microsoft a creare nuove definizioni e a proteggere i computer degli utenti. Queste informazioni possono includere, ad esempio, il percorso degli elementi rilevati nel computer nel caso sia stato rimosso software dannoso. Le informazioni verranno raccolte e inviate automaticamente. In alcuni casi, potrebbero essere accidentalmente inviati a Microsoft dati personali. Tuttavia Microsoft non userà tali dati per identificare o contattare l'utente.
 
 Le opzioni possibili sono:
 (0x0) Disabilitata (impostazione predefinita)
@@ -667,11 +659,13 @@ Le opzioni possibili sono:
 
 La partecipazione di base prevede l'invio di informazioni di base a Microsoft sul software rilevato, inclusi la provenienza del software, le azioni applicate manualmente o automaticamente e l'esito delle azioni.
 
-Con la partecipazione avanzata, oltre alle informazioni di base verranno inviate a Microsoft ulteriori informazioni su software dannoso, spyware e software potenzialmente indesiderato, tra cui il percorso del software, i nomi dei file, il funzionamento del software e il relativo impatto sul computer.
+Con la partecipazione avanzata, oltre alle informazioni di base verranno inviate a Microsoft altre informazioni su software dannoso, spyware e software potenzialmente indesiderato, tra cui il percorso del software, i nomi dei file, il funzionamento del software e il relativo impatto sul computer.
 
 Se si abilita questa impostazione dei criteri, si contribuirà a Microsoft MAPS con il livello di partecipazione specificato.
 
-Se si disabilita o non si configura questa impostazione dei criteri, non si parteciperà a Microsoft MAPS.</string>
+Se si disabilita o non si configura questa impostazione dei criteri, non si parteciperà a Microsoft MAPS.
+  
+In Windows 10 la partecipazione di base non è più disponibile, quindi se si imposta il valore su 1 o 2, viene eseguita la registrazione del dispositivo nella partecipazione avanzata.</string>
     <string id="SpynetReporting_Disabled">Disabilitata</string>
     <string id="SpynetReporting_Basic">MAPS di base</string>
     <string id="SpynetReporting_Advanced">MAPS avanzata</string>
@@ -706,16 +700,12 @@ I valori validi per l'azione di correzione sono:
 
       Se si abilita questa impostazione l'interfaccia utente AM non visualizzerà notifiche di riavvio del sistema.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Visualizza notifiche ai client quando devono eseguire azioni</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Questa impostazione dei criteri consente di specificare se visualizzare o meno notifiche ai client quando devono eseguire le azioni seguenti:
-Eseguire un'analisi completa
-Scaricare le definizioni di virus e spyware più recenti
-Scaricare Strumento autonomo pulizia sistema
+    <string id="UX_Configuration_Notification_Suppress">Elimina tutte le notifiche</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Usa questa impostazione dei criteri per specificare se visualizzare nei client le notifiche di Windows Defender.
+      Se si disabilita o non si configura questa impostazione, le notifiche di Windows Defender verranno visualizzate nei client.
 
-
-Se si abilita o non si configura questa impostazione dei criteri, verranno visualizzate notifiche ai client quando devono eseguire le azioni specificate.
-
-Se si disabilita questa impostazione dei criteri, non verranno visualizzate notifiche ai client quando devono eseguire le azioni specificate.</string>
+      Se si abilita questa impostazione, le notifiche di Windows Defender non verranno visualizzate nei client.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Visualizza testo aggiuntivo per i client quando devono eseguire un'azione</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Questa impostazione dei criteri consente di specificare se visualizzare o meno testo aggiuntivo ai client quando devono eseguire un'azione. Il testo visualizzato è una stringa personalizzata definita dall'amministratore. Ad esempio, il numero di telefono per chiamare l'help desk aziendale. Nell'interfaccia client verranno visualizzati al massimo 1024 caratteri. Le stringhe più lunghe verranno troncate prima della visualizzazione.
 
@@ -728,6 +718,11 @@ Se si disabilita o non si configura questa impostazione dei criteri, non verrà 
     <textBox refId="ProxyBypass">
         <label>Definisci indirizzi per ignorare il server proxy</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definisci autoconfigurazione proxy (.pac) per la connessione alla rete</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +737,6 @@ Se si disabilita o non si configura questa impostazione dei criteri, non verrà 
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Esclusioni di processi</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definisci frequenza di registrazione degli eventi di rilevamento</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Esclusioni di intervalli di indirizzi IP</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Esclusioni di numeri di porta</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Esclusioni di processi per il traffico in uscita</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Esclusioni di ID di rischio</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Specifica set di definizioni aggiuntivi per l'ispezione del traffico di rete</listBox>

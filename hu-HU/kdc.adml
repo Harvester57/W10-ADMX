@@ -78,6 +78,22 @@ Ha engedélyezi ezt a házirend-beállítást, a tartományvezérlők összetett
 Ha letiltja vagy nem konfigurálja a beállítást, a tartományvezérlők minden esetben összetett hitelesítéssel válaszolnak az összetett hitelesítési ügyfélkérelmekre – függetlenül a fiók konfigurációjától.
 
 </string>
+      <string id="PKINITFreshness">KDC-támogatás a PKINIT-alapú Freshness Extension bővítményhez</string>
+      <string id="PKINITFreshness_explain">A PKINIT-alapú Freshness Extension bővítmény csak akkor használható, ha a tartomány Windows Server 2016 működési szintű. Amennyiben a tartományvezérlő tartománya nem ezen a működési szinten vagy annál újabb szinten üzemel, a házirend nem lép érvénybe.
+
+Ezzel a házirend-beállítással úgy konfigurálhatók a tartományvezérlők, hogy támogassák a PKINIT-alapú Freshness Extension bővítményt.
+
+A házirend-beállítás engedélyezésével az alábbi funkciók lesznek támogatottak:
+
+Támogatott: A PKINIT-alapú Freshness Extension bővítmény támogatása kérelem alapján. Azok a Kerberos-ügyfelek, amelyek sikeresen hitelesítik magukat a bővítménnyel, megkapják a nyilvános kulcsokra épülő identitások friss biztonsági azonosítóját.
+
+Kötelező: A sikeres hitelesítéshez mindenképpen szükséges a PKINIT-alapú Freshness Extension bővítmény. Azok a Kerberos-ügyfelek, amelyek nem támogatják a bővítményt, nem tudják majd hitelesíteni magukat a nyilvános kulcsok hitelesítő adataival.
+
+Ha letiltja vagy nem konfigurálja a házirend-beállítást, a tartományvezérlő soha nem ajánlja fel a PKINIT-alapú Freshness Extension bővítmény használatát, és a frissesség ellenőrzése nélkül soha nem fogadja el az érvényes hitelesítési kérelmeket. Ezenkívül a felhasználók soha nem kapják meg a nyilvános kulcsokra épülő identitások friss biztonsági azonosítóját.
+</string>
+      <string id="NoPKINITFreshness">Letiltva</string>
+      <string id="SupportPKINITFreshness">Támogatott</string>
+      <string id="RequirePKINITFreshness">Kötelező</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Ha letiltja vagy nem konfigurálja a beállítást, a tartományvezérlők minde
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Jegyméret küszöbértéke</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKINIT-alapú Freshness Extension bővítmény beállításai:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

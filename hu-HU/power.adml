@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Rendszeralvási időkorlát megadása (csatlakoztatva)</string>
       <string id="ACStandbyWithHiberfileEnable">Hibrid alvás kikapcsolása (csatlakoztatva)</string>
       <string id="ACSystemLidAction">Fedélkapcsolás művelet kijelölése (csatlakoztatva)</string>
+      <string id="ACConnectivityInStandby">Hálózati kapcsolat engedélyezése csatlakoztatott készenlét (hálózati áramforrás) esetén</string>
       <string id="BatteryDischargeAction0Explain">Ez a házirend-beállítás azt a műveletet határozza meg, amelyet a Windows a telep kritikus töltöttségi szintjének elérésekor végrehajt.
 
 Ha engedélyezi ezt a házirend-beállítást, válasszon egyet a következő műveletek közül:
@@ -82,6 +83,7 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasznál�
       <string id="DCStandbyTimeOut">Rendszeralvási időkorlát megadása (működés telepről)</string>
       <string id="DCStandbyWithHiberfileEnable">Hibrid alvás kikapcsolása (működés telepről)</string>
       <string id="DCSystemLidAction">Fedélkapcsolás művelet kijelölése (működés telepről)</string>
+      <string id="DCConnectivityInStandby">Hálózati kapcsolat engedélyezése csatlakoztatott készenlét (akkumulátor) esetén</string>
       <string id="DiskACPowerDownTimeOut">Merevlemez kikapcsolása (csatlakoztatva)</string>
       <string id="DiskDCPowerDownTimeOut">Merevlemez kikapcsolása (működés telepről)</string>
       <string id="DiskPowerDownTimeOutExplain">Ez a házirend-beállítás azt határozza meg, hogy milyen hosszú lehet az inaktív állapot, mielőtt a Windows kikapcsolja a merevlemezt.
@@ -270,6 +272,23 @@ Ha engedélyezi ezt a házirendet, meg kell adnia egy számértéket (százalék
 
 Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasználók megtekinthetik és módosíthatják ezt a beállítást.</string>
     
+      <string id="EnergySaverSettingsCat">Takarékos üzemmód beállításai</string>
+      <string id="EsBattThresholdAC">Takarékos üzemmód töltöttségi küszöbértéke (hálózati áramforrás)</string>
+      <string id="EsBattThresholdDC">Takarékos üzemmód töltöttségi küszöbértéke (akkumulátor)</string>
+      <string id="EsBattThresholdExplain">Ezzel a házirend-beállítással adhatja meg az akkumulátor azon töltöttségi szintjét, amelynél a Takarékos üzemmód bekapcsol.
+
+Ha engedélyezi ezt a házirend-beállítást, meg kell adnia a töltöttségi szint százalékos értékét. A Takarékos üzemmód ennél a szintnél (és alatta) lesz aktív.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasználók szabályozzák a beállítást.</string>
+
+      <string id="ConnectivityInStandbyExplain">Ezzel a házirend-beállítással adható meg, hogy miként működjön a hálózati kapcsolat a készenlétre képes modern gépek készenléti állapotában.
+
+Ha engedélyezi ezt a házirend-beállítást, a hálózati kapcsolat készenléti állapotban sem szakad meg.
+
+Ha letiltja ezt a házirend-beállítást, a hálózati kapcsolat készenléti állapotban nem biztos, hogy fennmarad. Ez a kapcsolati korlátozás egyelőre csak WLAN hálózatokra érvényes, és nem tekintendő véglegesnek.
+
+Ha nem konfigurálja ezt a házirend-beállítást, a felhasználók módosíthatják a beállítást.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasznál�
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Akkumulátortakarékossági értesítési szint (százalék):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Takarékos üzemmód töltöttségi küszöbértéke (százalék):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

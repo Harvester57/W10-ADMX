@@ -78,6 +78,22 @@ Hvis du aktiverer denne politikindstilling, anmoder domænecontrollere om sammen
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, returnerer domænecontrollere tjenestebilletter, som indeholder sammensat godkendelse, når som helst klienten sender en anmodning om sammensat godkendelse, uanset hvordan kontoen er konfigureret.
 
 </string>
+      <string id="PKINITFreshness">KDC-understøttelse af udvidelsen PKINIT-opdatering</string>
+      <string id="PKINITFreshness_explain">Understøttelse af udvidelsen PKINIT-opdatering kræver Windows Server 2016-domænefunktionsniveau (DFL). Hvis domænecontrollerens domæne ikke er på Windows Server 2016 DFL eller højere, anvendes denne politik ikke.
+
+Denne politikindstilling giver dig mulighed for at konfigurere en domænecontroller (DC), der understøtter udvidelsen PKINIT-opdatering.
+
+Hvis du aktiverer denne politikindstilling, understøttes følgende indstillinger:
+
+Understøttet: Udvidelsen PKINIT-opdatering understøttes efter anmodning. Kerberos-klienter, der er godkendt af udvidelsen PKINIT-opdatering, får identitet med ny offentlig SID-nøgle.
+
+Krævet: Udvidelsen PKINIT-opdatering er påkrævet for vellykket godkendelse. Der opstår altid fejl i Kerberos-klienter, som ikke understøtter udvidelsen PKINIT-opdatering, når du bruger legitimationsoplysninger med offentlige nøgler.
+
+Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, vil domænecontrolleren aldrig tilbyde udvidelsen PKINIT-opdatering og accepterer gyldige godkendelsesanmodninger uden at kontrollere for opdatering. Brugerne får aldrig identiteten med ny offentlig SID-nøgle.
+</string>
+      <string id="NoPKINITFreshness">Deaktiveret</string>
+      <string id="SupportPKINITFreshness">Understøttet</string>
+      <string id="RequirePKINITFreshness">Obligatorisk</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, retu
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Tærskel for billetstørrelse</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Indstillinger for udvidelsen PKINIT-opdatering:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Bloquear fuentes y eventos de registro que no son de confianza</string>
       <string id="FontMitigation_Off">No bloquear fuentes que no son de confianza</string>
       <string id="FontMitigation_Audit">Eventos de registro sin bloqueo de fuentes que no son de confianza</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Opciones de mitigación de procesos</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Esta característica de seguridad proporciona un medio para reemplazar la configuración del proceso individual MitigationOptions. Esto puede usarse para imponer un número de directivas de seguridad específicos de aplicaciones. El nombre de la aplicación se especifica como el nombre de valor, incluido la extensión. El valor se especifica como campo de bits con una serie de marcas en posiciones particulares. Se pueden establecer bits en 0 (la configuración no está forzada), 1 (la configuración está forzada), o ? (la configuración conserva su valor existente antes de la evaluación de GPO). Las ubicaciones de bits reconocidas son:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Habilita la prevención de ejecución de datos (DEP) para el proceso secundario
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Habilita la emulación del código thunk de DEP-ATL para el proceso secundario. La emulación del código thunk de DEP-ATL hace que el sistema intercepte errores NX originados desde la capa de código thunk de Active Template Library (ATL). 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Habilita la protección de sobrescritura del controlador de excepciones estructurado (SEHOP) para el proceso secundario. SEHOP bloquea vulnerabilidades que usan la técnica de sobrescritura del controlador de excepciones estructurado (SEH).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        La directiva de forzar la selección aleatoria del diseño del espacio de direcciones (ASLR) fuerza a reajustar imágenes que no son compatibles con base dinámica actuando como si hubiera ocurrido una colisión de base de imagen durante el tiempo de carga. Si se necesitaran reubicaciones, no se cargarán las imágenes que no tienen una sección de reubicación base.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        La directiva de selección aleatoria de abajo a arriba, que incluye opciones de selección aleatoria de la pila, hace que se use una ubicación aleatoria como dirección de usuario más baja.
+
+        Por ejemplo, para habilitar PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE y PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, deshabilita PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF y, para dejar todas las demás opciones con sus valores predeterminados, especifica un valor de:
+        ???????????????0???????1???????1
+
+        Establecer marcas que no se especifiquen aquí en cualquier valor que no sea ? produce un comportamiento indefinido.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Habilitar la sincronización del controlador de dominio de AD/DFS durante la actualización de directivas</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Al habilitar esta configuración, el Cliente de la directiva de grupo se conectará al mismo controlador de dominio para los recursos compartidos DFS que se está usando para Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Fuentes</string>
+      <string id="EnableFontProviders">Habilitar Proveedores de fuentes</string>
+      <string id="EnableFontProviders_Help">
+        Esta configuración de directiva determina si permite a Windows descargar fuentes y datos del catálogo de fuentes desde un proveedor de fuentes en línea.
+       
+        Si habilitas esta configuración de directiva, Windows consulta periódicamente un proveedor de fuentes en línea para determinar si está disponible un nuevo catálogo de fuentes. Windows también puede descargar datos de fuentes si fuera necesario formatear o representar texto.
+       
+        Si deshabilitas esta configuración de directiva, Windows no se conectará a un proveedor de fuentes en línea y solo enumera las fuentes instaladas localmente.
+     
+        Si no estableces esta configuración de directiva, el comportamiento predeterminado depende de la edición de Windows. Los cambios en esta directiva surgen efecto en el próximo reinicio.
+      </string>
       <string id="EnableLogonOptimization">Configurar almacenamiento en caché de directiva de grupo</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ Si deshabilita o no establece esta configuración de directiva, la directiva de 
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Opciones de mitigación</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Opciones de mitigación de procesos</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">El servicio de caché de fuentes de Windows debe poder descargar fuentes y datos del catálogo de fuentes desde proveedores de fuentes en línea.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Valor de vínculo lento: [campo de número] milisegundos</decimalTextBox>

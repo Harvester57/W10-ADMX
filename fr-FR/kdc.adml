@@ -78,6 +78,22 @@ Si vous activez ce paramètre de stratégie, les contrôleurs de domaine demande
 Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, les contrôleurs de domaine renvoient des tickets de service qui contiennent l’authentification composée chaque fois que le client envoie une demande d’authentification composée, quelle que soit la configuration du compte.
 
 </string>
+      <string id="PKINITFreshness">Prise en charge du contrôleur de domaine Kerberos pour l’extension d’actualisation de PKInit</string>
+      <string id="PKINITFreshness_explain">La prise en charge de l’extension d’actualisation de PKInit nécessite le niveau fonctionnel du domaine (DFL) Windows Server 2016. Si le domaine du contrôleur de domaine n’est pas au DFL Windows Server 2016 ou supérieur, cette stratégie ne s’applique pas.
+
+Ce paramètre de stratégie vous permet de configurer un contrôleur de domaine (DC) pour prendre en charge l’extension d’actualisation de PKInit.
+
+Si vous activez ce paramètre de stratégie, les options suivantes sont prises en charge :
+
+Pris en charge : l’extension d’actualisation de PKInit est prise en charge à la demande. Les clients Kerberos s’authentifiant avec succès auprès de l’extension d’actualisation de PKInit obtiennent le SID d’identité de clé public actualisé.
+
+Obligatoire : l’extension d’actualisation de PKInit est requise pour la réussite de l’authentification. Les clients Kerberos qui ne prennent pas en charge l’extension d’actualisation de PKInit échouent toujours lorsqu’ils utilisent des informations d’identification de clé publique.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, le contrôleur de domaine ne propose jamais l’extension d’actualisation de PKInit et accepte les demandes d’authentification valides sans vérifier l’actualisation. Les utilisateurs ne reçoivent jamais le SID d’identité de clé publique actualisé.
+</string>
+      <string id="NoPKINITFreshness">Désactivé</string>
+      <string id="SupportPKINITFreshness">Pris en charge</string>
+      <string id="RequirePKINITFreshness">Obligatoire</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas,
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Seuil de taille de ticket</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Options d’extension d’actualisation de PKInit :</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

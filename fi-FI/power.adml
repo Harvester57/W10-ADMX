@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Määritä järjestelmän valmiustilan aikakatkaisu (verkkovirta)</string>
       <string id="ACStandbyWithHiberfileEnable">Poista yhdistelmälepotila käytöstä (verkkovirta)</string>
       <string id="ACSystemLidAction">Valitse tietokoneen kannen sulkemistoiminto (verkkovirta)</string>
+      <string id="ACConnectivityInStandby">Salli verkkoyhteys yhdistetyn valmiustilan aikana (verkkovirrassa)</string>
       <string id="BatteryDischargeAction0Explain">Tämä käytäntö määrittää toiminnon, jonka Windows suorittaa akun varauksen laskettua kriittiselle tasolle.
 
 Jos otat käyttöön tämän käytäntöasetuksen, valitse jokin seuraavista toiminnoista:
@@ -82,6 +83,7 @@ Jos tätä käytäntöasetusta ei oteta käyttöön tai sen asetuksia ei muuteta
       <string id="DCStandbyTimeOut">Määritä järjestelmän lepotilan aikakatkaisu (akkuvirta)</string>
       <string id="DCStandbyWithHiberfileEnable">Poista yhdistelmälepotila käytöstä (akkuvirta)</string>
       <string id="DCSystemLidAction">Valitse tietokoneen kannen sulkemistoiminto (akkuvirta)</string>
+      <string id="DCConnectivityInStandby">Salli verkkoyhteys yhdistetyn valmiustilan aikana (akkuvirrassa)</string>
       <string id="DiskACPowerDownTimeOut">Sammuta kiintolevy (verkkovirta)</string>
       <string id="DiskDCPowerDownTimeOut">Sammuta kiintolevy (akku)</string>
       <string id="DiskPowerDownTimeOutExplain">Tämä käytäntöasetus määrittää käyttämättömyysajan, jonka jälkeen Windows sammuttaa kiintolevyn.
@@ -270,6 +272,23 @@ Jos otat tämän käytännön käyttöön, sinun on annettava numeerinen arvo (p
 
 Jos tätä käytäntöasetusta ei oteta käyttöön tai sen asetuksia ei muuteta, käyttäjät voivat tarkastella ja muuttaa tätä asetusta.</string>
     
+      <string id="EnergySaverSettingsCat">Virransäästötoiminnon asetukset</string>
+      <string id="EsBattThresholdAC">Virransäästötoiminnon akun raja-arvo (verkkovirrassa)</string>
+      <string id="EsBattThresholdDC">Virransäästötoiminnon akun raja-arvo (akkuvirrassa)</string>
+      <string id="EsBattThresholdExplain">Tämän käytäntöasetuksen avulla voit määrittää akun varaustason, jonka kohdalla virransäästötoiminto otetaan käyttöön.
+
+Jos otat tämän käytäntöasetuksen käyttöön, sinun on määritettävä akun varaustasoa ilmaiseva prosenttiarvo. Virransäästötoiminto otetaan automaattisesti käyttöön, kun varaus alittaa määritetyn tason.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjät hallitsevat tätä asetusta.</string>
+
+      <string id="ConnectivityInStandbyExplain">Tämän käytäntöasetuksen avulla voit hallita verkon yhteystilaa valmiustilassa järjestelmissä, jotka voivat käyttää nykyaikaista valmiustilaa.
+
+Jos otat tämän käytäntöasetuksen käyttöön, verkkoyhteyttä pidetään yllä valmiustilassa.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, verkkoyhteyttä valmiustilassa ei voi taata. Tämä yhteysrajoitus koskee tällä hetkellä vain WLAN-verkkoja, ja sitä voidaan muuttaa.
+
+Jos et määritä tätä käytäntöasetusta, käyttäjät hallitsevat tätä asetusta.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Jos tätä käytäntöasetusta ei oteta käyttöön tai sen asetuksia ei muuteta
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Virransäästöön siirtymisen akkuvirtatason ilmoitus (prosenttia):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Virransäästötoiminnon akun raja-arvo (prosenttia):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

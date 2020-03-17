@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">신뢰할 수 없는 글꼴을 차단하고 이벤트 기록</string>
       <string id="FontMitigation_Off">신뢰할 수 없는 글꼴을 차단하지 않음</string>
       <string id="FontMitigation_Audit">신뢰할 수 없는 글꼴을 차단하지 않고 이벤트 기록</string>
+	  
+	  <string id="ProcessMitigationOptions_List">프로세스 완화 옵션</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        이 보안 기능을 통해 개별 프로세스 MitigationOptions 설정을 재정의할 수 있습니다. 이 보안 기능을 사용하여 응용 프로그램과 관련된 많은 보안 정책을 적용할 수 있습니다. 응용 프로그램 이름은 확장이 포함된 값 이름으로 지정됩니다. 값은 특정 위치에 일련의 플래그가 있는 비트 필드로 지정됩니다. 비트는 0(설정이 강제로 꺼짐), 1(설정이 강제로 켜짐) 또는 ?(설정이 GPO 평가 전의 기존 값을 유지함)로 설정할 수 있습니다. 인식되는 비트 위치는 다음과 같습니다.
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        자식 프로세스에 DEP(데이터 실행 방지)를 사용하도록 설정합니다.
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        자식 프로세스에 DEP-ATL 썽크 에뮬레이션을 사용하도록 설정합니다. DEP-ATL 썽크 에뮬레이션은 시스템이 ATL(액티브 템플릿 라이브러리) 썽크 계층에서 발생하는 NX 오류를 가로채도록 합니다. 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        자식 프로세스에 SEHOP(구조적 예외 처리기 덮어쓰기 보호)를 사용하도록 설정합니다. SEHOP는 SEH(구조적 예외 처리기) 덮어쓰기 방법을 사용하는 익스플로잇을 차단합니다.
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        강제 ASLR(Address Space Layout Randomization) 정책은 이미지 기준 충돌이 로드 시에 발생한 것처럼 동작하여 동적 기준 호환이 되지 않는 이미지의 기준 주소를 강제로 다시 지정합니다. 재배치가 필요한 경우 기준 재배치 섹션이 없는 이미지는 로드되지 않습니다.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        스택 임의 지정 옵션이 포함된 상향식 임의 지정 정책은 임의의 위치가 최하위 사용자 주소로 사용되도록 합니다.
+
+        예를 들어 PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE 및 PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON을 사용하도록 설정하고, PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF를 사용하지 않도록 설정하고, 다른 모든 옵션을 기본값으로 두려면 다음 값을 지정합니다.
+        ???????????????0???????1???????1
+
+        여기에서 지정되지 않은 플래그를 ? 이외의 값으로 설정하면 정의되지 않은 동작이 발생합니다.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">정책 새로 고침 중에 AD/DFS 도메인 컨트롤러 동기화 사용</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">이 설정을 사용하면 그룹 정책 클라이언트가 Active Directory에 사용되는 DFS 공유와 같은 도메인 컨트롤러에 연결됩니다.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">글꼴</string>
+      <string id="EnableFontProviders">글꼴 공급자 사용</string>
+      <string id="EnableFontProviders_Help">
+        이 정책 설정은 Windows에서 온라인 글꼴 공급자로부터 글꼴 및 글꼴 카탈로그 데이터를 다운로드할 수 있는지 여부를 결정합니다.
+        
+        이 정책 설정을 사용하면 Windows에서 주기적으로 온라인 글꼴 공급자를 쿼리하여 새 글꼴 카탈로그를 사용할 수 있는지 여부를 확인합니다. Windows에서는 텍스트의 서식을 지정하거나 텍스트를 렌더링해야 하는 경우에도 글꼴 데이터를 다운로드할 수 있습니다.
+        
+        이 정책 설정을 사용하지 않으면 Windows가 온라인 글꼴 공급자에 연결되지 않으며 로컬로 설치된 글꼴만 열거합니다.
+      
+        이 정책 설정을 구성하지 않으면 기본 동작은 Windows 버전에 따라 달라집니다. 이 정책의 변경 사항은 다시 부팅한 후 적용됩니다.
+      </string>
       <string id="EnableLogonOptimization">Configure Group Policy Caching(그룹 정책 캐싱 구성)</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -491,6 +538,12 @@ RSoP는 클라이언트에 적용된 그룹 정책 설정 정보를 로깅합니
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">완화 옵션</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">프로세스 완화 옵션</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Windows 글꼴 캐시 서비스에서 온라인 글꼴 공급자로부터 글꼴 및 글꼴 카탈로그 데이터를 다운로드할 수 있어야 합니다.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">저속 연결 값: [number field]밀리초</decimalTextBox>

@@ -5,7 +5,7 @@
   <description>entrer la description ici</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">Au moins Windows 10 ou Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">Au moins Windows 10 ou Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Au minimum Windows 8 ou Windows RT</string>
       <string id="TS_SUPPORTED_Windows8_Server">Au minimum Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Au minimum Windows 8 Entreprise ou Windows Server 2012</string>
@@ -1169,6 +1169,18 @@ Si vous activez ce paramètre de stratégie, la connexion de l’utilisateur est
 
 Si vous désactivez ce paramètre ou si vous ne le configurez pas, l’écran de démarrage s’affiche et les applications sont inscrites en arrière-plan.</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">Utiliser la carte graphique par défaut du matériel pour toutes les sessions de services Bureau à distance</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Ce paramètre de stratégie permet aux administrateurs système de modifier l’affichage graphique pour toutes les sessions des services Bureau à distance.
+
+Si vous activez ce paramètre de stratégie, toutes les sessions des services Bureau à distance utiliseront le rendu graphique matériel à la place du pilote de rendu de base Microsoft comme adaptateur par défaut.
+
+Si vous désactivez ce paramètre de stratégie, toutes les sessions des services Bureau à distance utiliseront le pilote de rendu de base Microsoft comme adaptateur par défaut.
+
+Si vous ne configurez pas ce paramètre de stratégie, les sessions des services Bureau à distance sur le serveur Hôte de session Bureau à distance utiliseront le pilote de rendu de base Microsoft comme adaptateur par défaut. Dans tous les autres cas, les sessions des services Bureau à distance utiliseront le rendu graphique matériel par défaut.
+
+REMARQUE : ce paramètre de stratégie concerne uniquement le processeur graphique (GPU) par défaut d’un ordinateur équipé de plusieurs GPU. Tous les autres GPU sont considérés comme des adaptateurs secondaires et utilisés en tant que rendus graphiques matériels. La configuration du GPU de la session locale n’est pas concernée par ce paramètre de stratégie.
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">

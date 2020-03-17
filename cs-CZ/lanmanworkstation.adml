@@ -36,6 +36,28 @@ Pokud nastavení této zásady zakážete, bude klient SMB nezabezpečená přih
 
 Nezabezpečená přihlášení hostů využívají souborové servery k umožnění neověřeného přístupu ke sdíleným složkám. Tento typ přihlášení sice není běžný v podnikovém prostředí, ale často se používá ve spotřebitelských zařízeních NAS (Network Attached Storage), která působí jako souborové servery. Souborové servery s Windows vyžadují ověření a ve výchozím nastavení nezabezpečená přihlášení hostů nepoužívají. Vzhledem k tomu, že tato přihlášení nejsou ověřená, deaktivují se důležité funkce zabezpečení, jako je podepisování a šifrování paketů SMB. V důsledku toho jsou klienti, kteří nezabezpečená přihlášení hostů povolují, zranitelní vůči různým útokům prostředníkem (man-in-the-middle), které můžou vést ke ztrátě nebo poškození dat a ohrožení malwarem. Kromě toho jsou všechna data zapsaná na souborový server při nezabezpečeném přihlášení hosta potenciálně přístupná pro všechny uživatele v síti. Microsoft doporučuje, abyste nezabezpečená přihlášení hostů zakázali a nakonfigurovali souborové servery tak, aby vyžadovaly ověřený přístup.
       </string>
+
+      <string id="Pol_EnableCSCforCAShares_Name">Dostupnost funkce Offline soubory ve sdílených složkách s nepřetržitou dostupností</string>
+      <string id="Pol_EnableCSCforCAShares_Help">
+        Toto nastavení zásad určuje chování funkce Offline soubory na klientech připojujících se ke sdílené složce SMB s povoleným příznakem Nepřetržitá dostupnost.
+
+        Pokud toto nastavení zásad povolíte, objeví se na počítači s Windows při připojování ke sdílené složce podporující nepřetržitou dostupnost v nabídce Průzkumníku souborů možnost Vždy přístupné offline. Bude taky možné připínat soubory ve sdílených složkách podporujících nepřetržitou dostupnost pomocí ukládání do mezipaměti na straně klienta.
+
+        Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, systém Windows nebude umožňovat použití funkce Offline soubory ve sdílených složkách podporujících nepřetržitou dostupnost.
+
+        Poznámka: Microsoft nedoporučuje, abyste tuto zásadu skupiny povolovali. Použití nepřetržité dostupnosti s funkcí Offline soubory povede k velmi dlouhým přechodovým dobám mezi stavy online a offline.
+      </string>
+
+      <string id="Pol_EnableHandleCachingForCAFiles_Name">Ukládání popisovačů do mezipaměti ve sdílených složkách s nepřetržitou dostupností</string>
+      <string id="Pol_EnableHandleCachingForCAFiles_Help">
+        Toto nastavení zásad určuje chování ukládání popisovačů SMB do mezipaměti na klientech připojujících se ke sdílené složce SMB s povoleným příznakem Nepřetržitá dostupnost.
+
+        Pokud toto nastavení zásad povolíte, klient SMB umožní použít v mezipaměti uložené popisovače souborů ve sdílených složkách s nepřetržitou dostupností. To může vést k lepšímu výkonu při opakovaném přístupu k většímu počtu nestrukturovaných datových souborů ve sdílených složkách s nepřetržitou dostupností ve službě Soubory Microsoft Azure.
+
+        Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, systém Windows nebude umožňovat použití v mezipaměti uložených popisovačů souborů otevíraných prostřednictvím sdílených složek s nepřetržitou dostupností.
+
+        Poznámka: Tato zásada nemá žádný vliv při připojování ke sdíleným složkám na souborovém serveru se škálováním na více systémů založeným na systému Windows Server. Microsoft nedoporučuje povolovat tuto zásadu pro klienty, kteří se často připojují k souborům v clusteru Windows s podporou převzetí služeb při selhání s rolí Souborový server pro obecné použití, protože by to mohlo vést k pomalejšímu přebírání služeb při selhání a zvýšenému využití paměti a procesoru.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_CipherSuiteOrder">

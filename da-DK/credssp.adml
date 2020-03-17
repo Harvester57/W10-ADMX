@@ -155,18 +155,25 @@ Værten for Fjernskrivebordssessionen TERMSRV/*.humanresources.fabrikam.com kør
 
 Denne politikindstilling kan bruges i kombination med "Tillad delegering af gemte legitimationsoplysninger" for at definere undtagelser for specifikke servere, der ellers er tilladt, når der bruges jokertegn i serverlisten "Tillad delegering af gemte legitimationsoplysninger".</string>
       <string id="RestrictedRemoteAdministration">Begræns delegering af legitimationsoplysninger til fjernservere</string>
-      <string id="RestrictedRemoteAdministration_Explain">Når deltagende apps kører i begrænset tilstand, viser de ikke legitimationsoplysninger til fjerncomputere (uanset delegeringsmetoden). Begrænset tilstand kan give begrænset adgang til ressourcer, som findes på andre servere eller netværk end destinationscomputerens, fordi legitimationsoplysninger ikke delegeres.
+      <string id="RestrictedRemoteAdministration_Explain">I tilstanden for begrænset administration, eller hvis enheden bruger Remote Credential Guard, fremviser de medvirkende apps ikke legitimationsoplysninger til eksterne enheder (uanset delegeringsmetoden). Tilstanden for begrænset administration kan begrænse adgangen til ressourcer på andre servere eller netværk uden for netværkscomputeren, fordi legitimationsoplysninger ikke delegeres. Remote Credential Guard begrænser ikke adgangen til ressourcer ved at dirigere alle anmodninger tilbage til klientenheden.
 
 Deltagende apps:
 Fjernskrivebord-klient
 
-Hvis du aktiverer denne politikindstilling, gennemtvinges begrænset tilstand, og deltagende apps delegerer ikke legitimationsoplysninger til fjerncomputere.
+Hvis du aktiverer denne politikindstilling, gennemtvinges tilstanden for begrænset administration eller Remote Credential Guard, og deltagende apps delegerer ikke legitimationsoplysninger til fjernenheder.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, gennemtvinges begrænset tilstand ikke, og deltagende apps kan delegere legitimationsoplysninger til fjerncomputere.
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, gennemtvinges tilstanden for begrænset administration og Remote Credential Guard ikke, og deltagende apps kan delegere legitimationsoplysninger til fjernenheder.
 
-Bemærk! Du kan evt. deaktivere delegering af de fleste legitimationsoplysninger ved at nægte delegering i CredSSP (Credential Security Support Provider). Det gør du ved at ændre indstillinger for Administrative skabeloner (som findes i Computerkonfiguration\Administrative skabeloner\System\Delegering af legitimationsoplysninger).</string>
+Bemærk! For at deaktivere det meste af delegeringen af legitimationsoplysninger kan det være tilstrækkeligt at nægte delegering i CredSSP (Credential Security Support Provider) ved at ændre indstillinger for administrative skabeloner (som findes i Computerkonfiguration\Administrative skabeloner\System\Delegering af legitimationsoplysninger).
+
+Bemærk! I Windows 8.1 og Windows Server 2012 R2 vil aktivering af denne politik betyde, at tilstanden for begrænset administration gennemtvinges, uanset hvilken tilstand der er valgt. Disse versioner understøtter ikke Remote Credential Guard.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Foretrække Remote Credential Guard</string>
+      <string id="RequireRemoteCredentialGuard">Kræve Remote Credential Guard</string>
+      <string id="RequireRestrictedAdmin">Kræve begrænset administration</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Føj servere til listen:</listBox>
@@ -203,6 +210,9 @@ Bemærk! Du kan evt. deaktivere delegering af de fleste legitimationsoplysninger
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Føj servere til listen:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Sammensæt operativsystemstandarder med input ovenfor</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Bruge følgende begrænsede tilstand:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

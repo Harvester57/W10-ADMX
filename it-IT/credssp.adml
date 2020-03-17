@@ -156,18 +156,25 @@ TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione i
 
 Questa impostazione dei criteri può essere utilizzata in combinazione con "Consenti delega credenziali salvate" per definire le eccezioni per server specifici altrimenti consentiti quando si utilizzano caratteri jolly nell'elenco di server per "Consenti delega credenziali salvate".</string>
       <string id="RestrictedRemoteAdministration">Limita delega delle credenziali ai server remoti</string>
-      <string id="RestrictedRemoteAdministration_Explain">Durante l'esecuzione in modalità con restrizioni, le app partecipanti non espongono le credenziali a computer remoti, indipendentemente dal metodo di delega. La modalità con restrizioni potrebbe limitare l'accesso alle risorse disponibili in altri server o altre reti oltre il computer di destinazione, perché le credenziali non sono delegate.
+      <string id="RestrictedRemoteAdministration_Explain">Durante l'esecuzione in modalità di amministrazione limitata o se il dispositivo usa Remote Credential Guard, le app partecipanti non espongono le credenziali a dispositivi remoti, indipendentemente dal metodo di delega. La modalità di amministrazione limitata potrebbe limitare l'accesso alle risorse disponibili in altri server o altre reti oltre il computer di destinazione, perché le credenziali non sono delegate. Remote Credential Guard non limita l'accesso alle risorse reindirizzando tutte le richieste al dispositivo client.
 
 App partecipanti:
 Client Desktop remoto
 
-Se si abilita questa impostazione dei criteri, la modalità con restrizioni viene imposta e le app partecipanti non delegheranno le credenziali ai computer remoti.
+Se si abilita questa impostazione dei criteri, la modalità di amministrazione limitata o Remote Credential Guard viene imposto e le app partecipanti non delegheranno le credenziali ai dispositivi remoti.
 
-Se si disabilita o non si configura questa impostazione dei criteri, la modalità con restrizioni non viene imposta e le app partecipanti possono delegare le credenziali ai computer remoti.
+Se si disabilita o non si configura questa impostazione dei criteri, la modalità di amministrazione limitata o Remote Credential Guard non viene imposto e le app partecipanti possono delegare le credenziali ai dispositivi remoti.
 
-Nota: per disabilitare la delega delle credenziali in modo esteso, potrebbe essere sufficiente negare la delega in CredSSP (Credential Security Support Provider) modificando le impostazioni del modello amministrativo (in Configurazione computer\Modelli amministrativi\Sistema\Delega di credenziali).</string>
+Nota: per disabilitare la delega delle credenziali in modo esteso, potrebbe essere sufficiente negare la delega in CredSSP (Credential Security Support Provider) modificando le impostazioni del modello amministrativo (in Configurazione computer\Modelli amministrativi\Sistema\Delega di credenziali).
+
+Nota: in Windows 8.1 e Windows Server 2012 R2, l'abilitazione di questo criterio imporrà la modalità di amministrazione limitata, indipendentemente dalla modalità scelta. Queste versioni non supportano Remote Credential Guard.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Preferisci Remote Credential Guard</string>
+      <string id="RequireRemoteCredentialGuard">Richiedi Remote Credential Guard</string>
+      <string id="RequireRestrictedAdmin">Richiedi amministrazione limitata</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Aggiungere i server all'elenco:</listBox>
@@ -204,6 +211,9 @@ Nota: per disabilitare la delega delle credenziali in modo esteso, potrebbe esse
       <presentation id="DenySavedCredentials">
         <listBox refId="DenySavedCredentials_Name">Aggiungere i server all'elenco:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Usa la modalità limitata seguente:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Spécifier le délai de veille du système (sur secteur)</string>
       <string id="ACStandbyWithHiberfileEnable">Désactiver la veille hybride (sur secteur)</string>
       <string id="ACSystemLidAction">Sélectionner l’action de basculement du capot (sur secteur)</string>
+      <string id="ACConnectivityInStandby">Autoriser la connectivité réseau pendant la veille connectée (sur secteur)</string>
       <string id="BatteryDischargeAction0Explain">Ce paramètre de stratégie spécifie l’action effectuée par Windows lorsque la capacité de la batterie atteint le niveau de notification de batterie critique.
 
 Si vous activez ce paramètre de stratégie, sélectionnez l’une des actions suivantes :
@@ -82,6 +83,7 @@ Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les utilis
       <string id="DCStandbyTimeOut">Spécifier le délai de veille prolongée du système (sur batterie)</string>
       <string id="DCStandbyWithHiberfileEnable">Désactiver la veille hybride (sur batterie)</string>
       <string id="DCSystemLidAction">Sélectionner l’action de basculement du capot (sur batterie)</string>
+      <string id="DCConnectivityInStandby">Autoriser la connectivité réseau pendant la veille connectée (sur batterie)</string>
       <string id="DiskACPowerDownTimeOut">Arrêter le disque dur (sur secteur)</string>
       <string id="DiskDCPowerDownTimeOut">Arrêter le disque dur (sur batterie)</string>
       <string id="DiskPowerDownTimeOutExplain">Ce paramètre de stratégie spécifie la période d’inactivité avant que Windows n’arrête le disque dur.
@@ -270,6 +272,23 @@ Si vous activez ce paramètre de stratégie, vous devez entrer une valeur numér
 
 Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les utilisateurs peuvent l’afficher et le modifier.</string>
     
+      <string id="EnergySaverSettingsCat">Paramètres de l’économiseur d’énergie</string>
+      <string id="EsBattThresholdAC">Seuil de passage de la batterie en mode économie d’énergie (sur secteur)</string>
+      <string id="EsBattThresholdDC">Seuil de passage de la batterie en mode économie d’énergie (sur batterie)</string>
+      <string id="EsBattThresholdExplain">Le paramètre de cette stratégie vous permet d’indiquer le niveau de charge de la batterie à partir duquel l’économiseur d’énergie s’active.
+
+Si vous activez le paramètre de cette stratégie, vous devez indiquer une valeur en pourcentage correspondant au niveau de charge de la batterie. L’économiseur d’énergie est automatiquement activé au niveau indiqué (et sous celui-ci).
+
+Les utilisateurs contrôlent le paramètre de cette stratégie si vous le désactivez ou si vous ne le configurez pas.</string>
+
+      <string id="ConnectivityInStandbyExplain">Ce paramètre de stratégie vous permet de contrôler l’état de la connectivité réseau en veille sur des systèmes modernes compatibles avec la veille.
+
+Si vous activez ce paramètre de stratégie, la connectivité réseau est maintenue en veille.
+
+Si vous désactivez ce paramètre de stratégie, la connectivité réseau en veille n’est pas garantie. Cette restriction de connectivité s’applique aux réseaux WLAN uniquement et peut être modifiée.
+
+Si vous ne configurez pas ce paramètre de stratégie, les utilisateurs contrôlent ce paramètre.</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Si vous désactivez ou ne configurez pas ce paramètre de stratégie, les utilis
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Niveau de notification de batterie de réserve (pourcentage) :</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Seuil de passage de la batterie en mode économie d’énergie (pourcentage) :</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

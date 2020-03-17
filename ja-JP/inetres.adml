@@ -725,9 +725,9 @@ Microsoft エージェントとは、Microsoft Windows のインターフェイ�
 
 このポリシー設定を構成しない場合、[インターネット オプション] の [プライバシー] タブでブラウザーの地理位置情報のサポートを有効または無効にできます。</string>
       <string id="IE_ExplainDisableFlashInIE">このポリシー設定は、Internet Explorer 上で Adobe Flash をオフにし、アプリケーションが Internet Explorer テクノロジを使用して Flash オブジェクトをインスタンス化できないようにします。
- 
-このポリシー設定を有効にすると、Internet Explorer で Flash がオフになり、アプリケーションが Internet Explorer テクノロジを使用して Flash オブジェクトをインスタンス化できなくなります。[アドオンの管理] ダイアログ ボックスで、Flash のステータスは [無効] になり、ユーザーは Flash を有効にできません。このポリシー設定を有効にすると、[アドオンの一覧] ポリシー設定および [アドオンの一覧で許可されたものを除き、アドオンはすべて拒否する] ポリシー設定を通じた Adobe Flash に対する設定を Internet Explorer は無視します。 
- 
+
+このポリシー設定を有効にすると、Internet Explorer で Flash がオフになり、アプリケーションが Internet Explorer テクノロジを使用して Flash オブジェクトをインスタンス化できなくなります。[アドオンの管理] ダイアログ ボックスで、Flash のステータスは [無効] になり、ユーザーは Flash を有効にできません。このポリシー設定を有効にすると、[アドオンの一覧] ポリシー設定および [アドオンの一覧で許可されたものを除き、アドオンはすべて拒否する] ポリシー設定を通じた Adobe Flash に対する設定を Internet Explorer は無視します。
+
 このポリシー設定を無効にした場合、または構成しなかった場合、Internet Explorer で Flash がオンになり、アプリケーションが Internet Explorer テクノロジを使用して Flash オブジェクトをインスタンス化できます。ユーザーは [アドオンの管理] ダイアログ ボックスで、Flash を有効または無効にできます。
 
 このポリシー設定を無効にした場合、または構成しなかった場合でも、[アドオンの一覧] ポリシー設定および [アドオンの一覧で許可されたものを除き、アドオンはすべて拒否する] ポリシー設定を通じて Adobe Flash を無効にできます。ただし、このポリシー設定ではなく、[アドオンの一覧] ポリシー設定および [アドオンの一覧で許可されたものを除き、アドオンはすべて拒否する] ポリシー設定を通じて Adobe Flash を無効にした場合は、Internet Explorer テクノロジを使用して Flash オブジェクトをインスタンス化するすべてのアプリケーションでそれまでと同じくインスタンス化できます。詳細については、Internet Explorer TechNet ライブラリの Internet Explorer 10 のグループ ポリシー設定に関するページを参照してください。</string>
@@ -2033,6 +2033,12 @@ Internet Explorer にはセキュリティ ゾーンが 4 つあり、1 から 4
 このポリシー設定を有効にすると、このゾーン内の Web サイトで ActiveX コントロールが実行される前に、ユーザーにメッセージが表示されます。ユーザーは、現在のサイトからのコントロールの実行を許可するか、すべてのサイトからのコントロールの実行を許可するかを選択できます。
 
 このポリシー設定を無効にすると、ユーザーにはサイトごとの ActiveX 警告は表示されず、ActiveX コントロールはこのゾーン内のすべてのサイトから実行できます。</string>
+<string id="IZ_PolicyAllowTDCControl">TDC ActiveX コントロールの使用を承認済みのドメインにのみ許可する</string>
+      <string id="IZ_EXPLAIN_PolicyAllowTDCControl">このポリシー設定では、ユーザーが Web サイトで TDC ActiveX コントロールを実行することを許可するかどうかを制御します。
+
+このポリシー設定を有効にした場合、TDC ActiveX コントロールは、このゾーンの Web サイトからは実行されません。
+
+このポリシー設定を無効にした場合、TDC ActiveX コントロールは、このゾーン内のすべてのサイトから実行されます。</string>
       <string id="IZ_Policy_AllowDynsrcPlayback">古いバージョンのメディア プレーヤーを使用する Web ページでビデオおよびアニメーションを許可する</string>
       <string id="IZ_Policy_AllowDynsrcPlayback_Explain">このポリシー設定を使用すると、指定されたゾーン内で古いバージョンのメディア プレーヤーを使用してビデオおよびアニメーションを再生できます。object タグを使用したビデオおよびアニメーションの再生は許可される可能性があります。これらの再生には、外部のコントロールやメディア プレーヤーが使用されるためです。
 
@@ -2692,15 +2698,15 @@ Internet Explorer 9 以前のバージョンでは、このポリシーを無効
 このポリシー設定を構成しなかった場合、ユーザーによる手動操作を必要とすることなく、スクリプトの対話を自動的に実行できます。</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls">ActiveX コントロールに対してマルウェア対策プログラムを実行しない</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls_ExplainDefaultEnable">このポリシー設定では、ActiveX コントロールをページに読み込んでも安全かどうかを調べるために Internet Explorer がマルウェア対策プログラムを実行するかどうかを決定します。
-      
-このポリシー設定を有効にすると、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するためにマルウェア対策プログラムを実行しません。
+
+ポリシー設定を有効にすると、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するためにマルウェア対策プログラムを実行しません。
 
 このポリシー設定を無効にすると、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するために常にマルウェア対策プログラムを実行します。
 
 このポリシー設定を構成しない場合、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するために常にマルウェア対策プログラムを実行します。ユーザーは、Internet Explorer の [セキュリティ] 設定を使用して、この動作の有効と無効を切り替えることができます。</string>
       <string id="IZ_PolicyAntiMalwareCheckingOfActiveXControls_ExplainDefaultDisable">このポリシー設定では、ActiveX コントロールをページに読み込んでも安全かどうかを調べるために Internet Explorer がマルウェア対策プログラムを実行するかどうかを決定します。
-      
-このポリシー設定を有効にすると、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するためにマルウェア対策プログラムを実行しません。
+
+ポリシー設定を有効にすると、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するためにマルウェア対策プログラムを実行しません。
 
 このポリシー設定を無効にすると、Internet Explorer は、ActiveX コントロールのインスタンスを安全に作成できるかどうかを確認するために常にマルウェア対策プログラムを実行します。
 
@@ -3005,7 +3011,7 @@ Internet Explorer 9 以前のバージョンでは、このポリシーを無効
       <string id="RestrictCalendarContact">カレンダーと連絡先一覧の設定の変更を許可しない</string>
       <string id="RestrictCertificates">証明書の設定の変更を許可しない</string>
       <string id="RestrictCheckBrowser">[Internet Explorer の起動時に、通常使用するブラウザーを確認する] チェック ボックスのオン/オフの変更を許可しない</string>
-      <string id="NotifyNotDefaultBrowser">Internet Explorer が既定の Web ブラウザーでない場合にユーザーに通知する</string>  
+      <string id="NotifyNotDefaultBrowser">Internet Explorer が既定の Web ブラウザーでない場合にユーザーに通知する</string>
       <string id="RestrictColors">色の設定の変更を許可しない</string>
       <string id="RestrictConnectionSettings">接続の設定の変更を許可しない</string>
       <string id="RestrictConnectionWizard">インターネット接続ウィザードの使用を許可しない</string>
@@ -3118,9 +3124,12 @@ Internet Explorer 9 以前のバージョンでは、このポリシーを無効
       <string id="SUPPORTED_IE8">Internet Explorer 8.0 以降</string>
       <string id="SUPPORTED_IE8ONLY">Internet Explorer 8.0 のみ</string>
       <string id="SUPPORTED_IE9">Internet Explorer 9.0 以降</string>
+      <string id="SUPPORTED_IE9_IE11NONWIN10">Internet Explorer 9.0 ～ 11.0 でのみ使用できます。Windows 10 ではサポートされていません</string>
       <string id="SUPPORTED_IE10">Internet Explorer 10.0 以降</string>
       <string id="SUPPORTED_IE10WIN8">Windows 8 の Internet Explorer 10.0 以降</string>
       <string id="SUPPORTED_IE11WIN8">Windows 8.1 の Internet Explorer 11.0 以降</string>
+      <string id="SUPPORTED_IE11WIN8ONLY">Windows 8.1 の Internet Explorer 11.0 のみ</string>
+      <string id="SUPPORTED_IE11WIN10">Windows 10 の Internet Explorer 11.0 以降</string>
       <string id="SUPPORTED_IE11">Internet Explorer 11.0 以降</string>
       <string id="SUPPORTED_IE7_NONVISTA">Internet Explorer 7.0 以降。Windows Vista ではサポートされていません</string>
       <string id="SUPPORTED_IE7VISTA">Windows Vista の Internet Explorer 7.0 以降</string>
@@ -3172,6 +3181,16 @@ Internet Explorer 9 以前のバージョンでは、このポリシーを無効
       <string id="UTF8URLQuery_Intranet">イントラネットの URL でのみクエリ文字列を UTF-8 でエンコードする</string>
       <string id="UTF8URLQuery_Never">クエリ文字列を UTF-8 でエンコードしない</string>
       <string id="UTF8URLQuery_NonIntranet">イントラネット以外の URL でのみクエリ文字列を UTF-8 でエンコードする</string>
+      <string id="TopResult0">検索結果上位の表示を無効にする</string>
+      <string id="TopResult1">検索結果上位の表示を有効にする</string>
+      <string id="TopResultPol">アドレス バーでの検索結果上位の表示を構成できないようにする</string>
+      <string id="TopResultPol_Explain">このポリシー設定では、アドレス バーで検索が有効である場合に、ユーザーが検索結果上位の Web サイトを参照できるかどうかを指定できます。選択できるオプションは次のとおりです:
+ • 検索結果上位の表示を無効にする: ユーザーがアドレス バーで検索を実行すると、選択した検索プロバイダーからの検索結果の一覧がメイン ウィンドウに表示されます。
+ • 検索結果上位の表示を有効にする: ユーザーがアドレス バーで検索を実行すると、ユーザーは検索プロバイダーによって判定された外部の検索結果上位の Web サイトに移動します。
+
+このポリシー設定を有効にすると、アドレス バーでの検索後のユーザーの移動先 (検索結果上位の Web サイトまたはメイン ウィンドウの検索結果 Web ページ) を選択できます。
+
+このポリシー設定を無効にするか構成しない場合、ユーザーはこの動作について好きな設定を選択できるようになります。"検索結果上位の Web サイトを参照する" が既定値です。</string>
       <string id="UseHomePage">ホーム ページに直接移動する</string>
       <string id="UseHoverColor">ポイント時に色を変化させる</string>
       <string id="UseHoverColor_Explain">このポリシー設定を使用すると、マウスでポイントしたときにハイパーリンクの色を変化させることができます。
@@ -3313,7 +3332,7 @@ Windows がデータ防止保護を有効にするように構成されている
 このポリシー設定は、ActiveX フィルターと追跡防止のデータ (ActiveX フィルターまたは追跡防止を無効化するようにユーザーが選択した Web サイトの一覧を含みます) をユーザーが削除できないようにします。また、追跡防止データは、閲覧時にサード パーティ項目をブロックする個人用追跡防止リストをユーザーが有効にした場合にも収集されます。
 
 Internet Explorer 11 以降:
-このポリシー設定は、アクセスした Web サイトに関して保存される ActiveX フィルター データ、追跡防止データ、および Do Not Track からの除外をユーザーが削除できないようにします。
+このポリシー設定は、アクセスした Web サイトに関して保存される ActiveX フィルター データ、追跡防止データ、およびトラッキング拒否からの除外をユーザーが削除できないようにします。
 
 この機能は [閲覧の履歴の削除] ダイアログ ボックスにあります。
 
@@ -3396,6 +3415,7 @@ Internet Explorer 8 より前のバージョンの Internet Explorer では、HT
       <string id="Advanced_FallbackNonProtected">保護されていないモードのサイト</string>
       <string id="Advanced_FallbackAll">すべてのサイト</string>
       <string id="Advanced_FallbackNone">サイトなし</string>
+      <string id="Advanced_EnableSPDY3_0">Internet Explorer に SPDY/3 ネットワーク プロトコルの使用を許可する</string>
       <string id="Advanced_EnableHTTP2">Internet Explorer に HTTP2 ネットワーク プロトコルの使用を許可する</string>
       <string id="Advanced_SetWinInetProtocols">暗号化サポートを無効にする</string>
       <string id="NoPrinting">[印刷] メニューを無効にする</string>
@@ -3449,6 +3469,13 @@ Internet Explorer 8 より前のバージョンの Internet Explorer では、HT
 このポリシー設定を無効にすると、Internet Explorer はプロキシ接続経由で HTTP 1.1 を使用しません。
 
 このポリシー設定を構成しない場合、ユーザーは Internet Explorer がプロキシ接続経由で HTTP 1.1 を使用するかどうかを構成できます。</string>
+      <string id="Advanced_ExplainEnableSPDY3_0">このポリシー設定では、Internet Explorer で SPDY/3 ネットワーク プロトコルを使用するかどうかを決定します。SPDY/3 を HTTP 要求で使用して、圧縮、多重化、優先度設定によってネットワーク要求の待機時間を最適化できます。
+
+このポリシー設定を有効にした場合、Internet Explorer では、SPDY/3 ネットワーク プロトコルが使用されます。
+
+このポリシー設定を無効にした場合、Internet Explorer では、SPDY/3 ネットワーク プロトコルが使用されません。
+
+このポリシー設定を構成しなかった場合、ユーザーは、Internet Explorer の [インターネット オプション] の [詳細設定] を使用して、この動作を有効または無効にすることができます。既定では有効になっています。</string>
       <string id="Advanced_ExplainEnableHTTP2">このポリシー設定では、Internet Explorer で HTTP2 ネットワーク プロトコルを使用するかどうかを決定します。HTTP2 要求では、圧縮、多重化、優先度設定を使用してネットワーク要求の待機時間を最適化できます。
 
 このポリシー設定を有効にした場合、Internet Explorer では、HTTP2 ネットワーク プロトコルが使用されます。
@@ -3470,7 +3497,7 @@ man-in-the-middle 攻撃を防ぐために、セキュリティで保護され�
 
 このポリシー設定を無効にするか構成しない場合、ユーザーはブラウザーがサポートする暗号化方法を選択できます。
 
-注意: SSL 2.0 は既定で無効です。SSL 2.0 は旧式のセキュリティ プロトコルであり、SSL 2.0 を有効にすると TLS 1.0 の性能と機能が損なわれます。</string>
+注意: SSL 2.0 は既定で無効であり、Windows 10 Version 1607 以降はサポートされません。SSL 2.0 は旧式のセキュリティ プロトコルであり、SSL 2.0 を有効にすると TLS 1.0 の性能と機能が損なわれます。</string>
       <string id="IE_ExplainNoPrinting">このポリシー設定では、ユーザーが Internet Explorer の [印刷] メニューにアクセスできるかどうかを管理できます。Windows 8 以降では、このポリシー設定を使用すると、ユーザーが Internet Explorer の [印刷] ポップアップと、デバイス チャームのプリンターにアクセスできるかどうかも管理できます。
 
 このポリシー設定を有効にすると、Internet Explorer の [印刷] メニューは利用できなくなります。Windows 8 以降では、Internet Explorer の [印刷] ポップアップは利用できなくなり、デバイス チャームにプリンターが表示されなくなります。
@@ -3503,11 +3530,6 @@ Internet Explorer 11 以降:
 このポリシー設定を無効にすると、Internet Explorer は、InPrivate ブラウズ モードを使用している場合にのみ、Do Not Track ヘッダーを送信します。
 
 このポリシー設定を構成しない場合、ユーザーは、Internet Explorer の設定で [常に Do Not Track ヘッダーを送信する] オプションを選択できます。このオプションを選択した場合、Internet Explorer は、ユーザーがサイト固有の例外を許可しない限り、すべての HTTP 要求と HTTPS 要求で DNT:1 ヘッダーを送信します。Internet Explorer は、例外が許可されたすべてのサイトに対して DNT:0 ヘッダーを送信します。このオプションは既定で有効になっています。</string>
-      <string id="Content_ExplainShowContentAdvisor">このポリシー設定を使用して、[インターネット オプション] ダイアログ ボックスの [コンテンツ] タブに [コンテンツ アドバイザー] の設定を表示します。
-
-このポリシー設定を有効にすると、Internet Explorer では、[インターネット オプション] ダイアログ ボックスの [コンテンツ] タブに [コンテンツ アドバイザー] の設定が表示されます。ユーザーは、コンテンツ アドバイザーの設定を変更できます。
-
-このポリシー設定を無効にした場合、または構成しなかった場合、Internet Explorer では、[インターネット オプション] ダイアログ ボックスの [コンテンツ] タブに [コンテンツ アドバイザー] の設定が表示されません。</string>
       <string id="Protocols_None">安全なプロトコルを使用しない</string>
       <string id="Protocols_SSL2">SSL 2.0 のみを使用</string>
       <string id="Protocols_SSL3">SSL 3.0 のみを使用</string>
@@ -3837,6 +3859,20 @@ InPrivate フィルターを使用すると、ユーザーが訪れた Web サ�
 このポリシー設定を有効にした場合、[ツール] メニューにエンタープライズ モードが表示され、ユーザーはエンタープライズ モードを有効にできます。この設定を有効にしてもレポートの場所を指定しなかった場合、ユーザーはエンタープライズ モードを使用できますが、レポートは通知されません。
 
 このポリシー設定を無効にした場合、または構成しなかった場合、メニュー オプションは表示されず、ユーザーが Web サイトをエンタープライズ モードで実行することはできません。</string>
+      <string id="RestrictInternetExplorer">エンタープライズ モード サイト一覧に含まれていないすべてのサイトを Microsoft Edge に送信します。</string>
+      <string id="IE_ExplainRestrictInternetExplorer">この設定では、Microsoft Edge でエンタープライズ モード サイト一覧に含まれていないすべてのサイトを開くかどうかを決定できます。この設定を使用する場合は、"管理用テンプレート\Windows コンポーネント\Internet Explorer\エンタープライズ モード IE の Web サイト一覧を使用する" ポリシー設定を有効にし、エンタープライズ モード サイト一覧に少なくとも 1 つのサイトを含める必要もあります。
+
+この設定を有効にすると、エンタープライズ モード サイト一覧に含まれていないすべてのサイトが Microsoft Edge で自動的に開かれます。
+
+この設定を無効にした場合、または構成しなかった場合は、現在アクティブなブラウザーに基づいてすべてのサイトが開かれます。
+
+メモ: "管理用テンプレート\Windows コンポーネント\Microsoft Edge\すべてのイントラネット サイトを Internet Explorer 11 に送る" ポリシー設定も有効にしている場合は、引き続きすべてのイントラネット サイトが Internet Explorer 11 で開かれます。</string>
+      <string id="ShowMessageWhenOpeningSitesInMicrosoftEdge">エンタープライズ モードを使用して Microsoft Edge でサイトを開くときにメッセージを表示する</string>
+      <string id="IE_ExplainShowMessageWhenOpeningSitesInMicrosoftEdge">このポリシー設定では、Microsoft Edge のエンタープライズ モードでサイトが開かれたことを示す追加ページを Internet Explorer 11 で従業員に表示するかどうかを指定できます。
+
+この設定を有効にした場合は、Microsoft Edge のエンタープライズ モードでサイトが開かれたことを示す追加ページが Internet Explorer 11 で従業員に表示されます。
+
+この設定を無効にした場合または構成しなかった場合、追加ページは表示されずアプリの既定動作が実行されます。</string>
       <string id="VerMgmtDisable">Internet Explorer の古い ActiveX コントロールのブロックを無効する</string>
       <string id="IE_ExplainVerMgmtDisable">このポリシー設定では、Internet Explorer で特定の古い ActiveX コントロールをブロックするかどうかを決定します。イントラネット ゾーンでは、古い ActiveX コントロールがブロックされません。
 
@@ -4022,13 +4058,21 @@ LOBApp.contoso.com</string>
 	• 1 - 信頼済みサイト ゾーン
 	• 1 - ローカル イントラネット ゾーン
 	• 0 - ローカル コンピューター ゾーン
-• 22 - 信頼済みサイト ゾーン、イントラネット ゾーン、制限付きサイト ゾーンのみ 
+• 22 - 信頼済みサイト ゾーン、イントラネット ゾーン、制限付きサイト ゾーンのみ
   バイナリ表記 - 10110
 	• 1 - 制限付きサイト ゾーン
 	• 0 - インターネット ゾーン
 	• 1 - 信頼済みサイト ゾーン
 	• 1 - ローカル イントラネット ゾーン
 	• 0 - ローカル コンピューター ゾーン</string>
+      <string id="VersionListAutomaticDownloadDisable">ActiveX VersionList の自動ダウンロードを無効にする</string>
+      <string id="IE_Explain_VersionListAutomaticDownloadDisable">この設定によって、Microsoft の更新されたバージョンの VersionList.XML を IE で自動的にダウンロードするかどうかが決まります。IE ではこのファイルを使って、ActiveX コントロールの読み込みを停止するかどうかを判別します。
+
+この設定を有効にすると、IE では、更新されたバージョンの VersionList.XML がダウンロードされなくなります。この自動ダウンロードを無効にすると、最新のものではない ActiveX コントロールをブロックする機能が遮断されます。このため、新しく検出された古いコントロールでバージョン一覧を更新できず、コンピューターのセキュリティが損なわれる可能性があります。
+
+この設定を無効にした場合、またはこの設定を構成しなかった場合、IE は引き続き更新されたバージョンの VersionList.XML をダウンロードします。
+
+詳しくは、Internet Explorer TechNet ライブラリの「古い ActiveX コントロールのブロック」をご覧ください。</string>
     </stringTable>
     <presentationTable>
       <presentation id="VerMgmtDomainAllowlist_1">
@@ -4128,6 +4172,12 @@ LOBApp.contoso.com</string>
       </presentation>
       <presentation id="IZ_PolicyOnlyAllowApprovedDomainsToUseActiveXWithoutPrompt_DefaultOff">
         <dropdownList refId="IZ_Partname120b" noSort="true" defaultItem="1">許可されたドメインにのみ、警告なしで ActiveX を使用することを認める</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowTDCControl_DefaultOn">
+        <dropdownList refId="IZ_Partname120c" noSort="true" defaultItem="0">TDC ActiveX コントロールの使用を承認済みのドメインにのみ許可する</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowTDCControl_DefaultOff">
+        <dropdownList refId="IZ_Partname120c" noSort="true" defaultItem="1">TDC ActiveX コントロールの使用を承認済みのドメインにのみ許可する</dropdownList>
       </presentation>
       <presentation id="IZ_Policy_AllowDynsrcPlayback_1">
         <dropdownList refId="IZ_Partname120A" noSort="true" defaultItem="0">古いバージョンのメディア プレーヤーを使用する Web ページでビデオおよびアニメーションを許可する</dropdownList>
@@ -4582,6 +4632,9 @@ LOBApp.contoso.com</string>
         <checkBox refId="Btn_Copy">[コピー] ボタンを表示する</checkBox>
         <checkBox refId="Btn_Paste">[貼り付け] ボタンを表示する</checkBox>
         <checkBox refId="Btn_Encoding">[エンコード] ボタンを表示する</checkBox>
+      </presentation>
+      <presentation id="TopResultPol">
+        <dropdownList refId="TopResult" noSort="true" defaultItem="0">アドレス バーから検索するとき:</dropdownList>
       </presentation>
       <presentation id="UnderlineLinksPol">
         <dropdownList refId="UnderlineLinks" noSort="true" defaultItem="0">リンクの下線</dropdownList>

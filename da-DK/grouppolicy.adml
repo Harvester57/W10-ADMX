@@ -11,6 +11,32 @@
       <string id="FontMitigation_On">Bloker skrifttyper, der ikke er tillid til, og logfør hændelser</string>
       <string id="FontMitigation_Off">Bloker ikke skrifttyper, der ikke er tillid til</string>
       <string id="FontMitigation_Audit">Logfør hændelser uden at blokere skrifttyper, der ikke er tillid til</string>
+	  
+	  <string id="ProcessMitigationOptions_List">Behandle indstillinger for afhjælpning</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Denne sikkerhedsfunktion gør det muligt at tilsidesætte individuelle procesindstillinger for MitigationOptions. Dette kn gøres for at gennemtvinge et antal sikkerhedspolitikker, der er specifikke for applikationer. Applikationsnavnet angives som værdinavnet inklusive filtype. Værdien er angivet som et bitfelt med en serie flag på bestemte positioner. Bits kan angives enten til 0 (indstillingen er tvunget fra), 1 (indstillingen er tvunget til) eller ? (indstillingen bevarer den eksisterende værdi fra før GPO-evaluering). Der er følgende genkendte bitplaceringer:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Aktiverer Forhindring af datakørsel for den underordnede proces
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Aktiverer DEP-ATL-thunk-emulering for den underordnede proces. DEP-ATL-thunk-emulering får systemet til at afbryde NX-fejl, der stammer fra ATL-thunk-laget (Active Template Library). 
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Aktiverer struktureret SEHOP (Structured Exception Handler Overwrite Protection) for den underordnede proces. SEHOP blokerer udnyttelser, der bruger overskrivningsteknikken SEH (Structured Exception Handler).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        ASLR-politikken (Address Space Layout Randomization) tvinger billeder, der ikke er kompatible med dynamiske baser til at være kompatible ved at agere, som om der skete en billedbasekollision på indlæsningstidspunktet. Hvis der kræves flytninger, vil billeder, der ikke har en baserelokeringssektion, ikke blive indlæst.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        Politikken for randomisering fra bunden og op, som omfatter randomiseringsindstillinger for stakke, gør, at en tilfældig placering bruges som laveste brugeradresse.
+
+        Hvis du f.eks. vil aktivere PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE og PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, skal du deaktivere PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, og hvis du vil lade alle andre indstillinger bevare standardværdierne, skal du angive denne værdi:
+        ???????????????0???????1???????1
+
+        Hvis flag, der ikke er angivet her, til en anden værdi end ?, medfører det en ikke-defineret adfærd.	  
+</string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Aktivér synkronisering af AD/DFS-domænecontroller under opdatering af politik</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">Hvis du aktiverer denne indstilling, opretter klienten til gruppepolitik forbindelse til samme domænecontroller for DFS-shares, som der bruges til Active Directory.
@@ -24,6 +50,27 @@
 
 
 </string>
+      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP_Help">
+This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+
+If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+
+If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+
+If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+      </string>
+      <string id="Fonts">Skrifttyper</string>
+      <string id="EnableFontProviders">Aktivér skrifttypeudbydere</string>
+      <string id="EnableFontProviders_Help">
+        Denne politikindstilling bestemmer, om Windows har tilladelse til at downloade skrifttyper og skrifttypekatalogdata fra en onlineudbyder af skrifttyper.
+        
+        Hvis du aktiverer politikindstillingen, foretager Windows jævnligt forespørgsler hos en onlineudbyder af skrifttyper for at afgøre, om der findes et nyt skrifttypekatalog. Windows kan også downloade skrifttypedata, hvis det er nødvendigt, for at formatere eller gengive tekst.
+        
+        Hvis du deaktiverer politikindstillingen, opretter Windows ikke forbindelse til en onlineudbyder af skrifttyper og optæller kun lokalt installerede skrifttyper.
+      
+        Hvis du ikke konfigurerer politikindstillingen, afhænger standardfunktionen af udgaven af Windows. Ændringer i denne politik træder i kraft ved genstart.
+      </string>
       <string id="EnableLogonOptimization">Konfigurer cachelagring af gruppepolitik</string>
       <string id="EnableLogonOptimization_Help">
         
@@ -489,6 +536,12 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, anve
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Indstillinger for afhjælpning</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Behandle indstillinger for afhjælpning</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">Tjenesten Windows-skrifttypecache skal have adgang til at downloade skrifttyper og skrifttypekatalogdata fra onlineudbydere af skrifttyper.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Værdi for langsom forbindelse: [talfelt] millisekunder</decimalTextBox>

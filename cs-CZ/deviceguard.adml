@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Ochrana zařízení systému Microsoft Windows</displayName>
-  <description>Zabezpečení ochranou zařízení systému Windows</description>
+  <displayName> Microsoft Windows Device Guard </displayName>
+  <description>Zabezpečení funkcí Windows Device Guard</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">Ochrana zařízení</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Zapnout zabezpečení na základě virtualizace</string>
       <string id="VirtualizationBasedSecurityHelp">Určuje, jestli je povolené zabezpečení na základě virtualizace.
 
@@ -15,17 +15,23 @@ Ochrana integrity kódu na základě virtualizace
 
 Toto nastavení umožňuje ochranu integrity kódu v režimu jádra na základě virtualizace. Pokud je toto nastavení povolené, vynucuje se ochrana paměti v režimu jádra a ověřovací cesta integrity kódu je chráněná funkcí zabezpečení na základě virtualizace.
 
-Upozornění: Všechny ovladače v systému musí být s touto funkcí kompatibilní, jinak může dojít k selhání systému. Zajistěte, aby bylo nastavení této zásady nasazené jenom do počítačů, o kterých se ví, že jsou kompatibilní.
+Možnost Zakázáno vzdáleně vypne ochranu integrity kódu na základě virtualizace, pokud byla dříve zapnutá pomocí možnosti Povoleno bez uzamčení.
+ 
+Možnost Povoleno s uzamčením UEFI zajistí, že ochranu integrity kódu na základě virtualizace nebude možné zakázat vzdáleně. Aby se funkce zakázala, bude nutné, aby fyzicky přítomný uživatel nastavil zásadu skupiny na možnost Zakázáno a odebral bezpečnostní funkci z každého jednotlivého počítače. Jenom tak se vymaže konfigurace trvale uložená v UEFI.
+ 
+Možnost Povoleno bez uzamčení umožní vzdálené zakázání ochrany integrity kódu na základě virtualizace pomocí zásad skupiny.
 
-Ochrana přihlašovacích údajů
+Upozornění: Všechny ovladače v systému musí být s touto funkcí kompatibilní, jinak může dojít k selhání systému. Zajistěte, aby bylo toto nastavení zásad nasazené jenom do počítačů, o kterých se ví, že jsou kompatibilní.
 
-Toto nastavení umožňuje uživatelům zapnutí Ochrany přihlašovacích údajů se zabezpečením na základě virtualizace.
+Credential Guard
 
-Možnost Zakázáno vypne Ochranu přihlašovacích údajů, pokud byla předtím zapnutá pomocí možnosti Povoleno bez zámku.
+Toto nastavení umožňuje uživatelům zapnout funkci Credential Guard se zabezpečením na základě virtualizace, která slouží k ochraně přihlašovacích údajů.
 
-Možnost Povoleno se zámkem UEFI zajišťuje, že se Ochrana přihlašovacích údajů nedá zakázat vzdáleně. Pokud chcete funkci zakázat, musíte tuto zásadu skupiny nastavit na Zakázáno a současně odebrat příslušné funkce zabezpečení na každém jednotlivém počítači a za fyzické přítomnosti uživatele – jen tak je možné vymazat konfiguraci, která je trvale uložená v rozhraní UEFI.
+Možnost Zakázáno vzdáleně vypne funkci Credential Guard, pokud byla předtím zapnutá pomocí možnosti Povoleno bez uzamčení.
 
-Možnost Povoleno bez zámku umožňuje vzdálené zakázání Ochrany přihlašovacích údajů pomocí zásad skupiny. Na zařízeních s tímto nastavením musí běžet přinejmenším Windows 10 (verze 1511).
+Možnost Povoleno s uzamčením UEFI zajistí, že funkci Credential Guard nebude možné zakázat vzdáleně. Aby se funkce zakázala, bude nutné, aby fyzicky přítomný uživatel nastavil zásadu skupiny na možnost Zakázáno a odebral bezpečnostní funkci z každého jednotlivého počítače. Jenom tak se vymaže konfigurace trvale uložená v UEFI.
+
+Možnost Povoleno bez uzamčení umožní vzdálené zakázání funkce Credential Guard pomocí zásad skupiny. Na zařízeních s tímto nastavením musí běžet přinejmenším Windows 10 (verze 1511).
       </string>
       <string id="SecureBoot">Zabezpečené spouštění</string>
       <string id="SecureBootAndDmaProtection">Zabezpečené spouštění a ochrana DMA</string>
@@ -50,9 +56,9 @@ Pokud používáte podepsanou a chráněnou zásadu, pak zakázáním tohoto nas
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Vyberte úroveň zabezpečení platformy:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Povolit ochranu integrity kódu na základě virtualizace</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfigurace Ochrany přihlašovacích údajů:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Vyberte úroveň zabezpečení platformy:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Ochrana integrity kódu na základě virtualizace:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfigurace funkce Credential Guard:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

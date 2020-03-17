@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">システム スリープ タイムアウトを指定する (電源接続時)</string>
       <string id="ACStandbyWithHiberfileEnable">ハイブリッド スリープをオフにする (電源接続時)</string>
       <string id="ACSystemLidAction">LID スイッチの操作を選択する (電源接続時)</string>
+      <string id="ACConnectivityInStandby">コネクト スタンバイ中にネットワーク接続を許可する (電源接続時)</string>
       <string id="BatteryDischargeAction0Explain">このポリシー設定では、バッテリ容量がバッテリ切れ通知レベルに達したときに Windows が実行する動作を指定します。
 
 このポリシー設定を有効にした場合は、次のいずれかの操作を選択します。
@@ -82,6 +83,7 @@
       <string id="DCStandbyTimeOut">システム スリープ タイムアウトを指定する (バッテリ使用時)</string>
       <string id="DCStandbyWithHiberfileEnable">ハイブリッド スリープをオフにする (バッテリ使用時)</string>
       <string id="DCSystemLidAction">LID スイッチの操作を選択する (バッテリ使用時)</string>
+      <string id="DCConnectivityInStandby">コネクト スタンバイ中にネットワーク接続を許可する (バッテリ使用時)</string>
       <string id="DiskACPowerDownTimeOut">ハード ディスクをオフにする (電源接続時)</string>
       <string id="DiskDCPowerDownTimeOut">ハード ディスクをオフにする (バッテリ使用時)</string>
       <string id="DiskPowerDownTimeOutExplain">このポリシー設定では、非アクティブな状態になってから Windows がハード ディスクをオフにするまでの期間を指定します。
@@ -270,6 +272,23 @@ Windows は、コンピューターに統合されているプライマリ デ�
 
 このポリシー設定を無効にした場合、または構成しなかった場合、ユーザーはこの設定を表示および変更できます。</string>
     
+      <string id="EnergySaverSettingsCat">省電力設定</string>
+      <string id="EsBattThresholdAC">省電力バッテリしきい値 (電源接続時)</string>
+      <string id="EsBattThresholdDC">省電力バッテリしきい値 (バッテリ使用時)</string>
+      <string id="EsBattThresholdExplain">このポリシー設定を使用すると、省電力設定を有効にするバッテリ充電レベルを指定できます。
+
+このポリシー設定を有効にした場合は、バッテリ充電レベルを示すパーセント値を入力してください。省電力設定は、指定したレベル以下で自動的にオンになります。
+
+このポリシー設定を無効にした場合、または構成しなかった場合、ユーザーがこの設定を制御します。</string>
+
+      <string id="ConnectivityInStandbyExplain">このポリシー設定を使用すると、スタンバイ対応の最新システムでスタンバイ時のネットワーク接続状態を制御できます。
+
+このポリシー設定を有効にすると、スタンバイ時にネットワーク接続が保持されます。
+
+このポリシー設定を無効にした場合、スタンバイ時のネットワーク接続は保証されません。この接続制限は、現時点では WLAN ネットワークのみに適用されていますが、変更される可能性があります。
+
+このポリシー設定を構成しなかった場合、ユーザーがこの設定を制御します。</string>
+
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +438,9 @@ Windows は、コンピューターに統合されているプライマリ デ�
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">省電源バッテリ通知レベル (パーセント):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">省電力バッテリしきい値 (%):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -1,224 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>enter display name here</displayName>
-  <description>enter description here</description>
+  <displayName>itt adja meg a megjelenítendő nevet</displayName>
+  <description>itt adja meg a leírást</description>
   <resources>
     <stringTable>
-      <string id="AppPrivacy">App Privacy</string>
-      <string id="UserInControl">User is in control</string>
-      <string id="ForceAllow">Force Allow</string>
-      <string id="ForceDeny">Force Deny</string>
-      <string id="LetAppsAccessCalendar_Name">Let Windows apps access the calendar</string>
-      <string id="LetAppsAccessCalendar_Explain">This policy setting specifies whether Windows apps can access the calendar.
+      <string id="AppPrivacy">Alkalmazások adatvédelmi beállításai</string>
+      <string id="UserInControl">A felhasználó döntheti el</string>
+      <string id="ForceAllow">Mindig engedélyezve</string>
+      <string id="ForceDeny">Mindig letiltva</string>
+      <string id="LetAppsAccessAccountInfo_Name">A Windows-alkalmazások hozzáférhetnek a fiókadatokhoz</string>
+      <string id="LetAppsAccessAccountInfo_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a fiókadatokhoz.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the calendar by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the calendar and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a fiókadatokhoz.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the calendar and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a fiókadatokhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the calendar by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a fiókadatokhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a fiókadatokhoz.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessCallHistory_Name">Let Windows apps access call history</string>
-      <string id="LetAppsAccessCallHistory_Explain">This policy setting specifies whether Windows apps can access call history.
+      <string id="LetAppsAccessCalendar_Name">A Windows-alkalmazások hozzáférhetnek a naptárhoz</string>
+      <string id="LetAppsAccessCalendar_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a naptárhoz.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access call history by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the call history and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a naptárhoz.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the call history and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a naptárhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the call history by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a naptárhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a naptárhoz.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessCamera_Name">Let Windows apps access the camera</string>
-      <string id="LetAppsAccessCamera_Explain">This policy setting specifies whether Windows apps can access the camera.
+      <string id="LetAppsAccessCallHistory_Name">A Windows-alkalmazások hozzáférhetnek a híváslistához</string>
+      <string id="LetAppsAccessCallHistory_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a híváslistához.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the camera by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the camera and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a híváslistához.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the camera and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a híváslistához, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the camera by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a híváslistához, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a híváslistához.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessContacts_Name">Let Windows apps access contacts</string>
-      <string id="LetAppsAccessContacts_Explain">This policy setting specifies whether Windows apps can access contacts.
+      <string id="LetAppsAccessCamera_Name">A Windows-alkalmazások hozzáférhetnek a kamerához</string>
+      <string id="LetAppsAccessCamera_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a kamerához.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access contacts by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access contacts and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a kamerához.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access contacts and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a kamerához, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access contacts by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a kamerához, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a kamerához.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessEmail_Name">Let Windows apps access email</string>
-      <string id="LetAppsAccessEmail_Explain">This policy setting specifies whether Windows apps can access email.
+      <string id="LetAppsAccessContacts_Name">A Windows-alkalmazások hozzáférhetnek a névjegyekhez</string>
+      <string id="LetAppsAccessContacts_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a névjegyekhez.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access email by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access email and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a névjegyekhez.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access email and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a névjegyekhez, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access email by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a névjegyekhez, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a névjegyekhez.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessLocation_Name">Let Windows apps access location</string>
-      <string id="LetAppsAccessLocation_Explain">This policy setting specifies whether Windows apps can access location.
+      <string id="LetAppsAccessEmail_Name">A Windows-alkalmazások hozzáférhetnek az e-mailhez</string>
+      <string id="LetAppsAccessEmail_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e az e-mailekhez.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access location by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access location and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e az e-mailekhez.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access location and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek az e-mailekhez, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access location by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá az e-mailekhez, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e az e-mailekhez.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessMessaging_Name">Let Windows apps access messaging</string>
-      <string id="LetAppsAccessMessaging_Explain">This policy setting specifies whether Windows apps can read or send messages (text or MMS).
+      <string id="LetAppsAccessLocation_Name">A Windows-alkalmazások hozzáférhetnek a tartózkodási helyhez</string>
+      <string id="LetAppsAccessLocation_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a tartózkodási helyhez.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can read or send messages by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps can read or send messages and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a tartózkodási helyhez.
 
-If you choose the "Force Deny" option, Windows apps cannot read or send messages and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a tartózkodási helyhez, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can read or send messages by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a tartózkodási helyhez, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a tartózkodási helyhez.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessMicrophone_Name">Let Windows apps access the microphone</string>
-      <string id="LetAppsAccessMicrophone_Explain">This policy setting specifies whether Windows apps can access the microphone.
+      <string id="LetAppsAccessMessaging_Name">A Windows-alkalmazások hozzáférhetnek az üzenetekhez</string>
+      <string id="LetAppsAccessMessaging_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások olvashatnak vagy küldhetnek-e (SMS- vagy MMS-) üzeneteket.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the microphone by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the microphone and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások olvashatnak vagy küldhetnek-e üzeneteket.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the microphone and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások olvashatnak vagy küldhetnek üzeneteket, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the microphone by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem olvashatnak vagy küldhetnek üzeneteket, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások olvashatnak vagy küldhetnek-e üzeneteket.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessMotion_Name">Let Windows apps access motion</string>
-      <string id="LetAppsAccessMotion_Explain">This policy setting specifies whether Windows apps can access motion data.
+      <string id="LetAppsAccessMicrophone_Name">A Windows-alkalmazások hozzáférhetnek a mikrofonhoz</string>
+      <string id="LetAppsAccessMicrophone_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a mikrofonhoz.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access motion data by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access motion data and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a mikrofonhoz.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access motion data and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a mikrofonhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access motion data by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a mikrofonhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a mikrofonhoz.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessRadios_Name">Let Windows apps control radios</string>
-      <string id="LetAppsAccessRadios_Explain">This policy setting specifies whether Windows apps have access to control radios.
+      <string id="LetAppsAccessMotion_Name">A Windows-alkalmazások hozzáférhetnek a mozgáskövetési adatokhoz</string>
+      <string id="LetAppsAccessMotion_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a mozgáskövetési adatokhoz.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps have access to control radios by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps will have access to control radios and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a mozgáskövetési adatokhoz.
 
-If you choose the "Force Deny" option, Windows apps will not have access to control radios and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a mozgáskövetési adatokhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps have access to control radios by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a mozgáskövetési adatokhoz, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a kamerához.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessAccountInfo_Name">Let Windows apps access account information</string>
-      <string id="LetAppsAccessAccountInfo_Explain">This policy setting specifies whether Windows apps can access account information.
+      <string id="LetAppsAccessNotifications_Name">A Windows-alkalmazások hozzáférhetnek az értesítésekhez</string>
+      <string id="LetAppsAccessNotifications_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e az értesítésekhez.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access account information by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access account information and employees in your organization cannot change it.
+Ha „A felhasználó felügyelheti” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e az értesítésekhez.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access account information and employees in your organization cannot change it.
+Ha az „Engedélyezés kényszerítése” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek az értesítésekhez, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access account information by using Settings &gt; Privacy on the device.
+Ha a „Tiltás kényszerítése” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá az értesítésekhez, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e az értesítésekhez.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsSyncWithDevices_Name">Let Windows apps sync with devices</string>
-      <string id="LetAppsSyncWithDevices_Explain">This policy setting specifies whether Windows apps can sync with devices.
+      <string id="LetAppsAccessPhone_Name">Telefonhívások kezdeményezésének engedélyezése a Windows-alkalmazások számára</string>
+      <string id="LetAppsAccessPhone_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások kezdeményezhetnek-e telefonhívást.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can sync with devices by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to sync with devices and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások kezdeményezhetnek-e telefonhívást.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to sync with devices and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások kezdeményezhetnek telefonhívást, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can sync with devices by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem kezdeményezhetnek telefonhívást, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások kezdeményezhetnek-e telefonhívást.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsAccessTrustedDevices_Name">Let Windows apps access trusted devices</string>
-      <string id="LetAppsAccessTrustedDevices_Explain">This policy setting specifies whether Windows apps can access trusted devices.
+      <string id="LetAppsAccessRadios_Name">A Windows-alkalmazások vezérelhetik az antennákat</string>
+      <string id="LetAppsAccessRadios_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások vezérelhetik-e az antennákat.
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access trusted devices by using Settings &gt; Privacy on the device.
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
 
-If you choose the "Force Allow" option, Windows apps are allowed to access trusted devices and employees in your organization cannot change it.
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások vezérelhetik-e az antennákat.
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access trusted devices and employees in your organization cannot change it.
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások vezérelhetik az antennákat, és a dolgozók nem módosíthatják a beállítást.
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access trusted devices by using Settings &gt; Privacy on the device.
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem vezérelhetik az antennákat, és a dolgozók nem módosíthatják a beállítást.
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások vezérelhetik-e az antennákat.
 
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
+      </string>
+      <string id="LetAppsSyncWithDevices_Name">A Windows-alkalmazások szinkronizálhatnak eszközökkel</string>
+      <string id="LetAppsSyncWithDevices_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások szinkronizálhatnak-e eszközökkel.
+
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
+
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások szinkronizálhatnak-e eszközökkel.
+
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások szinkronizálhatnak eszközökkel, és a dolgozók nem módosíthatják a beállítást.
+
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem szinkronizálhatnak eszközökkel, és a dolgozók nem módosíthatják a beállítást.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások szinkronizálhatnak-e eszközökkel.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
+      </string>
+      <string id="LetAppsAccessTrustedDevices_Name">A Windows-alkalmazások hozzáférhetnek a megbízható eszközökhöz</string>
+      <string id="LetAppsAccessTrustedDevices_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a megbízható eszközökhöz.
+
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
+
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a megbízható eszközökhöz.
+
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a megbízható eszközökhöz, és a dolgozók nem módosíthatják a beállítást.
+
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a megbízható eszközökhöz, és a dolgozók nem módosíthatják a beállítást.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház Adatvédelem szakaszában, hogy a Windows-alkalmazások hozzáférhetnek-e a megbízható eszközökhöz.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
-        <dropdownList refId="LetAppsAccessCalendar_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCalendar_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessPhone">
+        <dropdownList refId="LetAppsAccessPhone_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessPhone_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessPhone_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessPhone_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessCallHistory">
-        <dropdownList refId="LetAppsAccessCallHistory_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCallHistory_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessCamera">
-        <dropdownList refId="LetAppsAccessCamera_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCamera_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCamera_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCamera_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCamera_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessContacts">
-        <dropdownList refId="LetAppsAccessContacts_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessContacts_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessContacts_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessContacts_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessContacts_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessEmail">
-        <dropdownList refId="LetAppsAccessEmail_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessEmail_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessEmail_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessEmail_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessEmail_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessLocation">
-        <dropdownList refId="LetAppsAccessLocation_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessLocation_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessLocation_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessLocation_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessLocation_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMessaging">
-        <dropdownList refId="LetAppsAccessMessaging_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMessaging_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMicrophone">
-        <dropdownList refId="LetAppsAccessMicrophone_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMicrophone_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMotion">
-        <dropdownList refId="LetAppsAccessMotion_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMotion_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMotion_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMotion_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessMotion_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessNotifications">
+        <dropdownList refId="LetAppsAccessNotifications_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessRadios">
-        <dropdownList refId="LetAppsAccessRadios_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessRadios_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessRadios_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessRadios_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessRadios_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessAccountInfo">
-        <dropdownList refId="LetAppsAccessAccountInfo_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessAccountInfo_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsSyncWithDevices">
-        <dropdownList refId="LetAppsSyncWithDevices_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsSyncWithDevices_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessTrustedDevices">
-        <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

@@ -24,6 +24,19 @@
 
 このポリシー設定を構成しなかった場合、ユーザーは [設定] の "このビルドの機能に対する試験を Microsoft に許可する" オプションを構成することができます。
 </string>
+      <string id="TelemetryProxy">接続ユーザーのエクスペリエンスと利用統計情報を構成する</string>
+      <string id="TelemetryProxy_Explain">このポリシー設定では、接続ユーザー エクスペリエンスとテレメトリ要求をプロキシ サーバーに転送できます。
+
+このポリシー設定を有効にした場合、組織のネットワーク内にある宛先デバイスの FQDN または IP アドレスを指定できます (必要に応じてポート番号も指定できます)。接続は、Secure Sockets Layer (SSL) 接続を経由して確立されます。指定されたプロキシが失敗した場合、またはこのポリシー設定を無効にしたか構成しなかった場合は、接続ユーザー エクスペリエンスとテレメトリ データは、既定のプロキシ構成を使って Microsoft に送られます。
+
+この設定の形式は、&lt;サーバー&gt;:&lt;ポート&gt; です。 
+</string>
+      
+      <string id="CommercialId">業務用 ID を構成します</string>
+      <string id="CommercialId_Explain">このポリシー設定では、このデバイスの製品利用統計情報データを、指定した組織に属するデータとして一意に関連付けるために使用する識別子を定義します。組織が参加していて、そのプログラムで、このデバイスを組織に属するデバイスとして識別することが必要な場合は、この設定を使用してその識別情報を提供します。この設定の値は、プログラムのオンボード プロセスの一部として Microsoft によって提供されます。
+
+このポリシー設定を無効にするか構成しなかった場合、Microsoft がこの識別子を使用して、このコンピューターとその製品利用統計情報データを組織に関連付けることはできません。
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +44,16 @@
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>プロキシ サーバー名:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>業務用 ID:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>GP for leveringsoptimalisering</displayName>
+  <description>Denne filen beskriver GP-innstillingene for leveringsoptimalisering</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Leveringsoptimalisering</string>
+      <string id="DownloadMode">Nedlastingsmodus</string>
+      <string id="DownloadMode_Help">Angir nedlastingsmetoden Leveringsoptimalisering kan bruke til nedlasting av Windows-oppdateringer, apper og appoppdateringer. I følgende liste vises verdiene som støttes: 0=bare HTTP, ingen nodefordeling. 1=HTTP blandet med nodefordeling bak samme NAT. 2=HTTP blandet med nodefordeling innad i en lukket gruppe. Som standard foregår nodefordelingen på enheter i samme Active Directory-område (hvis disse finnes) eller på det samme domenet. Når dette alternativet er valgt, foregår nodefordelingen på tvers av NAT-er. Hvis du vil opprette en egendefinert gruppe, bruker du gruppe-ID-en sammen med modus 2. 3=HTTP blandet med nodefordeling via Internett. 99=enkel nedlastingsmodus uten nodefordeling. Leveringsoptimalisering laster ned ved hjelp av HTTP, og vil ikke prøve å kontakte skytjenestene for Leveringsoptimalisering. 100=bypass-modus. Ikke bruk Leveringsoptimalisering. Bruk BITS i stedet.</string>
+      <string id="DownloadMode_CdnOnly">Bare HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
-      <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Group">Gruppe</string>
+      <string id="DownloadMode_Internet">Internett</string>
+      <string id="DownloadMode_Simple">Enkelt</string>
+      <string id="DownloadMode_Bypass">Omgå</string>
+      <string id="GroupId">Gruppe-ID</string>
+      <string id="GroupId_Help">Gruppe-ID må angis som en GUID. Denne policyen angir en vilkårlig gruppe-ID som enheten tilhører. Bruk dette hvis du må opprette en enkelt gruppe for nodefordeling på lokale nettverk for avdelinger som tilhører forskjellige domener eller ikke finnes på samme LAN. Obs! Dette er bare en anbefalt fremgangsmåte, og den bør ikke brukes til godkjenning av identiteter.</string>
+      <string id="MaxUploadBandwidth">Maksimal opplastingsbåndbredde (i kB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Angir den maksimale opplasting båndbredden som Leveringsoptimalisering bruker på tvers av alle samtidige opplastingsaktiviteter i kB/s. Standardverdien 0 (null) tillater ubegrenset bruk, og opplastingene optimaliseres dynamisk for minimal bruk av opplastingsbåndbredde.</string>
+      <string id="MaxCacheSize">Maksimal hurtigbufferstørrelse (i prosent)</string>
+      <string id="MaxCacheSize_Help">Angir maksimal størrelse på hurtigbufferen som Leveringsoptimalisering bruker, i form av en tilgjengelig diskstørrelse (1-100).</string>
+      <string id="AbsoluteMaxCacheSize">Absolutt maksimal hurtigbufferstørrelse (i Storbritannia)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Angir den maksimale størrelsen i GB for hurtigbufferen for Leveringsoptimalisering. Denne policyen overstyrer DOMaxCacheSize-policyen. Verdien 0 (null) innebærer en "ubegrenset" hurtigbuffer. Leveringsoptimalisering tømmer hurtigbufferen når enheten har lite ledig diskplass.</string>
+      <string id="MaxCacheAge">Maksimal alder på hurtigbuffer (i sekunder)</string>
+      <string id="MaxCacheAge_Help">Angir hvor mange sekunder hver fil maksimalt beholdes i hurtigbufferen for leveringsoptimalisering etter at den er lastet ned. Verdien 0 (null) betyr "ubegrenset". Leveringsoptimalisering beholder nedlastede filer i hurtigbufferen lenger og gjør filene tilgjengelige for opplasting til andre enheter, så lenge hurtigbufferstørrelsen ikke er overskredet.</string>
+      <string id="MonthlyUploadDataCap">Båndbreddegrense for månedlig opplasting (i Storbritannia)</string>
+      <string id="MonthlyUploadDataCap_Help">Angir maksimalt antall byte i GB som Leveringsoptimalisering har tillatelse til å laste opp til Internett-nodenett hver kalendermåned. Verdien 0 (null) betyr "ubegrenset". Ingen månedlig opplastingsgrense brukes hvis 0 er angitt.</string>
+      <string id="MinBackgroundQos">Minimum bakgrunns-QoS (i kB/s)</string>
+      <string id="MinBackgroundQos_Help">Angir minimum nedlastings-QoS (tjenestekvalitet eller hastighet) for bakgrunnsnedlastinger i kilobyte per sekund. Denne policyen påvirker blandingen av nodenett- og HTTP-kilder. Leveringsoptimalisering komplementerer nedlastingen fra HTTP-kilden for å oppnå den angitte minimumsverdien for QoS.</string>
+      <string id="ModifyCacheDrive">Endre hurtigbufferstasjon</string>
+      <string id="ModifyCacheDrive_Help">Angir stasjonen Leveringsoptimalisering bruker til hurtigbufferen. Som standard brukes %SystemDrive% for å lagre hurtigbufferen. Stasjonsbokstaven kan angis med miljøvariabler, stasjonsbokstav eller med en fullstendig bane.</string>
+      <string id="MaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i kB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Angir den maksimale båndbredden i kilobyte/sekund som enheten kan bruke for alle samtidige nedlastingsaktiviteter via Leveringsoptimalisering. Standardverdien 0 (null) betyr at Leveringsoptimalisering justeres dynamisk for å bruke den tilgjengelige båndbredden for nedlastinger.</string>
+      <string id="PercentageMaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i prosent)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Angir den maksimale båndbredden for nedlasting som Leveringsoptimalisering bruker for alle nedlastingsaktiviteter, i form av en prosentandel av den tilgengelige nedlastingsbåndbredden. Standardverdien 0 (null) betyr at Leveringsoptimalisering justeres dynamisk for å bruke den tilgjengelige båndbredden for nedlastinger.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Nedlastingsmodus:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>Gruppe-ID:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Maksimal opplastingsbåndbredde (i KB/s):</decimalTextBox>
+        <text>Standardverdien er 0 (ubegrenset).</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Maksimal hurtigbufferstørrelse (i prosent):</decimalTextBox>
+        <text>Standardverdien er 20 %.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Absolutt maksimal hurtigbufferstørrelse (i Storbritannia):</decimalTextBox>
+        <text>Standardverdien er 10 GB.</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Maksimal alder på hurtigbuffer (i sekunder):</decimalTextBox>
+        <text>Standardverdien er 3 dager.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Båndbreddegrense for månedlig opplasting (i Storbritannia):</decimalTextBox>
+        <text>Standardverdien er 20 GB.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">Minimum bakgrunns-QoS (i kB/s):</decimalTextBox>
+        <text>Standardverdien er 500 kB/s.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Endre hurtigbufferstasjon:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i kB/s):</decimalTextBox>
+        <text>Standardverdien er 0 (ubegrenset).</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i prosent):</decimalTextBox>
+        <text>Standardverdien er 0 (ubegrenset).</text>
       </presentation>
     </presentationTable>
   </resources>

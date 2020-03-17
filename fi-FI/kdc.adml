@@ -78,6 +78,22 @@ Jos otat tämän käytäntöasetuksen käyttöön, toimialueen ohjauskoneet pyyt
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, toimialueen ohjauskoneet palauttavat palveluliput, jotka sisältävät yhdistelmätodennuksen aina, kun asiakas lähettää yhdistelmätodennuspyynnön tilin kokoonpanosta huolimatta.
 
 </string>
+      <string id="PKINITFreshness">Avaintenjakelukeskuksen PKInit Freshness -laajennuksen tuki</string>
+      <string id="PKINITFreshness_explain">PKInit Freshness -laajennus edellyttää Windows Server 2016 -toimialueen toimintatasoa (DFL). Jos toimialueen ohjauskoneen toimialue ei ole vähintään tasoa Windows Server 2016 DFL, tätä käytäntöä ei sovelleta.
+
+Tämän käytäntöasetuksen avulla voit määrittää toimialueen ohjauskoneen tukemaan PKInit Freshness -laajennusta.
+
+Jos otat tämän käytäntöasetuksen käyttöön, seuraavat asetukset ovat tuettuja:
+
+Tuettu: PKInit Freshness -laajennus on tuettu pyydettäessä. PKInit Freshness -laajennukseen onnistuneesti todennetut Kerberos-asiakkaat saavat julkisen avaimen käyttäjätietojen tuoreen SID-tunnuksen.
+
+Pakollinen: Onnistuneeseen todennukseen tarvitaan PKInit Freshness -laajennus. PKInit Freshness -laajennusta tukemattomat Kerberos-asiakkaat epäonnistuvat todennuksessa aina käyttäessään julkisen avaimen tunnistetietoja.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, toimialueen ohjauskone ei koskaan tarjoa käyttöön PKInit Freshness -laajennusta eikä hyväksy kelvollisia todennuspyyntöjä tarkistamatta tuoreutta. Käyttäjät eivät saa koskaan julkisen avaimen käyttäjätietojen tuoretta SID-tunnusta.
+</string>
+      <string id="NoPKINITFreshness">Poissa käytöstä</string>
+      <string id="SupportPKINITFreshness">Tuettu</string>
+      <string id="RequirePKINITFreshness">Pakollinen</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, to
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Lipun koon raja-arvo</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKInit Freshness -laajennuksen asetukset:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -24,6 +24,21 @@ Ha letiltja a házirend-beállítást, minden kísérlet kikapcsol.
 
 Ha nem konfigurálja a házirend-beállítást, a felhasználó ki- és bekapcsolhatja a Gépházban A Microsoft kipróbálhatja ennek a buildnek a funkcióit beállítást.
 </string>
+      <string id="TelemetryProxy">Az Összekapcsolt felhasználói élmények és telemetria szolgáltatás konfigurálása</string>
+      <string id="TelemetryProxy_Explain">Ezzel a házirend-beállítással proxykiszolgálóra továbbíthatja az Összekapcsolt felhasználói élmények és telemetria szolgáltatás kérelmeit.
+
+Ha engedélyezi ezt a házirend-beállítást, megadhatja a munkahelyi vagy intézményi hálózaton működő céloldali eszköz teljes tartománynevét vagy IP-címét (igény esetén a portszámot is). Az eszközök SSL-kapcsolaton keresztül csatlakoznak. Ha a szóban forgó proxy meghibásodik, vagy ha a házirend proxy megadása nélkül lett engedélyezve, a Windows nem küldi el az Összekapcsolt felhasználói élmények és telemetria szolgáltatás adatait, így azok a helyi eszközön maradnak.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows az alapértelmezett proxybeállításokat használva elküldi a Microsoftnak az Összekapcsolt felhasználói élmények és telemetria szolgáltatás adatait.
+
+A beállítás formátuma &lt;kiszolgálónév&gt;:&lt;portszám&gt;. 
+</string>
+      
+      <string id="CommercialId">A kereskedelmi azonosító konfigurálása</string>
+      <string id="CommercialId_Explain">Ezzel a házirend-beállítással definiálhatja azt az azonosítót, amellyel egyedi módon társíthatja az eszköz telemetriai adatait egy adott munkahelyhez vagy intézményhez. Ha olyan programban vesz részt a munkahely vagy az intézmény, amelyben annak tulajdonaként kell azonosítani az eszközt, ezzel a beállítással elvégezhető a szükséges azonosítás. A beállítás értékét a Microsoft határozza meg a program előkészítésének részeként.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Microsoft nem tudja a munkahelyhez vagy az intézményhez társítani a gépet és annak telemetriai adatait ezzel az azonosítóval.
+</string>
     </stringTable>
     <presentationTable>
       <presentation id="AllowTelemetry">
@@ -31,6 +46,16 @@ Ha nem konfigurálja a házirend-beállítást, a felhasználó ki- és bekapcso
       </presentation>
       <presentation id="EnableExperimentation">
         <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="TelemetryProxy">
+        <textBox refId="TelemetryProxyName">
+        <label>Proxykiszolgáló neve:</label>
+        </textBox>
+      </presentation>
+      <presentation id="CommercialID">
+        <textBox refId="CommercialIdValue">
+        <label>Kereskedelmi azonosító:</label>
+        </textBox>
       </presentation>
     </presentationTable>
   </resources>

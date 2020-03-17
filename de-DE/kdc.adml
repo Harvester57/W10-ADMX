@@ -78,6 +78,22 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, fordern Domänencontroller die
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, geben Domänencontroller unabhängig von der Kontokonfiguration immer Diensttickets zurück, die Verbundauthentifizierungsdaten enthalten, wenn der Client eine Verbundauthentifizierungsanforderung sendet.
 
 </string>
+      <string id="PKINITFreshness">KDC-Unterstützung für PKInit Freshness Extension</string>
+      <string id="PKINITFreshness_explain">Zur Unterstützung von PKInit Freshness Extension ist eine Windows Server 2016-Domänenfunktionsebene erforderlich. Wenn die Domäne des Domänencontrollers keine Windows Server 2016-Domänenfunktionsebene (oder höher) ist, wird die Richtlinie nicht angewendet.
+
+Mit dieser Richtlinieneinstellung kann ein Domänencontroller (DC) für die Unterstützung von PKInit Freshness Extension konfiguriert werden.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, werden die folgenden Optionen unterstützt:
+
+Unterstützt: PKInit Freshness Extension wird auf Anforderung unterstützt. Kerberos-Clients, die erfolgreich mit PKInit Freshness Extension authentifiziert werden, erhalten die Identitäts-SID für den öffentlichen Schlüssel von Freshness.
+
+Erforderlich: PKInit Freshness Extension ist für die erfolgreiche Authentifizierung erforderlich. Kerberos-Clients, die PKInit Freshness Extension nicht unterstützen, verursachen bei der Verwendung von Anmeldeinformationen mit öffentlichem Schlüssel immer einen Fehler.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, bietet der DC PKInit Freshness Extension nie an und akzeptiert gültige Authentifizierungsanforderungen ohne Freshness-Überprüfung. Benutzer empfangen nie die Identitäts-SID für den öffentlichen Schlüssel von Freshness.
+</string>
+      <string id="NoPKINITFreshness">Deaktiviert</string>
+      <string id="SupportPKINITFreshness">Unterstützt</string>
+      <string id="RequirePKINITFreshness">Erforderlich</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, geb
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Schwellenwert für die Ticketgröße</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">PKInit Freshness Extension-Optionen:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

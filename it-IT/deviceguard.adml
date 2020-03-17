@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2015 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>Controllo dispositivo Microsoft Windows</displayName>
-  <description>Sicurezza di Controllo dispositivo Windows</description>
+  <displayName>Microsoft Windows Device Guard</displayName>
+  <description>Sicurezza di Windows Device Guard</description>
   <resources>
     <stringTable>
-      <string id="DeviceGuard">Controllo dispositivo</string>
+      <string id="DeviceGuard">Device Guard</string>
       <string id="VirtualizationBasedSecurity">Attiva sicurezza basata su virtualizzazione</string>
       <string id="VirtualizationBasedSecurityHelp">Specifica se è abilitata la sicurezza basata su virtualizzazione.
 
@@ -15,17 +15,23 @@ Protezione basata su virtualizzazione dell'integrità del codice
 
 Questa impostazione consente la protezione basata su virtualizzazione dell'integrità del codice in modalità kernel. Quando questa impostazione è abilitata, vengono applicate protezioni della memoria in modalità kernel e il percorso di convalida dell'integrità del codice è protetto dalla funzionalità di sicurezza basata su virtualizzazione.
 
-Avviso: tutti i driver nel sistema devono essere compatibili con questa funzionalità o potrebbe verificarsi un arresto anomalo del sistema. Verificare che questa impostazione dei criteri sia distribuita solo nei computer di cui è nota la compatibilità. 
+L'opzione "Disabilitato" disattiva la protezione basata su virtualizzazione dell'integrità del codice in remoto se era precedentemente attivata con l'opzione "Abilitato senza blocco".
+ 
+L'opzione "Abilitato con blocco UEFI" assicura che la protezione basata su virtualizzazione dell'integrità del codice non possa essere disabilitata in remoto. Per disabilitare la funzionalità, è necessario impostare il criterio di gruppo su "Disabilitato", nonché rimuovere la funzionalità di sicurezza da ogni computer con un utente fisicamente presente, per cancellare la configurazione salvata in UEFI.
+ 
+L'opzione "Abilitato senza blocco" consente di disabilitare in remoto la protezione basata su virtualizzazione dell'integrità del codice usando Criteri di gruppo. 
 
-Controllo credenziali
+Avviso: tutti i driver nel sistema devono essere compatibili con questa funzionalità o potrebbe verificarsi un arresto anomalo del sistema. Verifica che questa impostazione dei criteri sia distribuita solo nei computer di cui è nota la compatibilità. 
 
-Questa impostazione consente agli utenti di attivare il controllo delle credenziali con sicurezza basata su virtualizzazione per proteggere le credenziali.
+Credential Guard
 
-L'opzione "Disabilitato" disattiva il controllo delle credenziali in remoto se era stato attivato in precedenza con l'opzione "Abilitato senza blocco".
+Questa impostazione consente agli utenti di attivare Credential Guard con sicurezza basata su virtualizzazione per proteggere le credenziali.
 
-L'opzione "Abilitato con blocco UEFI" assicura che il controllo delle credenziali non possa essere disabilitato in remoto. Per disabilitare la funzionalità, è necessario impostare il criterio di gruppo su "Disabilitato" e rimuovere le funzionalità di sicurezza da ogni computer con un utente fisicamente presente, per cancellare la configurazione salvata in UEFI.
+L'opzione "Disabilitato" disattiva Credential Guard in remoto se era stato attivato in precedenza con l'opzione "Abilitato senza blocco".
 
-L'opzione "Abilitato senza blocco" consente di disabilitare in remoto il controllo delle credenziali usando Criteri di gruppo. Nei dispositivi che usano questa impostazione deve essere in esecuzione almeno Windows 10 (versione 1511).
+L'opzione "Abilitato con blocco UEFI" assicura che Credential Guard non possa essere disabilitato in remoto. Per disabilitare la funzionalità, è necessario impostare il criterio di gruppo su "Disabilitato" e rimuovere le funzionalità di sicurezza da ogni computer con un utente fisicamente presente, per cancellare la configurazione salvata in UEFI.
+
+L'opzione "Abilitato senza blocco" consente di disabilitare in remoto Credential Guard usando Criteri di gruppo. Nei dispositivi che usano questa impostazione deve essere in esecuzione almeno Windows 10 (versione 1511).
       </string>
       <string id="SecureBoot">Avvio protetto</string>
       <string id="SecureBootAndDmaProtection">Avvio protetto e protezione DMA</string>
@@ -50,9 +56,9 @@ Se si utilizza un criterio firmato e protetto, la disabilitazione di questa impo
     </stringTable>
     <presentationTable>
       <presentation id="VirtualizationBasedSecurity">
-        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Seleziona il livello di sicurezza della piattaforma:</dropdownList>
-        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Abilita protezione basata su virtualizzazione dell'integrità del codice</checkBox>
-        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configurazione di controllo credenziali:</dropdownList>
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="1">Seleziona il livello di sicurezza della piattaforma:</dropdownList>
+        <dropdownList refId="HypervisorEnforcedCodeIntegrityDrop" defaultItem="0">Protezione basata su virtualizzazione dell'integrità del codice:</dropdownList>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configurazione di Credential Guard:</dropdownList>
       </presentation>
       <presentation id="ConfigCIPolicy">
         <textBox refId="ConfigCIPolicyFilePathText">

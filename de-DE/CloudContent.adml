@@ -6,20 +6,48 @@
   <resources>
     <stringTable>
       <string id="CloudContent">Cloudinhalt</string>
+      <string id="ConfigureWindowsSpotlight">Windows-Blickpunkt auf Sperrbildschirm konfigurieren</string>
+      <string id="ConfigureWindowsSpotlight_Help">Mit dieser Richtlinieneinstellung können Sie Windows-Blickpunkt auf dem Sperrbildschirm konfigurieren.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, wird "Windows-Blickpunkt" als Sperrbildschirmanbieter festgelegt, wobei Benutzer ihren Sperrbildschirm nicht ändern können. "Windows-Blickpunkt" zeigt täglich wechselnde Bilder von Microsoft auf dem Sperrbildschirm an.
+
+Wenn Sie das Kontrollkästchen "Inhalt von Enterprise-Blickpunkt einschließen" aktivieren und Ihre Organisation einen Azure-Dienst für Inhalte von Enterprise-Blickpunkt eingerichtet hat, zeigt der Sperrbildschirm in diesem Dienst konfigurierte interne Nachrichten und Mitteilungen an, sofern verfügbar. Wenn Ihre Organisation keinen Dienst für Inhalte von Enterprise-Blickpunkt eingerichtet hat, hat das Kontrollkästchen keine Auswirkung.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren, wird Windows-Blickpunkt deaktiviert, wobei Benutzer ihn nicht mehr als Sperrbildschirm auswählen können. Die Benutzer sehen das Standardbild für den Sperrbildschirm und können ein anderes Bild auswählen, sofern Sie nicht die Richtlinie "Ändern des Sperrbildschirmbilds verhindern" aktiviert haben.
+
+Wenn Sie die Richtlinie nicht konfigurieren, ist Windows-Blickpunkt auf dem Sperrbildschirm verfügbar und wird standardmäßig ausgewählt, sofern Sie nicht über die Richtlinie "Ein bestimmtes Standardbild für den Sperrbildschirm erzwingen" ein anderes Standardbild für den Sperrbildschirm konfiguriert haben.
+
+Hinweis: Diese Richtlinie ist nur für Enterprise-SKUs verfügbar.</string>
+      <string id="DisableWindowsSpotlightFeatures">Features von Windows-Blickpunkt deaktivieren</string>
+      <string id="DisableWindowsSpotlightFeatures_Help">Mit dieser Richtlinieneinstellung können Sie alle Features von Windows-Blickpunkt in einem Schritt deaktivieren.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, werden Windows-Blickpunkt auf dem Sperrbildschirm, Windows-Tipps, Microsoft-Anwenderfeatures und weitere verwandte Features deaktiviert. Sie sollten die Richtlinieneinstellung aktivieren, wenn Sie den Netzwerkdatenverkehr von Zielgeräten minimieren möchten.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, sind Features von Windows-Blickpunkt zulässig und können über die entsprechenden Richtlinieneinstellungen einzeln gesteuert werden.</string>
       <string id="DisableWindowsConsumerFeatures">Microsoft-Anwenderfeatures deaktivieren</string>
-      <string id="DisableWindowsConsumerFeatures_Help">Mit dieser Richtlinieneinstellungen werden Features deaktiviert, die Anwender bei der optimalen Nutzung ihrer Geräte und Microsoft-Konten unterstützen.
+      <string id="DisableWindowsConsumerFeatures_Help">Mit dieser Richtlinieneinstellung werden Features deaktiviert, die Anwender bei der optimalen Nutzung ihrer Geräte und Microsoft-Konten unterstützen.
 
 Wenn Sie diese Richtlinieneinstellung aktivieren, erhalten Benutzer weder personalisierte Empfehlungen von Microsoft noch Benachrichtigungen zu ihrem Microsoft-Konto.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden Benutzern Vorschläge von Microsoft und Benachrichtigungen zu ihrem Microsoft-Konto angezeigt.</string>
-      <string id="DisableSoftLanding">Keine Windows-Tipps anzeigen</string>
-      <string id="DisableSoftLanding_Help">Diese Einstellung verhindert, dass Benutzern Windows-Tipps angezeigt werden.
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden Benutzern Vorschläge von Microsoft und Benachrichtigungen zu ihrem Microsoft-Konto angezeigt.
 
-Wenn Sie diese Einstellung aktivieren, sehen Benutzer keine Windows-Tipps mehr.
+Hinweis: Diese Einstellung gilt nur für Enterprise- und Education-SKUs.</string>
+      <string id="DisableSoftLanding">Windows-Tipps nicht anzeigen</string>
+      <string id="DisableSoftLanding_Help">Diese Richtlinieneinstellung verhindert, dass Benutzern Windows-Tipps angezeigt werden.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, sehen Benutzer u. U. kontextbezogene Popups, die die Verwendung von Windows erläutern. Microsoft verwendet Diagnose- und Nutzungsdaten, um die geeigneten Tipps zu bestimmen.
+Wenn Sie die Richtlinieneinstellung aktivieren, sehen Benutzer keine Windows-Tipps mehr.
 
-Hinweis: Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, aber die Richtlinieneinstellung "Computerkonfiguration\Administrative Vorlagen\Windows-Komponenten\Datensammlung und Vorabversionen\Telemetrie zulassen" mit der Standardebene oder einer niedrigeren Ebene aktivieren, sehen Benutzer u. U. nur eine begrenzte Anzahl von Tipps.</string>
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, sehen Benutzer u. U. kontextbezogene Popups, die die Verwendung von Windows erläutern. Microsoft verwendet Diagnose- und Nutzungsdaten, um die geeigneten Tipps zu bestimmen.
+
+Hinweis: Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, aber die Richtlinieneinstellung "Computerkonfiguration\Administrative Vorlagen\Windows-Komponenten\Datensammlung und Vorabversionen\Telemetrie zulassen" mit der Standardebene oder einer niedrigeren Ebene aktivieren, sehen Benutzer u. U. nur eine begrenzte Anzahl von Tipps.
+Diese Einstellung gilt außerdem nur für Enterprise- und Education-SKUs.</string>
+      <string id="DisableThirdPartySuggestions">Do not suggest third-party content in Windows spotlight</string>
+      <string id="DisableThirdPartySuggestions_Help">If you enable this policy, Windows spotlight on lock screen, Windows tips, Microsoft consumer features and other related features will no longer suggest apps and content from third-party software publishers. Users may still see suggestions and tips to make them more productive with Microsoft features and apps.</string>
     </stringTable>
+    <presentationTable>
+      <presentation id="ConfigureWindowsSpotlight">
+        <checkBox refId="ConfigureWindowsSpotlight_Checkbox">Inhalt von Enterprise-Blickpunkt einschließen</checkBox>
+      </presentation>
+    </presentationTable>
   </resources>
 </policyDefinitionResources>

@@ -1,43 +1,84 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0">
-  <displayName>Delivery Optimization GP</displayName>
-  <description>This file describes the Delivery Optimization GP settings</description>
+  <displayName>Zásady skupiny Optimalizace doručení</displayName>
+  <description>Tento soubor popisuje nastavení zásad skupiny Optimalizace doručení.</description>
   <resources>
     <stringTable>
-      <string id="DeliveryOptimizationCat">Delivery Optimization</string>
-      <string id="DownloadMode">Download Mode</string>
-      <string id="DownloadMode_Help">Set this policy to configure the use of Windows Update Delivery Optimization in downloads of Windows Apps and Updates. Available mode are: 0=disable  1=peers on same NAT only 2=Local Network / Private Peering (PCs in the same domain by default) 3= Internet Peering</string>
-      <string id="DownloadMode_None">None</string>
+      <string id="DeliveryOptimizationCat">Optimalizace doručení</string>
+      <string id="DownloadMode">Režim stahování</string>
+      <string id="DownloadMode_Help">Určuje metodu stahování, kterou může Optimalizace doručení používat při stahování aktualizací pro Windows, aplikací a aktualizací pro aplikace. Podporované hodnoty: 0=Jenom HTTP, žádný partnerský vztah. 1=HTTP v kombinaci s partnerskými počítači v rámci stejného překladu adres (NAT). 2=HTTP v kombinaci s partnerským vztahem soukromé skupiny. Ve výchozím nastavení vzniká partnerský vztah mezi počítači ve stejné lokalitě adresářové služby Active Directory (pokud existuje) nebo ve stejné doméně. Při výběru této možnosti jde partnerský vztah napříč překlady adres (NAT). Pokud chcete vytvořit vlastní skupinu, použijte ID skupiny v kombinaci s režimem 2. 3=HTTP v kombinaci s internetovým partnerským vztahem. 99=Režim jednoduchého stahování bez partnerského vztahu. Optimalizace doručení bude stahovat jenom pomocí HTTP a nepokusí se kontaktovat cloudové služby Optimalizace doručení. 100=Režim obejití. Místo Optimalizace doručení použije BITS.</string>
+      <string id="DownloadMode_CdnOnly">Jenom HTTP</string>
       <string id="DownloadMode_Lan">LAN</string>
-      <string id="DownloadMode_Group">Group</string>
+      <string id="DownloadMode_Group">Skupina</string>
       <string id="DownloadMode_Internet">Internet</string>
-      <string id="GroupId">Group ID</string>
-      <string id="GroupId_Help">Set this policy to specify an arbitrary group ID that the device belongs to. Use this if you need to: 1. Limit the #of devices participating in peering in a domain network with many users. 2. Create a single group for Local Network Peering for branches that are on different domains or are not on the same NAT. Note: this is a best effort optimization and should not be relied on for an authentication of identity. You must use a GUID as the group ID.</string>
-      <string id="MaxUploadBandwidth">Max Upload Bandwidth</string>
-      <string id="MaxUploadBandwidth_Help">Set this policy to define a cap for the upload bandwidth a device will utilize across all concurrent upload activity via Delivery Optimization (set in KB/s)</string>
-      <string id="MaxCacheSize">Max Cache Size</string>
-      <string id="MaxCacheSize_Help">Set this policy to define the max cache size Delivery Optimization can utilize, as a percentage of available disk space.</string>
-      <string id="MaxCacheAge">Max Cache Age</string>
-      <string id="MaxCacheAge_Help">Set this policy to define the max time that each file is held in the Delivery Optimization cache.</string>
+      <string id="DownloadMode_Simple">Jednoduché</string>
+      <string id="DownloadMode_Bypass">Obejít</string>
+      <string id="GroupId">ID skupiny</string>
+      <string id="GroupId_Help">ID skupiny musí být nastavené jako GUID. Tato zásada určuje libovolné ID skupiny, ke které má zařízení patřit. Tuto možnost použijte, pokud potřebujete vytvořit jednu skupinu pro partnerské vztahy v místní síti pro větve, které jsou v různých doménách a nespadají ve stejné síti LAN. Poznámka: Jedná se o optimalizaci na bázi přiměřeného úsilí a neměla by se používat pro ověřování identity.</string>
+      <string id="MaxUploadBandwidth">Maximální šířka pásma pro nahrávání (kB/s)</string>
+      <string id="MaxUploadBandwidth_Help">Určuje maximální šířku pásma pro nahrávání v kB za sekundu, kterou může služba Optimalizace doručení využívat pro všechny souběžné aktivity nahrávání. Výchozí hodnota 0 (nula) umožňuje neomezené použití, při kterém se šířka pásma pro nahrávání dynamicky přizpůsobuje.</string>
+      <string id="MaxCacheSize">Maximální velikost mezipaměti (procenta)</string>
+      <string id="MaxCacheSize_Help">Určuje maximální velikost mezipaměti, kterou může využívat služba Optimalizace doručení, jako procenta volného místa na disku (1 až 100).</string>
+      <string id="AbsoluteMaxCacheSize">Absolutní maximální velikost mezipaměti (GB)</string>
+      <string id="AbsoluteMaxCacheSize_Help">Určuje maximální velikost v GB pro mezipaměť služby Optimalizace doručení. Tato zásada přepisuje zásadu DOMaxCacheSize. Hodnota 0 (nula) znamená „neomezenou“ mezipaměť. Služba Optimalizace doručení mezipaměť vymaže, když bude v zařízení docházet místo na disku.</string>
+      <string id="MaxCacheAge">Maximální stáří mezipaměti (v sekundách)</string>
+      <string id="MaxCacheAge_Help">Určuje maximální dobu v sekundách, po kterou po úspěšném stažení zůstávají jednotlivé soubory v mezipaměti Optimalizace doručení. Při nastavení hodnoty 0 (neomezeno) zůstávají stažené soubory v mezipaměti déle, takže jsou dostupné k nahrání na jiná zařízení (pokud ovšem nedojde k překročení velikosti mezipaměti).</string>
+      <string id="MonthlyUploadDataCap">Měsíční limit pro nahrávání dat (GB)</string>
+      <string id="MonthlyUploadDataCap_Help">Určuje maximální celkový počet gigabajtů, které smí Optimalizace doručení nahrát na partnerská zařízení v internetu v určitém kalendářním měsíci. Hodnota 0 (nula) znamená neomezený objem: neuplatňuje se žádný měsíční limit pro nahrávání.</string>
+      <string id="MinBackgroundQos">Minimální QoS na pozadí (kB/s)</string>
+      <string id="MinBackgroundQos_Help">Určuje minimální QoS (kvalitu služby nebo rychlost) pro stahování na pozadí v kilobajtech za sekundu. Tato zásada ovlivňuje souběžné používání partnerských zdrojů a zdrojů HTTP. Služba Optimalizace doručení doplňuje stahování ze zdroje HTTP tak, aby se dosáhlo zadané minimální hodnoty QoS.</string>
+      <string id="ModifyCacheDrive">Změnit jednotku mezipaměti</string>
+      <string id="ModifyCacheDrive_Help">Určuje jednotku, kterou má Optimalizace doručení používat pro svou mezipaměť. Ve výchozím nastavení se k ukládání mezipaměti používá jednotka %SystemDrive%. Umístění jednotky je možné zadat pomocí proměnných prostředí, písmene jednotky nebo celé cesty.</string>
+      <string id="MaxDownloadBandwidth">Maximální šířka pásma pro stahování (kB/s)</string>
+      <string id="MaxDownloadBandwidth_Help">Určuje maximální šířku pásma pro stahování v kilobajtech za sekundu, kterou může zařízení používat pro všechny souběžné aktivity stahování na pozadí přes službu Optimalizace doručení. Výchozí hodnota 0 (nula) znamená, že služba Optimalizace doručení dostupnou šířku pásma pro stahování dynamicky přizpůsobuje.</string>
+      <string id="PercentageMaxDownloadBandwidth">Maximální šířka pásma pro stahování (procenta)</string>
+      <string id="PercentageMaxDownloadBandwidth_Help">Určuje maximální šířku pásma pro stahování, kterou bude Optimalizace doručení využívat u všech souběžných aktivit stahování, jako procento dostupné šířky pásma pro stahování. Výchozí hodnota je 0 (nula) a znamená, že Optimalizace doručení se dynamicky přizpůsobuje dostupné šířce pásma pro stahování.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DownloadMode">
-        <dropdownList defaultItem="1" refId="DownloadMode">Download Mode:</dropdownList>
+        <dropdownList defaultItem="1" refId="DownloadMode">Režim stahování:</dropdownList>
       </presentation>
       <presentation id="GroupId">
         <textBox refId="GroupId">
-          <label>Group ID:</label>
+          <label>ID skupiny:</label>
         </textBox>
       </presentation>
       <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultItem="0" refId="MaxUploadBandwidth">Max Upload Bandwidth:</decimalTextBox>
+        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Maximální šířka pásma pro nahrávání (kB/s):</decimalTextBox>
+        <text>Výchozí hodnota je 0 (neomezeno).</text>
       </presentation>
       <presentation id="MaxCacheSize">
-        <decimalTextBox defaultItem="20" refId="MaxCacheSize">Max Cache Size:</decimalTextBox>
-        <text>Range is 0 to 100</text>
+        <decimalTextBox defaultValue="20" refId="MaxCacheSize">Maximální velikost mezipaměti (procenta):</decimalTextBox>
+        <text>Výchozí hodnota je 20 %.</text>
+      </presentation>
+      <presentation id="AbsoluteMaxCacheSize">
+        <decimalTextBox defaultValue="10" refId="AbsoluteMaxCacheSize">Absolutní maximální velikost mezipaměti (GB):</decimalTextBox>
+        <text>Výchozí hodnota je 10 GB.</text>
       </presentation>
       <presentation id="MaxCacheAge">
-        <decimalTextBox MaxCacheAge="0" refId="MaxCacheAge">Max Cache Age:</decimalTextBox>
+        <decimalTextBox defaultValue="259200" refId="MaxCacheAge">Maximální stáří mezipaměti (v sekundách):</decimalTextBox>
+        <text>Výchozí hodnota jsou 3 dny.</text>
+      </presentation>
+      <presentation id="MonthlyUploadDataCap">
+        <decimalTextBox defaultValue="20" refId="MonthlyUploadDataCap">Měsíční limit pro nahrávání dat (GB):</decimalTextBox>
+        <text>Výchozí hodnota je 20 GB.</text>
+      </presentation>
+      <presentation id="MinBackgroundQos">
+        <decimalTextBox defaultValue="500" refId="MinBackgroundQos">Minimální QoS na pozadí (kB/s):</decimalTextBox>
+        <text>Výchozí hodnota je 500 kB/s.</text>
+      </presentation>
+      <presentation id="ModifyCacheDrive">
+        <textBox refId="ModifyCacheDrive">
+          <label>Změnit jednotku mezipaměti:</label>
+        </textBox>
+      </presentation>
+      <presentation id="MaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Maximální šířka pásma pro stahování (kB/s):</decimalTextBox>
+        <text>Výchozí hodnota je 0 (neomezeno).</text>
+      </presentation>
+      <presentation id="PercentageMaxDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Maximální šířka pásma pro stahování (procenta):</decimalTextBox>
+        <text>Výchozí hodnota je 0 (neomezeno).</text>
       </presentation>
     </presentationTable>
   </resources>
