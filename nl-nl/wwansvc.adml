@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Groepsbeleidsinstellingen voor WWAN-service</displayName>
+  <description>Groepsbeleidsinstellingen voor WWAN-service</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">WWAN-service</string>
+      <string id="NetworkCost_Category">WWAN-mediakosten</string>
+      <string id="SetCost3G">3G-kosten instellen</string>
+      <string id="SetCost3G_Help">Met deze beleidsinstelling kunt u de kosten van 3G-verbindingen op de lokale machine configureren.
+
+Als u deze beleidsinstelling inschakelt, wordt er een vervolgkeuzelijst weergegeven met de mogelijke kostenwaarden.  Als u een van de volgende waarden in de lijst kiest, worden de kosten van alle 3G-verbindingen op de lokale machine ingesteld:
+
+- Onbeperkt: het gebruik van deze verbinding is ongelimiteerd en wordt niet beperkt door gebruikskosten en capaciteitsbeperkingen. 
+
+- Vast: het gebruik van deze verbinding wordt tot aan een bepaalde gegevenslimiet niet beperkt door gebruikskosten of capaciteitsbeperkingen. 
+
+- Variabel: de kosten van deze verbinding worden per byte berekend.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de waarde voor de kosten van 3G-verbindingen standaard ingesteld op Vast.
+      
+      </string>
+      <string id="SetCost4G">4G-kosten instellen</string>
+      <string id="SetCost4G_Help">Met deze beleidsinstelling kunt u de kosten van 4G-verbindingen op de lokale machine configureren.      
+
+Als u deze beleidsinstelling inschakelt, wordt er een vervolgkeuzelijst weergegeven met de mogelijke kostenwaarden. Als u een van de volgende waarden in de lijst kiest, worden de kosten van alle 4G-verbindingen op de lokale machine ingesteld:
+
+- Onbeperkt: het gebruik van deze verbinding is ongelimiteerd en wordt niet beperkt door gebruikskosten en capaciteitsbeperkingen. 
+
+- Vast: het gebruik van deze verbinding wordt tot aan een bepaalde gegevenslimiet niet beperkt door gebruikskosten of capaciteitsbeperkingen. 
+
+- Variabel: de kosten van deze verbinding worden per byte berekend.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de waarde voor de kosten van 4G-verbindingen standaard ingesteld op Vast.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Onbeperkt</string>
+      <string id="Cost_DropDownList_Fixed">Vast</string>
+      <string id="Cost_DropDownList_Variable">Variabel</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Selecteer een kostenwaarde voor een 3G-verbinding:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Selecteer een kostenwaarde voor een 4G-verbinding:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

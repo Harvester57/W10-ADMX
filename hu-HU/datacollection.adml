@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>itt adja meg a megjelenítendő nevet</displayName>
+  <description>itt adja meg a leírást</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Telemetria engedélyezése</string>
+      <string id="AllowTelemetry_0">0 – Biztonság (csak vállalati módban)</string>
+      <string id="AllowTelemetry_1">1 – Alapszintű</string>
+      <string id="AllowTelemetry_2">2 – Közepes</string>
+      <string id="AllowTelemetry_3">3 – Teljes</string>
+      <string id="AllowTelemetry_Explain">Ezzel a házirend-beállítással határozható meg, hogy mennyi diagnosztikai és használati adatot küldjön el a Windows a Microsoftnak. Ha a 0 értéket adja meg, a Windows csak minimális mennyiségű adatot küld el a Microsoftnak: ezen adatok között a Kártevő-eltávolító eszköz és a Windows Defender adatai szerepelnek (ha ez engedélyezett) a telemetriai ügyfél beállításaival együtt. A 0 érték kizárólag vállalati, EDU-, IoT- és kiszolgálói eszközökön használható, hatása más eszközökön az 1 értékével azonos. Ha az 1 értéket adja meg, csak alapszintű diagnosztikai és használati adatokat küld el a Windows. Ne feledje, hogy a 0 és az 1 érték megadása csökkenti az eszköz bizonyos funkcióinak teljesítményét. Ha a 2 értéket adja meg, a Windows nagyobb mennyiségű diagnosztikai és használati adatot küld el a Microsoftnak. A 3 érték megadásával ugyanazokat az adatokat küldi el, mint a 2 érték megadása esetén, ezenkívül további diagnosztikai adatokat is elküld (például azokat a fájlokat és tartalmakat, amelyek vélhetően a probléma okozói). A Windows 10 telemetriai beállításai magára az operációs rendszerre és néhány belső alkalmazásra vonatkoznak, a Windows 10-es külső alkalmazásokra nem.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a felhasználók saját maguk állíthatják be a telemetriai adatok szintjét a Gépházban.
+
+</string>
+      <string id="EnableExperimentation">Előzetes funkciók és beállítások letiltása</string>
+      <string id="EnableExperimentation_1">Csak az eszközbeállítások</string>
+      <string id="EnableExperimentation_2">Minden kísérleti funkció</string>
+      <string id="EnableExperimentation_Explain">Ez a házirend-beállítás szabja meg, hogy a Microsoft milyen mértékben kísérletezhet a termékkel a felhasználói beállítások és az eszközök működésének vizsgálatához. Ha az 1 értéket adja meg, a Microsoft csak az eszközbeállításokat konfigurálhatja. A 2 érték megadásával engedélyezhető, hogy a Microsoft teljes körű kísérleteket végezzen.
+
+Ha letiltja a házirend-beállítást, minden kísérlet kikapcsol.
+
+Ha nem konfigurálja a házirend-beállítást, a felhasználó ki- és bekapcsolhatja a Gépházban A Microsoft kipróbálhatja ennek a buildnek a funkcióit beállítást.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

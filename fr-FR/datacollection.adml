@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>entrer le nom complet ici</displayName>
+  <description>entrer la description ici</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Autoriser la télémétrie</string>
+      <string id="AllowTelemetry_0">0 - Désactivé [Enterprise uniquement]</string>
+      <string id="AllowTelemetry_1">1 - De base</string>
+      <string id="AllowTelemetry_2">2 - Améliorée</string>
+      <string id="AllowTelemetry_3">3 - Complète</string>
+      <string id="AllowTelemetry_Explain">Cette stratégie détermine la quantité de données d'utilisation et de diagnostic renvoyées à Microsoft. Une valeur de 0 indique que des données minimales sont envoyées à Microsoft. Ces données incluent les données Malicious Software Removal Tool (MSRT)  Windows Defender, si activés, et les paramètres client de télémétrie. La définition d'une valeur de 0 est applicable pour les appareils d'entreprise, EDU, IoT et serveur uniquement. La définition d'une valeur de 0 pour d'autres appareils revient à choisir une valeur de 1. Une valeur de 1 envoie une quantité de données de diagnostic et d'utilisation élémentaire uniquement. Remarque : la définition de valeurs de 0 ou 1 entraîne une dégradation de l'expérience de l'appareil. Une valeur de 2 envoie des données de diagnostic et d'utilisation améliorées. Une valeur de 3 envoie les mêmes données que la valeur de 2, plus des données de diagnostics supplémentaires comme l'état du système au moment d'un arrêt intempestif ou d'un incident, ainsi que les fichiers et contenus pouvant être à l'origine du problème. Les paramètres de télémétrie de Windows 10 s'appliquent aux système d'exploitation Windows et à certaines applications principales. Ce paramètre ne s'applique pas aux applications tierces exécutées sous Windows 10.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, les utilisateurs peuvent configurer le niveau de télémétrie dans les paramètres.
+
+</string>
+      <string id="EnableExperimentation">Désactiver les fonctionnalités ou paramètres de pré-version</string>
+      <string id="EnableExperimentation_1">Paramètres d'appareil uniquement</string>
+      <string id="EnableExperimentation_2">Expérimentations complètes</string>
+      <string id="EnableExperimentation_Explain">Ce paramètre de stratégie détermine le niveau que Microsoft peut expérimenter avec le produit afin d'étudier les préférences de l'utilisateur ou le comportement de l'appareil. Une valeur de 1 permet à Microsoft de configurer des paramètres d'appareil uniquement. Une valeur de 2 permet à Microsoft de réaliser des expérimentations complètes.
+
+Si vous désactivez ce paramètre de stratégie, toutes les expérimentations seront désactivées.
+
+Si vous ne configurez pas ce paramètre de stratégie, l'utilisateur peut configurer l'option “Laisser Microsoft essayer des fonctionnalités sur ce build” dans Paramètres.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

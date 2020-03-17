@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>여기에 표시 이름 입력</displayName>
+  <description>여기에 설명 입력</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">원격 분석 허용</string>
+      <string id="AllowTelemetry_0">0 - 보안[엔터프라이즈 전용]</string>
+      <string id="AllowTelemetry_1">1 - 기본</string>
+      <string id="AllowTelemetry_2">2 - 확장</string>
+      <string id="AllowTelemetry_3">3 - 전체</string>
+      <string id="AllowTelemetry_Explain">이 정책 설정은 Microsoft에 보고되는 진단 및 사용 현황 데이터의 양을 결정합니다. 값이 0이면 Microsoft에 최소 데이터가 전송됩니다. 이 데이터에는 MSRT(악성 소프트웨어 제거 도구) 및 Windows Defender 데이터(사용하도록 설정한 경우) 및 원격 분석 클라이언트 설정이 포함됩니다. 0 값 설정은 엔터프라이즈, EDU, IoT 및 서버 장치에만 적용됩니다. 기타 장치에서 값을 0으로 설정하는 것은 1 값을 선택하는 것과 같습니다. 값이 1이면 기본적인 양의 진단 및 사용 현황 데이터만 전송됩니다. 0 값 및 1 값을 설정하면 특정 장치 환경이 저하됩니다. 값이 2이면 확장된 진단 및 사용 현황 데이터가 전송됩니다. 값이 3이면 값이 2일 때와 동일한 데이터와 문제를 야기할 수 있는 파일 및 콘텐츠 등 추가 진단 데이터가 전송됩니다. Windows 10 원격 분석 설정은 Windows 운영 체제와 일부 Microsoft 앱에 적용되며 Windows 10에서 실행 중인 타사 앱에는 적용되지 않습니다.
+
+이 정책 설정을 구성하지 않거나 사용하지 않는 경우 사용자는 [설정]에서 원격 분석 수준을 구성할 수 있습니다.
+
+</string>
+      <string id="EnableExperimentation">시험판 기능 또는 설정 사용 안 함</string>
+      <string id="EnableExperimentation_1">장치 설정만</string>
+      <string id="EnableExperimentation_2">전체 실험</string>
+      <string id="EnableExperimentation_Explain">이 정책 설정은 Microsoft가 사용자 기본 설정 또는 장치 동작을 연구하기 위해 제품을 실험할 수 있는 수준을 결정합니다. 1 값은 Microsoft가 장치 설정만 구성할 수 있도록 허용합니다. 2 값은 Microsoft가 전체 실험을 수행할 수 있도록 허용합니다.
+
+이 정책 설정을 사용하지 않는 경우 모든 실험이 중단됩니다.
+
+이 정책 설정을 구성하지 않는 경우 사용자가 설정에서 “Microsoft가 이 빌드에서 기능을 시험하도록 허용” 옵션을 구성할 수 있습니다.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Zde zadejte zobrazovaný název.</displayName>
+  <description>Zde zadejte popis.</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">Povolit indexování dokumentů TIFF prováděním optického rozpoznávání znaků (OCR)</string>
+      <string id="ExplainAllowOCR">Nastavení této zásady umožňuje zapnout nebo vypnout optické rozpoznávání znaků (OCR) pro soubory TIFF. Pokud nastavení této zásady povolíte, je textový obsah souborů TIFF indexován provedením rozpoznávání OCR. Pokud nastavení této zásady zakážete nebo nenakonfigurujete, budou indexovány pouze vlastnosti souborů TIFF.
+
+        Nastavení této zásady také ovlivňuje nastavení ovládacího panelu Jak má být tento soubor indexován zde: Ovládací panely\Možnosti indexování\Upřesnit možnosti\Typy souborů. Pokud nastavení této zásady povolíte, je nastavení ovládacího panelu nastaveno na možnost Indexovat vlastnosti a obsah souboru. Pokud nastavení této zásady zakážete nebo nenakonfigurujete, je nastavení ovládacího panelu nastaveno na možnost Indexovat pouze vlastnosti.
+      
+      </string>
+      <string id="SelectOCRLangs">Vybrat jazyk pro optické rozpoznávání znaků (OCR)</string>
+      <string id="ExplainSelectOCRLangs">Toto nastavení umožňuje vybrat jazyk optického rozpoznávání znaků (OCR). Pokud nastavení této zásady povolíte, bude se vybraný jazyk OCR používat při zpracování OCR během indexování souborů TIFF. Pokud nastavení této zásady zakážete nebo nenakonfigurujete, použije se výchozí systémový jazyk.
+
+Pokud povolíte tuto zásadu a vyberete jazyky OCR, nespustí se znovu indexování. Nastavení této zásady se vztahuje jenom na indexování nových souborů ( pokud se opakované indexování nespustí ručně).
+      </string>
+      <string id="OCR">OCR</string>
+      <string id="Win7Only">Systém Microsoft Windows 7 nebo novější</string>
+      <string id="OCREveryPage">Vynutit TIFF IFilter k provedení optického rozpoznávání znaků (OCR) pro každou stránku v dokumentu TIFF</string>
+      <string id="ExplainOCREveryPage">
+        
+        Nastavení této zásady skupiny umožňuje uživatelům vypnout optimalizaci výkonu, aby filtr TIFF IFilter provedl optické rozpoznávání znaků (OCR) pro každou stránku v dokumentu TIFF, což umožňuje indexovat veškerý rozpoznaný text. Ve výchozím nastavení filtr TIFF IFilter optimalizuje svůj výkon přeskočením procesu OCR u stránek dokumentů s netextovým obsahem (například s obrázky). V některých případech stránky, které obsahují text, mohou být chybně určeny jako netextové. V takovém případě nebude text na těchto stránkách indexován.
+
+        Pokud toto nastavení povolíte, provede TIFF IFilter OCR pro každou stránku v dokumentu TIFF, aby byl indexován veškerý rozpoznaný text. Proces OCR bude proto pomalejší. Toto snížení výkonu může být výrazné, pokud dokumenty TIFF v systému obsahují velké množství netextových stránek (obrázků).
+
+        Jestliže toto nastavení zakážete nebo nenakonfigurujete, bude TIFF IFilter optimalizovat svůj výkon přeskočením netextového obsahu během zpracování OCR.
+      
+      </string>
+      <string id="LangChineseSimplified">Čínština (zjednodušená)</string>
+      <string id="LangChineseTraditional">Čínština (tradiční)</string>
+      <string id="LangCzech">Čeština</string>
+      <string id="LangDanish">Dánština</string>
+      <string id="LangDutch">Holandština</string>
+      <string id="LangEnglish">Angličtina</string>
+      <string id="LangFinnish">Finština</string>
+      <string id="LangFrench">Francouzština</string>
+      <string id="LangGerman">Němčina</string>
+      <string id="LangGreek">Řečtina</string>
+      <string id="LangHungarian">Maďarština</string>
+      <string id="LangItalian">Italština</string>
+      <string id="LangJapanese">Japonština</string>
+      <string id="LangKorean">Korejština</string>
+      <string id="LangNorwegian">Norština</string>
+      <string id="LangPolish">Polština</string>
+      <string id="LangPortuguese">Portugalština</string>
+      <string id="LangRomanian">Rumunština</string>
+      <string id="LangRussian">Ruština</string>
+      <string id="LangSerbianCyrillic">Srbština (cyrilice)</string>
+      <string id="LangSerbianLatin">Srbština (latinka)</string>
+      <string id="LangSlovak">Slovenština</string>
+      <string id="LangSpanish">Španělština</string>
+      <string id="LangSwedish">Švédština</string>
+      <string id="LangTurkish">Turečtina</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Zvolte jeden z následujících jazyků OCR:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

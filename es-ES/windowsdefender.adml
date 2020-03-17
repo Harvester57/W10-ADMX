@@ -1,0 +1,877 @@
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<displayName>escriba aquí el nombre para mostrar</displayName>
+<description>escriba aquí la descripción</description>
+<resources>
+    <stringTable>
+    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpyware">Endpoint Protection</string>
+    <string id="Exclusions">Exclusiones</string>
+    <string id="NetworkRealtimeInspection">Sistema de inspección de red</string>
+    <string id="NetworkRealtimeInspection_Exclusions">Exclusiones</string>
+    <string id="Quarantine">Cuarentena</string>
+    <string id="RealtimeProtection">Protección en tiempo real</string>
+    <string id="Remediation">Corrección</string>
+    <string id="Reporting">Informes</string>
+    <string id="Scan">Detección</string>
+    <string id="SignatureUpdate">Actualizaciones de firma</string>
+    <string id="Spynet">MAPS</string>
+    <string id="Threats">Amenazas</string>
+    <string id="ClientInterface">Interfaz de cliente</string>
+    <string id="AllowFastServiceStartup">Permitir que el servicio antimalware se inicie con prioridad normal</string>
+    <string id="AllowFastServiceStartup_Explain">Esta configuración de directiva controla la prioridad de carga del servicio antimalware. Si se aumenta la prioridad de carga, el servicio se iniciará más rápidamente, pero esto puede repercutir en el rendimiento.
+
+Si habilita o no establece esta configuración, el servicio antimalware se cargará como una tarea de prioridad normal.
+
+Si deshabilita esta configuración, el servicio antimalware se cargará como una tarea de prioridad baja.</string>
+
+    <string id="DisableAutoExclusions">Desactivar las exclusiones automáticas</string>
+    <string id="DisableAutoExclusions_Explain">Permite a un administrador especificar si la característica de exclusiones automáticas para SKU de servidor debe desactivarse.</string>
+    <string id="DisableAntiSpyware">Desactivar Endpoint Protection</string>
+    <string id="DisableAntiSpyware_Explain">Esta configuración de directiva desactiva Endpoint Protection.
+
+Si habilita esta configuración de directiva, no se ejecuta Endpoint Protection y no se busca malware u otro software potencialmente no deseado en los equipos.
+
+Si deshabilita o no define esta configuración de directiva, de manera predeterminada, se ejecuta Endpoint Protection y se busca malware y otro software potencialmente no deseado en los equipos.
+    </string>
+    <string id="DisableAntiSpywareDefender">Desactivar Endpoint Protection</string>
+    <string id="DisableAntiSpywareDefender_Explain">Esta configuración de directiva desactiva Endpoint Protection.
+
+    Si habilita esta configuración de directiva, no se ejecuta Endpoint Protection y no se busca malware u otro software potencialmente no deseado en los equipos.
+
+Si deshabilita o no define esta configuración de directiva, de manera predeterminada, se ejecuta Endpoint Protection y se busca malware y otro software potencialmente no deseado en los equipos.</string>
+    <string id="DisableLocalAdminMerge">Configurar el comportamiento de combinación de las listas de administrador local</string>
+    <string id="DisableLocalAdminMerge_Explain">Esta configuración de directiva controla si la configuración de lista compleja establecida por un administrador local se va a combinar con la configuración de la directiva de grupo. Esta configuración es válida en listas como las amenazas y las exclusiones.
+
+Si habilita o no establece esta configuración, los elementos únicos definidos en la directiva de grupo y en la configuración de preferencias establecida por un administrador local se combinarán en la directiva vigente resultante. En caso de que surjan conflictos, la configuración de la directiva de grupo reemplazará la configuración de preferencias.
+
+Si deshabilita esta configuración, la directiva vigente resultante solo usará los elementos definidos en la directiva de grupo. La configuración de directiva de grupo reemplazará la configuración de preferencias establecida por el administrador local.</string>
+    <string id="DisableRoutinelyTakingAction">Desactivar corrección de rutina</string>
+    <string id="DisableRoutinelyTakingActionDefender_Explain">
+    Esta configuración de directiva permite configurar si Endpoint Protection automáticamente lleva a cabo acciones en todas las amenazas detectadas. La acción que debe tomarse en una amenaza determinada está determinada por la combinación de la acción definida por la directiva, la acción definida por el usuario y la acción definida por la firma.
+
+Si habilita a esta configuración de directiva, Endpoint Protection no automáticamente actuar en las amenazas detectadas, pero avisa a los usuarios para elegir entre las acciones disponibles para cada amenaza.
+
+    Si deshabilita o no establece esta configuración de directiva, Endpoint Protection automáticamente lleva a cabo acciones en todas las amenazas detectadas tras un retraso configurable de aproximadamente cinco segundos.</string>
+    <string id="DisableRoutinelyTakingAction_Explain">
+        Esta configuración de directiva le permite configurar si Endpoint Protection toma medidas automáticamente acerca de todas las amenazas detectadas. La medida que se debe tomar acerca de una amenaza en particular se determina mediante la combinación de las medidas definidas por la directiva, el usuario y la firma.
+
+        Si habilita esta configuración de directiva, Endpoint Protection no toma medidas automáticamente acerca de las amenazas detectadas, pero pide a los usuarios que elijan entre las medidas disponibles para cada amenaza.
+
+        Si deshabilita o no establece esta configuración de directiva, Endpoint Protection toma medidas automáticamente acerca de todas las amenazas detectadas tras un plazo no configurable de aproximadamente diez minutos.
+    </string>
+    <string id="ProxyBypass">Definir direcciones para omitir el servidor proxy</string>
+    <string id="ProxyBypass_Explain">Si esta directiva se define, evitará que el antimalware use el servidor proxy configurado cuando se establezcan comunicaciones con las direcciones IP especificadas. El valor de dirección se debe especificar como una dirección URL válida.
+
+Si habilita esta configuración, el servidor proxy se omitirá en las direcciones especificadas.
+
+Si deshabilita o no establece esta configuración, el servidor proxy no se omitirá en las direcciones especificadas.</string>
+    <string id="ProxyServer">Definir servidor proxy para las conexiones con la red</string>
+    <string id="ProxyServer_Explain">Esta configuración de directiva permite configurar el proxy con nombre que se debe usar cuando el cliente trata de conectarse a la red en busca de actualizaciones de definiciones e informes de MAPS. Si surge un error en el proxy con nombre o si no hay un proxy especificado, se usarán las siguientes configuraciones (en orden):
+1. Configuración de proxy de Internet Explorer
+2. Detección automática
+3. Ninguna
+
+Si habilita esta configuración, el proxy se establecerá en la dirección URL especificada.
+
+Si deshabilita o no establece esta configuración, el proxy se establecerá según el orden antes indicado.</string>
+    <string id="RandomizeScheduleTaskTimes">Seleccionar horas de tareas programadas aleatoriamente</string>
+    <string id="RandomizeScheduleTaskTimes_Explain">Esta configuración de directiva permite habilitar o deshabilitar la selección aleatoria de las horas de inicio programadas de las detecciones y las actualizaciones de definiciones. Esta configuración sirve para distribuir el impacto de las detecciones en los recursos. Podría usarse, por ejemplo, en equipos virtuales huésped que comparten un host, a fin de impedir que varios equipos virtuales huésped hagan un uso intensivo del disco al mismo tiempo.
+
+Si habilita o no establece esta configuración, las tareas programadas comenzarán a una hora aleatoria dentro de un intervalo de 30 minutos anterior y posterior a la hora de inicio especificada.
+
+Si deshabilita esta configuración, las tareas programadas comenzarán a la hora de inicio especificada.</string>
+    <string id="ServiceKeepAlive">Permitir que el servicio antimalware permanezca siempre en ejecución</string>
+    <string id="ServiceKeepAlive_Explain">Esta configuración de directiva permite configurar si el servicio antimalware va a permanecer siempre en ejecución cuando las definiciones de antivirus y antispyware estén deshabilitadas. Se recomienda que esta configuración esté siempre deshabilitada.
+
+Si habilita esta configuración, el servicio antimalware permanecerá siempre en ejecución, aun cuando las definiciones tanto de antivirus como de antispyware estén deshabilitadas.
+
+Si deshabilita o no establece esta configuración, el servicio antimalware se detendrá cuando las definiciones tanto de antivirus como de antispyware estén deshabilitadas. Si el equipo se reinicia, también lo hará el servicio si está configurado para iniciarse automáticamente. Una vez que el servicio se haya iniciado, se realizará una comprobación para ver si las definiciones de antivirus y antispyware están habilitadas. Si hay al menos una habilitada, el servicio seguirá ejecutándose. Si ambas están habilitadas, se detendrá.</string>
+    <string id="Exclusions_Extensions">Exclusiones de extensión</string>
+    <string id="Exclusions_Extensions_Explain">Esta configuración de directiva permite especificar una lista de los tipos de archivo que deben quedar excluidos de la detección programada, personalizada y en tiempo real. Los tipos de archivo se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de la extensión del tipo de archivo (como "obj" o "lib"). El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Exclusions_Paths">Exclusiones de ruta de acceso</string>
+    <string id="Exclusions_Paths_Explain">Esta configuración de directiva permite deshabilitar la detección programada y en tiempo real de los archivos que se encuentren en las rutas de acceso especificadas o de los recursos completos especificados. Las rutas de acceso se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de una ruta de acceso o un nombre de recurso completo. Una ruta de acceso podría definirse, por ejemplo, como "c:\Windows" para excluir todos los archivos contenidos en este directorio, mientras que un nombre de recurso completo podría definirse como "C:\Windows\App.exe". El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Exclusions_Processes">Exclusiones de proceso</string>
+    <string id="Exclusions_Processes_Explain">Esta configuración de directiva permite deshabilitar las detecciones programadas y en tiempo real en un archivo abierto por cualquiera de los procesos especificados. El proceso en sí no se excluirá; para excluirlo, use la exclusión de ruta de acceso. Los procesos se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de la ruta de acceso a la imagen del proceso. No olvide que solo se pueden excluir archivos ejecutables. Por ejemplo, un proceso se podría definir como "c:\windows\app.exe". El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Nis_DisableProtocolRecognition">Activar reconocimiento de protocolo</string>
+    <string id="Nis_DisableProtocolRecognition_Explain">Esta configuración de directiva permite configurar el reconocimiento de protocolo para proteger la red de vulnerabilidades conocidas.
+
+Si habilita o no establece esta configuración, el reconocimiento de protocolo se habilitará.
+
+Si deshabilita esta configuración, el reconocimiento de protocolo se deshabilitará.</string>
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement">Activar retirada de definiciones</string>
+    <string id="Nis_Consumers_IPS_DisableSignatureRetirement_Explain">Esta configuración de directiva permite configurar la retirada de definiciones para proteger la red de vulnerabilidades conocidas. La retirada de definiciones comprueba si un equipo tiene las actualizaciones de seguridad necesarias para estar protegido frente a una vulnerabilidad concreta. Si el sistema no está expuesto a la vulnerabilidad detectada por una definición, dicha definición se "retirará". Si se retiran todas las definiciones relativas a un protocolo determinado, ese protocolo dejará de analizarse. Cuando esta característica está habilitada, el rendimiento es mejor. En un equipo actualizado con todas las actualizaciones de seguridad más recientes, la protección de red no tendrá impacto alguno en el rendimiento de la red.
+
+Si habilita o no establece esta configuración, la retirada de definiciones se habilitará.
+
+Si deshabilita esta configuración, la retirada de definiciones se deshabilitará.</string>
+    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definir la frecuencia de registro de eventos de detección</string>
+    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Esta configuración de directiva limita la frecuencia con la que se van a registrar eventos de detección para la protección de la red frente a vulnerabilidades conocidas. El registro quedará limitado a una frecuencia no superior a un evento por intervalo definido. El valor de intervalo se establece en minutos. El intervalo predeterminado es 60 minutos.
+
+Si habilita esta configuración, los eventos de detección no se registrarán si existe más de un informe similar (según el GUID de la definición) en el número de minutos especificado.
+
+Si deshabilita o no establece esta configuración, los eventos de detección se registrarán a la frecuencia predeterminada.</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Exclusiones de intervalo de direcciones IP</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Si se define, esta directiva evitará que la protección de red frente a vulnerabilidades conocidas inspeccione las direcciones IP especificadas. Las direcciones IP se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un intervalo de direcciones IP. Como ejemplo, un intervalo podría definirse como 157.1.45.123-60.1.1.1. El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Exclusiones de números de puerto</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Esta configuración de directiva define una lista de números de puerto TCP en los que la inspección del tráfico de red va a estar deshabilitada. Los números de puerto se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un número de puerto TCP. Como ejemplo, un número de puerto podría definirse como 8080. El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Exclusiones de procesos del tráfico saliente</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Esta configuración de directiva define los procesos en los que el tráfico de red saliente no se va a inspeccionar.  Los nombres de proceso se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena del nombre y ruta de acceso de un proceso. Por ejemplo, un proceso se podría definir como "C:\Windows\System32\App.exe". El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Exclusiones de identificador de amenaza</string>
+    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Esta configuración de directiva define las amenazas que se van a excluir de la detección durante la inspección del tráfico de red. Las amenazas se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un identificador de amenaza. Como ejemplo, un identificador de amenaza podría definirse como 2925110632. El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Especificar más conjuntos de definiciones para la inspección del tráfico de red</string>
+    <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Esta configuración de directiva habilita más conjuntos de definiciones para la inspección del tráfico de red. Los GUID de los conjuntos de definiciones se deben agregar mediante las opciones de esta configuración. Cada entrada debe figurar como un par nombre-valor, donde el nombre debe ser una representación en forma de cadena de un GUID de conjunto de definiciones. Como ejemplo, el GUID de conjunto de definiciones para habilitar definiciones de prueba se define como “{b54b6ac9-a737-498e-9120-6616ad3bf590}”. El valor no se usa y se recomienda establecerlo en 0.</string>
+    <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Definir reemplazo de configuración local para eliminar elementos de la carpeta Cuarentena</string>
+    <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay_Explain">Esta configuración de directiva establece un reemplazo local de la configuración del número de días que los elementos deben permanecer en la carpeta Cuarentena antes de eliminarse. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Quarantine_PurgeItemsAfterDelay">Configurar eliminación de elementos de la carpeta Cuarentena</string>
+    <string id="Quarantine_PurgeItemsAfterDelay_Explain">Esta configuración de directiva define el número de días que los elementos deben permanecer en la carpeta Cuarentena antes de eliminarse.
+
+Si habilita esta configuración, los elementos se eliminarán de la carpeta Cuarentena cuando haya transcurrido un número de días concreto.
+
+Si deshabilita o no establece esta configuración, los elementos permanecerán en la carpeta Cuarentena de forma indefinida y no se eliminarán automáticamente.</string>
+    <string id="RealtimeProtection_DisableBehaviorMonitoring">Activar supervisión de comportamiento</string>
+    <string id="RealtimeProtection_DisableBehaviorMonitoring_Explain">Esta configuración de directiva permite configurar la supervisión de comportamiento.
+
+Si habilita o no establece esta configuración, la supervisión de comportamiento se habilitará.
+
+Si deshabilita esta configuración, la supervisión de comportamiento se deshabilitará.</string>
+    <string id="RealtimeProtection_DisableInformationProtectionControl">Activar control de protección de la información</string>
+    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Esta configuración de directiva permite configurar el control de protección de la información.
+
+Si habilita esta configuración, el control de protección de la información se habilitará.
+
+Si deshabilita o no establece esta configuración, el control de protección de la información se deshabilitará.</string>
+    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Activar protección de red frente a vulnerabilidades conocidas</string>
+    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Esta configuración de directiva permite configurar la protección de red frente a vulnerabilidades conocidas.
+
+Si habilita o no establece esta configuración, la protección de red se habilitará.
+
+Si deshabilita esta configuración, la protección de red se deshabilitará.</string>
+    <string id="RealtimeProtection_DisableIOAVProtection">Examinar todos los archivos y datos adjuntos descargados</string>
+    <string id="RealtimeProtection_DisableIOAVProtection_Explain">Esta configuración de directiva permite configurar el examen de todos los archivos y datos adjuntos descargados.
+
+Si habilita o no establece esta configuración, el examen de todos los archivos y datos adjuntos descargados se habilitará.
+
+Si deshabilita esta configuración, el examen de todos los archivos y datos adjuntos descargados se deshabilitará.</string>
+    <string id="RealtimeProtection_DisableOnAccessProtection">Supervisar la actividad de archivos y programas en el equipo</string>
+    <string id="RealtimeProtection_DisableOnAccessProtection_Explain">Esta configuración de directiva permite configurar la supervisión de la actividad de archivos y programas.
+
+Si habilita o no establece esta configuración, la supervisión de la actividad de archivos y programas se habilitará.
+
+Si deshabilita esta configuración, la supervisión de la actividad de archivos y programas se deshabilitará.</string>
+    <string id="RealtimeProtection_DisableRawWriteNotification">Activar notificaciones de escritura de volumen sin procesar</string>
+    <string id="RealtimeProtection_DisableRawWriteNotification_Explain">Esta configuración de directiva controla si las notificaciones de escritura de volumen sin procesar se envían a la supervisión de comportamiento.
+
+Si habilita o no establece esta configuración, las notificaciones de escritura de volumen sin procesar se habilitarán.
+
+Si deshabilita esta configuración, las notificaciones de escritura de volumen sin procesar se deshabilitarán.</string>
+    <string id="DisableRealtimeMonitoring">Desactivar protección en tiempo real</string>
+    <string id="DisableRealtimeMonitoringDefender_Explain">Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware.
+
+Endpoint Protection le avisa cuando malware o software posiblemente no deseado intenta instalarse o ejecutarse en su equipo.
+
+Si habilita esta configuración de directiva, Endpoint Protection no avisará a los usuarios sobre la detección de malware para que tomen medidas.
+
+Si deshabilita o no establece esta configuración de directiva, Endpoint Protection avisará a los usuarios sobre la detección de malware para que tomen medidas.</string>
+    <string id="DisableRealtimeMonitoring_Explain">
+    Esta configuración de directiva desactiva los avisos de protección en tiempo real sobre la detección de malware.
+
+	Endpoint Protection te avisa cuando malware o software potencialmente no deseado intenta instalarse o ejecutarse en tu equipo.
+
+	Si habilitas esta configuración de directiva, Endpoint Protection no avisará a los usuarios para que tomen medidas sobre la detección de malware.
+
+	Si deshabilitas o no estableces esta configuración de directiva, Endpoint Protection avisará a los usuarios para que tomen medidas sobre la detección de malware.
+    </string>
+    <string id="RealtimeProtection_DisableScanOnRealtimeEnable">Activar el examen de procesos cuando la protección en tiempo real esté habilitada</string>
+    <string id="RealtimeProtection_DisableScanOnRealtimeEnable_Explain">Esta configuración de directiva permite configurar el examen de procesos cuando la protección en tiempo real está habilitada. Esto ayuda a detectar malware que podría iniciarse cuando la protección en tiempo real está desactivada.
+
+Si habilita o no establece esta configuración, se iniciará un examen de procesos cuando la protección en tiempo real esté activada.
+
+Si deshabilita esta configuración, no se iniciará un examen de procesos cuando la protección en tiempo real esté activada.</string>
+    <string id="RealtimeProtection_IOAVMaxSize">Definir el tamaño máximo de archivos y datos adjuntos descargados que se va a examinar</string>
+    <string id="RealtimeProtection_IOAVMaxSize_Explain">Esta configuración de directiva define el tamaño máximo (en kilobytes) de los archivos y datos adjuntos descargados que se van a examinar.
+
+Si habilita esta configuración, se examinarán los archivos y datos adjuntos descargados cuyo tamaño sea inferior al tamaño especificado.
+
+Si deshabilita o no establece esta configuración, se aplicará un tamaño predeterminado.</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableBehaviorMonitoring">Definir reemplazo de configuración local para activar la supervisión de comportamiento</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableBehaviorMonitoring_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la supervisión de comportamiento. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Definir reemplazo de configuración local para supervisar la actividad de archivos y programas en el equipo</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la supervisión de la actividad de archivos y programas en el equipo. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Definir reemplazo de configuración local para desactivar el sistema de prevención de intrusiones</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la protección de red frente a vulnerabilidades conocidas. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableIOAVProtection">Definir reemplazo de configuración local para examinar todos los archivos y datos adjuntos descargados</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableIOAVProtection_Explain">Esta configuración de directiva define un reemplazo local para la configuración del examen de todos los archivos y datos adjuntos descargados. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableRealtimeMonitoring">Definir reemplazo de configuración local para activar la protección en tiempo real</string>
+    <string id="RealtimeProtection_LocalSettingOverrideDisableRealtimeMonitoring_Explain">Esta configuración de directiva define un reemplazo local para la configuración para activar la protección en tiempo real. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="RealtimeProtection_LocalSettingOverrideRealtimeScanDirection">Definir reemplazo de configuración local para la supervisión de la actividad de archivo entrante y saliente</string>
+    <string id="RealtimeProtection_LocalSettingOverrideRealtimeScanDirection_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la supervisión de la actividad de archivo entrante y saliente. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="RealtimeProtection_RealtimeScanDirection">Configurar supervisión de la actividad de archivos y programas entrantes y salientes</string>
+    <string id="RealtimeProtection_RealtimeScanDirection_Explain">Esta configuración de directiva permite configurar la supervisión de archivos entrantes y salientes sin tener que desactivar toda la supervisión. Se recomienda usar esta opción en servidores en los que hay una intensa actividad de archivos entrantes y salientes pero en los que, por motivos de rendimiento, es necesario deshabilitar el examen en una determinada dirección de examen. Se deberá sopesar la configuración más adecuada en función del rol de servidor. 
+
+Observe que esta configuración es válida únicamente en volúmenes NTFS. Para cualquier otro tipo de sistema de archivos, la supervisión completa de la actividad de archivos y programas estará presente en dichos volúmenes.
+
+Las opciones de esta configuración son excluyentes entre sí:
+0 = Explorar archivos entrantes y salientes (predeterminada)
+1 = Explorar solo archivos entrantes
+2 = Explorar solo archivos salientes
+
+Cualquier otro valor (o si no hay valor alguno) hará que la opción se resuelva en el valor predeterminado (0).
+
+Si habilita esta configuración, se habilitará el tipo de supervisión especificado.
+
+Si deshabilita o no establece esta configuración, la supervisión de archivos entrantes y salientes se habilitará.</string>
+    <string id="RealtimeProtection_RealtimeScanDirection_0">bidireccional (completo en el acceso)</string>
+    <string id="RealtimeProtection_RealtimeScanDirection_1">explorar solo entrante (deshabilitar al abrir)</string>
+    <string id="RealtimeProtection_RealtimeScanDirection_2">explorar solo saliente (deshabilitar al cerrar)</string>
+    <string id="Remediation_LocalSettingOverrideScan_ScheduleTime">Definir reemplazo de configuración local para el momento del día en el que ejecutar un examen completo programado para finalizar correcciones</string>
+    <string id="Remediation_LocalSettingOverrideScan_ScheduleTime_Explain">Esta configuración de directiva configura un reemplazo local para configurar el momento del día en el que ejecutar un examen completo programado para finalizar correcciones. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Remediation_Scan_ScheduleDay">Especificar el día de la semana en el que ejecutar un examen completo programado para finalizar correcciones</string>
+    <string id="Remediation_Scan_ScheduleDay_Explain">Esta configuración de directiva permite especificar el día de la semana en el que realizar un examen completo programado para finalizar correcciones. El examen también se puede configurar para que se ejecute cada día o nunca.
+
+Esta configuración se puede definir con los siguientes valores de número ordinal:
+(0x0) Todos los días
+(0x1) Domingo
+(0x2) Lunes
+(0x3) Martes
+(0x4) Miércoles
+(0x5) Jueves
+(0x6) Viernes
+(0x7) Sábado
+(0x8) Nunca (predeterminado)
+
+Si habilita esta configuración, se ejecutará un examen completo programado para finalizar correcciones a la frecuencia especificada.
+
+Si deshabilita o no establece esta configuración, se ejecutará un examen completo para finalizar correcciones a una frecuencia predeterminada.</string>
+    <string id="Remediation_Scan_ScheduleDay_0">Nunca</string>
+    <string id="Remediation_Scan_ScheduleDay_1">Todos los días</string>
+    <string id="Remediation_Scan_ScheduleDay_2">Domingo</string>
+    <string id="Remediation_Scan_ScheduleDay_3">Lunes</string>
+    <string id="Remediation_Scan_ScheduleDay_4">Martes</string>
+    <string id="Remediation_Scan_ScheduleDay_5">Miércoles</string>
+    <string id="Remediation_Scan_ScheduleDay_6">Jueves</string>
+    <string id="Remediation_Scan_ScheduleDay_7">Viernes</string>
+    <string id="Remediation_Scan_ScheduleDay_8">Sábado</string>
+    <string id="Remediation_Scan_ScheduleTime">Especificar la hora del día a la que ejecutar un examen completo programado para finalizar correcciones</string>
+    <string id="Remediation_Scan_ScheduleTime_Explain">Esta configuración de directiva permite especificar la hora del día a la que realizar un examen completo programado para finalizar correcciones. El valor de hora se representa como un número de minutos pasada la medianoche (00:00).  Así, por ejemplo, 120 (0x78) equivale a 02:00 AM.  La programación se basa en la hora local del equipo en el que el examen vaya a realizarse.
+
+Si habilita esta configuración, se ejecutará un examen completo programado para finalizar correcciones a la hora del día indicada.
+
+Si deshabilita o no establece esta configuración, se ejecutará un examen completo programado para finalizar correcciones a una hora predeterminada.</string>
+    <string id="Reporting_AdditionalActionTimeout">Configurar tiempo de espera en detecciones que requieren más acciones</string>
+    <string id="Reporting_AdditionalActionTimeout_Explain">Esta configuración de directiva configura el tiempo en minutos que debe transcurrir para que una detección pase del estado "acción adicional" al estado "borrada".</string>
+    <string id="Reporting_CriticalFailureTimeout">Configurar tiempo de espera en detecciones con un estado de error crítico</string>
+    <string id="Reporting_CriticalFailureTimeout_Explain">Esta configuración de directiva configura el tiempo en minutos que debe transcurrir para que una detección pase del estado "acción adicional" al estado "borrada".</string>
+    <string id="Reporting_DisablegenericrePorts">Configurar eventos Watson</string>
+    <string id="Reporting_DisablegenericrePorts_Explain">Esta configuración de directiva le permite configurar si se van a enviar o no eventos Watson.
+
+Si habilita o no establece esta configuración, se enviarán eventos Watson.
+
+Si deshabilita esta configuración, no se enviarán eventos Watson.</string>
+    <string id="Reporting_NonCriticalTimeout">Configurar tiempo de espera en detecciones con un estado de error no crítico</string>
+    <string id="Reporting_NonCriticalTimeout_Explain">Esta configuración de directiva configura el tiempo en minutos que debe transcurrir para que una detección pase del estado "error no crítico" al estado "borrada".</string>
+    <string id="Reporting_RecentlyCleanedTimeout">Configurar tiempo de espera en detecciones con un estado corregido recientemente</string>
+    <string id="Reporting_RecentlyCleanedTimeout_Explain">Esta configuración de directiva configura el tiempo en minutos que debe transcurrir para que una detección pase del estado "completada" al estado "borrada".</string>
+    <string id="Reporting_WppTracingComponents">Configurar componentes de preprocesador de seguimiento de software de Windows</string>
+    <string id="Reporting_WppTracingComponents_Explain">Esta directiva configura componentes de preprocesador de seguimiento de software de Windows (seguimiento de software WPP).</string>
+    <string id="Reporting_WppTracingLevel">Configurar nivel de seguimiento de WPP</string>
+    <string id="Reporting_WppTracingLevel_Explain">Esta directiva permite configurar los niveles de seguimiento de preprocesador de seguimiento de software de Windows (seguimiento de software WPP). 
+
+Los niveles de seguimiento se definen del siguiente modo:
+1: Error
+2: Advertencia 
+3: Información
+4: Depuración</string>
+    <string id="Scan_AllowPause">Permitir a los usuarios pausar un examen</string>
+    <string id="Scan_AllowPause_Explain">Esta configuración de directiva permite administrar si los usuarios finales pueden pausar un examen en curso.
+
+Si habilita o no establece esta configuración, aparecerá un nuevo menú contextual en el icono de la bandeja de tareas que permita pausar un examen.
+
+Si deshabilita esta configuración, los usuarios no podrán pausar exámenes.</string>
+    <string id="Scan_ArchiveMaxDepth">Especificar la profundidad máxima para examinar archivos de almacenamiento</string>
+    <string id="Scan_ArchiveMaxDepth_Explain">Esta configuración de directiva permite configurar el nivel máximo de profundidad de directorio en el que los archivos de almacenamiento (como .ZIP o .CAB) se desempaquetan durante un examen. El nivel predeterminado de profundidad de directorio es 0.
+
+Si habilita esta configuración los archivos de almacenamiento se examinarán en el nivel de profundidad de directorio especificado.
+
+Si deshabilita o no establece esta configuración, los archivos de almacenamiento se examinarán en el nivel de profundidad de directorio predeterminado.</string>
+    <string id="Scan_ArchiveMaxSize">Especificar el tamaño máximo de los archivos de almacenamiento que se van a examinar</string>
+    <string id="Scan_ArchiveMaxSize_Explain">Esta configuración de directiva permite configurar el tamaño máximo de los archivos de almacenamiento (como .ZIP o .CAB) que se van a examinar. El valor representa el tamaño de archivo en kilobytes (KB). El valor predeterminado es 0 y no constituye ningún límite de tamaño de archivo de almacenamiento para el examen.
+
+Si habilita esta configuración, se examinarán los archivos de almacenamiento cuyo tamaño sea igual o inferior al tamaño especificado.
+
+Si deshabilita o no establece esta configuración, los archivos de almacenamiento se examinarán en función del valor predeterminado.</string>
+    <string id="Scan_AvgCPULoadFactor">Especificar el porcentaje máximo de uso de CPU durante un examen</string>
+    <string id="Scan_AvgCPULoadFactor_Explain">Esta configuración de directiva permite configurar el porcentaje máximo de uso de CPU permitido durante un examen. Los valores válidos para esta configuración son porcentajes representados mediante enteros de 5 a 100. Un valor 0 indica que no debería haber límite de uso de CPU. El valor predeterminado es 50.
+
+Si habilita esta configuración, el uso de CPU no superará el porcentaje especificado.
+
+Si deshabilita o no establece esta configuración, el uso de CPU no superará el porcentaje predeterminado.</string>
+    <string id="CheckForSignaturesBeforeRunningScan">Buscar las definiciones de virus y spyware más recientes antes de ejecutar un examen programado</string>
+    <string id="CheckForSignaturesBeforeRunningScan_Explain">Esta configuración de directiva permite administrar si se van a buscar nuevas definiciones de virus y spyware antes de ejecutar un examen. 
+
+Esta configuración es válida tanto para los exámenes programados como para la línea de comandos "mpcmdrun -SigUpdate", pero no tiene efecto alguno en los exámenes que se hayan iniciado manualmente desde la interfaz de usuario.
+
+Si habilita esta configuración, se buscarán nuevas definiciones antes de ejecutar un examen.
+
+Si deshabilita o no establece esta configuración, el examen se iniciará con las definiciones existentes.</string>
+    <string id="Scan_DisableArchiveScanning">Examinar archivos de almacenamiento</string>
+    <string id="Scan_DisableArchiveScanning_Explain">Esta configuración de directiva permite configurar los exámenes para que busquen software malintencionado y software no deseado en los archivos de almacenamiento (como los archivos .ZIP o .CAB).
+
+Si habilita o no establece esta configuración, los archivos de almacenamiento se examinarán.
+
+Si deshabilita esta configuración, los archivos de almacenamiento no se examinarán.</string>
+    <string id="Scan_DisableCatchupFullScan">Activar análisis completo de puesta al día</string>
+    <string id="Scan_DisableCatchupFullScan_Explain">Esta configuración de directiva permite configurar análisis de puesta al día en los exámenes rápidos programados. Un análisis de puesta al día es un examen que se inicia porque no se ha realizado un examen programado regularmente.  El motivo habitual por el que los exámenes programados no se realizan es porque el equipo está apagado en la hora programada. 
+
+    Si habilita esta configuración, se activarán los análisis de puesta al día en los exámenes completos programados. Si un equipo está desconectado durante dos exámenes programados consecutivos, se iniciará un análisis de puesta al día la próxima vez que alguien inicie sesión en el equipo.  Si no se ha configurado ningún examen programado, no habrá análisis de puesta al día.
+
+    Si deshabilita o no establece esta configuración, se desactivarán los análisis de puesta al día en los exámenes completos programados.</string>
+    <string id="Scan_DisableCatchupQuickScan">Activar análisis rápido de puesta al día</string>
+    <string id="Scan_DisableCatchupQuickScan_Explain">Esta configuración de directiva permite configurar análisis de puesta al día en los exámenes rápidos programados. Un análisis de puesta al día es un examen que se inicia porque no se ha realizado un examen programado regularmente.  El motivo habitual por el que los exámenes programados no se realizan es porque el equipo está apagado en la hora programada. 
+
+Si habilita esta configuración, se activarán los análisis de puesta al día en los exámenes rápidos programados. Si un equipo está desconectado durante dos exámenes programados consecutivos, se iniciará un análisis de puesta al día la próxima vez que alguien inicie sesión en el equipo.  Si no se ha configurado ningún examen programado, no habrá análisis de puesta al día.
+
+Si deshabilita o no establece esta configuración, se desactivarán los análisis de puesta al día en los exámenes rápidos programados.</string>
+    <string id="Scan_DisableEmailScanning">Activar examen de correo electrónico</string>
+    <string id="Scan_DisableEmailScanning_Explain">Esta configuración de directiva permite configurar el examen de correo electrónico. Cuando el examen de correo electrónico está habilitado, el motor analiza el buzón y los archivos de correo de acuerdo a su formato específico para analizar los datos adjuntos y el cuerpo de los correos. Actualmente se admiten varios formatos de correo electrónico, como pst (Outlook), dbx, mbx, mime (Outlook Express) o binhex (Mac).
+
+Si habilita esta configuración, el examen de correo electrónico se habilitará.
+
+Si deshabilita o no establece esta configuración, el examen de correo electrónico se deshabilitará.</string>
+    <string id="Scan_DisableHeuristics">Activar heurística</string>
+    <string id="Scan_DisableHeuristics_Explain">Esta configuración de directiva permite configurar la heurística. Las detecciones sospechosas se suprimirán justo antes de informar al cliente de motor. Si la heurística se desactiva, disminuirá la capacidad de etiquetar nuevas amenazas. Se recomienda no desactivar la heurística.
+
+Si habilita o no establece esta configuración, la heurística se habilitará.
+
+Si deshabilita esta configuración, la heurística se deshabilitará.</string>
+    <string id="Scan_DisablePackedExeScanning">Examinar ejecutables empaquetados</string>
+    <string id="Scan_DisablePackedExeScanning_Explain">Esta configuración de directiva le permite configurar el examen de ejecutables empaquetados. Se recomienda tener habilitado este tipo de examen.
+
+Si habilita o no establece esta configuración, los ejecutables empaquetados se examinarán.
+
+Si deshabilita esta configuración, los ejecutables empaquetados no se examinarán.</string>
+    <string id="Scan_DisableRemovableDriveScanning">Examinar unidades extraíbles</string>
+    <string id="Scan_DisableRemovableDriveScanning_Explain">Esta configuración de directiva permite administrar si, durante un examen completo, se va a examinar o no el contenido de las unidades extraíbles (como las unidades flash USB) en busca de software no deseado o malintencionado.
+
+Si habilita esta configuración, las unidades extraíbles se examinarán durante cualquier tipo de examen.
+
+Si deshabilita o no establece esta configuración, las unidades extraíbles no se examinarán durante cualquier tipo de examen. Con todo, las unidades extraíbles se podrán seguir examinando durante los exámenes rápidos y los exámenes personalizados.</string>
+    <string id="Scan_DisableReparsePointScanning">Activar examen de puntos de reanálisis</string>
+    <string id="Scan_DisableReparsePointScanning_Explain">Esta configuración de directiva permite configurar el examen de los puntos de reanálisis. Si permite que se examinen los puntos de reanálisis, existe un posible riesgo de recursión. No obstante, el motor admite el seguimiento de puntos de reanálisis a una profundidad máxima determinada, de modo que lo peor que puede pasar es que el examen sea lento. El examen de puntos de reanálisis está deshabilitado de forma predeterminada, que es el estado recomendable para esta funcionalidad. 
+
+Si habilita esta configuración, el examen de puntos de reanálisis se habilitará.
+
+Si deshabilita o no establece esta configuración, el examen de puntos de reanálisis se deshabilitará.</string>
+    <string id="Scan_DisableRestorePoint">Crear un punto de restauración del sistema</string>
+    <string id="Scan_DisableRestorePoint_Explain">Esta configuración de directiva permite crear un punto de restauración del sistema diariamente en el equipo antes de proceder a la limpieza. 
+
+Si habilita esta configuración, se creará un punto de restauración del sistema.
+
+Si deshabilita o no establece esta configuración, no se creará un punto de restauración del sistema.</string>
+    <string id="Scan_DisableScanningMappedNetworkDrivesForFullScan">Ejecutar examen completo en unidades de red asignadas</string>
+    <string id="Scan_DisableScanningMappedNetworkDrivesForFullScan_Explain">Esta configuración de directiva le permite configurar exámenes de unidades de red asignadas.
+
+Si habilita esta configuración, las unidades de red asignadas se examinarán.
+
+Si deshabilita o no establece esta configuración, las unidades de red asignadas no se examinarán.</string>
+    <string id="Scan_DisableScanningNetworkFiles">Examinar archivos de red</string>
+    <string id="Scan_DisableScanningNetworkFiles_Explain">Esta configuración de directiva le permite configurar exámenes de archivos de red. Se recomienda no habilitar esta configuración.
+
+Si habilita esta configuración, los archivos de red se examinarán.
+
+Si deshabilita o no establece esta configuración, los archivos de red no se examinarán.</string>
+    <string id="Scan_LocalSettingOverrideAvgCPULoadFactor">Definir reemplazo de configuración local para porcentaje máximo de uso de CPU</string>
+    <string id="Scan_LocalSettingOverrideAvgCPULoadFactor_Explain">Esta configuración de directiva define un reemplazo local para la configuración del porcentaje máximo de CPU que se va a usar durante un examen. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Scan_LocalSettingOverrideScanParameters">Definir reemplazo de configuración local para el tipo de examen que se va a usar en un examen programado</string>
+    <string id="Scan_LocalSettingOverrideScanParameters_Explain">Esta configuración de directiva define un reemplazo local para la configuración del tipo de examen que se va a usar durante un examen programado. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Scan_LocalSettingOverrideScheduleDay">Definir reemplazo de configuración local para programar el día de examen</string>
+    <string id="Scan_LocalSettingOverrideScheduleDay_Explain">Esta configuración de directiva define un reemplazo local para la configuración del día de examen programado. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+    Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+    Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Scan_LocalSettingOverrideScheduleQuickScantime">Definir reemplazo de configuración local para la hora de examen rápido programada</string>
+    <string id="Scan_LocalSettingOverrideScheduleQuickScantime_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la hora de examen rápido programada. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+    Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+    Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Scan_LocalSettingOverrideScheduleTime">Definir reemplazo de configuración local para la hora de examen programada</string>
+    <string id="Scan_LocalSettingOverrideScheduleTime_Explain">Esta configuración de directiva define un reemplazo local para la configuración de la hora de examen programada. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+    Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+    Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="Scan_PurgeItemsAfterDelay">Activar eliminación de elementos de la carpeta de historial de exámenes</string>
+    <string id="Scan_PurgeItemsAfterDelay_Explain">Esta configuración de directiva define el número de días que los elementos deben permanecer en la carpeta de historial de exámenes antes de eliminarse de manera permanente. El valor representa el número de días que los elementos van a permanecer en la carpeta. Si se establece en cero, los elementos permanecerán para siempre y no se eliminarán automáticamente. El valor está establecido de forma predeterminada en 30 días.
+
+Si habilita esta configuración, los elementos se eliminarán de la carpeta de historial de exámenes cuando haya transcurrido un número de días concreto.
+
+Si deshabilita o no establece esta configuración, los elementos permanecerán en la carpeta de historial de exámenes durante el número de días predeterminado.</string>
+    <string id="Scan_QuickScanInterval">Especificar el intervalo de ejecución de exámenes rápidos al día</string>
+    <string id="Scan_QuickScanInterval_Explain">Esta configuración de directiva le permite especificar un intervalo en el que se va a realizar un examen rápido. El valor de tiempo se representa como el un número de horas que transcurre entre un examen rápido y otro. Los valores válidos oscilan entre 1 (cada hora) y 24 (una vez al día). Si se establece en cero, no habrá exámenes rápidos de intervalo. Este valor está establecido de forma predeterminada en 0.
+
+Si habilita esta configuración, se ejecutará un examen rápido en el intervalo especificado.
+
+Si deshabilita o no establece esta configuración, se ejecutará un examen rápido a la hora predeterminada.</string>
+    <string id="Scan_ScanOnlyIfIdle">Iniciar el examen programado solo cuando el equipo esté activado, pero no en uso</string>
+    <string id="Scan_ScanOnlyIfIdle_Explain">Esta configuración de directiva permite configurar exámenes programados de forma que se inicien solo cuando el equipo esté activado, pero no en uso.
+
+Si habilita o no establece esta configuración, los exámenes programados solo se ejecutarán cuando el equipo esté activado, pero no en uso.
+
+Si deshabilita esta configuración, los exámenes programados solo se ejecutarán a la hora programada.</string>
+    <string id="Scan_ScanParameters">Especificar el tipo de examen que se va a usar en un examen programado</string>
+    <string id="Scan_ScanParameters_Explain">Esta configuración de directiva le permite especificar el tipo de examen que se va a usar durante un examen programado. Estas son las opciones de tipo de examen:
+1 = Examen rápido (predeterminada)
+2 = Examen completo
+
+Si habilita esta configuración, el tipo de examen se establecerá en el valor especificado.
+
+Si deshabilita o no establece esta configuración, se usará el tipo de examen predeterminado.</string>
+    <string id="Scan_ScanParameters_0">Examen rápido</string>
+    <string id="Scan_ScanParameters_1">Examen de sistema completo</string>
+    <string id="Scan_ScheduleDay">Especificar el día de la semana en el que ejecutar un examen programado</string>
+    <string id="Scan_ScheduleDay_Explain">Esta configuración de directiva permite especificar el día de la semana en el que realizar un examen programado. El examen también se puede configurar para que se ejecute cada día o nunca.
+
+Esta configuración se puede definir con los siguientes valores de número ordinal:
+(0x0) Todos los días
+(0x1) Domingo
+(0x2) Lunes
+(0x3) Martes
+(0x4) Miércoles
+(0x5) Jueves
+(0x6) Viernes
+(0x7) Sábado
+(0x8) Nunca (predeterminado)
+
+Si habilita esta configuración, se ejecutará un examen programado a la frecuencia especificada.
+
+Si deshabilita o no establece esta configuración, se ejecutará un examen programado a una frecuencia predeterminada.</string>
+    <string id="Scan_ScheduleDay_0">Nunca</string>
+    <string id="Scan_ScheduleDay_1">Todos los días</string>
+    <string id="Scan_ScheduleDay_2">Domingo</string>
+    <string id="Scan_ScheduleDay_3">Lunes</string>
+    <string id="Scan_ScheduleDay_4">Martes</string>
+    <string id="Scan_ScheduleDay_5">Miércoles</string>
+    <string id="Scan_ScheduleDay_6">Jueves</string>
+    <string id="Scan_ScheduleDay_7">Viernes</string>
+    <string id="Scan_ScheduleDay_8">Sábado</string>
+    <string id="Scan_ScheduleQuickScantime">Especificar la hora de un examen rápido diario</string>
+    <string id="Scan_ScheduleQuickScantime_Explain">Esta configuración de directiva le permite especificar la hora del día a la que realizar un examen rápido diario. El valor de hora se representa como un número de minutos pasada la medianoche (00:00).  Así, por ejemplo, 120 (0x78) equivale a 02:00 AM. Esta configuración está establecida de forma predeterminada en un valor de hora de 2:00 AM. La programación se basa en la hora local del equipo en el que el examen vaya a realizarse.
+
+Si habilita esta configuración, se ejecutará un examen rápido diario a la hora del día especificada.
+
+Si deshabilita o no establece esta configuración, se ejecutará un examen rápido diario a la hora predeterminada.</string>
+    <string id="Scan_ScheduleTime">Especificar la hora del día a la que ejecutar un examen programado</string>
+    <string id="Scan_ScheduleTime_Explain">Esta configuración de directiva le permite especificar la hora del día a la que realizar un examen programado. El valor de hora se representa como un número de minutos pasada la medianoche (00:00).  Así, por ejemplo, 120 (0x78) equivale a 02:00 AM. Esta configuración está establecida de forma predeterminada en un valor de hora de 2:00 AM. La programación se basa en la hora local del equipo en el que el examen vaya a realizarse.
+
+Si habilita esta configuración, se ejecutará un examen programado a la hora del día especificada.
+
+Si deshabilita o no establece esta configuración, se ejecutará un examen programado a la hora predeterminada.</string>
+    <string id="Scan_MissedScheduledScanCountBeforeCatchup">Definir el número de días tras el cual se forzará un examen de puesta al día</string>
+    <string id="Scan_MissedScheduledScanCountBeforeCatchup_Explain">
+    Esta configuración de directiva permite definir el número de los exámenes programados consecutivos que se pueden omitir tras el cual se forzará un examen de puesta al día. De forma predeterminada, el valor de esta configuración es 2 exámenes programados consecutivos.
+
+    Si habilita esta configuración, se realizará un examen de puesta al día después de omitir el número especificado de exámenes programados consecutivos.
+
+    Si deshabilita o no establece esta configuración, se realizará un examen de puesta al día después de omitir 2 exámenes programados consecutivos.</string>
+    <string id="SignatureUpdate_ASSignatureDue">Definir el número de días que debe transcurrir para considerar las definiciones de spyware como caducadas</string>
+    <string id="SignatureUpdate_ASSignatureDue_Explain">Esta configuración de directiva permite definir el número de días que debe transcurrir para considerar las definiciones de spyware como caducadas. Si se establece que las definiciones están caducadas, este estado puede desencadenar más acciones, como revertir a un origen de actualización alternativo o mostrar un icono de advertencia en la interfaz de usuario. Este valor está establecido de forma predeterminada en 14 días.
+
+Si habilita esta configuración, las definiciones de spyware se considerarán como caducadas después de que haya transcurrido el número de días especificado sin una actualización.
+
+Si deshabilita o no establece esta configuración, las definiciones de spyware se considerarán como caducadas después de que haya transcurrido el número de días predeterminado sin una actualización.</string>
+    <string id="SignatureUpdate_AVSignatureDue">Definir el número de días que debe transcurrir para considerar las definiciones de virus como caducadas</string>
+    <string id="SignatureUpdate_AVSignatureDue_Explain">Esta configuración de directiva permite definir el número de días que debe transcurrir para considerar las definiciones de virus como caducadas. Si se establece que las definiciones están caducadas, este estado puede desencadenar más acciones, como revertir a un origen de actualización alternativo o mostrar un icono de advertencia en la interfaz de usuario. Este valor está establecido de forma predeterminada en 14 días.
+
+Si habilita esta configuración, las definiciones de virus se considerarán como caducadas después de que haya transcurrido el número de días especificado sin una actualización.
+
+Si deshabilita o no establece esta configuración, las definiciones de virus se considerarán como caducadas después de que haya transcurrido el número de días predeterminado sin una actualización.</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources">Definir recursos compartidos de archivos para descargar actualizaciones de definiciones</string>
+    <string id="SignatureUpdate_DefinitionUpdateFileSharesSources_Explain">Esta configuración de directiva permite configurar orígenes de recursos compartidos de archivos UNC para descargar actualizaciones de definiciones. El contacto con los orígenes se debe establecer en el orden especificado. El valor de esta configuración se debe especificar como una cadena separada por canalización en la que se enumeren los orígenes de actualización de definiciones (por ejemplo, "{\\unc1 | \\unc2 }"). La lista está vacía de forma predeterminada.
+
+Si habilita esta configuración, se establecerá contacto con los orígenes especificados en busca de actualizaciones de definiciones. Cuando las actualizaciones de definiciones de un origen en concreto se hayan descargado correctamente, se establecerá contacto con el resto de orígenes de la lista.
+
+Si deshabilita o no establece esta configuración, la lista seguirá vacía de forma predeterminada y no se establecerá contacto con ningún origen.</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate">Activar examen tras una actualización de firma</string>
+    <string id="SignatureUpdate_DisableScanOnUpdate_Explain">Esta configuración de directiva permite configurar el examen automático que se inicia después de que haya tenido lugar una actualización de definición.
+
+Si habilita o no establece esta configuración, se iniciará un examen después de una actualización de definición.
+
+Si deshabilita esta configuración, no se iniciará un examen después de una actualización de definición.</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery">Permitir actualizaciones de definiciones al funcionar con batería</string>
+    <string id="SignatureUpdate_DisableScheduledSignatureUpdateonBattery_Explain">Esta configuración de directiva permite configurar actualizaciones de definiciones cuando el equipo se ejecuta con batería.
+
+Si habilita o no establece esta configuración, las actualizaciones de definiciones sucederán del modo habitual, independientemente del estado de energía.
+
+Si deshabilita esta configuración, las actualizaciones de definiciones se desactivarán cuando el equipo se ejecute con batería.</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine">Realizar actualización de definición en el inicio</string>
+    <string id="SignatureUpdate_DisableUpdateOnStartupWithoutEngine_Explain">Esta configuración de seguridad permite configurar actualizaciones de definiciones al inicio, cuando no hay un motor antimalware presente.
+
+Si habilita o no establece esta configuración, las actualizaciones de definiciones se realizarán al inicio, cuando no hay un motor antimalware presente.
+
+Si deshabilita esta configuración, las actualizaciones de definiciones no se realizarán al inicio, cuando no hay un motor antimalware presente.</string>
+    <string id="SignatureUpdate_FallbackOrder">Definir el orden de los orígenes para descargar actualizaciones de definiciones</string>
+    <string id="SignatureUpdate_FallbackOrder_Explain">Esta configuración de directiva permite definir el orden en el que se va a establecer contacto con los distintos orígenes de actualización de definiciones. El valor de esta configuración se debe especificar como una cadena separada por canalización en la que se enumeren en orden los orígenes de actualización de definiciones Entre los posibles valores están los siguientes: “InternalDefinitionUpdateServer”, “MicrosoftUpdateServer”, “MMPC” y “FileShares”
+
+Por ejemplo: { InternalDefinitionUpdateServer | MicrosoftUpdateServer | MMPC }
+
+Si habilita esta configuración, se establecerá contacto con los orígenes de actualización de definiciones en el orden especificado. Cuando las actualizaciones de definiciones de un origen en concreto se hayan descargado correctamente, se establecerá contacto con el resto de orígenes de la lista.
+
+Si deshabilita o no establece esta configuración, se establecerá contacto con los orígenes de actualización de definiciones en el orden predeterminado.</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU">Permitir actualizaciones de definiciones de Microsoft Update</string>
+    <string id="SignatureUpdate_ForceUpdateFromMU_Explain">Esta configuración de directiva permite descargar actualizaciones de definiciones de Microsoft Update, incluso cuando el servidor predeterminado de actualizaciones automáticas esté configurado en otro origen de actualización, como Windows Update.
+
+Si habilita esta configuración, las actualizaciones de definiciones se descargarán de Microsoft Update.
+
+Si deshabilita o no establece esta configuración, las actualizaciones de definiciones se descargarán del origen de descarga configurado.</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery">Permitir actualizaciones de definiciones en tiempo real basadas en informes a Microsoft MAPS</string>
+    <string id="SignatureUpdate_RealtimeSignatureDelivery_Explain">Esta configuración de directiva permite habilitar las actualizaciones de definiciones en tiempo real en respuesta a los informes enviados a Microsoft MAPS. Si el servicio informa de que un archivo es desconocido y Microsoft MAPS descubre que la actualización de definición más reciente tiene definiciones para una amenaza relacionada con ese archivo, el servicio recibirá de forma inmediata todas las definiciones más recientes para esa amenaza. Su equipo debe estar configurado para unirse a Microsoft MAPS para que esta funcionalidad funcione.
+
+Si habilita o no establece esta configuración, las actualizaciones de definiciones en tiempo real se habilitarán.
+
+Si deshabilita esta configuración, las actualizaciones de definiciones en tiempo real se deshabilitarán.</string>
+    <string id="SignatureUpdate_ScheduleDay">Especificar el día de la semana en el que buscar actualizaciones de definiciones</string>
+    <string id="SignatureUpdate_ScheduleDay_Explain">Esta configuración de directiva permite especificar el día de la semana en el que buscar actualizaciones de definiciones. La búsqueda también se puede configurar para que se ejecute cada día o nunca.
+
+Esta configuración se puede definir con los siguientes valores de número ordinal:
+(0x0) Todos los días
+(0x1) Domingo
+(0x2) Lunes
+(0x3) Martes
+(0x4) Miércoles
+(0x5) Jueves
+(0x6) Viernes
+(0x7) Sábado
+(0x8) Nunca
+
+Si habilita esta configuración, la búsqueda de actualizaciones de definiciones se realizará a la frecuencia especificada.
+
+Si deshabilita o no establece esta configuración, la búsqueda de actualizaciones de definiciones se realizará a una frecuencia predeterminada.</string>
+    <string id="SignatureUpdate_ScheduleDay_0">Nunca</string>
+    <string id="SignatureUpdate_ScheduleDay_1">Todos los días</string>
+    <string id="SignatureUpdate_ScheduleDay_2">Domingo</string>
+    <string id="SignatureUpdate_ScheduleDay_3">Lunes</string>
+    <string id="SignatureUpdate_ScheduleDay_4">Martes</string>
+    <string id="SignatureUpdate_ScheduleDay_5">Miércoles</string>
+    <string id="SignatureUpdate_ScheduleDay_6">Jueves</string>
+    <string id="SignatureUpdate_ScheduleDay_7">Viernes</string>
+    <string id="SignatureUpdate_ScheduleDay_8">Sábado</string>
+    <string id="SignatureUpdate_ScheduleTime">Especificar la hora a la que buscar actualizaciones de definiciones</string>
+    <string id="SignatureUpdate_ScheduleTime_Explain">Esta configuración de directiva permite especificar la hora del día a la que buscar actualizaciones de definiciones. El valor de hora se representa como un número de minutos pasada la medianoche (00:00).  Así, por ejemplo, 120 (0x78) equivale a 02:00 AM. Esta configuración está establecida de forma predeterminada para realizar la búsqueda de actualizaciones de definiciones 15 minutos antes de la hora del examen programado. La programación se basa en la hora local del equipo en el que la búsqueda tiene lugar.
+
+Si habilita esta configuración, la búsqueda de actualizaciones de definiciones se realizará a la hora del día especificada.
+
+Si deshabilita o no establece esta configuración, la búsqueda de actualizaciones de definiciones se realizará a la hora predeterminada.</string>
+    <string id="SignatureUpdate_SignatureDisableNotification">Permitir notificaciones para deshabilitar definiciones basadas en informes a Microsoft MAPS</string>
+    <string id="SignatureUpdate_SignatureDisableNotification_Explain">Esta configuración de directiva permite configurar el servicio antimalware para recibir notificaciones para deshabilitar definiciones individuales en respuesta a los informes que envía a Microsoft MAPS. Microsoft MAPS usa estas notificaciones para deshabilitar definiciones que estén causando informes de falsos positivos. Su equipo debe estar configurado para unirse a Microsoft MAPS para que esta funcionalidad funcione.
+
+Si habilita o no establece esta configuración, el servicio antimalware recibirá notificaciones para deshabilitar definiciones.
+
+Si deshabilita esta configuración, el servicio antimalware no recibirá notificaciones para deshabilitar definiciones.</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval">Definir el número de días tras los que se necesita una actualización de definición de puesta al día</string>
+    <string id="SignatureUpdate_SignatureUpdateCatchupInterval_Explain">Esta configuración de directiva permite definir el número de días tras los que será necesaria una actualización de definición de puesta al día. El valor predeterminado de esta configuración es de 1 día.
+
+Si habilita esta configuración, se realizará una actualización de definición de puesta al día transcurrido el número de días especificado.
+
+Si deshabilita o no establece esta configuración, será necesario realizar una actualización de definición de puesta al día transcurrido el número de días predeterminado.</string>
+    <string id="SignatureUpdate_ExpiryNotificationIntervalDays">Especificar el intervalo para la notificación de expiración</string>
+    <string id="SignatureUpdate_ExpiryNotificationIntervalDays_Explain">
+    Esta configuración de directiva permite especificar un intervalo (en días) para la notificación de expiración.
+    Si una expiración de firma o de plataforma es inminente, este valor indica con qué frecuencia la interfaz de usuario de AM notificará a los clientes.
+
+    El valor debe ser mayor que cero para que la directiva esté activa.
+    </string>
+    <string id="SignatureUpdate_SignatureUpdateInterval">Especificar el intervalo para buscar actualizaciones de definiciones</string>
+    <string id="SignatureUpdate_SignatureUpdateInterval_Explain">Esta configuración de directiva permite especificar el intervalo en el que buscar actualizaciones de definiciones. El valor de tiempo se representa como el número de horas entre búsquedas de actualizaciones. Los valores válidos oscilan entre 1 (cada hora) y 24 (una vez al día).
+
+Si habilita esta configuración, las búsquedas de actualizaciones de definiciones se realizarán en el intervalo especificado.
+
+Si deshabilita o no establece esta configuración, las búsquedas de actualizaciones de definiciones se realizarán en el intervalo predeterminado.</string>
+    <string id="SignatureUpdate_UpdateOnStartup">Buscar las definiciones de virus y spyware más recientes en el inicio</string>
+    <string id="SignatureUpdate_UpdateOnStartup_Explain">Esta configuración de directiva permite administrar si se van a buscar nuevas definiciones de virus y spyware inmediatamente después de que el servicio se inicie.
+
+Si habilita esta configuración, se realizará una búsqueda de nuevas definiciones después de que el servicio se inicie.
+
+Si deshabilita o no establece esta configuración, no se realizará una búsqueda de nuevas definiciones después de que el servicio se inicie.</string>
+    <string id="Spynet_LocalSettingOverrideSpynetReporting">Definir reemplazo de configuración local para enviar informes a Microsoft MAPS</string>
+    <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Esta configuración de directiva define un reemplazo local para la configuración para unirse a Microsoft MAPS. Esta configuración se puede establecer únicamente a través de la directiva de grupo.
+
+Si habilita esta configuración, la configuración de preferencias local tendrá prioridad sobre la directiva de grupo.
+
+Si deshabilita o no establece esta configuración, la directiva de grupo tendrá prioridad sobre la configuración de preferencias local.</string>
+    <string id="SubmitSamplesConsent">Enviar muestras de archivos cuando se requieran más análisis</string>
+    <string id="SubmitSamplesConsent_Explain">
+        Esta configuración de directiva define el comportamiento de envío de muestras cuando la opción de telemetría de MAPS está configurada.
+
+Las opciones posibles son:
+            (0x0) Preguntar siempre
+            (0x1) Enviar muestras seguras automáticamente
+            (0x2) No enviar nunca
+            (0x2) Enviar todas las muestras automáticamente
+    </string>
+
+    <string id="SubmitSamplesConsent_Always_Prompt">Preguntar siempre</string>
+    <string id="SubmitSamplesConsent_Send_Safe">Enviar muestras seguras</string>
+    <string id="SubmitSamplesConsent_Never_Send">No enviar nunca</string>
+    <string id="SubmitSamplesConsent_Send_All">Enviar todas las muestras</string>
+
+    <string id="SpynetReporting">Únase a Microsoft MAPS</string>
+    <string id="SpynetReporting_Explain">Esta configuración de directiva le permite unirse a Microsoft MAPS. Microsoft MAPS es la comunidad en línea que le ayuda a elegir la respuesta a las amenazas potenciales. La comunidad también le ayuda a detener la propagación de nuevas infecciones de software malintencionado.
+
+Puede optar por enviar información básica o adicional acerca del software detectado. La información adicional ayuda a Microsoft a crear definiciones nuevas y le ayuda a proteger el equipo. Esta información puede incluir aspectos como la ubicación de los elementos detectados en el equipo en caso de que se haya eliminado software dañino. La información se recopila y envía de manera automática. En algunos casos, es posible que se envíe de forma no intencionada información personal a Microsoft. No obstante, Microsoft no usará esta información para identificarlo ni para ponerse en contacto con usted.
+
+Las opciones posibles son:
+(0x0) Deshabilitado (predeterminado)
+(0x1) Pertenencia básica
+(0x2) Pertenencia avanzada
+
+Con la pertenencia básica se enviará a Microsoft información básica sobre el software que se ha detectado, como el origen del software, las acciones que se realizan o que se han realizado automáticamente y si dichas acciones tuvieron el efecto adecuado.
+
+Con la pertenencia avanzada, además de la información básica se enviará más información a Microsoft sobre software malintencionado, spyware y software potencialmente no deseado, incluida la ubicación del software, los nombres de archivos, cómo funciona el software y cómo afectó al equipo.
+
+Si habilita esta configuración, se unirá a Microsoft MAPS con la pertenencia especificada.
+
+Si deshabilita o no establece esta configuración, no se unirá a Microsoft MAPS.</string>
+    <string id="SpynetReporting_Disabled">Deshabilitado</string>
+    <string id="SpynetReporting_Basic">MAPS básico</string>
+    <string id="SpynetReporting_Advanced">MAPS avanzado</string>
+    <string id="Threats_ThreatIdDefaultAction">Especificar amenazas en las que, al detectarse, la acción predeterminada no debe realizarse</string>
+    <string id="Threats_ThreatIdDefaultAction_Explain">Esta configuración de directiva personaliza la acción de corrección que se va a realizar en relación con cada identificador de amenaza registrado cuando se detecta durante un examen. Las amenazas se deben agregar mediante las opciones de esta configuración. Cada entrada debe especificarse como un par nombre-valor. El nombre define un identificador de amenaza válido, mientras que el valor contiene el identificador de la acción de corrección que debe realizarse.
+
+Los valores de acción de corrección válidos son:
+2 = Cuarentena
+3 = Quitar
+6 = Omitir</string>
+    <string id="Threats_ThreatSeverityDefaultAction">Especificar niveles de alerta de amenaza en los que, al detectarse, la acción predeterminada no debe realizarse</string>
+    <string id="Threats_ThreatSeverityDefaultAction_Explain">Esta configuración de directiva permite personalizar la acción de corrección que se va a realizar en relación con cada nivel de alerta de amenaza. Los niveles de alerta de amenaza se deben agregar mediante las opciones de esta configuración. Cada entrada debe especificarse como un par nombre-valor. El nombre define un nivel de alerta de amenaza. El valor contiene el identificador de la acción de corrección que debe realizarse.
+
+Los niveles de alerta de amenaza válidos son:
+1 = Bajo
+2 = Medio
+4 = Alto
+5 = Grave
+
+Los valores de acción de corrección válidos son:
+2 = Cuarentena
+3 = Quitar
+6 = Omitir</string>
+    <string id="UX_Configuration_UILockdown">Habilitar el modo de interfaz de usuario desatendido</string>
+    <string id="UX_Configuration_UILockdown_Explain">
+        Esta configuración de directiva permite configurar si desea mostrar la interfaz de usuario de AM a los usuarios o no.
+            Si habilita a esta configuración, la interfaz de usuario de AM no estará disponible para los usuarios.
+    </string>
+    <string id="UX_Configuration_SuppressRebootNotification">Suprime las notificaciones de reinicio</string>
+    <string id="UX_Configuration_SuppressRebootNotification_Explain">
+      Esta configuración de directiva permite al usuario suprimir las notificaciones de reinicio en modo de solo interfaz de usuario (para los casos en que la interfaz de usuario no puede estar en modo de bloqueo).
+
+      Si habilita a esta configuración, la interfaz de usuario de AM no mostrará las notificaciones de reinicio.
+    </string>
+    <string id="UX_Configuration_Notification_Suppress">Mostrar notificaciones a los clientes cuando deban realizar acciones</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Esta configuración de directiva permite configurar si se van a mostrar o no notificaciones a los clientes cuando deban realizar las siguientes acciones:
+Ejecutar un examen completo
+Descargar las definiciones de virus y spyware más recientes 
+Descargar el Sistema independiente de limpieza
+
+
+Si habilita o no establece esta configuración, se mostrarán notificaciones a los clientes cuando deban realizar las acciones especificadas.
+
+Si deshabilita esta configuración, no se mostrarán notificaciones a los clientes cuando deban realizar las acciones especificadas.</string>
+    <string id="UX_Configuration_CustomDefaultActionToastString">Mostrar más texto a los clientes cuando deban realizar una acción</string>
+    <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Esta configuración de directiva permite configurar si se va a mostrar o no más texto a los clientes cuando deban realizar una acción. El texto que se muestra es una cadena definida por el administrador personalizada (por ejemplo, el número de teléfono para llamar al servicio de asistencia de la compañía). La interfaz de cliente solo mostrará un máximo de 1024 caracteres. Las cadenas que sean más largas se truncarán antes de mostrarse.
+
+Si habilita esta configuración, se mostrará el texto extra especificado.
+
+Si deshabilita o no establece esta configuración, no se mostrará ningún texto extra.</string>
+    </stringTable>
+    <presentationTable>
+    <presentation id="ProxyBypass">
+    <textBox refId="ProxyBypass">
+        <label>Definir direcciones para omitir el servidor proxy</label>
+    </textBox>
+    </presentation>
+    <presentation id="ProxyServer">
+    <textBox refId="ProxyServer">
+        <label>Definir servidor proxy para las conexiones con la red</label>
+    </textBox>
+    </presentation>
+    <presentation id="Exclusions_Extensions">
+    <listBox refId="Exclusions_ExtensionsList">Exclusiones de extensión</listBox>
+    </presentation>
+    <presentation id="Exclusions_Paths">
+    <listBox refId="Exclusions_PathsList">Exclusiones de ruta de acceso</listBox>
+    </presentation>
+    <presentation id="Exclusions_Processes">
+    <listBox refId="Exclusions_ProcessesList">Exclusiones de proceso</listBox>
+    </presentation>
+    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
+    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definir la frecuencia de registro de eventos de detección</decimalTextBox>
+    </presentation>
+    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
+    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Exclusiones de intervalo de direcciones IP</listBox>
+    </presentation>
+    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
+    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Exclusiones de números de puerto</listBox>
+    </presentation>
+    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
+    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Exclusiones de procesos del tráfico saliente</listBox>
+    </presentation>
+    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
+    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Exclusiones de identificador de amenaza</listBox>
+    </presentation>
+    <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
+    <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Especificar más conjuntos de definiciones para la inspección del tráfico de red</listBox>
+    </presentation>
+    <presentation id="Quarantine_PurgeItemsAfterDelay">
+    <decimalTextBox refId="Quarantine_PurgeItemsAfterDelay" defaultValue="0">Configurar eliminación de elementos de la carpeta Cuarentena</decimalTextBox>
+    </presentation>
+    <presentation id="RealtimeProtection_IOAVMaxSize">
+    <decimalTextBox refId="RealtimeProtection_IOAVMaxSize" defaultValue="20480">Definir el tamaño máximo de archivos y datos adjuntos descargados que se va a examinar</decimalTextBox>
+    </presentation>
+    <presentation id="RealtimeProtection_RealtimeScanDirection">
+    <dropdownList refId="RealtimeProtection_RealtimeScanDirection" noSort="true" defaultItem="0">Configurar supervisión de la actividad de archivos y programas entrantes y salientes</dropdownList>
+    </presentation>
+    <presentation id="Remediation_Scan_ScheduleDay">
+    <dropdownList refId="Remediation_Scan_ScheduleDay" noSort="true" defaultItem="0">Especificar el día de la semana en el que ejecutar un examen completo programado para finalizar correcciones</dropdownList>
+    </presentation>
+    <presentation id="Remediation_Scan_ScheduleTime">
+    <decimalTextBox refId="Remediation_Scan_ScheduleTime" defaultValue="120">Especificar la hora del día a la que ejecutar un examen completo programado para finalizar correcciones</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_MissedScheduledScanCountBeforeCatchup">
+    <decimalTextBox refId="Scan_MissedScheduledScanCountBeforeCatchup" defaultValue="2">Definir el número de exámenes programados que se pueden omitir tras el cual se forzará un examen de puesta al día</decimalTextBox>
+    </presentation>
+    <presentation id="Reporting_AdditionalActionTimeout">
+    <decimalTextBox refId="Reporting_AdditionalActionTimeout" defaultValue="10080">Configurar tiempo de espera en detecciones que requieren más acciones</decimalTextBox>
+    </presentation>
+    <presentation id="Reporting_CriticalFailureTimeout">
+    <decimalTextBox refId="Reporting_CriticalFailureTimeout" defaultValue="10080">Configurar tiempo de espera en detecciones con un estado de error crítico</decimalTextBox>
+    </presentation>
+    <presentation id="Reporting_NonCriticalTimeout">
+    <decimalTextBox refId="Reporting_NonCriticalTimeout" defaultValue="1440">Configurar tiempo de espera en detecciones con un estado de error no crítico</decimalTextBox>
+    </presentation>
+    <presentation id="Reporting_RecentlyCleanedTimeout">
+    <decimalTextBox refId="Reporting_RecentlyCleanedTimeout" defaultValue="1440">Configurar tiempo de espera en detecciones con un estado corregido recientemente</decimalTextBox>
+    </presentation>
+    <presentation id="Reporting_WppTracingComponents">
+    <decimalTextBox refId="Reporting_WppTracingComponents" defaultValue="4294967295">Configurar componentes de preprocesador de seguimiento de software de Windows</decimalTextBox>
+    </presentation>
+    <presentation id="Reporting_WppTracingLevel">
+    <decimalTextBox refId="Reporting_WppTracingLevel" defaultValue="0">Configurar nivel de seguimiento de WPP</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_ArchiveMaxDepth">
+    <decimalTextBox refId="Scan_ArchiveMaxDepth" defaultValue="0">Especificar la profundidad máxima para examinar archivos de almacenamiento</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_ArchiveMaxSize">
+    <decimalTextBox refId="Scan_ArchiveMaxSize" defaultValue="0">Especificar el tamaño máximo de los archivos de almacenamiento que se van a examinar</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_AvgCPULoadFactor">
+    <decimalTextBox refId="Scan_AvgCPULoadFactor" defaultValue="50">Especificar el porcentaje máximo de uso de CPU durante un examen</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_PurgeItemsAfterDelay">
+    <decimalTextBox refId="Scan_PurgeItemsAfterDelay" defaultValue="30">Activar eliminación de elementos de la carpeta de historial de exámenes</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_QuickScanInterval">
+    <decimalTextBox refId="Scan_QuickScanInterval" defaultValue="0">Especificar el intervalo de ejecución de exámenes rápidos al día</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_ScanParameters">
+    <dropdownList refId="Scan_ScanParameters" noSort="true" defaultItem="0">Especificar el tipo de examen que se va a usar en un examen programado</dropdownList>
+    </presentation>
+    <presentation id="Scan_ScheduleDay">
+    <dropdownList refId="Scan_ScheduleDay" noSort="true" defaultItem="0">Especificar el día de la semana en el que ejecutar un examen programado</dropdownList>
+    </presentation>
+    <presentation id="Scan_ScheduleQuickScantime">
+    <decimalTextBox refId="Scan_ScheduleQuickScantime" defaultValue="120">Especificar la hora de un examen rápido diario</decimalTextBox>
+    </presentation>
+    <presentation id="Scan_ScheduleTime">
+    <decimalTextBox refId="Scan_ScheduleTime" defaultValue="120">Especificar la hora del día a la que ejecutar un examen programado</decimalTextBox>
+    </presentation>
+    <presentation id="SignatureUpdate_ASSignatureDue">
+    <decimalTextBox refId="SignatureUpdate_ASSignatureDue" defaultValue="14">Definir el número de días que debe transcurrir para considerar las definiciones de spyware como caducadas</decimalTextBox>
+    </presentation>
+    <presentation id="SignatureUpdate_AVSignatureDue">
+    <decimalTextBox refId="SignatureUpdate_AVSignatureDue" defaultValue="14">Definir el número de días que debe transcurrir para considerar las definiciones de virus como caducadas</decimalTextBox>
+    </presentation>
+    <presentation id="SignatureUpdate_DefinitionUpdateFileSharesSources">
+    <textBox refId="SignatureUpdate_DefinitionUpdateFileSharesSources">
+        <label>Definir recursos compartidos de archivos para descargar actualizaciones de definiciones</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_FallbackOrder">
+    <textBox refId="SignatureUpdate_FallbackOrder">
+        <label>Definir el orden de los orígenes para descargar actualizaciones de definiciones</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_ScheduleDay">
+    <dropdownList refId="SignatureUpdate_ScheduleDay" noSort="true" defaultItem="0">Especificar el día de la semana en el que buscar actualizaciones de definiciones</dropdownList>
+    </presentation>
+    <presentation id="SignatureUpdate_ScheduleTime">
+    <decimalTextBox refId="SignatureUpdate_ScheduleTime">Especificar la hora a la que buscar actualizaciones de definiciones</decimalTextBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SignatureUpdateCatchupInterval">
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateCatchupInterval" defaultValue="1">Definir el número de días tras los que se necesita una actualización de definición de puesta al día</decimalTextBox>
+    </presentation>
+    <presentation id="SignatureUpdate_SignatureUpdateInterval">
+    <decimalTextBox refId="SignatureUpdate_SignatureUpdateInterval">Especificar el intervalo para buscar actualizaciones de definiciones</decimalTextBox>
+    </presentation>
+    <presentation id="SpynetReporting">
+    <dropdownList refId="SpynetReporting" noSort="true" defaultItem="0">Únase a Microsoft MAPS</dropdownList>
+    </presentation>
+    <presentation id="SubmitSamplesConsent">
+    <dropdownList refId="SubmitSamplesConsent" noSort="true" defaultItem="1">Enviar muestras de archivos cuando se requieran más análisis</dropdownList>
+    </presentation>
+    <presentation id="Threats_ThreatIdDefaultAction">
+    <listBox refId="Threats_ThreatIdDefaultActionList">Especificar amenazas en las que, al detectarse, la acción predeterminada no debe realizarse</listBox>
+    </presentation>
+    <presentation id="Threats_ThreatSeverityDefaultAction">
+    <listBox refId="Threats_ThreatSeverityDefaultActionList">Especificar niveles de alerta de amenaza en los que, al detectarse, la acción predeterminada no debe realizarse</listBox>
+    </presentation>
+    <presentation id="UX_Configuration_CustomDefaultActionToastString">
+    <textBox refId="UX_Configuration_CustomDefaultActionToastString">
+        <label>Mostrar más texto a los clientes cuando deban realizar una acción</label>
+    </textBox>
+    </presentation>
+    <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
+        <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Especificar el intervalo para la notificación de expiración</decimalTextBox>
+    </presentation>
+    </presentationTable>
+</resources>
+</policyDefinitionResources>

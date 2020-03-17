@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Ochrona urządzenia z systemem Microsoft Windows</displayName>
+  <description>Zabezpieczenia Ochrony urządzenia z systemem Windows</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Ochrona urządzenia</string>
+      <string id="VirtualizationBasedSecurity">Włącz zabezpieczenia oparte na wirtualizacji</string>
+      <string id="VirtualizationBasedSecurityHelp">Określa, czy zabezpieczenia oparte na wirtualizacji mają być włączone.
+
+Zabezpieczenia oparte na wirtualizacji umożliwiają obsługę usług zabezpieczeń przy użyciu funkcji hypervisor systemu Windows. Wymagają one funkcji bezpiecznego rozruchu i opcjonalnie mogą być włączane przy użyciu ochrony DMA. Ochrona DMA wymaga obsługi sprzętowej i można ją włączyć tylko na odpowiednio skonfigurowanych urządzeniach.
+
+Ochrona integralności kodu oparta na wirtualizacji
+
+To ustawienie włącza opartą na wirtualizacji ochronę integralności kodu trybu jądra. Jeśli to ustawienie zostanie włączone, będzie wymuszana ochrona pamięci trybu jądra, a ścieżka weryfikacji integralności będzie chroniona przez funkcję zabezpieczeń opartych na wirtualizacji.
+
+Ostrzeżenie: wszystkie sterowniki w systemie muszą być zgodne z tą funkcją. W przeciwnym razie system może ulec awarii. Upewnij się, że to ustawienie zasad jest wdrażane tylko na zgodnych komputerach.
+
+Ochrona poświadczeń
+
+To ustawienie umożliwia użytkownikom włączanie ochrony poświadczeń z zabezpieczeniami opartymi na wirtualizacji w celu lepszej ochrony poświadczeń.
+
+Ustawienie opcji „Wyłączone” powoduje zdalne wyłączenie ochrony poświadczeń, jeśli została ona wcześniej włączona za pomocą opcji „Włączone bez blokady”.
+
+Opcja „Włączone z blokadą UEFI” uniemożliwia zdalne wyłączenie ochrony poświadczeń. Aby wyłączyć tę funkcję, musisz ustawić opcję „Wyłączone” dla zasad grupy, a także usunąć funkcję zabezpieczeń z każdego komputera, gdy użytkownik jest przy komputerze, aby wyczyścić konfigurację w interfejsie UEFI.
+
+Opcja „Wyłączone bez blokady” umożliwia zdalne wyłączenie ochrony poświadczeń za pomocą zasad grupy. Tego ustawienia można używać wyłącznie na urządzeniach z systemem Windows 10 (wersja 1511) lub nowszym.
+      </string>
+      <string id="SecureBoot">Bezpieczny rozruch</string>
+      <string id="SecureBootAndDmaProtection">Bezpieczny rozruch i ochrona DMA</string>
+      <string id="Disabled">Wyłączone</string>
+      <string id="Enabled">Włączone</string>
+      <string id="EnabledWithoutLock">Włączone bez blokady</string>
+      <string id="EnabledWithUefiLock">Włączone z blokadą UEFI</string>
+      <string id="ConfigCIPolicy">Wdróż zasady integralności kodu</string>
+      <string id="ConfigCIPolicyHelp">Wdróż zasady integralności kodu
+
+To ustawienie zasad umożliwia wdrożenie zasad integralności kodu na komputerze, aby można było kontrolować elementy, które można uruchamiać na tym komputerze.
+
+Jeśli wdrożysz zasady integralności kodu, system Windows ograniczy elementy, które można uruchamiać w trybie jądra i na komputerze z systemem Windows zgodnie z zasadami. Aby włączyć te zasady, musisz ponownie uruchomić komputer. 
+
+Ścieżka piku musi być ścieżką UNC (na przykład \\nazwa_serwera\nazwa_udziału\SIPolicy.p7b) lub lokalnie prawidłową ścieżką (na przykład C:\nazwa_folderu\SIPolicy.p7b). Konto lokalne komputera (SYSTEM LOKALNY) musi mieć uprawnienie dostępu do pliku zasad.
+ 
+Jeśli użycie podpisanych i chronionych zasad oraz wyłączenie tego ustawienia zasad nie spowoduje usunięcia funkcji z komputera, musisz wykonać jedną z następujących czynności:
+
+   1) Zaktualizuj zasady do niechronionych zasad, a następnie wyłącz ustawienie.
+   2) Wyłącz ustawienie, a następnie usuń zasady z każdego komputera, gdy użytkownik jest przy komputerze.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Wybierz poziom zabezpieczeń platformy:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Włącz ochronę integralności kodu opartą na wirtualizacji</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfiguracja ochrony poświadczeń:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Ścieżka pliku zasad integralności kodu:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Ochrana zařízení systému Microsoft Windows</displayName>
+  <description>Zabezpečení ochranou zařízení systému Windows</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Ochrana zařízení</string>
+      <string id="VirtualizationBasedSecurity">Zapnout zabezpečení na základě virtualizace</string>
+      <string id="VirtualizationBasedSecurityHelp">Určuje, jestli je povolené zabezpečení na základě virtualizace.
+
+Zabezpečení na základě virtualizace využívá hypervisor Windows a zajišťuje podporu pro služby zabezpečení. Vyžaduje zabezpečené spouštění a může se volitelně povolit pomocí ochran DMA. Ochrany DMA vyžadují hardwarovou podporu a povolí se jenom na správně nakonfigurovaných zařízeních.
+
+Ochrana integrity kódu na základě virtualizace
+
+Toto nastavení umožňuje ochranu integrity kódu v režimu jádra na základě virtualizace. Pokud je toto nastavení povolené, vynucuje se ochrana paměti v režimu jádra a ověřovací cesta integrity kódu je chráněná funkcí zabezpečení na základě virtualizace.
+
+Upozornění: Všechny ovladače v systému musí být s touto funkcí kompatibilní, jinak může dojít k selhání systému. Zajistěte, aby bylo nastavení této zásady nasazené jenom do počítačů, o kterých se ví, že jsou kompatibilní.
+
+Ochrana přihlašovacích údajů
+
+Toto nastavení umožňuje uživatelům zapnutí Ochrany přihlašovacích údajů se zabezpečením na základě virtualizace.
+
+Možnost Zakázáno vypne Ochranu přihlašovacích údajů, pokud byla předtím zapnutá pomocí možnosti Povoleno bez zámku.
+
+Možnost Povoleno se zámkem UEFI zajišťuje, že se Ochrana přihlašovacích údajů nedá zakázat vzdáleně. Pokud chcete funkci zakázat, musíte tuto zásadu skupiny nastavit na Zakázáno a současně odebrat příslušné funkce zabezpečení na každém jednotlivém počítači a za fyzické přítomnosti uživatele – jen tak je možné vymazat konfiguraci, která je trvale uložená v rozhraní UEFI.
+
+Možnost Povoleno bez zámku umožňuje vzdálené zakázání Ochrany přihlašovacích údajů pomocí zásad skupiny. Na zařízeních s tímto nastavením musí běžet přinejmenším Windows 10 (verze 1511).
+      </string>
+      <string id="SecureBoot">Zabezpečené spouštění</string>
+      <string id="SecureBootAndDmaProtection">Zabezpečené spouštění a ochrana DMA</string>
+      <string id="Disabled">Zakázáno</string>
+      <string id="Enabled">Povoleno</string>
+      <string id="EnabledWithoutLock">Povoleno bez zámku</string>
+      <string id="EnabledWithUefiLock">Povoleno se zámkem UEFI</string>
+      <string id="ConfigCIPolicy">Nasadit zásady integrity kódu</string>
+      <string id="ConfigCIPolicyHelp">Nasazení zásad integrity kódu
+
+Nastavení této zásady umožňuje nasazením zásad integrity kódu do počítače určovat, co je povolené na daném počítači spouštět.
+
+Při nasazování zásad integrity kód bude Windows omezovat to, co se dá na základě zásady spustit – jak v režimu jádra, tak na ploše Windows. Abyste mohli tuto zásadu povolit, musí se počítač restartovat.
+
+Cesta k souboru musí být buď cesta UNC (například \\NázevServeru\NázevSdílenéSložky\SIPolicy.p7b), nebo místně platná cesta (například C:\NázevSložky\SIPolicy.p7b). Účet místního počítače (LOCAL SYSTEM) musí mít oprávnění k přístupu k souboru zásad.
+ 
+Pokud používáte podepsanou a chráněnou zásadu, pak zakázáním tohoto nastavení zásady nedojde k odebrání funkce z počítače. Místo toho musíte udělat jednu z těchto věcí:
+
+   1) Nejdřív aktualizujete zásadu na nechráněnou zásadu a potom toto nastavení zakážete, nebo
+   2) Nejdřív nastavení zakážete a potom odeberete zásadu ze všech počítačů s fyzicky přítomným uživatelem
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Vyberte úroveň zabezpečení platformy:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Povolit ochranu integrity kódu na základě virtualizace</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfigurace Ochrany přihlašovacích údajů:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Cesta k souboru zásad integrity kódu:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

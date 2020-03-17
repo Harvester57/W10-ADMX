@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>ange visningsnamn här</displayName>
+  <description>ange beskrivning här</description>
+  <resources>
+    <stringTable>
+      <string id="WF_AllowedPrograms_Help">Används för att visa och ändra listan över programundantag som definieras i grupprincipen. I Windows-brandväggen används två undantagslistor: den ena definieras av grupprincipinställningar och den andra definieras genom komponenten Windows-brandväggen på Kontrollpanelen.
+
+Om du aktiverar den här inställningen kan du visa och ändra listan över programundantag som definieras i grupprincipen. Om du lägger till ett program i listan och aktiverar den här principen kan det programmet ta emot icke filtrerade inkommande meddelanden på alla portar som programmet anger att Windows-brandväggen ska öppna, även om porten blockeras av en annan principinställning, t ex Windows-brandväggen: Definiera undantag för inkommande port. Om du vill visa listan med program kan du aktivera inställningen och sedan klicka på knappen Visa. Om du vill lägga till ett program kan du aktivera inställningen, notera syntaxen och klicka på Visa. Ange en definitionssträng med korrekt syntax i dialogrutan Visa innehåll. Om du vill ta bort ett program klickar du på definitionen och trycker sedan på DEL-tangenten. Om du vill redigera en definition kan du ta bort den befintliga definitionen från listan och sedan lägga till en ny definition med andra parametrar. Om du vill tillåta att administratörer lägger till program till den lokala listan över undantag som definieras i komponenten Windows-brandväggen på Kontrollpanelen kan du också aktivera inställningen Windows-brandväggen: Tillåt lokala programundantag.
+
+Om du inaktiverar den här inställningen tas listan över programundantag som definierats i grupprincipen bort. En eventuell lokal lista över undantag ignoreras om du inte aktiverar principinställningen Windows-brandväggen: Tillåt lokala programundantag.
+
+Om du inte konfigurerar den här inställningen, används bara den lokala listan över programundantag som administratörer kan definiera genom att använda komponenten Windows-brandväggen på Kontrollpanelen.
+
+Obs! Om du anger en felaktig definitionssträng läggs den till i listan utan att något felmeddelande visas. Detta gör det möjligt att lägga till program som ännu inte installerats, men observera att du därmed kan skapa flera poster för samma program med olika omfång eller statusvärde. Omfångsparametrar kombineras om flera poster har lagts till.
+
+Obs! Om statusparametern för en definitionssträng anges som inaktiverad, ignoreras portbegäranden från det programmet och andra definitioner som anger status för programmet som aktiverad ignoreras. Om du anger att status är inaktiverad förhindrar du därmed att lokala administratörer använder programmet för att öppna ytterligare portar. Observera dock att även om status är inaktiverad kan programmet ta emot icke filtrerade, inkommande meddelanden via en port om någon annan inställning leder till att porten öppnas.
+
+Obs! I Windows-brandväggen öppnas endast portar för program när programmen körs och lyssnar efter inkommande meddelanden. Om ett program inte körs eller om ett program körs men inte lyssnar efter meddelanden, öppnas inte portar för programmet.</string>
+      <string id="WF_AllowedPrograms_Name">Windows-brandväggen: Definiera inkommande programundantag</string>
+      <string id="WF_AllowedProgramsLocal_Help">Gör det möjligt för administratörer att använda komponenten Windows-brandväggen på Kontrollpanelen för att definiera en lokal lista över programundantag. I Windows-brandväggen används två listor med programundantag; den andra listan definieras med principinställningen Windows-brandväggen: Definiera undantag för inkommande port.
+
+Om inställningen aktiveras kan administratörer använda komponenten Windows-brandväggen på Kontrollpanelen för att definiera en lokal lista över programundantag.
+
+Om inställningen inaktiveras kan administratörer inte använda komponenten Windows-brandväggen på Kontrollpanelen för att definiera en lokal lista över programundantag. Lokala administratörer kan dock fortfarande skapa brandväggsregler i Windows-brandväggen med snapin-modulen Avancerade säkerhetsinställningar. Om du vill förhindra att lokalt skapade regler används öppnar du snapin-modulen Redigeraren för grupprincipobjekt och konfigurerar Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Windows-brandväggen med Avancerade säkerhetsinställningar för att ange detta.</string>
+      <string id="WF_AllowedProgramsLocal_Name">Windows-brandväggen: Tillåt lokala programundantag</string>
+      <string id="WF_AuthenticatedBypass_Help">Tillåter icke filtrerade inkommande meddelanden från vissa datorer som autentiseras via protokollet IPsec.
+
+Om du aktiverar den här principen måste du ange en säkerhetsbeskrivare med en lista över datorer eller grupper med datorer. Om en dator i listan autentiseras via IPsec blockerar inte Windows-brandväggen icke filtrerade meddelanden. Den här principinställningen åsidosätter andra inställningar som annars skulle blockera sådana meddelanden.
+
+Om du inaktiverar eller inte konfigurerar den här inställningen görs inga undantag i Windows-brandväggen för meddelanden som skickas från datorer som autentiseras via IPsec. Om du aktiverar den här inställningen och lägger till datorer i listan och därefter inaktiverar principen, tas listan bort.
+
+Obs! Du kan definiera poster i listan som SDDL-strängar (Security Descriptor Definition Language). Ytterligare information om SDDL finns i dokumentationen om distribution av Windows-brandväggen på Microsofts webbplats (http://go.microsoft.com/fwlink/?LinkId=25131).</string>
+      <string id="WF_AuthenticatedBypass_Name">Windows-brandväggen: Tillåt att brandväggen förbigås vid IPsec-autentisering</string>
+      <string id="WF_Category">Windows-brandväggen</string>
+      <string id="WF_EnableFirewall_Help">Aktiverar Windows-brandväggen.
+
+Om du aktiverar den här inställningen körs Windows-brandväggen och inställningen "Datorkonfiguration\Administrativa mallar\Nätverk\Nätverksanslutningar\Förhindra att Brandvägg för Internetanslutning används i DNS-domännätverket" ignoreras.
+
+Om du inaktiverar den här inställningen körs inte Windows-brandväggen. Detta är det enda sättet att se till att Windows-brandväggen inte körs och att lokala administratörer inte kan aktivera Windows-brandväggen.
+
+Om du inte konfigurerar den här inställningen kan administratörer använda komponenten Windows-brandväggen på Kontrollpanelen för att aktivera eller inaktivera Windows-brandväggen, om inte inställningen "Förhindra att Brandvägg för Internetanslutning används i DNS-domännätverket" är aktiv.</string>
+      <string id="WF_EnableFirewall_Name">Windows-brandväggen: Skydda alla nätverksanslutningar</string>
+      <string id="WF_EnableShield_Help">Anger att Windows-brandväggen ska blockera alla icke filtrerade inkommande meddelanden. Den här inställningen åsidosätter alla andra inställningar som skulle tillåta sådana meddelanden.
+
+Om du aktiverar den här inställningen markeras kryssrutan Blockera alla inkommande anslutningar i kontrollpanelsobjektet Windows-brandväggen och administratörer kan inte markera den. Du bör då också aktivera inställningen Windows-brandväggen: Skydda alla nätverksanslutningar, eftersom administratörer som loggar in lokalt annars kan kringgå inställningen Windows-brandväggen: Tillåt inte portundantag genom att helt enkelt inaktivera brandväggen.
+
+Om du inaktiverar den här inställningen används andra inställningar i Windows-brandväggen som tillåter icke filtrerade inkommande meddelanden. Kryssrutan Blockera alla inkommande anslutningar avmarkeras i kontrollpanelsobjektet Windows-brandväggen och administratörer kan inte markera den.
+
+Om du inte konfigurerar inställningen används andra inställningar i Windows-brandväggen som tillåter icke filtrerade inkommande meddelanden. Kryssrutan Blockera alla inkommande anslutningar avmarkeras som standard i Windows-brandväggen på Kontrollpanelen och administratörer kan inte markera den.</string>
+      <string id="WF_EnableShield_Name">Windows-brandväggen: Tillåt inte portundantag</string>
+      <string id="WF_FileAndPrint_Help">Tillåter inkommande fil- och skrivardelning. Detta innebär att UDP-portarna 137 och 138, samt TCP-portarna 139 och 445 öppnas.
+
+Om du aktiverar den här inställningen, öppnas de här portarna så att datorn kan ta emot utskriftsjobb och låta andra datorer få tillgång till delade filer. Du måste ange vilka IP-adresser och undernät sådana inkommande meddelanden ska tillåtas från. Kryssrutan "Fil- och skrivardelning" i Windows-brandväggen på Kontrollpanelen markeras och administratörer kan inte avmarkera den.
+
+Om du inaktiverar inställningen blockeras portarna av Windows-brandväggen och därmed kan inte filer och skrivare delas ut på datorn. Om en administratör försöker öppna någon av de här portarna genom att lägga till dem till den lokala listan över portundantag öppnas ändå inte porten. Kryssrutan "Fil- och skrivardelning" i Windows-brandväggen på Kontrollpanelen avmarkeras och administratörer kan inte markera den.
+
+Portarna öppnas inte i Windows-brandväggen om du inte konfigurerar principinställningen. Datorn kan därför inte dela ut filer eller skrivare om inte en administratör använder andra inställningar för att öppna de portar som krävs. Kryssrutan "Fil- och skrivardelning" i komponenten Windows-brandväggen i Kontrollpanelen avmarkeras. Administratörer kan dock markera kryssrutan.
+
+Obs! Om någon principinställning öppnar TCP-port 445 tillåter Windows-brandväggen inkommande ICMP-ekobegäranden (den sortens meddelande som skickas av verktyget Ping) även om inställningen Windows-brandväggen: Tillåt ICMP-undantag annars skulle blockera dem. Exempel på principer som kan öppna TCP-port 445 är Windows-brandväggen: Tillåt undantag för inkommande fil- och skrivardelning, Windows-brandväggen: Tillåt undantag för inkommande fjärradministration och Windows-brandväggen: Definiera undantag för inkommande port.</string>
+      <string id="WF_FileAndPrint_Name">Windows-brandväggen: Tillåt undantag för inkommande fil- och skrivardelning</string>
+      <string id="WF_IcmpSettings_Help">Anger vilka sorters ICMP-meddelanden som Windows-brandväggen ska tillåta. Verktyg kan använda ICMP-meddelanden för att avgöra andra datorers status. Till exempel används meddelanden av typen ekobegäran i verktyget Ping. Om du inte aktiverar meddelandetypen Tillåt inkommande ekobegäran blockeras ekobegäranden som skickas från andra datorer av Windows-brandväggen, men utgående ekobegäranden som skickas när du kör Ping på den här datorn blockeras inte.
+
+Om du aktiverar den här principen måste du ange vilka sorters ICMP-meddelanden som ska tillåtas av Windows-brandväggen.
+
+Om du inaktiverar den här inställningen blockeras alla inkommande och utgående ICMP-meddelandetyper i listan. Detta innebär att verktyg som använder de ICMP-meddelanden som blockeras inte kan skicka sådana meddelanden till eller från den här datorn. Om du aktiverar den här inställningen och tillåter vissa meddelandetyper och sedan inaktiverar inställningen, tas listan över meddelandetyper som du aktiverade bort från Windows-brandväggen.
+
+Om du inte konfigurerar den här principinställningen fungerar Windows-brandväggen som om den var inaktiverad.
+
+Obs! Om någon principinställning öppnar TCP-port 445 tillåter Windows-brandväggen inkommande ekobegäranden även om inställningen Windows-brandväggen: Tillåt ICMP-undantag skulle blockera dem. Exempel på principinställningar som kan öppna TCP-port 445 är Windows-brandväggen: Tillåt undantag för fil- och skrivardelning, Windows-brandväggen: Tillåt undantag för fjärradministration och Windows-brandväggen: Definiera undantag för inkommande port.
+
+Obs! Andra principinställningar påverkar bara inkommande meddelanden, men flera alternativ i den här inställningen påverkar även utgående kommunikation.</string>
+      <string id="WF_IcmpSettings_Name">Windows-brandväggen: Tillåt ICMP-undantag</string>
+      <string id="WF_Logging_Help">Låter Windows-brandväggen lagra information om obeställda meddelanden som tas emot.
+
+Om du aktiverar den här principen skrivs information till en loggfil i Windows-brandväggen. Du måste ange namn, plats och största filstorlek för loggfilen. Platsen kan innehålla miljövariabler. Du måste också ange om information som sparas om inkommande meddelanden som brandväggen blockerar och om information om lyckade inkommande och utgående anslutningar ska loggas. Det finns inget alternativ i Windows-brandväggen för loggning av lyckade inkommande meddelanden.
+
+Om du konfigurerar loggfilens namn måste du se till att Windows-brandväggen har skrivbehörigheter till mappen som innehåller loggfilen. Loggfilens standardsökväg är %systemroot%\system32\LogFiles\Firewall\pfirewall.log.
+
+Om du inaktiverar den här inställningen skrivs ingen information till en loggfil i Windows-brandväggen. Om du aktiverar den här inställningen och Windows-brandväggen skapar och skriver i loggfilen, och du därefter inaktiverar den här inställningen, tas inte den befintliga loggfilen bort.
+
+Om du inte konfigurerar den här inställningen fungerar Windows-brandväggen som om inställningen var inaktiverad.
+
+</string>
+      <string id="WF_Logging_Name">Windows-brandväggen: Tillåt loggning</string>
+      <string id="WF_Notifications_Help">Förhindrar att meddelanden visas i Windows-brandväggen när ett program begär att det ska läggas till i listan över undantag.
+
+Om du aktiverar den här inställningen visas inte sådana meddelanden.
+
+Om du inaktiverar den här inställningen tillåter Windows-brandväggen att sådana meddelanden visas. Kryssrutan Visa ett meddelande när Windows-brandväggen blockerar ett nytt program i kontrollpanelsobjektet Windows-brandväggen markeras och administratörer kan inte avmarkera den.
+
+Om du inte konfigurerar den här inställningen fungerar Windows-brandväggen som om inställningen var inaktiverad, förutom att kryssrutan Visa ett meddelande när Windows-brandväggen blockerar ett nytt program är markerad som standard, men administratörer kan välja att avmarkera den.</string>
+      <string id="WF_Notifications_Name">Windows-brandväggen: Förhindra meddelanden</string>
+      <string id="WF_OpenPorts_Help">Används för att visa och ändra listan över inkommande portundantag som definieras i grupprincipen. I Windows-brandväggen används två listor med portundantag; den ena definieras av grupprincipinställningar, och den andra definieras genom komponenten Windows-brandväggen på Kontrollpanelen.
+
+Om du aktiverar den här inställningen kan du visa och ändra listan över inkommande portundantag som definieras i grupprincipen. Om du vill visa listan med portundantag kan du aktivera inställningen och sedan klicka på knappen Visa. Om du vill lägga till en port kan du aktivera inställningen, notera syntaxen och klicka på Visa. Ange en definitionssträng med korrekt syntax i dialogrutan Visa innehåll. Om du vill ta bort en port klickar du på definitionen och trycker sedan på DEL-tangenten. Om du vill redigera en definition kan du ta bort den befintliga definitionen från listan och sedan lägga till en ny definition med andra parametrar. Om du vill tillåta att administratörer lägger till program till den lokala listan över undantag som definieras i komponenten Windows-brandväggen på Kontrollpanelen kan du också aktivera inställningen Windows-brandväggen: Tillåt lokala portundantag.
+
+Om du inaktiverar den här inställningen tas listan över portundantag som definieras i grupprincipen bort, men andra principinställningar kan fortfarande öppna eller blockera portar. En eventuell lokal lista över undantag ignoreras om du inte aktiverar principinställningen Windows-brandväggen: Tillåt lokala portundantag.
+
+Om du inte konfigurerar den här inställningen, används endast den lokala listan över portundantag som administratörer kan definiera genom att använda komponenten Windows-brandväggen på Kontrollpanelen. Andra inställningar kan fortsätta att öppna eller blockera portar.
+
+Obs! Om du anger en felaktig definitionssträng, läggs posten till i listan utan att något felmeddelande visas och du kan därför av misstag skapa flera poster för samma port med olika omfång eller status. Omfångsparametrar kombineras om flera poster har lagts till. Om posterna har olika statusvärden kommer alla definitioner där status är inaktiverad att åsidosätta alla definitioner där statusen är aktiverad, och porten tar då inte emot meddelanden. Om du anger att status för en port är inaktiverad kan du därmed förhindra att administratörer använder komponenten Windows-brandväggen på Kontrollpanelen för att öppna porten.
+
+Obs! Det enda som sker när du anger status som inaktiverad, är att Windows-brandväggen ignorerar andra definitioner för porten där status är aktiverad. Om en annan principinställning öppnar en port eller ett program i listan över programundantag ber Windows-brandväggen att öppna en port, öppnas porten.
+
+Obs! Om någon principinställning öppnar TCP-port 445 tillåter Windows-brandväggen inkommande ICMP-ekobegäranden (det meddelande som skickas av verktyget Ping), även om inställningen Windows-brandväggen: Tillåt ICMP-undantag annars skulle blockera dem. Exempel på principinställningar som kan öppna TCP-port 445 är Windows-brandväggen: Tillåt undantag för inkommande fil- och skrivardelning, Windows-brandväggen: Tillåt undantag för inkommande fjärradministration och Windows-brandväggen: Definiera undantag för inkommande port.</string>
+      <string id="WF_OpenPorts_Name">Windows-brandväggen: Definiera undantag för inkommande port.</string>
+      <string id="WF_OpenPortsLocal_Help">Gör det möjligt för administratörer att använda komponenten Windows-brandväggen på Kontrollpanelen för att definiera en lokal lista över portundantag. I Windows-brandväggen används två listor med portundantag; den andra listan definieras med principinställningen Windows-brandväggen: Definiera undantag för inkommande port.
+
+Om inställningen aktiveras kan administratörer använda komponenten Windows-brandväggen på Kontrollpanelen för att definiera en lokal lista över portundantag.
+
+Om inställningen inaktiveras kan administratörer inte använda komponenten Windows-brandväggen på Kontrollpanelen för att definiera en lokal lista över portundantag. Lokala administratörer kan dock fortfarande skapa brandväggsregler i Windows-brandväggen med snapin-modulen Avancerade säkerhetsinställningar. Om du vill förhindra att lokalt skapade regler används öppnar du snapin-modulen Redigeraren för grupprincipobjekt och konfigurerar Datorkonfiguration\Windows-inställningar\Säkerhetsinställningar\Windows-brandväggen med Avancerade säkerhetsinställningar för att ange detta.</string>
+      <string id="WF_OpenPortsLocal_Name">Windows-brandväggen: Tillåt lokala portundantag</string>
+      <string id="WF_Profile_Domain">Domänprofil</string>
+      <string id="WF_Profile_Standard">Standardprofil</string>
+      <string id="WF_RemoteAdmin_Help">Tillåter att datorn fjärradministreras genom administrationsverktyg så som Microsoft Management Console (MMC) och Windows Management Instrumentation (WMI). För att det ska fungera öppnas TCP-portarna 135 och 445 i Windows-brandväggen. Tjänster använder ofta dessa portar för att kommunicera genom RPC-anrop (Remote Procedure Call) och DCOM (Distributed Component Object Model). Om du använder Windows XP Professional med minst SP2 och Windows Server 2003 med minst SP1, tillåter dessutom den här principinställningen att icke-filtrerade meddelanden tas emot i SVCHOST.EXE och LSASS.EXE, och att ytterligare dynamiskt tilldelade portar kan öppnas i tjänster som körs i dessa processer, vanligtvis i intervallet 1 024 till 1 034. I Windows Vista styr inte den här principinställningen anslutningar till SVCHOST.EXE och LSASS.EXE.
+
+Om du aktiverar den här inställningen tillåter Windows-brandväggen inkommande icke filtrerade meddelanden som har med fjärradministration att göra. Du måste ange vilka IP-adresser och undernät sådana inkommande meddelanden ska tillåtas från.
+
+Om du inaktiverar eller inte konfigurerar inställningen, öppnas inte TCP-portarna 135 och 445 i Windows-brandväggen. I Windows XP Professional med minst SP2 och Windows Server 2003 med minst SP1 förhindras dessutom SVCHOST.EXE och LSASS.EXE att ta emot icke-filtrerade inkommande meddelanden, och tjänster som körs i dessa processer kan inte öppna ytterligare dynamiskt tilldelade portar. Eftersom detta inte innebär att TCP-port 445 blockeras, orsakas ingen konflikt med inställningen Windows-brandväggen: Tillåt undantag för fil- och skrivardelning.
+
+Obs! Illvilliga användare försöker ofta använda RPC och DCOM för att attackera nätverk och datorer. Du bör kontakta alla företag som tillverkat de program du kör som använder SVCHOST.EXE eller LSASS.EXE för att se om de kommunicerar över RPC eller DCOM. Om de inte gör det bör du inte aktivera den här inställningen.
+
+Obs! Om någon principinställning öppnar TCP-port 445 tillåter Windows-brandväggen inkommande ICMP-ekobegäranden (det meddelande som skickas av verktyget Ping), även om inställningen Windows-brandväggen: Tillåt ICMP-undantag annars skulle blockera dem. Exempel på principer som kan öppna TCP-port 445 är Windows-brandväggen: Tillåt undantag för inkommande fil- och skrivardelning, Windows-brandväggen: Tillåt undantag för inkommande fjärradministration och Windows-brandväggen: Definiera undantag för inkommande port.</string>
+      <string id="WF_RemoteAdmin_Name">Windows-brandväggen: Tillåt undantag för inkommande fjärradministration </string>
+      <string id="WF_RemoteDesktop_Help">Tillåter att den här datorn tar emot inkommande begäranden om Fjärrskrivbord. Detta innebär att TCP-port 3389 öppnas.
+
+Om du aktiverar den här inställningen öppnas den här porten så att datorn kan ta emot begäranden om Fjärrskrivbord. Du måste ange vilka IP-adresser och undernät sådana inkommande meddelanden ska tillåtas från. Kryssrutan "Fjärrskrivbord" i komponenten Windows-brandväggen på Kontrollpanelen markeras och administratörer kan inte avmarkera den.
+
+Om du inaktiverar den här inställningen blockeras porten så att datorn inte kan ta emot begäranden om Fjärrskrivbord. Om en administratör försöker öppna porten genom att lägga till den i den lokala listan över undantag öppnas ändå inte porten. Kryssrutan Fjärrskrivbord i komponenten Windows-brandväggen på Kontrollpanelen avmarkeras och administratörer kan inte markera den.
+
+Om du inte konfigurerar den här inställningen, öppnas inte porten. Datorn kan därför inte ta emot begäranden om Fjärrskrivbord om inte en administratör använder någon annan inställning för att öppna porten. Kryssrutan "Fjärrskrivbord" i komponenten Windows-brandväggen avmarkeras. Administratörer kan dock markera kryssrutan om de vill.</string>
+      <string id="WF_RemoteDesktop_Name">Windows-brandväggen: Tillåt inkommande undantag för Fjärrskrivbord</string>
+      <string id="WF_UnicastResponseToMulticast_Help">Förhindrar att den här datorn får unicast-svar på utgående multicast- eller broadcast-meddelanden.
+
+Om den här inställningen aktiveras och om datorn skickar multicast- eller broadcast-meddelanden till andra datorer, kommer Windows-brandväggen att blockera unicast-svar som skickas av de andra datorerna.
+
+Om inställningen inaktiveras eller inte konfigureras, och den här datorn skickar ett multicast- eller broadcast-meddelande till andra datorer, väntar Windows-brandväggen högst tre sekunder på unicast-svar från de andra datorerna. Därefter blockeras alla svar.
+
+Obs! Den här inställningen har ingen effekt om unicast-meddelandet är ett svar på ett DHCP-broadcast-meddelande som skickas av den här datorn. Windows-brandväggen tillåter alltid DHCP-unicast-svar. Den här principen kan dock påverka NetBIOS-meddelanden som identifierar namnkonflikter.</string>
+      <string id="WF_UnicastResponseToMulticast_Name">Windows-brandväggen: Förhindra unicast-svar på multicast- eller broadcast-meddelanden</string>
+      <string id="WF_UniversalPlugAndPlay_Help">Låter den här datorn ta emot obeställda Plug and Play-meddelanden som skickas av nätverksenheter så som routrar med inbyggda brandväggar. Detta innebär att TCP-port 2869 och UDP-port 1900 öppnas.
+
+Om du aktiverar den här inställningen öppnas dessa portar så att datorn kan ta emot Plug and Play-meddelanden. Du måste ange vilka IP-adresser och undernät sådana inkommande meddelanden ska tillåtas från. Om den här inställningen aktiveras markeras kryssrutan "UPnP-ramverk" i komponenten Windows-brandväggen på Kontrollpanelen, och administratörer kan inte avmarkera kryssrutan.
+
+Om du inaktiverar den här inställningen, blockeras dessa portar så att datorn inte kan ta emot Plug and Play-meddelanden. Om en administratör försöker öppna portarna genom att lägga till dem till den lokala listan över portundantag, öppnas ändå inte portarna. Kryssrutan "UPnP-ramverk" i komponenten Windows-brandväggen avmarkeras och administratörer kan inte markera den.
+
+Portarna öppnas inte i Windows-brandväggen om du inte konfigurerar principinställningen. Datorn kan därför inte ta emot Plug and Play-meddelanden om inte en administratör använder andra principinställningar för att öppna portarna eller aktiverar de program som krävs. Kryssrutan "UPnP-ramverk" i komponenten Windows-brandväggen på Kontrollpanelen avmarkeras. Administratörer kan dock markera kryssrutan om de vill.</string>
+      <string id="WF_UniversalPlugAndPlay_Name">Windows-brandväggen: Tillåt inkommande undantag för UPnP-ramverket</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WF_AllowedPrograms_Name_1">
+        <listBox refId="WF_AllowedPrograms_Show">Definiera programundantag:</listBox>
+        <text>Ange vilket program som ska tillåtas eller blockeras.</text>
+        <text>Syntax:</text>
+        <text>  &lt;Sökväg&gt;:&lt;Scope&gt;:&lt;Status&gt;:&lt;Namn&gt;</text>
+        <text>    &lt;Sökväg&gt; är programsökvägen inklusive filnamn</text>
+        <text>    &lt;Scope&gt; är antingen "*" (för alla nätverk) eller</text>
+        <text>      en kommateckenavgränsad lista som innehåller</text>
+        <text>      kombination av följande:</text>
+        <text>        IP-adresser, t.ex. 10.0.0.1</text>
+        <text>        Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>        Strängen localsubnet</text>
+        <text>    &lt;Status&gt; är antingen enabled (aktiverad) eller disabled (inaktiverad)</text>
+        <text>    &lt;Namn&gt; är en textsträng</text>
+        <text>Exempel:</text>
+        <text>Följande definitionssträng lägger till</text>
+        <text>programmet TEST.EXE till listan över undantag</text>
+        <text>och tillåter att meddelanden tas emot från 10.0.0.1,</text>
+        <text>och från alla datorer i undernätet 10.3.4.x:</text>
+        <text>  %programfiles%\test.exe:10.0.0.1,10.3.4.0/24:enabled:Test-program</text>
+      </presentation>
+      <presentation id="WF_AllowedPrograms_Name_2">
+        <listBox refId="WF_AllowedPrograms_Show">Definiera programundantag:</listBox>
+        <text>Ange vilket program som ska tillåtas eller blockeras.</text>
+        <text>Syntax:</text>
+        <text>  &lt;Sökväg&gt;:&lt;Scope&gt;:&lt;Status&gt;:&lt;Namn&gt;</text>
+        <text>    &lt;Sökväg&gt; är programsökvägen inklusive filnamn</text>
+        <text>    &lt;Scope&gt; är antingen "*" (för alla nätverk) eller</text>
+        <text>      en kommateckenavgränsad lista som innehåller</text>
+        <text>      kombination av följande:</text>
+        <text>        IP-adresser, t.ex. 10.0.0.1</text>
+        <text>        Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>        Strängen localsubnet</text>
+        <text>    &lt;Status&gt; är antingen enabled (aktiverad) eller disabled (inaktiverad)</text>
+        <text>    &lt;Namn&gt; är en textsträng</text>
+        <text>Exempel:</text>
+        <text>Följande definitionssträng lägger till</text>
+        <text>programmet TEST.EXE till listan över undantag</text>
+        <text>och tillåter att meddelanden tas emot från 10.0.0.1,</text>
+        <text>och från alla datorer i undernätet 10.3.4.x:</text>
+        <text>  %programfiles%\test.exe:10.0.0.1,10.3.4.0/24:enabled:Test-program</text>
+      </presentation>
+      <presentation id="WF_AuthenticatedBypass_Name">
+        <textBox refId="WF_AuthenticatedBypass_List_Name">
+          <label>Definiera IPSec-peer-datorer som ska undantas från brandväggsprincipen:</label>
+        </textBox>
+        <text>Ange vilka IPSec-peer-datorer som ska undantas</text>
+        <text>med en SDDL-sträng.</text>
+        <text>Syntax:</text>
+        <text>  O:&lt;Ägar-SID&gt;G:&lt;Grupp-SID&gt;D:&lt;DACL-värden&gt;</text>
+        <text>    &lt;Ägar-SID&gt; är ägarens säkerhetsbeskrivare</text>
+        <text>    &lt;Grupp-SID&gt; är gruppens säkerhetsbeskrivare</text>
+        <text>    &lt;DACL-värden&gt; är en lista med åtkomstkontrollposter</text>
+        <text>Exempel:</text>
+        <text>  O:DAG:DAD:(A;;RCGW;;;S-1-5-21-2157571284-1609012320)</text>
+      </presentation>
+      <presentation id="WF_FileAndPrint_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_FileAndPrint_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_IcmpSettings_Name_1">
+        <checkBox refId="WF_IcmpSettings_AllowOutboundDestinationUnreachable">Tillåt utgående där mål inte kan nås</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundSourceQuench">Tillåt utgående källavstängning</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowRedirect">Tillåt omdirigering</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundEchoRequest">Tillåt inkommande ekobegäran</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundRouterRequest">Tillåt inkommande begäran om router</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundTimeExceeded">Tillåt överskridning av utgående tid</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundParameterProblem">Tillåt utgående parameterproblem</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundTimestampRequest">Tillåt inkommande begäran om tidstämpling</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundMaskRequest">Tillåt inkommande maskbegäran</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundPacketTooBig">Tillåt utgående paket som är för stora</checkBox>
+      </presentation>
+      <presentation id="WF_IcmpSettings_Name_2">
+        <checkBox refId="WF_IcmpSettings_AllowOutboundDestinationUnreachable">Tillåt utgående där mål inte kan nås</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundSourceQuench">Tillåt utgående källavstängning</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowRedirect">Tillåt omdirigering</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundEchoRequest">Tillåt inkommande ekobegäran</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundRouterRequest">Tillåt inkommande begäran om router</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundTimeExceeded">Tillåt överskridning av utgående tid</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundParameterProblem">Tillåt utgående parameterproblem</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundTimestampRequest">Tillåt inkommande begäran om tidstämpling</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundMaskRequest">Tillåt inkommande maskbegäran</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundPacketTooBig">Tillåt utgående paket som är för stora</checkBox>
+      </presentation>
+      <presentation id="WF_Logging_Name_1">
+        <checkBox refId="WF_Logging_LogDroppedPackets">Logga ignorerade paket</checkBox>
+        <checkBox refId="WF_Logging_LogSuccessfulConnections">Logga lyckade anslutningar</checkBox>
+        <textBox refId="WF_Logging_LogFilePathAndName">
+          <label>Loggfilens sökväg och namn:</label>
+          <defaultValue>%systemroot%\system32\LogFiles\Firewall\pfirewall.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="WF_Logging_SizeLimit" defaultValue="4096" spinStep="128">Storleksgräns (kB):</decimalTextBox>
+      </presentation>
+      <presentation id="WF_Logging_Name_2">
+        <checkBox refId="WF_Logging_LogDroppedPackets">Logga ignorerade paket</checkBox>
+        <checkBox refId="WF_Logging_LogSuccessfulConnections">Logga lyckade anslutningar</checkBox>
+        <textBox refId="WF_Logging_LogFilePathAndName">
+          <label>Loggfilens sökväg och namn:</label>
+          <defaultValue>%systemroot%\system32\LogFiles\Firewall\pfirewall.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="WF_Logging_SizeLimit" defaultValue="4096" spinStep="128">Storleksgräns (kB):</decimalTextBox>
+      </presentation>
+      <presentation id="WF_OpenPorts_Name_1">
+        <listBox refId="WF_OpenPorts_Show">Definiera portundantag:</listBox>
+        <text>Ange vilken port som ska öppnas eller blockeras.</text>
+        <text>Syntax:</text>
+        <text>  &lt;Port&gt;:&lt;Transport&gt;:&lt;Scope&gt;:&lt;Status&gt;:&lt;Namn&gt;</text>
+        <text>    &lt;Port&gt; är ett portnummer, i decimal notation</text>
+        <text>    &lt;Transport&gt; är antingen TCP eller UDP</text>
+        <text>    &lt;Scope&gt; är antingen "*" (för alla nätverk) eller</text>
+        <text>      en kommateckenavgränsad lista som innehåller</text>
+        <text>      kombination av följande:</text>
+        <text>        IP-adresser, t.ex. 10.0.0.1</text>
+        <text>        Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>        Strängen localsubnet</text>
+        <text>    &lt;Status&gt; är antingen enabled (aktiverad) eller disabled (inaktiverad)</text>
+        <text>    &lt;Namn&gt; är en textsträng</text>
+        <text>Exempel:</text>
+        <text>Följande definitionssträng lägger till TCP-port 80</text>
+        <text> i listan med portundantag och tillåter att</text>
+        <text>meddelanden tas emot från 10.0.0.1, 10.0.0.2</text>
+        <text>och från alla datorer i undernätet 10.3.4.x:</text>
+        <text>  80:TCP:10.0.0.1,10.0.0.2,10.3.4.0/24:enabled:Webbtjänst</text>
+      </presentation>
+      <presentation id="WF_OpenPorts_Name_2">
+        <listBox refId="WF_OpenPorts_Show">Definiera portundantag:</listBox>
+        <text>Ange vilken port som ska öppnas eller blockeras.</text>
+        <text>Syntax:</text>
+        <text>  &lt;Port&gt;:&lt;Transport&gt;:&lt;Scope&gt;:&lt;Status&gt;:&lt;Namn&gt;</text>
+        <text>    &lt;Port&gt; är ett portnummer, i decimal notation</text>
+        <text>    &lt;Transport&gt; är antingen TCP eller UDP</text>
+        <text>    &lt;Scope&gt; är antingen "*" (för alla nätverk) eller</text>
+        <text>      en kommateckenavgränsad lista som innehåller</text>
+        <text>      kombination av följande:</text>
+        <text>        IP-adresser, t.ex. 10.0.0.1</text>
+        <text>        Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>        Strängen localsubnet</text>
+        <text>    &lt;Status&gt; är antingen enabled (aktiverad) eller disabled (inaktiverad)</text>
+        <text>    &lt;Namn&gt; är en textsträng</text>
+        <text>Exempel:</text>
+        <text>Följande definitionssträng lägger till TCP-port 80</text>
+        <text> i listan med portundantag och tillåter att</text>
+        <text>meddelanden tas emot från 10.0.0.1, 10.0.0.2</text>
+        <text>och från alla datorer i undernätet 10.3.4.x:</text>
+        <text>  80:TCP:10.0.0.1,10.0.0.2,10.3.4.0/24:enabled:Webbtjänst</text>
+      </presentation>
+      <presentation id="WF_RemoteAdmin_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_RemoteAdmin_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_RemoteDesktop_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_RemoteDesktop_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_UniversalPlugAndPlay_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_UniversalPlugAndPlay_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Tillåt obeställda inkommande meddelanden från följande IP-adresser:</label>
+        </textBox>
+        <text>Syntax:</text>
+        <text>Skriv "*" om du vill tillåta meddelanden från alla nätverk</text>
+        <text>eller ange kommateckenavgränsad lista med en valfri</text>
+        <text>kombination av följande:</text>
+        <text>   IP-adresser, t.ex. 10.0.0.1</text>
+        <text>   Undernätbeskrivningar, t.ex. 10.2.3.0/24</text>
+        <text>   Strängen localsubnet</text>
+        <text>Exempel: Om du vill tillåta meddelanden från 10.0.0.1,</text>
+        <text>10.0.0.2 och alla system i </text>
+        <text>det lokala undernät eller undernätet 10.3.4.x,</text>
+        <text>skriver du följande i Tillåt obeställda </text>
+        <text>inkommande meddelanden från dessa IP-adresser":</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

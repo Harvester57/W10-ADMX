@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>immettere qui il nome visualizzato</displayName>
+  <description>immettere qui la descrizione</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Consenti telemetria</string>
+      <string id="AllowTelemetry_0">0 - Sicurezza [solo enterprise]</string>
+      <string id="AllowTelemetry_1">1 - Dati di base</string>
+      <string id="AllowTelemetry_2">2 - Dati avanzati</string>
+      <string id="AllowTelemetry_3">3 - Dati completi</string>
+      <string id="AllowTelemetry_Explain">Questa impostazione dei criteri determina la quantità di dati di diagnostica e di utilizzo inviati a Microsoft. Il valore 0 consente di inviare dati minimi a Microsoft, inclusi i dati dello Strumento di rimozione malware Microsoft e di Windows Defender, se abilitati, e le impostazioni del client di telemetria. L'impostazione del valore 0 è applicabile solo ai dispositivi Enterprise, EDU, IoT e server. L'impostazione del valore 0 per altri dispositivi equivale a scegliere il valore 1. Il valore 1 consente di inviare solo una quantità di base di dati di diagnostica e di utilizzo. Si noti che l'impostazione dei valori 0 e 1 comporterà un peggioramento dell'esperienza nel dispositivo. Il valore 2 consente di inviare informazioni avanzate di diagnostica e di utilizzo. Il valore 3 invia gli stessi dati del valore 2, oltre a dati diagnostici aggiuntivi, come i file e il contenuto che potrebbero aver causato il problema. Le impostazioni di telemetria di Windows 10 si applicano al sistema operativo Windows e ad alcune app proprietarie. Questa impostazione non si applica alle app di terze parti in esecuzione in Windows 10
+
+Se si disabilita o non si configura questa impostazione dei criteri, gli utenti possono configurare il livello di telemetria in Impostazioni.
+
+</string>
+      <string id="EnableExperimentation">Disabilita funzionalità o impostazioni non definitive</string>
+      <string id="EnableExperimentation_1">Solo impostazioni dispositivo</string>
+      <string id="EnableExperimentation_2">Sperimentazioni complete</string>
+      <string id="EnableExperimentation_Explain">Questa impostazione dei criteri determina il livello di sperimentazione consentito a Microsoft con il prodotto per studiare le preferenze degli utenti o il comportamento dei dispositivi. Il valore 1 consente a Microsoft di configurare solo le impostazioni del dispositivo. Il valore 2 consente a Microsoft di condurre sperimentazioni complete.
+
+Se si disabilita questa impostazione dei criteri, tutte le sperimentazioni verranno disattivate.
+
+Se non si configura questa impostazione dei criteri, l'utente può configurare l'opzione “Consenti a Microsoft di provare funzionalità in questa build” in Impostazioni.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

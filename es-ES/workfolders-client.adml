@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Carpetas de trabajo</string>
+      <string id="Pol_MachineEnableWorkFolders">Forzar configuración automática para todos los usuarios</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Esta configuración de directiva especifica si las carpetas de trabajo deben configurarse automáticamente para todos los usuarios del equipo afectado.
+      
+Si habilita esta configuración de directiva, las carpetas de trabajo se configurarán automáticamente para todos los usuarios del equipo afectado. Esto impide que los usuarios opten por no usar las carpetas de trabajo en el equipo y, asimismo, que especifiquen manualmente la carpeta local en la que las carpetas de trabajo almacenan los archivos. Las carpetas de trabajo usan la configuración especificada en la configuración de directiva "Especificar configuración de carpetas de trabajo", en Configuración de usuario\Plantillas administrativas\Windows Components\WorkFolders. Si la configuración de directiva "Especificar configuración de carpetas de trabajo" no se aplica a un usuario, las carpetas de trabajo no se configurarán automáticamente.
+      
+Si deshabilita o no establece esta configuración de directiva, las carpetas de trabajo usan la opción "Forzar configuración automática" de la configuración de directiva "Especificar configuración de carpetas de trabajo" para saber si hay que configurar automáticamente las carpetas de trabajo para un usuario determinado.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Especificar configuración de carpetas de trabajo</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Esta configuración de directiva especifica el servidor de carpetas de trabajo de los usuarios afectados, así como si los usuarios pueden o no cambiar la configuración cuando configuren carpetas de trabajo en un equipo unido a un dominio.
+
+Si habilita esta configuración de directiva, los usuarios afectados recibirán la configuración de carpetas de trabajo cuando inicien sesión en un PC unido al dominio. 
+
+La "dirección URL de carpetas de trabajo" puede ser la dirección URL que la organización usa para detectar carpetas de trabajo, o bien la dirección URL específica del servidor de archivos donde se almacenan los datos del usuario afectado.
+
+La opción "Forzar configuración automática" especifica que las carpetas de trabajo se deben configurar automáticamente, sin preguntar a los usuarios. Esto impide que los usuarios opten por no usar las carpetas de trabajo en el equipo y, asimismo, que especifiquen manualmente la carpeta local en la que las carpetas de trabajo almacenan los archivos. Las carpetas de trabajo se almacenan de forma predeterminada en la carpeta c"%USERPROFILE%\Work Folders". Si esta opción no se especifica, los usuarios deben usar el elemento del panel de control de carpetas de trabajo en sus equipos para configurar las carpetas de trabajo.
+   
+Si esta configuración de directiva se deshabilita o no se establece, no se especifica ninguna configuración de carpetas de trabajo para los usuarios afectados, si bien los usuarios pueden configurarlas manualmente mediante el elemento del panel de control de carpetas de trabajo.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>Dirección URL de carpetas de trabajo:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Forzar configuración automática</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

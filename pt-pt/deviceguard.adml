@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Segurança da Proteção do Dispositivo da Microsoft Windows</displayName>
+  <description>Segurança da Proteção do Dispositivo do Windows</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Proteção do Dispositivo</string>
+      <string id="VirtualizationBasedSecurity">Ativar Segurança baseada em Virtualização</string>
+      <string id="VirtualizationBasedSecurityHelp">Especifica se a Segurança Baseada em Virtualização está ativada.
+
+A Segurança Baseada em Virtualização utiliza o Hipervisor do Windows para prestar assistência a serviços de segurança. A Segurança Baseada em Virtualização necessita de Arranque Seguro e, opcionalmente, pode ser ativada utilizando as Proteções DMA. As proteções DMA necessitam de suporte ao hardware e só serão ativadas em dispositivos corretamente configurados.
+
+Proteção Baseada em Virtualização da Integridade do Código
+
+Esta definição ativa a proteção baseada em virtualização da Integridade do Código do Modo Kernel. Quando ativada, as proteções de memória do modo kernel são aplicadas e o caminho de validação da Integridade do Código é protegido pela funcionalidade de segurança baseada em virtualização.
+
+Aviso: Todas as unidades no sistema devem ser compatíveis com esta funcionalidade ou o sistema pode falhar. Certifique-se de que esta definição de política só é implementada em computadores que sejam compatíveis. 
+
+Proteção de Credenciais
+
+Esta definição permite aos utilizadores ativar a Proteção de Credenciais com segurança baseada em virtualização para ajudar a proteger credenciais.
+ 
+A opção "Desativar" desativa a Proteção de Credenciais remotamente se esta tiver sido ativada antes através da opção "Ativada sem bloqueio".
+
+A opção "Ativada com bloqueio UEFI" garante que a Proteção de Credenciais não pode ser desativada remotamente. Para desativar esta funcionalidade, tem de alterar a definição da Política de Grupo para "Desativada" e remover a funcionalidade de segurança de todos os computadores, com um utilizador presente fisicamente, para limpar a configuração persistente em UEFI.
+
+A opção "Ativada sem bloqueio" permite que a Proteção de Credenciais seja desativada remotamente através da utilização da Política de Grupo. Os dispositivos que utilizam esta definição têm de ter, pelo menos, o Windows 10 (Versão 1511).
+      </string>
+      <string id="SecureBoot">Arranque Seguro</string>
+      <string id="SecureBootAndDmaProtection">Arranque Seguro e Proteção DMA</string>
+      <string id="Disabled">Desativado</string>
+      <string id="Enabled">Ativado</string>
+      <string id="EnabledWithoutLock">Ativada sem bloqueio</string>
+      <string id="EnabledWithUefiLock">Ativada com bloqueio UEFI</string>
+      <string id="ConfigCIPolicy">Implementar Política de Integridade do Código</string>
+      <string id="ConfigCIPolicyHelp">Implementar Política de Integridade do Código
+
+Esta definição de política permite implementar uma Política de Integridade do Código numa máquina para controlar o que pode ser executado nessa máquina.
+
+Se implementar uma Política de Integridade do Código, o Windows restringirá o que pode ser executado em ambos os kernel.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Selecionar Nível de Segurança da Plataforma:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Ativar a Proteção baseada em Virtualização da Integridade do Código</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuração da Proteção de Credenciais:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Caminho do ficheiro da Política de Integridade do Código:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

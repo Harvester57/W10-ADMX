@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>digite o nome de exibição aqui</displayName>
+  <description>digite a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Permitir Telemetria</string>
+      <string id="AllowTelemetry_0">0 - Segurança [Somente Empresa]</string>
+      <string id="AllowTelemetry_1">1 - Básico</string>
+      <string id="AllowTelemetry_2">2 - Aprimorado</string>
+      <string id="AllowTelemetry_3">3 - Total</string>
+      <string id="AllowTelemetry_Explain">Essa configuração de política determina a quantidade de dados de uso e diagnóstico relatada à Microsoft. Um valor igual a 0 enviará dados mínimos à Microsoft. Esses dados incluem dados da Ferramenta de Remoção de Software Mal-Intencionado (MSRT) e do Windows Defender, se habilitados, além de configurações de clientes de telemetria. A configuração de um valor igual 0 aplica-se somente a empresas, EDU, IoT e dispositivos de servidor. Um valor igual a 1 envia somente uma quantidade básica de dados de uso e diagnóstico. Observe que a configuração de valores iguais a 0 e 1 prejudica algumas experiências no dispositivo. Um valor igual a 2 envia dados de uso e diagnóstico avançados. Um valor igual a 3 envia os mesmos dados que um valor igual a 2, além de dados adicionais de diagnóstico, incluindo os arquivos e o conteúdo que podem ter causado o problema. As configurações de telemetria do Windows 10 aplicam-se ao sistema operacional Windows e a alguns aplicativos do usuário. Essa configuração não é utilizada para aplicativos de terceiros com o Windows 10.
+
+Se você desabilitar ou não definir essa configuração de política, os usuários poderão configurar o nível de Telemetria em Configurações.
+
+</string>
+      <string id="EnableExperimentation">Desabilitar recursos ou configurações pré-lançamento</string>
+      <string id="EnableExperimentation_1">Somente configurações de dispositivos</string>
+      <string id="EnableExperimentation_2">Experiências completas</string>
+      <string id="EnableExperimentation_Explain">Essa configuração de política determina o nível em que a Microsoft pode fazer experiências com o produto para estudar as preferências do usuário ou o comportamento do dispositivo. Um valor de 1 permite que a Microsoft defina apenas as configurações do dispositivo. Um valor de 2 permite que a Microsoft faça experiências completas.
+
+Se você desabilitar essa configuração de política, todas as experiências serão desativadas.
+
+Se você não definir essa configuração de política, o usuário poderá configurar a opção "Permitir que a Microsoft teste recursos nesta compilação" em Configurações.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

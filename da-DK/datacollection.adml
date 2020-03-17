@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>indtast det viste navn her</displayName>
+  <description>indtast beskrivelsen her</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Tillad telemetri</string>
+      <string id="AllowTelemetry_0">0 - Sikkerhed [Kun Enterprise]</string>
+      <string id="AllowTelemetry_1">1 – Standard</string>
+      <string id="AllowTelemetry_2">2 - Forbedret</string>
+      <string id="AllowTelemetry_3">3 - Fuld</string>
+      <string id="AllowTelemetry_Explain">Denne politikindstilling bestemmer mængden af de diagnosticerings- og brugsdata, der rapporteres til Microsoft. Hvis værdien er 0, sendes der et minimum af data til Microsoft. Disse data omfatter Værktøj til fjernelse af skadelig software (MSRT) og Windows Defender-data, hvis det er aktiveret, samt indstillinger for telemetriklienten. Hvis værdien indstilles til 0, gælder den kun for Enterprise-, EDU-, IoT- og serverenheder. Hvis værdien indstilles til 0 for andre enheder, svarer det til at vælge værdien 1. Hvis værdien er 1, bliver der kun sendt en grundlæggende mængde diagnosticerings- og brugsdata. Bemærk, hvis værdien 0 eller 1 indstilles, vil det forringe oplevelsen på enheden. Hvis værdien er 2, sendes der udvidede diagnosticerings- og forbrugsdata. Hvis værdien er 3, sendes de samme data som ved værdien 2 plus yderligere diagnosticeringsdata, herunder de filer og det indhold, der kan have forårsaget problemet. Telemetrindstillingen for Windows 10 gælder for Windows-operativsystemet og visse førstepartsapps. Denne indstilling gælder ikke tredjepartsapps, der kører på Windows 10.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugerne konfigurere telemetriniveauet under Indstillinger.
+
+</string>
+      <string id="EnableExperimentation">Deaktiver foreløbige funktioner eller indstillinger</string>
+      <string id="EnableExperimentation_1">Kun enhedsindstillinger</string>
+      <string id="EnableExperimentation_2">Fulde eksperimenter</string>
+      <string id="EnableExperimentation_Explain">Denne politikindstilling bestemmer, hvilket niveau Microsoft kan eksperimentere med produktet på for at undersøge brugerens indstillinger eller enhedens virkemåde. En værdi på 1 betyder, at Microsoft kun kan konfigurere enhedsindstillinger. En værdi på 2 betyder, at Microsoft kan udføre fulde eksperimenter.
+
+Hvis du deaktiverer denne politikindstilling, slås alle eksperimenter fra.
+
+Hvis du undlader at konfigurere denne indstilling, kan brugeren konfigurere indstillingen "Lad Microsoft prøve funktioner på dette build" under Indstillinger.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

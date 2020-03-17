@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>immettere qui il nome visualizzato</displayName>
+  <description>immettere qui la descrizione</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Cartelle di lavoro</string>
+      <string id="Pol_MachineEnableWorkFolders">Forza configurazione automatica per tutti gli utenti</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Questa impostazione dei criteri specifica se le cartelle di lavoro devono essere configurate automaticamente per tutti gli utenti del computer interessato.
+      
+Se si abilita questa impostazione dei criteri, le cartelle di lavoro verranno configurate automaticamente per tutti gli utenti del computer interessato. In questo modo si impedisce agli utenti di scegliere di non utilizzare le cartelle di lavoro nel computer, oltre a impedire loro di specificare manualmente la cartella locale in cui vengono archiviati i file per le cartelle di lavoro. Per le cartelle di lavoro verranno utilizzate le impostazioni specificate nell'impostazione dei criteri "Specifica impostazioni delle cartelle di lavoro" in Configurazione utente\Modelli amministrativi\Componenti di Windows\Cartelle di lavoro. Se l'impostazione dei criteri "Specifica impostazioni delle cartelle di lavoro" non è applicabile per un utente, le cartelle di lavoro non vengono configurate automaticamente.
+      
+Se si disabilita o non si configura questa impostazione dei criteri, per le cartelle di lavoro viene utilizzata l'opzione "Forza configurazione automatica" dell'impostazione dei criteri "Specifica impostazioni delle cartelle di lavoro" per stabilire se configurare automaticamente le cartelle di lavoro per un determinato utente.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Specifica impostazioni delle cartelle di lavoro</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Questa impostazione dei criteri specifica il server delle cartelle di lavoro per gli utenti interessati, oltre a stabilire se gli utenti sono o meno autorizzati a modificare le impostazioni durante la configurazione delle cartelle di lavoro in un computer appartenente a un dominio.
+
+Se si abilita questa impostazione dei criteri, gli utenti interessati ricevono le impostazioni per le cartelle di lavoro al momento dell'accesso a un PC appartenente a un dominio. 
+
+L'opzione "URL cartelle di lavoro" consente di specificare l'URL utilizzato dall'organizzazione per l'individuazione delle cartelle di lavoro o l'URL specifico del file server che archivia i dati degli utenti interessati.
+
+L'opzione "Forza configurazione automatica" specifica che le cartelle di lavoro devono essere configurate automaticamente senza richiedere conferma agli utenti. In questo modo si impedisce agli utenti di scegliere di non utilizzare le cartelle di lavoro nel computer, oltre a impedire loro di specificare manualmente la cartella locale in cui vengono archiviati i file per le cartelle di lavoro. Per impostazione predefinita, le cartelle di lavoro sono archiviate nella cartella "%USERPROFILE%\Work Folders". Se questa opzione non viene specificata, gli utenti devono utilizzare l'elemento del Pannello di controllo apposito nel computer per configurare le cartelle di lavoro.
+   
+Se si disabilita o non si configura questa impostazione dei criteri, non viene specificata alcuna impostazione delle cartelle di lavoro per gli utenti interessati, anche se gli utenti possono configurare le cartelle di lavoro manualmente tramite l'elemento del Pannello di controllo corrispondente.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>URL cartelle di lavoro:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Forza configurazione automatica</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

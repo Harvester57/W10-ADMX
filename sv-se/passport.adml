@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport för arbetsplats</displayName>
+  <description>Konfiguration för Microsoft Passport för arbetsplats</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport för arbetsplats</string>
+        <string id="MSPassportForWorkPINComplexityCategory">Komplexitetskrav för PIN-koder</string>
+        <string id="MSPassportForWorkRemoteCategory">Remote Passport</string>
+        <string id="MSPassport_UsePassportForWork">Använd Microsoft Passport för arbetsplats</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport för arbetsplats är ett alternativt sätt att logga in i Windows med ditt Active Directory- eller Azure Active Directory-konto i stället för att använda lösenord, smartkort och virtuella smartkort.
+
+Om du inte konfigurerar den här principinställningen kan användare konfigurera Microsoft Passport för arbetsplats och deras domänlösenord krypteras.
+
+Om du aktiverar den här principinställningen konfigurerar enheten Microsoft Passport för arbetsplats med nycklar eller certifikat för alla användare.
+
+Om du inaktiverar den här principinställningen konfigureras inte Microsoft Passport för arbetsplats för någon användare.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Använd en maskinvarusäkerhetsenhet</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">En TPM (Trusted Platform Module) ger ytterligare säkerhet jämfört med programvara eftersom data som lagras i den inte går att använda på andra enheter.
+
+Om du aktiverar den här principinställningen kan endast enheter med en lämplig TPM konfigurera Microsoft Passport för arbetsplats.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen är TPM:en prioriterad, men alla enheter kan konfigurera Microsoft Passport för arbetsplats med hjälp av programvara om TPM:en inte fungerar eller inte är tillgänglig.
+        </string>
+        <string id="MSPassport_MinimumPINLength">Minsta PIN-kodslängd</string>
+        <string id="MSPassport_MinimumPINLengthExplain">Med Minsta PIN-kodslängd anges lägsta antal tecken som krävs i PIN-koden. Det lägsta antalet som du kan ange för den här principinställningen är 4. Det högsta antalet tecken som du kan ange måste vara mindre än antalet i principinställningen Största PIN-kodslängd, eller mindre än 127, beroende på vilket av dessa två värden som är lägst.
+
+Om du konfigurerar den här principinställningen måste PIN-kodslängden vara större än eller lika med det här antalet tecken.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen måste PIN-kodslängden vara större än eller lika med 4.
+
+OBS! Om de angivna villkoren ovan för minsta PIN-kodslängd inte uppfylls används standardvärdena för både största och minsta PIN-kodslängd.
+        </string>
+        <string id="MSPassport_MaximumPINLength">Största PIN-kodslängd</string>
+        <string id="MSPassport_MaximumPINLengthExplain">Med Största PIN-kodslängd anges det högsta antalet tecken som tillåts i PIN-koden. Det största antalet som du kan ange för den här principinställningen är 127. Det lägsta antalet tecken som du kan ange måste vara större än antalet i principinställningen Minsta PIN-kodslängd, eller större än 4, beroende på vilket av dessa två värden som är störst.
+
+Om du konfigurerar den här principinställningen måste PIN-kodslängden vara mindre än eller lika med det här antalet tecken.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen måste PIN-kodslängden vara mindre än eller lika med 127.
+
+OBS! Om de angivna villkoren ovan för största PIN-kodslängd inte uppfylls används standardvärdena för både största och minsta PIN-kodslängd.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Kräv versaler</string>
+        <string id="MSPassport_UppercaseLettersExplain">Med den här principinställningen kan du konfigurera användningen av versaler i PIN-koden för Microsoft Passport för arbetsplats.
+
+Om du aktiverar den här principinställningen måste användarens PIN-kod för Microsoft Passport för arbetsplats innehålla minst en versal.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen tillåts inte versaler i användarnas PIN-koder för Microsoft Passport för arbetsplats.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Kräv gemener</string>
+        <string id="MSPassport_LowercaseLettersExplain">Med den här principinställningen kan du konfigurera användningen av gemener i PIN-koden för Microsoft Passport för arbetsplats.
+
+Om du aktiverar den här principinställningen måste användarens PIN-kod för Microsoft Passport för arbetsplats innehålla minst en gemen.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen tillåts inte gemener i användarnas PIN-koder för Microsoft Passport för arbetsplats.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Kräv specialtecken</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Med den här principinställningen kan du konfigurera användningen av specialtecken i PIN-koden för Microsoft Passport för arbetsplats. Följande specialtecken är giltiga: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+Om du aktiverar den här principinställningen måste användarens PIN-kod för Microsoft Passport för arbetsplats innehålla minst ett specialtecken.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen tillåts inte specialtecken i användarnas PIN-koder för Microsoft Passport för arbetsplats.]]>
+        </string>
+        <string id="MSPassport_Digits">Kräv siffror</string>
+        <string id="MSPassport_DigitsExplain">Med den här principinställningen kan du konfigurera användningen av siffror i PIN-koden för Microsoft Passport för arbetsplats.
+
+Om du aktiverar eller låter bli att konfigurera den här principinställningen måste användarens PIN-kod för Microsoft Passport för arbetsplats innehålla minst en siffra.
+
+Om du inaktiverar principinställningen tillåts inte siffror i användarnas PIN-koder för Microsoft Passport för arbetsplats.
+        </string>
+        <string id="MSPassport_PINHistory">Historik</string>
+        <string id="MSPassport_PINHistoryExplain">Den här inställningen anger hur många tidigare PIN-koder bakåt i tiden som inte får återanvändas. Med den här principen kan administratörer öka säkerheten genom att se till att gamla PIN-koder inte återanvänds i alltför stor utsträckning. PIN-kodshistoriken bevaras inte vid PIN-återställning.
+
+Värdet för inställningen måste vara mellan 0 och 50 PIN-koder. Om värdet 0 anges krävs inte lagring av tidigare PIN-koder.
+
+Standard: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Förfallodatum</string>
+        <string id="MSPassport_PINExpirationExplain">Den här inställningen anger den tidslängd (i dagar) som en PIN-kod kan användas innan systemet kräver att användaren ändrar den. Du kan ange valfritt antal dagar mellan 1 och 730. Om du anger 0 för principinställningen upphör PIN-koder aldrig att gälla.
+
+Standard: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Använd biometrik</string>
+        <string id="MSPassport_UseBiometricsExplain">I Microsoft Passport för arbetsplats kan användare logga in med biometrisk inloggning, t.ex. med ansikte och fingeravtryck, som alternativ till PIN-kod. Användarna måste dock fortfarande skapa en PIN-kod som de kan använda om biometrisk inloggning misslyckas.
+
+Om du aktiverar eller låter bli att konfigurera den här principinställningen tillåts biometrisk inloggning i Microsoft Passport för arbetsplats.
+
+Om du inaktiverar principinställningen kan biometrisk inloggning inte användas i Microsoft Passport för arbetsplats.
+
+OBS! Om du inaktiverar den här principen kan användarna inte använda biometrisk inloggning för någon typ av konton på enheten.
+        </string>
+        <string id="MSPassport_UseRemote">Använd Remote Passport</string>
+        <string id="MSPassport_UseRemoteExplain">Med den här principinställningen kan du konfigurera användningen av Remote Passport. Remote Passport gör att en bärbar, registrerad enhet kan användas som tillhörande enhet för skrivbordsautentisering. För att Remote Passport ska kunna användas måste skrivbordet vara anslutet till Azure AD och den tillhörande enheten måste ha en PIN-kod för Passport för arbetsplats.
+
+Om du aktiverar den här principinställningen aktiveras Remote Passport och en bärbar, registrerad enhet kan användas som tillhörande enhet för skrivbordsautentisering.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen inaktiveras Remote Passport och det går inte att använda en bärbar, registrerad enhet som tillhörande enhet för skrivbordsautentisering.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">Minsta PIN-kodslängd</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">Största PIN-kodslängd</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Versaler:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Gemener:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Specialtecken:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">Siffror:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">PIN-historik</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">Förfallodatum för PIN</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

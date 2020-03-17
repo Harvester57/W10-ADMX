@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windows-enhetsvern</displayName>
+  <description>Sikkerhet for Windows-enhetsvern</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Enhetsvern</string>
+      <string id="VirtualizationBasedSecurity">Aktiver virtualiseringsbasert sikkerhet</string>
+      <string id="VirtualizationBasedSecurityHelp">Angir om virtualiseringsbasert sikkerhet er aktivert.
+
+Virtualiseringsbasert sikkerhet bruker Windows Hypervisor til å formidle støtte for sikkerhetstjenester. Virtualiseringsbasert sikkerhet krever Sikker oppstart, og funksjonen kan aktiveres ved hjelp av DMA-beskyttelser. DMA-beskyttelser krever maskinvarestøtte, og blir bare aktivert på enheter som er konfigurert på riktig måte.
+
+Virtualiseringsbasert beskyttelse av kodeintegritet
+
+Denne innstillingen aktiverer virtualiseringsbasert beskyttelse av kodeintegritet i kjernemodus. Når denne innstillingen er aktivert, trer beskyttelse av kjernemodusminne i kraft, og valideringsbanen for kodeintegritet beskyttes av funksjonen Virtualiseringsbasert sikkerhet.
+
+Advarsel! Alle drivere i systemet må være kompatible med denne funksjonen, ellers kan det hende systemet krasjer. Sørg for at denne policyen bare distribueres til datamaskiner som er kompatible. 
+
+Legitimasjonsvern
+
+Denne innstillingen lar brukere aktivere legitimasjonsvern med virtualiseringsbasert sikkerhet for å beskytte legitimasjon.
+
+Alternativet Deaktiver deaktiverer legitimasjonsvern eksternt hvis det tidligere var aktivert med Aktivert uten lås.
+ 
+Alternativet Aktivert med UEFI-lås sikrer at legitimasjonsvern ikke kan deaktiveres eksternt. Hvis du vil deaktivere funksjonen, må du sette gruppepolicyen til Deaktivert og fjerne sikkerhetsfunksjonaliteten fra hver datamaskin, med en bruker fysisk til stede, for å kunne fjerne alle konfigurasjoner fra UEFI.
+
+Alternativet Aktivert lar legitimasjonsvern deaktiveres eksternt med gruppepolicy. Enhetene som bruker innstillingen må kjøre minst Windows 10 (versjon 1511).
+      </string>
+      <string id="SecureBoot">Sikker oppstart</string>
+      <string id="SecureBootAndDmaProtection">Sikker oppstart og DMA-beskyttelse</string>
+      <string id="Disabled">Deaktivert</string>
+      <string id="Enabled">Aktivert</string>
+      <string id="EnabledWithoutLock">Aktivert uten lås</string>
+      <string id="EnabledWithUefiLock">Aktivert med UEFI-lås</string>
+      <string id="ConfigCIPolicy">Distribuer policy for kodeintegritet</string>
+      <string id="ConfigCIPolicyHelp">Distribuer policy for kodeintegritet
+
+Ved hjelp av denne policyinnstillingen kan du distribuere en policy for kodeintegritet til en maskin for å kontrollere hva som er tillatt å kjøre på den maskinen.
+
+Hvis du distribuerer en policy for kodeintegritet, begrense Windows hva som kan kjøres i både kjernemodus og på Windows-skrivebordet som er basert på policyen. Hvis du vil aktivere denne policyen, må maskinen startes på nytt. 
+
+Filbanen må være en UNC-bane (for eksempel \\ServerName\ShareName\SIPolicy.p7b), eller en lokal gyldig bane (for eksempel C:\FolderName\SIPolicy.p7b). Kontoen for den lokale maskinen (LOCAL SYSTEM) må ha tilgang til policyfilen.
+ 
+Hvis du bruker en signert og beskyttet policy, vil deaktivering av denne policyen ikke føre til at funksjonen fjernes fra datamaskinen. I stedet må du gjøre ett av følgende:
+
+   1) først oppdatere policyen til en ikke-beskyttet policy, og deretter deaktivere innstillingen, eller
+   2) deaktivere innstillingen og deretter fjerne policyen fra hver datamaskin, med en bruker fysisk til stede.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Velg plattformsikkerhetsnivå:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Aktiver virtualiseringsbasert beskyttelse av kodeintegritet</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfigurasjon for legitimasjonsvern:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Bane til policyfil for kodeintegritet:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

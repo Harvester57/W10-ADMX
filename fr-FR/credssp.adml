@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>tapez le nom complet ici</displayName>
+  <description>tapez la description ici</description>
+  <resources>
+    <stringTable>
+      <string id="AllowDefaultCredentials">Autoriser la délégation d’informations d’identification par défaut</string>
+      <string id="AllowDefaultCredentials_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Il est appliqué lorsque l’authentification du serveur est effectuée à l’aide d’un certificat X509 approuvé ou Kerberos.
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les informations d’identification par défaut de l’utilisateur peuvent être déléguées (les informations d’identification par défaut étant celles que vous utilisez lors de la première ouverture de session dans Windows).
+
+Cette stratégie prend effet lors de la prochaine connexion de l’utilisateur à un ordinateur exécutant Windows.
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas (par défaut), la délégation des informations d’identification par défaut n’est autorisée sur aucun ordinateur. L’authentification des applications qui dépendent de ce comportement de délégation risque d’échouer. Pour plus d’informations, voir l’article de la Base des connaissances.
+
+FWlink pour Base des connaissances :
+http://go.microsoft.com/fwlink/?LinkId=301508
+
+Remarque : le paramètre « Autoriser la délégation d’informations d’identification par défaut » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN, Service Principal Name).  Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur peuvent être déléguées.  L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly">Autoriser la délégation d’informations d’identification par défaut avec l’authentification de serveur NTLM uniquement</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Il est appliqué lorsque l’authentification serveur est effectuée via NTLM.
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les informations d’identification par défaut de l’utilisateur peuvent être déléguées (les informations d’identification par défaut étant celles que vous utilisez lors de la première ouverture de session dans Windows).
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas (par défaut), la délégation des informations d’identification par défaut n’est autorisée sur aucun ordinateur.
+
+Remarque : le paramètre de stratégie « Autoriser la délégation d’informations d’identification par défaut avec l’authentification de serveur NTLM uniquement » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur peuvent être déléguées.  L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com</string>
+      <string id="AllowFreshCredentials">Autoriser la délégation de nouvelles informations d’identification</string>
+      <string id="AllowFreshCredentials_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Il est appliqué lorsque l’authentification du serveur est effectuée via un certificat X509 approuvé ou Kerberos.
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les nouvelles informations d’identification de l’utilisateur peuvent être déléguées (les nouvelles informations d’identification sont celles qui vous sont demandées lors de l’exécution de l’application).
+
+Si vous ne configurez pas (par défaut) ce paramètre de stratégie, après une authentification mutuelle appropriée, la délégation de nouvelles informations d’identification est autorisée à l’Hôte de session Bureau à distance exécuté sur n’importe quel ordinateur (TERMSRV/*).
+
+Si vous désactivez ce paramètre de stratégie, la délégation de nouvelles informations d’identification n’est pas autorisée sur les ordinateurs.
+
+Remarque : le paramètre de stratégie « Autoriser la délégation de nouvelles informations d’identification » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN, Service Principal Name). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur peuvent être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com
+Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly">Autoriser la délégation de nouvelles informations d’identification avec l’authentification de serveur NTLM uniquement</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Il est appliqué lorsque l’authentification serveur est effectuée via NTLM.
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les nouvelles informations d’identification de l’utilisateur peuvent être déléguées (les nouvelles informations d’identification sont celles qui vous sont demandées lors de l’exécution de l’application).
+
+Si vous ne configurez pas (par défaut) ce paramètre de stratégie, après une authentification mutuelle appropriée, la délégation de nouvelles informations d’identification est autorisée à l’Hôte de session Bureau à distance exécuté sur n’importe quel ordinateur (TERMSRV/*).
+
+Si vous désactivez ce paramètre de stratégie, la délégation de nouvelles informations d’identification n’est pas autorisée sur les ordinateurs.
+
+Remarque : le paramètre de stratégie « Autoriser la délégation de nouvelles informations d’identification avec l’authentification de serveur NTLM uniquement » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur peuvent être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com</string>
+      <string id="AllowSavedCredentials">Autoriser la délégation d’informations d’identification enregistrées</string>
+      <string id="AllowSavedCredentials_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Il est appliqué lorsque l’authentification du serveur est effectuée via un certificat X509 approuvé ou Kerberos.
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les informations d’identification enregistrées de l’utilisateur peuvent être déléguées (les informations d’identification enregistrées étant celles que vous choisissez d’enregistrer/de mémoriser à l’aide du Gestionnaire d’informations d’identification de Windows).
+
+Si vous ne configurez pas (par défaut) ce paramètre de stratégie, après une authentification mutuelle appropriée, la délégation d’informations d’identification enregistrées est autorisée à l’Hôte de session Bureau à distance exécuté sur n’importe quel ordinateur (TERMSRV/*).
+
+Si vous désactivez ce paramètre de stratégie, la délégation des informations d’identification enregistrées n’est autorisée sur aucun ordinateur.
+
+Remarque : le paramètre de stratégie « Autoriser la délégation d’informations d’identification enregistrées » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN, Service Principal Name). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur peuvent être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly">Autoriser la délégation d’informations d’identification enregistrées avec l’authentification de serveur NTLM uniquement</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Il est appliqué lorsque l’authentification serveur est effectuée via NTLM.
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les informations d’identification enregistrées de l’utilisateur peuvent être déléguées (les informations d’identification enregistrées étant celles que vous choisissez d’enregistrer/de mémoriser à l’aide du Gestionnaire d’informations d’identification de Windows).
+
+Si vous ne configurez pas (par défaut) ce paramètre de stratégie, après une authentification mutuelle appropriée, la délégation d’informations d’identification enregistrées est autorisée à l’Hôte de session Bureau à distance exécuté sur n’importe quel ordinateur (TERMSRV/*) si l’ordinateur client n’est membre d’aucun domaine. Si le client fait partie d’un domaine, la délégation d’informations d’identification enregistrées n’est autorisée par défaut à aucun ordinateur.
+
+Si vous désactivez ce paramètre de stratégie, la délégation des informations d’identification enregistrées n’est autorisée sur aucun ordinateur.
+
+Remarque : le paramètre de stratégie « Autoriser la délégation d’informations d’identification enregistrées avec l’authentification de serveur NTLM uniquement » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur peuvent être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com</string>
+      <string id="CredentialsDelegation">Délégation d’informations d’identification</string>
+      <string id="DenyDefaultCredentials">Refuser la délégation d’informations d’identification par défaut</string>
+      <string id="DenyDefaultCredentials_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les informations d’identification par défaut de l’utilisateur ne peuvent pas être déléguées (les informations d’identification par défaut étant celles que vous utilisez lors de la première ouverture de session dans Windows).
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas (par défaut), il n’indique aucun serveur.
+
+Remarque : le paramètre « Refuser la délégation d’informations d’identification par défaut » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN, Service Principal Name). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur ne peuvent pas être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com
+
+Ce paramètre de stratégie peut être utilisé avec le paramètre « Autoriser la délégation d’informations d’identification par défaut » pour définir des exceptions pour des serveurs spécifiques étant normalement autorisés lors de l’utilisation de caractères génériques dans la liste de serveurs « Autoriser la délégation d’informations d’identification par défaut ».</string>
+      <string id="DenyFreshCredentials">Refuser la délégation de nouvelles informations d’identification</string>
+      <string id="DenyFreshCredentials_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les nouvelles informations d’identification par défaut de l’utilisateur ne peuvent pas être déléguées (les nouvelles informations d’identification étant celles qui vous sont demandées lors de l’exécution de l’application).
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas (par défaut), il n’indique aucun serveur.
+
+Remarque : le paramètre de stratégie « Refuser la délégation de nouvelles informations d’identification » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN, Service Principal Name). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur ne peuvent pas être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com
+
+Ce paramètre de stratégie peut être utilisé avec le paramètre « Autoriser la délégation de nouvelles informations d’identification » pour définir des exceptions pour des serveurs spécifiques étant normalement autorisés lors de l’utilisation de caractères génériques dans la liste de serveurs « Autoriser la délégation de nouvelles informations d’identification ».</string>
+      <string id="DenySavedCredentials">Refuser la délégation d’informations d’identification enregistrées</string>
+      <string id="DenySavedCredentials_Explain">Ce paramètre de stratégie s’applique aux applications utilisant le composant Cred SSP (par exemple : Connexion Bureau à distance).
+
+Si vous activez ce paramètre de stratégie, vous pouvez spécifier à quels serveurs les informations d’identification enregistrées de l’utilisateur ne peuvent pas être déléguées (les informations d’identification enregistrées étant celles que vous choisissez d’enregistrer/de mémoriser à l’aide du Gestionnaire d’informations d’identification Windows).
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas (par défaut), il n’indique aucun serveur.
+
+Remarque : le paramètre de stratégie « Refuser la délégation d’informations d’identification enregistrées » peut prendre la valeur d’un ou de plusieurs noms de principal du service (SPN, Service Principal Name). Le SPN représente le serveur cible auquel les informations d’identification de l’utilisateur ne peuvent pas être déléguées. L’utilisation d’un caractère générique unique est autorisée lors de la spécification du SPN.
+
+Par exemple :
+TERMSRV/host.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur l’ordinateur host.humanresources.fabrikam.com
+TERMSRV/* Hôte de session Bureau à distance exécuté sur tous les ordinateurs.
+TERMSRV/*.humanresources.fabrikam.com Hôte de session Bureau à distance exécuté sur tous les ordinateurs dans .humanresources.fabrikam.com
+
+Ce paramètre de stratégie peut être utilisé avec le paramètre « Autoriser la délégation d’informations d’identification enregistrées » pour définir des exceptions pour des serveurs spécifiques étant normalement autorisés lors de l’utilisation de caractères génériques dans la liste de serveurs « Autoriser la délégation d’informations d’identification enregistrées ».</string>
+      <string id="RestrictedRemoteAdministration">Limiter la délégation d’informations d’identification à des serveurs distants</string>
+      <string id="RestrictedRemoteAdministration_Explain">Lors d’une exécution en mode restreint, les applications participantes n’exposent pas les informations d’identification à des ordinateurs distants (quelle que soit la méthode de délégation). Le mode restreint peut limiter l’accès à des ressources situées sur d’autres serveurs ou réseaux au-delà de l’ordinateur cible, car les informations d’identification ne sont pas déléguées.
+
+Applications participantes :
+Client Bureau à distance
+
+Si vous activez ce paramètre de stratégie, le mode restreint est appliqué et les applications participantes ne délèguent pas les informations d’identification à des ordinateurs distants.
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, le mode restreint n’est pas appliqué et les applications participantes peuvent déléguer les informations d’identification à des ordinateurs distants.
+
+Remarque : pour désactiver la délégation de la plupart des informations d’identification, il peut être suffisant de refuser la délégation dans le protocole CredSSP (Credential Security Support Provider) en modifiant les paramètres des modèles d’administration (situés dans Configuration ordinateur\Modèles d’administration\Système\Délégation d’informations d’identification).</string>
+      <string id="SUPPORTED_VISTA">Windows Vista</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowDefaultCredentials">
+        <listBox refId="AllowDefaultCredentials_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_ADC" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="AllowDefCredentialsWhenNTLMOnly">
+        <listBox refId="AllowDefCredentialsWhenNTLMOnly_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_ADCN" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentials">
+        <listBox refId="AllowFreshCredentials_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_AFC" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentialsWhenNTLMOnly">
+        <listBox refId="AllowFreshCredentialsWhenNTLMOnly_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_AFCN" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentials">
+        <listBox refId="AllowSavedCredentials_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_ASC" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentialsWhenNTLMOnly">
+        <listBox refId="AllowSavedCredentialsWhenNTLMOnly_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_ASCN" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="DenyDefaultCredentials">
+        <listBox refId="DenyDefaultCredentials_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_DDC" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="DenyFreshCredentials">
+        <listBox refId="DenyFreshCredentials_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_DFC" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+      <presentation id="DenySavedCredentials">
+        <listBox refId="DenySavedCredentials_Name">Ajoutez des serveurs à la liste :</listBox>
+        <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concaténer les valeurs par défaut du système d’exploitation supérieures à</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

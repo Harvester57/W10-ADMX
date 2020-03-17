@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>tutaj wprowadź nazwę wyświetlaną</displayName>
+  <description>tutaj wprowadź opis</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Zezwalaj na telemetrię</string>
+      <string id="AllowTelemetry_0">0 — zabezpieczenia [tylko przedsiębiorstwo]</string>
+      <string id="AllowTelemetry_1">1 — podstawowe</string>
+      <string id="AllowTelemetry_2">2 — rozszerzone</string>
+      <string id="AllowTelemetry_3">3 — pełne</string>
+      <string id="AllowTelemetry_Explain">To ustawienie zasad określa ilość danych diagnostycznych i danych użycia zgłaszanych do firmy Microsoft. Wartość 0 oznacza, że do firmy Microsoft jest wysyłana minimalna ilość danych. Należą do nich dane narzędzia do usuwania złośliwego oprogramowania i usługi Windows Defender (jeśli są one włączone) oraz ustawienia klienta telemetrii. Wartości 0 należy używać tylko w przypadku urządzeń w przedsiębiorstwach, urządzeń EDU, urządzeń Internetu rzeczy i urządzeń serwerowych. Ustawienie wartości 0 w przypadku innych urządzeń jest tożsame z wybraniem wartości 1. Wartość 1 oznacza, że jest wysyłana tylko podstawowa ilość danych diagnostycznych i danych użycia. Ustawienie wartości 0 lub 1 obniży funkcjonalność urządzenia. Wartość 2 oznacza, że są wysyłane rozszerzone informacje diagnostyczne i dane użycia. Wartość 3 oznacza, że są wysyłane te same dane co w przypadku wybrania wartości 2 oraz dodatkowe dane diagnostyczne, w tym informacje o plikach i zawartości, które mogą być przyczyną problemu. Ustawienia telemetrii systemu Windows 10 dotyczą systemu operacyjnego Windows i niektórych aplikacji firmy Microsoft. To ustawienie nie dotyczy aplikacji innych firm uruchamianych w systemie Windows 10.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, użytkownicy będą mogli skonfigurować poziom telemetrii w ustawieniach.
+
+</string>
+      <string id="EnableExperimentation">Wyłącz funkcje lub ustawienia w wersji wstępnej</string>
+      <string id="EnableExperimentation_1">Tylko ustawienia urządzenia</string>
+      <string id="EnableExperimentation_2">Pełna obsługa wersji eksperymentalnych</string>
+      <string id="EnableExperimentation_Explain">To ustawienie zasad określa, w jakim zakresie firma Microsoft może eksperymentować z produktem w celu poznania preferencji użytkownika lub zachowania urządzenia. Wartość 1 oznacza, że firma Microsoft może konfigurować tylko ustawienia urządzenia. Wartość 2 oznacza, że firma Microsoft może eksperymentować w pełnym zakresie.
+
+Wyłączenie tego ustawienia zasad spowoduje wyłączenie wszystkich eksperymentów.
+
+Jeśli nie skonfigurujesz tego ustawienia zasad, użytkownik będzie mógł skonfigurować opcję „Zezwalaj firmie Microsoft na wypróbowywanie funkcji w tej kompilacji” w ustawieniach.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

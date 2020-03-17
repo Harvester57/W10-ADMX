@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>введите отображаемое имя</displayName>
+  <description>введите описание здесь</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Разрешить телеметрию</string>
+      <string id="AllowTelemetry_0">0 — Безопасность [только для предприятий]</string>
+      <string id="AllowTelemetry_1">1 – Базовая настройка</string>
+      <string id="AllowTelemetry_2">2 – Расширенные данные</string>
+      <string id="AllowTelemetry_3">3 – Полные данные</string>
+      <string id="AllowTelemetry_Explain">Этот параметр политики определяет объем данных о диагностике и использовании, отправляемых в Майкрософт. Значение "0" будет отправлять минимум данных в Майкрософт. Эти данные включают в себя средство удаления вредоносных программ (MSRT) &amp; данные Защитника Windows, если включен, и параметры клиента телеметрии. Установка значения "0" применяется только к предприятию, EDU, IoT и серверным устройствам. Установка значения "0" для других устройств эквивалентно выбору значения "1". Значение "1" отправляет только базовый объем данных диагностики и использования. Обратите внимание, что установка значений 0 или 1 снизит удобство пользования некоторых функций устройства. Значение "2" отправляет расширенные данные диагностики и использования. Значение "3" отправляет аналогичные данные, что и "2", а также дополнительные данные диагностики, включая файлы и содержимое, которые могут вызвать проблему. Параметры телеметрии Windows 10 применяются к операционной системе Windows и некоторым приложениям, получающим данные напрямую из источника. Этот параметр не применяется к сторонним приложениям, работающим на Windows 10.
+
+Если вы выключите или не настроите этот параметр политики, пользователи смогут задать уровень данных телеметрии в настройках.
+
+</string>
+      <string id="EnableExperimentation">Отключение компонентов и параметров предварительных версий</string>
+      <string id="EnableExperimentation_1">Только параметры устройства</string>
+      <string id="EnableExperimentation_2">Полное экспериментирование</string>
+      <string id="EnableExperimentation_Explain">Данный параметр политики определяет уровень, попробуйте Microsoft сможете продукта для исследования пользовательские параметры и поведение устройства. Значение 1 позволяет Майкрософт, чтобы настроить только параметры устройства. Значение 2 позволяет провести полную experimentations. 
+
+Если этот параметр политики отключен, все experimentations будет отключена. 
+
+Если этот параметр политики не настроен, пользователь может настроить параметр «Разрешить Майкрософт попробуйте компоненты для этого построения» в настройках.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

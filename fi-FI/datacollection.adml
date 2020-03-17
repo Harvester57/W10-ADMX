@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>kirjoita näyttönimi tähän</displayName>
+  <description>kirjoita kuvaus tähän</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Salli telemetria</string>
+      <string id="AllowTelemetry_0">0 – Tietoturva [vain yritys]</string>
+      <string id="AllowTelemetry_1">1 – Perus</string>
+      <string id="AllowTelemetry_2">2 – Laajennetut</string>
+      <string id="AllowTelemetry_3">3 – Täydet</string>
+      <string id="AllowTelemetry_Explain">Tämä käytäntöasetus määrittää, kuinka paljon diagnostiikka- ja käyttötietoja raportoidaan Microsoftille. Arvolla 0 Microsoftille lähetetään mahdollisimman vähän tietoja. Tietoihin sisältyvät silloin Haittaohjelmien poistotyökalun ja Windows Defenderin tiedot, jos nämä työkalut ovat käytössä, sekä telemetria-asiakkaan asetukset. Arvo 0 koskee vain yritys-, EDU-, IoT- ja palvelinlaitteita. Jos arvo 0 asetetaan muille laitteille, se vastaa arvon 1 valitsemista. Arvolla 1 lähetetään vain perustason diagnostiikka- ja käyttötietoja. Huomaa, että arvojen 0 ja 1 asettaminen heikentää laitteen tiettyjen ominaisuuksien käyttökokemusta. Arvolla 2 lähetetään laajennetut diagnostiikka- ja käyttötiedot. Arvolla 3 lähetetään samat tiedot kuin arvolla 2 sekä lisädiagnostiikkatietoja, kuten sisältö ja tiedostot, jotka ovat saattaneet aiheuttaa ongelman. Windows 10:n telemetria-asetukset koskevat Windows-käyttöjärjestelmää ja tiettyjä ensimmäisen osapuolen sovelluksia. Tämä asetus ei koske Windows 10:ssä suoritettavia kolmannen osapuolen sovelluksia.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjät voivat määrittää telemetriatason Asetuksissa.
+
+</string>
+      <string id="EnableExperimentation">Poista esiversion ominaisuudet tai asetukset käytöstä</string>
+      <string id="EnableExperimentation_1">Vain laiteasetukset</string>
+      <string id="EnableExperimentation_2">Täydet kokeilut</string>
+      <string id="EnableExperimentation_Explain">Tämä käytäntöasetus määrittää tason, jolla Microsoft voi tehdä kokeiluja tuotteella tutkiakseen käyttäjien mieltymyksiä tai laitteen käyttäytymistä. Arvo 1 antaa Microsoftin vain määrittää laiteasetukset. Arvo 2 antaa Microsoftin tehdä täysiä kokeiluja.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, kaikki kokeilut poistetaan käytöstä.
+
+Jos et määritä tätä käytäntöasetusta, käyttäjä voi määrittää Asetuksissa Anna Microsoftin kokeilla ominaisuuksia tässä esiversiossa -vaihtoehdon.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

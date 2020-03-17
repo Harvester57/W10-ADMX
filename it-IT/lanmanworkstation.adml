@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>immettere qui il nome visualizzato</displayName>
+  <description>immettere qui la descrizione</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_LanmanWorkstation">Workstation LANMAN</string>
+      <string id="Pol_CipherSuiteOrder_Name">Ordine dei pacchetti di crittografia</string>
+      <string id="Pol_CipherSuiteOrder_Help">Questa impostazione dei criteri determina i pacchetti di crittografia utilizzati dal client SMB.
+
+Se si abilita questa impostazione dei criteri, ai pacchetti di crittografia viene assegnata una priorità in base all'ordine specificato.
+
+Se si abilita questa impostazione dei criteri e non si specifica almeno un pacchetto di crittografia supportato oppure se si disabilita o non si configura questa impostazione dei criteri, verrà utilizzato l'ordine dei pacchetti di crittografia predefinito.
+
+Pacchetti di crittografia SMB 3.11:
+
+AES_128_GCM
+AES_128_CCM
+
+Pacchetti di crittografia SMB 3.0 e 3.02:
+
+AES_128_CCM
+
+Come modificare questa impostazione:
+
+Disporre i pacchetti di crittografia desiderati nella casella di modifica, un pacchetto di crittografia per riga, in ordine di preferenza decrescente, con il pacchetto di crittografia preferito all'inizio. Rimuovere gli eventuali pacchetti di crittografia che non si desidera utilizzare.
+
+Nota: quando si configura questa impostazione di sicurezza, le modifiche diventeranno effettive solo dopo il riavvio di Windows.</string>
+      <string id="Pol_EnableInsecureGuestLogons_Name">Abilita gli accessi guest non sicuri</string>
+      <string id="Pol_EnableInsecureGuestLogons_Help">Questa impostazione dei criteri determina se il client SMB consente gli accessi guest non sicuri a un server SMB.
+
+Se si abilita o non si configura questa impostazione dei criteri, il client SMB consente gli accessi guest non sicuri.
+
+Se si disabilita questa impostazione dei criteri, il client SMB rifiuta gli accessi guest non sicuri.
+
+Gli accessi guest non sicuri vengono usati dai file server per consentire l'accesso non autenticato alle cartelle condivise. Pur essendo inconsueti in un ambiente aziendale, gli accessi guest non sicuri vengono usati di frequente dai dispositivi NAS (Network Attached Storage) consumer che operano come file server. I file server Windows richiedono l'autenticazione e non usano gli accessi guest non sicuri per impostazione predefinita. Perché gli accessi guest non sicuri non sono autenticati, importanti funzionalità di sicurezza come la firma SMB e la crittografia SMB sono disabilitate. Di conseguenza, i client che consentono gli accessi guest non sicuri sono vulnerabili a un'ampia gamma di attacchi man-in-the-middle che possono comportare la perdita di dati, il danneggiamento dei dati e l'esposizione a malware. Inoltre, eventuali dati scritti in un file server usando un accesso guest non sicuro sono potenzialmente accessibili a tutti gli utenti della rete. Microsoft consiglia di disabilitare gli accessi guest non sicuri e di configurare i file server in modo da richiedere l'accesso autenticato."
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_CipherSuiteOrder">
+        <text>Pacchetti di crittografia:</text>
+        <multiTextBox refId="MultiText_CipherSuiteOrder"/>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

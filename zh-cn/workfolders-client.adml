@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>请在此处输入显示名称</displayName>
+  <description>请在此处输入描述</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">工作文件夹</string>
+      <string id="Pol_MachineEnableWorkFolders">强制为所有用户自动设置</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">此策略设置指定是否应为受影响计算机的所有用户自动设置工作文件夹。
+      
+如果启用此策略设置，将为受影响计算机的所有用户自动设置工作文件夹。这可以防止用户选择不使用计算机上的工作文件夹；还可以防止他们手动指定工作文件夹在其中存储文件的本地文件夹。工作文件夹将使用“用户配置\管理模板\Windows 组件\WorkFolders”中的“指定工作文件夹设置”策略设置中指定的设置。如果“指定工作文件夹设置”策略设置未应用于用户，则不会自动设置工作文件夹。
+      
+如果禁用或未配置此策略设置，则工作文件夹将使用“指定工作文件夹设置”策略设置的“强制自动设置”选项来确定是否为给定用户自动设置工作文件夹。
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">指定工作文件夹设置</string>
+      <string id="Pol_UserEnableWorkFolders_Help">此策略设置指定受影响用户的工作文件夹服务器，以及在加入域的计算机上设置工作文件夹时是否允许用户更改设置。
+
+如果启用此策略设置，受影响的用户在登录到加入域的电脑时将收到工作文件夹设置。
+
+“工作文件夹 URL”可以指定组织用于查找工作文件夹的 URL，或者指定存储受影响用户的数据的文件服务器的特定 URL。
+
+“强制自动设置”选项指定应在不提示用户的情况下自动设置工作文件夹。这可以防止用户选择不使用计算机上的工作文件夹；还可以防止他们手动指定工作文件夹在其中存储文件的本地文件夹。默认情况下，工作文件夹存储在“%USERPROFILE%\工作文件夹”文件夹中。如果未指定此选项，则用户必须使用计算机上的工作文件夹控制面板项来设置工作文件夹。
+   
+如果禁用或者未配置此策略设置，则不会为受影响用户指定任何工作文件夹设置，但用户可以通过使用工作文件夹控制面板项手动设置工作文件夹。
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>工作文件夹 URL:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">强制自动设置</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

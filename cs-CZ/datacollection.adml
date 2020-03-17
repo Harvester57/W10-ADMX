@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Sem zadejte zobrazovaný název.</displayName>
+  <description>Sem zadejte popis.</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Povolit telemetrii</string>
+      <string id="AllowTelemetry_0">0 – Zabezpečení [jenom zařízení Enterprise]</string>
+      <string id="AllowTelemetry_1">1 – Základní</string>
+      <string id="AllowTelemetry_2">2 – Rozšířené</string>
+      <string id="AllowTelemetry_3">3 – Úplné</string>
+      <string id="AllowTelemetry_Explain">Toto nastavení zásad určuje množství diagnostických dat a dat o používání posílaných do Microsoftu. Hodnota 0 znamená, že se do Microsoftu bude posílat minimum dat, včetně dat z Nástroje pro odstranění škodlivého softwaru (MSRT) a programu Windows Defender, pokud jsou povolené, a nastavení telemetrie u klientů. Nastavení hodnoty 0 platí jenom pro serverová zařízení nebo zařízení Enterprise, EDU a IoT. Nastavení hodnoty 0 pro jiná zařízení odpovídá hodnotě 1. Hodnota 1 posílá jenom základní množství diagnostických dat a dat o používání. Připomínáme, že nastavení hodnoty 0 nebo 1 bude znamenat omezení některých funkcí zařízení. Hodnota 2 posílá rozšířená diagnostická data a data o používání. Hodnota 3 posílá stejná data jako hodnota 2 a k tomu ještě další diagnostická data, včetně souborů a obsahu, které můžou být příčinou problému. Nastavení telemetrie ve Windows 10 se vztahuje na operační systém Windows a některé aplikace od Microsoftu. Nevztahuje se na aplikace jiných výrobců běžící ve Windows 10.
+
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou moct uživatelé nakonfigurovat úroveň telemetrie v Nastavení.
+
+</string>
+      <string id="EnableExperimentation">Zakázat předběžné funkce nebo nastavení</string>
+      <string id="EnableExperimentation_1">Jenom nastavení zařízení</string>
+      <string id="EnableExperimentation_2">Experimentování v plné míře</string>
+      <string id="EnableExperimentation_Explain">Toto nastavení zásad určuje, do jaké míry může Microsoft experimentovat s produktem, když bude chtít analyzovat uživatelské preference nebo chování zařízení. Hodnota 1 umožňuje Microsoftu jenom konfigurovat nastavení zařízení. Hodnota 2 umožňuje Microsoftu provádět experimenty v plné míře.
+
+Pokud toto nastavení zásad zakážete, bude experimentování úplně vypnuté.
+
+Pokud toto nastavení zásad nenakonfigurujete, může uživatel v nastavení nakonfigurovat následující možnost: Microsoft může zkoušet funkce na tomto buildu.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

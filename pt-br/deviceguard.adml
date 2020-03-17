@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Proteção de Dispositivo do Microsoft Windows</displayName>
+  <description>Segurança da Proteção de Dispositivo Windows</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Proteção de Dispositivo</string>
+      <string id="VirtualizationBasedSecurity">Ativar Segurança Baseada em Virtualização</string>
+      <string id="VirtualizationBasedSecurityHelp">Especifica se a Segurança Baseada em Virtualização está habilitada.
+
+A Segurança Baseada em Virtualização usa o Hipervisor do Windows para dar suporte a serviços de segurança. A Segurança Baseada em Virtualização requer Inicialização Segura e, opcionalmente, pode ser habilitada com o uso de Proteções DMA. As Proteções DMA exigem suporte de hardware e serão habilitadas apenas em dispositivos configurados corretamente.
+
+Proteção de Integridade do Código Baseada em Virtualização
+
+Esta configuração habilita a proteção da Integridade do Código de Modo Kernel baseada em virtualização. Quando esta opção está habilitada, proteções de memória de modo kernel são impostas, e o caminho de validação da Integridade do Código fica protegido pelo recurso de segurança baseada em virtualização.
+
+Aviso: todos os drivers no sistema devem ser compatíveis com esse recurso ou o sistema poderá travar. Certifique-se de que esta configuração de política seja implantada somente em computadores compatíveis. 
+
+Proteção de Credenciais
+
+Esta configuração permite que os usuários ativem a Proteção de Credenciais com segurança baseada em virtualização para ajudar a proteger credenciais.
+
+A opção "Desabilitada" desativa a Proteção de Credenciais remotamente caso ela tenha sido ativada anteriormente com a opção "Habilitada sem bloqueio".
+
+A opção "Habilitada com bloqueio UEFI" assegura que a Proteção de Credenciais não será desabilitada remotamente. Para desabilitar o recurso, você deve definir a Política de Grupo como "Desabilitada" e remover a funcionalidade de segurança de cada computador, com um usuário fisicamente presente, para limpar a configuração persistente em UEFI.
+
+A opção "Habilitada sem bloqueio" permite que a Proteção de Credenciais seja desabilitada remotamente usando a Política de Grupo. Os dispositivos que usam esta configuração devem estar executando no mínimo o Windows 10 (Versão 1511).
+      </string>
+      <string id="SecureBoot">Inicialização Segura</string>
+      <string id="SecureBootAndDmaProtection">Inicialização segura e a proteção de DMA</string>
+      <string id="Disabled">Desabilitado</string>
+      <string id="Enabled">Habilitado</string>
+      <string id="EnabledWithoutLock">Habilitada sem bloqueio</string>
+      <string id="EnabledWithUefiLock">Habilitada com o bloqueio UEFI</string>
+      <string id="ConfigCIPolicy">Implantar política de integridade de código</string>
+      <string id="ConfigCIPolicyHelp">Implantar política de integridade de código
+
+Essa configuração de política permite que você implante a política de integridade de código em uma máquina para controlar o que pode ser executado nesta máquina.
+
+Se você implantar a política de integridade de código, o Windows restringirá o que pode ser executado no modo de kernel e na área de trabalho do Windows com base na política. Para habilitar esta política, o computador deve ser reinicializado. 
+
+O caminho do arquivo deve ser um caminho UNC (por exemplo, \\ServerName\ShareName\SIPolicy.p7b), ou de um local válido (por exemplo, C:\FolderName\SIPolicy.p7b).  A conta de computador local (SISTEMA LOCAL) deve ter a permissão de acesso para o arquivo de política.
+ 
+Se usar uma política protegida e assinada, desabilitar essa configuração de política não remove o recurso do computador. Em vez disso, você deve:
+
+   1) primeiro atualizar a política para uma política não protegida e, em seguida, desabilite a configuração, ou
+   2) desabilitar a configuração e, em seguida, remover a política de cada computador, com um usuário fisicamente presente.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Selecione o Nível de Segurança da Plataforma:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Habilitar Proteção com Base em Virtualização de Integridade de Código</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuração da Proteção de Credenciais:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Caminho do arquivo de Política de Integridade de Código:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>introduza o nome a apresentar aqui</displayName>
+  <description>introduza a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="ActiveDirectoryBackup_Help">Esta definição de política permite-lhe gerir a cópia de segurança dos Serviços de Domínio do Active Directory (AD DS) das informações de proprietário do Trusted Platform Module (TPM). 
+
+As informações de proprietário do TPM incluem um hash criptográfico da palavra-passe de proprietário do TPM. Determinados comandos TPM só podem ser executados pelo proprietário do TPM. Este hash autoriza o TPM a executar estes comandos. 
+
+Se ativar esta definição de política, será efetuada uma cópia de segurança das informações de proprietário do TPM de forma automática e silenciosa para AD DS quando utilizar o Windows para definir ou alterar uma palavra-passe de proprietário do TPM. 
+
+Se ativar esta definição de política, não é possível definir ou alterar uma palavra-passe de proprietário do TPM, a não ser que o computador esteja ligado ao domínio e a cópia de segurança do AD DS seja concluída com êxito.
+
+Se desativar ou não configurar esta definição de política, não será efetuada uma cópia de segurança das informações de proprietário do TPM para AD DS. 
+
+Nota: tem primeiro de configurar as extensões de esquema apropriadas e aceder às definições de controlo no domínio antes de a cópia de segurança do AD DS poder ser concluída com êxito. Para mais informações sobre a configuração dos Serviços de Domínio do Active Directory para TPM, consulte a documentação online.
+
+Nota: não é possível utilizar o TPM para proporcionar funcionalidades de segurança melhoradas para Encriptação de Unidade BitLocker e outras aplicações sem definir primeiro um proprietário. Para obter propriedade do TPM com uma palavra-passe de proprietário, execute "tpm.msc" e selecione a ação para "Inicializar TPM".
+
+Nota: se as informações de proprietário do TPM se tiverem perdido ou não estiverem disponíveis, é possível efetuar a gestão limitada do TPM executando "tpm.msc" no computador local.</string>
+      <string id="ActiveDirectoryBackup_Name">Ativar a cópia de segurança do TPM para os Serviços Trusted Platform Module</string>
+      <string id="BlockedCommandsList_Help">Esta definição de política permite-lhe gerir a lista da Política de Grupo de comandos do Trusted Platform Module (TPM) bloqueados pelo Windows.
+
+Se ativar esta definição de política, o Windows bloqueará o envio dos comandos especificados para o TPM no computador. Os comandos TPM são referenciados por um número de comando. Por exemplo, o número de comando 129 é TPM_OwnerReadInternalPub e o número de comando 170 é TPM_FieldUpgrade. Para localizar o número de comando associado a cada comando TPM, execute "tpm.msc" e navegue até à secção "Gestão de Comandos".
+
+Se desativar ou não configurar esta definição de política, apenas os comandos TPM especificados através das listas predefinidas ou locais poderão ser bloqueados pelo Windows. A lista predefinida de comandos TPM bloqueados é pré-configurada pelo Windows. Pode ver a lista predefinida executando "tpm.msc", navegando até à secção "Gestão de Comandos" e tornando visível a coluna "Na Lista de Bloqueios Predefinida". A lista local de comandos TPM bloqueados é configurada fora da Política de Grupo executando "tpm.msc" ou através de scripts na interface Win32_Tpm. Consulte as definições de política relacionadas para impor ou ignorar as listas predefinidas e locais de comandos TPM bloqueados.</string>
+      <string id="BlockedCommandsList_Name">Configurar a lista de comandos TPM bloqueados</string>
+      <string id="IgnoreDefaultList_Help">Esta definição de política permite-lhe impor ou ignorar a lista predefinida de comandos do Trusted Platform Module (TPM) bloqueados do computador.
+
+Se ativar esta definição de política, o Windows ignorará a lista predefinida de comandos TPM bloqueados do computador e apenas bloqueará os comandos TPM especificados pela Política de Grupo ou pela lista local. 
+
+A lista predefinida de comandos TPM bloqueados é pré-configurada pelo Windows. Pode ver a lista predefinida executando "tpm.msc", navegando até à secção "Gestão de Comandos" e tornando visível a coluna "Na Lista de Bloqueios Predefinida". A lista local de comandos TPM bloqueados é configurada fora da Política de Grupo executando "tpm.msc" ou através de scripts na interface Win32_Tpm. Consulte a definição de política relacionada para configurar a lista da Política de Grupo de comandos TPM bloqueados.
+
+Se desativar ou não configurar esta definição de política, o Windows bloqueará os comandos TPM da lista predefinida, além dos comandos das listas de comandos TPM bloqueados da Política de Grupo e local.  </string>
+      <string id="IgnoreDefaultList_Name">Ignorar a lista predefinida de comandos TPM bloqueados</string>
+      <string id="IgnoreLocalList_Help">Esta definição de política permite-lhe impor ou ignorar a lista local de comandos do Trusted Platform Module (TPM) bloqueados do computador.
+
+Se ativar esta definição de política, o Windows ignorará a lista local de comandos TPM bloqueados do computador e apenas bloqueará os comandos TPM especificados pela Política de Grupo ou pela lista predefinida.
+
+A lista local de comandos TPM bloqueados é configurada fora da Política de Grupo executando "tpm.msc" ou através de scripts na interface Win32_Tpm. A lista predefinida de comandos TPM bloqueados é pré-configurada pelo Windows. Consulte a definição de política relacionada para configurar a lista da Política de Grupo de comandos TPM bloqueados. 
+
+Se desativar ou não configurar esta definição de política, o Windows bloqueará os comandos TPM localizados na lista local, para além dos comandos nas listas de comandos TPM bloqueados da Política de Grupo e predefinidas.</string>
+      <string id="IgnoreLocalList_Name">Ignorar a lista local de comandos TPM bloqueados</string>
+      <string id="TPMCategory">Serviços Trusted Platform Module</string>
+      <string id="OSManagedAuth_Name">Configurar o nível de informações de autorização do proprietário de TPM disponíveis para o sistema operativo</string>
+      <string id="OSManagedAuth_Help">Esta definição de política configura a quantidade de informações de autorização do proprietário de TPM armazenadas no registo do computador local. Dependendo da quantidade de informações de autorização do proprietário de TPM armazenadas localmente, o sistema operativo e as aplicações baseadas em TPM podem executar certas ações do TPM  que exigem autorização do proprietário de TPM sem exigir que o utilizador introduza a palavra-passe de proprietário de TPM.
+
+Pode optar por o sistema operativo a armazenar: o valor total de autorização de proprietário de TPM; o blob de delegação administrativa de TPM e o blob de delegação de utilizador de TPM; ou nenhum. 
+
+Se ativar esta definição de política, o Windows armazenará a autorização do proprietário de TPM no registo do computador local de acordo com a definição de autenticação de TPM gerida pelo sistema operativo escolhida.
+
+Escolha a definição de autenticação de TPM gerida pelo sistema operativo "Total" para armazenar a autorização de proprietário de TPM total, o blob de delegação administrativa de TPM e o blob de delegação de utilizador de TPM no registo local. Esta definição permite a utilização do TPM sem a necessidade de armazenamento remoto ou externo do valor de autorização do proprietário de TPM. Esta definição é adequada para os cenários que não dependem da impedição da reposição da lógica anti-hammering de TPM ou da alteração do valor de autorização do proprietário de TPM. Algumas aplicações baseadas em TPM podem exigir que esta definição seja alterada antes de poder utilizar funcionalidades que dependem da lógica anti-hammering de TPM.
+
+Escolha a definição de autenticação de TPM gerida pelo sistema operativo "Delegada" para armazenar apenas o blob de delegação administrativa de TPM e o blob de delegação de utilizador de TPM no registo local. Esta definição é adequada para utilização com aplicações baseadas em TPM que dependem da lógica anti-hammering de TPM. Com a utilização desta definição, recomenda-se o armazenamento externo ou remoto do valor de autorização do proprietário de TPM, por exemplo, através da cópia de segurança do valor para os Serviços de Domínio do Active Directory (AD DS). 
+
+Escolha a definição de autenticação de TPM gerida pelo sistema operativo "Nenhuma" para efeitos de compatibilidade com sistemas operativos e aplicações anteriores ou para utilização com cenários que exigem que a autorização do proprietário de TPM não seja armazenada localmente.  A utilização desta definição poderá originar problemas com algumas aplicações baseadas em TPM.
+
+Se esta definição de política estiver desativada ou não configurada e a definição de política "Ativar a cópia de segurança do TPM para os Serviços de Domínio do Active Directory" também estiver desativada ou não configurada, a predefinição é armazenar a o valor de autorização de TPM total no registo local. Se esta política estiver desativada ou não configurada e a definição de política de grupo "Ativar a cópia de segurança do TPM para os Serviços de Domínio do Active Directory" estiver ativada, apenas os blobs de delegação administrativa e de delegação de utilizador são armazenados no registo local.
+
+Nota: se a definição de autenticação de TPM gerida pelo sistema operativo for alterada de "Total" para "Delegada", o valor de autorização do proprietário de TPM total será gerado novamente e as cópias do valor de autorização do proprietário de TPM original serão inválidas. Se estiver a fazer uma cópia de segurança do valor de autorização do proprietário de TPM para AD DS, será automaticamente feita uma cópia de segurança do novo valor de autorização do proprietário para AD DS quando for alterado.
+
+</string>
+      <string id="OSManagedAuth-TpmAuthFull">Total</string>
+      <string id="OSManagedAuth-TpmAuthAdminPlusUser">Delegada</string>
+      <string id="OSManagedAuth-TpmAuthNone">Nenhuma</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name">Duração do Bloqueio do Utilizador Padrão</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name_Help">Esta definição de política permite-lhe gerir a duração, em minutos, para a contagem das falhas de autorização de utilizadores padrão para comandos de Trusted Platform Module (TPM) que exigem autorização.  Se o número de comandos TPM com uma falha de autorização nessa duração atingir um limiar, não é permitido a um utilizador padrão enviar comandos que exijam autorização para o TPM.  
+
+Esta definição ajuda os administradores a impedirem que o hardware TPM entre em modo de bloqueio porque atrasa a rapidez com que os utilizadores padrão conseguem enviar comandos que exigem autorização para o TPM.  
+
+Ocorre uma falha de autorização sempre que um utilizador padrão envia um comando para o TPM e recebe uma resposta de erro a indicar que ocorreu uma falha na autorização.  As falhas de autorização anteriores a esta duração são ignoradas.
+
+São aplicáveis dois limiares para cada utilizador padrão.  Se exceder o limiar, o utilizador padrão não conseguirá enviar um comando para o TPM que exija autorização.  
+
+O valor de Limiar Individual de Bloqueio do Utilizador Padrão é o número máximo de falhas de autorização que cada utilizador padrão pode ter antes de não conseguir enviar comandos que exigem autorização para o TPM.  
+
+O valor de Limiar Total de Bloqueio do Utilizador Padrão é o número total máximo de falhas de autorização que todos os utilizadores padrão podem ter antes de não conseguirem enviar comandos que exigem autorização para o TPM. 
+      
+O TPM foi desenvolvido de modo a proteger-se contra ataques de deteção de palavra-passe através da entrada em modo de bloqueio do hardware ao receber demasiados comandos com um valor de autorização incorreto.   Quando o TPM entra em modo de bloqueio é global para todos os utilizadores, incluindo administradores e funcionalidades do Windows como Encriptação de Unidade BitLocker.  O número de falhas de autorização que um TPM permite e a duração do bloqueio varia de acordo com o fabricante do TPM.  Alguns TPMs podem entrar em modo de bloqueio por períodos de tempo sucessivamente mais longos com menos falhas de autorização, dependendo das falhas anteriores.  Alguns TPMs podem exigir que o sistema seja reiniciado para sair do modo de bloqueio.    Outros TPMs podem exigir que o sistema fique ativo para que decorra um número suficiente de ciclos antes de o TPM sair do modo de bloqueio.
+
+Um administrador com a palavra-passe de proprietário de TPM pode repor integralmente a lógica de bloqueio do hardware do TPM utilizando a Consola de Gestão do TPM (tpm.msc).  Sempre que um administrador repõe a lógica de bloqueio do hardware de TPM todas as falhas de autorização de TPM de utilizador padrão anteriores são ignoradas; isso permite que os utilizadores padrão voltem a usar normalmente o TPM de imediato.
+
+Se este valor não for configurado, é utilizado um valor predefinido de 480 minutos (8 horas).  
+        
+      </string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name">Limiar Individual de Bloqueio do Utilizador Padrão</string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name_Help">Esta definição de política permite-lhe gerir o número máximo de falhas de autorização para cada utilizador padrão para o Trusted Platform Module (TPM).  Se o número de falhas de autorização para o utilizador na duração para Duração do Bloqueio do Utilizador Padrão for igual a este valor, não é permitido ao utilizador padrão enviar comandos para o Trusted Platform Module (TPM) que exijam autorização.
+
+Esta definição ajuda os administradores a impedirem que o hardware TPM entre em modo de bloqueio porque atrasa a rapidez com que os utilizadores padrão conseguem enviar comandos que exigem autorização para o TPM.  
+
+Ocorre uma falha de autorização sempre que um utilizador padrão envia um comando para o TPM e recebe uma resposta de erro a indicar que ocorreu uma falha na autorização.  As falhas de autorização anteriores à duração são ignoradas.
+
+São aplicáveis dois limiares para cada utilizador padrão.  Se exceder o limiar, o utilizador padrão não conseguirá enviar um comando para o TPM que exija autorização.  
+
+Este valor é o número máximo de falhas de autorização que cada utilizador padrão pode ter antes de não conseguir enviar comandos que exigem autorização para o TPM.  
+
+O valor de Limiar Total de Bloqueio do Utilizador Padrão é o número total máximo de falhas de autorização que todos os utilizadores padrão podem ter antes de não conseguirem enviar comandos que exigem autorização para o TPM. 
+      
+O TPM foi desenvolvido de modo a proteger-se contra ataques de deteção de palavra-passe através da entrada em modo de bloqueio do hardware ao receber demasiados comandos com um valor de autorização incorreto.   Quando o TPM entra em modo de bloqueio é global para todos os utilizadores, incluindo administradores e funcionalidades do Windows como Encriptação de Unidade BitLocker.  O número de falhas de autorização que um TPM permite e a duração do bloqueio varia de acordo com o fabricante do TPM.  Alguns TPMs podem entrar em modo de bloqueio por períodos de tempo sucessivamente mais longos com menos falhas de autorização, dependendo das falhas anteriores.  Alguns TPMs podem exigir que o sistema seja reiniciado para sair do modo de bloqueio.    Outros TPMs podem exigir que o sistema fique ativo para que decorra um número suficiente de ciclos antes de o TPM sair do modo de bloqueio.
+
+Um administrador com a palavra-passe de proprietário de TPM pode repor integralmente a lógica de bloqueio do hardware do TPM utilizando a Consola de Gestão do TPM (tpm.msc).  Sempre que um administrador repõe a lógica de bloqueio do hardware de TPM todas as falhas de autorização de TPM de utilizador padrão anteriores são ignoradas; isso permite que os utilizadores padrão voltem a usar normalmente o TPM de imediato.
+
+Se este valor não for configurado, é utilizado um valor predefinido 4.
+
+Um valor zero significa que o SO não permitirá que os utilizadores padrão enviem comandos para o TPM que possam causar uma falha de autorização.
+      
+      </string>
+
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name">Limiar Total de Bloqueio do Utilizador Padrão</string>
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name_Help">Esta definição de política permite-lhe gerir o número máximo de falhas de autorização para todos os utilizadores padrão para o Trusted Platform Module (TPM).  Se o número total de falhas de autorização para todos os utilizadores padrão na duração para Duração do Bloqueio do Utilizador Padrão for igual a este valor, não é permitido a nenhum utilizador padrão enviar comandos para o Trusted Platform Module (TPM) que exijam autorização.
+
+Esta definição ajuda os administradores a impedirem que o hardware TPM entre em modo de bloqueio porque atrasa a rapidez com que os utilizadores padrão conseguem enviar comandos que exigem autorização para o TPM.  
+
+Ocorre uma falha de autorização sempre que um utilizador padrão envia um comando para o TPM e recebe uma resposta de erro a indicar que ocorreu uma falha na autorização.  As falhas de autorização anteriores à duração são ignoradas.
+
+São aplicáveis dois limiares para cada utilizador padrão.  Se exceder o limiar, o utilizador padrão não conseguirá enviar um comando para o TPM que exija autorização.  
+
+O valor de Limiar Individual de Bloqueio do Utilizador Padrão é o número máximo de falhas de autorização que cada utilizador padrão pode ter antes de não conseguir enviar comandos que exigem autorização para o TPM.  
+
+Este valor é o número total máximo de falhas de autorização que todos os utilizadores padrão podem ter antes de não conseguirem enviar comandos que exigem autorização para o TPM. 
+      
+O TPM foi desenvolvido de modo a proteger-se contra ataques de deteção de palavra-passe através da entrada em modo de bloqueio do hardware ao receber demasiados comandos com um valor de autorização incorreto.   Quando o TPM entra em modo de bloqueio é global para todos os utilizadores, incluindo administradores e funcionalidades do Windows como Encriptação de Unidade BitLocker.  O número de falhas de autorização que um TPM permite e a duração do bloqueio varia de acordo com o fabricante do TPM.  Alguns TPMs podem entrar em modo de bloqueio por períodos de tempo sucessivamente mais longos com menos falhas de autorização, dependendo das falhas anteriores.  Alguns TPMs podem exigir que o sistema seja reiniciado para sair do modo de bloqueio.    Outros TPMs podem exigir que o sistema fique ativo para que decorra um número suficiente de ciclos antes de o TPM sair do modo de bloqueio.
+
+Um administrador com a palavra-passe de proprietário de TPM pode repor integralmente a lógica de bloqueio do hardware do TPM utilizando a Consola de Gestão do TPM (tpm.msc).  Sempre que um administrador repõe a lógica de bloqueio do hardware de TPM todas as falhas de autorização de TPM de utilizador padrão anteriores são ignoradas; isso permite que os utilizadores padrão voltem a usar normalmente o TPM de imediato.
+
+Se este valor não for configurado, é utilizado um valor predefinido 9.  
+
+Um valor zero significa que o SO não permitirá que os utilizadores padrão enviem comandos para o TPM que possam causar uma falha de autorização.
+
+      
+
+      </string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="BlockedCommandsList_Name">
+        <text>Especifique os comandos a bloquear adicionando os respetivos números à lista.</text>
+        <listBox refId="BlockedCommandsList_Ordinals2">A lista de comandos TPM bloqueados:</listBox>
+        <text>Por exemplo, para bloquear os comandos TPM_OwnerReadInternalPub</text>
+        <text>e TPM_FieldUpgrade, adicione os itens 129 e 170 à lista.</text>
+      </presentation>
+      <presentation id="OSManagedAuth_Name">
+        <dropdownList refId="SelectOSManagedAuthLevel" noSort="true" defaultItem="1">Nível de autenticação de TPM gerida pelo sistema operativo:</dropdownList>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureDuration_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureDuration_Name" defaultValue="480">Duração para a contagem de falhas de autorização de TPM (minutos):</decimalTextBox>        
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureIndividualThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureIndividualThreshold_Name" defaultValue="4">Número máximo de falhas de autorização por duração:</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureTotalThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" defaultValue="9">Número máximo de falhas de autorização por duração:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

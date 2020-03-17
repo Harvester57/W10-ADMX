@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Configuración de directiva de grupo de servicio WWAN</displayName>
+  <description>Configuración de directiva de grupo de servicio WWAN</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">Servicio WWAN</string>
+      <string id="NetworkCost_Category">Costo de medios WWAN</string>
+      <string id="SetCost3G">Establecer costo 3G</string>
+      <string id="SetCost3G_Help">Esta configuración de directiva define el costo de conexiones 3G en el equipo local.
+
+Si esta configuración de directiva está habilitada, estará activo un cuadro de lista desplegable en el que se presentan los valores de costos posibles.  Al seleccionar uno de los siguientes valores de la lista establecerá el costo de todas las conexiones 3G en el equipo local:
+
+- Sin restricciones: el uso de esta conexión es ilimitado y no está restringido por limitaciones de capacidad y cargos de uso. 
+
+- Fijo: el uso de esta conexión no está restringido por limitaciones de capacidad y cargos de uso hasta un determinado límite de datos. 
+
+- Variable: esta conexión tiene un costo por byte.
+
+Si esta configuración de directiva está deshabilitada o no se define, el valor predeterminado del costo de las conexiones 3G es Fijo.
+      
+      </string>
+      <string id="SetCost4G">Establecer costo 4G</string>
+      <string id="SetCost4G_Help">Esta configuración de directiva define el costo de conexiones 4G en el equipo local.      
+
+Si esta configuración de directiva está habilitada, estará activo un cuadro de lista desplegable en el que se presentan los valores de costos posibles. Al seleccionar uno de los siguientes valores de la lista establecerá el costo de todas las conexiones 4G en el equipo local:
+
+- Sin restricciones: el uso de esta conexión es ilimitado y no está restringido por limitaciones de capacidad y cargos de uso. 
+
+- Fijo: el uso de esta conexión no está restringido por limitaciones de capacidad y cargos de uso hasta un determinado límite de datos. 
+
+- Variable: esta conexión tiene un costo por byte.
+
+Si esta configuración de directiva está deshabilitada o no se define, el valor predeterminado del costo de las conexiones 4G es Fijo.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Sin restricciones</string>
+      <string id="Cost_DropDownList_Fixed">Fijo</string>
+      <string id="Cost_DropDownList_Variable">Variable</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Seleccione un valor de costo de conexión 3G que desea establecer:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Seleccione un valor de costo de conexión 4G que desea establecer:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

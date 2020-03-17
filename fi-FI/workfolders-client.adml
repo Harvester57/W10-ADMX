@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>kirjoita näyttönimi tähän</displayName>
+  <description>kirjoita kuvaus tähän</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Työkansiot</string>
+      <string id="Pol_MachineEnableWorkFolders">Pakota automaattinen määritys kaikille käyttäjille</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Tämä käytäntöasetus määrittää, määritetäänkö työkansiot automaattisesti kaikille käyttäjille tietokoneessa, jota tämä käytäntö koskee.
+      
+Jos otat tämän käytäntöasetuksen käyttöön, työkansiot määritetään automaattisesti kaikille käyttäjille tietokoneessa, jota tämä käytäntö koskee. Tämä estää käyttäjiä olemasta käyttämättä työkansioita tietokoneessa. Lisäksi se estää käyttäjiä määrittämästä manuaalisesti paikallista kansiota, johon työkansiot tallentaa tiedostot. Työkansiot käyttävät asetuksia, jotka on määritetty Määritä työkansioiden asetukset -käytännössä sijainnissa Käyttäjän asetukset\Hallintamallit\Windowsin osat\Työkansiot. Jos Määritä työkansioiden asetukset -käytäntöasetus ei koske käyttäjää, työkansioita ei määritetä automaattisesti.
+      
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, työkansiot käyttävät Määritä työkansioiden asetukset -käytäntöasetuksen Pakota automaattinen määritys -vaihtoehtoa sen määrittämiseen, määritetäänkö tietyn käyttäjän työkansiot automaattisesti.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Määritä työkansioiden asetukset</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Tämän käytäntöasetuksen avulla voit määrittää työkansiopalvelimen käyttäjille, joita tämä käytäntö koskee, sekä sen, sallitaanko käyttäjien muuttaa asetuksia määritettäessä työkansioita toimialueeseen liitetyssä tietokoneessa.
+
+Jos otat tämän käytäntöasetuksen käyttöön, käyttäjät saavat työkansioiden asetukset kirjautuessaan toimialueeseen liitettyyn tietokoneeseen. 
+
+Työkansioiden URL-osoite voi määrittää organisaation työkansioiden etsimiseen käyttämän URL-osoitteen tai tiedostopalvelimen tietyn URL-osoitteen, johon käyttäjän tiedot on tallennettu.
+
+Pakota automaattinen määritys -vaihtoehto määrittää, että työkansiot määritetään automaattisesti ilmoittamatta siitä käyttäjille. Tämä estää käyttäjiä olemasta käyttämättä työkansioita tietokoneessa. Lisäksi se estää käyttäjiä määrittämästä manuaalisesti paikallista kansiota, johon työkansiot tallentaa tiedostot. Oletusarvon mukaan työkansiot sijaitsevat %KÄYTTÄJÄN_PROFIILI%\Työkansiot-kansiossa. Jos tätä vaihtoehtoa ei määritetä, käyttäjien on käytettävä tietokoneidensa Ohjauspaneelin Työkansiot-toimintoa työkansioiden määrittämiseen.
+   
+Jos tämä käytäntöasetus poistetaan käytöstä tai sitä ei määritetä, työkansioiden asetuksia ei määritetä käyttäjille, joita käytäntö koskee, vaikka käyttäjät voivatkin määrittää työkansiot manuaalisesti Ohjauspaneelin Työkansiot-toiminnon avulla.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>Työkansioiden URL-osoite:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Pakota automaattinen määritys</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

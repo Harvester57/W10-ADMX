@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>itt adja meg a megjelenítendő nevet</displayName>
+  <description>itt adja meg a leírást</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Munkahelyi mappák</string>
+      <string id="Pol_MachineEnableWorkFolders">Automatikus beállítás kényszerítése minden felhasználónál</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Ez a házirend meghatározza, hogy a hatálya alá tartozó számítógép minden felhasználója számára sor kerüljön-e munkahelyi mappák automatikus beállítására.
+      
+Ha engedélyezi ezt a házirend-beállítást, a rendszer a számítógép minden felhasználója számára automatikusan beállít munkahelyi mappát. Ez azzal jár, hogy a felhasználók nem választhatják azt a lehetőséget, hogy nem használnak munkahelyi mappát a számítógépen, illetve nem adhatnak meg manuálisan helyi mappát, amelyben a munkahelyi mappa tárolja a fájlokat. A munkahelyi mappák a Felhasználó konfigurációja\Felügyeleti sablonok\Windows-összetevők\Munkahelyi mappák elérési úton található „Munkahelyi mappa beállításainak megadása” házirend-beállításban megadott értékeket használják. Ha a „Munkahelyi mappa beállításainak megadása” házirend-beállítás nem alkalmazható egy felhasználóra, akkor nem kerül sor munkahelyi mappa automatikus létrehozására.
+      
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a munkahelyi mappák a „Munkahelyi mappa beállításainak megadása” házirend-beállítás „Automatikus beállítás kényszerítése” beállítása alapján határozzák meg, hogy egy adott felhasználó számára be kell-e automatikusan állítani munkahelyi mappát.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Munkahelyi mappa beállításainak megadása</string>
+      <string id="Pol_UserEnableWorkFolders_Help">A házirend-beállítás meghatározza a munkahelyi mappa kiszolgálóját az érintett felhasználók számára, valamint megadja, hogy a felhasználók módosíthatják-e beállításokat munkahelyi mappa tartományhoz csatlakozó számítógépen történő létrehozásakor.
+
+Ha engedélyezi ezt a házirend-beállítást, az érintett felhasználók számára elérhetők lesznek a munkahelyi mappa beállításai, amikor bejelentkeznek egy tartományhoz csatlakozó számítógépen. 
+
+A „Munkahelyi mappa URL-je” vagy a szervezet által a munkahelyi mappa kereséséhez használt URL, vagy az érintett felhasználók adatait tároló fájlkiszolgáló specifikus URL-je.
+
+Az „Automatikus beállítás kényszerítése” beállítás azt adja meg, hogy a munkahelyi mappák beállítása automatikusan, a felhasználó megkérdezése nélkül történjen-e. Ez azzal jár, hogy a felhasználók nem választhatják azt a lehetőséget, hogy nem használnak munkahelyi mappát a számítógépen, illetve nem adhatnak meg manuálisan helyi mappát, amelyben a munkahelyi mappa tárolja a fájlokat. A munkahelyi mappákat a rendszer alapértelmezés szerint a „%USERPROFILE%\Munkahelyi mappák" mappában tárolja. Ha a beállítás nincs megadva, akkor a felhasználóknak a Vezérlőpanel Munkahelyi mappák elemének használatával kell beállítaniuk munkahelyi mappát a számítógépen.
+   
+Ha a házirend-beállítás le van tiltva vagy nincs konfigurálva, akkor az érintett felhasználók számára nincsenek megadva munkahelyi mappával kapcsolatos beállítások, de a felhasználók a Vezérlőpanel Munkahelyi mappák elemének használatával beállíthatnak munkahelyi mappát a számítógépen.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>Munkahelyi mappa URL-je:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Automatikus beállítás kényszerítése</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

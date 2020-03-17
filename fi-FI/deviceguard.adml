@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windowsin laitteen suojaus</displayName>
+  <description>Windowsin laitteen suojauksen suojaus</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Laitteen suojaus</string>
+      <string id="VirtualizationBasedSecurity">Ota käyttöön virtualisointiin perustuva suojaus</string>
+      <string id="VirtualizationBasedSecurityHelp">Määrittää, onko virtualisointiin perustuva suojaus käytössä.
+
+Virtualisointiin perustuva suojaus tarjoaa Windows Hypervisorin avulla tuen suojauspalveluille. Virtualisointiin perustuva suojaus edellyttää suojattua käynnistystä ja voidaan valinnaisesti ottaa käyttöön DMA-suojausten avulla. DMA-suojaukset edellyttävät laitteistotukea ja otetaan käyttöön vain oikein määritetyille laitteille.
+
+Koodin eheyden virtualisointiin perustuva suojaus
+
+Tämä asetus ottaa käyttöön ydintilan koodin eheyden virtualisointiin perustuvan suojauksen. Kun tämä on käytössä, ydintilan muistinsuojaukset pakotetaan, ja virtualisointiin perustuva suojaus suojaa koodin eheyden vahvistuspolkua.
+
+Varoitus: kaikkien järjestelmässä olevien ohjainten on oltava yhteensopivia tämän ominaisuuden kanssa, tai järjestelmä saattaa kaatua. Varmista, että tänä käytäntöasetus otetaan käyttöön vain tietokoneille, jotka tiedetään yhteensopiviksi. 
+
+Tunnistetietosuojaus
+
+Tämän asetuksen avulla voit päättää, voivatko käyttäjät ottaa käyttöön tunnistetietosuojauksen virtualisointiin perustuvan suojauksen avulla auttaakseen suojaamaan tunnistetietoja.
+ 
+Kun asetus on Pois käytöstä, tunnistetietosuojaus poistetaan käytöstä etäyhteyden avulla, jos se oli aiemmin otettu käyttöön käyttäen Käytössä ilman lukitusta -asetusta.
+
+Käytössä käyttäen UEFI-lukitusta -asetus varmistaa, että tunnistetietosuojausta ei voi poistaa käytöstä etäyhteyden avulla. Jos haluat poistaa tämän ominaisuuden käytöstä, sinun on määritettävä ryhmäkäytännön asetukseksi Pois käytöstä ja poistettava suojaustoiminnot jokaisesta tietokoneesta fyysisesti tietokoneen ääressä olevan käyttäjän avulla, jotta voit poistaa pysyvän UEFI-määrityksen.
+
+Käytössä ilman lukitusta -asetus sallii tunnistetietosuojauksen poistamisen käytöstä etäyhteyden avulla käyttäen ryhmäkäytäntöä. Tätä asetusta käyttävissä laitteissa on oltava vähintään Windows 10 (versio 1511).
+      </string>
+      <string id="SecureBoot">Suojattu käynnistys</string>
+      <string id="SecureBootAndDmaProtection">Suojattu käynnistys ja DMA-suojaus</string>
+      <string id="Disabled">Ei käytössä</string>
+      <string id="Enabled">Käytössä</string>
+      <string id="EnabledWithoutLock">Käytössä ilman lukitusta</string>
+      <string id="EnabledWithUefiLock">Käytössä käyttäen UEFI-lukitusta</string>
+      <string id="ConfigCIPolicy">Ota käyttöön koodin eheyden käytäntö</string>
+      <string id="ConfigCIPolicyHelp">Ota käyttöön koodin eheyden käytäntö
+
+Tämän käytäntöasetuksen avulla voit ottaa käyttöön koodin eheyden käytännön laitteeseen määrittämään, mitä kyseisessä laitteessa sallitaan suorittaa.
+
+Jos otat käyttöön koodin eheyden käytännön, Windows rajoittaa sitä, mitä voidaan suorittaa sekä ydintilassa ja Windowsin työpöydällä käytännön perusteella. Tämän käytännön käyttöönotto edellyttää laitteen uudelleenkäynnistämistä. 
+
+Tiedostopolun on oltava UNC-polku (esimerkiksi \\PalvelimenNimi\JaetunResurssinNimi\SIPolicy.p7b) tai paikallisesti kelvollinen polku (esimerkiksi C:\KansionNimi\SIPolicy.p7b). Paikallisen laitteen tilillä (PAIKALLINEN JÄRJESTELMÄ) on oltava käyttöoikeudet käytäntötiedostoon.
+ 
+Jos käytetään allekirjoitettua ja suojattua käytäntöä, tämän käytäntöasetuksen poistaminen käytöstä ei poista ominaisuutta tietokoneessa. Sen sijaan sinun on joko
+
+   1) ensin päivitettävä käytäntö suojaamattomaksi käytännöksi ja poistettava asetus käytöstä tai
+   2) poista asetus käytöstä ja poista käytäntö sitten jokaisesta tietokoneesta fyysisesti läsnä olevan käyttäjän avulla.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Valitse ympäristön suojaustaso:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Ota koodin eheyden virtualisointiin perustuva suojaus käyttöön</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Tunnistetietosuojauksen määritys:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Koodin eheyden käytännön tiedostopolku:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

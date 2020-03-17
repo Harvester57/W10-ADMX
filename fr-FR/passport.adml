@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport for Work</displayName>
+  <description>Configuration de Microsoft Passport for Work</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkPINComplexityCategory">Complexité du code confidentiel</string>
+        <string id="MSPassportForWorkRemoteCategory">Passport à distance</string>
+        <string id="MSPassport_UsePassportForWork">Utiliser Microsoft Passport for Work</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport for Work est une autre méthode de connexion à Windows avec votre compte Active Directory ou Azure Active Directory qui peut remplacer les mots de passe, les cartes à puce et les cartes à puce virtuelles.
+
+Si vous ne configurez pas ce paramètre de stratégie, les utilisateurs peuvent mettre en service Microsoft Passport for Work qui chiffre leur mot de passe de domaine.
+
+Si vous activez ce paramètre de stratégie, l'appareil met en service Microsoft Passport for Work à l'aide de clés ou de certificats pour tous les utilisateurs.
+
+Si vous désactivez ce paramètre de stratégie, l'appareil ne met pas en service Microsoft Passport for Work, pour aucun utilisateur.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Utiliser un périphérique de sécurité matériel</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">Un Module de plateforme sécurisée (TPM) offre des avantages de sécurité supplémentaires par rapport au logiciel, car les données qui y sont stockées ne peuvent pas être utilisées sur d'autres appareils.
+
+Si vous activez ce paramètre de stratégie, seuls les appareils dotés d'une TPM utilisable mettent en service Microsoft Passport for Work.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, la TPM est toujours préférée, mais tous les appareils peuvent mettre en service Microsoft Passport for Work via le logiciel si la TPM n'est pas opérationnelle ou si elle n'est pas disponible.
+        </string>
+        <string id="MSPassport_MinimumPINLength">Longueur minimale du code PIN</string>
+        <string id="MSPassport_MinimumPINLengthExplain">Longueur minimale du code PIN configure le nombre minimum de caractères requis pour le code confidentiel. Le plus petit nombre que vous pouvez configurer pour ce paramètre de stratégie est 4. Le plus grand nombre que vous pouvez configurer doit être inférieur au nombre configuré dans le paramètre de stratégie Longueur maximale du code confidentiel ou le nombre 127, selon le plus petit des deux.
+
+Si vous configurez ce paramètre de stratégie, la longueur du code confidentiel doit être supérieure ou égale à ce nombre.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, la longueur du code confidentiel doit être supérieure ou égale à 4.
+
+REMARQUE : si les conditions ci-dessus pour la longueur minimale du code confidentiel ne sont pas remplies, les valeurs par défaut seront utilisées pour les longueurs maximale et minimale du code confidentiel.
+        </string>
+        <string id="MSPassport_MaximumPINLength">Longueur maximale du code PIN</string>
+        <string id="MSPassport_MaximumPINLengthExplain">Longueur maximale du code PIN configure le nombre maximum de caractères autorisés pour le code confidentiel. Le plus grand nombre que vous pouvez configurer pour ce paramètre de stratégie est 127. Le plus petit nombre que vous pouvez configurer doit être supérieur au nombre configuré dans le paramètre de stratégie Longueur minimale du code confidentiel ou le nombre 4, selon le plus grand des deux.
+
+Si vous configurez ce paramètre de stratégie, la longueur du code confidentiel doit être inférieure ou égale à ce nombre.
+
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, la longueur du code confidentiel doit être inférieure ou égale à 127.
+
+REMARQUE : si les conditions ci-dessus pour la longueur maximale du code confidentiel ne sont pas remplies, les valeurs par défaut seront utilisées pour les longueurs maximale et minimale du code confidentiel.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Exiger des lettres majuscules</string>
+        <string id="MSPassport_UppercaseLettersExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de lettres majuscules dans le code confidentiel de Microsoft Passport for Work.
+
+Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins une lettre majuscule dans leur code confidentiel.
+
+Si vous désactivez ce paramètre de stratégie ou si vous le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des lettres majuscules dans leur code confidentiel.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Exiger des lettres minuscules</string>
+        <string id="MSPassport_LowercaseLettersExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de lettres minuscules dans le code PIN de Microsoft Passport for Work.
+
+Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins une lettre minuscule dans leur code confidentiel.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des lettres minuscules dans leur code PIN.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Exiger des caractères spéciaux</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Utilisez ce paramètre de stratégie pour configurer l'utilisation de caractères spéciaux dans le code PIN de Microsoft Passport for Work. Les caractères spéciaux valides incluent les suivants : ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins un caractère spécial dans leur code confidentiel.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des caractères spéciaux dans leur code confidentiel.]]>
+        </string>
+        <string id="MSPassport_Digits">Exiger des chiffres</string>
+        <string id="MSPassport_DigitsExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de chiffres dans le code PIN de Microsoft Passport for Work.
+
+Si vous activez ce paramètre de stratégie, Microsoft Passport for Work autorise les utilisateurs à inclure au moins un chiffre dans leur code confidentiel.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Microsoft Passport for Work empêche les utilisateurs d'utiliser des chiffres dans leur code confidentiel.
+        </string>
+        <string id="MSPassport_PINHistory">Historique</string>
+        <string id="MSPassport_PINHistoryExplain">Ce paramètre spécifie le nombre de codes confidentiels pouvant être associés à un compte d'utilisateur qui ne peuvent pas être réutilisés. Cette stratégie permet aux administrateurs d'améliorer la sécurité en veillant à ce que les anciens codes confidentiels ne soient pas réutilisés continuellement. L'historique de code confidentiel n'est pas conservé par le biais d'une réinitialisation du code confidentiel.
+
+La valeur doit être comprise entre 0 et 50 codes confidentiels. Si cette stratégie est définie à 0, le stockage des codes confidentiels précédents n'est pas nécessaire.
+
+Par défaut : 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Expiration</string>
+        <string id="MSPassport_PINExpirationExplain">Ce paramètre spécifie la période de temps (en jours) pendant laquelle un code confidentiel peut être utilisée avant que le système ne demande à l'utilisateur de le changer. Le code confidentiel peut être défini pour expirer après un nombre de jours entre 1 et 730 ou des codes confidentiels peuvent être définis pour ne jamais expirer si la stratégie est définie à 0.
+
+Par défaut : 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Utiliser la biométrie</string>
+        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport for Work permet aux utilisateurs d'utiliser des mouvements biométriques comme le visage et les empreintes digitales à la place du mouvement de code confidentiel. Toutefois, les utilisateurs peuvent toujours configurer un code confidentiel en cas d'échec.
+
+Si vous activez ce paramètre de stratégie ou si vous ne configurez pas, Microsoft Passport for Work autorise l'utilisation de mouvements biométriques.
+
+Si vous désactivez ce paramètre de stratégie, Microsoft Passport for Work empêche l'utilisation de mouvements biométriques.
+
+REMARQUE : la désactivation de cette stratégie empêche l'utilisateur d'utiliser des mouvements biométriques sur l'appareil pour tous les types de comptes.
+        </string>
+        <string id="MSPassport_UseRemote">Utiliser passport à distance</string>
+        <string id="MSPassport_UseRemoteExplain">Utilisez ce paramètre de stratégie pour configurer l'utilisation de Passport à distance. Passport à distance permet à un périphérique portable, inscrit d'être utilisable en tant que complément de périphérique pour l'authentification du bureau. Passport à distance exige que le bureau soit joint à Azure Active Directory et que le complément de périphérique dispose d'un code confidentiel Passport for Work.
+
+Si vous activez ce paramètre de stratégie, Passport à distance est activé et un périphérique portable, inscrit peut être utilisé en tant que complément de périphérique pour l'authentification du bureau.
+
+Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, Passport à distance sera désactivé et un périphérique mobile, inscrit ne peut pas être utilisé en tant que complément de périphérique pour l'authentification du bureau.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">Longueur minimale du code PIN</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">Longueur maximale du code PIN</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Lettres majuscules :</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Lettres minuscules :</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Caractères spéciaux :</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">Chiffres :</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">Historique du code PIN</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">Expiration du code PIN</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

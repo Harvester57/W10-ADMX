@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>WWAN 服务组策略设置</displayName>
+  <description>WWAN 服务组策略设置</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">WWAN 服务</string>
+      <string id="NetworkCost_Category">WWAN 媒体成本</string>
+      <string id="SetCost3G">设置 3G 成本</string>
+      <string id="SetCost3G_Help">此策略设置配置本地计算机上的 3G 连接成本。
+
+如果启用此策略设置，则会激活一个下拉列表框以显示可能的成本值。 如果从列表中选择以下值之一，则会设置本地计算机上的所有 3G 连接的成本:
+
+- 无限制: 不限制使用此连接，并且在使用费用和容量方面不受限制。
+
+- 固定: 在达到特定的数据限制之前，使用此连接在使用费用和容量方面不受限制。
+
+- 可变: 此连接是按照每个字节收费的。
+
+如果禁用或未配置此策略设置，则默认将 3G 连接成本设置为“固定”。
+      
+      </string>
+      <string id="SetCost4G">设置 4G 成本</string>
+      <string id="SetCost4G_Help">此策略设置配置本地计算机上的 4G 连接成本。     
+
+如果启用此策略设置，则会激活一个下拉列表框以显示可能的成本值。如果从列表中选择以下值之一，则会设置本地计算机上的所有 4G 连接的成本:
+
+- 无限制: 不限制使用此连接，并且在使用费用和容量方面不受限制。
+
+- 固定: 在达到特定的数据限制之前，使用此连接在使用费用和容量方面不受限制。
+
+- 可变: 此连接是按照每个字节收费的。
+
+如果禁用或未配置此策略设置，则默认将 4G 连接成本设置为“固定”。
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">无限制</string>
+      <string id="Cost_DropDownList_Fixed">固定</string>
+      <string id="Cost_DropDownList_Variable">可变</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">请选择要设置的 3G 连接成本值:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">请选择要设置的 4G 连接成本值:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

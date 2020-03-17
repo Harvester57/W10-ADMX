@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windows Device Guard</displayName>
+  <description>Seguridad de Windows Device Guard</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Device Guard</string>
+      <string id="VirtualizationBasedSecurity">Activar la seguridad basada en la virtualización</string>
+      <string id="VirtualizationBasedSecurityHelp">Especifica si se habilita la seguridad basada en la virtualización.
+
+La seguridad basada en la virtualización usa el hipervisor de Windows para proporcionar compatibilidad con los servicios de seguridad. La seguridad basada en la virtualización requiere el arranque seguro y, opcionalmente, se puede habilitar con el uso de las protecciones de DMA. Las protecciones de DMA requieren la compatibilidad de hardware y solo se habilitarán en dispositivos configurados correctamente.
+
+Seguridad basada en la virtualización de la integridad de código
+
+Esta configuración permite la seguridad basada en la virtualización de la integridad de código del modo Kernel. Cuando esta opción esté habilitada, se aplicarán las protecciones de memoria del modo Kernel y la ruta de validación de la integridad de código estará protegida por la característica de seguridad basada en la virtualización.
+
+Advertencia: Todos los controladores del sistema deben ser compatibles con esta característica o el sistema puede bloquearse. Asegúrate de que esta configuración de directiva solo se haya implementado en PC que sean compatibles. 
+
+Protección de credenciales
+
+Esta opción permite a los usuarios activar la protección de credenciales con seguridad basada en la virtualización para ayudar a proteger las credenciales.
+
+La opción "Deshabilitado" desactiva la protección de credenciales de manera remota si se había activado anteriormente mediante la opción "Habilitado sin bloqueo".
+
+La opción "Habilitado con bloqueo UEFI" garantiza que la protección de credenciales no se pueda deshabilitar de manera remota. Para deshabilitar la función, tienes que establecer la directiva de grupo en "Deshabilitado", así como quitar la funcionalidad de seguridad de cada PC, con un usuario presente físicamente, con el fin de borrar la configuración que persiste en UEFI.
+
+La opción "Deshabilitado sin bloqueo" permite deshabilitar la protección de credenciales de manera remota al usar una directiva de grupo. Los dispositivos que usan esta opción deben ejecutar al menos Windows 10 (versión 1511).
+      </string>
+      <string id="SecureBoot">Arranque seguro</string>
+      <string id="SecureBootAndDmaProtection">Arranque seguro y protección de DMA</string>
+      <string id="Disabled">Deshabilitado</string>
+      <string id="Enabled">Habilitado</string>
+      <string id="EnabledWithoutLock">Habilitar sin bloqueo</string>
+      <string id="EnabledWithUefiLock">Habilitado con el bloqueo UEFI</string>
+      <string id="ConfigCIPolicy">Implementar la directiva de integridad de código</string>
+      <string id="ConfigCIPolicyHelp">Implementar la directiva de integridad de código
+
+Esta configuración de directiva permite implementar una directiva de integridad de código en un equipo para controlar lo que tiene permiso para ejecutarse en ese equipo.
+
+Si implementas una directiva de integridad de código, Windows restringirá lo que se puede ejecutar tanto en modo Kernel como en el escritorio de Windows según la directiva. Para habilitar esta directiva, se debe reiniciar el equipo. 
+
+La ruta del archivo debe ser una ruta UNC (por ejemplo, \\ServerName\ShareName\SIPolicy.p7b), o una ruta local válida (por ejemplo, C:\FolderName\SIPolicy.p7b). La cuenta del equipo local (SISTEMA LOCAL) debe tener el permiso de acceso al archivo de la directiva.
+ 
+Si usas una directiva firmada y protegida, no se eliminará la característica del equipo al deshabilitar esta configuración de directiva. Deberás llevar a cabo una de las siguientes opciones:
+
+   (1) Convertir la directiva en una directiva no protegida y, a continuación, deshabilitar la configuración.
+   (2) Deshabilitar la configuración y, a continuación, eliminar la directiva en cada equipo, con un usuario presente de forma física.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Selecciona el nivel de seguridad de la plataforma:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Habilitar la protección basada en la virtualización de la integridad de código</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuración de protección de credenciales:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Ruta del archivo de la directiva de integridad de código:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

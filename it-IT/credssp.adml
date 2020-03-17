@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>immettere qui il nome visualizzato</displayName>
+  <description>immettere qui la descrizione</description>
+  <resources>
+    <stringTable>
+      <string id="AllowDefaultCredentials">Consenti delega credenziali predefinite</string>
+      <string id="AllowDefaultCredentials_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Questa impostazione dei criteri si applica quando l'autenticazione server viene eseguita tramite un certificato X509 attendibile o Kerberos.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali delegare le credenziali predefinite dell'utente (le credenziali predefinite sono quelle utilizzate quando si accede a Windows per la prima volta).
+
+I criteri diventano effettivi in occasione del successivo accesso dell'utente a un computer che esegue Windows.
+
+Se si disabilita o non si configura (impostazione predefinita) questa impostazione dei criteri, non sarà consentita la delega delle credenziali predefinite ad alcun computer. L'autenticazione potrebbe avere esito negativo per le applicazioni che dipendono da questo comportamento di delega. Per ulteriori informazioni, vedere la Knowledge Base.
+
+FWlink per KB:
+http://go.microsoft.com/fwlink/?LinkId=301508
+
+Nota: l'impostazione dei criteri "Consenti delega credenziali predefinite" può essere configurata su uno o più nomi dell'entità servizio (SPN).  Il nome SPN rappresenta il server di destinazione a cui possono essere delegate le credenziali utente.  Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in .risorseumane.fabrikam.com</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly">Consenti delega credenziali predefinite solo con autenticazione server NTLM</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Questa impostazione dei criteri si applica quando l'autenticazione server viene eseguita tramite NTLM.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali delegare le credenziali predefinite dell'utente (le credenziali predefinite sono quelle utilizzate quando si accede a Windows per la prima volta).
+
+Se si disabilita o non si configura (impostazione predefinita) questa impostazione dei criteri, non sarà consentita la delega delle credenziali predefinite ad alcun computer.
+
+Nota: l'impostazione dei criteri "Consenti delega credenziali predefinite solo con autenticazione server NTML" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui possono essere delegate le credenziali utente.  Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in .risorseumane.fabrikam.com</string>
+      <string id="AllowFreshCredentials">Consenti delega credenziali nuove</string>
+      <string id="AllowFreshCredentials_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Questa impostazione dei criteri si applica quando l'autenticazione server viene eseguita tramite un certificato X509 attendibile o Kerberos.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali delegare le nuove credenziali dell'utente (le credenziali nuove sono quelle che vengono richieste quando si esegue l'applicazione).
+
+Se non si configura (impostazione predefinita) questa impostazione dei criteri, dopo una corretta autenticazione reciproca, la delega per le credenziali nuove sarà consentita per Host sessione Desktop remoto in esecuzione in qualsiasi computer (TERMSRV/*).
+
+Se si disabilita questa impostazione dei criteri, la delega delle nuove credenziali non sarà consentita in alcun computer.
+
+Nota: l'impostazione dei criteri "Consenti delega credenziali nuove" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui possono essere delegate le credenziali utente. Per la specifica del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com
+Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in .risorseumane.fabrikam.com</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly">Consenti delega credenziali nuove solo con autenticazione server NTLM</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Questa impostazione dei criteri si applica quando l'autenticazione server viene eseguita tramite NTLM.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali delegare le nuove credenziali dell'utente (le credenziali nuove sono quelle che vengono richieste quando si esegue l'applicazione).
+
+Se non si configura (impostazione predefinita) questa impostazione dei criteri, dopo una corretta autenticazione reciproca, la delega per le credenziali nuove sarà consentita per Host sessione Desktop remoto in esecuzione in qualsiasi computer (TERMSRV/*).
+
+Se si disabilita questa impostazione dei criteri, la delega delle nuove credenziali non sarà consentita in alcun computer.
+
+Nota: l'impostazione dei criteri "Consenti delega credenziali nuove solo con autenticazione server NTML" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui possono essere delegate le credenziali utente. Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in risorseumane.fabrikam.com</string>
+      <string id="AllowSavedCredentials">Consenti delega credenziali salvate</string>
+      <string id="AllowSavedCredentials_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Questa impostazione dei criteri si applica quando l'autenticazione server viene eseguita tramite un certificato X509 attendibile o Kerberos.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali delegare le credenziali salvate dell'utente (le credenziali salvate sono quelle si sceglie di salvare/memorizzare utilizzando Gestione credenziali di Windows).
+
+Se non si configura (impostazione predefinita) questa impostazione dei criteri, dopo una corretta autenticazione reciproca, la delega per le credenziali salvate sarà consentita per Host sessione Desktop remoto in esecuzione in qualsiasi computer (TERMSRV/*).
+
+Se si disabilita questa impostazione dei criteri, la delega delle credenziali salvate non sarà consentita ad alcun computer.
+
+Nota: l'impostazione dei criteri "Consenti delega credenziali salvate" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui possono essere delegate le credenziali utente. Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in risorseumane.fabrikam.com</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly">Consenti delega credenziali salvate solo con autenticazione server NTLM</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Questa impostazione dei criteri si applica quando l'autenticazione server viene eseguita tramite NTLM.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali delegare le credenziali salvate dell'utente (le credenziali salvate sono quelle si sceglie di salvare/memorizzare utilizzando Gestione credenziali di Windows).
+
+Se non si configura (impostazione predefinita) questa impostazione dei criteri, dopo una corretta autenticazione reciproca, la delega per le credenziali salvate sarà consentita per Host sessione Desktop remoto in esecuzione in qualsiasi computer (TERMSRV/*), se il computer client non appartiene a un dominio. Se il client appartiene a un dominio, la delega delle credenziali salvate non sarà consentita ad alcun computer per impostazione predefinita.
+
+Se si disabilita questa impostazione dei criteri, la delega delle credenziali salvate non sarà consentita ad alcun computer.
+
+Nota: l'impostazione dei criteri "Consenti delega credenziali salvate solo con autenticazione server NTML" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui possono essere delegate le credenziali utente. Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in risorseumane.fabrikam.com</string>
+      <string id="CredentialsDelegation">Delega di credenziali</string>
+      <string id="DenyDefaultCredentials">Non consentire delega credenziali predefinite</string>
+      <string id="DenyDefaultCredentials_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali non è possibile delegare le credenziali predefinite dell'utente (le credenziali predefinite sono quelle utilizzate quando si accede a Windows per la prima volta).
+
+Se si disabilita o non si configura questa impostazione dei criteri, non verrà specificato alcun server.
+
+Nota: l'impostazione dei criteri "Non consentire delega credenziali predefinite" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui non possono essere delegate le credenziali utente. Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in .risorseumane.fabrikam.com
+
+Questa impostazione dei criteri può essere utilizzata in combinazione con "Consenti delega credenziali predefinite" per definire eccezioni per server specifici altrimenti consentiti quando si utilizzano caratteri jolly nell'elenco di server per "Consenti delega credenziali predefinite".</string>
+      <string id="DenyFreshCredentials">Non consentire delega credenziali nuove</string>
+      <string id="DenyFreshCredentials_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali non è possibile delegare le nuove credenziali dell'utente (le credenziali nuove sono quelle che vengono richieste quando si esegue l'applicazione).
+
+Se si disabilita o non si configura questa impostazione dei criteri, non verrà specificato alcun server.
+
+Nota: l'impostazione dei criteri "Non consentire delega credenziali nuove" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui non possono essere delegate le credenziali utente. Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in .risorseumane.fabrikam.com
+
+Questa impostazione dei può essere utilizzata in combinazione con "Consenti delega credenziali nuove" per definire le eccezioni per server specifici altrimenti consentiti quando si utilizzano caratteri jolly nell'elenco di server per "Consenti delega credenziali nuove".</string>
+      <string id="DenySavedCredentials">Non consentire delega credenziali salvate</string>
+      <string id="DenySavedCredentials_Explain">Questa impostazione dei criteri si applica alle applicazioni che utilizzano il componente CredSSP, ad esempio Connessione Desktop remoto.
+
+Se si abilita questa impostazione dei criteri, sarà possibile specificare i server ai quali non è possibile delegare le credenziali salvate dell'utente (le credenziali salvate sono quelle si sceglie di salvare/memorizzare utilizzando Gestione credenziali di Windows).
+
+Se si disabilita o non si configura questa impostazione dei criteri, non verrà specificato alcun server.
+
+Nota: l'impostazione dei criteri "Non consentire delega credenziali salvate" può essere configurata su uno o più nomi dell'entità servizio (SPN). Il nome dell'entità servizio (SPN) rappresenta il server di destinazione a cui non possono essere delegate le credenziali utente. Per l'impostazione del nome dell'entità servizio (SPN) è consentito l'utilizzo di un singolo carattere jolly.
+
+Ad esempio:
+TERMSRV/host.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione nel computer host.risorseumane.fabrikam.com
+TERMSRV/* Host sessione Desktop remoto in esecuzione in tutti i computer.
+TERMSRV/*.risorseumane.fabrikam.com Host sessione Desktop remoto in esecuzione in tutti i computer in .risorseumane.fabrikam.com
+
+Questa impostazione dei criteri può essere utilizzata in combinazione con "Consenti delega credenziali salvate" per definire le eccezioni per server specifici altrimenti consentiti quando si utilizzano caratteri jolly nell'elenco di server per "Consenti delega credenziali salvate".</string>
+      <string id="RestrictedRemoteAdministration">Limita delega delle credenziali ai server remoti</string>
+      <string id="RestrictedRemoteAdministration_Explain">Durante l'esecuzione in modalità con restrizioni, le app partecipanti non espongono le credenziali a computer remoti, indipendentemente dal metodo di delega. La modalità con restrizioni potrebbe limitare l'accesso alle risorse disponibili in altri server o altre reti oltre il computer di destinazione, perché le credenziali non sono delegate.
+
+App partecipanti:
+Client Desktop remoto
+
+Se si abilita questa impostazione dei criteri, la modalità con restrizioni viene imposta e le app partecipanti non delegheranno le credenziali ai computer remoti.
+
+Se si disabilita o non si configura questa impostazione dei criteri, la modalità con restrizioni non viene imposta e le app partecipanti possono delegare le credenziali ai computer remoti.
+
+Nota: per disabilitare la delega delle credenziali in modo esteso, potrebbe essere sufficiente negare la delega in CredSSP (Credential Security Support Provider) modificando le impostazioni del modello amministrativo (in Configurazione computer\Modelli amministrativi\Sistema\Delega di credenziali).</string>
+      <string id="SUPPORTED_VISTA">Windows Vista</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowDefaultCredentials">
+        <listBox refId="AllowDefaultCredentials_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="AllowDefCredentialsWhenNTLMOnly">
+        <listBox refId="AllowDefCredentialsWhenNTLMOnly_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADCN" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentials">
+        <listBox refId="AllowFreshCredentials_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentialsWhenNTLMOnly">
+        <listBox refId="AllowFreshCredentialsWhenNTLMOnly_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFCN" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentials">
+        <listBox refId="AllowSavedCredentials_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentialsWhenNTLMOnly">
+        <listBox refId="AllowSavedCredentialsWhenNTLMOnly_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASCN" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="DenyDefaultCredentials">
+        <listBox refId="DenyDefaultCredentials_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_DDC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="DenyFreshCredentials">
+        <listBox refId="DenyFreshCredentials_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_DFC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+      <presentation id="DenySavedCredentials">
+        <listBox refId="DenySavedCredentials_Name">Aggiungere i server all'elenco:</listBox>
+        <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concatena le impostazioni predefinite del sistema operativo con il precedente input</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

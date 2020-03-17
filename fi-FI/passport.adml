@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport for Work</displayName>
+  <description>Microsoft Passport for Workin määritys</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkPINComplexityCategory">PIN-koodin monimutkaisuus</string>
+        <string id="MSPassportForWorkRemoteCategory">Passport-etäkäyttö</string>
+        <string id="MSPassport_UsePassportForWork">Käytä Microsoft Passport for Workia</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport for Work on vaihtoehtoinen tapa kirjautua sisään Windowsiin käyttäen Active Directory- tai Azure Active Directory -tiliä, joka voi korvata salasanat, älykortit ja virtuaaliälykortit.
+
+Jos jätät tämän käytäntöasetuksen määrittämättä, käyttäjät voivat valmistella Microsoft Passport for Workin, joka salaa heidän toimialuesalasanansa.
+
+Jos otat tämän käytännön käyttöön, laite valmistelee Microsoft Passport for Workin käyttäen avaimia tai varmenteita kaikille käyttäjille.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, laite ei valmistele Microsoft Passport for Workia kenellekään käyttäjälle.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Käytä laitteiston suojauslaitetta</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">TPM (Trusted Platform Module) -turvapiiri tarjoaa enemmän suojausetuja kuin ohjelmisto, koska siihen tallennettuja tietoja ei voi käyttää toisissa laitteissa.
+
+Jos otat tämän käytäntöasetuksen käyttöön, vain laitteet, joissa on käytettävissä oleva TPM-turvapiiri, voivat valmistella Microsoft Passport for Workin.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, TPM-turvapiiri on ensisijainen vaihtoehto, mutta kaikki laitteet voivat valmistella Microsoft Passport for Workin käyttämällä ohjelmistoa, jos TPM-turvapiiri ei ole toiminnassa tai käytettävissä.
+        </string>
+        <string id="MSPassport_MinimumPINLength">PIN-koodin vähimmäispituus</string>
+        <string id="MSPassport_MinimumPINLengthExplain">PIN-koodin vähimmäispituus määrittää PIN-koodissa vaadittavan vähimmäismäärän merkkejä. Pienin tälle käytännölle määritettävissä oleva määrä merkkejä on neljä. Suurimman määritettävissä olevan luvun on oltava pienempi kuin PIN-koodin enimmäispituus -käytäntöasetuksessa määritetty luku tai 127 sen mukaan, kumpi näistä on pienempi.
+
+Jos määrität tämän käytäntöasetuksen, PIN-koodin pituuden on oltava vähintään yhtä suuri kuin tämä luku.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, PIN-koodin pituuden on oltava vähintään neljä.
+
+HUOMAUTUS: jos edellä olevat PIN-koodin vähimmäispituuden ehdot eivät täyty, käytetään oletusarvoja sekä PIN-koodin enimmäis- että vähimmäispituudelle.
+        </string>
+        <string id="MSPassport_MaximumPINLength">PIN-koodin enimmäispituus</string>
+        <string id="MSPassport_MaximumPINLengthExplain">PIN-koodin enimmäispituus määrittää PIN-koodissa sallittujen merkkien enimmäismäärän. Surin tälle käytäntöasetukselle määritettävissä oleva määrä merkkejä on 127. Pienimmän määritettävissä olevan luvun on oltava suurempi kuin PIN-koodin vähimmäispituus -käytäntöasetuksessa määritetty luku tai 4 sen mukaan, kumpi näistä on suurempi
+
+Jos määrität tämän käytäntöasetuksen, PIN-koodin pituuden on oltava enintään yhtä suuri kuin tämä luku.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, PIN-koodin pituuden on oltava enintään neljä.
+
+HUOMAUTUS: jos edellä olevat PIN-koodin enimmäispituuden ehdot eivät täyty, käytetään oletusarvoja sekä PIN-koodin enimmäis- että vähimmäispituudelle.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Vaadi isoja kirjaimia</string>
+        <string id="MSPassport_UppercaseLettersExplain">Tämän käytäntöasetuksen avulla voit määrittää, miten isoja kirjaimia käytetään Microsoft Passportin PIN-koodissa.
+
+Jos otat tämän käytäntöasetuksen käyttöön, Microsoft Passport for Work edellyttää, että käyttäjien PIN-koodissa on oltava vähintään yksi iso kirjain.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Microsoft Passport for Work ei salli käyttäjien käyttää isoja kirjaimia PIN-koodissa.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Vaadi pieniä kirjaimia</string>
+        <string id="MSPassport_LowercaseLettersExplain">Tämän käytäntöasetuksen avulla voit määrittää, miten pieniä kirjaimia käytetään Microsoft Passportin PIN-koodissa.
+
+Jos otat tämän käytäntöasetuksen käyttöön, Microsoft Passport for Work edellyttää, että käyttäjien PIN-koodissa on oltava vähintään yksi pieni kirjain.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Microsoft Passport for Work ei salli käyttäjien käyttää pieniä kirjaimia PIN-koodissa.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Vaadi erikoismerkkejä</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Tämän käytäntöasetuksen avulla voit määrittää, miten erikoismerkkejä käytetään Microsoft Passportin PIN-koodissa. Sallittuja erikoismerkkejä ovat seuraavat: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+Jos otat tämän käytäntöasetuksen käyttöön, Microsoft Passport for Work edellyttää, että käyttäjien PIN-koodissa on oltava vähintään yksi erikoismerkki.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Microsoft Passport for Work ei salli käyttäjien käyttää erikoismerkkejä PIN-koodissa.]]>
+        </string>
+        <string id="MSPassport_Digits">Vaadi numeroita</string>
+        <string id="MSPassport_DigitsExplain">Tämän käytäntöasetuksen avulla voit määrittää, miten numeromerkkejä käytetään Microsoft Passportin PIN-koodissa.
+
+Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, Microsoft Passport for Work edellyttää, että käyttäjien PIN-koodissa on oltava vähintään yksi numeromerkki.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Microsoft Passport for Work ei salli käyttäjien käyttää numeromerkkejä PIN-koodissa.
+        </string>
+        <string id="MSPassport_PINHistory">Historia</string>
+        <string id="MSPassport_PINHistoryExplain">Tämä asetus määrittää, kuinka suuri määrä edellisiä PIN-koodeja on käyttökiellossa. Tämän käytännön avulla järjestelmänvalvojat voivat parantaa tietoturvaa varmistamalla, että aiempia PIN-koodeja ei käytetä toistuvasti. PIN-koodihistoria ei säily PIN-koodin palauttamisen yhteydessä.
+
+PIN-koodien määrän arvon on oltava 0–50. Jos tämän käytännön arvoksi määritetään 0, aiempien PIN-koodien tallennusta ei tarvita.
+
+Oletusarvo: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Vanhentuminen</string>
+        <string id="MSPassport_PINExpirationExplain">Tämä asetus määrittää, kuinka monta päivää PIN-koodia voi käyttää, ennen kuin järjestelmä edellyttää, että käyttäjä vaihtaa sen. PIN-koodin voi määrittää vanhentumaan 1–730 päivän kuluttua tai sen voi määrittää vanhentumattomaksi määrittämällä käytännön arvoksi 0.
+
+Oletusarvo: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Käytä biometriaa</string>
+        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport for Work antaa käyttäjien käyttää PIN-liikkeen vaihtoehtona biometrisia liikkeitä, kuten kasvoja ja sormenjälkiä. Käyttäjien on kuitenkin määritettävä edelleen työpaikan PIN-koodi virheiden varalta.
+
+Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, Microsoft Passport for Work sallii biometristen liikkeiden käyttämisen.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, Microsoft Passport for Work estää biometristen liikkeiden käyttämisen.
+
+HUOMAUTUS: tämän käytännön poistamisen käytöstä estää biometristen liikkeiden käyttämisen laitteessa kaikkien tilityyppien kohdalla.
+        </string>
+        <string id="MSPassport_UseRemote">Käytä Passportia etäkäyttönä</string>
+        <string id="MSPassport_UseRemoteExplain">Tämän käytäntöasetuksen avulla voit määrittää Passport-etäkäytön. Passport-etäkäytön avulla voit käyttää rekisteröityä kannettavaa laitetta kumppanilaitteena työpöytätodennuksessa. Passport-etäkäyttö edellyttää, että työpöytä on liitetty Azure AD:hen ja että kumppanilaitteessa on Passport for Workin PIN-koodi.
+
+Jos otat tämän käytäntöasetuksen käyttöön, Passport-etäkäyttö on käytössä, ja rekisteröityä kannettavaa laitetta voi käyttää kumppanilaitteena työpöytätodennuksessa.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Passport-etäkäyttö ei ole käytössä, ja rekisteröityä kannettavaa laitetta ei voi käyttää kumppanilaitteena työpöytätodennuksessa.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">PIN-koodin vähimmäispituus</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">PIN-koodin enimmäispituus</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Isot kirjaimet:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Pienet kirjaimet:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Erikoismerkit:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">numerot:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">PIN-koodihistoria</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">PIN-koodin vanheneminen</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

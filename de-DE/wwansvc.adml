@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Gruppenrichtlinieneinstellungen für den WWAN-Dienst</displayName>
+  <description>Gruppenrichtlinieneinstellungen für den WWAN-Dienst</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">WWAN-Dienst</string>
+      <string id="NetworkCost_Category">Kosten von WWAN-Medien</string>
+      <string id="SetCost3G">3G-Kosten festlegen</string>
+      <string id="SetCost3G_Help">Mithilfe dieser Richtlinieneinstellung werden die Kosten von 3G-Verbindungen auf dem lokalen Computer konfiguriert.
+
+Wenn diese Richtlinieneinstellung aktiviert ist, steht eine Dropdownliste mit möglichen Kostenwerten zur Verfügung.  Durch Auswahl einer der folgenden Werte in der Liste werden die Kosten aller 3G-Verbindungen auf dem lokalen Computer festgelegt:
+
+- Uneingeschränkt: Die Verwendung dieser Verbindung ist uneingeschränkt und unterliegt keinen Nutzungsgebühren und Kapazitätseinschränkungen. 
+
+- Fixiert: Die Verwendung dieser Verbindung unterliegt bis zu einer bestimmten Datenmenge keinen Nutzungsgebühren und Kapazitätseinschränkungen. 
+
+- Variabel: Die Verwendung dieser Verbindung wird pro Byte abgerechnet.
+
+Wenn diese Richtlinieneinstellung deaktiviert oder nicht konfiguriert wird, sind die Kosten von 3G-Verbindungen standardmäßig "Fixiert".
+      
+      </string>
+      <string id="SetCost4G">4G-Kosten festlegen</string>
+      <string id="SetCost4G_Help">Mithilfe dieser Richtlinieneinstellung werden die Kosten von 4G-Verbindungen auf dem lokalen Computer konfiguriert.      
+
+Wenn diese Richtlinieneinstellung aktiviert ist, steht eine Dropdownliste mit möglichen Kostenwerten zur Verfügung. Durch Auswahl einer der folgenden Werte in der Liste werden die Kosten aller 4G-Verbindungen auf dem lokalen Computer festgelegt:
+
+- Uneingeschränkt: Die Verwendung dieser Verbindung ist uneingeschränkt und unterliegt keinen Nutzungsgebühren und Kapazitätseinschränkungen. 
+
+- Fixiert: Die Verwendung dieser Verbindung unterliegt bis zu einer bestimmten Datenmenge keinen Nutzungsgebühren und Kapazitätseinschränkungen. 
+
+- Variabel: Die Verwendung dieser Verbindung wird pro Byte abgerechnet.
+
+Wenn diese Richtlinieneinstellung deaktiviert oder nicht konfiguriert wird, sind die Kosten von 4G-Verbindungen standardmäßig "Fixiert".
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Uneingeschränkt</string>
+      <string id="Cost_DropDownList_Fixed">Fixiert</string>
+      <string id="Cost_DropDownList_Variable">Variabel</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Wählen Sie einen festzulegenden Kostenwert für 3G-Verbindungen aus:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Wählen Sie einen festzulegenden Kostenwert für 4G-Verbindungen aus:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

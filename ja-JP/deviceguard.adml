@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windows デバイス ガード</displayName>
+  <description>Windows デバイス ガード セキュリティ</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">デバイス ガード</string>
+      <string id="VirtualizationBasedSecurity">仮想化ベースのセキュリティを有効にする</string>
+      <string id="VirtualizationBasedSecurityHelp">仮想化ベースのセキュリティを有効にするかどうかを指定します。
+
+仮想化ベースのセキュリティでは、Windows ハイパーバイザーを使用してセキュリティ サービスをサポートします。仮想化ベースのセキュリティはセキュア ブートを必要としており、DMA 保護を使用して有効にすることもできます。DMA 保護にはハードウェア サポートが必要で、正しく構成されたデバイスだけで有効にできます。
+
+コードの整合性に対する仮想化ベースの保護
+
+この設定により、カーネル モードのコードの整合性に対する仮想化ベースの保護が有効になります。この設定を有効にすると、カーネル モードのメモリ保護が強制され、コードの整合性の検証パスが仮想化ベースのセキュリティ機能によって保護されます。
+
+警告: システムのすべてのドライバーはこの機能と互換性がある必要があります。互換性がない場合は、システムがクラッシュする可能性があります。互換性があることがわかっているコンピューターのみにこのポリシー設定が展開されるようにしてください。
+
+資格情報ガード
+
+この設定を使用すると、仮想化ベースのセキュリティ機能を持つ資格情報ガードを有効にして、資格情報を保護することができます。
+
+[ロックなしで有効化] オプションを使用して資格情報ガードが有効化されていた場合、[無効] オプションを選択すると、資格情報ガードがリモートで無効になります。
+
+[UEFI ロックで有効化] オプションを選択すると、資格情報ガードをリモートで無効化できなくなります。この機能を無効にするには、グループ ポリシーを [無効] に設定すると共に、UEFI に保存されている構成を消去するために、物理的に存在するユーザーが各コンピューターからこのセキュリティ機能を削除する必要があります。
+
+[ロックなしで有効化] オプションを選択すると、グループ ポリシーを使用して資格情報ガードをリモートで無効化できます。この設定を使用しているデバイスは、Windows 10 (Version 1511) 以上を実行している必要があります。
+      </string>
+      <string id="SecureBoot">セキュア ブート</string>
+      <string id="SecureBootAndDmaProtection">セキュア ブートと DMA 保護</string>
+      <string id="Disabled">無効</string>
+      <string id="Enabled">有効</string>
+      <string id="EnabledWithoutLock">ロックなしで有効化</string>
+      <string id="EnabledWithUefiLock">UEFI ロックで有効化</string>
+      <string id="ConfigCIPolicy">コードの整合性ポリシーを展開する</string>
+      <string id="ConfigCIPolicyHelp">コードの整合性ポリシーを展開する
+
+このポリシー設定を使用すると、コードの整合性ポリシーをコンピューターに展開して、そのコンピューターで実行できる処理を制御できます。
+
+コードの整合性ポリシーを展開すると、カーネル モードと Windows デスクトップの両方で実行できる処理がポリシーに基づいて制限されます。このポリシーを有効にするには、コンピューターを再起動する必要があります。
+
+ファイルのパスには、UNC パス (たとえば \\ServerName\ShareName\SIPolicy.p7b)、またはローカルの有効なパス (たとえば C:\FolderName\SIPolicy.p7b) を指定する必要があります。ローカル コンピューター アカウント (LOCAL SYSTEM) には、ポリシー ファイルへのアクセス許可が必要です。
+ 
+署名付きの保護されたポリシーを使用している場合は、このポリシー設定を無効にしても、機能はコンピューターから削除されません。代わりに、以下のいずれかの操作を行う必要があります。
+
+   1) ポリシーを保護されていないポリシーに更新してから、設定を無効にする。
+   2) 設定を無効にしてから、物理的に存在するユーザーを使用して各コンピューターからポリシーを削除する。
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">プラットフォームのセキュリティ レベルを選択する:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">コードの整合性に対する仮想化ベースの保護を有効にする</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">資格情報ガードの構成:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>コードの整合性ポリシーのファイル パス:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

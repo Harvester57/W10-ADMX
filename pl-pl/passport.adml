@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport dla miejsca pracy</displayName>
+  <description>Konfiguracja usługi Microsoft Passport dla miejsca pracy</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport dla miejsca pracy</string>
+        <string id="MSPassportForWorkPINComplexityCategory">Złożoność numeru PIN</string>
+        <string id="MSPassportForWorkRemoteCategory">Zdalna usługa Passport</string>
+        <string id="MSPassport_UsePassportForWork">Użyj usługi Microsoft Passport dla miejsca pracy</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Usługa Microsoft Passport for Work to alternatywna metoda logowania się w systemie Windows przy użyciu konta usługi Active Directory lub Azure Active Directory, która może zastąpić hasła, karty inteligentne i wirtualne karty inteligentne.
+
+Jeśli to ustawienie zasad nie zostanie skonfigurowane, użytkownicy będą mogli zainicjować obsługę usługi Microsoft Passport for Work, która szyfruje ich hasła domenowe.
+
+Jeśli to ustawienie zasad zostanie włączone, obsługa usługi Microsoft Passport for Work zostanie zainicjowana na urządzeniu dla wszystkich użytkowników.
+
+Jeśli to ustawienie zasad zostanie wyłączone, obsługa usługi Microsoft Passport for Work nie zostanie zainicjowana dla żadnego użytkownika.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Użyj sprzętowego urządzenia zabezpieczającego</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">Moduł TPM (Trusted Platform Module) zapewnia lepsze bezpieczeństwo niż oprogramowanie, ponieważ przechowywane w nim dane nie mogą być używane na innych urządzeniach.
+
+Jeśli to ustawienie zasad zostanie włączone, tylko urządzenia z użytecznym modułem TPM będą mogły inicjować obsługę usługi Microsoft Passport for Work.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, moduł TPM będzie nadal preferowany, lecz wszystkie urządzenia będą mogły inicjować obsługę usługi Microsoft Passport for Work przy użyciu oprogramowania, jeśli moduł TPM nie działa lub jest niedostępny.
+        </string>
+        <string id="MSPassport_MinimumPINLength">Minimalna długość numeru PIN</string>
+        <string id="MSPassport_MinimumPINLengthExplain">Minimalna długość numeru PIN pozwala skonfigurować minimalną liczbę znaków w służbowym numerze PIN. Najmniejsza liczba możliwa do skonfigurowania dla tego ustawienia zasad to 4. Największa liczba możliwa do skonfigurowania musi być mniejsza niż liczba skonfigurowana w ustawieniu zasad Maksymalna długość numeru PIN lub mniejsza niż 127 (zależnie od tego, która wartość jest mniejsza).
+
+Jeśli to ustawienie zasad zostanie skonfigurowane, długość służbowego numeru PIN nie będzie mogła być mniejsza niż ta liczba.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, długość służbowego numeru PIN nie będzie mogła być mniejsza niż 4 znaki.
+
+UWAGA: jeśli powyższe warunki dotyczące minimalnej długości numeru PIN nie zostaną spełnione, jako maksymalna i minimalna długość numeru PIN zostaną użyte wartości domyślne.
+        </string>
+        <string id="MSPassport_MaximumPINLength">Maksymalna długość numeru PIN</string>
+        <string id="MSPassport_MaximumPINLengthExplain">Maksymalna długość numeru PIN pozwala skonfigurować maksymalną liczbę znaków w służbowym numerze PIN. Największa liczba możliwa do skonfigurowania dla tego ustawienia zasad to 127. Najmniejsza liczba możliwa do skonfigurowania musi być większa niż liczba skonfigurowana w ustawieniu zasad Minimalna długość numeru PIN lub większa niż 4 (zależnie od tego, która wartość jest większa).
+
+Jeśli to ustawienie zasad zostanie skonfigurowane, długość służbowego numeru PIN nie będzie mogła być większa niż ta liczba.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, długość służbowego numeru PIN nie będzie mogła być większa niż 127 znaków.
+
+UWAGA: jeśli powyższe warunki dotyczące maksymalnej długości numeru PIN nie zostaną spełnione, jako maksymalna i minimalna długość numeru PIN zostaną użyte wartości domyślne.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Wymagaj wielkich liter</string>
+        <string id="MSPassport_UppercaseLettersExplain">To ustawienie zasad pozwala skonfigurować użycie wielkich liter w numerze PIN usługi Microsoft Passport for Work.
+
+Jeśli to ustawienie zasad zostanie włączone, usługa Microsoft Passport for Work będzie wymagać od użytkowników umieszczenia co najmniej jednej wielkiej litery w numerze PIN.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Microsoft Passport for Work nie będzie zezwalać użytkownikom na korzystanie z wielkich liter w numerach PIN.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Wymagaj małych liter</string>
+        <string id="MSPassport_LowercaseLettersExplain">To ustawienie zasad pozwala skonfigurować użycie małych liter w numerze PIN usługi Microsoft Passport for Work.
+
+Jeśli to ustawienie zasad zostanie włączone, usługa Microsoft Passport for Work będzie wymagać od użytkowników umieszczenia co najmniej jednej małej litery w numerze PIN.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Microsoft Passport for Work nie będzie zezwalać użytkownikom na korzystanie z małych liter w numerach PIN.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Wymagaj znaków specjalnych</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[To ustawienie zasad pozwala skonfigurować użycie znaków specjalnych w numerze PIN usługi Microsoft Passport for Work. Dozwolone znaki specjalne to: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ 
+
+Jeśli to ustawienie zasad zostanie włączone, usługa Microsoft Passport for Work będzie wymagać od użytkowników umieszczenia co najmniej jednego znaku specjalnego w numerze PIN.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Microsoft Passport for Work nie będzie zezwalać użytkownikom na korzystanie ze znaków specjalnych w numerach PIN.]]>
+        </string>
+        <string id="MSPassport_Digits">Wymagaj cyfr</string>
+        <string id="MSPassport_DigitsExplain">To ustawienie zasad pozwala skonfigurować użycie cyfr w numerze PIN usługi Microsoft Passport for Work.
+
+Jeśli to ustawienie zasad zostanie włączone, usługa Microsoft Passport for Work będzie wymagać od użytkowników umieszczenia co najmniej jednej cyfry w numerze PIN.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, usługa Microsoft Passport for Work nie będzie zezwalać użytkownikom na korzystanie z cyfr w numerach PIN.
+        </string>
+        <string id="MSPassport_PINHistory">Historia</string>
+        <string id="MSPassport_PINHistoryExplain">To ustawienie określa liczbę ostatnio używanych numerów PIN powiązanych z kontem użytkownika, których nie można użyć ponownie. Te zasady umożliwiają administratorom wzmocnienie bezpieczeństwa przez zapewnienie, że stare numery PIN nie będą ciągle używane ponownie. Historia numerów PIN nie jest zachowywana przy resetowaniu numeru PIN.
+
+Wartość musi należeć do przedziału od 0 do 50. Jeśli dla tych zasad ustawiono wartość 0, magazyn poprzednich numerów PIN nie jest wymagany.
+
+Domyślnie: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Wygaśnięcie</string>
+        <string id="MSPassport_PINExpirationExplain">To ustawienie określa czas (w dniach), przez który można używać numeru PIN, zanim system zażąda od użytkownika jego zmiany. Numer PIN może wygasać po okresie od 1 do 730 dni. Numery PIN mogą także nigdy nie wygasać, jeśli wartość zasad jest ustawiona na 0.
+
+Domyślnie: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Użyj danych biometrycznych</string>
+        <string id="MSPassport_UseBiometricsExplain">Usługa Microsoft Passport for Work umożliwia użytkownikom stosowanie gestów biometrycznych, takich jak twarz i linie papilarne, jako metody alternatywnej dla gestu numeru PIN. Jednak użytkownicy muszą mimo to skonfigurować numer PIN na wypadek awarii.
+
+Jeśli to ustawienie zasad zostanie włączone lub nie zostanie skonfigurowane, usługa Microsoft Passport for Work będzie zezwalać na używanie gestów biometrycznych.
+
+Jeśli to ustawienie zasad zostanie wyłączone, usługa Microsoft Passport for Work nie będzie zezwalać na używanie gestów biometrycznych.
+
+UWAGA: Wyłączenie tych zasad uniemożliwi użytkownikom używanie gestów biometrycznych na urządzeniu dla każdego typu konta.
+        </string>
+        <string id="MSPassport_UseRemote">Użyj zdalnej usługi Passport</string>
+        <string id="MSPassport_UseRemoteExplain">Użyj tego ustawienia zasad, aby skonfigurować używanie zdalnej usługi Passport. Zdalna usługa Passport umożliwia użycie zarejestrowanego urządzenia przenośnego jako urządzenia towarzyszącego podczas uwierzytelniania na komputerze. Zdalna usługa Passport wymaga, aby komputer był dołączony do usługi Azure AD, a urządzenie towarzyszące miało numer PIN usługi Microsoft Passport for Work.
+
+Jeśli to ustawienie zasad zostanie włączone, zdalna usługa Passport zostanie włączona, a zarejestrowane urządzenie przenośne będzie mogło być używane jako urządzenie towarzyszące podczas uwierzytelniania na komputerze.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, zdalna usługa Passport będzie wyłączona, a zarejestrowanego urządzenia przenośnego nie będzie można użyć jako urządzenia towarzyszącego podczas uwierzytelniania na komputerze.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">Minimalna długość numeru PIN</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">Maksymalna długość numeru PIN</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Wielkie litery:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Małe litery:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Znaki specjalne:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">cyfry:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">Historia numerów PIN</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">Wygasanie numerów PIN</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

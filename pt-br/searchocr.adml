@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>digite o nome para exibição aqui</displayName>
+  <description>digite a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">Permitir indexação de documentos TIFF ao executar OCR</string>
+      <string id="ExplainAllowOCR">Essa configuração de diretiva permite ativar ou desativar o processamento de OCR (Reconhecimento Óptico de Caracteres) para arquivos TIFF. Se você habilitar essa configuração de diretiva, o conteúdo textual dos arquivos TIFF será indexado ao executar OCR. Se você desabilitar ou não definir essa configuração de diretiva, somente as propriedades dos arquivos TIFF serão indexadas.
+
+        Essa configuração de diretiva também afeta a configuração do painel de controle "Como este arquivo deve ser indexado?", localizada em Painel de Controle\Opções de Indexação\Opções Avançadas\Tipos de Arquivo. Se você habilitar essa configuração de diretiva, a configuração do painel de controle será definida como  "Propriedades de Indexação e Conteúdo de Arquivo". Se você desabilitar ou não definir essa configuração de diretiva, a configuração do painel de controle será definida como "Somente Propriedades de Indexação".
+      
+      </string>
+      <string id="SelectOCRLangs">Selecionar idioma OCR</string>
+      <string id="ExplainSelectOCRLangs">Essa configuração de diretiva permite selecionar idiomas OCR (Reconhecimento Óptico de Caracteres). Se você habilitar essa configuração de diretiva, os idiomas OCR selecionados serão usados no processamento de OCR durante a indexação de arquivos TIFF. Se você desabilitar ou não definir essa configuração de política, somente o idioma padrão do sistema será usado.
+
+A reindexação não é iniciada quando você habilita essa política e seleciona o idioma OCR. Essa configuração de política se aplica somente à indexação de novos arquivos, a menos que a reindexação seja iniciada manualmente.
+      </string>
+      <string id="OCR">OCR</string>
+      <string id="Win7Only">Microsoft Windows 7 ou posterior</string>
+      <string id="OCREveryPage">Forçar TIFF IFilter a executar OCR de cada página em um documento TIFF</string>
+      <string id="ExplainOCREveryPage">
+        
+        Essa configuração de Diretiva de Grupo permite que os usuários desativem a otimização de desempenho de forma que o TIFF IFilter execute OCR de cada página em um documento TIFF, o que possibilita a indexação de todo o texto reconhecido. Por padrão, o TIFF IFilter otimiza seu desempenho ignorando o OCR das páginas do documento sem conteúdo textual (por exemplo, com imagens). Em alguns casos, as páginas que contêm texto podem ser classificadas incorretamente como páginas sem texto. Se esse for o caso, o texto nessas páginas não será indexado.
+
+        Se você habilitar essa configuração, o TIFF IFilter executará o OCR de cada página em um documento TIFF para indexar todo o texto reconhecido. No entanto, o processo de OCR será mais lento. Essa redução em desempenho poderá ser significativa se existirem muitas páginas sem texto (com imagens) nos documentos TIFF do sistema.
+
+        Se você desabilitar ou não definir essa configuração, o TIFF IFilter otimizará seu desempenho ignorando o conteúdo não textual durante o processo de OCR.
+      
+      </string>
+      <string id="LangChineseSimplified">Chinês (Simplificado)</string>
+      <string id="LangChineseTraditional">Chinês (Tradicional)</string>
+      <string id="LangCzech">Tcheco</string>
+      <string id="LangDanish">Dinamarquês</string>
+      <string id="LangDutch">Holandês</string>
+      <string id="LangEnglish">Inglês</string>
+      <string id="LangFinnish">Finlandês</string>
+      <string id="LangFrench">Francês</string>
+      <string id="LangGerman">Alemão</string>
+      <string id="LangGreek">Grego</string>
+      <string id="LangHungarian">Húngaro</string>
+      <string id="LangItalian">Italiano</string>
+      <string id="LangJapanese">Japonês</string>
+      <string id="LangKorean">Coreano</string>
+      <string id="LangNorwegian">Norueguês</string>
+      <string id="LangPolish">Polonês</string>
+      <string id="LangPortuguese">Português</string>
+      <string id="LangRomanian">Romeno</string>
+      <string id="LangRussian">Russo</string>
+      <string id="LangSerbianCyrillic">Sérvio (Cirílico)</string>
+      <string id="LangSerbianLatin">Sérvio (Latino)</string>
+      <string id="LangSlovak">Eslovaco</string>
+      <string id="LangSpanish">Espanhol</string>
+      <string id="LangSwedish">Sueco</string>
+      <string id="LangTurkish">Turco</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Escolha um dos seguintes idiomas OCR:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

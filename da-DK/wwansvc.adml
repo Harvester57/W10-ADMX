@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Gruppepolitikindstillinger for WWAN-tjeneste</displayName>
+  <description>Gruppepolitikindstillinger for WWAN-tjeneste</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">WWAN-tjeneste</string>
+      <string id="NetworkCost_Category">WWAN-medieomkostninger</string>
+      <string id="SetCost3G">Angiv 3G-omkostninger</string>
+      <string id="SetCost3G_Help">Denne politikindstilling konfigurerer omkostningerne for 3G-forbindelser på den lokale computer.
+
+Hvis denne politikindstilling er aktiveret, vises en rulleliste med mulige omkostningsværdier.  Hvis du vælger en af følgende værdier på listen, angives omkostningen for alle 3G-forbindelser på den lokale computer:
+
+- Ubegrænset: Brug af denne forbindelse er ubegrænset, og den er ikke begrænset af forbrugsgebyrer og begrænsninger i kapaciteten. 
+
+- Fast: Brug af denne forbindelse er ikke begrænset af forbrugsgebyrer og begrænsninger i kapaciteten op til en bestemt datagrænse. 
+
+- Variabel: Denne forbindelse takseres på bytebasis.
+
+Hvis denne politikindstilling er deaktiveret eller ikke er konfigureret, er omkostningen for 3G-forbindelser som standard indstillet til Fast.
+      
+      </string>
+      <string id="SetCost4G">Angiv 4G-omkostninger</string>
+      <string id="SetCost4G_Help">Denne politikindstilling konfigurerer omkostningerne for 4G-forbindelser på den lokale computer.      
+
+Hvis denne politikindstilling er aktiveret, vises en rulleliste med mulige omkostningsværdier. Hvis du vælger en af følgende værdier på listen, angives omkostningen for alle 4G-forbindelser på den lokale computer:
+
+- Ubegrænset: Brug af denne forbindelse er ubegrænset, og den er ikke begrænset af forbrugsgebyrer og begrænsninger i kapaciteten. 
+
+- Fast: Brug af denne forbindelse er ikke begrænset af forbrugsgebyrer og begrænsninger i kapaciteten op til en bestemt datagrænse. 
+
+- Variabel: Denne forbindelse takseres på bytebasis.
+
+Hvis denne politikindstilling er deaktiveret eller ikke er konfigureret, er omkostningen for 4G-forbindelser som standard indstillet til Fast.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Ikke begrænset</string>
+      <string id="Cost_DropDownList_Fixed">Fast</string>
+      <string id="Cost_DropDownList_Variable">Variabel</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Vælg den værdi for 3G-forbindelsesomkostninger, der skal anvendes:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Vælg den værdi for 4G-forbindelsesomkostninger, der skal anvendes:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

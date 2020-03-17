@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport for Work</displayName>
+  <description>A Microsoft Passport for Work beállításai</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkPINComplexityCategory">PIN-kód bonyolultsága</string>
+        <string id="MSPassportForWorkRemoteCategory">Távoli Passport</string>
+        <string id="MSPassport_UsePassportForWork">A Microsoft Passport for Work használata</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">A Microsoft Passport for Work szolgáltatás egy alternatív módszer, amellyel a saját Active Directory-fiókon vagy Azure Active Directory-fiókon keresztül lehet bejelentkezni a Windowsba, így nincs szükség jelszavakra, intelligens kártyákra és virtuális intelligens kártyákra.
+
+Ha nem konfigurálja ezt a házirend-beállítást, a felhasználók kiépíthetik a Microsoft Passport for Work szolgáltatást, amely titkosítja a tartományi jelszavaikat.
+
+Ha engedélyezi ezt a házirend-beállítást, az eszköz a megfelelő kulcsok vagy tanúsítványok használatával minden felhasználóhoz kiépíti a Microsoft Passport for Work szolgáltatást.
+
+Ha letiltja ezt a házirend-beállítást, az eszköz egyetlen felhasználóhoz sem építi ki a Microsoft Passport for Work szolgáltatást.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Hardverbiztonsági eszköz használata</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">Platformmegbízhatósági modullal (TPM) a szoftveres megoldásokhoz képest nagyobb fokú biztonság érhető el, mert a modulban tárolt adatok nem használhatók más eszközökön.
+
+Ha engedélyezi ezt a házirend-beállítást, csak azok az eszközök képesek a Microsoft Passport for Work kiépítésére, amelyeken működő TPM modul található.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, továbbra is a TPM modul a preferált megoldás, de minden eszköz szoftveresen kiépítheti a Microsoft Passport for Work szolgáltatást abban az esetben, ha a TPM modul nem működik vagy nem érhető el.
+        </string>
+        <string id="MSPassport_MinimumPINLength">PIN-kód minimális hossza</string>
+        <string id="MSPassport_MinimumPINLengthExplain">A PIN-kód minimális hossza beállítással megadható, hogy legalább hány karakterből kell állnia a PIN-kódnak. Az ehhez a házirend-beállításhoz megadható legkisebb érték 4. A legnagyobb beállítható értéknek kisebbnek kell lennie a PIN-kód maximális hossza házirend-beállításban megadott értéknél (vagy 127-nél, amelyik érték kisebb).
+
+Ha konfigurálja ezt a házirend-beállítást, a PIN-kód hossza nem lehet kisebb a megadott számnál.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a PIN-kód nem lehet rövidebb 4 karakternél.
+
+Megjegyzés: Amennyiben a PIN-kód minimális hosszára vonatkozó fenti feltételek nem teljesülnek, a Windows az alapértelmezett értékeket használja a PIN-kód maximális és minimális hosszához egyaránt.
+        </string>
+        <string id="MSPassport_MaximumPINLength">PIN-kód maximális hossza</string>
+        <string id="MSPassport_MaximumPINLengthExplain">A PIN-kód maximális hossza beállítással megadható, hogy legfeljebb hány karakterből állhat a PIN-kód. Az ehhez a házirend-beállításhoz megadható legnagyobb érték 127. A legkisebb beállítható értéknek nagyobbnak kell lennie a PIN-kód minimális hossza házirend-beállításban megadott értéknél (vagy 4-nél, amelyik érték nagyobb).
+
+Ha konfigurálja ezt a házirend-beállítást, a PIN-kód nem lehet hosszabb a megadott számnál.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a PIN-kód nem lehet hosszabb 127 karakternél.
+
+Megjegyzés: Amennyiben a PIN-kód maximális hosszára vonatkozó fenti feltételek nem teljesülnek, a Windows az alapértelmezett értékeket használja a PIN-kód maximális és minimális hosszához egyaránt.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Nagybetűk megkövetelése</string>
+        <string id="MSPassport_UppercaseLettersExplain">Ezzel a házirend-beállítással konfigurálható a nagybetűk Microsoft Passport for Workhöz tartozó PIN-kódban való használata.
+
+Ha engedélyezi ezt a házirend-beállítást, a Microsoft Passport for Work megköveteli a felhasználóktól, hogy legalább egy nagybetűt használjanak a PIN kódjukban.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Microsoft Passport for Work nem engedélyezi, hogy a felhasználók nagybetűket használjanak a PIN-kódjukban.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Kisbetűk megkövetelése</string>
+        <string id="MSPassport_LowercaseLettersExplain">Ezzel a házirend-beállítással konfigurálható a kisbetűk Microsoft Passport for Workhöz tartozó PIN-kódban való használata.
+
+Ha engedélyezi ezt a házirend-beállítást, a Microsoft Passport for Work megköveteli a felhasználóktól, hogy legalább egy kisbetűt használjanak a PIN kódjukban.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Microsoft Passport for Work nem engedélyezi, hogy a felhasználók kisbetűket használjanak a PIN-kódjukban.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Speciális karakterek megkövetelése</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Ezzel a házirend-beállítással konfigurálható a speciális karakterek Microsoft Passport for Workhöz tartozó PIN-kódban való használata. A megengedett speciális karakterek a következők: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+Ha engedélyezi ezt a házirend-beállítást, a Microsoft Passport for Work megköveteli a felhasználóktól, hogy legalább egy speciális karaktert használjanak a PIN kódjukban.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Microsoft Passport for Work nem engedélyezi, hogy a felhasználók speciális karaktereket használjanak a PIN-kódjukban.]]>
+        </string>
+        <string id="MSPassport_Digits">Számjegyek megkövetelése</string>
+        <string id="MSPassport_DigitsExplain">Ezzel a házirend-beállítással konfigurálható a számjegyek Microsoft Passport for Workhöz tartozó PIN-kódban való használata.
+
+Ha engedélyezi vagy nem konfigurálja ezt a házirend-beállítást, a Microsoft Passport for Work megköveteli a felhasználóktól, hogy legalább egy számjegyet használjanak a PIN kódjukban.
+
+Ha letiltja ezt a házirend-beállítást, a Microsoft Passport for Work nem engedélyezi, hogy a felhasználók számjegyeket használjanak a PIN-kódjukban.
+        </string>
+        <string id="MSPassport_PINHistory">Korábbi PIN kódok</string>
+        <string id="MSPassport_PINHistoryExplain">Ez a beállítás határozza meg, hogy hány olyan múltbeli PIN-kód társítható a felhasználói fiókokhoz, amely nem használható fel újból. Ezzel a házirenddel a rendszergazdák fokozhatják a biztonságot azáltal, hogy a régi PIN-kódokat nem lehet tovább használni az adott idő elteltével. Új PIN-kód létrehozásával nem menthetők a korábbi PIN-kódok.
+
+A megadott érték csak 0 és 50 közé eshet. Ha a házirend értéke 0, nem kötelező menteni a korábbi PIN-kódokat.
+
+Alapérték: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Érvényesség</string>
+        <string id="MSPassport_PINExpirationExplain">Ez a beállítás azt az időtartamot határozza meg (napokban), ameddig egy adott PIN-kód használható, mielőtt a rendszer felszólítaná a felhasználót a megváltoztatására. A PIN-kódok érvényessége 1 és 730 nap közötti lehet. Ha a házirend értéke 0, a PIN-kódok érvényessége nem korlátozott időben.
+
+Alapérték: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Biometrikus hitelesítési módok használata</string>
+        <string id="MSPassport_UseBiometricsExplain">A Microsoft Passport for Work szolgáltatás használatával a felhasználók biometrikus hitelesítési módokkal (például az arcukkal vagy ujjlenyomattal) tudják hitelesíteni magukat PIN-kód használata helyett. Ettől függetlenül továbbra is be kell állítaniuk a PIN-kódjukat, hogy egy esetleges hiba esetén is be tudjanak jelentkezni.
+
+Ha engedélyezi vagy nem konfigurálja ezt a házirend-beállítást, a Microsoft Passport for Work engedélyezi a biometrikus hitelesítési módokat.
+
+Ha letiltja ezt a házirend-beállítást, a Microsoft Passport for Work nem engedélyezi a biometrikus hitelesítési módok használatát.
+
+Megjegyzés: Ha letiltja ezt a házirendet, a felhasználó egyetlen fióktípushoz sem használhat biometrikus hitelesítési módokat az eszközön.
+        </string>
+        <string id="MSPassport_UseRemote">Távoli Passport használata</string>
+        <string id="MSPassport_UseRemoteExplain">Ezzel a házirend-beállítással konfigurálható a Távoli Passport használata. Ezzel a szolgáltatással a hordozható és regisztrált eszközök asztali hitelesítésre alkalmas társeszközökként használhatók. A Távoli Passport működésének feltétele az, hogy az asztali gép része legyen az Azure Active Directorynak, valamint hogy a társeszköz rendelkezzen PIN-kóddal a Passport for Work szolgáltatáshoz.
+
+Ha engedélyezi ezt a házirend-beállítást, a Távoli Passport engedélyezett lesz, így a hordozható és regisztrált eszközöket asztali hitelesítésre alkalmas társeszközökként lehet használni.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Távoli Passport nem lesz engedélyezett, ezért a hordozható és regisztrált eszközök nem használhatók asztali hitelesítésre alkalmas társeszközökként.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">PIN-kód minimális hossza</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">PIN-kód maximális hossza</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Nagybetűk:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Kisbetűk:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Speciális karakterek:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">Számjegyek:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">Korábbi PIN-kódok</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">PIN-kódok érvényessége</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

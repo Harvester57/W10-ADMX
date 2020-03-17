@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>tutaj wprowadź nazwę wyświetlaną</displayName>
+  <description>tutaj wprowadź opis</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Foldery robocze</string>
+      <string id="Pol_MachineEnableWorkFolders">Wymuś konfigurowanie automatyczne dla wszystkich użytkowników</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">To ustawienie zasad określa, czy foldery robocze powinny być konfigurowane automatycznie dla wszystkich użytkowników na danym komputerze.
+      
+Jeśli to ustawienie zasad zostanie włączone, foldery robocze będą konfigurowane automatycznie dla wszystkich użytkowników na danym komputerze. Uniemożliwia to użytkownikom zrezygnowanie z używania folderów roboczych na komputerze. Uniemożliwia im też ręczne określenie folderu lokalnego, w którym funkcja Foldery robocze powinna przechowywać pliki. Funkcja Foldery robocze będzie używać ustawień określonych w ustawieniu zasad „Określ ustawienia folderów roboczych” w folderze Konfiguracja użytkownika\Szablony administracyjne\Składniki systemu Windows\Foldery robocze (WorkFolders). Jeśli ustawienie zasad „Określ ustawienia folderów roboczych” nie dotyczy danego użytkownika, foldery robocze nie są konfigurowane automatycznie.
+      
+Jeśli to ustawienie zasad zostanie wyłączone lub pozostanie nieskonfigurowane, funkcja Foldery robocze ustali, czy skonfigurować automatycznie foldery robocze dla danego użytkownika, za pomocą opcji „Wymuś konfigurowanie automatyczne” ustawienia zasad „Określ ustawienia folderów roboczych”.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Określ ustawienia folderów roboczych</string>
+      <string id="Pol_UserEnableWorkFolders_Help">To ustawienie zasad określa serwer folderów roboczych dla odpowiednich użytkowników oraz to, czy użytkownikom wolno zmieniać ustawienia podczas konfigurowania folderów roboczych na komputerze przyłączonym do domeny, czy nie.
+
+Jeśli to ustawienie zasad zostanie włączone, odpowiedni użytkownicy otrzymają ustawienia folderów roboczych po zalogowaniu się do komputerów przyłączonych do domeny. 
+
+Za pomocą opcji „Adres URL folderów roboczych” można określić adres URL używany w organizacji do odnajdowania folderów roboczych lub konkretny adres URL serwera plików, na którym są przechowywane dane odpowiednich użytkowników.
+
+Opcja „Wymuś konfigurowanie automatyczne” określa, że foldery robocze powinny być konfigurowane automatycznie bez monitowania użytkowników. Uniemożliwia to użytkownikom zrezygnowanie z używania folderów roboczych na komputerze. Uniemożliwia im też ręczne określenie folderu lokalnego, w którym funkcja Foldery robocze powinna przechowywać pliki. Domyślnie foldery robocze są przechowywane w folderze „%USERPROFILE%\Foldery robocze” („%USERPROFILE%\Work Folders”). Jeśli nie określono tej opcji, użytkownicy muszą skonfigurować foldery robocze za pomocą elementu Foldery robocze w Panelu sterowania.
+   
+Jeśli to ustawienie zasad jest wyłączone lub nie zostało skonfigurowane, dla odpowiednich użytkowników nie są określone żadne ustawienia folderów roboczych. Mogą oni ręcznie skonfigurować foldery robocze za pomocą elementu Foldery robocze w Panelu sterowania.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>Adres URL folderów roboczych:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Wymuś konfigurowanie automatyczne</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

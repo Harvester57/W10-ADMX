@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport for Work</displayName>
+  <description>Microsoft Passport for Work の構成</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkPINComplexityCategory">PIN の複雑さ</string>
+        <string id="MSPassportForWorkRemoteCategory">Remote Passport</string>
+        <string id="MSPassport_UsePassportForWork">Microsoft Passport for Work を使用する</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport for Work は、Active Directory や Azure Active Directory アカウントを使った Windows へのサインイン方法として、パスワード、スマート カード、仮想スマート カードに代わる手段です。
+
+このポリシー設定を構成しなかった場合、Microsoft Passport for Work のプロビジョニングをユーザーが実行できます。これにより、ユーザーのドメイン パスワードが暗号化されます。
+
+このポリシー設定を有効にした場合、全ユーザー用にキーまたは証明書を使用して Microsoft Passport for Work のプロビジョニングがデバイスによって実行されます。
+
+このポリシー設定を無効にした場合、いずれのユーザーに対しても Microsoft Passport for Work のプロビジョニングはデバイスによって実行されません。
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">ハードウェアのセキュリティ デバイスを使用する</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">トラステッド プラットフォーム モジュール (TPM) に格納されているデータは他のデバイスでは使用できません。その点で TPM のセキュリティはソフトウェアよりも強力です。
+
+このポリシー設定を有効にした場合、使用できる状態の TPM を備えているデバイスでのみ、Microsoft Passport for Work のプロビジョニングを実行できます。
+
+このポリシー設定を無効にした場合または構成しなかった場合、TPM が優先されますが、TPM が機能していない場合や使用できない場合は、すべてのデバイスで、ソフトウェアを使用して Microsoft Passport for Work のプロビジョニングを実行できます。
+        </string>
+        <string id="MSPassport_MinimumPINLength">PIN の最小文字数</string>
+        <string id="MSPassport_MinimumPINLengthExplain">PIN の最小文字数は、PIN に必要な最小文字数を表します。このポリシー設定に対して構成できる最小値は 4 です。構成できる最大文字数は、[PIN の最大文字数] のポリシー設定で構成した値または 127 (どちらか小さい方) 未満となります。
+
+このポリシー設定を構成した場合は、PIN の長さをこの数値以上にする必要があります。
+
+このポリシー設定を無効にした場合、または構成しなかった場合は、PIN の長さを 4 文字以上にする必要があります。
+
+注意: PIN の最小文字数についてこれらの条件が満たされなかった場合、PIN の最大文字数と最小文字数の両方に既定値が使用されます。
+        </string>
+        <string id="MSPassport_MaximumPINLength">PIN の最大文字数</string>
+        <string id="MSPassport_MaximumPINLengthExplain">PIN の最大文字数は、PIN に必要な最大文字数を表します。このポリシー設定に対して構成できる最大値は 127 です。構成できる最小文字数は、[PIN の最小文字数] のポリシー設定で構成した値または 4 (どちらか大きい方) よりも多い数となります。
+
+このポリシー設定を構成した場合は、PIN の長さをこの数値以下にする必要があります。
+
+このポリシー設定を無効にした場合、または構成しなかった場合は、PIN の長さを 127 文字以下にする必要があります。
+
+注: PIN の最大文字数についてこれらの条件が満たされなかった場合、PIN の最大文字数と最小文字数の両方に既定値が使用されます。
+        </string>
+        <string id="MSPassport_UppercaseLetters">大文字を要求する</string>
+        <string id="MSPassport_UppercaseLettersExplain">Microsoft Passport の PIN に対する大文字の用法を構成するには、このポリシー設定を使用します。
+
+このポリシー設定を有効にした場合、Microsoft Passport for Work は、PIN に 1 つ以上の大文字を含めることをユーザーに求めます。
+
+このポリシー設定を無効にした場合、または構成しなかった場合、Microsoft Passport for Work は、PIN に大文字を使用することをユーザーに許可しません。
+        </string>
+        <string id="MSPassport_LowercaseLetters">小文字を要求する</string>
+        <string id="MSPassport_LowercaseLettersExplain">Microsoft Passport の PIN に対する小文字の用法を構成するには、このポリシー設定を使用します。
+
+このポリシー設定を有効にした場合、Microsoft Passport for Work は、PIN に 1 つ以上の小文字を含めることをユーザーに求めます。
+
+このポリシー設定を無効にした場合、または構成しなかった場合、Microsoft Passport for Work は、PIN に小文字を使用することをユーザーに許可しません。
+        </string>
+        <string id="MSPassport_SpecialCharacters">特殊文字を要求する</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Microsoft Passport の PIN に対する特殊文字の用法を構成するには、このポリシー設定を使用します。使用できる特殊文字は、! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ です。
+
+このポリシー設定を有効にした場合、Microsoft Passport for Work は、PIN に 1 つ以上の特殊文字を含めることをユーザーに求めます。
+
+このポリシー設定を無効にした場合、または構成しなかった場合、Microsoft Passport for Work は、PIN に特殊文字を使用することをユーザーに許可しません。]]>
+        </string>
+        <string id="MSPassport_Digits">数字を要求する</string>
+        <string id="MSPassport_DigitsExplain">Microsoft Passport の PIN に対する数字の用法を構成するには、このポリシー設定を使用します。
+
+このポリシー設定を有効にした場合、または構成しなかった場合、Microsoft Passport for Work は、PIN に 1 つ以上の大文字を含めることをユーザーに求めます。
+
+このポリシー設定を無効にした場合、Microsoft Passport for Work は、PIN に数字を使用することをユーザーに許可しません。
+        </string>
+        <string id="MSPassport_PINHistory">履歴</string>
+        <string id="MSPassport_PINHistoryExplain">この設定では、再利用できないユーザー アカウントに関連付けることができる以前の PIN の数を指定します。管理者はこのポリシーを使用することにより、以前の PIN が継続的に再利用されないようにして、セキュリティを強化できます。PIN がリセットされると、PIN の履歴は保持されません。
+
+値は 0 から 50 ピンの範囲にする必要があります。このポリシーが 0 に設定されている場合、以前の PIN の保存は必要ありません。
+
+既定値: 0。
+        </string>
+        <string id="MSPassport_PINExpiration">有効期限</string>
+        <string id="MSPassport_PINExpirationExplain">この設定は、システムからユーザーに変更を求められるまでに PIN を使用できる期間 (日数) を指定します。PIN は、1 から 730 日の範囲で任意の日数後に有効期限が切れるよう設定できます。ポリシーを 0 に設定することで、PIN の有効期限を無期限に設定することもできます。
+
+既定値: 0。
+        </string>
+        <string id="MSPassport_UseBiometrics">生体認証を使用する</string>
+        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport for Work では、PIN ジェスチャの代わりにユーザーが顔認証や指紋などの生体認証のジェスチャを使用することができます。ただし、失敗したときのために PIN を構成する必要はあります。
+
+このポリシー設定を有効にした場合、または構成しなかった場合、Microsoft Passport for Work で生体認証ジェスチャの使用が許可されます。
+
+このポリシー設定を無効にした場合、Microsoft Passport for Work で生体認証ジェスチャの使用が禁止されます。
+
+注意: このポリシーを無効にすると、デバイスの生体認証ジェスチャの使用がすべての種類のアカウントで禁止されます。
+        </string>
+        <string id="MSPassport_UseRemote">Remote Passport を使用する</string>
+        <string id="MSPassport_UseRemoteExplain">Remote Passport の用法を構成するには、このポリシー設定を使用します。Remote Passport を使用すると、登録済みのポータブル デバイスをデスクトップ認証用のコンパニオン デバイスとして使用できます。Remote Passport を使用するには、デスクトップが Azure AD に参加し、コンパニオン デバイスに Passport for Work PIN が存在する必要があります。
+
+このポリシー設定を有効にした場合、Remote Passport が有効になり、登録済みのポータブル デバイスをデスクトップ認証用のコンパニオン デバイスとして使用できます。
+
+このポリシー設定を無効にした場合、または構成しなかった場合、Remote Passport が無効になり、登録済みのポータブル デバイスをデスクトップ認証用のコンパニオン デバイスとして使用することはできません。
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">PIN の最小文字数</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">PIN の最大文字数</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">大文字:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">小文字:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">特殊文字:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">数字:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">PIN 履歴</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">PIN の有効期限</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

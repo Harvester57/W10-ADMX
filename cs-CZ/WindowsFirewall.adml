@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Zde zadejte zobrazovaný název.</displayName>
+  <description>Zde zadejte popis.</description>
+  <resources>
+    <stringTable>
+      <string id="WF_AllowedPrograms_Help">Umožňuje zobrazit a změnit seznam výjimek programů určený zásadami skupiny. Brána Windows firewall používá dva seznamy výjimek: Jeden je definován nastavením zásad skupiny a druhý je definován na ovládacím panelu Brána Windows firewall.
+
+Pokud nastavení této zásady povolíte, budete moci zobrazit a změnit seznam výjimek programů definovaný zásadami skupiny. Pokud na seznam přidáte program a nastavíte stav Povoleno, tento program bude moci přijímat nevyžádané příchozí zprávy pomocí kteréhokoliv portu, a to i v případě, že je tento port zakázán pomocí jiného nastavení zásad (například pomocí nastavení zásad Brána Windows firewall: Nastavit výjimky portů pro příchozí spojení). Pokud chcete zobrazit seznam programů, povolte nastavení této zásady a klikněte na tlačítko Zobrazit. Pokud chcete na seznam přidat program, povolte nastavení této zásady, poznamenejte si syntaxi a klikněte na tlačítko Zobrazit. V dialogovém okně Zobrazit obsah zadejte definiční řetězec podle této syntaxe. Pokud chcete program ze seznamu odebrat, klikněte na příslušnou definici a potom stiskněte klávesu Delete. Pokud chcete definici upravit, odeberte stávající definici ze seznamu a přidejte novou definici s novými parametry. Pokud chcete správcům povolit přidávat programy na místní seznam výjimek pomocí ovládacího panelu Brána Windows firewall, musíte povolit také nastavení zásad Brána Windows firewall: Povolit výjimky místních programů.
+
+Pokud nastavení této zásady zakážete, seznam výjimek programů definovaný zásadami skupiny bude smazán. Pokud existuje seznam výjimek místních programů, bude ignorován, pokud nepovolíte také nastavení zásad Brána Windows firewall: Povolit výjimky místních programů.
+
+Pokud nastavení této zásady nenakonfigurujete, brána Windows firewall použije pouze místní seznam výjimek programů nadefinovaný pomocí ovládacího panelu Brána Windows firewall.
+
+Poznámka: Pokud zadáte neplatný definiční řetězec, brána Windows firewall do seznamu přidá bez kontroly chyb. Díky tomu je možné na seznam přidat programy, které ještě nebyly nainstalovány. Mějte však na paměti, že také můžete omylem zadat více položek pro stejný program s konfliktními hodnotami Obor nebo Stav. V případě vícenásobných položek jsou parametry oboru kombinovány.
+
+Poznámka: Pokud nastavíte parametr Stav v řetězci definice na hodnotu Zakázáno, brána Windows firewall bude ignorovat požadavky na port pro tento program a jiné definice, které by stav tohoto programu změnily na hodnotu Povoleno. Pokud nastavíte parametr Stav na hodnotu Zakázáno, neumožníte správcům povolit další porty pro tento program v bráně Windows firewall. I v případě, že je nastavena hodnota Povoleno, však program bude moci přijímat nevyžádané příchozí zprávy pomocí portů, které jsou otevřeny pomocí jiného nastavení zásad.
+
+Poznámka: Brána Windows firewall otevře pro daný program port pouze v případě, že je program spuštěn a je ve stavu příjmu příchozích zpráv. Pokud program není spuštěn nebo není ve stavu příjmu příchozích zpráv, brána Windows firewall porty neotevře.</string>
+      <string id="WF_AllowedPrograms_Name">Brána Windows Firewall: Nastavit výjimky programů pro příchozí spojení</string>
+      <string id="WF_AllowedProgramsLocal_Help">Umožňuje správcům nastavit místní seznam výjimek pomocí ovládacího panelu Brána Windows firewall. Brána Windows firewall používá dva seznamy výjimek programů. Druhý z nich je definován nastavením zásad Brána Windows firewall: Nastavit výjimky programů pro příchozí spojení.
+
+Pokud nastavení této zásady povolíte, místní správci budou moci definovat místní seznam výjimek programů pomocí ovládacího panelu Brána Windows firewall.
+
+Pokud nastavení této zásady zakážete, správci nebudou moci definovat místní seznam výjimek programů pomocí ovládacího panelu Brána Windows firewall. Místní správci však budou moci vytvořit pravidla brány firewall v modulu Brána Windows firewall s pokročilým zabezpečením. Pokud chcete zabránit použití všech pravidel vytvořených v místním počítači, použijte modul Editor objektů – Zásady skupiny a v zásadách Konfigurace počítače\Nastavení systému Windows\Nastavení zabezpečení\Brána Windows firewall s pokročilým zabezpečením nakonfigurujte, že se nemají používat místní pravidla.</string>
+      <string id="WF_AllowedProgramsLocal_Name">Brána Windows Firewall: Povolit výjimky místních programů</string>
+      <string id="WF_AuthenticatedBypass_Help">Umožňuje příjem nevyžádaných příchozích zpráv z určených systémů ověřených přenosem IPSec.
+
+Pokud toto nastavení povolíte, musíte zadat popisovač zabezpečení se seznamem počítačů nebo skupin počítačů. Pokud je počítač v seznamu ověřen pomocí protokolu IPSec, brána Windows Firewall nebude blokovat z něj přicházející nevyžádané zprávy. Nastavení této zásady přepíše nastavení jiných zásad, které by tyto zprávy blokovaly.
+
+Pokud toto nastavení zakážete nebo nenakonfigurujete, brána Windows Firewall nebude pro zprávy odesílané z počítačů ověřených pomocí protokolu IPSec používat žádné výjimky. Pokud toto nastavení povolíte a přidáte systémy na seznam, po zakázání této zásady smaže brána Windows Firewall tento seznam.
+
+Poznámka: Položky v tomto seznamu jsou definovány pomocí jazyka SDDL (Security Descriptor Definition Language). Další informace o formátu zápisu v jazyce SDDL naleznete na webu společnosti Microsoft na adrese http://go.microsoft.com/fwlink/?LinkId=25131.</string>
+      <string id="WF_AuthenticatedBypass_Name">Brána Windows firewall: Povolit vynechání počítačů ověřených protokolem IPSec</string>
+      <string id="WF_Category">Brána Windows Firewall</string>
+      <string id="WF_EnableFirewall_Help">Zapíná bránu Windows Firewall.
+
+Pokud toto nastavení povolíte, brána Windows Firewall bude spuštěna bez ohledu na nastavení zásad Konfigurace počítače/Šablony pro správu/Síť/Síťová připojení/Zakázat používání brány firewall pro připojení k Internetu v síťové doméně DNS.
+
+Pokud toto nastavení zakážete, bránu Windows Firewall nebude možné spustit. Toto je jediný způsob, jak zabránit spuštění brány Windows Firewall. Nemůže ji spustit ani přihlášený místní správce počítače.
+
+Pokud toto nastavení nenakonfigurujete, správci mohou bránu Windows Firewall zapnout nebo vypnout pomocí ovládacího panelu Brána Windows Firewall, pokud není toto nastavení přepsáno nastavením zásad Zakázat používání brány firewall pro připojení k Internetu v síťové doméně DNS.</string>
+      <string id="WF_EnableFirewall_Name">Brána Windows Firewall: Chránit všechna síťová připojení</string>
+      <string id="WF_EnableShield_Help">Definuje, zda má brána Windows firewall blokovat všechny nevyžádané příchozí zprávy. Nastavení této zásady přepíše všechna ostatní nastavení zásad brány Windows firewall, která by příjem takových zpráv povolovala.
+
+Pokud nastavení této zásady povolíte, na ovládacím panelu Brána Windows firewall bude zaškrtnuto políčko Blokovat všechna příchozí připojení a jeho zaškrtnutí nebude možné zrušit. Měli byste povolit také nastavení zásad Brána Windows firewall: Chránit všechna síťová připojení, jinak mohou místně přihlášení správci obejít nastavení zásad Brána Windows firewall: Nepovolit výjimky vypnutím brány firewall.
+
+Pokud nastavení této zásady zakážete, brána Windows firewall použije jiná nastavení zásad, která povolují nevyžádané příchozí zprávy. Na ovládacím panelu Brána Windows firewall bude zrušeno zaškrtnutí políčka Blokovat všechna příchozí připojení a správci jej nebudou moci zaškrtnout.
+
+Pokud nastavení této zásady nenakonfigurujete, brána Windows firewall použije jiná nastavení zásad, která povolují nevyžádané příchozí zprávy. Na ovládacím panelu Brána Windows firewall bude zrušeno zaškrtnutí políčka Blokovat všechna příchozí připojení, ale správci jej budou moci zaškrtnout.</string>
+      <string id="WF_EnableShield_Name">Brána Windows Firewall: Nepovolit výjimky</string>
+      <string id="WF_FileAndPrint_Help">Povoluje sdílení souborů a tiskáren pro příchozí spojení. Brána Windows Firewall za tímto účelem otevře porty UDP 137 a 138 a porty TCP 139 a 445.
+
+Pokud toto nastavení povolíte, otevře Brána Windows Firewall tyto porty, aby mohl počítač přijímat tiskové úlohy a získat přístup ke sdíleným souborům. Musíte zadat adresu IP nebo adresu podsítě, ze které bude povoleno přijímat zprávy. Na ovládacím panelu Brána Windows Firewall bude zaškrtnuto políčko Sdílení souborů a tiskáren a správce nebude moci zaškrtnutí políčka zrušit.
+
+Pokud toto nastavení zakážete, brána Windows Firewall zablokuje tyto porty a neumožní tak sdílení souborů a tiskáren. Pokud se správce pokusí otevřít některý z těchto portů přidáním portu na místní seznam výjimek portů, brána Windows Firewall port neotevře. Na ovládacím panelu Brána Windows Firewall bude zrušeno zaškrtnutí políčka Sdílení souborů a tiskáren a správce nebude moci políčko zaškrtnout.
+
+Pokud toto nastavení nenakonfigurujete, brána Windows Firewall tyto porty neotevře. Počítač tak nebude moci sdílet soubory ani tiskárny, pokud nebudou porty otevřeny správcem pomocí jiných nastavení zásad. Na ovládacím panelu Brána Windows Firewall bude zrušeno zaškrtnutí políčka Sdílení souborů a tiskáren. Správci budou moci zaškrtnutí změnit.
+
+Poznámka: Pokud jiná zásada otevře port TCP 445, bude povolen příjem požadavků na ozvěnu ICMP (zaslaných pomocí příkazu Ping), a to i v případě, že jsou pomocí zásady Brána Windows Firewall: Povolit výjimky protokolu ICMP blokovány. Port TCP 445 může být otevřen například pomocí nastavení zásad Brána Windows Firewall: Povolit výjimku pro sdílení souborů a tiskáren pro příchozí spojení, Brána Windows Firewall: Povolit výjimku pro vzdálenou správu pro příchozí spojení a Brána Windows Firewall: Nastavit výjimky portů pro příchozí spojení.</string>
+      <string id="WF_FileAndPrint_Name">Brána Windows Firewall: Povolit výjimku pro sdílení souborů a tiskáren pro příchozí spojení</string>
+      <string id="WF_IcmpSettings_Help">Definuje sadu typů povolených zpráv protokolu ICMP (Internet Control Message Protocol) pro bránu Windows Firewall. Nástroje mohou používat zprávy protokolu ICMP ke zjišťování stavu jiných počítačů. Například příkaz Ping používá zprávu s požadavkem na ozvěnu. Pokud nepovolíte typ zprávy Povolit příchozí ozvěny, brána Windows Firewall bude blokovat požadavek na ozvěnu odeslaný příkazem Ping z jiných počítačů, ale nebude blokovat požadavek na ozvěnu odeslaný příkazem Ping z tohoto počítače.
+
+Pokud toto nastavení povolíte, musíte určit typy zpráv protokolu ICMP, které brána Windows Firewall umožní z tohoto počítače odesílat nebo přijímat.
+
+Pokud toto nastavení zakážete, bude brána Windows Firewall blokovat všechny příchozí a odchozí zprávy ICMP uvedené v seznamu. Nástroje využívající blokované zprávy protokolu ICMP je tak nebudou moci přijímat ani odesílat. Pokud toto nastavení povolíte a povolíte určité typy zpráv, při pozdějším zakázání tohoto nastavení zásad odstraní brána Windows Firewall seznam typů zpráv, které jste povolili.
+
+Pokud toto nastavení nenakonfigurujete, bude se brána Windows Firewall chovat tak, jako byste je zakázali.
+
+Poznámka: Pokud některé nastavení zásad povolí port TCP 445, brána Windows Firewall povolí příchozí požadavky na ozvěnu i v případě, že by byly pomocí nastavení zásad Brána Windows Firewall: Povolit výjimky protokolu ICMP blokovány. Port TCP 445 může být otevřen například pomocí zásad Brána Windows Firewall: Povolit výjimku pro sdílení souborů a tiskáren, Brána Windows firewall: Povolit výjimku pro vzdálenou správu a Brána Windows Firewall: Nastavit výjimky portů pro příchozí spojení.
+
+Poznámka: Ostatní nastavení zásad brány Windows Firewall ovlivňují pouze příchozí zprávy, ale některé možnosti nastavení zásad Brána Windows Firewall: Povolit výjimky protokolu ICMP ovlivňují i odchozí komunikaci.</string>
+      <string id="WF_IcmpSettings_Name">Brána Windows Firewall: Povolit výjimky protokolu ICMP</string>
+      <string id="WF_Logging_Help">Umožňuje bráně Windows Firewall ukládat informace o přijatých nevyžádaných příchozích zprávách.
+
+Pokud toto nastavení povolíte, brána Windows Firewall bude tyto informace zapisovat do souboru protokolu. Musíte zadat název, umístění a maximální velikost souboru protokolu. Součástí umístění mohou být proměnné prostředí. Musíte také určit, zda chcete zaznamenávat informace o příchozích zprávách, které zablokovala brána firewall, a informace o úspěšných příchozích a odchozích připojeních. Brána Windows Firewall neumožňuje zapisovat do protokolu informace o úspěšných příchozích zprávách.
+
+Jestliže konfigurujete název souboru protokolu, zajistěte, aby měl účet služby Windows Firewall oprávnění k zápisu ve složce obsahující soubor protokolu. Výchozí cesta souboru protokolu je %systemroot%\system32\LogFiles\Firewall\pfirewall.log.
+
+Pokud toto nastavení zakážete, brána Windows Firewall nebude protokolovat žádné informace. Pokud toto nastavení povolíte a brána Windows Firewall vytvoří soubor protokolu, do kterého budou zapsány informace, a později nastavení zásad zakážete, tento soubor zůstane nezměněn.
+
+Pokud toto nastavení nenakonfigurujete, bude výchozí chování stejné, jako by bylo toto nastavení zakázáno.
+
+</string>
+      <string id="WF_Logging_Name">Brána Windows Firewall: Povolit protokolování</string>
+      <string id="WF_Notifications_Help">Zabraňuje bráně Windows Firewall v zobrazování upozornění v případě, že některý program požádá o přidání na seznam výjimek programů.
+
+Pokud toto nastavení povolíte, brána Windows Firewall nebude tato upozornění zobrazovat.
+
+Pokud toto nastavení zakážete, brána Windows Firewall bude tato upozornění zobrazovat. V ovládacím panelu Brána Windows Firewall bude zaškrtnuto políčko Upozorňovat na zablokování nového programu bránou Windows Firewall a nebude možné jeho zaškrtnutí zrušit.
+
+Pokud toto nastavení nenakonfigurujete, bude výchozí chování stejné jako v případě zakázání tohoto nastavení zásad, ale správci budou moci změnit výchozí zaškrtnutí políčka Upozorňovat na zablokování nového programu bránou Windows Firewall na ovládacím panelu Brána Windows Firewall.</string>
+      <string id="WF_Notifications_Name">Brána Windows Firewall: Zakázat upozorňování</string>
+      <string id="WF_OpenPorts_Help">Umožňuje zobrazit a změnit seznam výjimek příchozích portů určený zásadou skupiny. Brána Windows Firewall používá dva seznamy výjimek portů: jeden je určen nastavením zásady skupiny a druhý je určen na ovládacím panelu Brána Windows Firewall.
+
+Pokud toto nastavení povolíte, můžete zobrazit a změnit seznam příchozích portů určený pomocí zásady skupiny. Pokud chcete zobrazit seznam výjimek portů, povolte toto nastavení a klikněte na tlačítko Zobrazit. Pokud chcete přidat port na seznam, povolte toto nastavení, poznamenejte si syntaxi a klikněte na tlačítko Zobrazit. V dialogovém okně Zobrazit obsah zadejte řetězec definice podle této syntaxe. Pokud chcete port ze seznamu odebrat, klikněte na jeho definici a stiskněte klávesu Delete. Pokud chcete definici upravit, odeberte stávající definici ze seznamu a přidejte novou s jinými parametry. Pokud chcete povolit správcům přidávat porty na místní seznam výjimek portů pomocí ovládacího panelu Brána Windows Firewall, je třeba také povolit nastavení zásad Brána Windows Firewall: Povolit místní výjimky portů.
+
+Pokud toto nastavení zakážete, seznam výjimek portů určený zásadou skupiny bude odstraněn, ale porty bude možné blokovat nebo otevírat pomocí jiného nastavení zásad. Pokud existuje místní seznam výjimek portů, bude ignorován, kromě případu, kdy povolíte také nastavení zásad Brána Windows Firewall: Povolit výjimky místních programů.
+
+Pokud toto nastavení nenakonfigurujete, brána Windows Firewall použije pouze místní seznam výjimek portů nadefinovaný pomocí ovládacího panelu Brána Windows Firewall. Bude možné porty otevírat a blokovat pomocí jiného nastavení zásad.
+
+Poznámka: Pokud zadáte neplatný řetězec definice, bude přidán na seznam bez kontroly chyb. Může se tak stát, že omylem přidáte na seznam více položek pro stejný port s konfliktním nastavením stavu nebo oboru. V případě duplicitních položek jsou parametry oboru kombinovány. Pokud mají položky různé hodnoty parametru Stav, hodnota Zakázáno přepíše všechny definice nastavené na hodnotu Povoleno a pomocí daného portu nebude možné přijímat příchozí zprávy. Pomocí nastavení stavu portu na hodnotu Zakázáno je tak možné zabránit správcům v otevření portu pomocí ovládacího panelu Brána Windows Firewall.
+
+Poznámka: Jediný efekt nastavení stavu na hodnotu Zakázáno je ten, že budou ignorovány ostatní definice pro daný port, které nastavují stav na hodnotu Povoleno. Port lze v bráně Windows Firewall otevřít pomocí jiného nastavení zásad nebo přidáním programu, který port otevírá, na seznam výjimek programů v bráně Windows Firewall.
+
+Poznámka: Pokud jakékoli nastavení zásad otevře port TCP 445, bude povolen příjem požadavků na ozvěnu ICMP (zaslaných pomocí příkazu Ping), a to i v případě, že jsou pomocí nastavení zásad Brána Windows Firewall: Povolit výjimky protokolu ICMP blokovány. Port TCP 445 může být otevřen například pomocí nastavení zásad Brána Windows Firewall: Povolit výjimku pro sdílení souborů a tiskáren pro příchozí spojení, Brána Windows firewall: Povolit výjimku pro vzdálenou správu pro příchozí spojení a Brána Windows Firewall: Nastavit výjimky portů pro příchozí spojení.</string>
+      <string id="WF_OpenPorts_Name">Brána Windows Firewall: Nastavit výjimky portů pro příchozí spojení</string>
+      <string id="WF_OpenPortsLocal_Help">Umožňuje správcům pomocí součásti Brána Windows Firewall v Ovládacích panelech definovat seznam výjimek místních portů. Brána Windows Firewall využívá dva seznamy výjimek portů; druhý je definován nastavením zásady Brána Windows Firewall: Nastavit výjimky portů pro příchozí spojení.
+
+Pokud nastavení této zásady povolíte, budou moci správci pomocí součásti Brána Windows Firewall v Ovládacích panelech definovat seznam výjimek místních portů.
+
+Pokud nastavení této zásady zakážete, nebudou moci správci pomocí součásti Brána Windows Firewall v Ovládacích panelech definovat seznam výjimek místních portů. Místní správci však budou moci vytvořit pravidla brány firewall v modulu snap-in Brána Windows Firewall s pokročilým zabezpečením. Pokud chcete zabránit aplikování všech místně vytvořených pravidel, použijte modul snap-in Editor objektů Zásady skupiny a nakonfigurováním nastavení Konfigurace počítače\Nastavení systému Windows\Nastavení zabezpečení\Brána Windows Firewall s pokročilým zabezpečením zadejte, že nemají aplikována místní pravidla brány.</string>
+      <string id="WF_OpenPortsLocal_Name">Brána Windows Firewall: Povolit výjimky místních programů</string>
+      <string id="WF_Profile_Domain">Profil domény</string>
+      <string id="WF_Profile_Standard">Standardní profil</string>
+      <string id="WF_RemoteAdmin_Help">Umožňuje vzdálenou správu počítače pomocí nástrojů pro správu (např. pomocí konzoly pro správu nebo technologie Windows Management Instrumentation). Pro tyto účely brána Windows Firewall otevře porty TCP 135 a 445. Tyto porty jsou většinou používány ke komunikaci pomocí vzdáleného volání procedur (RPC) a technologie DCOM (Distributed Component Object Model). Dále v systémech Windows XP Professional s aktualizací SP2 a novější a v systémech Windows Server 2003 s aktualizací SP1 a novější toto nastavení také umožňuje programům SVCHOST.EXE a LSASS.EXE přijímat nevyžádané příchozí zprávy a umožňuje hostovaným službám otevírat další dynamicky přiřazené porty, většinou v rozmezí 1024 až 1034. V systému Windows Vista toto nastavení neřídí připojení k programům SVCHOST.EXE a LSASS.EXE.
+
+Pokud toto nastavení povolíte, počítač bude moci přijímat nevyžádané zprávy spojené se vzdálenou správou. Musíte zadat adresu IP nebo podsítě, ze které bude povoleno přijímat zprávy.
+
+Pokud toto nastavení zakážete nebo nenakonfigurujete, brána Windows Firewall neotevře port TCP 135 ani 445. V systémech Windows XP Professional s aktualizací SP2 a novější a v systémech Windows Server 2003 s aktualizací SP1 a novější brána Windows Firewall zabrání programům SVCHOST.EXE a LSASS.EXE přijímat nevyžádané zprávy a zabrání hostovaným službám otevírat další dynamicky přiřazené porty. Protože zakázání tohoto nastavení zásad neblokuje port TCP 445, toto nastavení nekoliduje s nastavením zásad Brána Windows Firewall: Povolit výjimku pro sdílení souborů a tiskáren.
+
+Poznámka: Uživatelé se zlými úmysly se často snaží napadnout sítě a počítače pomocí protokolů RPC a DCOM. Doporučujeme obrátit se na výrobce důležitých programů a zjistit, zda jsou hostovány pomocí programů SVCHOST.exe nebo LSASS.exe, či zda vyžadují ke komunikaci protokoly RPC a DCOM. Pokud tomu tak není, nepovolujte toto nastavení.
+
+Poznámka: Pokud jiné nastavení zásad otevře port TCP 445, bude povolen příjem požadavků na ozvěnu ICMP (zaslaných pomocí příkazu Ping), a to i v případě, že jsou pomocí nastavení zásad Brána Windows Firewall: Povolit výjimky protokolu ICMP blokovány. Port TCP 445 může být otevřen například pomocí nastavení zásad Brána Windows Firewall: Povolit výjimku pro sdílení souborů a tiskáren pro příchozí spojení, Brána Windows Firewall: Povolit výjimku pro vzdálenou správu pro příchozí spojení a Brána Windows Firewall: Nastavit výjimky portů pro příchozí spojení.</string>
+      <string id="WF_RemoteAdmin_Name">Brána Windows firewall: Povolit výjimku pro vzdálenou správu pro příchozí spojení </string>
+      <string id="WF_RemoteDesktop_Help">Umožňuje počítači přijímat požadavky Vzdálené plochy pro příchozí spojení. Za tímto účelem bude otevřen port TCP 3389.
+
+Pokud toto nastavení povolíte, otevře brána Windows Firewall tento port, aby mohl počítač přijímat požadavky Vzdálené plochy. Musíte zadat adresu IP nebo podsítě, ze které bude povoleno přijímat zprávy. V ovládacím panelu Brána Windows Firewall bude zaškrtnuto políčko Vzdálená plocha a nebude možné jeho zaškrtnutí zrušit.
+
+Pokud toto nastavení zakážete, brána Windows Firewall zablokuje tento port a neumožní tak příjem požadavků Vzdálené plochy. Pokud se správce pokusí otevřít tento port jeho přidáním na místní seznam výjimek portů, port nebude otevřen. V ovládacím panelu Brána Windows Firewall bude zrušeno zaškrtnutí políčka Vzdálená plocha a nebude možné je zaškrtnout.
+
+Pokud toto nastavení nenakonfigurujete, neotevře brána Windows Firewall tento port. Počítač tak nebude moci přijímat požadavky Vzdálené plochy, pokud nebude tento port otevřen správcem pomocí jiného nastavení zásad. V ovládacím panelu Brána Windows Firewall bude zrušeno zaškrtnutí políčka Vzdálená plocha. Správci budou moci zaškrtnutí změnit.</string>
+      <string id="WF_RemoteDesktop_Name">Brána Windows Firewall: Povolit výjimky pro vzdálenou pracovní plochu pro příchozí spojení</string>
+      <string id="WF_UnicastResponseToMulticast_Help">Zabraňuje počítači v přijímání odpovědí jednosměrového vysílání na odchozí požadavky vícesměrového nebo všesměrového vysílání.‎
+
+Pokud toto nastavení povolíte a počítač odešle zprávu vícesměrového nebo všesměrového vysílání ostatním počítačům, zablokuje brána Windows Firewall příchozí odpovědi jednosměrového vysílání z těchto počítačů.
+
+Pokud toto nastavení zakážete nebo nenakonfigurujete a počítač odešle zprávu vícesměrového nebo všesměrového vysílání ostatním počítačům, brána Windows Firewall bude čekat 3 vteřiny na odpověď jednosměrového vysílání. Pozdější odpovědi budou blokovány.
+
+Poznámka: Nastavení této zásady nemá vliv na odpovědi na zprávu všesměrového vysílání DHCP (Dynamic Host Configuration Protocol) odeslanou tímto počítačem. Brána Windows Firewall vždy povolí takovéto jednosměrové odpovědi DHCP. Nastavení této zásady však může ovlivnit zprávy na zjištění konfliktu názvů, zaslané pomocí protokolu NetBIOS.</string>
+      <string id="WF_UnicastResponseToMulticast_Name">Brána Windows Firewall: Zakázat odpovědi jednosměrového vysílání na požadavky vícesměrového a všesměrového vysílání</string>
+      <string id="WF_UniversalPlugAndPlay_Help">Umožňuje počítači příjem nevyžádaných příchozích zpráv technologie Plug and Play zaslané síťovými zařízeními (např. směrovače se zabudovanou bránou firewall). Brána Windows Firewall za tímto účelem otevře porty TCP 2869 a UDP 1900.
+
+Pokud toto nastavení povolíte, brána Windows Firewall otevře tyto porty a umožní tak počítači příjem zpráv technologie Plug and Play. Musíte zadat adresu IP nebo podsítě, ze které bude povoleno přijímat zprávy. V ovládacím panelu Brána Windows Firewall bude zaškrtnuto políčko Architektura UPnP a správce nebude moci jeho zaškrtnutí zrušit.
+
+Pokud toto nastavení zakážete, brána Windows Firewall zablokuje tyto porty a neumožní tak příjem zpráv technologie Plug and Play. Pokud se správce pokusí otevřít tyto porty přidáním portu na místní seznam výjimek portů, brána Windows Firewall porty neotevře. V ovládacím panelu Brána Windows Firewall bude zrušeno zaškrtnutí políčka Architektura UPnP a správce jej nebude moci zaškrtnout.
+
+Pokud toto nastavení nenakonfigurujete, nepovolí brána Windows Firewall tyto porty. Počítač tak nebude moci přijímat zprávy technologie Plug and Play, pokud správce nepovolí požadované porty nebo programy pomocí jiného nastavení zásad. V ovládacím panelu Brána Windows Firewall bude zrušeno zaškrtnutí políčka Architektura UPnP. Správci budou moci zaškrtnutí změnit.</string>
+      <string id="WF_UniversalPlugAndPlay_Name">Brána Windows Firewall: Povolit výjimky pro architekturu UPnP pro příchozí spojení</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="WF_AllowedPrograms_Name_1">
+        <listBox refId="WF_AllowedPrograms_Show">Nastavit výjimky programů:</listBox>
+        <text>Určete program, který má být povolen nebo zakázán.</text>
+        <text>Syntaxe:</text>
+        <text>  &lt;Cesta&gt;:&lt;Obor&gt;:&lt;Stav&gt;:&lt;Název&gt;</text>
+        <text>    &lt;Cesta&gt; je cesta a název souboru programu.</text>
+        <text>    &lt;Obor&gt; je buď * (pro všechny sítě), nebo</text>
+        <text>      seznam oddělený čárkami obsahující</text>
+        <text>      jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>        IP adresy, například 10.0.0.1,</text>
+        <text>        popisy podsítě, například 10.2.3.0/24,</text>
+        <text>        řetězec localsubnet.</text>
+        <text>    &lt;Stav&gt; je buď povoleno, nebo zakázáno.</text>
+        <text>    &lt;Název&gt; je textový řetězec.</text>
+        <text>Příklad:</text>
+        <text>Následující definice přidá program</text>
+        <text>TEST.EXE na seznam výjimek programů</text>
+        <text>a umožní příjem zpráv z počítače 10.0.0.1</text>
+        <text>a z kteréhokoliv počítače v podsíti 10.3.4.x:</text>
+        <text>  %programfiles%\test.exe:10.0.0.1,10.3.4.0/24:povoleno:Test programu</text>
+      </presentation>
+      <presentation id="WF_AllowedPrograms_Name_2">
+        <listBox refId="WF_AllowedPrograms_Show">Nastavit výjimky programů:</listBox>
+        <text>Určete program, který má být povolen nebo zakázán.</text>
+        <text>Syntaxe:</text>
+        <text>  &lt;Cesta&gt;:&lt;Obor&gt;:&lt;Stav&gt;:&lt;Název&gt;</text>
+        <text>    &lt;Cesta&gt; je cesta a název souboru programu.</text>
+        <text>    &lt;Obor&gt; je buď * (pro všechny sítě), nebo</text>
+        <text>      seznam oddělený čárkami obsahující</text>
+        <text>      jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>        IP adresy, například 10.0.0.1,</text>
+        <text>        popisy podsítě, například 10.2.3.0/24,</text>
+        <text>        řetězec localsubnet.</text>
+        <text>    &lt;Stav&gt; je buď povoleno, nebo zakázáno.</text>
+        <text>    &lt;Název&gt; je textový řetězec.</text>
+        <text>Příklad:</text>
+        <text>Následující definice přidá program</text>
+        <text>TEST.EXE na seznam výjimek programů</text>
+        <text>a umožní příjem zpráv z počítače 10.0.0.1</text>
+        <text>a z kteréhokoliv počítače v podsíti 10.3.4.x:</text>
+        <text>  %programfiles%\test.exe:10.0.0.1,10.3.4.0/24:povoleno:Test programu</text>
+      </presentation>
+      <presentation id="WF_AuthenticatedBypass_Name">
+        <textBox refId="WF_AuthenticatedBypass_List_Name">
+          <label>Určete seznam členů IPSec, pro které bude vytvořena výjimka ze zásad brány firewall:</label>
+        </textBox>
+        <text>Určete člena IPSec, pro který má být nastavena výjimka</text>
+        <text>pomocí řetězce SDDL.</text>
+        <text>Syntaxe:</text>
+        <text>  O:&lt;SID_vlastníka&gt;G:&lt;SID_skupiny&gt;D:&lt;příznaky_DACL&gt;</text>
+        <text>    &lt;SID_vlastníka&gt; je popisovač zabezpečení vlastníka.</text>
+        <text>    &lt;SID_skupiny&gt; je popisovač zabezpečení skupiny.</text>
+        <text>    &lt;Příznaky_DACL&gt; je seznam položek řízení přístupu (ACE).</text>
+        <text>Příklad:</text>
+        <text>  O:DAG:DAD:(A;;RCGW;;;S-1-5-21-2157571284-1609012320)</text>
+      </presentation>
+      <presentation id="WF_FileAndPrint_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_FileAndPrint_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_IcmpSettings_Name_1">
+        <checkBox refId="WF_IcmpSettings_AllowOutboundDestinationUnreachable">Povolit zprávu Nedosažitelný odchozí cíl</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundSourceQuench">Povolit zpomalení odchozích dat zdroje</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowRedirect">Povolit přesměrování</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundEchoRequest">Povolit příchozí ozvěny</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundRouterRequest">Povolit příchozí dotazy na směrování</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundTimeExceeded">Povolit zprávu Vypršel odchozí časový limit</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundParameterProblem">Povolit zprávu Chyba odchozího parametru</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundTimestampRequest">Povolit časová razítka příchozích požadavků</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundMaskRequest">Povolit příchozí dotazy na masku</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundPacketTooBig">Povolit zprávu Příliš veliký odchozí paket</checkBox>
+      </presentation>
+      <presentation id="WF_IcmpSettings_Name_2">
+        <checkBox refId="WF_IcmpSettings_AllowOutboundDestinationUnreachable">Povolit zprávu Nedosažitelný odchozí cíl</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundSourceQuench">Povolit zpomalení odchozích dat zdroje</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowRedirect">Povolit přesměrování</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundEchoRequest">Povolit příchozí ozvěny</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundRouterRequest">Povolit příchozí dotazy na směrování</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundTimeExceeded">Povolit zprávu Vypršel odchozí časový limit</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundParameterProblem">Povolit zprávu Chyba odchozího parametru</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundTimestampRequest">Povolit časová razítka příchozích požadavků</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowInboundMaskRequest">Povolit příchozí dotazy na masku</checkBox>
+        <checkBox refId="WF_IcmpSettings_AllowOutboundPacketTooBig">Povolit zprávu Příliš veliký odchozí paket</checkBox>
+      </presentation>
+      <presentation id="WF_Logging_Name_1">
+        <checkBox refId="WF_Logging_LogDroppedPackets">Protokolovat vyřazené pakety</checkBox>
+        <checkBox refId="WF_Logging_LogSuccessfulConnections">Protokolovat úspěšná připojení</checkBox>
+        <textBox refId="WF_Logging_LogFilePathAndName">
+          <label>Název a cesta k souboru protokolu:</label>
+          <defaultValue>%systemroot%\system32\LogFiles\Firewall\pfirewall.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="WF_Logging_SizeLimit" defaultValue="4096" spinStep="128">Maximální velikost (kB):</decimalTextBox>
+      </presentation>
+      <presentation id="WF_Logging_Name_2">
+        <checkBox refId="WF_Logging_LogDroppedPackets">Protokolovat vyřazené pakety</checkBox>
+        <checkBox refId="WF_Logging_LogSuccessfulConnections">Protokolovat úspěšná připojení</checkBox>
+        <textBox refId="WF_Logging_LogFilePathAndName">
+          <label>Název a cesta k souboru protokolu:</label>
+          <defaultValue>%systemroot%\system32\LogFiles\Firewall\pfirewall.log</defaultValue>
+        </textBox>
+        <decimalTextBox refId="WF_Logging_SizeLimit" defaultValue="4096" spinStep="128">Maximální velikost (kB):</decimalTextBox>
+      </presentation>
+      <presentation id="WF_OpenPorts_Name_1">
+        <listBox refId="WF_OpenPorts_Show">Nastavit výjimky portů:</listBox>
+        <text>Určete port, který má být povolen nebo zakázán.</text>
+        <text>Syntaxe:</text>
+        <text>  &lt;Port&gt;:&lt;Transport&gt;:&lt;Obor&gt;:&lt;Stav&gt;:&lt;Název&gt;</text>
+        <text>    &lt;Port&gt; je číslo portu v desítkové soustavě.</text>
+        <text>    &lt;Přenos&gt; je buď TCP, nebo UDP.</text>
+        <text>    &lt;Obor&gt; je buď * (pro všechny sítě), nebo</text>
+        <text>      seznam oddělený čárkami obsahující</text>
+        <text>      jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>        IP adresy, například 10.0.0.1,</text>
+        <text>        popisy podsítě, například 10.2.3.0/24,</text>
+        <text>        řetězec localsubnet.</text>
+        <text>    &lt;Stav&gt; je buď povoleno, nebo zakázáno.</text>
+        <text>    &lt;Název&gt; je textový řetězec.</text>
+        <text>Příklad:</text>
+        <text>Následující definice přidá port TCP 80</text>
+        <text>na seznam výjimek portů a umožní příjem</text>
+        <text>zpráv z počítačů 10.0.0.1, 10.0.0.2</text>
+        <text>a z kteréhokoliv počítače v podsíti 10.3.4.x:</text>
+        <text>  80:TCP:10.0.0.1,10.0.0.2,10.3.4.0/24:povoleno:Webová služba</text>
+      </presentation>
+      <presentation id="WF_OpenPorts_Name_2">
+        <listBox refId="WF_OpenPorts_Show">Nastavit výjimky portů:</listBox>
+        <text>Určete port, který má být povolen nebo zakázán.</text>
+        <text>Syntaxe:</text>
+        <text>  &lt;Port&gt;:&lt;Transport&gt;:&lt;Obor&gt;:&lt;Stav&gt;:&lt;Název&gt;</text>
+        <text>    &lt;Port&gt; je číslo portu v desítkové soustavě.</text>
+        <text>    &lt;Přenos&gt; je buď TCP, nebo UDP.</text>
+        <text>    &lt;Obor&gt; je buď * (pro všechny sítě), nebo</text>
+        <text>      seznam oddělený čárkami obsahující</text>
+        <text>      jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>        IP adresy, například 10.0.0.1,</text>
+        <text>        popisy podsítě, například 10.2.3.0/24,</text>
+        <text>        řetězec localsubnet.</text>
+        <text>    &lt;Stav&gt; je buď povoleno, nebo zakázáno.</text>
+        <text>    &lt;Název&gt; je textový řetězec.</text>
+        <text>Příklad:</text>
+        <text>Následující definice přidá port TCP 80</text>
+        <text>na seznam výjimek portů a umožní příjem</text>
+        <text>zpráv z počítačů 10.0.0.1, 10.0.0.2</text>
+        <text>a z kteréhokoliv počítače v podsíti 10.3.4.x:</text>
+        <text>  80:TCP:10.0.0.1,10.0.0.2,10.3.4.0/24:povoleno:Webová služba</text>
+      </presentation>
+      <presentation id="WF_RemoteAdmin_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_RemoteAdmin_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_RemoteDesktop_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_RemoteDesktop_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_UniversalPlugAndPlay_Name_1">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+      <presentation id="WF_UniversalPlugAndPlay_Name_2">
+        <textBox refId="WF_Scope_Name">
+          <label>Povolit přijímání nevyžádaných příchozích zpráv z těchto adres IP:</label>
+        </textBox>
+        <text>Syntaxe:</text>
+        <text>Pomocí hodnoty * umožníte příjem zpráv ze všech sítí.</text>
+        <text>Můžete také zadat čárkami oddělený seznam obsahující</text>
+        <text>jakýkoliv počet či kombinaci těchto záznamů:</text>
+        <text>   IP adresy, například 10.0.0.1,</text>
+        <text>   popisy podsítě, například 10.2.3.0/24,</text>
+        <text>   řetězec localsubnet.</text>
+        <text>Příklad: Chcete-li povolit zprávy z počítačů 10.0.0.1,</text>
+        <text>10.0.0.2 a z kteréhokoliv počítače</text>
+        <text>v místní podsíti a podsíti 10.3.4.x,</text>
+        <text>zadejte do pole Povolit přijímání nevyžádaných </text>
+        <text>příchozích zpráv z těchto adres IP následující řetězec:</text>
+        <text>  10.0.0.1,10.0.0.2,localsubnet,10.3.4.0/24</text>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

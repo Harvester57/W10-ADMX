@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windows Enhetsskydd</displayName>
+  <description>Windows Enhetsskydd</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Enhetsskydd</string>
+      <string id="VirtualizationBasedSecurity">Aktivera virtualiseringsbaserad säkerhet</string>
+      <string id="VirtualizationBasedSecurityHelp">Anger om Virtualiseringsbaserad säkerhet är aktiverat.
+
+Virtualiseringsbaserad säkerhet använder Hypervisor-programmet i Windows för att ge stöd åt säkerhetstjänster. Virtualiseringsbaserad säkerhet kräver Säker start, och det kan aktiveras för att användas med DMA-skydd. För DMA-skydd krävs maskinvarustöd och det aktiveras endast på korrekt konfigurerade enheter.
+
+Virtualiseringsbaserat skydd för kodintegritet
+
+Den här inställningen aktiverar virtualiseringsbaserat skydd av kodintegritet i kernelläge. När den är aktiverad framtvingas minnesskydd i kernelläge, och sökvägen för kodintegritetsverifiering skyddas av den virtualiseringsbaserade säkerhetsfunktionen.
+
+Varning! Alla drivrutiner i systemet måste vara kompatibla med den här funktionen, annars kan systemet krascha. Se till att den här principinställningen endast distribueras på datorer som är kända för att vara kompatibla. 
+
+Autentiseringsskydd
+
+Med den här inställningen kan användare aktivera Autentiseringsskydd med virtualiseringsbaserad säkerhet för att bättre skydda autentiseringsuppgifter.
+
+Alternativet ”Inaktiverat” fjärrinaktiverar Autentiseringsskydd om det tidigare har aktiverats med alternativet ”Aktiverat utan lås”.
+
+Alternativet ”Aktiverat med UEFI-lås” gör att Autentiseringsskydd inte kan fjärrinaktiveras. Om du vill inaktivera den här funktionen måste du ange grupprincipen till inaktiverad och dessutom ta bort säkerhetsfunktionerna från varje dator med en fysiskt närvarande användare för att radera konfigurationen som har sparats i UEFI.
+
+Alternativet ”Aktiverat utan lås” gör att Autentiseringsskydd kan fjärrinaktiveras med hjälp av en grupprincip. Windows 10 (Version 1511) eller senare måste köras på de enheter som använder den här inställningen.
+      </string>
+      <string id="SecureBoot">Säker start</string>
+      <string id="SecureBootAndDmaProtection">Säker start och DMA-skydd</string>
+      <string id="Disabled">Inaktiverad</string>
+      <string id="Enabled">Aktiverad</string>
+      <string id="EnabledWithoutLock">Aktiverat utan lås</string>
+      <string id="EnabledWithUefiLock">Aktiverat med UEFI-lås</string>
+      <string id="ConfigCIPolicy">Distribuera kodintegritetsprincip</string>
+      <string id="ConfigCIPolicyHelp">Distribuera kodintegritetsprincip
+
+Med den här principinställningen kan du distribuera en kodintegritetsprincip till en dator för att reglera vad som tillåts köras på den datorn.
+
+Om du distribuerar en kodintegritetsprincip begränsar Windows vad som får köras både i kernelläge och i Windows-skrivbordsläge baserat på den här principen. Datorn måste startas om för att principen ska aktiveras. 
+
+Filsökvägen måste vara en UNC-sökväg (t.ex. \\servernamn\resursnamn\SIPolicy.p7b), eller en giltig lokal sökväg (t.ex. C:\mappnamn\SIPolicy.p7b). Det lokala datorkontot (LOKALT SYSTEM) måste ha åtkomstbehörighet till principfilen.
+ 
+Om en signerad och skyddad princip används tas inte funktionen bort från datorn när den här principinställningen inaktiveras. Du behöver göra något av följande för att ta bort den:
+
+   1) Ändra till en oskyddad princip och inaktivera därefter inställningen, eller
+   2) Inaktivera inställningen och ta bort principen från varje dator, där varje användare är fysiskt närvarande.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Välj säkerhetsnivå för plattform:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Aktivera virtualiseringsbaserat skydd för kodintegritet</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Konfiguration för autentiseringsskydd:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Sökväg till principfil för kodintegritet:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

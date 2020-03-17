@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Grupprincipinställningar för WWAN-tjänsten</displayName>
+  <description>Grupprincipinställningar för WWAN-tjänsten</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">WWAN-tjänsten</string>
+      <string id="NetworkCost_Category">WWAN-mediekostnad</string>
+      <string id="SetCost3G">Ange 3G-kostnad (Set 3G Cost)</string>
+      <string id="SetCost3G_Help">Med den här principinställningen konfigureras kostnaden för 3G-anslutningar på den lokala datorn.
+
+Om den här principinställningen är aktiverad är en listruta med möjliga kostnadsvärden aktiv.  Om ett av de fölande värdena i listan väljs ställs kostnaden för alla 3G-anslutningar på den lokala datorn in:
+
+- Obegränsat: Den här anslutningen får användas obegränsat och begränsas inte av förbrukningskostnader eller kapacitetsbegränsningar. 
+
+- Fast: Den här anslutningen är inte begränsad av förbrukningskostnader eller kapacitetsbegränsningar upp till en viss datagräns. 
+
+- Variabel: Den här anslutningen debiteras per byte.
+
+Om du inaktiverar eller inte konfigurerar den här principinställningen är kostnaden för 3G-anslutningar fast som standard.
+      
+      </string>
+      <string id="SetCost4G">Ange 4G-kostnad (Set 4G Cost)</string>
+      <string id="SetCost4G_Help">Med den här principinställningen konfigureras kostnaden för 4G-anslutningar på den lokala datorn.      
+
+Om den här principinställningen är aktiverad är en listruta med möjliga kostnadsvärden aktiv. Om ett av de fölande värdena i listan väljs ställs kostnaden för alla 4G-anslutningar på den lokala datorn in:
+
+- Obegränsat: Den här anslutningen får användas obegränsat och begränsas inte av förbrukningskostnader eller kapacitetsbegränsningar. 
+
+- Fast: Den här anslutningen är inte begränsad av förbrukningskostnader eller kapacitetsbegränsningar upp till en viss datagräns. 
+
+- Variabel: Den här anslutningen debiteras per byte.
+
+Om du inaktiverar eller inte konfigurerar den här principinställningen är kostnaden för 4G-anslutningar fast som standard.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Obegränsad</string>
+      <string id="Cost_DropDownList_Fixed">Fast</string>
+      <string id="Cost_DropDownList_Variable">Variabel</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Välj den kostnad för 3G-anslutning du vill ställa in (Please select a 3G connection cost value to set):</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Välj den kostnad för 4G-anslutning du vill ställa in (Please select a 4G connection cost value to set):</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

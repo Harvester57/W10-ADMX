@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<!-- 
+  Note that white space is preserved as is in the text shown in the Group Policy UI.
+  Don't add extra line breaks at the beginning and end of text strings,
+  and make sure that lines of text start in the FIRST column.
+  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>skriv inn visningsnavn her</displayName>
+  <description>skriv inn beskrivelse her</description>
+  <resources>
+    <stringTable>
+      <string id="WU_SUPPORTED_Windows7ToXPSP2">Windows 7, Windows Server 2008 R2, Windows Vista, Windows XP SP2</string>
+      <string id="WU_SUPPORTED_Windows7_To_Win2kSP3_Or_XPSP1">Windows 7, Windows Server 2008 R2, Windows Vista, Windows Server 2003, Windows XP SP2, Windows XP SP1 , Windows 2000 SP4, Windows 2000 SP3</string>
+      <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_NoWinRT">Minst Windows XP Professional Service Pack 1 eller Windows 2000 Service Pack 3, unntatt Windows RT</string>
+      <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Minst Windows Server 2003-operativsystemer eller Windows XP Professional med SP1, unntatt Windows RT</string>
+      <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Minst Windows XP Professional Service Pack 1, minst Windows 2000 Service Pack 3 til og med Windows 8.1, eller Windows Server 2012 R2 med den nyeste oppdateringspakken</string>
+      <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Minst Windows Vista til og med Windows 8.1, eller Windows Server 2012 R2 med den nyeste oppdateringspakken</string>
+      <string id="AUDontShowUasHelp">Denne policyen tillater at du kan velge om alternativet Installer oppdateringer og avslutt skal vises i dialogboksen Avslutt Windows.
+
+Hvis du aktiverer denne policyinnstillingen, vil ikke Installer oppdateringer og avslutt vises som et valg i dialogboksen Avslutt Windows, selv om oppdateringer er tilgjengelige for installasjon når brukeren velger alternativet Avslutt i Start-menyen.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vil Installer oppdateringer og avslutt vises som et valg i dialogboksen Avslutt Windows hvis oppdateringer er tilgjengelige for installasjon når brukeren velger alternativet Avslutt i Start-menyen.</string>
+      <string id="AUDontShowUasPolicy">Ikke vis alternativet Installer oppdateringer og avslutt i dialogboksen Avslutt Windows</string>
+      <string id="AUNoUasDefaultHelp_Mach">Med denne policyinnstillingen kan du angi om alternativet Installer oppdateringer og avslutt kan være standardvalg i dialogboksen Avslutt Windows.
+
+Hvis du aktiverer denne policyinnstillingen, blir brukerens siste avslutningsvalg (dvalemodus, start på nytt, etc.) standardvalget i dialogboksen Avslutt Windows, uavhengig om alternativet Installer oppdateringer og avslutt er tilgjengelig i listen 'Hva vil du at datamaskinen skal gjøre?'.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blir alternativet Installer oppdateringer og avslutt standardvalget i dialogboksen Avslutt Windows hvis oppdateringer er tilgjengelige på det tidspunktet brukeren velger avslutningsalternativet i Start-menyen.
+
+Denne policyinnstillingen har ingen virkning hvis alternativet Datamaskinkonfigurasjon\Administrative maler\Windows-komponenter\Windows-oppdateringer\Ikke vis Installer oppdateringer og avslutt i policyinnstillingen for dialogboksen Avslutt Windows er aktivert.</string>
+      <string id="AUNoUasDefaultHelp_User">Med denne policyinnstillingen kan du angi om alternativet Installer oppdateringer og avslutt kan være standardvalg i dialogboksen Avslutt Windows.
+
+Hvis du aktiverer denne policyinnstillingen, blir brukerens siste avslutningsvalg (dvalemodus, start på nytt, etc.) standardvalget i dialogboksen Avslutt Windows, uavhengig om alternativet Installer oppdateringer og avslutt er tilgjengelig i listen 'Hva vil du at datamaskinen skal gjøre?'.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blir alternativet Installer oppdateringer og avslutt standardvalget i dialogboksen Avslutt Windows hvis oppdateringer er tilgjengelige på det tidspunktet brukeren velger avslutningsalternativet i Start-menyen.
+
+Denne policyinnstillingen har ingen virkning hvis alternativet Brukerkonfigurasjon\Administrative maler\Windows-komponenter\Windows-oppdatering\Ikke vis Installer oppdateringer og avslutt i policyinnstillingen for dialogboksen Avslutt Windows er aktivert.</string>
+      <string id="AUNoUasDefaultPolicy">Ikke juster standardalternativet Installer oppdateringer og avslutt i dialogboksen Avslutt Windows</string>
+      <string id="RemoveWindowsUpdate">Fjern tilgang til å bruke alle funksjonene i Windows Update</string>
+      <string id="RemoveWindowsUpdate_Help">Denne innstillingen gjør at du kan fjerne tilgang til Windows Update.
+
+Hvis denne innstillingen aktiveres, vil alle funksjonene i Windows Update fjernes. Dette omfatter blokkering av tilgang til webområdet Windows Update på http://windowsupdate.microsoft.com/ fra Windows Update-hyperkoblingen på Start-menyen og fra Verktøy-menyen i Internet Explorer. Du vil verken få meldinger om eller motta viktige oppdateringer fra Windows Update. Denne innstillingen forhindrer også Enhetsbehandling fra å installere driveroppdateringer fra webområdet Windows Update automatisk.
+
+Hvis innstillingen er aktivert, kan du konfigurere et av følgende varslingsalternativer:
+
+0 = Ikke vis noen varslinger
+
+Denne innstillingen fjerner all tilgang til Windows Update-funksjoner, og det blir ikke vist noen varslinger.
+
+1 = Vis varslinger om at maskinen må startes på nytt
+
+Denne innstillingen viser varslinger når maskinen må startes på nytt for at en installasjon skal kunne fullføres.
+
+Hvis denne policyen er aktivert i Windows 8 og Windows RT, vises bare varslinger som gjelder omstart og manglende evne til å registrere oppdateringer. Varslingsalternativene støttes ikke. Varslingene i påloggingsskjermbildet vises imidlertid alltid.</string>
+      <string id="RemoveWindowsUpdateModeAll">0 – Ikke vis noen varslinger</string>
+      <string id="RemoveWindowsUpdateModeReboot">1 – Vis varslinger om at maskinen må startes på nytt</string>
+      <string id="AutoUpdateCfg">Konfigurer automatiske oppdateringer</string>
+      <string id="AutoUpdateCfg_Help">Angir om denne datamaskinen mottar sikkerhetsoppdateringer og andre viktige nedlastinger via Windows' automatiske oppdateringstjeneste.
+
+Obs!  Denne policyen gjelder ikke Windows RT.
+
+Med denne innstillingen kan du angi om automatiske oppdateringer skal aktiveres på denne datamaskinen. Hvis tjenesten er aktivert, må du velge ett av de fire alternativene i gruppepolicyinnstillingen:
+
+        2 = Varsle før nedlasting og installasjon av oppdateringer.
+
+        Når Windows finner oppdateringer som er relevante for denne datamaskinen, varsles brukerne om at oppdateringer er klare for nedlasting. Når brukerne har gått til Windows Update, kan de laste ned og installere alle tilgjengelige oppdateringer.
+
+        3 = (Standardinnstilling) Last ned oppdateringene automatisk, og varsle når de er klare til å installeres
+
+        Windows finner oppdateringer som er relevante for datamaskinen, og laster dem ned i bakgrunnen (brukeren blir verken varslet eller forstyrret under nedlastingen). Når nedlastingene er fullført, varsles brukerne om at nedlastingene er klare til å installeres. Når brukerne har gått til Windows Update, kan de installere dem.
+
+        4 = Last ned oppdateringer automatisk og installer dem i henhold til tidsplanen nedenfor.
+
+        Angi tidsplanen med alternativene i gruppepolicyinnstillingen. Hvis det ikke er angitt en tidsplan, er standard tidsplan for alle installasjoner hver dag kl. 03:00. Hvis en oppdatering krever omstart for å fullføre installasjonen, vil Windows automatisk starte datamaskinen på nytt. (Hvis en bruker er logget på datamaskinen når Windows er klar for omstart, får brukeren en varsling samt muligheten til å utsette omstarten.)
+
+        I Windows 8 og senere kan du angi at oppdateringer skal installeres under automatisk vedlikehold i stedet for etter en bestemt tidsplan. Automatisk vedlikehold installerer oppdateringer når datamaskinen ikke er i bruk, og unngår å gjøre det når datamaskinen går på batteristrøm. Hvis det går to dager uten at Automatisk oppdatering får installert oppdateringer, installerer Windows Update oppdateringene med en gang. Brukerne blir deretter varslet om en kommende omstart, og denne omstarten skjer bare hvis det ikke er mulighet for utilsiktet datatap.
+
+        Automatisk vedlikehold kan konfigureres ytterligere ved hjelp av gruppepolicyinnstillingene her: Datamaskinkonfigurasjon-&gt;Administrative maler-&gt;Windows-komponenter-&gt;Vedlikeholdsplanlegger
+
+        5 = Tillat at lokale administratorer kan velge konfigurasjonsmodusen der Automatiske oppdateringer skal varsle og installere oppdateringer.
+
+        Med dette alternativet kan lokale administratorer bruke kontrollpanelet for Windows Update til å velge et konfigurasjonsalternativ etter eget skjønn. Lokale administratorer tillates ikke å deaktivere konfigurasjonen av automatiske oppdateringer.
+
+Hvis Deaktivert er angitt for statusen for denne policyen, må oppdateringer som er tilgjengelige på Windows Update, lastes ned og installeres manuelt. Du kan gjøre dette ved å bruke Start til å søke etter Windows Update.
+
+Hvis Ikke konfigurert er angitt for denne statusen, angis ikke bruken av automatiske oppdateringer på gruppepolicynivået. En administrator kan imidlertid fortsatt konfigurere automatiske oppdateringer via kontrollpanelet.</string>
+      
+      <string id="AutoUpdateModeAdminChooses">5 – Tillat administratorer å velge innstilling</string>
+      <string id="AutoUpdateModeAuto">4 – Last automatisk og planlegg installasjon</string>
+      <string id="AutoUpdateModeDownload">3 – Last automatisk og varsle om installasjon</string>
+      <string id="AutoUpdateModeNotify">2 – Varsle om nedlasting og installasjon</string>
+      <string id="AutoUpdateSchDay_Everyday">0 – Hver dag</string>
+      <string id="AutoUpdateSchDay_Friday">6 – Hver fredag</string>
+      <string id="AutoUpdateSchDay_Monday">2 – Hver mandag</string>
+      <string id="AutoUpdateSchDay_Saturday">7 – Hver lørdag</string>
+      <string id="AutoUpdateSchDay_Sunday">1 – Hver søndag</string>
+      <string id="AutoUpdateSchDay_Thursday">5 – Hver torsdag</string>
+      <string id="AutoUpdateSchDay_Tuesday">3 – Hver tirsdag</string>
+      <string id="AutoUpdateSchDay_Wednesday">4 – Hver onsdag</string>
+      <string id="AutoUpdateSchTime0">00:00</string>
+      <string id="AutoUpdateSchTime1">01:00</string>
+      <string id="AutoUpdateSchTime10">10:00</string>
+      <string id="AutoUpdateSchTime11">11:00</string>
+      <string id="AutoUpdateSchTime12">12:00</string>
+      <string id="AutoUpdateSchTime13">13:00</string>
+      <string id="AutoUpdateSchTime14">14:00</string>
+      <string id="AutoUpdateSchTime15">15:00</string>
+      <string id="AutoUpdateSchTime16">16:00</string>
+      <string id="AutoUpdateSchTime17">17:00</string>
+      <string id="AutoUpdateSchTime18">18:00</string>
+      <string id="AutoUpdateSchTime19">19:00</string>
+      <string id="AutoUpdateSchTime2">02:00</string>
+      <string id="AutoUpdateSchTime20">20:00</string>
+      <string id="AutoUpdateSchTime21">21:00</string>
+      <string id="AutoUpdateSchTime22">22:00</string>
+      <string id="AutoUpdateSchTime23">23:00</string>
+      <string id="AutoUpdateSchTime3">03:00</string>
+      <string id="AutoUpdateSchTime4">04:00</string>
+      <string id="AutoUpdateSchTime5">05:00</string>
+      <string id="AutoUpdateSchTime6">06:00</string>
+      <string id="AutoUpdateSchTime7">07:00</string>
+      <string id="AutoUpdateSchTime8">08:00</string>
+      <string id="AutoUpdateSchTime9">09:00</string>
+      <string id="CorpWuURL">Angi en plassering på intranettet for Microsofts oppdateringstjeneste</string>
+      <string id="CorpWuURL_Help">Angir en intranettserver som vert for oppdateringer fra Microsoft Update. Du kan deretter bruke denne oppdateringstjenesten til automatisk å oppdatere datamaskiner på nettverket.
+
+Med denne innstillingen kan du angi at en server på nettverket skal fungere som en intern oppdateringstjeneste. Klienten for automatiske oppdateringer bruker denne tjenesten til å søke etter oppdateringer som gjelder for datamaskinene på nettverket.
+
+Hvis du vil bruke denne innstillingen, må du angi to servernavnverdier: serveren som klienten for automatiske oppdateringer oppdager og laster ned oppdateringer fra, og serveren som oppdaterte arbeidsstasjoner laster opp statistikk til. Du kan angi at begge verdiene er den samme serveren.
+
+Hvis status er satt til Aktivert, kobler klienten for automatiske oppdateringer til den angitte Microsoft-oppdateringstjenesten på intranettet, i stedet for Windows Update, for å søke etter og laste ned oppdateringer. Hvis du aktiverer denne innstillingen, innebærer dette at sluttbrukere i organisasjonen ikke trenger å gå gjennom en brannmur for å få oppdateringer, og du får muligheten til å teste oppdateringer før de distribueres.
+
+Hvis status er satt til Deaktivert eller Ikke konfigurert, og hvis Automatiske oppdateringer ikke er deaktivert via policy eller brukerpreferanse, kobler klienten for automatiske oppdateringer direkte til området Windows Update på Internett.
+
+Obs!  Hvis policyen Konfigurer Automatiske oppdateringer er deaktivert, har ikke denne policyen noen virkning.
+
+Obs!  Denne policyen støttes ikke på Windows RT. Angivelse av denne policyen har ingen innvirkning på PCer med Windows RT.</string>
+      <string id="DetectionFrequency_Help">Angir antallet timer det tar å avgjøre hvor lenge det skal ventes før det søkes etter tilgjengelige oppdateringer. Den nøyaktige ventetiden avgjøres av timeantallet som er angitt her, minus null til tjue prosent av det angitte timeantallet. Hvis for eksempel denne policyen vanligvis angir en 20 timers søkefrekvens, søker alle klienter som policyen er aktivert for, etter oppdateringer med intervaller på mellom 16 og 20 timer.
+
+Hvis statusen er satt til Aktivert, søker Windows etter tilgjengelige oppdateringer ved angitt intervall.
+
+Hvis statusen er angitt til Deaktivert eller Ikke konfigurert, søker Windows etter tilgjengelige oppdateringer etter et standardintervall på 22 timer.
+
+Obs!  Innstillingen Angi en plassering på intranettet for Microsofts oppdateringstjeneste må være aktivert for at denne policyen skal ha noen virkning.
+
+Obs!  Denne policyen har ingen virkning hvis policyen Konfigurer Automatiske oppdateringer er deaktivert.
+
+Obs!  Denne policyen støttes ikke på Windows RT. Angivelse av denne policyen har ingen innvirkning på PCer med Windows RT.</string>
+      <string id="DetectionFrequency_Title">Søkefrekvens for automatiske oppdateringer</string>
+      <string id="ElevateNonAdmins_Help">Med denne policyinnstillingen kan du angi om ikke-administrative brukere skal motta oppdateringsvarsler basert på policyinnstillingen Konfigurer automatiske oppdateringer.
+      
+Hvis du aktiverer denne policyinnstillingen, vil Windows Automatic Update og Microsoft Update inkludere ikke-administratorer når det bestemmes hvilke påloggede brukere som skal motta oppdateringsvarsler. Ikke-administrative brukere kan installere alt valgfritt, anbefalt og viktig innhold de har mottatt et varsel om. Brukerne kan ikke se et vindu for brukerkontokontroll og de trenger ikke opphøyde tillatelser til å installere disse oppdateringene, bortsett fra når det gjelder oppdateringer som inneholder endringer i innstillingene Brukergrensesnitt, Lisensavtale for sluttbrukere eller Windows Update.
+
+Det finnes to situasjoner der virkningen av disse innstillingene avhenger av operativsystemet: skjuling/gjenoppretting av oppdateringer og avbryting av en installasjon.
+
+På XP: Hvis du aktiverer denne policyinnstillingen, kan ikke brukerne se et vindu for brukerkontokontroll og de trenger ikke opphøyde tillatelser til å utføre noen av disse oppdateringsrelaterte oppgavene.
+
+På Vista: Hvis du aktiverer denne policyinnstillingen, kan ikke brukerne se et vindu for brukerkontokontroll og de trenger ikke opphøyde tillatelser til å utføre noen av disse oppgavene. Hvis du ikke aktiverer denne policyinnstilingen, kan brukerne alltid se et vindu for brukerkontokontroll, og de vil trenge opphøyde tillatelser til å utføre disse oppgavene.
+
+I Windows 7: Denne policyinnstillingen har ingen innvirkning. Brukerne vil alltid se et vindu for kontokontroll, og de vil trenge opphøyde tillatelser til å utføre oppgavene.
+
+I Windows 8 og Windows RT: Denne policyinnstillingen har ingen effekt. Brukerne vil alltid se et vindu for kontokontroll, og de vil trenge opphøyde tillatelser til å utføre oppgavene.
+
+Hvis du deaktiverer denne policyinnstillingen, vil bare administrative brukere motta oppdateringsvarsler.
+
+Obs!  I Windows 8 og Windows RT er denne policyinnstillingen aktivert som standard. I alle tidligere versjoner av Windows er den deaktivert som standard.
+
+Hvis policyinnstillingen Konfigurer automatiske oppdateringer er deaktivert eller ikke konfigurert, har policyinnstillingen Opphøy ikke-admin ingen innvirkning.</string>
+      <string id="ElevateNonAdmins_Title">Lar ikke-administratorer motta oppdateringsvarsler</string>
+      <string id="ImmediateInstall_Help">Angir om Automatiske oppdateringer skal installere visse oppdateringer som ikke avbryter Windows-tjenester eller starter Windows på nytt, automatisk.
+
+Hvis statusen er satt til Aktivert, installeres disse oppdateringene umiddelbart når de har blitt lastet ned og er klare for installasjon.
+
+Hvis statusen er satt til Deaktivert, installeres ikke slike oppdateringer umiddelbart.
+
+Obs!  Denne policyen har ingen virkning hvis policyen Konfigurer Automatiske oppdateringer er deaktivert.</string>
+      <string id="ImmediateInstall_Title">Tillat umiddelbar installasjon av automatiske oppdateringer</string>
+      <string id="IncludeRecommendedUpdates_Help">Angir om Automatiske oppdateringer skal tilby både viktige og anbefalte oppdateringer fra Windows Update-tjenesten.
+
+Når denne policyen er aktivert, installeres både anbefalte oppdateringer og viktige oppdateringer fra Windows Update-tjenesten.
+
+Når Automatiske oppdateringer er deaktivert eller ikke konfigurert, leverer den fortsatt viktige oppdateringer hvis den er konfigurert til å gjøre det.</string>
+      <string id="IncludeRecommendedUpdates_Title">Aktiver anbefalte oppdateringer via Automatiske oppdateringer</string>
+      <string id="FeaturedSoftwareNotification_Help">Med denne policyinnstillingen kan du angi om brukerne skal se detaljerte, forbedrede varselsmeldinger om omtalt programvare fra Microsoft Update-tjenesten. Forbedrede varselsmeldinger formidler verdien og anbefaler installasjon og bruk av valgfri programvare. Denne policyinnstillingen er tenkt for å brukes i miljøer med liten styring, der du gir sluttbrukere tilgang til Microsoft Update-tjenesten.
+
+Hvis du aktiverer denne policyinnstillingen, vises en varselsmelding på brukerens datamaskin når den omtalte programvaren er tilgjengelig. Brukeren kan klikke varselet for å åpne Windows Update-programmet og få mer informasjon om programvaren eller installere den. Brukeren kan også klikke Lukk denne meldingen eller Vis senere for å komme tilbake til meldingen etter behov.
+
+I Windows 7 kontrollerer denne policyinnstillingen bare detaljerte varsler for valgfrie programmer. I Windows Vista kontrollerer denne policyinnstillingen detaljerte varsler for valgfrie programmer og oppdateringer.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, får ikke Windows 7-brukere detaljerte varselsmeldinger for valgfrie programmer, og Windows Vista-brukere får ikke detaljerte varselsmeldinger for valgfrie programmer eller oppdateringer.
+
+Denne policyinnstillingen er deaktivert som standard.
+
+Hvis du ikke bruker Microsoft Update-tjenesten, har ikke policyinnstillingen Programvarevarsler noen innvirkning.
+
+Hvis policyinnstillingen Konfigurer automatiske oppdateringer er deaktivert eller ikke konfigurert, har policyinnstillingen Programvarevarsler ingen innvirkning.
+      
+      </string>
+      <string id="FeaturedSoftwareNotification_Title">Aktiver programvarevarsler</string>
+      <string id="AUPowerManagement_Help">Angir om Windows Update skal bruke funksjoner for strømstyring i Windows til å vekke systemet fra dvalemodus automatisk hvis det er planlagt installasjon av oppdateringer.
+
+Systemet vekkes bare automatisk hvis Windows Update er konfigurert til å installere oppdateringer automatisk. Hvis systemet er i dvalemodus på det planlagte installasjonstidspunktet og det er oppdateringer som skal utføres, brukes funksjonene for strømstyring i Windows til å vekke systemet for å installere oppdateringene.
+
+Systemet vekkes også for å installere en oppdatering hvis en tidsfrist for installasjon er nådd.
+
+Systemet vekkes ikke med mindre det er oppdateringer som skal installeres.  Hvis systemet går på batteristrøm, installeres ingen oppdateringer når det vekkes, og systemet går automatisk tilbake til dvalemodus etter to minutter.</string>
+      <string id="AUPowerManagement_Title">Aktivere Windows Update til å bruke Strømstyring til å vekke systemet automatisk for å installere planlagte oppdateringer</string>
+      <string id="NoAutoRebootWithLoggedOnUsers_Help">Angir at Automatiske oppdateringer venter til datamaskinen startes på nytt av en bruker som er logget på, i stedet for å starte datamaskinen på nytt automatisk, for å fullføre en planlagt installasjon.
+
+Hvis statusen settes til Aktivert, startes datamaskinen ikke på nytt automatisk under en planlagt installasjon hvis en bruker er logget på datamaskinen. Brukeren blir i stedet bedt om å starte datamaskinen på nytt.
+
+Vær oppmerksom på at datamaskinen må startes på nytt før oppdateringene trer i kraft.
+
+Hvis statusen er satt til Deaktivert eller Ikke konfigurert, varsles brukeren om at datamaskinen startes på nytt om fem minutter for å fullføre installasjonen.
+
+Obs!  Denne policyen gjelder bare når Automatiske oppdateringer er konfigurert til å utføre planlagte installasjoner av oppdateringer. Denne policyen har ingen virkning hvis policyen Konfigurer Automatiske oppdateringer er deaktivert.</string>
+      <string id="NoAutoRebootWithLoggedOnUsers_Title">Ingen automatisk omstart med påloggede brukere for installasjoner planlagt av Automatiske oppdateringer</string>
+      <string id="AlwaysAutoRebootAtScheduledTime_Title">Alltid starte på nytt automatisk til planlagt tid</string>
+      <string id="AlwaysAutoRebootAtScheduledTime_Help">Hvis du aktiverer denne policyen, starter alltid en omstartstidtaker øyeblikkelig etter at Windows Update har installert viktige oppdateringer, i stedet for at brukerne først varsles på påloggingsskjermen i minst to dager.
+
+Du kan konfigurere omstartstidtakeren slik at den starter med en verdi mellom 15 og 180 minutter. Når tiden i tidtakeren løper ut, skjer omstarten selv om brukere er logget på PCen.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyen, endrer ikke Windows Update omstartsvirkemåten.
+
+Hvis policyen "Ingen automatisk omstart med påloggede brukere for installasjoner planlagt av Automatiske oppdateringer" er aktivert, har denne policyen ingen virkning.</string>
+
+      <string id="NoAutoUpdate">Automatiske oppdateringer i Windows</string>
+      <string id="NoAutoUpdate_Help">Som standard kopieres den sentrale brukerprofilen ned til den lokale maskinen når en bruker med sentral brukerprofil logger seg på en datamaskin.
+
+Når en bruker kobler seg til Internett, søker Windows etter tilgjengelige program- og maskinvareoppdateringer og laster de ned automatisk på datamaskinen. Dette skjer i bakgrunnen, og brukeren får melding når de nedlastede komponentene kan installeres eller før de lastes ned, avhengig av konfigurasjon.
+
+Ved å bruke denne innstillingen forhindrer du at Windows søker etter oppdateringer.
+
+Hvis du deaktiverer eller ikke konfigurerer den, vil Windows automatisk søke etter og laste ned oppdateringer.
+
+Ingen endringer som brukeren foretar, slås imidlertid sammen med den sentrale brukerprofilen når brukeren logger av.
+
+Se også innstillingen Fjern koblinger og tilgang til Windows Update. Hvis innstillingen Fjern koblinger og tilgang til Windows Update er aktivert, fjernes også koblinger til Windows Update i Start-menyen.
+
+Obs!  Hvis du har installert Windows XP Service Pack 1 eller oppdateringen av Automatiske oppdateringer som ble utgitt etter originalversjonen av Windows XP, bør du bruke den nye innstillingen for automatiske oppdateringer som finnes på Datamaskinkonfigurasjon / Administrative maler / Windows Update.</string>
+      <string id="RebootRelaunchTimeout_Help">
+        
+        Angir hvor lenge Automatiske oppdateringer skal vente før det varsles på nytt om en planlagt omstart.
+
+        Hvis statusen er satt til Aktivert, skjer en planlagt omstart etter det angitte antallet minutter siden siste varsling ble utsatt.
+
+        Hvis statusen er satt til Deaktivert eller Ikke konfigurert, er standardintervallet 10 minutter.
+
+        Obs!  Denne policyen gjelder bare når Automatiske oppdateringer er konfigurert til å utføre planlagte installasjoner av oppdateringer. Denne policyen har ingen virkning hvis policyen Konfigurer Automatiske oppdateringer er deaktivert. Denne policyinnstillingen har ingen virkning på Windows RT</string>
+      <string id="RebootRelaunchTimeout_Title">Ny varsling for omstart med planlagte installasjoner</string>
+      <string id="RebootWarningTimeout_Help">Angir hvor lenge Automatiske oppdateringer skal vente før en planlagt omstart utføres.
+
+Hvis statusen er satt til Aktivert, skjer en planlagt omstart etter det angitte antallet minutter etter at installasjonen er fullført.
+
+Hvis statusen er satt til Deaktivert eller Ikke konfigurert, er standard ventetid 15 minutter.
+
+Obs! Denne policyen gjelder bare når Automatiske oppdateringer er konfigurert til å utføre planlagte installasjoner av oppdateringer. Denne policyen har ingen virkning hvis policyen Konfigurer Automatiske oppdateringer er deaktivert.</string>
+      <string id="RebootWarningTimeout_Title">Forsinket omstart for planlagte installasjoner</string>
+      <string id="RescheduleWaitTime_Help">Angir hvor lenge Automatiske oppdateringer skal vente etter systemoppstart før en planlagt installasjon som tidligere ble utelatt, gjenopptas.
+
+Hvis statusen er satt til Aktivert, skjer en planlagt installasjon som ikke ble gjort tidligere, etter det angitte antallet minutter etter at datamaskinen startes neste gang.
+
+Hvis statusen er satt til Deaktivert, skjer en utelatt planlagt installasjon sammen med neste planlagte installasjon.
+
+Hvis statusen er satt til Ikke konfigurert, skjer en utelatt installasjon ett minutt etter at datamaskinen er startet neste gang.
+
+Obs!  Denne policyen gjelder bare når Automatiske oppdateringer er konfigurert til å utføre planlagte installasjoner av oppdateringer. Denne policyen har ingen virkning hvis policyen Konfigurer Automatiske oppdateringer er deaktivert.</string>
+      <string id="RescheduleWaitTime_Title">Planlegg installasjoner planlagt av Automatiske oppdateringer på nytt</string>
+      <string id="TargetGroup_Help">Angir målgruppenavnet eller -navnene som skal brukes til å motta oppdateringer fra en Microsoft-oppdateringstjeneste på intranettet.
+
+Hvis statusen er satt til Aktivert, sendes den angitte målgruppeinformasjonen til Microsoft-oppdateringstjenesten på intranettet, hvor den brukes til å avgjøre hvilke oppdateringer som skal distribueres til denne datamaskinen.
+
+Hvis Microsoft-oppdateringstjenesten på intranettet støtter flere målgrupper, kan denne policyen angi flere gruppenavn atskilt med semikolon. Ellers må én enkelt gruppe angis.
+
+Hvis statusen er satt til Deaktivert eller Ikke konfigurert, sendes ingen målgruppeinformasjon til Microsoft-oppdateringstjenesten på intranettet.
+
+Obs!  Denne policyen gjelder bare når Microsoft-oppdateringstjenesten på intranettet som datamaskinen ledes til, er konfigurert til å støtte målretting på klientsiden. Hvis policyen Angi en plassering på intranettet for Microsoft oppdateringstjeneste er deaktivert eller ikke konfigurert, har ikke denne policyen noen virkning.
+Obs!  Denne policyen støttes ikke på Windows RT. Angivelse av denne policyen har ingen innvirkning på PCer med Windows RT.</string>
+      <string id="TargetGroup_Title">Aktiver målgrupperettet klientside</string>
+      <string id="WindowsUpdateCat">Windows Update</string>
+      <string id="TrustedPublisher_Title">Tillat signerte oppdateringer fra en Microsoft-oppdateringstjeneste på intranettet  </string>
+      <string id="TrustedPublisher_Help">Med denne policyinnstillingen kan du angi om Automatiske oppdateringer godtar oppdateringer signert av andre enn Microsoft når oppdateringen finnes på en Microsoft-oppdateringstjeneste på intranettet. 
+
+Hvis du aktiverer denne policyinnstillingen, godtas oppdateringer som mottas via en Microsoft-oppdateringstjeneste på intranettet, hvis de er signert av et sertifikat som finnes i sertifikatlageret Klarerte utgivere på den lokale datamaskinen.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, må oppdateringer fra en Microsoft-oppdateringstjeneste på intranettet være signert av Microsoft.
+
+Obs!  Oppdateringer fra en annen tjeneste enn en Microsoft-oppdateringstjeneste på intranettet må alltid være signert av Microsoft, og påvirkes ikke av denne policyinnstillingen.
+Obs!  Denne policyen støttes ikke på Windows RT. Angivelse av denne policyen har ingen innvirkning på PCer med Windows RT.</string>
+      <string id="DoNotConnectToWindowsUpdateInternetLocations_Title">Ikke koble til Windows Update-plasseringer på Internett</string>
+      <string id="DoNotConnectToWindowsUpdateInternetLocations_Help">Selv når Windows Update er konfigurert slik at den mottar oppdateringer fra en oppdateringstjeneste på intranettet, henter den regelmessig informasjon fra den offentlige Windows Update-tjenesten for å aktivere fremtidige tilkoblinger til Windows Update og andre tjenester, for eksempel Microsoft Update eller Windows Store.
+
+Hvis du aktiverer denne policyen, deaktiveres denne funksjonaliteten, og tilkoblingen til offentlige tjenester, for eksempel Windows Store, kan slutte å fungere.
+
+Obs!  Denne policyen gjelder bare når denne PCen er konfigurert slik at den kobler til en oppdateringstjeneste på intranettet ved hjelp av policyen Angi en plassering på intranettet for Microsofts oppdateringstjeneste.</string>
+
+      <string id="DeferUpgrade_Title">Utsett oppgraderinger og oppdateringer</string>
+      <string id="DeferUpgrade_Help">Enable this policy in order to defer upgrades for up to eight months.
+      
+You can also choose to delay updates for up to one month. If you do not delay updates, your PC will remain up to date with security updates as they become available.
+
+If an issue arises with an update or upgrade, select "Pause Upgrades and Updates". This will delay updates and upgrades until the next monthly update or upgrade becomes available. Once a new update or upgrade it available, the value will go back to the previously selected option, re-enabling your validation groups.
+
+Note: Definition updates will not be impacted by this policy.
+
+Note: If the "Specify intranet Microsoft update service location" policy is enabled, then the “Defer upgrades by”, “Defer updates by” and “Pause Updates and Upgrades” settings have no effect.
+ 
+Note: If the “Allow Telemetry” policy is enabled and the Options value is set to 0, then the “Defer upgrades by”, “Defer updates by” and “Pause Updates and Upgrades” settings have no effect.
+
+To stay informed about new features in Windows 10, see go.microsoft.com/fwlink/?LinkID=529169.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="RemoveWindowsUpdate">
+        <dropdownList refId="RemoveWindowsUpdateMode" defaultItem="0">Konfigurer varslinger:</dropdownList>
+      </presentation>
+      <presentation id="AutoUpdateCfg">
+        <dropdownList refId="AutoUpdateMode" defaultItem="1">Konfigurer automatisk oppdatering:</dropdownList>
+        <text>Følgende innstillinger er bare nødvendige og aktuelle hvis 4 er valgt.</text>
+        <checkBox refId="AutoUpdateAutomaticMaintenanceEnabled" defaultChecked="false">Installer under automatisk vedlikehold</checkBox>          
+        <dropdownList refId="AutoUpdateSchDay" defaultItem="0">Planlagt installasjonsdag:  </dropdownList>
+        <dropdownList refId="AutoUpdateSchTime" defaultItem="3">Planlagt installasjonstidspunkt:</dropdownList>
+      </presentation>
+      <presentation id="CorpWuURL">
+        <textBox refId="CorpWUURL_Name">
+          <label>Still inn oppdateringstjenesten på intranettet for registrering av oppdateringer:</label>
+        </textBox>
+        <textBox refId="CorpWUStatusURL_Name">
+          <label>Angi statistikkserver for intranettet:</label>
+        </textBox>
+        <text>(eksempel: http://IntranetUpd01)</text>
+      </presentation>
+      <presentation id="DetectionFrequency_Title">
+        <text>Søk etter oppdateringer ved følgende</text>
+        <decimalTextBox refId="DetectionFrequency_Hour2" defaultValue="22">intervall (timer):  </decimalTextBox>
+      </presentation>
+      <presentation id="RebootRelaunchTimeout_Title">
+        <text>Vent angitt tidsrom før</text>
+        <text>det på nytt varsles om planlagt</text>
+        <decimalTextBox refId="RebootRelaunchTimeout_Minutes3" defaultValue="10">omstart (minutter):  </decimalTextBox>
+      </presentation>
+      <presentation id="RebootWarningTimeout_Title">
+        <text>Vent angitt tidsrom før</text>
+        <text>den planlagte</text>
+        <decimalTextBox refId="RebootWarningTimeout_Minutes3" defaultValue="5">omstart (minutter):  </decimalTextBox>
+      </presentation>
+      <presentation id="RescheduleWaitTime_Title">
+        <text>Ventetid etter system</text>
+        <decimalTextBox refId="RescheduleWaitTime_Minutes2">oppstart (minutter):  </decimalTextBox>
+      </presentation>
+      <presentation id="TargetGroup_Title">
+        <textBox refId="TargetGroup_Name">
+          <label>Målgruppenavn for denne datamaskinen</label>
+        </textBox>
+      </presentation>
+      <presentation id="IdleShutdownTimerDuration_Title">
+        <text>Vent angitt tidsrom før</text>
+        <text>Avslutte tjenesten når</text>
+        <decimalTextBox refId="IdleShutdownTimerDuration_Minutes" defaultValue="10">inaktiv (minutter):  </decimalTextBox>
+      </presentation>
+      <presentation id="AlwaysAutoRebootAtScheduledTime_Presentation">       
+        <text>Omstartstidtakeren gir brukerne</text>
+        <text>følgende antall minutter til å</text>
+        <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">lagre arbeidet:  </decimalTextBox>
+      </presentation>
+      <presentation id="DeferUpgrade_Title">
+        <text>Utsett oppgraderinger for følgende</text>
+        <decimalTextBox refId="DeferUpgradePeriodId" defaultValue="0">varighet (måneder): </decimalTextBox>
+        <text>Utsett oppdateringer for følgende</text>
+        <decimalTextBox refId="DeferUpdatePeriodId" defaultValue="0">varighet (uker): </decimalTextBox>
+        <checkBox refId="PauseDeferralsId" defaultChecked="false">Stanse oppgraderinger og oppdateringer midlertidig</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

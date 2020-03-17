@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>kirjoita näyttönimi tähän</displayName>
+  <description>kirjoita kuvaus tähän</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">Salli TIFF-tiedostojen indeksointi OCR-tekstintunnistuksen avulla</string>
+      <string id="ExplainAllowOCR">Tämän käytäntöasetuksen avulla voit ottaa OCR (Optical Character Recognition) -tekstintunnistuksen käyttöön tai poistaa sen käytöstä TIFF-tiedostojen yhteydessä. Jos otat tämän käytäntöasetuksen käyttöön, TIFF-tiedostojen tekstisisältö indeksoidaan OCR:n avulla. Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, vain TIFF-tiedostojen ominaisuudet indeksoidaan.
+
+        Tämä käytäntöasetus vaikuttaa myös Miten tämä tiedosto on indeksoitava? -asetukseen, jonka sijainti on Ohjauspaneeli\Indeksointiasetukset\Lisäasetukset\Tiedostotyypit. Jos otat tämän käytäntöasetuksen käyttöön, Ohjauspaneelin asetukseksi määritetään Indeksoi ominaisuudet sekä tiedostojen sisältö. Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Ohjauspaneelin asetukseksi määritetään Indeksoi vain ominaisuudet.
+      
+      </string>
+      <string id="SelectOCRLangs">Valitse OCR-tekstintunnistuksen kieli</string>
+      <string id="ExplainSelectOCRLangs">Tämä käytäntöasetus mahdollistaa jollekin tuetuista koodisivuista kuuluvien OCR-tekstintunnistuksen kielten valitsemisen. Jos otat tämän käytäntöasetuksen käyttöön, valittua OCR-tekstintunnistuksen kieltä käytetään OCR-tekstintunnistuksen käsittelyssä TIFF-tiedostojen indeksoinnin aikana. Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käytetään järjestelmän oletuskieltä.
+
+Uudelleenindeksointia ei aloiteta, kun otat tämän käytännön käyttöön ja valitset OCR-tekstintunnistuksen kielen. Tämä käytäntöasetus koskee ainoastaan uusien tiedostojen indeksointia, ellei uudelleenindeksointia aloiteta manuaalisesti.
+      </string>
+      <string id="OCR">OCR</string>
+      <string id="Win7Only">Microsoft Windows 7 tai uudempi versio</string>
+      <string id="OCREveryPage">Pakota TIFF IFilter tekemään OCR-tekstintunnistus TIFF-tiedoston jokaiselle sivulle</string>
+      <string id="ExplainOCREveryPage">
+        
+        Tämä ryhmäkäytäntöasetus antaa käyttäjien poistaa käytöstä suorituskyvyn optimoinnin, jotta TIFF IFilter suorittaa TIFF-tiedoston jokaisen sivun OCR-tekstintunnistuksen, mikä mahdollistaa kaiken tunnistetun tekstin indeksoimisen. Oletusarvon mukaan TIFF IFilter optimoi suorituskykynsä ohittamalla OCR-tekstintunnistuksen tiedoston sivuilla, joilla ei ole tekstisisältöä (esimerkiksi joilla on kuvia). Joissakin tapauksissa tekstiä sisältävät sivut saatetaan virheellisesti luokitella muiksi kuin tekstisivuiksi. Tässä tapauksessa kyseisten sivujen tekstiä ei indeksoida.
+
+        Jos otat tämän asetuksen käyttöön, TIFF IFilter tekee OCR-tekstintunnistuksen jokaisella TIFF-tiedoston sivulla ja indeksoi kaiken tunnistetun tekstin. Tämän vuoksi OCR-tunnistusprosessi on tavallista hitaampi. Tämä suorituskyvyn heikentyminen voi olla huomattava, jos järjestelmän TIFF-tiedostoissa on paljon muita kuin tekstisivuja (kuvia sisältäviä sivuja).
+
+        Jos poistat tämän asetuksen käytöstä tai et määritä sitä, TIFF IFilter optimoi suorituskykynsä ohittamalla muun kuin tekstisisällön OCR-tunnistusprosessin aikana.
+      
+      </string>
+      <string id="LangChineseSimplified">kiina (yksinkertaistettu)</string>
+      <string id="LangChineseTraditional">kiina (perinteinen)</string>
+      <string id="LangCzech">tšekki</string>
+      <string id="LangDanish">tanska</string>
+      <string id="LangDutch">hollanti</string>
+      <string id="LangEnglish">englanti</string>
+      <string id="LangFinnish">suomi</string>
+      <string id="LangFrench">ranska</string>
+      <string id="LangGerman">saksa</string>
+      <string id="LangGreek">kreikka</string>
+      <string id="LangHungarian">unkari</string>
+      <string id="LangItalian">italia</string>
+      <string id="LangJapanese">japani</string>
+      <string id="LangKorean">korea</string>
+      <string id="LangNorwegian">norja</string>
+      <string id="LangPolish">puola</string>
+      <string id="LangPortuguese">portugali</string>
+      <string id="LangRomanian">romania</string>
+      <string id="LangRussian">venäjä</string>
+      <string id="LangSerbianCyrillic">serbia (kyrillinen)</string>
+      <string id="LangSerbianLatin">serbia (latinalainen)</string>
+      <string id="LangSlovak">slovakki</string>
+      <string id="LangSpanish">espanja</string>
+      <string id="LangSwedish">ruotsi</string>
+      <string id="LangTurkish">turkki</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Valitse jokin seuraavista OCR-tekstintunnistuskielistä:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Definições de Política de Grupo do Serviço WWAN</displayName>
+  <description>Definições de Política de Grupo do Serviço WWAN</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">Serviço WWAN</string>
+      <string id="NetworkCost_Category">Custo de Multimédia WWAN</string>
+      <string id="SetCost3G">Definir Custo 3G</string>
+      <string id="SetCost3G_Help">Esta definição de política configura o custo de ligações 3G no computador local.
+
+Se esta definição de política for ativada, ficará ativa uma caixa de lista pendente com possíveis valores de custo.  Ao selecionar um dos valores seguintes da lista, estará a definir o custo de todas as ligações 3G no computador local:
+
+- Sem Restrições: a utilização desta ligação é ilimitada e não está restringida por taxas de utilização e restrições de capacidade. 
+
+- Fixo: a utilização desta ligação não está restringida por taxas de utilização e restrições de capacidade até um determinado limite de dados. 
+
+- Variável: esta ligação tem um custo por byte.
+
+Se desativar ou não configurar esta definição de política, o custo das ligações 3G será Fixo, por predefinição.
+      
+      </string>
+      <string id="SetCost4G">Definir Custo 4G</string>
+      <string id="SetCost4G_Help">Esta definição de política configura o custo de ligações 4G no computador local.      
+
+Se esta definição de política for ativada, ficará ativa uma caixa de lista pendente com possíveis valores de custo. Ao selecionar um dos valores seguintes da lista, estará a definir o custo de todas as ligações 4G no computador local:
+
+- Sem Restrições: a utilização desta ligação é ilimitada e não está restringida por taxas de utilização e restrições de capacidade. 
+
+- Fixo: a utilização desta ligação não está restringida por taxas de utilização e restrições de capacidade até um determinado limite de dados. 
+
+- Variável: esta ligação tem um custo por byte.
+
+Se desativar ou não configurar esta definição de política, o custo das ligações 4G será Fixo, por predefinição.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Sem Restrições</string>
+      <string id="Cost_DropDownList_Fixed">Fixo</string>
+      <string id="Cost_DropDownList_Variable">Variável</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Selecione um valor de custo de ligação 3G a definir:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Selecione um valor de custo de ligação 4G a definir:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

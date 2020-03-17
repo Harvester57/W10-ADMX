@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>itt adja meg a megjelenítendő nevet</displayName>
+  <description>itt adja meg a leírást</description>
+  <resources>
+    <stringTable>
+      <string id="ActiveDirectoryBackup_Help">Ezzel a házirend-beállítással kezelheti a platformmegbízhatósági modul (TPM) tulajdonosi információinak az Active Directory tartományszolgáltatásokban készíthető biztonsági másolatát. 
+
+A TPM-tulajdonos adatai tartalmazzák a TPM-tulajdonosi jelszó kriptográfiai kivonatát. Bizonyos TPM-parancsokat kizárólag a TPM-tulajdonosok futtathatnak. Ez a kivonat hatalmazza fel a platformmegbízhatósági modult a parancsok futtatására. 
+
+Ha engedélyezi ezt a házirend-beállítást, a rendszer a háttérben automatikusan biztonsági mentést készít a TPM-tulajdonos adatairól az Active Directory tartományi szolgáltatásokban, amikor a Windows rendszerben beállítja vagy megváltoztatja a TPM-tulajdonosi jelszót. 
+
+Ha engedélyezi ezt a házirend-beállítást, a TPM-tulajdonosi jelszót csak akkor lehet beállítani vagy módosítani, ha a számítógép csatlakozik a tartományhoz, és az Active Directory tartományi szolgáltatásokban elkészült a biztonsági másolat.
+
+Amennyiben letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer nem készít biztonsági másolatot a TPM-tulajdonosi információkról az Active Directory tartományi szolgáltatásokba. 
+
+Megjegyzés: Az Active Directory tartományi szolgáltatásokba történő biztonsági mentéshez először meg kell adni a megfelelő sémabővítményeket és hozzáférés-vezérlési beállításokat a tartományban. Az Active Directory tartományi szolgáltatások és a platformmegbízhatósági modul együttes használatához szükséges beállításokról az online dokumentációban talál további információt.
+
+Megjegyzés: Ha a platformmegbízhatósági modullal kibővített biztonsági szolgáltatásokat szeretne elérhetővé tenni a BitLocker meghajtótitkosításhoz vagy más alkalmazásokhoz, akkor először meg kell adni egy tulajdonost. A platformmegbízhatósági modul tulajdonosi jelszóval történő birtokba vételéhez futtassa a tpm.msc programot, és végezze el a TPM-eszköz inicializálása műveletet.
+
+Megjegyzés: Ha a TPM-tulajdonosi információ elveszett vagy nem érhető el, a tpm.msc program helyi számítógépen futtatásával lehetőség van a platformmegbízhatósági modul korlátozott kezelésére.</string>
+      <string id="ActiveDirectoryBackup_Name">A biztonsági mentés az Active Directory tartományi szolgáltatásokba TPM-funkció bekapcsolása</string>
+      <string id="BlockedCommandsList_Help">Ezzel a házirend-beállítással kezelheti a platformmegbízhatósági modul (TPM) Windows által blokkolt parancsainak Csoportházirend listáját.
+
+Ha engedélyezi ezt a házirend-beállítást, a Windows nem engedi, hogy a rendszer elküldje a megadott parancsokat a számítógépen lévő platformmegbízhatósági modulnak. A TPM-parancsokat egy parancsszám jelöli. A 129 parancsszám például a TPM_OwnerReadInternalPub, a 170 parancsszám pedig a TPM_FieldUpgrade parancs. Az egyes TPM-parancsokhoz tartozó parancsszámokat a tpm.msc fájl futtatása után a Parancskezelés szakaszban állapíthatja meg.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows csak az alapértelmezett vagy helyi listákon megadott TPM-parancsokat blokkolhatja. A blokkolt TPM-parancsok alapértelmezett listáját a Windows előre konfigurálja. Az alapértelmezett lista megtekintéséhez futtassa a tpm.msc fájlt, és keresse meg Az alapértelmezett tiltólistán oszlopot a Parancskezelés szakaszban. A blokkolt TPM-parancsok helyi listájának konfigurálása a csoportházirenden kívül történik: vagy a tpm.msc fájl futtatásával, vagy parancsfájlok Win32_Tpm felületen keresztül történő futtatásával. A blokkolt TPM-parancsok alapértelmezett vagy helyi listáinak kényszerítéséről vagy mellőzéséről a kapcsolódó házirend-beállítások leírásában olvashat.</string>
+      <string id="BlockedCommandsList_Name">A blokkolt TPM-parancsok listájának konfigurálása</string>
+      <string id="IgnoreDefaultList_Help">Ezzel a házirend-beállítással kényszerítheti vagy mellőzheti a platformmegbízhatósági modul (TPM) blokkolt parancsainak alapértelmezett listáját.
+
+Ha engedélyezi ezt a házirend-beállítást, a Windows mellőzi a blokkolt TPM-parancsok számítógépen lévő alapértelmezett listáját, és csak a csoportházirendben vagy a helyi listában megadott TPM-parancsokat blokkolja. 
+
+A blokkolt TPM-parancsok alapértelmezett listáját a Windows előre konfigurálja. Az alapértelmezett lista megtekintéséhez futtassa a tpm.msc fájlt, és keresse meg Az alapértelmezett tiltólistán oszlopot a Parancskezelés szakaszban. A blokkolt TPM-parancsok helyi listájának konfigurálása a csoportházirenden kívül történik: vagy a tpm.msc fájl futtatásával, vagy parancsfájlok Win32_Tpm felületen keresztül történő futtatásával. A blokkolt TPM-parancsok csoportházirend-listájának konfigurálásáról a kapcsolódó házirend-beállítások leírásában olvashat.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows a csoportházirendben és a blokkolt TPM-parancsok helyi listáján szereplő parancsok mellett az alapértelmezett listán szereplő TPM-parancsokat is blokkolja.  </string>
+      <string id="IgnoreDefaultList_Name">A blokkolt TPM-parancsok alapértelmezett listájának figyelmen kívül hagyása</string>
+      <string id="IgnoreLocalList_Help">Ezzel a házirend-beállítással kényszerítheti vagy mellőzheti a platformmegbízhatósági modul (TPM) blokkolt parancsainak helyi listáját.
+
+Ha engedélyezi ezt a házirend-beállítást, a Windows mellőzi a blokkolt TPM-parancsok helyi listáját, és csak a csoportházirendben vagy az alapértelmezett listában megadott TPM-parancsokat blokkolja.
+
+A blokkolt TPM-parancsok helyi listájának konfigurálása a csoportházirenden kívül történik: vagy a tpm.msc fájl futtatásával, vagy parancsfájlok Win32_Tpm felületen keresztül történő futtatásával. A blokkolt TPM-parancsok alapértelmezett listáját a Windows előre konfigurálja. A blokkolt TPM-parancsok csoportházirend-listájának konfigurálásáról a kapcsolódó házirend-beállítások leírásában olvashat. 
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows a csoportházirendben és a blokkolt TPM-parancsok alapértelmezett listáján szereplő parancsok mellett a helyi listán szereplő TPM-parancsokat is blokkolja.</string>
+      <string id="IgnoreLocalList_Name">A blokkolt TPM-parancsok helyi listájának figyelmen kívül hagyása</string>
+      <string id="TPMCategory">TPM-szolgáltatások</string>
+      <string id="OSManagedAuth_Name">A TPM-tulajdonosazonosító adatok operációs rendszer számára elérhető szintjének konfigurálása</string>
+      <string id="OSManagedAuth_Help">Ezzel a házirend-beállítással azt konfigurálhatja, hogy a TPM tulajdonosazonosító adatai közül mi kerüljön a helyi számítógép beállításjegyzékébe. A helyileg tárolt TPM-tulajdonosazonosító adatok mennyiségétől függően az operációs rendszer és a TPM-alapú alkalmazások anélkül tudnak végrehajtani bizonyos TPM-tulajdonosazonosítást igénylő műveleteket, hogy a felhasználónak meg kellene adni a TPM-tulajdonosi jelszót.
+
+Megadhatja, hogy az operációs rendszer milyen adatokat tároljon: a teljes TPM-tulajdonosazonosító értéket, a TPM-rendszergazdai delegálási blobot és a TPM-felhasználói delegálási blobot együttesen vagy egyiket sem. 
+
+Ha engedélyezi ezt a házirend-beállítást, a Windows a TPM-hitelesítés operációs rendszer által kezelt szintje beállítás választott értékének megfelelően tárolja a helyi számítógép beállításjegyzékében a TPM-tulajdonosazonosítót.
+
+Ha a TPM-tulajdonosazonosító egészét, a TPM-rendszergazdai delegálási blobot és a TPM-felhasználói delegálási blobot is a helyi beállításjegyzékben szeretné tárolni, akkor a TPM-hitelesítés operációs rendszer által kezelt szintje beállításnál válassza a Teljes értéket. Ha ezt a beállítást választja, akkor a TPM modul használatakor nincs szükség távoli vagy külső tárolóra a TPM-tulajdonosazonosító értékhez. Ezt a beállítást olyan forgatókönyvek esetében érdemes használni, amelyek nem függnek a találgatásos támadások elleni TPM-logika alaphelyzetbe állításának megakadályozásától vagy a TPM-tulajdonosazonosító érték módosításától. Egyes TPM-alapú alkalmazások túlterheléses támadások elleni TPM-logikától függő szolgáltatásainak használatához szükség lehet ennek a beállításnak a módosítására.
+
+Ha csak a TPM-rendszergazdai delegálási blobot és a TPM-felhasználói delegálási blobot szeretné a helyi beállításjegyzékben tárolni, akkor a TPM-hitelesítés operációs rendszer által kezelt szintje beállításnál válassza a Delegált értéket. Ezt a beállítást olyam TPM-alapú alkalmazásokkal érdemes használni, amelyek a találgatásos támadások elleni TPM-logikától függnek. Ha ezt a beállítást használja, akkor tanácsos külső vagy távoli helyen tárolni a teljes TPM-tulajdonosazonosító értéket (például biztonsági másolatot készíteni róla az Active Directory tartományi szolgáltatásokban). 
+
+Ha fontos a kompatibilitás a korábbi operációs rendszerekkel vagy alkalmazásokkal vagy olyan forgatókönyveket használ, amelyek esetében a TPM-tulajdonosazonosító nem tárolható helyileg, akkor a TPM-hitelesítés operációs rendszer által kezelt szintje beállításnál válassza az Egyik sem értéket.  A beállítás használata egyes TPM-alapú alkalmazások működésében problémákat okozhat.
+
+Ha ezt a házirend-beállítást letiltja vagy nem konfigurálja és A biztonsági mentés az Active Directory tartományi szolgáltatásokba TPM-funkció bekapcsolása házirend-beállítás ugyancsak le van tiltva vagy nem konfigurált, akkor a rendszer az alapértelmezett beállítást használja, és a helyi beállításjegyzékben tárolja a teljes TPM-tulajdonosazonosító értéket. Ha ezt a házirend-beállítást letiltja vagy nem konfigurálja, de A biztonsági mentés az Active Directory tartományi szolgáltatásokba TPM-funkció bekapcsolása csoportházirend-beállítást engedélyezi, akkor a rendszer csak a rendszergazdai delegálási blobot és a felhasználói delegálási blobot tárolja a helyi beállításjegyzékben.
+
+Megjegyzés: Ha a TPM-hitelesítés operációs rendszer által kezelt szintje beállításnál Teljes helyett Delegált értéket ad meg, akkor a rendszer újra létrehozza a teljes TPM-tulajdonosazonosító értéket, és az eredeti TPM-tulajdonosazonosító értékről készült másolatok érvénytelenné válnak. Ha az Active Directory tartományi szolgáltatások használatával biztonsági másolatot készít TPM-tulajdonosazonosító értékről, akkor a rendszer az érték valamennyi módosulásakor automatikusan biztonsági mentést készít az új tulajdonosazonosító értékről az Active Directory tartományi szolgáltatásokban.
+
+</string>
+      <string id="OSManagedAuth-TpmAuthFull">Teljes</string>
+      <string id="OSManagedAuth-TpmAuthAdminPlusUser">Delegált</string>
+      <string id="OSManagedAuth-TpmAuthNone">Egyik sem</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name">Általános jogú felhasználó zárolási időtartama</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name_Help">Ezzel a házirend-beállítással megadhatja azt az időtartamot (percekben), ameddig a rendszer figyelembe veszi az általános jogú felhasználók platformmegbízhatósági modul (TPM) engedélyezést igénylő parancsaihoz kapcsolódó engedélyezési hibáit.  Ha az időtartam során az engedélyezési hibák miatt sikertelen TPM-parancsok száma elér egy adott küszöböt, akkor az általános jogú felhasználók nem küldhetnek engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak.  
+
+A házirend-beállítás eredményeképpen az általános jogú felhasználók lassabban küldhetnek engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak, így használatával a rendszergazdák megakadályozhatják, hogy a platformmegbízhatósági modul hardvere zárolási módba kerüljön.  
+
+Minden olyan alkalommal engedélyezési hiba történik, amikor egy általános jogú felhasználó parancsot küld a platformmegbízhatósági modulnak, és válaszul engedélyezési hibáról tájékoztató hibaüzenetet kap.  A megadott időtartamnál régebbi engedélyezési hibákat a rendszer figyelmen kívül hagyja.
+
+Minden általános jogú felhasználóra két küszöbérték vonatkozik.  Ha az általános jogú felhasználó valamelyiket túllépi, akkor nem küldhet engedélyezést igénylő parancsot a platformmegbízhatósági modulnak.  
+
+Az Általános jogú felhasználók egyéni zárolási küszöbe érték az egyes általános jogú felhasználók számára lehetséges engedélyezési hibák maximális száma. Ennek túllépése után az általános jogú felhasználó nem küldhet engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak.  
+
+Az Általános jogú felhasználók összesített zárolási küszöbe érték az általános jogú felhasználók összessége számára engedélyezett engedélyezési hibák maximális száma. Ennek túllépése után egyetlen általános jogú felhasználó sem küldhet engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak. 
+      
+A platformmegbízhatósági modul beépített védelemmel rendelkezik a jelszó-előállító támadásokkal szemben, és ha túl sok helytelen azonosítóértékű parancsot kap, akkor hardverzárolási módba kapcsol.   A platformmegbízhatósági modul zárolási módja az összes felhasználót (a rendszergazdákat is), illetve a BitLocker meghajtótitkosításhoz hasonló Windows-szolgáltatásokat is érinti.  A platformmegbízhatósági modul által lehetővé tett engedélyezési hibák száma, valamint a zárolás időtartama gyártónként eltérőek.  Egyes platformmegbízhatósági modulok esetében – a korábbi hibáktól függően – a zárolási mód tovább tart és kevesebb hiba is elegendő a bekövetkezéséhez.  Más platformmegbízhatósági modulok esetében a zárolási módból történő kilépéshez újra kell indítani a rendszert.    Ismét más platformmegbízhatósági modulok esetében a rendszernek meghatározott ideig működnie kell, hogy elteljen a megfelelő idő, ami után a TPM kilép a zárolási módból.
+
+A TPM-tulajdonosi jelszóval rendelkező rendszergazdák a platformmegbízhatósági modul felügyeleti konzoljával (tpm.msc) alaphelyzetbe állíthatják a TPM hardverzárolási logikáját.  Miután egy rendszergazda alaphelyzetbe állítja a TPM hardverzárolási logikáját, a rendszer az általános jogú felhasználók minden korábbi engedélyezési hibáját figyelmen kívül hagyja, és az általános jogú felhasználók azonnal újra a megszokott módon használhatják a platformmegbízhatósági modult.
+
+Ha nem konfigurálja az értéket, a rendszer az alapértelmezett értéket (480 perc, vagyis 8 óra) használja.  
+        
+      </string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name">Általános jogú felhasználók egyéni zárolási küszöbe</string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name_Help">Ezzel a házirend-beállítással kezelheti az egyes általános jogú felhasználók számára a platformmegbízhatósági modulban maximálisan megengedett engedélyezési hibák számát.  Ha a felhasználó engedélyezési hibáinak száma az Általános jogú felhasználó zárolási időtartama házirend-beállításban megadott időszak alatt eléri ezt az értéket, akkor az általános jogú felhasználó nem küldhet engedélyezést igénylő parancsokat a TPM modulnak.
+
+A házirend-beállítás eredményeképpen az általános jogú felhasználók lassabban küldhetnek engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak, így használatával a rendszergazdák megakadályozhatják, hogy a platformmegbízhatósági modul hardvere zárolási módba kerüljön.  
+
+Minden olyan alkalommal engedélyezési hiba történik, amikor egy általános jogú felhasználó parancsot küld a platformmegbízhatósági modulnak, és válaszul engedélyezési hibáról tájékoztató hibaüzenetet kap.  A megadott időtartamnál régebbi engedélyezési hibákat a rendszer figyelmen kívül hagyja.
+
+Minden általános jogú felhasználóra két küszöbérték vonatkozik.  Ha az általános jogú felhasználó valamelyiket túllépi, akkor nem küldhet engedélyezést igénylő parancsot a platformmegbízhatósági modulnak.  
+
+Ez az érték az egyes általános jogú felhasználók számára megengedett engedélyezési hibák maximális száma. Ennek túllépése után az általános jogú felhasználó nem küldhet engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak.  
+
+Az Általános jogú felhasználók összesített zárolási küszöbe érték az általános jogú felhasználók összessége számára engedélyezett engedélyezési hibák maximális száma. Ennek túllépése után egyetlen általános jogú felhasználó sem küldhet engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak. 
+      
+A platformmegbízhatósági modul beépített védelemmel rendelkezik a jelszó-előállító támadásokkal szemben, és ha túl sok helytelen azonosítóértékű parancsot kap, akkor hardverzárolási módba kapcsol.   A platformmegbízhatósági modul zárolási módja az összes felhasználót (a rendszergazdákat is), illetve a BitLocker meghajtótitkosításhoz hasonló Windows-szolgáltatásokat is érinti.  A platformmegbízhatósági modul által lehetővé tett engedélyezési hibák száma, valamint a zárolás időtartama gyártónként eltérőek.  Egyes platformmegbízhatósági modulok esetében – a korábbi hibáktól függően – a zárolási mód tovább tart és kevesebb hiba is elegendő a bekövetkezéséhez.  Más platformmegbízhatósági modulok esetében a zárolási módból történő kilépéshez újra kell indítani a rendszert.    Ismét más platformmegbízhatósági modulok esetében a rendszernek meghatározott ideig működnie kell, hogy elteljen a megfelelő idő, ami után a TPM kilép a zárolási módból.
+
+A TPM-tulajdonosi jelszóval rendelkező rendszergazdák a platformmegbízhatósági modul felügyeleti konzoljával (tpm.msc) alaphelyzetbe állíthatják a TPM hardverzárolási logikáját.  Miután egy rendszergazda alaphelyzetbe állítja a TPM hardverzárolási logikáját, a rendszer az általános jogú felhasználók minden korábbi engedélyezési hibáját figyelmen kívül hagyja, és az általános jogú felhasználók azonnal újra a megszokott módon használhatják a platformmegbízhatósági modult.
+
+Ha nem konfigurálja ezt az értéket, a rendszer az alapértelmezett értéket használja. Ez a 4.
+
+A nulla érték használata esetén az operációs rendszer nem engedi, hogy az általános jogú felhasználók olyan parancsokat küldjenek a platformmegbízhatósági modulnak, ami engedélyezési hibát eredményezhet.
+      
+      </string>
+
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name">Általános jogú felhasználók összesített zárolási küszöbe</string>
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name_Help">Ezzel a házirend-beállítással kezelheti az általános jogú felhasználók összessége számára a platformmegbízhatósági modulban megengedett engedélyezési hibák maximális számát.  Ha az általános jogú felhasználók engedélyezési hibáinak összesített száma az Általános jogú felhasználó zárolási időtartama házirend-beállításban megadott időszak alatt eléri ezt az értéket, akkor egy általános jogú felhasználók sem küldhet engedélyezést igénylő parancsokat a TPM modulnak.
+
+A házirend-beállítás eredményeképpen az általános jogú felhasználók lassabban küldhetnek engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak, így használatával a rendszergazdák megakadályozhatják, hogy a platformmegbízhatósági modul hardvere zárolási módba kerüljön.  
+
+Minden olyan alkalommal engedélyezési hiba történik, amikor egy általános jogú felhasználó parancsot küld a platformmegbízhatósági modulnak, és válaszul engedélyezési hibáról tájékoztató hibaüzenetet kap.  A megadott időtartamnál régebbi engedélyezési hibákat a rendszer figyelmen kívül hagyja.
+
+Minden általános jogú felhasználóra két küszöbérték vonatkozik.  Ha az általános jogú felhasználó valamelyiket túllépi, akkor nem küldhet engedélyezést igénylő parancsot a platformmegbízhatósági modulnak.  
+
+Az Általános jogú felhasználók egyéni zárolási küszöbe az egyes általános jogú felhasználók számára megengedett engedélyezési hibák maximális száma. Ennek túllépése után az általános jogú felhasználó nem küldhet engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak.  
+
+Ez az érték az általános jogú felhasználók összessége számára engedélyezett engedélyezési hibák maximális száma. Ennek túllépése után egyetlen általános jogú felhasználó sem küldhet engedélyezést igénylő parancsokat a platformmegbízhatósági modulnak. 
+      
+A platformmegbízhatósági modul beépített védelemmel rendelkezik a jelszó-előállító támadásokkal szemben, és ha túl sok helytelen azonosítóértékű parancsot kap, akkor hardverzárolási módba kapcsol.   A platformmegbízhatósági modul zárolási módja az összes felhasználót (a rendszergazdákat is), illetve a BitLocker meghajtótitkosításhoz hasonló Windows-szolgáltatásokat is érinti.  A platformmegbízhatósági modul által lehetővé tett engedélyezési hibák száma, valamint a zárolás időtartama gyártónként eltérőek.  Egyes platformmegbízhatósági modulok esetében – a korábbi hibáktól függően – a zárolási mód tovább tart és kevesebb hiba is elegendő a bekövetkezéséhez.  Más platformmegbízhatósági modulok esetében a zárolási módból történő kilépéshez újra kell indítani a rendszert.    Ismét más platformmegbízhatósági modulok esetében a rendszernek meghatározott ideig működnie kell, hogy elteljen a megfelelő idő, ami után a TPM kilép a zárolási módból.
+
+A TPM-tulajdonosi jelszóval rendelkező rendszergazdák a platformmegbízhatósági modul felügyeleti konzoljával (tpm.msc) alaphelyzetbe állíthatják a TPM hardverzárolási logikáját.  Miután egy rendszergazda alaphelyzetbe állítja a TPM hardverzárolási logikáját, a rendszer az általános jogú felhasználók minden korábbi engedélyezési hibáját figyelmen kívül hagyja, és az általános jogú felhasználók azonnal újra a megszokott módon használhatják a platformmegbízhatósági modult.
+
+Ha nem konfigurálja ezt az értéket, a rendszer az alapértelmezett értéket használja. Ez a 9.  
+
+A nulla érték használata esetén az operációs rendszer nem engedi, hogy az általános jogú felhasználók olyan parancsokat küldjenek a platformmegbízhatósági modulnak, ami engedélyezési hibát eredményezhet.
+
+      
+
+      </string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="BlockedCommandsList_Name">
+        <text>A blokkolni kívánt parancsokat számuk a listához történő hozzáadásával adhatja meg.</text>
+        <listBox refId="BlockedCommandsList_Ordinals2">A blokkolt TPM-parancsok listája:</listBox>
+        <text>A TPM_OwnerReadInternalPub</text>
+        <text>és TPM_FieldUpgrade parancsok blokkolásához például vegye fel a 129 és a 170 számokat a listára.</text>
+      </presentation>
+      <presentation id="OSManagedAuth_Name">
+        <dropdownList refId="SelectOSManagedAuthLevel" noSort="true" defaultItem="1">A TPM-hitelesítés operációs rendszer által kezelt szintje:</dropdownList>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureDuration_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureDuration_Name" defaultValue="480">A TPM-engedélyezési hibák figyelembe vételének időtartama (perc):</decimalTextBox>        
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureIndividualThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureIndividualThreshold_Name" defaultValue="4">Az időtartam alatt lehetséges engedélyezési hibák maximális száma:</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureTotalThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" defaultValue="9">Az időtartam alatt lehetséges engedélyezési hibák maximális száma:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

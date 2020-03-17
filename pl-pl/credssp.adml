@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>tutaj wprowadź nazwę wyświetlaną</displayName>
+  <description>tutaj wprowadź opis</description>
+  <resources>
+    <stringTable>
+      <string id="AllowDefaultCredentials">Zezwalaj na delegowanie poświadczeń domyślnych</string>
+      <string id="AllowDefaultCredentials_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+To ustawienie zasad jest stosowane, gdy uwierzytelnianie serwera jest przeprowadzane za pomocą zaufanego certyfikatu X509 lub protokołu Kerberos.
+
+Jeśli to ustawienie zasad zostanie włączone, będzie można określić, do których serwerów mogą być delegowane domyślne poświadczenia użytkownika (poświadczenia domyślne to poświadczenia, które są używane przy pierwszym logowaniu do systemu Windows).
+
+Te zasady zostają zastosowane po następnym zalogowaniu się użytkownika do komputera z systemem Windows.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane (stan domyślny), delegowanie poświadczeń domyślnych do jakiegokolwiek komputera będzie niedozwolone. Uwierzytelnianie aplikacji zależnych od tego ustawienia delegowania może się nie powieść. Więcej informacji można znaleźć w bazie wiedzy Knowledge Base.
+
+Link FWlink do bazy wiedzy Knowledge Base:
+http://go.microsoft.com/fwlink/?LinkId=301508
+
+Uwaga: ustawienie zasad „Zezwalaj na delegowanie poświadczeń domyślnych” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN).  Nazwa SPN reprezentuje serwer docelowy, do którego mogą być delegowane poświadczenia użytkownika.  Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com
+TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly">Zezwalaj na delegowanie poświadczeń domyślnych z zastosowaniem uwierzytelniania na serwerze tylko przy użyciu mechanizmu NTLM</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+Ta ustawienie zasad jest stosowane, gdy uwierzytelnianie serwera jest przeprowadzane za pomocą mechanizmu NTLM.
+
+Jeśli to ustawienie zasad zostanie włączone, będzie można określić, do których serwerów mogą być delegowane domyślne poświadczenia użytkownika (poświadczenia domyślne to poświadczenia, które są używane przy pierwszym logowaniu do systemu Windows).
+
+Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane (stan domyślny), delegowanie poświadczeń domyślnych do jakiegokolwiek komputera będzie niedozwolone.
+
+Uwaga: ustawienie zasad „Zezwalaj na delegowanie poświadczeń domyślnych z zastosowaniem uwierzytelniania na serwerze tylko przy użyciu mechanizmu NTLM” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego mogą być delegowane poświadczenia użytkownika.  Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.</string>
+      <string id="AllowFreshCredentials">Zezwalaj na delegowanie świeżych poświadczeń</string>
+      <string id="AllowFreshCredentials_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+To ustawienie zasad jest stosowane, gdy uwierzytelnianie serwera jest przeprowadzane za pomocą zaufanego certyfikatu X509 lub protokołu Kerberos.
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów mogą być delegowane świeże poświadczenia użytkownika (świeże poświadczenia to poświadczenia, które należy podać podczas uruchamiania aplikacji).
+
+Jeżeli to ustawienie zasad nie zostanie skonfigurowane (stan domyślny), po właściwie przeprowadzonym uwierzytelnieniu wzajemnym będzie dozwolone delegowanie świeżych poświadczeń do hosta sesji usług pulpitu zdalnego działającego na dowolnym komputerze (TERMSRV/*).
+
+Jeżeli to ustawienie zasad zostanie wyłączone, delegowanie świeżych poświadczeń do jakiegokolwiek komputera będzie niedozwolone.
+
+Uwaga: ustawienie zasad „Zezwalaj na delegowanie świeżych poświadczeń” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego mogą być delegowane poświadczenia użytkownika. Przy podawaniu nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly">Zezwalaj na delegowanie świeżych poświadczeń z zastosowaniem uwierzytelniania na serwerze tylko przy użyciu mechanizmu NTLM</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+Ta ustawienie zasad jest stosowane, gdy uwierzytelnianie serwera jest przeprowadzane za pomocą mechanizmu NTLM.
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów mogą być delegowane świeże poświadczenia użytkownika (świeże poświadczenia to poświadczenia, które należy podać podczas uruchamiania aplikacji).
+
+Jeżeli to ustawienie zasad nie zostanie skonfigurowane (stan domyślny), po właściwie przeprowadzonym uwierzytelnieniu wzajemnym będzie dozwolone delegowanie świeżych poświadczeń do hosta sesji usług pulpitu zdalnego działającego na dowolnym komputerze (TERMSRV/*).
+
+Jeżeli to ustawienie zasad zostanie wyłączone, delegowanie świeżych poświadczeń do jakiegokolwiek komputera będzie niedozwolone.
+
+Uwaga: ustawienie zasad „Zezwalaj na delegowanie świeżych poświadczeń z zastosowaniem uwierzytelniania na serwerze tylko przy użyciu mechanizmu NTLM” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego mogą być delegowane poświadczenia użytkownika. Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.</string>
+      <string id="AllowSavedCredentials">Zezwalaj na delegowanie zapisanych poświadczeń</string>
+      <string id="AllowSavedCredentials_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+To ustawienie zasad jest stosowane, gdy uwierzytelnianie serwera jest przeprowadzane za pomocą zaufanego certyfikatu X509 lub protokołu Kerberos.
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów mogą być delegowane zapisane poświadczenia użytkownika (zapisane poświadczenia to poświadczenia wybrane do zapisania/zapamiętania przy użyciu menedżera poświadczeń systemu Windows).
+
+Jeżeli to ustawienie zasad nie zostanie skonfigurowane (stan domyślny), po właściwie przeprowadzonym uwierzytelnieniu wzajemnym będzie dozwolone delegowanie zapisanych poświadczeń do hosta sesji usług pulpitu zdalnego działającego na dowolnym komputerze (TERMSRV/*).
+
+Jeżeli to ustawienie zasad zostanie wyłączone, delegowanie zapisanych poświadczeń do jakiegokolwiek komputera będzie niedozwolone.
+
+Uwaga: ustawienie zasad „Zezwalaj na delegowanie zapisanych poświadczeń” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego mogą być delegowane poświadczenia użytkownika. Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly">Zezwalaj na delegowanie zapisanych poświadczeń z zastosowaniem uwierzytelniania na serwerze tylko przy użyciu mechanizmu NTLM</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+Ta ustawienie zasad jest stosowane, gdy uwierzytelnianie serwera jest przeprowadzane za pomocą mechanizmu NTLM.
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów mogą być delegowane zapisane poświadczenia użytkownika (zapisane poświadczenia to poświadczenia wybrane do zapisania/zapamiętania przy użyciu menedżera poświadczeń systemu Windows).
+
+Jeżeli to ustawienie zasad nie zostanie skonfigurowane (stan domyślny), po właściwie przeprowadzonym uwierzytelnieniu wzajemnym będzie dozwolone delegowanie zapisanych poświadczeń do hosta sesji usług pulpitu zdalnego działającego na dowolnym komputerze (TERMSRV/*), o ile komputer kliencki nie należy do żadnej domeny. Jeżeli klient jest przyłączony do domeny, delegowanie zapisanych poświadczeń do jakiegokolwiek komputera jest domyślnie niedozwolone.
+
+Jeżeli to ustawienie zasad zostanie wyłączone, delegowanie zapisanych poświadczeń do jakiegokolwiek komputera będzie niedozwolone.
+
+Uwaga: ustawienie zasad „Zezwalaj na delegowanie zapisanych poświadczeń z zastosowaniem uwierzytelniania na serwerze tylko przy użyciu mechanizmu NTLM” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego mogą być delegowane poświadczenia użytkownika. Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.</string>
+      <string id="CredentialsDelegation">Delegowanie poświadczeń</string>
+      <string id="DenyDefaultCredentials">Odmawiaj delegowania poświadczeń domyślnych</string>
+      <string id="DenyDefaultCredentials_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów nie mogą być delegowane domyślne poświadczenia użytkownika (poświadczenia domyślne to poświadczenia, które są używane przy pierwszym logowaniu do systemu Windows).
+
+Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane (stan domyślny), nie zostanie określony żaden serwer.
+
+Uwaga: ustawienie zasad „Odmawiaj delegowania poświadczeń domyślnych” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego nie mogą być delegowane poświadczenia użytkownika. Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.
+
+Tego ustawienia zasad można użyć w połączeniu z ustawieniem zasad „Zezwalaj na delegowanie poświadczeń domyślnych” w celu zdefiniowania wyjątków dla określonych serwerów, które byłyby dozwolone w przypadku używania symboli wieloznacznych na liście serwerów „Zezwalaj na delegowanie poświadczeń domyślnych”.</string>
+      <string id="DenyFreshCredentials">Odmawiaj delegowania świeżych poświadczeń</string>
+      <string id="DenyFreshCredentials_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów nie mogą być delegowane świeże poświadczenia użytkownika (świeże poświadczenia to poświadczenia, które należy podać podczas uruchamiania aplikacji).
+
+Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane (stan domyślny), nie zostanie określony żaden serwer.
+
+Uwaga: ustawienie zasad „Odmawiaj delegowania świeżych poświadczeń” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego nie mogą być delegowane poświadczenia użytkownika. Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.
+
+Tego ustawienia zasad można użyć w połączeniu z ustawieniem zasad „Zezwalaj na delegowanie świeżych poświadczeń” w celu zdefiniowania wyjątków dla określonych serwerów, które byłyby dozwolone w przypadku używania symboli wieloznacznych na liście serwerów „Zezwalaj na delegowanie świeżych poświadczeń”.</string>
+      <string id="DenySavedCredentials">Odmawiaj delegowania zapisanych poświadczeń</string>
+      <string id="DenySavedCredentials_Explain">To ustawienie zasad jest stosowane do aplikacji używających składnika dostawcy obsługi zabezpieczeń Cred (na przykład usługi Podłączanie pulpitu zdalnego).
+
+Jeżeli to ustawienie zasad zostanie włączone, można określić, do których serwerów nie mogą być delegowane zapisane poświadczenia użytkownika (zapisane poświadczenia to poświadczenia wybrane do zapisania/zapamiętania przy użyciu menedżera poświadczeń systemu Windows).
+
+Jeżeli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane (stan domyślny), nie zostanie określony żaden serwer.
+
+Uwaga: ustawienie zasad „Odmawiaj delegowania zapisanych poświadczeń” można ustawić dla co najmniej jednej głównej nazwy usługi (SPN). Nazwa SPN reprezentuje serwer docelowy, do którego nie mogą być delegowane poświadczenia użytkownika. Podczas określania nazwy SPN dozwolone jest użycie jednego symbolu wieloznacznego.
+
+Na przykład:
+TERMSRV/host.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na komputerze host.zasobyludzkie.fabrikam.com; TERMSRV/* — host sesji usług pulpitu zdalnego działający na wszystkich komputerach.
+TERMSRV/*.zasobyludzkie.fabrikam.com — host sesji usług pulpitu zdalnego działający na wszystkich komputerach w domenie zasobyludzkie.fabrikam.com.
+
+Tego ustawienia zasad można użyć w połączeniu z ustawieniem zasad „Zezwalaj na delegowanie zapisanych poświadczeń” w celu zdefiniowania wyjątków dla określonych serwerów, które byłyby dozwolone w przypadku używania symboli wieloznacznych na liście serwerów „Zezwalaj na delegowanie zapisanych poświadczeń”.</string>
+      <string id="RestrictedRemoteAdministration">Ogranicz delegowanie poświadczeń do serwerów zdalnych</string>
+      <string id="RestrictedRemoteAdministration_Explain">W trybie ograniczonym uczestniczące aplikacje nie ujawniają poświadczeń komputerom zdalnym (niezależnie od metody delegowania). Tryb ograniczony może powodować ograniczenie dostępu do zasobów znajdujących się na innych serwerach lub w sieciach poza komputerem docelowym, ponieważ poświadczenia nie są delegowane.
+
+Uczestniczące aplikacje:
+Klient pulpitu zdalnego
+
+Jeśli to ustawienie zasad zostanie włączone, będzie wymuszany tryb ograniczony i uczestniczące aplikacje nie będą delegować poświadczeń do komputerów zdalnych.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, nie będzie wymuszany tryb ograniczony i uczestniczące aplikacje będą mogły delegować poświadczenia do komputerów zdalnych.
+
+Uwaga: niekiedy aby wyłączyć większą część delegowania poświadczeń, wystarczy odmówić delegowania w ustawieniach dostawcy CredSSP (Credential Security Support Provider), modyfikując ustawienia szablonu administracyjnego (Konfiguracja komputera\Szablony administracyjne\System\Delegowanie poświadczeń).</string>
+      <string id="SUPPORTED_VISTA">Windows Vista</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowDefaultCredentials">
+        <listBox refId="AllowDefaultCredentials_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADC" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="AllowDefCredentialsWhenNTLMOnly">
+        <listBox refId="AllowDefCredentialsWhenNTLMOnly_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADCN" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentials">
+        <listBox refId="AllowFreshCredentials_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFC" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentialsWhenNTLMOnly">
+        <listBox refId="AllowFreshCredentialsWhenNTLMOnly_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFCN" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentials">
+        <listBox refId="AllowSavedCredentials_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASC" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentialsWhenNTLMOnly">
+        <listBox refId="AllowSavedCredentialsWhenNTLMOnly_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASCN" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="DenyDefaultCredentials">
+        <listBox refId="DenyDefaultCredentials_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_DDC" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="DenyFreshCredentials">
+        <listBox refId="DenyFreshCredentials_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_DFC" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+      <presentation id="DenySavedCredentials">
+        <listBox refId="DenySavedCredentials_Name">Dodaj serwery do listy:</listBox>
+        <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Dołącz domyślne ustawienia systemu do powyższych parametrów</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

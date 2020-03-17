@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>insira o nome de exibição aqui</displayName>
+  <description>insira a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Pastas de Trabalho</string>
+      <string id="Pol_MachineEnableWorkFolders">Forçar configuração automática para todos os usuários</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Esta configuração de política especifica se as Pastas de Trabalho devem ser configuradas automaticamente para todos os usuários do computador afetado.
+      
+Se você habilitar esta configuração de política, as Pastas de Trabalho serão configuradas automaticamente para todos os usuários do computador afetado. Isso impede que os usuários optem por não usar as Pastas de Trabalho no computador. Também evita que eles especifiquem manualmente a pasta local onde as Pastas de Trabalho armazenam arquivos. As Pastas de Trabalho usam as configurações especificadas na configuração de política "Especificar configurações de Pastas de Trabalho" em Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Pastas de Trabalho. Se a configuração de política "Especificar configurações de Pastas de Trabalho" não se aplicar a algum usuário, as Pastas de Trabalho não serão configuradas automaticamente.
+      
+Se você desabilitar ou não configurar essa política, as Pastas de Trabalho usarão a opção "Forçar configuração automática" da configuração de política "Especificar configurações de Pastas de Trabalho" para determinar se as Pastas de Trabalho serão configuradas automaticamente para um usuário específico.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Especificar configurações de Pastas de Trabalho</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Esta configuração de política especifica o servidor de Pastas Trabalho para os usuários afetados, bem como se os usuários têm ou não permissão para alterar configurações ao configurar Pastas de Trabalho em um computador que faça parte de um domínio.
+
+Se você desabilitar essa configuração de política, os usuários afetados receberão as configurações de Pastas de Trabalho quando entrarem em um computador que faça parte de um domínio. 
+
+A "URL de Pastas de Trabalho" pode especificar a URL usada pela organização para a descoberta de Pastas de Trabalho ou a URL específica do servidor de arquivos que armazena os dados dos usuários afetados.
+
+A opção "Forçar configuração automática" determina que as Pastas de Trabalho devem ser configuradas automaticamente sem perguntar aos usuários. Isso impede que os usuários optem por não usar as Pastas de Trabalho no computador. Também evita que eles especifiquem manualmente a pasta local onde as Pastas de Trabalho armazenam arquivos. Por padrão, as Pastas de Trabalho são armazenadas na pasta "%USERPROFILE%\Pastas de Trabalho". Se essa opção não for especificada, os usuários deverão usar o item Painel de Controle de Pastas de Trabalho nos seus computadores para configurar Pastas de Trabalho.
+   
+Se essa política for desabilitada ou não for configurada, nenhuma configuração de Pastas de Trabalho será especificada para os usuários afetados, embora eles possam configurar manualmente as Pastas de Trabalho usando o item Painel de Controle de Pastas de Trabalho.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>URL de Pastas de Trabalho:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Forçar configuração automática</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

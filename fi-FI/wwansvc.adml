@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>WWAN-palvelun ryhmäkäytäntöasetukset</displayName>
+  <description>WWAN-palvelun ryhmäkäytäntöasetukset</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">WWAN-palvelu</string>
+      <string id="NetworkCost_Category">WWAN-tietovälinekustannus</string>
+      <string id="SetCost3G">Määritä 3G-kustannus</string>
+      <string id="SetCost3G_Help">Tämä käytäntöasetus määrittää 3G-yhteyksien kustannuksen paikallisessa tietokoneessa.
+
+Jos otat tämän käytäntöasetuksen käyttöön, mahdollisia kustannusarvoja sisältävä avattava luetteloruutu aktivoituu.  Valitsemalla luettelosta jonkin seuraavista arvoista voit määrittää kaikkien 3G-yhteyksien kustannuksen paikallisessa tietokoneessa:
+
+- Rajoittamaton: Tämän yhteyden käyttöä ei rajoiteta, eikä sillä ole käyttömaksu- tai kapasiteettirajoituksia. 
+
+- Kiinteä: Tämän yhteyden käytöllä ei tiettyyn tietomäärärajaan asti ole käyttömaksu- tai kapasiteettirajoituksia. 
+
+- Muuttuja: Tämän yhteyden maksut perustuvat tavumäärään.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, 3G-yhteyksien kustannus on oletusarvon mukaan Kiinteä.
+      
+      </string>
+      <string id="SetCost4G">Määritä 4G-kustannus</string>
+      <string id="SetCost4G_Help">Tämä käytäntöasetus määrittää 4G-yhteyksien kustannuksen paikallisessa tietokoneessa.      
+
+Jos otat tämän käytäntöasetuksen käyttöön, mahdollisia kustannusarvoja sisältävä avattava luetteloruutu aktivoituu. Valitsemalla luettelosta jonkin seuraavista arvoista voit määrittää kaikkien 4G-yhteyksien kustannuksen paikallisessa tietokoneessa:
+
+- Rajoittamaton: Tämän yhteyden käyttöä ei rajoiteta, eikä sillä ole käyttömaksu- tai kapasiteettirajoituksia. 
+
+- Kiinteä: Tämän yhteyden käytöllä ei tiettyyn tietomäärärajaan asti ole käyttömaksu- tai kapasiteettirajoituksia. 
+
+- Muuttuja: Tämän yhteyden maksut perustuvat tavumäärään.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittämättä, 4G-yhteyksien kustannus on oletusarvon mukaan Kiinteä.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Rajoittamaton</string>
+      <string id="Cost_DropDownList_Fixed">Kiinteä</string>
+      <string id="Cost_DropDownList_Variable">Muuttuja</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Valitse määritettävä 3G-yhteyden kustannuksen arvo:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Valitse määritettävä 4G-yhteyden kustannuksen arvo:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

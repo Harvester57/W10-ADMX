@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>indtast det viste navn her</displayName>
+  <description>indtast beskrivelsen her</description>
+  <resources>
+    <stringTable>
+      <string id="ActiveDirectoryBackup_Help">Du kan bruge denne politikindstilling til at administrere Active Directory-domænetjenestens sikkerhedskopiering af TPM-ejeroplysninger (Trusted Platform Module). 
+
+TPM-ejeroplysningerne omfatter en krypteret hashværdi af TPM-ejeradgangskoden. Visse TPM-kommandoer kan kun køres af TPM-ejeren. Denne hashværdi godkender, at TPM kører disse kommandoer. 
+
+Hvis du aktiverer denne politikindstilling, vil TPM-ejeroplysningerne automatisk blive sikkerhedskopieret til Active Directory-domænetjenesterne, hvis du bruger Windows til at angive eller ændre TPM-ejeradgangskoden. 
+
+Hvis du aktiverer denne politikindstilling, kan der ikke angives eller ændres en TPM-ejeradgangskode, medmindre computeren har forbindelse til domænet, og AD DS-sikkerhedskopieringen lykkes.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, sikkerhedskopieres der ingen TPM-ejeroplysninger til Active Directory-domænetjenesterne. 
+
+Bemærk! Du skal først oprette passende skemaudvidelser og adgangskontrolindstillinger på domænet, inden Active Directory-domænetjenestens sikkerhedskopiering kan fuldføres. Se onlinedokumentationen for at få flere oplysninger om konfiguration af Active Directory-domænetjenesterne for TPM.
+
+Bemærk! TPM kan ikke bruges til at yde forbedrede sikkerhedsfunktioner for BitLocker-drevkryptering og andre programmer, hvis der ikke er angivet en ejer. Hvis du vil overtage ejerskabet af TPM med en ejeradgangskode, skal du køre tpm.msc og vælge handlingen Initialiser TPM.
+
+Bemærk! Hvis TPM-ejeroplysningerne går tabt, eller de ikke er tilgængelige, er det muligt at foretage begrænset TPM-administration ved at køre tpm.msc på den lokale computer.</string>
+      <string id="ActiveDirectoryBackup_Name">Slå TPM-sikkerhedskopiering til Active Directory-domænetjenester til</string>
+      <string id="BlockedCommandsList_Help">Du kan bruge denne politikindstilling til at administrere gruppepolitiklisten over de TPM-kommandoer (Trusted Platform Module), der er blokeret af Windows.
+
+Hvis du aktiverer denne politikindstilling, blokeres de angivne kommandoer, så de ikke sendes til TPM'en på computeren. Der henvises til TPM-kommandoer via et kommandonummer. Kommandonummer 129 er f.eks. TPM_OwnerReadInternalPub, og kommandonummer 170 er TPM_FieldUpgrade. Hvis du vil søge efter det kommandonummer, der er knyttet til de enkelte TPM-kommandoer, skal du køre tpm.msc og navigere til sektionen Kommandostyring.
+
+Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, er det måske kun de TPM-kommandoer, der er angivet via standardlisten eller den lokale liste, som blokeres af Windows. Standardlisten over blokerede TPM-kommandoer er forudkonfigureret af Windows. Du kan få vist standardlisten ved at køre tpm.msc, navigere til sektionen Kommandostyring og gøre kolonnen På standardlisten over blokerede synlig. Den lokale liste over blokerede TPM-kommandoer konfigureres uden for gruppepolitikken ved at køre tpm.msc eller via scripting gennem Win32_Tpm-grænsefladen. Se relaterede politikindstillinger, hvis du vil gennemtvinge eller ignorere standardlisten og den lokale liste over blokerede TPM-kommandoer.</string>
+      <string id="BlockedCommandsList_Name">Konfigurer listen over blokerede TPM-kommandoer</string>
+      <string id="IgnoreDefaultList_Help">Du kan bruge denne politikindstilling til at gennemtvinge eller ignorere computerens standardliste over blokerede TPM-kommandoer (Trusted Platform Module).
+
+Hvis du aktiverer denne politikindstilling, ignoreres computerens standardliste over blokerede TPM-kommandoer, og kun de TPM-kommandoer, der er angivet af gruppepolitikken eller på den lokale liste, blokeres. 
+
+Standardlisten over blokerede TPM-kommandoer er forudkonfigureret af Windows. Du kan få vist standardlisten ved at køre tpm.msc, navigere til sektionen Kommandostyring og gøre kolonnen På standardlisten over blokerede synlig. Den lokale liste over blokerede TPM-kommandoer konfigureres uden for gruppepolitikken ved at køre tpm.msc eller via scripting gennem Win32_Tpm-grænsefladen. Se den relaterede politikindstilling, hvis du vil konfigurere gruppepolitiklisten over blokerede TPM-kommandoer.
+
+Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, blokeres TPM-kommandoerne på standardlisten sammen med kommandoer i gruppepolitikken og de lokale lister over blokerede TPM-kommandoer.  </string>
+      <string id="IgnoreDefaultList_Name">Ignorer standardlisten over blokerede TPM-kommandoer</string>
+      <string id="IgnoreLocalList_Help">Du kan bruge denne politikindstilling til at gennemtvinge eller ignorere computerens lokale liste over blokerede TPM-kommandoer (Trusted Platform Module).
+
+Hvis du aktiverer denne politikindstilling, ignoreres computerens lokale liste over blokerede TPM-kommandoer, og kun de TPM-kommandoer, der er angivet af gruppepolitikken eller på standardlisten, blokeres.
+
+Den lokale liste over blokerede TPM-kommandoer konfigureres uden for gruppepolitikken ved at køre tpm.msc eller via scripting gennem Win32_Tpm-grænsefladen. Standardlisten over blokerede TPM-kommandoer er forudkonfigureret af Windows. Se den relaterede politikindstilling, hvis du vil konfigurere gruppepolitiklisten over blokerede TPM-kommandoer. 
+
+Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, blokeres de TPM-kommandoer, der findes på den lokale liste, sammen med kommandoer i gruppepolitikken og standardlisterne over blokerede TPM-kommandoer.</string>
+      <string id="IgnoreLocalList_Name">Ignorer den lokale liste over blokerede TPM-kommandoer</string>
+      <string id="TPMCategory">Trusted Platform Module-tjenester</string>
+      <string id="OSManagedAuth_Name">Konfigurer det oplysningsniveau for TPM-ejeradgangskoder, der er tilgængeligt for operativsystemet</string>
+      <string id="OSManagedAuth_Help">Du kan bruge denne politikindstilling til at konfigurere, hvor mange af oplysningerne om TPM-ejeradgangskoder der er gemt i registreringsdatabasen på den lokale computer. Afhængigt af den mængde oplysninger om TPM-ejeradgangskoder der er gemt lokalt, kan operativsystemet og TPM-baserede programmer udføre visse TPM-handlinger, som kræver TPM-ejergodkendelse, uden at kræve, at TPM-ejeradgangskoden angives.
+
+Du kan angive, at operativsystemet enten skal gemme hele værdien for TPM-ejergodkendelse, den TPM-administrative delegeringsblob samt TPM-brugerdelegeringsblobben eller ingen. 
+
+Hvis du aktiverer denne politikindstilling, gemmer Windows TPM-ejergodkendelsen i registreringsdatabasen på den lokale computer i overensstemmelse med den indstilling for TPM-godkendelse, der styres af operativsystemet, du vælger.
+
+Vælg indstillingen "Fuld" for TPM-godkendelse, der styres af operativsystemet, for at gemme hele TPM-ejergodkendelsen, den TPM-administrative delegeringsblob og TPM-brugerdelegeringsblobben i den lokale registreringsdatabase. Denne indstilling tillader brugen af TPM uden at kræve fjernlagring eller ekstern lagring af værdien for TPM-ejergodkendelse. Denne indstilling er velegnet i scenarier, hvor det ikke er nødvendigt at forhindre nulstilling af TPMantihammerlogikken eller ændring af værdien for TPM-ejergodkendelse. Visse TPM-baserede programmer kræver måske, at denne indstilling ændres, før funktioner, der er afhængige af TPMantihammerlogikken, kan bruges.
+
+Vælg indstillingen "Delegeret" for TPM-godkendelse, der styres af operativsystemet, hvis du kun vil gemme den TPM-administrative delegeringsblob og TPM-brugerdelegeringsblobben i den lokale registreringsdatabase. Denne indstilling er velegnet til brug sammen med TPM-baserede programmer, der er afhængige af TPM-antihammerlogikken. Ekstern lagring eller fjernlagring af hele værdien for TPM-ejergodkendelse, f.eks. sikkerhedskopiering af værdien til AD DS (Active Directory Domain Services), anbefales, når du bruger denne indstilling. 
+
+Vælg indstillingen "Ingen" for TPM-godkendelse, der styres af operativsystemet, for at opnå kompatibilitet med tidligere operativsystemer og programmer eller i forbindelse med scenarier, der kræver, at TPM-ejergodkendelse ikke lagres lokalt.  Brug af denne indstilling kan medføre problemer med visse TPM-baserede programmer.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, samtidig med at du deaktiverer eller undlader at konfigurere politikindstillingen "Slå TPM-sikkerhedskopiering til Active Directory-domænetjenester til", gemmes hele værdien for TPM-godkendelse som standard i den lokale registreringsdatabase. Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, samtidig med at du aktiverer politikindstillingen "Slå TPM-sikkerhedskopiering til Active Directory-domænetjenester til", er det kun den administrative delegeringsblob og brugerdelegeringsblobs, der gemmes i den lokale registreringsdatabase.
+
+Bemærk! Hvis indstillingen for TPM-godkendelse, der styres af operativsystemet, ændres fra "Fuld" til "Delegeret", genereres hele værdien for TPM-ejergodkendelse igen, og alle kopier af den oprindelige værdi for TPM-ejergodkendelse bliver ugyldige. Hvis du sikkerhedskopierer værdien for TPM-ejergodkendelse til AD DS, sikkerhedskopieres den nye værdi for ejergodkendelse automatisk til AD DS, når den ændres.
+
+</string>
+      <string id="OSManagedAuth-TpmAuthFull">Fuld</string>
+      <string id="OSManagedAuth-TpmAuthAdminPlusUser">Delegeret</string>
+      <string id="OSManagedAuth-TpmAuthNone">Ingen</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name">Varighed af spærring for standardbrugere</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name_Help">Du kan bruge denne politikindstilling til at administrere varigheden i minutter for optælling af godkendelsesfejl for standardbrugere for TPM-kommandoer (Trusted Platform Module), der kræver godkendelse.  Hvis antallet af TPM-kommandoer med en godkendelsesfejl i varighed er lig med en begrænsning, kan en standardbruger ikke sende kommandoer, der kræver godkendelse, til TPM.  
+
+Du kan bruge denne politikindstilling til at forhindre, at TPM-hardwaren skifter til spærringstilstand, da det reducerer hastigheden. Brugere kan sende kommandoer, der kræver godkendelse, til TPM.  
+
+Der opstår en godkendelsesfejl, hver gang en standardbruger sender en kommando til TPM og modtager et fejlsvar, der indikerer, at der er opstået en godkendelsesfejl.  Godkendelsesfejl, der er ældre end denne varighed, ignoreres.
+
+For hver standardbruger gælder to begrænsninger.  Hvis en af begrænsningerne overskrides, kan standardbrugeren ikke sende en kommando til TPM, der kræver godkendelse.  
+
+Værdien for Individuel spærringsgrænse for standardbrugere er det højeste antal godkendelsesfejl, de enkelte standardbrugere må have, før brugerne ikke længere har tilladelse til at sende kommandoer, der kræver godkendelse, til TPM.  
+
+Værdien for Samlet spærringsgrænse for standardbrugere er det samlede antal godkendelsesfejl, alle standardbrugere må have, før alle standardbrugere ikke længere har tilladelse til at sende kommandoer, der kræver godkendelse, til TPM. 
+      
+TPM er udviklet til at beskytte sig selv mod angreb, hvor der gættes på adgangskoden, ved at skifte til hardwarespærringstilstand, når der modtages for mange kommandoer med en forkert godkendelsesværdi.   Når TPM skifter til spærringstilstand, er den global for alle brugere, herunder administratorer og Windows-funktioner som BitLocker-drevkryptering.  Det antal godkendelsesfejl, en TPM tillader, og hvor længe den forbliver spærret, afhænger af TPM-producenten.  Visse TPM'er kan skifte til spærringstilstand i flere længere perioder med færre godkendelsesfejl, afhængigt af tidligere fejl.  Visse TPM'er kræver måske, at systemet genstartes, for at afslutte spærringstilstanden.    Andre TPM'er kræver måske, at systemet er slået til, så tilstrækkeligt mange tidscyklusser udløber, før TPM'en afslutter spærringstilstanden.
+
+En administrator med TPM-ejeradgangskoden kan fuldt ud nulstille TPM'ens hardwarespærringslogik ved hjælp af TPM Management Console (tpm.msc).  Hver gang en administrator nulstiller TPM'ens hardwarespærringslogik, ignoreres alle tidligere TPM-godkendelsesfejl for standardbrugere. Standardbrugere skal straks have tilladelse til at bruge TPM normalt igen.
+
+Hvis denne værdi ikke er konfigureret, bruges standardværdien på 480 minutter (8 timer).  
+        
+      </string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name">Individuel spærringsgrænse for standardbrugere</string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name_Help">Du kan bruge denne politikindstilling til at administrere det højeste antal godkendelsesfejl for de enkelte standardbrugere for TPM (Trusted Platform Module).  Hvis antallet af godkendelsesfejl for brugeren i varigheden for Varighed af spærring for standardbrugere er lig med denne værdi, kan standardbrugeren ikke længere sende kommandoer til TPM (Trusted Platform Module), der kræver godkendelse.
+
+Du kan bruge denne politikindstilling til at forhindre, at TPM-hardwaren skifter til spærringstilstand, da det reducerer hastigheden. Brugere kan sende kommandoer, der kræver godkendelse, til TPM.  
+
+Der opstår en godkendelsesfejl, hver gang en standardbruger sender en kommando til TPM og modtager et fejlsvar, der indikerer, at der er opstået en godkendelsesfejl.  Godkendelsesfejl, der er ældre end varigheden, ignoreres.
+
+For hver standardbruger gælder to begrænsninger.  Hvis en af begrænsningerne overskrides, kan standardbrugeren ikke sende en kommando til TPM, der kræver godkendelse.  
+
+Denne værdi er det samlede antal godkendelsesfejl, de enkelte standardbrugere må have, før brugerne ikke længere har tilladelse til at sende kommandoer, der kræver godkendelse, til TPM.  
+
+Værdien for Samlet spærringsgrænse for standardbrugere er det samlede antal godkendelsesfejl, alle standardbrugere må have, før alle standardbrugere ikke længere har tilladelse til at sende kommandoer, der kræver godkendelse, til TPM. 
+      
+TPM er udviklet til at beskytte sig selv mod angreb, hvor der gættes på adgangskoden, ved at skifte til hardwarespærringstilstand, når der modtages for mange kommandoer med en forkert godkendelsesværdi.   Når TPM skifter til spærringstilstand, er den global for alle brugere, herunder administratorer og Windows-funktioner som BitLocker-drevkryptering.  Det antal godkendelsesfejl, en TPM tillader, og hvor længe den forbliver spærret, afhænger af TPM-producenten.  Visse TPM'er kan skifte til spærringstilstand i flere længere perioder med færre godkendelsesfejl, afhængigt af tidligere fejl.  Visse TPM'er kræver måske, at systemet genstartes, for at afslutte spærringstilstanden.    Andre TPM'er kræver måske, at systemet er slået til, så tilstrækkeligt mange tidscyklusser udløber, før TPM'en afslutter spærringstilstanden.
+
+En administrator med TPM-ejeradgangskoden kan fuldt ud nulstille TPM'ens hardwarespærringslogik ved hjælp af TPM Management Console (tpm.msc).  Hver gang en administrator nulstiller TPM'ens hardwarespærringslogik, ignoreres alle tidligere TPM-godkendelsesfejl for standardbrugere. Standardbrugere skal straks have tilladelse til at bruge TPM normalt igen.
+
+Hvis denne værdi ikke er konfigureret, bruges standardværdien 4.
+
+En værdi på nul betyder, at operativsystemet ikke tillader, at standardbrugere sender kommandoer til TPM, som kan medføre godkendelsesfejl.
+      
+      </string>
+
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name">Samlet spærringsgrænse for standardbrugere</string>
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name_Help">Du kan bruge denne politikindstilling til at administrere det højeste antal godkendelsesfejl for alle standardbrugere for TPM (Trusted Platform Module).  Hvis det samlede antal godkendelsesfejl for alle standardbrugere i varigheden for Varighed af spærring for standardbrugere er lig med denne værdi, kan alle standardbrugere ikke længere sende kommandoer til TPM (Trusted Platform Module), der kræver godkendelse.
+
+Du kan bruge denne politikindstilling til at forhindre, at TPM-hardwaren skifter til spærringstilstand, da det reducerer hastigheden. Brugere kan sende kommandoer, der kræver godkendelse, til TPM.  
+
+Der opstår en godkendelsesfejl, hver gang en standardbruger sender en kommando til TPM og modtager et fejlsvar, der indikerer, at der er opstået en godkendelsesfejl.  Godkendelsesfejl, der er ældre end varigheden, ignoreres.
+
+For hver standardbruger gælder to begrænsninger.  Hvis en af begrænsningerne overskrides, kan standardbrugeren ikke sende en kommando til TPM, der kræver godkendelse.  
+
+Værdien for Individuel spærringsgrænse for standardbrugere er det højeste antal godkendelsesfejl, de enkelte standardbrugere må have, før brugerne ikke længere har tilladelse til at sende kommandoer, der kræver godkendelse, til TPM.  
+
+Denne værdi er det samlede antal godkendelsesfejl, alle standardbrugere må have, før alle standardbrugere ikke længere har tilladelse til at sende kommandoer, der kræver godkendelse, til TPM. 
+      
+TPM er udviklet til at beskytte sig selv mod angreb, hvor der gættes på adgangskoden, ved at skifte til hardwarespærringstilstand, når der modtages for mange kommandoer med en forkert godkendelsesværdi.   Når TPM skifter til spærringstilstand, er den global for alle brugere, herunder administratorer og Windows-funktioner som BitLocker-drevkryptering.  Det antal godkendelsesfejl, en TPM tillader, og hvor længe den forbliver spærret, afhænger af TPM-producenten.  Visse TPM'er kan skifte til spærringstilstand i flere længere perioder med færre godkendelsesfejl, afhængigt af tidligere fejl.  Visse TPM'er kræver måske, at systemet genstartes, for at afslutte spærringstilstanden.    Andre TPM'er kræver måske, at systemet er slået til, så tilstrækkeligt mange tidscyklusser udløber, før TPM'en afslutter spærringstilstanden.
+
+En administrator med TPM-ejeradgangskoden kan fuldt ud nulstille TPM'ens hardwarespærringslogik ved hjælp af TPM Management Console (tpm.msc).  Hver gang en administrator nulstiller TPM'ens hardwarespærringslogik, ignoreres alle tidligere TPM-godkendelsesfejl for standardbrugere. Standardbrugere skal straks have tilladelse til at bruge TPM normalt igen.
+
+Hvis denne værdi ikke er konfigureret, bruges standardværdien 9.  
+
+En værdi på nul betyder, at operativsystemet ikke tillader, at standardbrugere sender kommandoer til TPM, som kan medføre godkendelsesfejl.
+
+      
+
+      </string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="BlockedCommandsList_Name">
+        <text>Angiv de kommandoer, der skal blokeres, ved at tilføje kommandoernes numre på listen.</text>
+        <listBox refId="BlockedCommandsList_Ordinals2">Listen over blokerede TPM-kommandoer:</listBox>
+        <text>Hvis du f.eks. vil blokere kommandoerne TPM_OwnerReadInternalPub</text>
+        <text>og TPM_FieldUpgrade, skal du tilføje elementerne 129 og 170 på listen.</text>
+      </presentation>
+      <presentation id="OSManagedAuth_Name">
+        <dropdownList refId="SelectOSManagedAuthLevel" noSort="true" defaultItem="1">TPM-godkendelse, der styres af operativsystemet:</dropdownList>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureDuration_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureDuration_Name" defaultValue="480">Varighed for optælling af TPM-godkendelsesfejl (minutter):</decimalTextBox>        
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureIndividualThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureIndividualThreshold_Name" defaultValue="4">Højeste antal godkendelsesfejl pr. varighed:</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureTotalThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" defaultValue="9">Højeste antal godkendelsesfejl pr. varighed:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>escriba aquí el nombre para mostrar</displayName>
+  <description>escriba aquí la descripción</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Permitir telemetría</string>
+      <string id="AllowTelemetry_0">0: seguridad [solo empresas]</string>
+      <string id="AllowTelemetry_1">1: básico</string>
+      <string id="AllowTelemetry_2">2: mejorado</string>
+      <string id="AllowTelemetry_3">3: completo</string>
+      <string id="AllowTelemetry_Explain">Esta configuración de directiva determina la cantidad de datos de diagnóstico y uso que se notifican a Microsoft. Un valor de 0 indica que se enviará una cantidad de datos mínima a Microsoft. Entre estos datos se incluyen los datos de la Herramienta de eliminación de software malintencionado (MSRT) y los datos de Windows Defender, si están habilitados, así como los datos de configuración de cliente de telemetría. Establecer un valor de 0 se aplica solo a las empresas, EDU, IoT y dispositivos de servidor. Establecer un valor de 0 para otros dispositivos equivale a elegir un valor de 1. Un valor de 1 solo envía una cantidad básica de datos de diagnóstico y de uso. Ten en cuenta que al establecer valores de 0 o 1 se reducirá el rendimiento de determinadas experiencias den el dispositivo. Un valor de 2 enviará datos de uso y de diagnóstico mejorados. Con un valor de 3 se enviará el mismo volumen de datos que con un valor de 2, aunque con datos de diagnóstico adicionales, incluidos los archivos y el contenido que puedan haber causado el problema. La configuración de telemetría de Windows 10 se aplica al sistema operativo de Windows y a las aplicaciones propias. Esta configuración no se aplica a aplicaciones de terceros que se ejecuten en Windows 10.
+
+Si deshabilitas o no realizas esta configuración de directiva, los usuarios podrán configurar el nivel de Telemetría en Configuración.
+
+</string>
+      <string id="EnableExperimentation">Deshabilitar las características o configuración de versión preliminar</string>
+      <string id="EnableExperimentation_1">Solo configuración de dispositivos</string>
+      <string id="EnableExperimentation_2">Funciones experimentales completas</string>
+      <string id="EnableExperimentation_Explain">Esta configuración de directiva determina hasta qué nivel Microsoft puede experimentar con el producto para investigar las preferencias de usuario o el comportamiento del dispositivo. Un valor de 1 permite a Microsoft establecer solo la configuración del dispositivo. Un valor de 2 permite a Microsoft aplicar funciones experimentales completas.
+
+Si deshabilita esta configuración de directiva, se desactivarán todas las funciones experimentales.
+
+Si no establece esta configuración de directiva, el usuario puede configurar la opción "Dejar que Microsoft pruebe características en esta compilación" en Configuración.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

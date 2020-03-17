@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Controllo dispositivo Microsoft Windows</displayName>
+  <description>Sicurezza di Controllo dispositivo Windows</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Controllo dispositivo</string>
+      <string id="VirtualizationBasedSecurity">Attiva sicurezza basata su virtualizzazione</string>
+      <string id="VirtualizationBasedSecurityHelp">Specifica se è abilitata la sicurezza basata su virtualizzazione.
+
+La sicurezza basata su virtualizzazione utilizza Windows Hypervisor per fornire il supporto per i servizi di sicurezza. La sicurezza basata su virtualizzazione richiede l'avvio protetto e può essere abilitata facoltativamente con l'utilizzo di protezioni DMA. Per le protezioni DMA è necessario il supporto hardware e verranno abilitate solo su dispositivi configurati correttamente.
+
+Protezione basata su virtualizzazione dell'integrità del codice
+
+Questa impostazione consente la protezione basata su virtualizzazione dell'integrità del codice in modalità kernel. Quando questa impostazione è abilitata, vengono applicate protezioni della memoria in modalità kernel e il percorso di convalida dell'integrità del codice è protetto dalla funzionalità di sicurezza basata su virtualizzazione.
+
+Avviso: tutti i driver nel sistema devono essere compatibili con questa funzionalità o potrebbe verificarsi un arresto anomalo del sistema. Verificare che questa impostazione dei criteri sia distribuita solo nei computer di cui è nota la compatibilità. 
+
+Controllo credenziali
+
+Questa impostazione consente agli utenti di attivare il controllo delle credenziali con sicurezza basata su virtualizzazione per proteggere le credenziali.
+
+L'opzione "Disabilitato" disattiva il controllo delle credenziali in remoto se era stato attivato in precedenza con l'opzione "Abilitato senza blocco".
+
+L'opzione "Abilitato con blocco UEFI" assicura che il controllo delle credenziali non possa essere disabilitato in remoto. Per disabilitare la funzionalità, è necessario impostare il criterio di gruppo su "Disabilitato" e rimuovere le funzionalità di sicurezza da ogni computer con un utente fisicamente presente, per cancellare la configurazione salvata in UEFI.
+
+L'opzione "Abilitato senza blocco" consente di disabilitare in remoto il controllo delle credenziali usando Criteri di gruppo. Nei dispositivi che usano questa impostazione deve essere in esecuzione almeno Windows 10 (versione 1511).
+      </string>
+      <string id="SecureBoot">Avvio protetto</string>
+      <string id="SecureBootAndDmaProtection">Avvio protetto e protezione DMA</string>
+      <string id="Disabled">Disabilitata</string>
+      <string id="Enabled">Abilitata</string>
+      <string id="EnabledWithoutLock">Abilitato senza blocco</string>
+      <string id="EnabledWithUefiLock">Abilitato con blocco UEFI</string>
+      <string id="ConfigCIPolicy">Distribuisci criteri di integrità del codice</string>
+      <string id="ConfigCIPolicyHelp">Distribuisci criteri di integrità del codice
+
+Questa impostazione dei criteri consente di distribuire un criterio di integrità del codice in un computer per controllare le esecuzioni consentite in tale computer.
+
+Se si distribuisce un criterio di integrità del codice, Windows limiterà le esecuzioni consentite sia in modalità kernel che sul desktop di Windows in base al criterio. Per abilitare questo criterio, il computer deve essere riavviato. 
+
+Il percorso del file deve essere un percorso UNC (ad esempio, \\NomeServer\NomeCondivisione\SIPolicy.p7b) oppure un percorso valido nel computer locale (ad esempio, C:\NomeCartella\SIPolicy.p7b).  L'account del computer locale (LOCAL SYSTEM) deve disporre delle autorizzazioni di accesso al file dei criteri.
+ 
+Se si utilizza un criterio firmato e protetto, la disabilitazione di questa impostazione dei criteri non comporta la rimozione della funzionalità del computer. È invece necessario:
+
+1) innanzitutto aggiornare il criterio impostandolo come criterio non protetto e quindi disabilitare l'impostazione, oppure
+   2) disabilitare l'impostazione e quindi rimuovere il criterio da tutti i computer, con un utente fisicamente presente.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Seleziona il livello di sicurezza della piattaforma:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Abilita protezione basata su virtualizzazione dell'integrità del codice</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configurazione di controllo credenziali:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Percorso del file di criteri di integrità del codice:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

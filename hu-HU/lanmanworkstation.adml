@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>itt adja meg a megjelenítendő nevet</displayName>
+  <description>itt adja meg a leírást</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_LanmanWorkstation">Lanman-munkaállomás</string>
+      <string id="Pol_CipherSuiteOrder_Name">Titkosítócsomagok sorrendje</string>
+      <string id="Pol_CipherSuiteOrder_Help">Ezzel a házirend-beállítással határozhatja meg, hogy az SMB-ügyfél mely titkosítócsomagokat használja.
+
+Ha engedélyezi ezt a házirend-beállítást, a rendszer a megadott sorrend alapján rangsorolja a titkosítócsomagokat.
+
+Ha engedélyezi a házirend-beállítást, de nem ad meg legalább egy támogatott titkosítócsomagot, illetve ha letiltja vagy nem konfigurálja a házirend-beállítást, a rendszer az alapértelmezett titkosítócsomag-sorrendet használja.
+
+SMB 3.11-es titkosítócsomagok:
+
+AES_128_GCM
+AES_128_CCM
+
+SMB 3.0-s  és 3.02-es titkosítócsomagok:
+
+AES_128_CCM
+
+A beállítás módosítása:
+
+A beviteli mezőben adja meg a titkosítócsomagok kívánt sorrendjét. A titkosítócsomagokat külön sorban, rangsor szerint csökkenő sorrendben adja meg. Távolítson el minden olyan csomagot, amelyet nem kíván használni.
+
+Megjegyzés: E biztonsági beállítás módosításai a Windows újraindítása után lépnek érvénybe.</string>
+      <string id="Pol_EnableInsecureGuestLogons_Name">Vendégek nem biztonságos bejelentkezéseinek engedélyezése</string>
+      <string id="Pol_EnableInsecureGuestLogons_Help">Ez a házirend-beállítás szabja meg, hogy az SMB-ügyfél engedélyezi-e a vendégek SMB-kiszolgálókra történő nem biztonságos bejelentkezéseit.
+
+Ha engedélyezi vagy nem konfigurálja ezt a házirend-beállítást, az SMB-ügyfél engedélyezni fogja a vendégek nem biztonságos bejelentkezéseit.
+
+Ha letiltja ezt a házirend-beállítást, az SMB-ügyfél elutasítja az ilyen bejelentkezéseket.
+
+A fájlkiszolgálók a vendégek nem biztonságos bejelentkezésein keresztül biztosítanak hitelesítetlen hozzáférést a megosztott mappákhoz. Nagyvállalati környezetben ritkán használnak ilyen bejelentkezéseket, a nem vállalati környezetben fájlkiszolgálóként működő hálózati tárolóeszközökön (NAS) azonban gyakori megoldásnak számítanak. A windowsos fájlkiszolgálók alapértelmezés szerint hitelesítést követelnek meg, így a vendégek nem kaphatnak hozzáférést nem biztonságos bejelentkezésen keresztül. Mivel az ilyen bejelentkezések hitelesítés nélküliek, a fontos biztonsági funkciók (köztük az SMB-aláírás és az SMB-titkosítás) le vannak tiltva. Emiatt azok az ügyfelek, amelyeken engedélyezve van a vendégek nem biztonságos bejelentkezése, ki vannak téve a különféle közbeékelődéses támadásoknak. Az ilyen támadások adatvesztést, adatsérülést és kártevőfertőzéseket okozhatnak. Emellett a nem biztonságos bejelentkezést biztosító fájlkiszolgálókra írt adatokhoz lényegében bárki hozzáférhet a hálózaton. A Microsoft nem ajánlja az ilyen bejelentkezések engedélyezését, és javasolja, hogy a fájlkiszolgálókon legyen kötelező a hitelesített hozzáférés.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_CipherSuiteOrder">
+        <text>Titkosítócsomagok:</text>
+        <multiTextBox refId="MultiText_CipherSuiteOrder"/>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

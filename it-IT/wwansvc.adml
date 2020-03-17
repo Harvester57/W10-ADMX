@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2010 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Impostazioni di Criteri di gruppo per il servizio WWAN</displayName>
+  <description>Impostazioni di Criteri di gruppo per il servizio WWAN</description>
+  <resources>
+    <stringTable>
+      <string id="WwanSvc_Category">Servizio WWAN</string>
+      <string id="NetworkCost_Category">Costo supporti WWAN</string>
+      <string id="SetCost3G">Imposta costo 3G</string>
+      <string id="SetCost3G_Help">Questa impostazione dei criteri configura il costo delle connessioni 3G nel computer locale.
+
+Se questa impostazione dei criteri è abilitata, verrà attivato un elenco a discesa con i possibili valori di costo.  Selezionando uno dei valori seguenti nell'elenco verrà impostato il costo di tutte le connessioni 3G nel computer locale:
+
+- Senza restrizioni: l'uso di questa connessione è illimitato e non è soggetto a restrizioni in base a oneri sull'utilizzo e vincoli di capacità. 
+
+- Fisso: l'uso di questa connessione non è soggetto a restrizioni in base a oneri sull'utilizzo e vincoli di capacità fino a un determinato limite di dati. 
+
+- Variabile: il costo della connessione si basa sul numero di byte.
+
+Se questa impostazione dei criteri è disabilitata o non configurata, per impostazione predefinita il costo delle connessioni 3G è Fisso.
+      
+      </string>
+      <string id="SetCost4G">Imposta costo 4G</string>
+      <string id="SetCost4G_Help">Questa impostazione dei criteri configura il costo delle connessioni 4G nel computer locale.      
+
+Se questa impostazione dei criteri è abilitata, verrà attivato un elenco a discesa con i possibili valori di costo. Selezionando uno dei valori seguenti nell'elenco verrà impostato il costo di tutte le connessioni 4G nel computer locale:
+
+- Senza restrizioni: l'uso di questa connessione è illimitato e non è soggetto a restrizioni in base a oneri sull'utilizzo e vincoli di capacità. 
+
+- Fisso: l'uso di questa connessione non è soggetto a restrizioni in base a oneri sull'utilizzo e vincoli di capacità fino a un determinato limite di dati. 
+
+- Variabile: il costo della connessione si basa sul numero di byte.
+
+Se questa impostazione dei criteri è disabilitata o non configurata, per impostazione predefinita il costo delle connessioni 4G è Fisso.
+      
+      </string>
+      <string id="Cost_DropDownList_Unrestricted">Senza restrizioni</string>
+      <string id="Cost_DropDownList_Fixed">Fisso</string>
+      <string id="Cost_DropDownList_Variable">Variabile</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SetCost3G_Presentation">
+        <dropdownList refId="Cost3G_Dropdownlist" defaultItem="0">Selezionare un valore di costo della connessione 3G da impostare:</dropdownList>
+      </presentation>
+      <presentation id="SetCost4G_Presentation">
+        <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Selezionare un valore di costo della connessione 4G da impostare:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

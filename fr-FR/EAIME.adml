@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>entrer le nom complet ici</displayName>
+  <description>entrer la description ici</description>
+  <resources>
+    <stringTable>
+      <string id="L_IME">IME</string>
+      <string id="L_TurnOnMisconversionLoggingForMisconversionReport">Activer la journalisation des erreurs de conversion pour le rapport d’erreurs de conversion</string>
+      <string id="L_TurnOnMisconversionLoggingForMisconversionReportExplain">Ce paramètre de stratégie permet d’activer la journalisation des erreurs de conversion pour le rapport d’erreurs de conversion.
+
+Si vous activez ce paramètre de stratégie, la journalisation des erreurs de conversion est activée.
+
+Si vous désactivez ce paramètre ou ne le configurez pas, la journalisation des erreurs de conversion est désactivée. 
+
+Ce paramètre de stratégie s’applique à l’IME Microsoft japonais et à l’IME pinyin (chinois simplifié).</string>
+      <string id="L_TurnOffSavingAutoTuningDataToFile">Désactiver l’enregistrement des données de réglage automatique dans un fichier</string>
+      <string id="L_TurnOffSavingAutoTuningDataToFileExplain">Ce paramètre de stratégie vous permet de désactiver l’enregistrement du résultat du réglage automatique dans un fichier.
+
+Si vous activez ce paramètre de stratégie, les données de réglage automatique ne sont pas enregistrées dans un fichier. 
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, les données de réglage automatique sont par défaut enregistrées dans un fichier.
+
+Ce paramètre de stratégie s’applique uniquement à l’IME Microsoft japonais.</string>
+      <string id="L_TurnOffHistorybasedPredictiveInput">Désactiver la saisie prédictive basée sur l’historique</string>
+      <string id="L_TurnOffHistorybasedPredictiveInputExplain">Ce paramètre de stratégie permet de désactiver la saisie prédictive basée sur l’historique.
+
+Si vous activez ce paramètre de stratégie, la saisie prédictive basée sur l’historique est désactivée. 
+
+Si vous désactivez ce paramètre ou ne le configurez pas, la saisie prédictive basée sur l’historique est activée par défaut.
+
+Ce paramètre de stratégie s’applique uniquement à l’IME Microsoft japonais.
+
+Remarque : les modifications apportées à ce paramètre sont sans effet tant que l’utilisateur ne ferme pas la session.</string>
+      <string id="L_TurnOffOpenExtendedDictionary">Désactiver le dictionnaire étendu ouvert </string>
+      <string id="L_TurnOffOpenExtendedDictionaryExplain">Ce paramètre de stratégie permet de désactiver le dictionnaire étendu ouvert.
+
+Si vous activez ce paramètre de stratégie, le dictionnaire étendu ouvert est désactivé. Vous pouvez ajouter un nouveau dictionnaire étendu ouvert.
+
+Pour l’IME Microsoft japonais, si un dictionnaire étendu ouvert est ajouté avant l’activation de ce paramètre de stratégie, il n’est pas utilisé pour la conversion.
+
+Pour l’IME pinyin (chinois simplifié), si un dictionnaire étendu ouvert est ajouté avant l’activation de ce paramètre de stratégie, il est tout de même utilisé pour la conversion.
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, un dictionnaire étendu ouvert peut être ajouté et utilisé par défaut.
+
+Ce paramètre de stratégie s’applique à l’IME Microsoft japonais et à l’IME pinyin (chinois simplifié).</string>
+      <string id="L_TurnOffInternetSearchIntegration">Désactiver l’intégration de la recherche Internet</string>
+      <string id="L_TurnOffInternetSearchIntegrationExplain">Ce paramètre de stratégie permet de désactiver l’intégration de la recherche Internet.
+
+Si vous activez ce paramètre de stratégie, vous ne pouvez pas ajouter un nouveau fichier de configuration de l’intégration de la recherche.  Un fichier de configuration de l’intégration de la recherche qui est installé avant l’activation de ce paramètre de stratégie n’est pas utilisé.
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, la fonction d’intégration de la recherche peut être utilisée par défaut.
+
+Ce paramètre de stratégie s’applique à l’IME japonais Microsoft, l’IME pinyin Microsoft (chinois simplifié) et l’IME nouvelle phonétique du chinois traditionnel.</string>
+      <string id="L_TurnOffCustomDictionary">Désactiver le dictionnaire personnel</string>
+      <string id="L_TurnOffCustomDictionaryExplain">Ce paramètre de stratégie permet de désactiver l’utilisation d’un dictionnaire personnel.
+
+Si vous activez ce paramètre de stratégie, vous ne pouvez pas ajouter, modifier ou supprimer des mots dans le dictionnaire personnel avec des API ou des outils GUI. Un mot enregistré dans le dictionnaire personnel avant l’activation de ce paramètre de stratégie n’est pas utilisé pour la conversion.
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, le dictionnaire personnel peut être utilisé par défaut.
+
+Pour l’IME Microsoft japonais, l’option d’effacement des informations de réglage automatique fonctionne, même si ce paramètre de stratégie est activé, et elle efface les mots issus du réglage automatique du dictionnaire personnel.
+
+Ce paramètre s’applique à l’IME Microsoft japonais et à l’IME pinyin (chinois simplifié).</string>
+      <string id="L_RestrictCharacterCodeRangeOfConversion">Limiter la plage de codes de caractère de conversion</string>
+      <string id="L_RestrictCharacterCodeRangeOfConversionExplain">Ce paramètre de stratégie permet de limiter la plage de codes de caractère de conversion en définissant un filtre de caractère.
+
+Si vous activez ce paramètre de stratégie, seules les plages de codes de caractère spécifiées par ce paramètre de stratégie sont utilisées pour la conversion de l’IME.  Vous pouvez spécifier plusieurs plages en définissant une valeur combinée avec une opération OR au niveau du bit des valeurs suivantes :
+
+0x0001 // Zone JIS208
+0x0002 // Code de caractère spécial NEC
+0x0004 // Code étendu IBM sélectionné par NEC
+0x0008 // Code étendu IBM
+0x0010 // Code katakana demi largeur
+0x0100 // EUDC(GAIJI)
+0x0200 // Zone non mappée S-JIS
+0x0400 // caractère Unicode
+0x0800 // caractère de substitution
+0x1000 // caractère IVS
+0xFFFF // aucune définition
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, aucune plage de caractères n’est filtrée par défaut.
+
+Ce paramètre de stratégie s’applique uniquement à l’IME Microsoft japonais.
+
+Remarque : les modifications apportées à ce paramètre sont sans effet tant que l’utilisateur ne ferme pas la session.</string>
+      <string id="L_DoNotIncludeNonPublishingStandardGlyphInTheCandidateList">Ne pas inclure le glyphe standard de non-publication dans la liste de candidats</string>
+      <string id="L_DoNotIncludeNonPublishingStandardGlyphInTheCandidateListExplain">Ce paramètre de stratégie permet d’inclure le glyphe standard de non-publication dans la liste de candidats lorsque le glyphe standard de publication existe pour le mot.
+
+Si vous activez ce paramètre de stratégie, le glyphe standard de non-publication n’est pas inclus dans la liste de candidats lorsque le glyphe standard de publication existe pour le mot.
+
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, le glyphe standard de publication et le glyphe standard de non-publication sont inclus dans la liste de candidats.
+
+Ce paramètre de stratégie s’applique uniquement à l’IME Microsoft japonais.
+
+Remarque : les modifications apportées à ce paramètre sont sans effet tant que l’utilisateur ne ferme pas la session.</string>
+      <string id="L_TurnOnCloudCandidate">Activer le candidat de cloud</string>
+      <string id="L_TurnOnCloudCandidateExplain">Ce paramètre de stratégie contrôle la fonction de candidats de cloud, qui utilise un service en ligne pour fournir des suggestions d’entrée qui n’existent pas dans un dictionnaire local de l’ordinateur.
+
+Si vous activez ce paramètre de stratégie, la fonctionnalité associée à cette fonction est activée, l’entrée du clavier de l’utilisateur est envoyée à Microsoft pour générer des suggestions, et l’utilisateur ne peut pas la désactiver.
+
+Si vous désactivez ce paramètre de stratégie, la fonctionnalité associée à cette fonction est désactivée, et l’utilisateur ne peut pas l’activer.
+
+Si vous ne configurez pas ce paramètre de stratégie, il est désactivé par défaut, et l’utilisateur peut activer et désactiver la fonction de candidats de cloud.
+
+Ce paramètre de stratégie s’applique uniquement à l’Éditeur IME Microsoft CHS Pinyin et à l'Éditeur IME JPN.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="L_RestrictCharacterCodeRangeOfConversion">
+        <textBox refId="L_RestrictCharacterCodeRangeOfConversionID">
+          <label>Plage de codes de caractères :</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

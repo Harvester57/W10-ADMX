@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport для работы</displayName>
+  <description>Настройка Microsoft Passport для работы</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport для работы</string>
+        <string id="MSPassportForWorkPINComplexityCategory">Сложность PIN-кода</string>
+        <string id="MSPassportForWorkRemoteCategory">Удаленная служба Passport</string>
+        <string id="MSPassport_UsePassportForWork">Использование Microsoft Passport для работы</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport для работы — это альтернативный способ входа в систему Windows с использованием учетной записи Active Directory или Azure Active Directory, которая может заменить пароли, смарт-карты и виртуальные смарт-карты.
+
+Если этот параметр политики не настроен, пользователи смогут использовать Microsoft Passport для работы, благодаря чему будет зашифрован их пароль в домене.
+
+Если этот параметр политики включен, устройство предоставит возможность использования Microsoft Passport для работы с использованием ключей или сертификатов всем пользователям.
+
+Если этот параметр политики отключен, устройство не предоставит возможность использования Microsoft Passport для работы ни одному пользователю.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Использование устройства аппаратной защиты</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">Доверенный платформенный модуль (TPM) предоставляет дополнительные возможности обеспечения безопасности по сравнению с программным обеспечением, поскольку данные, которые хранятся на нем, невозможно использовать на других устройствах.
+
+Если этот параметр политики включен, использовать Microsoft Passport для работы будет возможно только на устройствах с доступным для использования TPM.
+
+Если этот параметр политики отключен или не настроен, TPM будет иметь приоритет, но Microsoft Passport для работы можно будет использовать на всех устройствах, где установлено программное обеспечение, если TPM не будет работать или будет недоступным.
+        </string>
+        <string id="MSPassport_MinimumPINLength">Минимальная длина PIN-кода</string>
+        <string id="MSPassport_MinimumPINLengthExplain">Параметр "Минимальная длина PIN-кода" устанавливает минимальное число символов в PIN-коде. Минимальное число, которое можно выбрать при настройке этого параметра политики, — 4. Максимальное число, которое можно указать для этого параметра, должно быть меньше числа, установленного в качестве максимальной длины PIN-кода, или числа 127, в зависимости от того, какое число окажется меньшим.
+
+Если этот параметр политики настроен, длина PIN-кода должна будет превышать установленное значение или равняться ему.
+
+Если этот параметр политики отключен или не настроен, PIN-код должен будет состоять не меньше, чем из 4 символов.
+
+ПРИМЕЧАНИЕ. Если описанные выше условия относительно минимальной длины PIN-кода не будут выполнены, в качестве максимальной и минимальной длины PIN-кода будут использоваться значения по умолчанию.
+        </string>
+        <string id="MSPassport_MaximumPINLength">Максимальная длина PIN-кода</string>
+        <string id="MSPassport_MaximumPINLengthExplain">Параметр "Максимальная длина PIN-кода" устанавливает максимальное число символов в PIN-коде. Максимальное число, которое можно выбрать при настройке этого параметра политики, — 127. Минимальное число, которое можно указать для этого параметра, должно быть больше числа, установленного в качестве минимальной длины PIN-кода, или числа 4, в зависимости от того, какое число окажется большим.
+
+Если настроить этот параметр политики, длина PIN-кода должна будет не превышать установленное значение или равняться ему.
+
+Если отключить или не настраивать этот параметр политики, PIN-код должен будет состоять не более, чем из 127 символов.
+
+ПРИМЕЧАНИЕ. Если описанные выше условия относительно максимальной длины PIN-кода не будут выполнены, в качестве максимальной и минимальной длины PIN-кода будут использоваться значения по умолчанию.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Требовать использование прописных букв</string>
+        <string id="MSPassport_UppercaseLettersExplain">С помощью этого параметра политики настраивается использование прописных букв в составе PIN-кодов в Microsoft Passport.
+
+Если этот параметр политики включен, Microsoft Passport для работы будет требовать от пользователей включить хотя бы одну прописную букву в свой PIN-код.
+
+Если этот параметр политики отключен или не настроен, Microsoft Passport для работы не разрешит пользователям использовать прописные буквы в своих PIN-кодах.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Требовать использование строчных букв</string>
+        <string id="MSPassport_LowercaseLettersExplain">С помощью этого параметра политики настраивается использование строчных букв в составе PIN-кодов в Microsoft Passport.
+
+Если этот параметр политики включен, Microsoft Passport для работы будет требовать от пользователей включить хотя бы одну строчную букву в свой PIN-код.
+
+Если этот параметр политики отключен или не настроен, Microsoft Passport для работы не разрешит пользователям использовать строчные буквы в своих PIN-кодах.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Требовать использование специальных символов</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[С помощью этого параметра политики настраивается использование специальных символов в составе PIN-кодов в Microsoft Passport. Разрешены следующие специальные символы: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+Если этот параметр политики включен, Microsoft Passport для работы будет требовать от пользователей включить хотя бы одну цифру в свой PIN-код.
+
+Если этот параметр политики отключен или не настроен, Microsoft Passport для работы не разрешит пользователям использовать специальные символы в своих PIN-кодах.]]>
+        </string>
+        <string id="MSPassport_Digits">Требовать использование цифр</string>
+        <string id="MSPassport_DigitsExplain">С помощью этого параметра политики настраивается использование цифр в составе PIN-кодов в Microsoft Passport.
+
+Если этот параметр политики включен или не настроен, Microsoft Passport для работы будет требовать от пользователей включить хотя бы одну прописную букву в свой PIN-код.
+
+Если этот параметр политики отключен, Microsoft Passport для работы не разрешит пользователям использовать цифры в своих PIN-кодах.
+        </string>
+        <string id="MSPassport_PINHistory">Журнал</string>
+        <string id="MSPassport_PINHistoryExplain">Этот параметр политики указывает количество предыдущих PIN-кодов, связанных с учетной записью пользователя, которые нельзя повторно использовать. Этот параметр политики позволяет администраторам улучшить безопасность, обеспечив запрет на постоянное повторное использование старых PIN-кодов. Журнал PIN-кодов не сохраняется при сбросе PIN-кодов.
+
+Значение должно быть в диапазоне от 0 до 50 PIN-кодов. Если для этого параметра политики установлено значение 0, хранение предыдущих PIN-кодов не является обязательным.
+
+Значение по умолчанию: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Срок действия</string>
+        <string id="MSPassport_PINExpirationExplain">Этот параметр указывает период времени (в днях), когда PIN-код может использоваться до того, как система потребует от пользователя изменить его. Можно задать, чтобы срок действия PIN-кода истекал через любое количество дней в диапазоне от 1 до 730, или можно задать, чтобы срок действия PIN-кода никогда не истекал, если для параметра политики установлено значение 0.
+
+Значение по умолчанию: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Использование биометрии</string>
+        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport для работы позволяет пользователям использовать биометрические функции, такие как распознавание лица или отпечатков пальцев, в качестве альтернативы PIN-жестам. Однако, пользователям всё равно необходимо будет настроить PIN-код, который они смогут использовать в случае неправильной работы биометрических функций.
+
+Если этот параметр политики включен или не настроен, Microsoft Passport для работы разрешит использование биометрических функций.
+
+Если этот параметр политики отключен, Microsoft Passport для работы запретит использование биометрических функций.
+
+ПРИМЕЧАНИЕ. В случае отключения этого параметра политики использовать биометрические функции на этом устройстве невозможно будет для любых типов учетных записей.
+        </string>
+        <string id="MSPassport_UseRemote">Использовать удаленную службу Passport</string>
+        <string id="MSPassport_UseRemoteExplain">Этот параметр политики используется для настройки использования удаленной службы Passport. Удаленная служба Passport обеспечивает возможность использования портативного зарегистрированного устройства в качестве вспомогательного устройства для проверки подлинности рабочего стола. Для удаленной службы Passport требуется, чтобы рабочий стол был присоединен к Azure AD , а вспомогательное устройство имело PIN-код Passport для работы.
+
+Если этот параметр политики включен, удаленная служба Passport будет включена, и портативное зарегистрированное устройство можно будет использовать в качестве вспомогательного устройства для проверки подлинности рабочего стола.
+
+Если этот параметр политики отключен или не настроен, удаленная служба Passport будет отключена, и портативное зарегистрированное устройство нельзя будет использовать в качестве вспомогательного устройства для проверки подлинности рабочего стола.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">Минимальная длина PIN-кода</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">Максимальная длина PIN-кода</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Прописные буквы:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Строчные буквы:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Специальные символы:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">Цифры:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">История PIN-кодов</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">Истечение срока действия PIN-кода</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

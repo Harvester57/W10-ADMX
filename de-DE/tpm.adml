@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Anzeigenamen hier eingeben</displayName>
+  <description>Beschreibung hier eingeben</description>
+  <resources>
+    <stringTable>
+      <string id="ActiveDirectoryBackup_Help">Diese Richtlinieneinstellung ermöglicht das Verwalten der AD DS-Sicherung (Active Directory-Domänendienste, Active Directory Domain Services) von TPM-Besitzerinformationen (Trusted Platform Module). 
+
+Die TPM-Besitzerinformationen umfassen einen kryptografischen Hash des TPM-Besitzerkennworts. Bestimmte TPM-Befehle können nur vom TPM-Besitzer ausgeführt werden. Dieser Hash autorisiert das TPM, diese Befehle auszuführen. 
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, werden die TPM-Besitzerinformationen automatisch und im Hintergrund in AD DS gesichert, wenn Sie Windows verwenden, um das TPM-Besitzerkennwort festzulegen oder zu ändern. 
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, kann ein TPM-Besitzerkennwort nur dann festgelegt oder geändert werden, wenn der Computer mit einer Domäne verbunden ist und die AD DS-Sicherung erfolgreich ausgeführt wird.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden keine TPM-Besitzerinformationen in AD DS gesichert. 
+
+Hinweis: Sie müssen zuerst geeignete Schemaerweiterungen und Zugriffssteuerungseinstellungen in der Domäne einrichten, damit die AD DS-Sicherung erfolgreich ausgeführt werden kann. Weitere Informationen zum Einrichten der Active Directory-Domänendienste für das TPM finden Sie in der Onlinedokumentation.
+
+Hinweis: Sie müssen zuerst einen Besitzer festlegen, um das TPM zum Bereitstellen von erweiterten Sicherheitsfeatures für die BitLocker-Laufwerkverschlüsselung und andere Anwendungen bereitzustellen. Wenn Sie den Besitz eines TPMs mit einem Besitzerkennwort übernehmen möchten, führen Sie "tpm.msc" aus, und wählen Sie die Aktion "TPM initialisieren".
+
+Hinweis: Wenn die TPM-Besitzerinformationen verloren gegangen oder nicht verfügbar sind, ist durch Ausführen von "tpm.msc" auf dem lokalen Computer eine begrenzte TPM-Verwaltung möglich.</string>
+      <string id="ActiveDirectoryBackup_Name">TPM-Sicherung in den Active Directory-Domänendiensten aktivieren</string>
+      <string id="BlockedCommandsList_Help">Diese Richtlinieneinstellung ermöglicht das Verwalten der Gruppenrichtlinienliste der von Windows blockierten TPM-Befehle (Trusted Platform Module).
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, blockiert Windows bestimmte Befehle, sodass sie nicht an das TPM auf dem Computer gesendet werden. TPM-Befehle werden anhand einer Befehlsnummer angegeben. Die Befehlsnummer 129 entspricht z. B. "TPM_OwnerReadInternalPub", und die Befehlsnummer 170 steht für "TPM_FieldUpgrade". Führen Sie "tpm.msc" aus, und navigieren Sie zum Abschnitt "Befehlsverwaltung", um die zugehörige Befehlsnummer für einen TPM-Befehl ausfindig zu machen.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können nur die in der Standardliste oder lokalen Liste angegebenen TPM-Befehle von Windows blockiert werden. Die Standardliste der blockierten TPM-Befehle ist in Windows vorkonfiguriert. Führen Sie "tpm.msc" aus, navigieren Sie zum Abschnitt "Befehlsverwaltung", und blenden Sie die Spalte "Auf der Standardliste mit Blockierungen" ein, um die Standardliste anzuzeigen. Die lokale Liste von blockierten TPM-Befehlen wird außerhalb der Gruppenrichtlinie durch Ausführen von "tpm.msc" oder durch Skripting in der Win32_Tpm-Schnittstelle konfiguriert. Weitere Informationen finden Sie in den verwandten Richtlinieneinstellungen zum Erzwingen oder Ignorieren der Standardliste und lokalen Liste von blockierten TPM-Befehlen.</string>
+      <string id="BlockedCommandsList_Name">Liste der blockierten TPM-Befehle konfigurieren</string>
+      <string id="IgnoreDefaultList_Help">Mit dieser Richtlinieneinstellung können Sie die Standardliste blockierter TPM-Befehle (Trusted Platform Module) des Computers erzwingen oder ignorieren.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, ignoriert Windows die Standardliste blockierter TPM-Befehle des Computers, und es werden nur die in der Gruppenrichtlinie oder der lokalen Liste festgelegten Befehle blockiert. 
+
+Die Standardliste blockierter TPM-Befehle ist in Windows vorkonfiguriert. Führen Sie "tpm.msc" aus, navigieren Sie zum Abschnitt "Befehlsverwaltung", und blenden Sie die Spalte "Auf der Standardliste mit Blockierungen" ein, um die Standardliste anzuzeigen. Die lokale Liste blockierter TPM-Befehle wird außerhalb der Gruppenrichtlinie durch Ausführen von "tpm.msc" oder durch Skripting in der Win32_Tpm-Schnittstelle konfiguriert. Weitere Informationen finden Sie in der verwandten Richtlinieneinstellung zum Konfigurieren der Gruppenrichtlinienliste blockierter TPM-Befehle.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, blockiert Windows zusätzlich zu den Befehlen in der Gruppenrichtlinie und lokalen Listen blockierter TPM-Befehle die TPM-Befehle in der Standardliste.  </string>
+      <string id="IgnoreDefaultList_Name">Standardliste der blockierten TPM-Befehle ignorieren</string>
+      <string id="IgnoreLocalList_Help">Diese Richtlinieneinstellung ermöglicht das Erzwingen oder Ignorieren der lokalen Liste von blockierten TPM-Befehlen (Trusted Platform Module) des Computers.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, ignoriert Windows die lokale Liste von blockierten TPM-Befehlen des Computers, und es werden nur die in der Gruppenrichtlinie oder der Standardliste festgelegten Befehle blockiert.
+
+Die lokale Liste von blockierten TPM-Befehlen wird außerhalb der Gruppenrichtlinie durch Ausführen von "tpm.msc" oder durch Skripting in der Win32_Tpm-Schnittstelle konfiguriert. Die Standardliste der blockierten TPM-Befehle ist in Windows vorkonfiguriert. Weitere Informationen finden Sie in der verwandten Richtlinieneinstellung zum Konfigurieren der Gruppenrichtlinienliste von blockierten TPM-Befehlen. 
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, blockiert Windows zusätzlich zu den Befehlen in der Gruppenrichtlinienliste und der Standardliste von blockierten TPM-Befehlen die TPM-Befehle in der lokalen Liste.</string>
+      <string id="IgnoreLocalList_Name">Lokale Liste der blockierten TPM-Befehle ignorieren</string>
+      <string id="TPMCategory">Trusted Platform Module-Dienste</string>
+      <string id="OSManagedAuth_Name">Ebene der TPM-Besitzerautorisierungsinformationen für das Betriebssystem konfigurieren</string>
+      <string id="OSManagedAuth_Help">Mit dieser Richtlinieneinstellung wird konfiguriert, in welchem Umfang TPM-Besitzerautorisierungsinformationen in der Registrierung des lokalen Computers gespeichert werden. Abhängig vom Umfang der lokal gespeicherten TPM-Besitzerautorisierungsinformationen können bestimmte TPM-Aktionen vom Betriebssystem und den TPM-basierten Anwendungen durchgeführt werden, ohne dass der Benutzer das TPM-Besitzerkennwort eingeben muss.
+
+Sie können auswählen, ob der vollständige TPM-Besitzerautorisierungswert, das TPM-Verwaltungsdelegierungs-BLOB plus TPM-Benutzerdelegierungs-BLOB oder keiner der Werte gespeichert werden soll. 
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, speichert Windows die TPM-Besitzerautorisierung in der Registrierung des lokalen Computers anhand der vom Betriebssystem verwalteten, von Ihnen festgelegten TPM-Authentifizierungseinstellung.
+
+Wählen Sie die vom Betriebssystem verwaltete TPM-Authentifizierungseinstellung "Vollständig" aus, um die vollständige TPM-Besitzerautorisierung, das TPM-Verwaltungsdelegierungs-BLOB und das TPM-Benutzerdelegierungs-BLOB in der lokalen Registrierung zu speichern. Mit dieser Richtlinieneinstellung können Sie das TPM verwenden, ohne dass die externe Speicherung bzw. Remotespeicherung des TPM-Besitzerautorisierungswerts erforderlich wird. Diese Richtlinieneinstellung eignet sich für Szenarien, in denen das Zurücksetzen der TPM-Anti-Hammering-Logik oder das Ändern des TPM-Besitzerautorisierungswerts nicht notwendig ist. Für manche TPM-basierten Anwendungen ist es möglicherweise notwendig, dass diese Richtlinieneinstellung geändert wird, ehe von der TPM-Anti-Hammering-Logik abhängige Anwendungen verwendet werden können.
+
+Wählen Sie die vom Betriebssystem verwaltete TPM-Authentifizierungseinstellung "Delegiert" aus, um nur das TPM-Verwaltungsdelegierungs-BLOB und das TPM-Benutzerdelegierungs-BLOB in der lokalen Registrierung zu speichern. Diese Richtlinieneinstellung eignet sich für TPM-basierte Anwendungen, die von der TPM-Anti-Hammering-Logik abhängig sind. Bei Verwendung dieser Richtlinieneinstellung wird die externe Speicherung bzw. Remotespeicherung des vollständigen TPM-Besitzerautorisierungswerts, beispielsweise durch Sichern des Werts in den Active Directory-Domänendiensten, empfohlen. 
+
+Wählen Sie die vom Betriebssystem verwaltete TPM-Authentifizierungseinstellung "Keine" für Kompatibilität mit früheren Betriebssystemen und Anwendungen oder für Szenarien aus, in denen die lokale Speicherung der TPM-Besitzerautorisierung nicht erforderlich ist.  Die Verwendung dieser Richtlinieneinstellung kann zu Problemen mit einigen TPM-basierten Anwendungen führen.
+
+Wenn diese Richtlinieneinstellung deaktiviert oder nicht konfiguriert ist und die Richtlinieneinstellung "TPM-Sicherung in Active Directory-Domänendienste aktivieren" ebenfalls deaktiviert oder nicht konfiguriert ist, wird der vollständige TPM-Autorisierungswert standardmäßig in der lokalen Registrierung gespeichert. Wenn diese Richtlinieneinstellung deaktiviert oder nicht konfiguriert ist und die Richtlinieneinstellung "TPM-Sicherung in Active Directory-Domänendienste aktivieren" aktiviert ist, werden nur die Verwaltungsdelegierungs- und Benutzerdelegierungs-BLOBs in der lokalen Registrierung gespeichert.
+
+Hinweis: Wenn die vom Betriebssystem verwaltete TPM-Authentifizierungseinstellung von "Vollständig" zu "Delegiert" geändert wird, wird der vollständige TPM-Besitzerautorisierungswert neu generiert. Kopien des ursprünglichen TPM-Besitzerautorisierungswerts werden ungültig. Wenn Sie den TPM-Besitzerautorisierungswert in AD DS sichern, wird der neue Autorisierungswert bei einer Änderung automatisch in AD DS gesichert.
+
+</string>
+      <string id="OSManagedAuth-TpmAuthFull">Vollständig</string>
+      <string id="OSManagedAuth-TpmAuthAdminPlusUser">Delegiert</string>
+      <string id="OSManagedAuth-TpmAuthNone">Keine</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name">Standardbenutzer-Sperrdauer</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name_Help">Mit dieser Richtlinieneinstellung können Sie den Zeitraum (in Minuten) zum Zählen von Autorisierungsfehlern von Standardbenutzern für TPM-Befehle (Trusted Platform Module), die eine Autorisierung erfordern, verwalten.  Wenn die Anzahl der TPM-Befehle mit einem Autorisierungsfehler innerhalb des Zeitraums einen Schwellenwert erreicht, wird verhindert, dass Standardbenutzer Befehle an das TPM senden können, die eine Autorisierung erfordern.  
+
+Mit dieser Richtlinieneinstellung können Administratoren verhindern, dass die TPM-Hardware in einen Sperrmodus versetzt wird, da dies die Geschwindigkeit herabsetzt, mit der Standardbenutzer Befehle, für die eine Autorisierung erforderlich ist, an das TPM senden können.  
+
+Ein Fehler bei der Autorisierung tritt immer dann auf, wenn ein Standardbenutzer einen Befehl an das TPM sendet, worauf eine Fehlermeldung ausgegeben wird, die besagt, dass die Autorisierung fehlgeschlagen ist.  Autorisierungsfehler, die älter als der Zeitraum sind, werden ignoriert.
+
+Für jeden Standardbenutzer gelten zwei Schwellenwerte.  Jede Überschreitung dieser Schwellenwerte verhindert, dass der Standardbenutzer einen Befehl, für den eine Autorisierung erforderlich ist, an den TPM senden kann.  
+
+Der Wert "Standardbenutzer-Sperrschwelle (einzeln)" verweist auf die maximale Gesamtzahl an Autorisierungsfehlern, die für einen einzelnen Standardbenutzer zulässig sind, ehe der Benutzer keine Befehle an das TPM mehr senden darf, die eine Autorisierung erfordern.  
+
+Der Wert "Standardbenutzer-Sperrschwelle (gesamt)" verweist auf die maximale Gesamtzahl an Autorisierungsfehlern, die für alle Standardbenutzer zulässig sind, ehe alle Standardbenutzer keine Befehle an das TPM mehr senden dürfen, die eine Autorisierung erfordern. 
+      
+Das TPM besitzt eine Schutzfunktion gegen Programme zum Ermitteln von Kennwörtern, indem es in einen Hardware-Sperrmodus versetzt wird, wenn zu viele Befehle mit einem ungültigen Autorisierungswert eingehen.   Wenn das TPM in den Sperrmodus versetzt wird, gilt dieser Modus global für alle Benutzer, inklusive Administratoren und Windows-Funktionen wie die BitLocker-Laufwerkverschlüsselung.  Die Anzahl an Autorisierungsfehlschlägen, die ein TPM zulässt, und die Zeitdauer für den Sperrmodus variieren je nach TPM-Hersteller.  Einige TPMs werden in Abhängigkeit von früheren Fehlschlägen für eine längere Zeitdauer und nach weniger Autorisierungsfehlschlägen in den Sperrmodus versetzt.  Bei manchen TPMs muss das System neu gestartet werden, um den Sperrmodus zu beenden.    Bei anderen TPMs muss das System eingeschaltet bleiben, da eine gewisse Anzahl an Uhrzyklen durchlaufen werden muss, um den Sperrmodus zu beenden.
+
+Ein Administrator mit TPM-Besitzerkennwort kann die Sperrlogik der TPM-Hardware mithilfe der TPM-Verwaltungskonsole (tpm.msc) vollständig zurücksetzen.  Jedes Mal, wenn ein Administrator die Sperrlogik der TPM-Hardware zurücksetzt, werden alle bisherigen Autorisierungsfehlschläge von Standardbenutzern für das TPM ignoriert, so dass die Standardbenutzer das TPM sofort wieder normal verwenden können.
+
+Wird dieser Wert nicht konfiguriert, wird der Standardwert 480 Minuten (8 Stunden) verwendet.  
+        
+      </string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name">Standardbenutzer-Sperrschwelle (einzeln)</string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name_Help">Mit dieser Richtlinieneinstellung können Sie die maximale Anzahl an Autorisierungsfehlern für einzelne Standardbenutzer für das TPM (Trusted Platform Module) verwalten.  Wenn die Anzahl der Autorisierungsfehler für den Benutzer innerhalb des Zeitraums für "Standardbenutzer-Sperrdauer" mit diesem Wert übereinstimmt, kann der Standardbenutzer keine Befehle an das TPM (Trusted Platform Module) senden, die eine Autorisierung erfordern.
+
+Mit dieser Richtlinieneinstellung können Administratoren verhindern, dass die TPM-Hardware in einen Sperrmodus versetzt wird, da dies die Geschwindigkeit herabsetzt, mit der Standardbenutzer Befehle, für die eine Autorisierung erforderlich ist, an das TPM senden können.  
+
+Ein Fehler bei der Autorisierung tritt immer dann auf, wenn ein Standardbenutzer einen Befehl an das TPM sendet, worauf eine Fehlermeldung ausgegeben wird, die besagt, dass die Autorisierung fehlgeschlagen ist.  Autorisierungsfehler, die älter als der Zeitraum sind, werden ignoriert.
+
+Für jeden Standardbenutzer gelten zwei Schwellenwerte.  Jede Überschreitung dieser Schwellenwerte verhindert, dass der Standardbenutzer einen Befehl, für den eine Autorisierung erforderlich ist, an den TPM senden kann.  
+
+Dieser Wert verweist auf die maximale Anzahl an Autorisierungsfehlern, die für einen einzelnen Standardbenutzer zulässig sind, ehe der Benutzer keine Befehle an das TPM mehr senden darf, die eine Autorisierung erfordern.  
+
+Der Wert "Standardbenutzer-Sperrschwelle (gesamt)" verweist auf die maximale Gesamtzahl an Autorisierungsfehlern, die für alle Standardbenutzer zulässig sind, ehe alle Standardbenutzer keine Befehle an das TPM mehr senden dürfen, die eine Autorisierung erfordern. 
+      
+Das TPM besitzt eine Schutzfunktion gegen Programme zum Ermitteln von Kennwörtern, indem es in einen Hardware-Sperrmodus versetzt wird, wenn zu viele Befehle mit einem ungültigen Autorisierungswert eingehen.   Wenn das TPM in den Sperrmodus versetzt wird, gilt dieser Modus global für alle Benutzer, inklusive Administratoren und Windows-Funktionen wie die BitLocker-Laufwerkverschlüsselung.  Die Anzahl an Autorisierungsfehlschlägen, die ein TPM zulässt, und die Zeitdauer für den Sperrmodus variieren je nach TPM-Hersteller.  Einige TPMs werden in Abhängigkeit von früheren Fehlschlägen für eine längere Zeitdauer und nach weniger Autorisierungsfehlschlägen in den Sperrmodus versetzt.  Bei manchen TPMs muss das System neu gestartet werden, um den Sperrmodus zu beenden.    Bei anderen TPMs muss das System eingeschaltet bleiben, da eine gewisse Anzahl an Uhrzyklen durchlaufen werden muss, um den Sperrmodus zu beenden.
+
+Ein Administrator mit TPM-Besitzerkennwort kann die Sperrlogik der TPM-Hardware mithilfe der TPM-Verwaltungskonsole (tpm.msc) vollständig zurücksetzen.  Jedes Mal, wenn ein Administrator die Sperrlogik der TPM-Hardware zurücksetzt, werden alle bisherigen Autorisierungsfehlschläge von Standardbenutzern für das TPM ignoriert, so dass die Standardbenutzer das TPM sofort wieder normal verwenden können.
+
+Wird dieser Wert nicht konfiguriert, wird der Standardwert 4 verwendet.
+
+Der Wert 0 bedeutet, dass das Betriebssystem keine Befehle von Standardbenutzern an das TPM zulässt, deren Autorisierung fehlschlagen könnte.
+      
+      </string>
+
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name">Standardbenutzer-Sperrschwelle (gesamt)</string>
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name_Help">Mit dieser Richtlinieneinstellung können Sie die maximale Anzahl an Autorisierungsfehlern für alle Standardbenutzer für das TPM (Trusted Platform Module) verwalten.  Wenn die Gesamtzahl der Autorisierungsfehler für alle Standardbenutzer innerhalb des Zeitraums für "Standardbenutzer-Sperrdauer" mit diesem Wert übereinstimmt, ist es allen Standardbenutzern nicht mehr möglich, Befehle an das TPM (Trusted Platform Module) zu senden, die eine Autorisierung erfordern.
+
+Mit dieser Richtlinieneinstellung können Administratoren verhindern, dass die TPM-Hardware in einen Sperrmodus versetzt wird, da dies die Geschwindigkeit herabsetzt, mit der Standardbenutzer Befehle, für die eine Autorisierung erforderlich ist, an das TPM senden können.  
+
+Ein Fehler bei der Autorisierung tritt immer dann auf, wenn ein Standardbenutzer einen Befehl an das TPM sendet, worauf eine Fehlermeldung ausgegeben wird, die besagt, dass die Autorisierung fehlgeschlagen ist.  Autorisierungsfehler, die älter als der Zeitraum sind, werden ignoriert.
+
+Für jeden Standardbenutzer gelten zwei Schwellenwerte.  Jede Überschreitung dieser Schwellenwerte verhindert, dass der Standardbenutzer einen Befehl, für den eine Autorisierung erforderlich ist, an den TPM senden kann.  
+
+Der Wert "Standardbenutzer-Sperrschwelle (einzeln)" verweist auf die maximale Gesamtzahl an Autorisierungsfehlern, die für einen einzelnen Standardbenutzer zulässig sind, ehe der Benutzer keine Befehle an das TPM mehr senden darf, die eine Autorisierung erfordern.  
+
+Dieser Wert verweist auf die maximale Gesamtzahl an Autorisierungsfehlern, die für alle Standardbenutzer zulässig sind, ehe alle Standardbenutzer keine Befehle an das TPM mehr senden dürfen, die eine Autorisierung erfordern. 
+      
+Das TPM besitzt eine Schutzfunktion gegen Programme zum Ermitteln von Kennwörtern, indem es in einen Hardware-Sperrmodus versetzt wird, wenn zu viele Befehle mit einem ungültigen Autorisierungswert eingehen.   Wenn das TPM in den Sperrmodus versetzt wird, gilt dieser Modus global für alle Benutzer, inklusive Administratoren und Windows-Funktionen wie die BitLocker-Laufwerkverschlüsselung.  Die Anzahl an Autorisierungsfehlschlägen, die ein TPM zulässt, und die Zeitdauer für den Sperrmodus variieren je nach TPM-Hersteller.  Einige TPMs werden in Abhängigkeit von früheren Fehlschlägen für eine längere Zeitdauer und nach weniger Autorisierungsfehlschlägen in den Sperrmodus versetzt.  Bei manchen TPMs muss das System neu gestartet werden, um den Sperrmodus zu beenden.    Bei anderen TPMs muss das System eingeschaltet bleiben, da eine gewisse Anzahl an Uhrzyklen durchlaufen werden muss, um den Sperrmodus zu beenden.
+
+Ein Administrator mit TPM-Besitzerkennwort kann die Sperrlogik der TPM-Hardware mithilfe der TPM-Verwaltungskonsole (tpm.msc) vollständig zurücksetzen.  Jedes Mal, wenn ein Administrator die Sperrlogik der TPM-Hardware zurücksetzt, werden alle bisherigen Autorisierungsfehlschläge von Standardbenutzern für das TPM ignoriert, so dass die Standardbenutzer das TPM sofort wieder normal verwenden können.
+
+Wird dieser Wert nicht konfiguriert, wird der Standardwert 9 verwendet.  
+
+Der Wert 0 bedeutet, dass das Betriebssystem keine Befehle von Standardbenutzern an das TPM zulässt, deren Autorisierung fehlschlagen könnte.
+
+      
+
+      </string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="BlockedCommandsList_Name">
+        <text>Geben Sie die zu blockierenden Befehle an, indem Sie ihre Nummern zur Liste hinzufügen.</text>
+        <listBox refId="BlockedCommandsList_Ordinals2">Liste der blockierten TPM-Befehle:</listBox>
+        <text>Fügen Sie der Liste z. B. die Nummern 129 und 170 hinzu, um die Befehle "TPM_OwnerReadInternalPub"</text>
+        <text>und "TPM_FieldUpgrade" zu blockieren.</text>
+      </presentation>
+      <presentation id="OSManagedAuth_Name">
+        <dropdownList refId="SelectOSManagedAuthLevel" noSort="true" defaultItem="1">Vom Betriebssystem verwaltete TPM-Authentifizierungsebene:</dropdownList>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureDuration_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureDuration_Name" defaultValue="480">Dauer zum Zählen von TPM-Autorisierungsfehlern (Minuten):</decimalTextBox>        
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureIndividualThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureIndividualThreshold_Name" defaultValue="4">Maximale Anzahl an Autorisierungsfehlern pro Zeitraum:</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureTotalThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" defaultValue="9">Maximale Anzahl an Autorisierungsfehlern pro Zeitraum:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

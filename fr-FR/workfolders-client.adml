@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>entrer le nom complet ici</displayName>
+  <description>entrer la description ici</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Dossiers de travail</string>
+      <string id="Pol_MachineEnableWorkFolders">Forcer la configuration automatique pour tous les utilisateurs</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Ce paramètre de stratégie spécifie si la fonctionnalité Dossiers de travail doit être automatiquement configurée pour tous les utilisateurs de l’ordinateur concerné.
+      
+Si vous activez ce paramètre de stratégie, la fonctionnalité Dossiers de travail est automatiquement configurée pour tous les utilisateurs de l’ordinateur concerné. Cela empêche les utilisateurs non seulement de choisir de ne pas utiliser la fonctionnalité Dossiers de travail sur l’ordinateur, mais aussi de spécifier manuellement le dossier local dans lequel la fonctionnalité Dossiers de travail stocke les fichiers. La fonctionnalité Dossiers de travail utilise les paramètres spécifiés dans le paramètre de stratégie « Spécifier les paramètres de Dossiers de travail » dans Configuration utilisateur\Modèles d’administration\Composants Windows\WorkFolders. Si le paramètre de stratégie « Spécifier les paramètres de Dossiers de travail » ne s’applique pas à un utilisateur, la fonctionnalité Dossiers de travail n’est pas automatiquement configurée.
+      
+Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, la fonctionnalité Dossiers de travail utilise l’option « Forcer la configuration automatique » du paramètre de stratégie « Spécifier les paramètres de Dossiers de travail » pour déterminer si la fonctionnalité Dossiers de travail doit être configurée automatiquement pour un utilisateur donné.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Spécifier les paramètres de Dossiers de travail</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Ce paramètre de stratégie spécifie le serveur Dossiers de travail pour les utilisateurs concernés, et indique si les utilisateurs sont autorisés, ou non, à modifier les paramètres lors de la configuration de la fonctionnalité Dossiers de travail sur un ordinateur appartenant à un domaine.
+
+Si vous activez ce paramètre de stratégie, les utilisateurs concernés reçoivent les paramètres de la fonctionnalité Dossiers de travail lorsqu’ils se connectent à un ordinateur appartenant à un domaine. 
+
+L’option « URL de Dossiers de travail » peut spécifier soit l’URL utilisée par l’organisation pour la détection de Dossiers de travail, soit l’URL spécifique du serveur de fichier qui stocke les données des utilisateurs.
+
+L’option « Forcer la configuration automatique » spécifie que la fonctionnalité Dossiers de travail doit être configurée automatiquement sans demander aux utilisateurs. Cela empêche les utilisateurs non seulement de choisir de ne pas utiliser la fonctionnalité Dossiers de travail sur l’ordinateur, mais aussi de spécifier manuellement le dossier local dans lequel la fonctionnalité Dossiers de travail stocke les fichiers. Par défaut, la fonctionnalité Dossiers de travail est stockée dans le dossier « %USERPROFILE%\Dossiers de travail ». Si cette option n’est pas spécifiée, les utilisateurs doivent utiliser l’élément Dossiers de travail du Panneau de configuration disponible sur leur ordinateur pour configurer la fonctionnalité Dossiers de travail.
+   
+Si ce paramètre de stratégie est désactivé ou n’est pas configuré, aucun paramètre Dossiers de travail n’est spécifié pour les utilisateurs concernés, même s’ils peuvent configurer manuellement la fonctionnalité Dossiers de travail à l’aide de l’élément Dossiers de travail du Panneau de configuration.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>URL de Dossiers de travail :  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Forcer la configuration automatique</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

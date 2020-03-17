@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>введите отображаемое имя</displayName>
+  <description>введите описание</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">Разрешить индексирование документов TIFF  путем распознавания текста</string>
+      <string id="ExplainAllowOCR">Этот параметр политики позволяет включить или отключить распознавание текста в TIFF-файлах. Если этот параметр политики включен, текстовое содержимое TIFF-файлов индексируется путем распознавания текста. Если этот параметр политики отключен или не задан, индексируются только свойства TIFF-файлов.
+
+        Этот параметр политики также влияет на настройку панели управления «Как следует индексировать такие файлы?», расположенную в Панель управления\Параметры индексирования\Дополнительные возможности\Типы файлов. Если этот параметр политики включен, параметр панели управления имеет значение «Индексировать свойства и содержимое файлов». Если параметр политики отключен или не задан, настройка панели управления имеет значение  «Индексировать только свойства».
+      
+      </string>
+      <string id="SelectOCRLangs">Выберите язык OCR</string>
+      <string id="ExplainSelectOCRLangs">Этот параметр политики позволяет выбрать язык распознавания текста. Если этот параметр политики включен, выбранный язык распознавания текста используется при выполнении распознавания в ходе индексирования TIFF-файлов. Если этот параметр политики отключен или не настроен, используется стандартный язык системы.
+
+После включения этой политики и выбора языка распознавания повторное индексирование не начинается. До тех пор пока повторное индексирование не будет запущено вручную, этот параметр политики применяется только при индексировании новых файлов.
+      </string>
+      <string id="OCR">Распознавание текста</string>
+      <string id="Win7Only">Microsoft Windows 7 или более поздней версии</string>
+      <string id="OCREveryPage">Использовать фильтр TIFF IFilter при распознавании текста для каждой страницы документа TIFF</string>
+      <string id="ExplainOCREveryPage">
+        
+        Этот параметр групповой политики позволяет пользователям отключить оптимизацию производительности. При отключении оптимизации производительности фильтр TIFF IFilter выполняет распознавание каждой страницы в документе TIFF, что позволяет индексировать весь распознанный текст. По умолчанию для оптимизации производительности при распознавании фильтр TIFF IFilter пропускает страницы документа, которые содержат нетекстовое содержимое (например, изображения). В некоторых случаях страницы с текстом могут неправильно классифицироваться как страницы без текстового содержимого, а значит текст на этих страницах не индексируется.
+
+        Если этот параметр включен, фильтр TIFF IFilter выполняет распознавание каждой страницы документа TIFF для индексирования всего распознанного текста. Следовательно, процесс распознавания текста замедляется. Если документ содержит значительный объем нетекстового содержимого (изображений), производительность существенно снижается.
+
+        Если этот параметр политики отключен или не задан, фильтр TIFF IFilter оптимизирует свою производительность, пропуская нетекстовое содержимое в ходе распознавания.
+      
+      </string>
+      <string id="LangChineseSimplified">Китайский (упрощенное письмо)</string>
+      <string id="LangChineseTraditional">Китайский (традиционное письмо)</string>
+      <string id="LangCzech">Чешский</string>
+      <string id="LangDanish">Датский</string>
+      <string id="LangDutch">Голландский</string>
+      <string id="LangEnglish">Английский</string>
+      <string id="LangFinnish">Финский</string>
+      <string id="LangFrench">Французский</string>
+      <string id="LangGerman">Немецкий</string>
+      <string id="LangGreek">Греческий</string>
+      <string id="LangHungarian">Венгерский</string>
+      <string id="LangItalian">Итальянский</string>
+      <string id="LangJapanese">Японский</string>
+      <string id="LangKorean">Корейский</string>
+      <string id="LangNorwegian">Норвежский</string>
+      <string id="LangPolish">Польский</string>
+      <string id="LangPortuguese">Португальский</string>
+      <string id="LangRomanian">Румынский</string>
+      <string id="LangRussian">Русский</string>
+      <string id="LangSerbianCyrillic">Сербский (кириллица)</string>
+      <string id="LangSerbianLatin">Сербский (латиница)</string>
+      <string id="LangSlovak">Словацкий</string>
+      <string id="LangSpanish">Испанский</string>
+      <string id="LangSwedish">Шведский</string>
+      <string id="LangTurkish">Турецкий</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Выберите один из следующих языков OCR:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

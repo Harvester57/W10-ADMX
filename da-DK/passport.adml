@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Passport for Work</displayName>
+  <description>Konfiguration af Microsoft Passport for Work</description>
+  <resources>
+    <stringTable>
+        <string id="MSPassportForWorkCategory">Microsoft Passport for Work</string>
+        <string id="MSPassportForWorkPINComplexityCategory">Kompleksitet af pinkoder</string>
+        <string id="MSPassportForWorkRemoteCategory">Remote Passport</string>
+        <string id="MSPassport_UsePassportForWork">Brug Microsoft Passport for Work</string>
+        <!-- DropdownList Button strings -->
+        <string id="MSPassport_UsePassportForWorkExplain">Microsoft Passport for Work er en alternativ måde at logge på Windows ved hjælp af din Active Directory- eller Azure Active Directory-konto, der erstatter adgangskoder, chipkort og virtuelle chipkort.
+
+Hvis du ikke konfigurerer denne politikindstilling, kan brugerne klargøre Microsoft Passport for Work, som krypterer deres domæneadgangskode.
+
+Hvis du aktiverer denne politik, klargør enheden Microsoft Passport for Work ved hjælp af nøgler eller certifikater for alle brugere.
+
+Hvis du deaktiverer denne politikindstilling, klargør enheden ikke Microsoft Passport for Work for nogen bruger.
+        </string>
+        <string id="MSPassport_RequireSecurityDevice">Brug en hardwaresikkerhedsenhed</string>
+        <string id="MSPassport_RequireSecurityDeviceExplain">En TMP (Trusted Platform Module) giver ekstra sikkerhedsfordele i forhold til software, fordi data, der er gemt i det, ikke kan bruges på andre enheder.
+
+Hvis du aktiverer denne politikindstilling, er det kun enheder med et anvendeligt TPM, der kan klargøre Microsoft Passport for Work.
+
+Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, foretrækkes TPM stadig, men alle enheder kan klargøre Microsoft Passport for Work ved hjælp af software, hvis TPM'et ikke virker eller ikke er tilgængelig.
+        </string>
+        <string id="MSPassport_MinimumPINLength">Minimumlængde for pinkode</string>
+        <string id="MSPassport_MinimumPINLengthExplain">Minimumlængde på pinkode konfigurerer det minimumantal tegn, der kræves til pinkoden. Det laveste antal, du kan konfigurere for denne politikindstilling, er 4. Det største antal, du kan konfigurere, skal være mindre end det antal, der er konfigureret i politikindstillingen for maksimumlængde af pinkode, eller antallet 127, alt efter hvilket af de to der er lavest.
+
+Hvis du konfigurerer denne politikindstilling, skal længden på pinkoden være større end eller lig med dette antal.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, skal længden af pinkode være større end eller lig med 4.
+
+BEMÆRK! Hvis de betingelser for minimumlængden af pinkoden, der er angivet herover, ikke er overholdt, anvendes der standardværdier for både maksimum- og minimumlængden af pinkoder.
+        </string>
+        <string id="MSPassport_MaximumPINLength">Maksimumlængde for pinkode</string>
+        <string id="MSPassport_MaximumPINLengthExplain">Maksimumlængde på pinkode konfigurerer det maksimumantal tegn, der er tilladt for pinkoden. Det største antal, du kan konfigurere for denne politikindstilling, er 127. Det laveste antal, du kan konfigurere, skal være større end det antal, der er konfigureret i politikindstillingen for minimumlængde af pinkode, eller antallet 4, alt efter hvilket af de to der er størst.
+
+Hvis du konfigurerer denne politikindstilling, skal længden på pinkoden være mindre end eller lig med dette antal.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, skal længden af pinkode være mindre end eller lig med 127.
+
+BEMÆRK! Hvis de betingelser for maksimumlængden af pinkoden, der er angivet herover, ikke er overholdt, anvendes der standardværdier for både maksimum- og minimumlængden af pinkoder.
+        </string>
+        <string id="MSPassport_UppercaseLetters">Kræv store bogstaver</string>
+        <string id="MSPassport_UppercaseLettersExplain">Brug denne politikindstilling til at konfigurere brugen af store bogstaver i Microsoft Passport for PIN.
+
+Hvis du aktiverer denne politikindstilling, kræver Microsoft Passport for Work, at brugerne skal medtage mindst ét stort bogstav i deres pinkode.
+
+Hvis du deaktiverer eller undlader at konfigurere denne indstilling, giver Microsoft Passport for Work ikke brugerne mulighed for at bruge store bogstaver i deres pinkode.
+        </string>
+        <string id="MSPassport_LowercaseLetters">Kræv små bogstaver</string>
+        <string id="MSPassport_LowercaseLettersExplain">Brug denne politikindstilling til at konfigurere brugen af små bogstaver i Microsoft Passport for PIN.
+
+Hvis du aktiverer denne politikindstilling, kræver Microsoft Passport for Work, at brugerne skal medtage mindst ét lille bogstav i deres pinkode.
+
+Hvis du deaktiverer eller undlader at konfigurere denne indstilling, giver Microsoft Passport for Work ikke brugerne mulighed for at bruge små bogstaver i deres pinkode.
+        </string>
+        <string id="MSPassport_SpecialCharacters">Kræv specialtegn</string>
+        <string id="MSPassport_SpecialCharactersExplain"><![CDATA[Brug denne politikindstilling til at konfigurere brugen af specialtegn i Microsoft Passport for PIN.  Følgende tegn er tilladt: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .
+
+Hvis du aktiverer denne politikindstilling, kræver Microsoft Passport for Work, at brugerne skal medtage mindst ét specialtegn i deres pinkode.
+
+Hvis du deaktiverer eller undlader at konfigurere denne indstilling, giver Microsoft Passport for Work ikke brugerne mulighed for at bruge specialtegn i deres pinkode.]]>
+        </string>
+        <string id="MSPassport_Digits">Kræv tal</string>
+        <string id="MSPassport_DigitsExplain">Brug denne politikindstilling til at konfigurere brugen af tal i Microsoft Passport for PIN.
+
+Hvis du aktiverer eller ikke konfigurerer denne politikindstilling, kræver Microsoft Passport for Work, at brugerne skal medtage mindst ét stort bogstav i deres pinkode.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, giver Microsoft Passport for Work ikke brugerne mulighed for at bruge tal i deres pinkode.
+        </string>
+        <string id="MSPassport_PINHistory">Oversigt</string>
+        <string id="MSPassport_PINHistoryExplain">Denne indstilling angiver antallet af tidligere pinkoder, der kan knyttes til en brugerkonto, og som ikke kan genbruges. Denne politik gør det muligt for administratorer at øge sikkerheden ved at sikre, at gamle pinkoder ikke genbruges konstant. Oversigten over pinkoder bevares ikke ved nulstilling af pinkoder.
+
+Værdien skal være mellem 0 til 50 pinkoder. Hvis denne politik er indstillet til 0, er det ikke påkrævet at lagre tidligere pinkoder.
+
+Standard: 0.
+        </string>
+        <string id="MSPassport_PINExpiration">Udløb</string>
+        <string id="MSPassport_PINExpirationExplain">Denne indstilling angiver tidsperioden (i dage), som en PIN-kode bruges i, før systemet kræver, at brugeren ændrer den. Pinkoden kan indstilles til at udløbe efter et vilkårligt antal dage mellem 1 og 730, eller pinkoder kan angives til aldrig at udløbe, hvis politikken er angivet til 0.
+
+Standard: 0.
+        </string>
+        <string id="MSPassport_UseBiometrics">Brug biometri</string>
+        <string id="MSPassport_UseBiometricsExplain">Microsoft Passport for Work giver brugerne mulighed for at bruge biometribevægelser som f.eks. ansigt og fingeraftryk som alternativ til brug af pinkode. Brugerne skal imidlertid stadig konfigurere en arbejdspinkode, der skal bruges i tilfælde af fejl.
+
+Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, aktiverer Microsoft Passport for Work muligheden for at bruge biometrikbevægelser.
+
+Hvis du deaktiverer denne politikindstilling, forhindrer Microsoft Passport for Work brugen af biometrikbevægelser.
+
+BEMÆRK! Hvis du deaktiverer denne politik, kan brugerne ikke bruge biometrikbevægelser på enheden, og det gælder alle kontotyper.
+        </string>
+        <string id="MSPassport_UseRemote">Brug Remote Passport</string>
+        <string id="MSPassport_UseRemoteExplain">Brug denne politikindstilling til at konfigurere brugen af Remote Passport. Remote Passport giver mulighed for, at en flytbar registreret enhed kan bruges som supplerende enhed til skrivebordsgodkendelse. Remote Passport kræver, at, skrivebordet knyttes til Azure AD, og at den supplerende enhed har en Passport for Work PIN.
+
+Hvis du aktiverer denne politikindstilling, aktiveres Remote Passport og en flytbar registreret enhed kan bruges som en supplerende enhed til skrivebordsgodkendelse.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, deaktiveres Remote Passport, og det er ikke muligt at bruge en flytbar registreret enhed som en supplerende enhed til skrivebordsgodkendelse.
+        </string>
+    </stringTable>
+    <presentationTable>
+        <presentation id="MSPassport_MinimumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MinimumPINLengthDataType" spin="true" spinStep="1" defaultvalue="4">Minimumlængde for pinkode</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_MaximumPINLengthControl">
+            <decimalTextBox refId="MSPassport_MaximumPINLengthDataType" spin="true" spinStep="1" defaultvalue="127">Maksimumlængde for pinkode</decimalTextBox>
+        </presentation>
+        <presentation id="MSPassport_UppercaseLettersControl">
+            <dropdownList refId="MSPassport_UppercaseLettersChoices" defaultItem="0">Store bogstaver:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_LowercaseLettersControl">
+            <dropdownList refId="MSPassport_LowercaseLettersChoices" defaultItem="0">Små bogstaver:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_SpecialCharactersControl">
+            <dropdownList refId="MSPassport_SpecialCharactersChoices" defaultItem="0">Specialtegn:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_DigitsControl">
+            <dropdownList refId="MSPassport_DigitsChoices" defaultItem="0">cifre:</dropdownList>
+        </presentation>
+        <presentation id="MSPassport_PINHistoryControl">
+            <decimalTextBox refId="MSPassport_PINHistoryDataType" spin="true" spinStep="1" defaultvalue="0">Oversigt over pinkode</decimalTextBox>
+        </presentation>
+      <presentation id="MSPassport_PINExpirationControl">
+        <decimalTextBox refId="MSPassport_PINExpirationDataType" spin="true" spinStep="1" defaultvalue="0">Udløb af pinkoder</decimalTextBox>
+      </presentation>
+
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

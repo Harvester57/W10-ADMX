@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>voer hier de weergegeven naam in</displayName>
+  <description>typ hier een beschrijving</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Werkmappen</string>
+      <string id="Pol_MachineEnableWorkFolders">Automatische configuratie afdwingen voor alle gebruikers</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Met deze beleidsinstelling kunt u bepalen of Werkmappen automatisch voor alle gebruikers van de betrokken computer moet worden ingesteld.
+      
+Als u deze beleidsinstelling inschakelt, wordt Werkmappen automatisch voor alle gebruikers van de betreffende computer ingesteld. Hiermee wordt voorkomen dat gebruikers ervoor kiezen Werkmappen niet op de computer te gebruiken; ook wordt voorkomen dat gebruikers handmatig een lokale map opgeven waarin Werkmappen bestanden opslaat. Werkmappen gebruikt de instellingen die zijn opgeven in de beleidsinstelling "Instellingen Werkmappen opgeven" onder Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Werkmappen. Als de beleidsinstelling "Instellingen Werkmappen opgeven" niet op een gebruiker van toepassing is, wordt Werkmappen niet automatisch ingesteld.
+      
+Als u deze beleidsinstelling uitschakelt of niet configureert, gebruikt Werkmappen de optie "Automatische configuratie afdwingen" van de beleidsinstelling "Instellingen Werkmappen opgeven" om te bepalen of Werkmappen voor een bepaalde gebruiker automatisch moet worden ingesteld.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Instellingen van Werkmappen opgeven</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Deze beleidsinstelling geeft de server van Werkmappen voor de betrokken gebruikers aan en ook of gebruikers de instellingen mogen wijzigen tijdens het instellen van Werkmappen op een computer die lid is van een domein.
+
+Als u deze beleidsinstelling inschakelt, ontvangen de betrokken gebruikers de instellingen voor Werkmappen wanneer ze zich aanmelden bij een pc lid die is van een domein. 
+
+De optie "URL Werkmappen" geeft hetzij de URL aan die door de organisatie wordt gebruikt voor detectie van Werkmappen, of de specifieke URL van de bestandsserver waarop de gegevens van de betrokken gebruikers worden opgeslagen.
+
+De optie "Automatische configuratie afdwingen" geeft aan dat Werkmappen automatisch moet worden ingesteld zonder gebruikers hiervan op de hoogte te stellen. Hiermee wordt voorkomen dat gebruikers ervoor kiezen Werkmappen niet op de computer te gebruiken; ook wordt voorkomen dat gebruikers handmatig een lokale map opgeven waarin Werkmappen bestanden opslaat. Standaard wordt Werkmappen opgeslagen in de map '%USERPROFILE%\Werkmappen'. Als deze optie niet wordt opgegeven, moeten gebruikers het item Werkmappen in het besturingspaneel van hun computer gebruiken om Werkmappen in te stellen.
+   
+Als u deze beleidsinstelling is uitgeschakeld of niet is geconfigureerd, worden er geen instellingen voor Werkmappen opgegeven voor de betrokken gebruikers, maar kunnen gebruikers Werkmappen handmatig instellen met behulp van het item Werkmappen in het besturingspaneel.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>URL Werkmappen:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Automatische configuratie afdwingen</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

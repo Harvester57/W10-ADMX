@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windows Apparaatbeveiliging</displayName>
+  <description>Windows Apparaatbeveiliging</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Apparaatbeveiliging</string>
+      <string id="VirtualizationBasedSecurity">Beveiliging op basis van virtualisatie inschakelen</string>
+      <string id="VirtualizationBasedSecurityHelp">Hiermee geeft u op of beveiliging op basis van virtualisatie is ingeschakeld.
+
+Beveiliging op basis van virtualisatie maakt gebruik van Windows Hypervisor als ondersteuning voor beveiligingsservices. Voor beveiliging op basis van virtualisatie is Beveiligd opstarten vereist en het beleid kan eventueel ook worden ingeschakeld met behulp van DMA-beveiliging. Voor DMA-beveiliging is hardwareondersteuning vereist en deze kan alleen worden ingeschakeld op juist geconfigureerde apparaten.
+
+Beveiliging van code-integriteit op basis van virtualisatie
+
+Met deze instelling wordt beveiliging van code-integriteit in de kernelmodus op basis van virtualisatie ingeschakeld. Wanneer dit beleid is ingeschakeld, wordt de beveiliging van het kernelmodusgeheugen afgedwongen en wordt het validatiepad van code-integriteit beveiligd door de functie voor beveiliging op basis van virtualisatie.
+
+Waarschuwing: Alle stuurprogramma's op het systeem moeten compatibel zijn met dit onderdeel, anders loopt het systeem vast. Zorg ervoor dat deze beleidsinstelling alleen wordt geïmplementeerd op computers waarvan bekend is dat ze compatibel zijn. 
+
+Referentiebeveiliging
+
+De optie "Uitgeschakeld" schakelt Referentiebeveiliging op afstand uit als deze functie eerder was ingeschakeld met de optie Ingeschakeld zonder vergrendeling.
+
+De optie Ingeschakeld met UEFI-vergrendeling zorgt ervoor dat Referentiebeveiliging niet op afstand kan worden uitgeschakeld. U kunt de functie alleen uitschakelen door zowel Groepsbeleid in te stellen op Uitgeschakeld en de beveiligingsfunctionaliteit van elke computer te verwijderen, waarbij een gebruiker fysiek aanwezig moet zijn om de overgebleven configuratie in UEFI te wissen.
+
+Met de optie Ingeschakeld zonder vergrendeling kan Referentiebeveiliging op afstand worden uitgeschakeld met behulp van Groepsbeleid. Op de apparaten die gebruikmaken van deze instelling, moet minimaal Windows 10 (versie 1511) worden uitgevoerd.
+      </string>
+      <string id="SecureBoot">Beveiligd opstarten</string>
+      <string id="SecureBootAndDmaProtection">Beveiligd opstarten en DMA-beveiliging</string>
+      <string id="Disabled">Uitgeschakeld</string>
+      <string id="Enabled">Ingeschakeld</string>
+      <string id="EnabledWithoutLock">Ingeschakeld zonder vergrendeling</string>
+      <string id="EnabledWithUefiLock">Ingeschakeld met UEFI-vergrendeling</string>
+      <string id="ConfigCIPolicy">Code-integriteitsbeleid implementeren</string>
+      <string id="ConfigCIPolicyHelp">Code-integriteitsbeleid implementeren
+
+Met deze beleidsinstelling kunt u een code-integriteitsbeleid implementeren op een machine om te bepalen wat er op deze machine mag worden uitgevoerd.
+
+Als u een code-integriteitsbeleid implementeert, wordt dit in Windows gebruikt om te beperken wat er kan worden uitgevoerd in zowel de kernelmodus als het Windows-bureaublad. Als u dit beleid wilt inschakelen, moet de machine opnieuw worden opgestart. 
+
+Het bestandspad moet een UNC-pad (bijvoorbeeld \\Servernaam\Sharenaam\SIPolicy.p7b) of een geldig lokaal pad (bijvoorbeeld C:\Mapnaam\SIPolicy.p7b) zijn. Het account voor de lokale computer (Lokaal systeem) moet zijn gemachtigd voor toegang tot het beleidsbestand.
+ 
+Als u een ondertekend en beveiligd beleid gebruikt, wordt met het uitschakelen van dit beleid het onderdeel niet van de computer verwijderd. In plaats daarvan moet u een van de volgende handelingen verrichten:
+
+   1) eerst het beleid bijwerken naar een niet-beveiligd beleid en vervolgens de instelling uitschakelen, of
+   2) de instelling uitschakelen en vervolgens het beleid van elke computer verwijderen met een fysiek aanwezige gebruiker.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Selecteer het niveau van platformbeveiliging:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Beveiliging van code-integriteit op basis van virtualisatie inschakelen</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Configuratie Referentiebeveiliging:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Bestandspad voor code-integriteitsbeleid:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

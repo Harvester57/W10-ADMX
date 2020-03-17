@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>skriv inn visningsnavn her</displayName>
+  <description>skriv inn beskrivelse her</description>
+  <resources>
+    <stringTable>
+      <string id="ActiveDirectoryBackup_Help">Denne policyinnstillingen gjør at du kan administrere Active Directory Domain Services-sikkerhetskopien (AD DS) av TPM-eierinformasjonen (Trusted Platform Module). 
+
+TPM-eierinformasjon inkluderer en kryptografisk hash-kode for TPM-eierpassordet. Enkelte TPM-kommandoer kan bare kjøres av TPM-eieren. Denne hash-koden gir TPM tilgang til å kjøre disse kommandoene. 
+
+Hvis du aktiverer denne policyinnstillingen, sikkerhetskopieres TPM-eierinformasjon automatisk og i bakgrunnen til AD DS når du bruker Windows til å angi eller endre et TPM-eierpassord. 
+
+Ved å aktivere denne policyinnstillingen kan ikke et TPM-eierpassord angis eller endres hvis ikke datamaskinen er koblet til domenet og AD DS-sikkerhetskopieringen lykkes.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, sikkerhetskopieres ikke TPM-eierinformasjon til AD DS. 
+
+Obs! Du må først konfigurere riktige skjemautvidelser og gå til kontrollinnstillinger på domenet før AD DS-sikkerhetskopieringen kan lykkes. Se dokumentasjon på Internett for mer informasjon om hvordan du konfigurerer Active Directory Domain Services for TPM.
+
+Obs! TPM kan ikke brukes til å angi utvidede sikkerhetsfunksjoner for BitLocker-stasjonskryptering og andre programmer uten å angi en eier først. Hvis du vil ta over eierskapet av TPM med et eierpassord, kjører du Tpm.msc og velger handlingen Initialiser TPM.
+
+Obs!  Hvis TPM-eierinformasjonen går tapt eller ikke er tilgjengelig, er begrenset TPM-behandling mulig ved å kjøre Tpm.msc på den lokale datamaskinen.</string>
+      <string id="ActiveDirectoryBackup_Name">Aktiver TPM-sikkerhetskopiering til domenetjenester for Active Directory</string>
+      <string id="BlockedCommandsList_Help">Denne policyinnstillingen gjør at du kan administrere gruppepolicylisten over TPM-kommandoer som blokkeres av Windows.
+
+Hvis du aktiverer denne policyinnstillingen, blokkerer Windows de angitte kommandoene, slik at de ikke blir sendt til TPMen på datamaskinen. TPM-kommandoer blir referert til ved et kommandonummer. Kommandonummer 129 tilsvarer for eksempel TPM_OwnerReadInternalPub, og kommandonummer 170 er TPM_FieldUpgrade. Kjør Tpm.msc, og gå til delen Kommandobehandling for å finne kommandonummeret for hver TPM-kommando.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vil bare de TPM-kommandoene som er spesifisert via standardlister eller lokale lister, bli blokkert av Windows. Standardlisten over blokkerte TPM-kommandoer er forhåndskonfigurert av Windows. Du kan se standardlisten ved å kjøre Tpm.msc, navigere deg til delen Kommandobehandling, og vise kolonnen På standard blokkeringsliste. Den lokale listen over blokkerte TPM-kommandoer konfigureres utenfor Gruppepolicy ved å kjøre Tpm.msc eller gjennom skript i grensesnittet Win32_Tpm. Se tilknyttede policyinnstillinger for å håndheve eller ignorere standardlisten og lokale lister over blokkerte TPM-kommandoer.</string>
+      <string id="BlockedCommandsList_Name">Konfigurere listen over blokkerte TPM-kommandoer</string>
+      <string id="IgnoreDefaultList_Help">Denne policyinnstillingen gjør at du kan håndheve eller ignorere datamaskinens standardliste over blokkerte TPM-kommandoer.
+
+Hvis du aktiverer denne policyinnstillingen, ignoreres datamaskinens standardliste over blokkerte TPM-kommandoer, og bare de TPM-kommandoene som er angitt av Gruppepolicy eller den lokale listen, blokkeres. 
+
+Standardlisten over blokkerte TPM-kommandoer er forhåndskonfigurert av Windows. Du kan se standardlisten ved å kjøre Tpm.msc, navigere deg til delen Kommandobehandling, og vise kolonnen På standard blokkeringsliste. Den lokale listen over blokkerte TPM-kommandoer konfigureres utenfor Gruppepolicy ved å kjøre Tpm.msc eller gjennom skript i grensesnittet Win32_Tpm. Se den tilknyttede policyinnstillingen for å konfigurere gruppepolicylisten over blokkerte TPM-kommandoer.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blokkerer Windows TPM-kommandoene i standardlisten, i tillegg til kommandoer i gruppepolicylisten og lokale lister over blokkerte TPM-kommandoer.  </string>
+      <string id="IgnoreDefaultList_Name">Ignorer standardlisten over blokkerte TPM-kommandoer</string>
+      <string id="IgnoreLocalList_Help">Denne policyinnstillingen gjør at du kan håndheve eller ignorere datamaskinens lokale liste over blokkerte TPM-kommandoer.
+
+Hvis du aktiverer denne policyinnstillingen, ignoreres datamaskinens lokale liste over blokkerte TPM-kommandoer, og bare de TPM-kommandoene som er angitt av Gruppepolicy eller standardlisten, blokkeres.
+
+Den lokale listen over blokkerte TPM-kommandoer konfigureres utenfor Gruppepolicy ved å kjøre Tpm.msc eller gjennom skript i grensesnittet Win32_Tpm. Standardlisten over blokkerte TPM-kommandoer er forhåndskonfigurert av Windows. Se den tilknyttede policyinnstillingen for å konfigurere gruppepolicylisten over blokkerte TPM-kommandoer. 
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, vil Windows blokkere TPM-kommandoene i den lokal listen, i tillegg til kommandoer i gruppepolicylisten og standardlisten over blokkerte TPM-kommandoer.</string>
+      <string id="IgnoreLocalList_Name">Ignorer den lokale listen over blokkerte TPM-kommandoer</string>
+      <string id="TPMCategory">Tjenester for klarert plattformmodul</string>
+      <string id="OSManagedAuth_Name">Konfigurer nivået av informasjon om TPM-eierautorisering som er tilgjengelig for operativsystemet</string>
+      <string id="OSManagedAuth_Help">Denne policyinnstillingen konfigurerer hvor mye informasjon om TPM-eierautorisering som er lagret i registret til den lokale datamaskinen. Operativsystemet og TPM-baserte programmer kan utføre bestemte TPM-handlinger som krever TPM-eierautorisering uten å kreve at brukeren skriver inn TPM-eierpassordet, avhengig av hvor mye informasjon om TPM-eierautorisering som lagres lokalt.
+
+Du kan velge å få operativsystemet til å lagre den fullstendige verdien for eierautorisering for TPM, den administrative delegeringsbloben for TPM, delegeringsbloben for TPM-bruker eller ingen. 
+
+Hvis du aktiverer denne policyinnstillingen, lagrer Windows TPM-eierautorisering i registret på den lokale datamaskinen i henhold til den operativsystemadministrerte TPM-godkjenningsinnstillingen du velger.
+
+Velg den operativsystemadministrerte TPM-godkjenningsinnstillingen Full for å lagre den fullstendige TPM-eierautoriseringen, den administrative delegeringsbloben for TPM og delegeringsbloben for TPM-bruker i det lokale registret. Denne innstillingen tillater bruk av TPM uten å kreve fjern eller ekstern lagring av verdien for TPM-eierautorisering. Denne innstillingen er nok for scenarier som ikke avhenger av forhindring av tilbakestilling av logikk for TPM-antihammering eller endring av verdien for TPM-eierautorisering. Noen TPM-baserte programmer kan kreve at denne innstillingen endres før funksjoner som avhenger av logikken for TPM-antihammering, kan brukes.
+
+Velg den operativsystemadministrerte TPM-godkjenningsinnstillingen Delegert for bare å lagre den administrative delegeringsbloben for TPM og delegeringsbloben for TPM-bruker i det lokale registret. Denne innstillingen passer for bruk med TPM-baserte programmer som avhenger av logikk for TPM-antihammering. Ekstern eller fjern lagring av den fullstendige verdien for TPM-eierautorisering, for eksempel ved å sikkerhetskopiere verdien til Active Directory Domain Services (AD DS), anbefales ved bruk av denne innstillingen. 
+
+Velg den operativsystemadministrerte TPM-godkjenningsinnstillingen Ingen for kompatibilitet med tidligere operativsystemer og programmer, eller for bruk med scenarier som krever at TPM-eierautorisering ikke lagres lokalt.  Bruk av denne innstillingen kan forårsake problemer med noen TPM-baserte programmer.
+
+Hvis denne policyinnstillingen er deaktivert eller ikke konfigurert, og policyinnstillingen Aktiver TPM-sikkerhetskopiering til domenetjenester for Active Directory også er deaktivert eller ikke konfigurert, er standardinnstillingen å lagre den fullstendige verdien for TPM-autorisering i det lokale registret. Hvis denne policyinnstillingen er deaktivert eller ikke konfigurert, og gruppepolicyinnstillingen Aktiver TPM-sikkerhetskopiering til domenetjenester for Active Directory er aktivert, lagres bare bloben for administrativ delegering og brukerdelegering i det lokale registret.
+
+Obs! Hvis den operativsystemadministrerte TPM-godkjenningsinnstillingen endres fra Full til Delegert, blir den fullstendige verdien for TPM-eierautorisering generert på nytt, og alle kopier av den opprinnelige verdien for TPM-eierautorisering vil være ugyldige. Hvis du sikkerhetskopierer verdien for TPM-eierautorisering til AD DS, sikkerhetskopieres den nye verdien for eierautorisering automatisk til AD DS når den endres.
+
+</string>
+      <string id="OSManagedAuth-TpmAuthFull">Full</string>
+      <string id="OSManagedAuth-TpmAuthAdminPlusUser">Delegert</string>
+      <string id="OSManagedAuth-TpmAuthNone">Ingen</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name">Låsevarighet for standardbruker</string>
+      <string id="StandardUserAuthorizationFailureDuration_Name_Help">Med denne policyinnstillingen kan du administrere varigheten i minutter for telling av godkjenningsfeil for standardbruker for TPM-kommandoer (Trusted Platform Module) som krever godkjenning.  Hvis antall TPM-kommandoer med en godkjenningsfeil i varigheten er lik en terskel, hindres en standardbruker i å sende kommandoer som krever godkjenning, til TPM.  
+
+Denne innstillingen hjelper systemansvarlige med å hindre at TPM-maskinvaren går over i låsemodus fordi den reduserer hastigheten som standardbrukere kan sende kommandoer med som krever godkjenning i TPM.  
+
+En godkjenningsfeil skjer hver gang en standardbruker sender en kommando til TPM og mottar et feilsvar som indikerer at det har oppstått en godkjenningsfeil.  Godkjenningsfeil som er eldre enn denne varigheten, blir ignorert.
+
+For hver standardbruker gjelder to terskler.  Hvis du overskrider en av tersklene, hindrer det standardbrukeren i å sende en kommando til TPM som krever godkjenning.  
+
+Verdien for individuell låseterskel for standardbruker er det maksimale antallet godkjenningsfeil hver standardbruker kan ha før brukeren ikke kan sende kommandoer som krever godkjenning, til TPM.  
+
+Verdien for total låseterskel for standardbruker er det totale antallet godkjenningsfeil alle standardbrukere kan ha før ingen standardbrukere kan sende kommandoer som krever godkjenning, til TPM. 
+      
+TPM er utviklet til å beskytte deg selv mot angrep fra passordgjetting ved å gå over i modus for maskinvarelåsing når den mottar for mange kommandoer med feil godkjenningsverdi.   Når TPM går over i låsemodus, er den global for alle brukere, inkludert systemansvarlige og Windows-funksjoner som BitLocker-stasjonskryptering.  Antall godkjenningsfeil en TPM tillater og hvor lenge den forblir utelåst, varierer etter TPM-produsent.  Noen TPMer kan gå over i låsemodus for etterfølgende lengre tidsperioder med færre godkjenningsfeil, avhengig av tidligere feil.  Noen TPMer kan kreve omstart av et system for å avslutte låsemodusen.    Andre TPMer kan kreve at systemet er slått på, slik at nok klokkesykluser trer i kraft før TPMen avslutter låsemodusen.
+
+En systemansvarlig med TPM-eierpassordet kan tilbakestille TPMens logikk for maskinvarelåsing fullstendig ved hjelp av TPM-behandlingskonsollen (Tpm.msc).  Hver gang en systemansvarlig tilbakestiller TPMens logikk for maskinvarelåsing, blir alle tidligere TPM-godkjenningsfeil for standardbruker ignorert, noe som gjør at standardbrukere kan bruke TPM på vanlig måte på nytt umiddelbart.
+
+Hvis denne verdien ikke er konfigurert, brukes en standardverdi på 480 minutter (8 timer).  
+        
+      </string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name">Individuell låseterskel for standardbruker</string>
+      <string id="StandardUserAuthorizationFailureIndividualThreshold_Name_Help">Med denne policyinnstillingen kan du administrere det maksimale antall godkjenningsfeil for hver standardbruker for TPM (Trusted Platform Module).  Hvis antall godkjenningsfeil for brukeren i varigheten for låsevarighet for standardbruker er lik denne verdien, hindres standardbrukeren i å sende kommandoer til TPM (Trusted Platform Module) som krever godkjenning.
+
+Denne innstillingen hjelper systemansvarlige med å hindre at TPM-maskinvaren går over i låsemodus fordi den reduserer hastigheten som standardbrukere kan sende kommandoer med som krever godkjenning i TPM.  
+
+En godkjenningsfeil skjer hver gang en standardbruker sender en kommando til TPM og mottar et feilsvar som indikerer at det har oppstått en godkjenningsfeil.  Godkjenningsfeil som er eldre enn varigheten, blir ignorert.
+
+For hver standardbruker gjelder to terskler.  Hvis du overskrider en av tersklene, hindrer det standardbrukeren i å sende en kommando til TPM som krever godkjenning.  
+
+Denne verdien er det maksimale antallet godkjenningsfeil hver standardbruker kan ha før brukeren ikke kan sende kommandoer som krever godkjenning, til TPM.  
+
+Verdien for total låseterskel for standardbruker er det totale antallet godkjenningsfeil alle standardbrukere kan ha før ingen standardbrukere kan sende kommandoer som krever godkjenning, til TPM. 
+      
+TPM er utviklet til å beskytte deg selv mot angrep fra passordgjetting ved å gå over i modus for maskinvarelåsing når den mottar for mange kommandoer med feil godkjenningsverdi.   Når TPM går over i låsemodus, er den global for alle brukere, inkludert systemansvarlige og Windows-funksjoner som BitLocker-stasjonskryptering.  Antall godkjenningsfeil en TPM tillater og hvor lenge den forblir utelåst, varierer etter TPM-produsent.  Noen TPMer kan gå over i låsemodus for etterfølgende lengre tidsperioder med færre godkjenningsfeil, avhengig av tidligere feil.  Noen TPMer kan kreve omstart av et system for å avslutte låsemodusen.    Andre TPMer kan kreve at systemet er slått på, slik at nok klokkesykluser trer i kraft før TPMen avslutter låsemodusen.
+
+En systemansvarlig med TPM-eierpassordet kan tilbakestille TPMens logikk for maskinvarelåsing fullstendig ved hjelp av TPM-behandlingskonsollen (Tpm.msc).  Hver gang en systemansvarlig tilbakestiller TPMens logikk for maskinvarelåsing, blir alle tidligere TPM-godkjenningsfeil for standardbruker ignorert, noe som gjør at standardbrukere kan bruke TPM på vanlig måte på nytt umiddelbart.
+
+Hvis denne verdien ikke er konfigurert, brukes en standardverdi på 4.
+
+En nullverdi betyr at operativsystemet ikke tillater at standardbrukere sender kommandoer til TPM som kan forårsake en godkjenningsfeil.
+      
+      </string>
+
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name">Total låseterskel for standardbruker</string>
+      <string id="StandardUserAuthorizationFailureTotalThreshold_Name_Help">Med denne policyinnstillingen kan du administrere det maksimale antall godkjenningsfeil for alle standardbrukere for TPM (Trusted Platform Module).  Hvis det totale antall godkjenningsfeil for alle standardbrukere i varigheten for låsevarighet for standardbruker er lik denne verdien, hindres alle standardbrukere i å sende kommandoer til TPM (Trusted Platform Module) som krever godkjenning.
+
+Denne innstillingen hjelper systemansvarlige med å hindre at TPM-maskinvaren går over i låsemodus fordi den reduserer hastigheten som standardbrukere kan sende kommandoer med som krever godkjenning i TPM.  
+
+En godkjenningsfeil skjer hver gang en standardbruker sender en kommando til TPM og mottar et feilsvar som indikerer at det har oppstått en godkjenningsfeil.  Godkjenningsfeil som er eldre enn varigheten, blir ignorert.
+
+For hver standardbruker gjelder to terskler.  Hvis du overskrider en av tersklene, hindrer det standardbrukeren i å sende en kommando til TPM som krever godkjenning.  
+
+Verdien for individuell låseterskel for standardbruker er det maksimale antallet godkjenningsfeil hver standardbruker kan ha før brukeren ikke kan sende kommandoer som krever godkjenning, til TPM.  
+
+Denne verdien er det totale antallet godkjenningsfeil alle standardbrukere kan ha før ingen standardbrukere kan sende kommandoer som krever godkjenning, til TPM. 
+      
+TPM er utviklet til å beskytte deg selv mot angrep fra passordgjetting ved å gå over i modus for maskinvarelåsing når den mottar for mange kommandoer med feil godkjenningsverdi.   Når TPM går over i låsemodus, er den global for alle brukere, inkludert systemansvarlige og Windows-funksjoner som BitLocker-stasjonskryptering.  Antall godkjenningsfeil en TPM tillater og hvor lenge den forblir utelåst, varierer etter TPM-produsent.  Noen TPMer kan gå over i låsemodus for etterfølgende lengre tidsperioder med færre godkjenningsfeil, avhengig av tidligere feil.  Noen TPMer kan kreve omstart av et system for å avslutte låsemodusen.    Andre TPMer kan kreve at systemet er slått på, slik at nok klokkesykluser trer i kraft før TPMen avslutter låsemodusen.
+
+En systemansvarlig med TPM-eierpassordet kan tilbakestille TPMens logikk for maskinvarelåsing fullstendig ved hjelp av TPM-behandlingskonsollen (Tpm.msc).  Hver gang en systemansvarlig tilbakestiller TPMens logikk for maskinvarelåsing, blir alle tidligere TPM-godkjenningsfeil for standardbruker ignorert, noe som gjør at standardbrukere kan bruke TPM på vanlig måte på nytt umiddelbart.
+
+Hvis denne verdien ikke er konfigurert, brukes en standardverdi på 9.  
+
+En nullverdi betyr at operativsystemet ikke tillater at standardbrukere sender kommandoer til TPM som kan forårsake en godkjenningsfeil.
+
+      
+
+      </string>
+
+    </stringTable>
+    <presentationTable>
+      <presentation id="BlockedCommandsList_Name">
+        <text>Angir kommandoene som skal blokkeres, ved å legge til numrene i listen.</text>
+        <listBox refId="BlockedCommandsList_Ordinals2">Listen over blokkerte TPM-kommandoer:</listBox>
+        <text>Hvis du for eksempel vil blokkere kommandoene TPM_OwnerReadInternalPub</text>
+        <text>og TPM_FieldUpgrade, legger du til elementene 129 og 170 i listen.</text>
+      </presentation>
+      <presentation id="OSManagedAuth_Name">
+        <dropdownList refId="SelectOSManagedAuthLevel" noSort="true" defaultItem="1">Operativsystemadministrert TPM-godkjenningsnivå:</dropdownList>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureDuration_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureDuration_Name" defaultValue="480">Varighet for telling av TPM-godkjenningsfeil (minutter):</decimalTextBox>        
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureIndividualThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureIndividualThreshold_Name" defaultValue="4">Maksimalt antall godkjenningsfeil per varighet:</decimalTextBox>
+      </presentation>
+      <presentation id="StandardUserAuthorizationFailureTotalThreshold_Name">
+        <decimalTextBox refId="DXT_StandardUserAuthorizationFailureTotalThreshold_Name" defaultValue="9">Maksimalt antall godkjenningsfeil per varighet:</decimalTextBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

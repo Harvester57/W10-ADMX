@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>表示名をここに入力する</displayName>
+  <description>説明をここに入力する</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Work Folders</string>
+      <string id="Pol_MachineEnableWorkFolders">すべてのユーザーに自動セットアップを強制する</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">このポリシー設定では、影響を受けるコンピューターのすべてのユーザーに Work Folders を自動的にセットアップするかどうかを指定します。
+      
+このポリシー設定を有効にした場合、影響を受けるコンピューターのすべてのユーザーに Work Folders が自動的に設定されます。これにより、ユーザーがコンピューターで Work Folders を使用しないで操作することができなくなり、ユーザーが Work Folders のファイルの保管先としてローカル フォルダーを手動で指定することもできなくなります。Work Folders では、"ユーザーの構成\管理用テンプレート\Windows コンポーネント\WorkFolders" の "Work Folders の設定を指定する" ポリシー設定で指定された設定が使用されます。"Work Folders の設定を指定する" ポリシー設定がユーザーに適用されない場合、Work Folders は自動セットアップされません。
+      
+このポリシー設定を無効にした場合、または構成しなかった場合、"Work Folders の設定を指定する" ポリシー設定の [自動セットアップを強制する] オプションを使用して、所定のユーザーに Work Folders を自動セットアップするかどうかが決定されます。
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Work Folders の設定を指定する</string>
+      <string id="Pol_UserEnableWorkFolders_Help">このポリシー設定は、影響を受けるユーザーの Work Folders サーバーを指定し、また、ドメインに参加しているコンピューターに Work Folders をセットアップするときに、ユーザーが設定を変更できるかどうかを指定します。
+
+このポリシー設定を有効にした場合、影響を受けるユーザーは、ドメインに参加している PC にサインインするときに Work Folders 設定を受け取ります。
+
+[Work Folders のURL] では、Work Folders 検出のために組織によって使用される URL、または、影響を受けるユーザーのデータを保管するファイル サーバーの特定の URL を指定できます。
+
+[自動セットアップを強制する] オプションでは、ユーザーに問い合わせることなく Work Folders を自動的にセットアップするかどうかを指定します。これにより、ユーザーがコンピューターで Work Folders を使用しないで操作することができなくなり、ユーザーが Work Folders のファイルの保管先としてローカル フォルダーを手動で指定することもできなくなります。既定では、Work Folders は %USERPROFILE%\Work Folders フォルダーに格納されます。このオプションを指定しなかった場合、ユーザーはコンピューターのコントロール パネルの [Work Folders] 項目を使って作業フォルダーをセットアップする必要があります。
+   
+このポリシー設定を無効にした場合、または構成しなかった場合、影響を受けるユーザーのWork Folders 設定は指定されません。ただし、ユーザーはコントロール パネルの [Work Folders] 項目を使用して、Work Folders を手動でセットアップできます。
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>Work Folders の URL:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">自動セットアップを強制する</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

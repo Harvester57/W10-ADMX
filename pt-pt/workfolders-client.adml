@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2012 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>introduza o nome a apresentar aqui</displayName>
+  <description>introduza a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_WorkFolders">Pastas de Trabalho</string>
+      <string id="Pol_MachineEnableWorkFolders">Forçar configuração automática para todos os utilizadores</string>
+      <string id="Pol_MachineEnableWorkFolders_Help">Esta definição de política especifica se deverão ser automaticamente configuradas Pastas de Trabalho para todos os utilizadores do computador afetado.
+      
+Se ativar esta definição de política, serão automaticamente configuradas Pastas de Trabalho para todos os utilizadores do computador afetado. Isto impede os utilizadores de optarem por não utilizar Pastas de Trabalho no computador. Impede-os também de especificarem manualmente a pasta local em que as Pastas de Trabalho armazenam os ficheiros. As Pastas de Trabalho utilizarão as definições especificadas na definição de política "Especificar definições das Pastas de Trabalho" em Configuração do Utilizador\Modelos Administrativos\Componentes do Windows\WorkFolders. Se a definição de política "Especificar definições das Pastas de Trabalho" não for aplicável a um utilizador, as Pastas de Trabalho não serão automaticamente configuradas.
+      
+Se desativar ou não configurar esta definição de política, as Pastas de Trabalho utilizarão a opção "Forçar configuração automática" da definição de política "Especificar definições das Pastas de Trabalho" para determinar se as Pastas de Trabalho deverão ser automaticamente configuradas para determinado utilizador.
+      
+      </string>
+      <string id="Pol_UserEnableWorkFolders">Especificar definições das Pastas de Trabalho</string>
+      <string id="Pol_UserEnableWorkFolders_Help">Esta definição de política especifica o servidor de Pastas de Trabalho dos utilizadores afetados, bem como se é ou não permitido que os utilizadores alterem as definições ao configurarem as Pastas de Trabalho num computador associado a um domínio.
+
+Se ativar esta definição de política, os utilizadores afetados receberão definições de Pastas de Trabalho ao iniciarem sessão num PC associado a um domínio. 
+
+O "URL das Pastas de Trabalho" pode especificar o URL utilizado pela organização para deteção das Pastas de Trabalho ou o URL específico do servidor de ficheiros que armazena os dados dos utilizadores afetados.
+
+A opção "Forçar configuração automática" especifica que as Pastas de Trabalho deverão ser automaticamente configuradas, sem solicitar a intervenção dos utilizadores. Isto impede os utilizadores de optarem por não utilizar Pastas de Trabalho no computador. Impede-os também de especificarem manualmente a pasta local em que as Pastas de Trabalho armazenam os ficheiros. Por predefinição, as Pastas de Trabalho são armazenadas na pasta "%USERPROFILE%\Pastas de Trabalho". Se esta opção não for especificada, os utilizadores terão de utilizar o item Pastas de Trabalho no Painel de Controlo dos seus computadores para configurar as Pastas de Trabalho.
+   
+Se esta definição de política estiver desativada ou não estiver configurada, não serão especificadas definições de Pastas de Trabalho para os utilizadores afetados, embora os utilizadores possam configurar manualmente as Pastas de Trabalho utilizando o item Pastas de Trabalho no Painel de Controlo.
+      
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_EnableWorkFolders">
+        <textBox refId="Lbl_ServerURL_Edit">
+          <label>URL das Pastas de Trabalho:  </label>
+        </textBox>
+        <text> </text>
+        <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Forçar configuração automática</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

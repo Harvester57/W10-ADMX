@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>introduza o nome a apresentar aqui</displayName>
+  <description>introduza a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Permitir Telemetria</string>
+      <string id="AllowTelemetry_0">0 - Segurança [Apenas Empresa]</string>
+      <string id="AllowTelemetry_1">1 - Básico</string>
+      <string id="AllowTelemetry_2">2 - Melhorado</string>
+      <string id="AllowTelemetry_3">3 - Completo</string>
+      <string id="AllowTelemetry_Explain">Esta definição de política determina a quantidade de dados de diagnóstico e de utilização comunicados à Microsoft. Um valor de 0 irá enviar dados mínimos para a Microsoft. Estes dados incluem a Ferramenta de Remoção de Software Malicioso (MSRT) &amp; dados do Windows Defender, se ativado, e definições de cliente de telemetria. A definição de um valor de 0 é aplicável apenas a dispositivos da empresa, EDU, IoT e do servidor. A definição de um valor de 0 para outros dispositivos é equivalente a escolher um valor de 1. Um valor de 1 envia apenas uma quantidade básica de dados de diagnóstico e de utilização. Note-se que definir valores de 0 ou 1 irá degradar determinadas experiências no dispositivo. Um valor de 2 envia dados de diagnóstico e de utilização melhorados. Um valor de 3 envia os mesmos dados que um valor de 2, bem como dados de diagnóstico adicionais, incluindo os ficheiros e conteúdos que podem ter originado o problema. As definições de telemetria do Windows 10 são aplicáveis ao sistema operativo Windows e a algumas aplicações originais. Esta definição não é aplicável a aplicações de outros fornecedores em execução no Windows 10.   
+
+Se desativar esta definição de política ou não a configurar, os utilizadores podem configurar o Nível de telemetria em Definições.
+
+</string>
+      <string id="EnableExperimentation">Desativar as definições ou funcionalidades de pré-lançamento</string>
+      <string id="EnableExperimentation_1">Apenas definições do dispositivo</string>
+      <string id="EnableExperimentation_2">Experiências completas</string>
+      <string id="EnableExperimentation_Explain">Esta definição de política determina o nível que a Microsoft pode experimentar com o produto para estudar as preferências do utilizador ou comportamento do dispositivo. Um valor de 1 permite à Microsoft configurar apenas definições do dispositivo. Um valor de 2 permite à Microsoft realizar experiências completas.
+
+Se desativar esta definição de política, todas as experiências serão desligadas.
+
+Se não configurar esta definição de política, o utilizador pode configurar a opção "Permitir que a Microsoft experimente funcionalidades nesta compilação", em Definições.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

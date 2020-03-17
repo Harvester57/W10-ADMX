@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>表示名をここに入力する</displayName>
+  <description>説明をここに入力する</description>
+  <resources>
+    <stringTable>
+      <string id="Cat_LanmanWorkstation">Lanman ワークステーション</string>
+      <string id="Pol_CipherSuiteOrder_Name">暗号の順位</string>
+      <string id="Pol_CipherSuiteOrder_Help">このポリシー設定では、SMB クライアントで使用する暗号を決定します。
+
+このポリシー設定を有効にした場合、指定されている順位で暗号が優先されます。
+
+このポリシー設定を有効にしても、サポートされている暗号を 1 つも指定しなかった場合、またはこのポリシー設定を無効にした場合や構成しなかった場合は、既定の暗号の順位が使用されます。
+
+SMB 3.11 の暗号:
+
+AES_128_GCM
+AES_128_CCM
+
+SMB 3.0 および 3.02 の暗号:
+
+AES_128_CCM
+
+この設定の変更方法:
+
+編集ボックスで、希望する暗号を、優先順位が高い方から 1 行に 1 つずつ配置します (優先順位の最も高い暗号が一番上になります)。使用しない暗号は削除します。
+
+注: このセキュリティ設定を構成した場合、変更は Windows を再起動するまで有効になりません。</string>
+      <string id="Pol_EnableInsecureGuestLogons_Name">安全でないゲスト ログオンを有効にする</string>
+      <string id="Pol_EnableInsecureGuestLogons_Help">このポリシー設定では、SMB クライアントが SMB サーバーへの安全でないゲスト ログオンを許可するかどうかを決定します。
+
+このポリシー設定を有効にした場合、またはこのポリシー設定を構成しなかった場合、SMB クライアントは安全でないゲスト ログオンを許可します。
+
+このポリシー設定を無効にした場合、SMB クライアントは安全でないゲスト ログオンを拒否します。
+
+安全でないゲスト ログオンがファイル サーバーによって使用されるのは、共有フォルダーに対する認証されていないアクセスを許可することが目的です。エンタープライズ環境では一般的ではありませんが、ファイル サーバーとして動作しているコンシューマー NAS (ネットワーク接続ストレージ) アプライアンスでは、安全でないゲスト ログオンが頻繁に使用されています。Windows ファイル サーバーでは認証を要求し、既定では安全でないゲスト ログオンを使用しません。安全でないゲスト ログオンは認証されていないため、SMB 署名、SMB 暗号化などの重要なセキュリティ機能が無効になります。結果として、安全でないゲスト ログオンを許可するクライアントは、さまざまな man-in-the-middle 攻撃に対して脆弱になり、データ損失、データの破損、マルウェアに対するリスクにつながる可能性があります。また、安全でないゲスト ログオンを使用してファイル サーバーに書き込まれたデータには、ネットワーク上のすべてのユーザーからアクセスできる可能性があります。マイクロソフトでは、安全でないゲスト ログオンを無効にして、認証されたアクセスが要求されるようにファイル サーバーを構成することをお勧めします。
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="Pol_CipherSuiteOrder">
+        <text>暗号:</text>
+        <multiTextBox refId="MultiText_CipherSuiteOrder"/>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

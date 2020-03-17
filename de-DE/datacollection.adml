@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Anzeigenamen hier eingeben</displayName>
+  <description>Beschreibung hier eingeben</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Telemetrie zulassen</string>
+      <string id="AllowTelemetry_0">0 – Sicherheit [Nur Enterprise]</string>
+      <string id="AllowTelemetry_1">1 – Einfach</string>
+      <string id="AllowTelemetry_2">2 – Erweitert</string>
+      <string id="AllowTelemetry_3">3 – Vollständig</string>
+      <string id="AllowTelemetry_Explain">Diese Richtlinieneinstellung legt den Umfang der an Microsoft gemeldeten Diagnose- und Nutzungsdaten fest. Der Wert 0 gibt an, dass minimale Daten an Microsoft gesendet werden. Dies schließt Daten des Tools zum Entfernen bösartiger Software (Malicious Software Removal Tool, MSRT) und Daten von Windows Defender (falls aktiviert) sowie Einstellungen des Telemetrieclients ein. Die Einstellung des Werts 0 ist nur auf Enterprise-, EDU-, IoT- und Servergeräte anwendbar. Wenn der Wert 0 für andere Geräte festgelegt wird, entspricht dies der Auswahl des Werts 1. Beim Wert 1 wird nur eine grundlegende Menge von Diagnose- und Nutzungsdaten gesendet. Durch das Festlegen der Werte 0 oder 1 verschlechtert sich teilweise die Benutzererfahrung auf dem Gerät. Beim Wert 2 werden erweiterte Diagnose- und Nutzungsdaten gesendet. Beim Wert 3 werden die gleichen Daten wie beim Wert 2 plus zusätzliche Diagnosedaten gesendet, z. B. die Dateien und der Inhalt, durch die das Problem möglicherweise verursacht wurde. Windows 10-Telemetrieeinstellungen gelten für das Windows-Betriebssystem und einige Erstanbieter-Apps. Die Einstellung gilt nicht für Drittanbieter-Apps unter Windows 10.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer die Telemetrieebene in den Einstellungen konfigurieren.
+
+</string>
+      <string id="EnableExperimentation">Features oder Einstellungen der Vorabversion deaktivieren</string>
+      <string id="EnableExperimentation_1">Nur Geräteeinstellungen</string>
+      <string id="EnableExperimentation_2">Vollständiger Experimentiermodus</string>
+      <string id="EnableExperimentation_Explain">Durch diese Richtlinie wird festgelegt, in welchem Umfang Microsoft mit dem Produkt experimentieren kann, um die Benutzereinstellungen oder das Geräteverhalten zu untersuchen. Beim Wert 1 ist Microsoft nur berechtigt, Geräteeinstellungen zu konfigurieren. Beim Wert 2 darf Microsoft den vollständigen Experimentiermodus nutzen.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, wird der Experimentiermodus vollständig ausgeschaltet.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können Benutzer die Option "Microsoft das Testen von Features in diesem Build gestatten" in den Einstellungen konfigurieren.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

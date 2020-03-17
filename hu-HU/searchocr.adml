@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>itt adja meg a megjelenítendő nevet</displayName>
+  <description>itt adja meg a leírást</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">A TIFF-dokumentumok OCR technológiával való indexelésének engedélyezése</string>
+      <string id="ExplainAllowOCR">Ezzel a házirend-beállítással be- és kikapcsolható a TIFF-fájlok optikai karakterfelismeréssel (OCR) való feldolgozása. Ha engedélyezi ezt a házirend-beállítást, akkor a rendszer a TIFF-fájlok szöveges tartalmát OCR eljárással indexeli. Ha letiltja vagy nem konfigurálja a házirend-beállítást, akkor a rendszer csak a TIFF-fájlok tulajdonságait indexeli.
+
+        A házirend-beállítás az „Indexelési mód” vezérlőpult-beállítást is befolyásolja, amely a Vezérlőpult\Indexelési beállítások\Speciális beállítások\Fájltípusok úton érhető el. Ha engedélyezi a házirend-beállítást, akkor ezt a vezérlőpult-beállítást a „Tulajdonságok és fájltartalom indexelése” értékre állítja. Ha letiltja vagy nem konfigurálja a házirend-beállítást, akkor a vezérlőpult-beállítás a „Csak a tulajdonságok indexelése” lesz.
+      
+      </string>
+      <string id="SelectOCRLangs">OCR-nyelv kiválasztása</string>
+      <string id="ExplainSelectOCRLangs">Ez a házirend-beállítás lehetővé teszi az OCR-nyelv kiválasztását. Ha engedélyezi ezt a házirend-beállítást, a rendszer a TIFF-fájlok indexelése során a kiválasztott OCR-nyelvet használja. Ha letiltja vagy nem konfigurálja a házirend-beállítást, az indexelés a rendszer alapértelmezett nyelvét használja.
+
+Ha engedélyezi a házirend-beállítást, és kiválasztja az OCR-nyelvet, a rendszer nem indítja el az újraindexelést. A házirend-beállítás csak az új fájlok indexelésére van hatással, kivéve, ha manuálisan indítja el az újraindexelést.
+      </string>
+      <string id="OCR">OCR</string>
+      <string id="Win7Only">Microsoft Windows 7 vagy újabb</string>
+      <string id="OCREveryPage">A TIFF IFilter végezzen optikai karakterfelismerést a TIFF-dokumentum összes oldalán</string>
+      <string id="ExplainOCREveryPage">
+        
+        Ezzel a csoportházirend-beállítással a felhasználók kikapcsolhatják a teljesítményoptimalizálást, aminek következtében a TIFF IFilter a TIFF-dokumentumok összes oldalán optikai karakterfelismerést végez, lehetővé téve az összes felismerhető szöveg indexelését. Alapértelmezés szerint a TIFF IFilter a teljesítményt úgy optimalizálja, hogy nem végez optikai karakterfelismerést a TIFF-dokumentumok azon oldalaira, amelyek nem szöveges tartalmat (például képeket) tartalmaznak. Egyes esetekben előfordulhat, hogy a szöveget tartalmazó oldalak rosszul, nem szöveges oldalként vannak besorolva. Ha ez előfordul, akkor az ilyen oldalak szövegét nem indexeli a rendszer.
+
+        Ha engedélyezi ezt a beállítást, akkor a TIFF IFilter a TIFF-dokumentumok összes oldalán elvégzi az optikai karakterfelismerést az összes felismerhető szöveg indexelése érdekében. Ennélfogva az OCR-folyamat lassabb lesz. Ez a teljesítménycsökkenés jelentős lehet, ha sok nem szöveges oldal (kép) van a rendszerben lévő TIFF-dokumentumokban.
+
+        Ha letiltja vagy nem konfigurálja a beállítást, a TIFF IFilter a teljesítményt úgy optimalizálja, hogy a nem szöveges oldalakat kihagyja az OCR-eljárás során.
+      
+      </string>
+      <string id="LangChineseSimplified">Kínai (egyszerűsített)</string>
+      <string id="LangChineseTraditional">Kínai (hagyományos)</string>
+      <string id="LangCzech">Cseh</string>
+      <string id="LangDanish">Dán</string>
+      <string id="LangDutch">Holland</string>
+      <string id="LangEnglish">Angol</string>
+      <string id="LangFinnish">Finn</string>
+      <string id="LangFrench">Francia</string>
+      <string id="LangGerman">Német</string>
+      <string id="LangGreek">Görög</string>
+      <string id="LangHungarian">Magyar</string>
+      <string id="LangItalian">Olasz</string>
+      <string id="LangJapanese">Japán</string>
+      <string id="LangKorean">Koreai</string>
+      <string id="LangNorwegian">Norvég</string>
+      <string id="LangPolish">Lengyel</string>
+      <string id="LangPortuguese">Portugál</string>
+      <string id="LangRomanian">Román</string>
+      <string id="LangRussian">Orosz</string>
+      <string id="LangSerbianCyrillic">Szerb (cirill betűs)</string>
+      <string id="LangSerbianLatin">Szerb (latin betűs)</string>
+      <string id="LangSlovak">Szlovák</string>
+      <string id="LangSpanish">Spanyol</string>
+      <string id="LangSwedish">Svéd</string>
+      <string id="LangTurkish">Török</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Válasszon az alábbi OCR-nyelvek közül:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

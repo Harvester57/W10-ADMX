@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>tutaj wprowadź nazwę wyświetlaną</displayName>
+  <description>tutaj wprowadź opis</description>
+  <resources>
+    <stringTable>
+      <string id="AllowOCR">Zezwalaj na indeksowanie dokumentów TIFF przez optyczne rozpoznawanie znaków</string>
+      <string id="ExplainAllowOCR">To ustawienie zasad umożliwia włączenie lub wyłączenie optycznego rozpoznawania znaków w plikach TIFF. Jeśli to ustawienie zasad zostanie włączone, tekstowa zawartość plików TIFF będzie indeksowana przy użyciu optycznego rozpoznawania znaków. Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, będą indeksowane tylko właściwości plików TIFF.
+
+        To ustawienie zasad ma również wpływ na ustawienie „Jak powinien być indeksowany ten plik” w Panelu sterowania znajdujące się w następującej lokalizacji: Panel sterowania\Opcje indeksowania\Opcje zaawansowane\Typy plików. Jeśli to ustawienie zasad zostanie włączone, ustawienie w Panelu sterowania będzie mieć wartość Indeksuj właściwości i zawartość pliku. Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, ustawienie w Panelu sterowania będzie mieć wartość Indeksuj tylko właściwości.
+      
+      </string>
+      <string id="SelectOCRLangs">Wybierz język optycznego rozpoznawania znaków</string>
+      <string id="ExplainSelectOCRLangs">To ustawienie zasad umożliwia wybranie języka optycznego rozpoznawania znaków. Jeśli to ustawienie zasad zostanie włączone, wybrany język będzie używany w procesie optycznego rozpoznawania znaków podczas indeksowania plików TIFF. Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, będzie używany domyślny język systemu.
+
+Po włączeniu tej zasady i wybraniu języka optycznego rozpoznawania znaków nie jest inicjowane ponowne indeksowanie. To ustawienie zasad jest stosowane tylko podczas indeksowania nowych plików, chyba że ponowne indeksowanie zostanie zainicjowane ręcznie.
+      </string>
+      <string id="OCR">Optyczne rozpoznawanie znaków</string>
+      <string id="Win7Only">System Microsoft Windows 7 lub nowszy</string>
+      <string id="OCREveryPage">Wymuszaj użycie interfejsu TIFF IFilter podczas optycznego rozpoznawania znaków na każdej stronie dokumentu TIFF</string>
+      <string id="ExplainOCREveryPage">
+        
+        To ustawienie zasad grupy umożliwia użytkownikom wyłączenie optymalizacji wydajności, co spowoduje wykonywanie optycznego rozpoznawania znaków przy użyciu interfejsu TIFF IFilter na każdej stronie dokumentu TIFF, dzięki czemu będzie możliwe indeksowanie całego rozpoznanego tekstu. Domyślnie interfejs TIFF IFilter optymalizuje swoją wydajność, pomijając optyczne rozpoznawanie znaków na stronach dokumentów, które nie zawierają tekstowej zawartości (na przykład obrazy). W niektórych przypadkach strony mogą zawierać tekst, który zostanie błędnie sklasyfikowany jako zawartość nietekstowa. W tym przypadku tekst na tych stronach nie będzie indeksowany.
+
+        Jeżeli to ustawienie zostanie włączone, interfejs TIFF IFilter będzie wykonywał optyczne rozpoznawanie znaków na każdej stronie dokumentu TIFF w celu zindeksowania całego rozpoznanego tekstu. Dlatego proces optycznego rozpoznawania znaków będzie przebiegał wolniej. Spadek wydajności może być znaczny, jeśli w dostępnych w systemie dokumentach TIFF znajduje się wiele stron nietekstowych (obrazów).
+
+        Jeżeli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, interfejs TIFF IFilter będzie optymalizował swoją wydajność, pomijając zawartość nietekstową podczas optycznego rozpoznawania znaków.
+      
+      </string>
+      <string id="LangChineseSimplified">Chiński (uproszczony)</string>
+      <string id="LangChineseTraditional">Chiński (tradycyjny)</string>
+      <string id="LangCzech">Czeski</string>
+      <string id="LangDanish">Duński</string>
+      <string id="LangDutch">Holenderski</string>
+      <string id="LangEnglish">Angielski</string>
+      <string id="LangFinnish">Fiński</string>
+      <string id="LangFrench">Francuski</string>
+      <string id="LangGerman">Niemiecki</string>
+      <string id="LangGreek">Grecki</string>
+      <string id="LangHungarian">Węgierski</string>
+      <string id="LangItalian">Włoski</string>
+      <string id="LangJapanese">Japoński</string>
+      <string id="LangKorean">Koreański</string>
+      <string id="LangNorwegian">Norweski</string>
+      <string id="LangPolish">Polski</string>
+      <string id="LangPortuguese">Portugalski</string>
+      <string id="LangRomanian">Rumuński</string>
+      <string id="LangRussian">Rosyjski</string>
+      <string id="LangSerbianCyrillic">Serbski (cyrylica)</string>
+      <string id="LangSerbianLatin">Serbski (łaciński)</string>
+      <string id="LangSlovak">Słowacki</string>
+      <string id="LangSpanish">Hiszpański</string>
+      <string id="LangSwedish">Szwedzki</string>
+      <string id="LangTurkish">Turecki</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="SelectOCRLangs">
+        <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Wybierz jeden z następujących języków optycznego rozpoznawania znaków:</dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

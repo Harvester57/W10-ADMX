@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>introduza o nome a apresentar aqui</displayName>
+  <description>introduza a descrição aqui</description>
+  <resources>
+    <stringTable>
+      <string id="AllowDefaultCredentials">Permitir delegação de credenciais predefinidas</string>
+      <string id="AllowDefaultCredentials_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Esta definição de política aplica-se quando a autenticação do servidor tiver sido conseguida utilizando um certificado X509 confiável ou Kerberos.
+
+Se ativar esta definição de política, pode especificar a que servidores podem ser delegadas as credenciais predefinidas do utilizador (as credenciais predefinidas são as que utiliza quando inicia sessão no Windows pela primeira vez) .
+
+A política entrará em vigor da próxima vez que o utilizador iniciar sessão num computador com o Windows.
+
+Se desativar ou não configurar (por predefinição) esta definição de política, a delegação de credenciais predefinidas não será permitida para nenhum computador. As aplicações que dependem deste comportamento de delegação poderão ter uma falha de autenticação. Para mais informações, consulte a BDC.
+
+FWlink da BDC:
+http://go.microsoft.com/fwlink/?LinkId=301508
+
+Nota: a definição de política "Permitir delegação de credenciais predefinidas" pode ser definida para um ou mais Nomes dos Principais do Serviço (SPNs).  O SPN representa o servidor de destino ao qual as credenciais de utilizador podem ser delegadas.  Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly">Permitir delegação de credenciais predefinidas com autenticação de servidor apenas com NTLM</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Esta definição de política aplica-se quando a autenticação do servidor tiver sido conseguida através de NTLM.
+
+Se ativar esta definição de política, pode especificar a que servidores podem ser delegadas as credenciais predefinidas do utilizador (credenciais predefinidas são as que utiliza ao iniciar sessão no Windows pela primeira vez) .
+
+Se desativar ou não configurar (por predefinição) esta definição de política, a delegação de credenciais predefinidas não é permitida para nenhum computador.
+
+Nota: a definição de política "Permitir delegação de credenciais predefinidas com autenticação de servidor apenas com NTLM" pode ser definida com um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador podem ser delegadas.  Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com</string>
+      <string id="AllowFreshCredentials">Permitir delegação de credenciais novas</string>
+      <string id="AllowFreshCredentials_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Esta definição de política aplica-se quando a autenticação do servidor tiver sido conseguida através de um certificado X509 confiável ou Kerberos.
+
+Se ativar esta definição de política, pode especificar a que servidores podem ser delegadas as credenciais novas do utilizador (credenciais novas são as pedidas quando executa a aplicação).
+
+Se não configurar (por predefinição) esta definição de política, após a autenticação mútua adequada, a delegação de credenciais novas é permitida ao Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em qualquer máquina (TERMSRV/*).
+
+Se desativar esta definição de política, a delegação de credenciais novas não é permitida em nenhuma máquina.
+
+Nota: a definição de política "Permitir delegação de credenciais novas" pode ser definida para um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com
+Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly">Permitir delegação de credenciais novas com autenticação de servidor apenas com NTLM</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Esta definição de política aplica-se quando a autenticação do servidor tiver sido conseguida através de NTLM.
+
+Se ativar esta definição de política, pode especificar a que servidores podem ser delegadas as credenciais novas do utilizador (credenciais novas são as pedidas quando executa a aplicação).
+
+Se não configurar (por predefinição) esta definição de política, após a autenticação mútua adequada, a delegação de credenciais novas é permitida ao Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em qualquer máquina (TERMSRV/*).
+
+Se desativar esta definição de política, a delegação de credenciais novas não é permitida em nenhuma máquina.
+
+Nota: a definição de política "Permitir delegação de credenciais novas com autenticação de servidor apenas com NTLM" pode ser definida com um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com</string>
+      <string id="AllowSavedCredentials">Permitir delegação de credenciais guardadas</string>
+      <string id="AllowSavedCredentials_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Esta definição de política aplica-se quando a autenticação do servidor tiver sido conseguida através de um certificado X509 confiável ou Kerberos.
+
+Se ativar esta definição de política, pode especificar a que servidores podem ser delegadas as credenciais guardadas do utilizador (credenciais guardadas são as que opta por guardar/memorizar através do gestor de credenciais do Windows).
+
+Se não configurar (por predefinição) esta definição de política, após a autenticação mútua adequada, a delegação de credenciais guardadas é permitida ao Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em qualquer máquina (TERMSRV/*).
+
+Se desativar esta definição de política, a delegação de credenciais guardadas não é permitida em nenhuma máquina.
+
+Nota: a definição de política "Permitir delegação de credenciais guardadas" pode ser definida para um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly">Permitir delegação de credenciais guardadas com autenticação de servidor apenas com NTLM</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Esta definição de política aplica-se quando a autenticação do servidor tiver sido conseguida através de NTLM.
+
+Se ativar esta definição de política, pode especificar a que servidores podem ser delegadas as credenciais guardadas do utilizador (credenciais guardadas são as que opta por guardar/memorizar através do gestor de credenciais do Windows).
+
+Se não configurar (por predefinição) este definição de política, após a autenticação mútua apropriada, a delegação de credenciais guardadas é permitida ao Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em qualquer máquina (TERMSRV/*), se o computador cliente não for membro de qualquer domínio. Se o cliente estiver associado a um domínio, por predefinição, a delegação de credenciais guardadas não é permitida a qualquer computador.
+
+Se desativar esta definição de política, a delegação de credenciais guardadas não é permitida em nenhuma máquina.
+
+Nota: a definição de política "Permitir delegação de credenciais guardadas com autenticação de servidor apenas com NTLM" pode ser definida com um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com</string>
+      <string id="CredentialsDelegation">Delegação de Credenciais</string>
+      <string id="DenyDefaultCredentials">Negar delegação de credenciais predefinidas</string>
+      <string id="DenyDefaultCredentials_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Se ativar esta definição de política, pode especificar a que servidores não podem ser delegadas as credenciais predefinidas do utilizador (credenciais predefinidas são as que utiliza ao iniciar sessão no Windows pela primeira vez) .
+
+Se desativar ou não configurar (por predefinição) esta definição de política, esta não especifica qualquer servidor.
+
+Nota: a definição de política "Negar delegação de credenciais predefinidas" pode ser definida para um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador não podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com
+
+Esta definição de política pode ser utilizada em combinação com a definição de política "Permitir Delegação de Credenciais Predefinidas" para definir exceções para servidores específicos que, de outro modo, são permitidas quando utiliza carateres universais na lista de servidores "Permitir delegação de credenciais predefinidas".</string>
+      <string id="DenyFreshCredentials">Negar delegação de credenciais novas</string>
+      <string id="DenyFreshCredentials_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Se ativar esta definição de política, pode especificar a que servidores não podem ser delegadas as credenciais novas do utilizador (credenciais novas são as pedidas quando executa a aplicação).
+
+Se desativar ou não configurar (por predefinição) esta definição de política, esta não especifica qualquer servidor.
+
+Nota: a definição de política "Negar delegação de credenciais novas" pode ser definida para um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador não podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com
+
+Esta definição de política pode ser utilizada em combinação com a definição de política "Permitir delegação de credenciais novas" para definir exceções para servidores específicos que, de outro modo, são permitidas quando utiliza carateres universais na lista de servidores "Permitir delegação de credenciais novas".</string>
+      <string id="DenySavedCredentials">Negar delegação de credenciais guardadas</string>
+      <string id="DenySavedCredentials_Explain">Esta definição de política aplica-se a aplicações que utilizam o componente SSP Cred (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Se ativar esta definição de política, pode especificar a que servidores não podem ser delegadas as credenciais guardadas do utilizador (credenciais guardadas são as que opta por guardar/memorizar através do gestor de credenciais do Windows).
+
+Se desativar ou não configurar (por predefinição) esta definição de política, esta não especifica qualquer servidor.
+
+Nota: a definição de política "Negar delegação de credenciais guardadas" pode ser definida para um ou mais Nomes dos Principais do Serviço (SPNs). O SPN representa o servidor de destino ao qual as credenciais de utilizador não podem ser delegadas. Quando especifica o SPN, é permitida a utilização de um único caráter universal.
+
+Por Exemplo:
+TERMSRV/host.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução na máquina host.humanresources.fabricam.com 
+TERMSRV/* Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas.
+TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trabalho Remoto em execução em todas as máquinas em .humanresources.fabricam.com
+
+Esta definição de política pode ser utilizada em combinação com a definição de política "Permitir delegação de credenciais guardadas" para definir exceções para servidores específicos que, de outro modo, são permitidas quando utiliza carateres universais na lista de servidores "Permitir delegação de credenciais guardadas".</string>
+      <string id="RestrictedRemoteAdministration">Limitar delegação de credenciais a servidores remotos</string>
+      <string id="RestrictedRemoteAdministration_Explain">Ao serem executadas em modo restrito, as aplicações participantes não expõem as credenciais aos computadores remotos (independentemente do método de delegação). O modo restrito poderá limitar o acesso a recursos localizados noutros servidores ou redes para lá do computador de destino, uma vez que não ocorre a delegação de credenciais.
+
+Aplicações participantes:
+Cliente do Ambiente de Trabalho Remoto
+
+Se ativar esta definição de política, será imposto o modo restrito e as aplicações participantes não delegarão as credenciais a computadores remotos.
+
+Se desativar ou não configurar esta definição de política, o modo restrito não será imposto e as aplicações participantes poderão delegar credenciais a computadores remotos.
+
+Nota: para desativar a maior parte da delegação de credenciais, poderá ser suficiente recusar a delegação no CredSSP (Credential Security Support Provider), modificando as Definições de modelo administrativo (localizadas em Configuração do Computador\Modelos Administrativos\Sistema\Delegação de Credenciais).</string>
+      <string id="SUPPORTED_VISTA">Windows Vista</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowDefaultCredentials">
+        <listBox refId="AllowDefaultCredentials_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="AllowDefCredentialsWhenNTLMOnly">
+        <listBox refId="AllowDefCredentialsWhenNTLMOnly_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADCN" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentials">
+        <listBox refId="AllowFreshCredentials_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentialsWhenNTLMOnly">
+        <listBox refId="AllowFreshCredentialsWhenNTLMOnly_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFCN" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentials">
+        <listBox refId="AllowSavedCredentials_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentialsWhenNTLMOnly">
+        <listBox refId="AllowSavedCredentialsWhenNTLMOnly_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASCN" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="DenyDefaultCredentials">
+        <listBox refId="DenyDefaultCredentials_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_DDC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="DenyFreshCredentials">
+        <listBox refId="DenyFreshCredentials_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_DFC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+      <presentation id="DenySavedCredentials">
+        <listBox refId="DenySavedCredentials_Name">Adicionar servidores à lista:</listBox>
+        <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

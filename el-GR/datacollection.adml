@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>εισαγάγετε εδώ το εμφανιζόμενο όνομα</displayName>
+  <description>πληκτρολογήστε εδώ την περιγραφή</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Αποδοχή τηλεμετρίας</string>
+      <string id="AllowTelemetry_0">0 - Ασφάλεια [Μόνο Enterprise]</string>
+      <string id="AllowTelemetry_1">1 - Βασική</string>
+      <string id="AllowTelemetry_2">2 - Βελτιωμένη</string>
+      <string id="AllowTelemetry_3">3 - Πλήρης</string>
+      <string id="AllowTelemetry_Explain">Αυτή η ρύθμιση πολιτικής καθορίζει τον όγκο των διαγνωστικών δεδομένων και δεδομένων χρήσης που αναφέρεται στη Microsoft. Η τιμή 0 αποστέλλει ελάχιστα δεδομένα στη Microsoft. Σε αυτά περιλαμβάνονται τα δεδομένα από το Εργαλείο αφαίρεσης κακόβουλου λογισμικού (MSRT) και τον Windows Defender (αν είναι ενεργοποιημένος) και ρυθμίσεις τηλεμετρίας υπολογιστή-πελάτη. Ο ορισμός της τιμής 0 ισχύει μόνο για συσκευές enterprise, EDU, IoT και διακομιστή. Ο ορισμός της τιμής σε 0 σε άλλες συσκευές ισοδυναμεί με τον ορισμό της τιμής σε 1. Η τιμή 1 αποστέλλει μόνο έναν περιορισμένο ή βασικό όγκο διαγνωστικών δεδομένων και δεδομένων χρήσης. Λάβετε υπόψη ότι αν ορίσετε την τιμή σε 0 ή 1 θα υποβαθμιστούν ορισμένες εμπειρίες στη συσκευή. Η τιμή 2 αποστέλλει βελτιωμένα διαγνωστικά δεδομένα και δεδομένα χρήσης. Η τιμή 3 αποστέλλει τα ίδια δεδομένα με την τιμή 2, συν πρόσθετα διαγνωστικά δεδομένα, συμπεριλαμβανομένων των αρχείων και του περιεχομένου που ίσως προκάλεσαν το πρόβλημα. Οι ρυθμίσεις τηλεμετρίας των Windows 10 ισχύουν για το λειτουργικό σύστημα των Windows και ορισμένες εφαρμογές ιδίου κατασκευαστή. Αυτή η ρύθμιση δεν ισχύει σε εφαρμογές τρίτων που εκτελούνται στα Windows 10.
+
+Εάν απενεργοποιήσετε ή δεν ρυθμίσετε τις παραμέτρους αυτής της ρύθμισης πολιτικής, οι χρήστες μπορούν να ρυθμίσουν τις παραμέτρους του επιπέδου τηλεμετρίας στις Ρυθμίσεις.
+
+</string>
+      <string id="EnableExperimentation">Απενεργοποίηση δυνατοτήτων ή ρυθμίσεων προεπισκόπησης</string>
+      <string id="EnableExperimentation_1">Ρυθμίσεις συσκευής μόνο</string>
+      <string id="EnableExperimentation_2">Πλήρεις πειραματισμοί</string>
+      <string id="EnableExperimentation_Explain">Αυτή η ρύθμιση πολιτικής προσδιορίζει το επίπεδο στο οποίο μπορεί να πειραματίζεται η Microsoft με το προϊόν, ώστε να μελετήσει τις προτιμήσεις χρηστών ή τη συμπεριφορά της συσκευής. Η τιμή 1 επιτρέπει στη Microsoft να ρυθμίζει παραμέτρους συσκευής μόνο. Η τιμή 2 επιτρέπει στη Microsoft να διεξάγει πλήρεις πειραματισμούς.
+
+Αν απενεργοποιήσετε αυτήν τη ρύθμιση πολιτικής, όλοι οι πειραματισμοί θα απενεργοποιηθούν.
+
+Αν δεν ρυθμίσετε τις παραμέτρους αυτής της ρύθμισης πολιτικής, ο χρήστης μπορεί να ρυθμίζει τις παραμέτρους της επιλογής “Να επιτρέπεται στη Microsoft η δοκιμή δυνατοτήτων σε αυτήν τη δομή” από τις Ρυθμίσεις.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

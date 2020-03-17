@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Anzeigenamen hier eingeben</displayName>
+  <description>Beschreibung hier eingeben</description>
+  <resources>
+    <stringTable>
+      <string id="AllowDefaultCredentials">Delegierung von Standardanmeldeinformationen zulassen</string>
+      <string id="AllowDefaultCredentials_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Diese Richtlinieneinstellung wird angewendet, wenn die Serverauthentifizierung über ein vertrauenswürdiges X509-Zertifikat oder über Kerberos erfolgt ist.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die Standardanmeldeinformationen von Benutzern delegiert werden können (unter den Standardanmeldeinformationen sind die Anmeldeinformationen zu verstehen, die Sie bei der ersten Anmeldung bei Windows verwenden).
+
+Die Richtlinieneinstellung wird wirksam, wenn sich der Benutzer das nächste Mal bei einem Computer anmeldet, auf dem Windows ausgeführt wird.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren (Standardeinstellung), ist die Delegierung von Standardanmeldeinformationen für keinen Computer zulässig. Bei Anwendungen, die von diesem Delegierungsverhalten abhängen, schlägt u. U. die Authentifizierung fehl. Weitere Informationen finden Sie in der KB.
+
+FWlink für KB:
+http://go.microsoft.com/fwlink/?LinkId=301508
+
+Hinweis: Die Richtlinieneinstellung "Delegierung von Standardanmeldeinformationen zulassen" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden.  Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen delegiert werden können.  Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen Computern in ".humanresources.fabrikam.com" ausgeführt wird</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly">Delegierung von Standardanmeldeinformationen mit reiner NTLM-Serverauthentifizierung zulassen.</string>
+      <string id="AllowDefCredentialsWhenNTLMOnly_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Diese Richtlinieneinstellung wird angewendet, wenn die Serverauthentifizierung über NTLM erfolgt ist.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die Standardanmeldeinformationen von Benutzern delegiert werden können (unter den Standardanmeldeinformationen sind die Anmeldeinformationen zu verstehen, die Sie bei der ersten Anmeldung bei Windows verwenden).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren (Standardeinstellung), ist die Delegierung von Standardanmeldeinformationen für keinen Computer zulässig.
+
+Hinweis: Die Richtlinieneinstellung "Delegierung von Standardanmeldeinformationen mit reiner NTLM-Serverauthentifizierung zulassen" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen delegiert werden können.  Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+"TERMSRV/*.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf allen Computern in ".humanresources.fabrikam.com" ausgeführt wird</string>
+      <string id="AllowFreshCredentials">Delegierung von aktuellen Anmeldeinformationen zulassen</string>
+      <string id="AllowFreshCredentials_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Diese Richtlinieneinstellung wird angewendet, wenn die Serverauthentifizierung über ein vertrauenswürdiges X509-Zertifikat oder über Kerberos erfolgt ist.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die aktuellen Anmeldeinformationen von Benutzern delegiert werden können (unter den aktuellen Anmeldeinformationen sind die Anmeldeinformationen zu verstehen, zu deren Eingabe Sie beim Ausführen der Anwendung aufgefordert werden).
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren (Standardeinstellung), ist nach ordnungsgemäßer gegenseitiger Authentifizierung die Delegierung von aktuellen Anmeldeinformationen für den auf einem beliebigen Computer ausgeführten Remotedesktopsitzungs-Host zulässig (TERMSRV/*).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist die Delegierung von aktuellen Anmeldeinformationen für keinen Computer zulässig.
+
+Hinweis:Die Richtlinieneinstellung "Delegierung von aktuellen Anmeldeinformationen zulassen" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen delegiert werden können. Bei der Angabe des Dienstprinzipalnamnes ist die Verwendung eines einzelnen Platzhalterzeichens zulässig. Beispiel:
+
+Beispiel:
+TERMSRV/host.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+TERMSRV/*: Remotedesktopsitzungs-Host, der auf allen Computern ausgeführt wird
+TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen Computern in ".humanresources.fabrikam.com" ausgeführt wird</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly">Delegierung von aktuellen Anmeldeinformationen mit reiner NTLM-Serverauthentifizierung zulassen</string>
+      <string id="AllowFreshCredentialsWhenNTLMOnly_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Diese Richtlinieneinstellung wird angewendet, wenn die Serverauthentifizierung über NTLM erfolgt ist.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die aktuellen Anmeldeinformationen von Benutzern delegiert werden können (unter den aktuellen Anmeldeinformationen sind die Anmeldeinformationen zu verstehen, zu deren Eingabe Sie beim Ausführen der Anwendung aufgefordert werden).
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren (Standardeinstellung), ist nach ordnungsgemäßer gegenseitiger Authentifizierung die Delegierung von aktuellen Anmeldeinformationen für den auf einem beliebigen Computer ausgeführten Remotedesktopsitzungs-Host zulässig (TERMSRV/*).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist die Delegierung von aktuellen Anmeldeinformationen für keinen Computer zulässig.
+
+Hinweis: Die Richtlinieneinstellung "Delegierung von aktuellen Anmeldeinformationen mit reiner NTLM-Serverauthentifizierung zulassen" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen delegiert werden können. Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen Computern in "humanresources.fabrikam.com" ausgeführt wird</string>
+      <string id="AllowSavedCredentials">Delegierung von gespeicherten Anmeldeinformationen zulassen</string>
+      <string id="AllowSavedCredentials_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Diese Richtlinieneinstellung wird angewendet, wenn die Serverauthentifizierung über ein vertrauenswürdiges X509-Zertifikat oder über Kerberos erfolgt ist.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die gespeicherten Anmeldeinformationen von Benutzern delegiert werden können (unter den gespeicherten Anmeldeinformationen sind die Anmeldeinformationen zu verstehen, deren Speicherung Sie mithilfe der Anmeldeinformationsverwaltung festlegen).
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren (Standardeinstellung), ist nach ordnungsgemäßer gegenseitiger Authentifizierung die Delegierung von gespeicherten Anmeldeinformationen für den auf einem beliebigen Computer ausgeführten Remotedesktopsitzungs-Host zulässig (TERMSRV/*).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist die Delegierung von gespeicherten Anmeldeinformationen für keinen Computer zulässig.
+
+Hinweis:Die Richtlinieneinstellung "Delegierung von gespeicherten Anmeldeinformationen zulassen" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen delegiert werden können. Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen Computern in "humanresources.fabrikam.com" ausgeführt wird</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly">Delegierung von gespeicherten Anmeldeinformationen mit reiner NTLM-Serverauthentifizierung zulassen</string>
+      <string id="AllowSavedCredentialsWhenNTLMOnly_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Diese Richtlinieneinstellung wird angewendet, wenn die Serverauthentifizierung über NTLM erfolgt ist.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die gespeicherten Anmeldeinformationen von Benutzern delegiert werden können (unter den gespeicherten Anmeldeinformationen sind die Anmeldeinformationen zu verstehen, deren Speicherung Sie mithilfe der Anmeldeinformationsverwaltung festlegen).
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren (Standardeinstellung), ist die Delegierung der gespeicherten Anmeldeinformationen nach einer ordnungsgemäßen gegenseitigen Authentifizierung für einen Remotedesktopsitzungs-Host zulässig, der auf einem beliebigen Computer ausgeführt wird (TEMRSRV/*), sofern der Clientcomputer nicht Mitglied einer Domäne ist. Wenn der Client einer Domäne angehört, ist die Delegierung gespeicherter Anmeldeinformationen standardmäßig auf keinem Computer zulässig.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist die Delegierung von gespeicherten Anmeldeinformationen für keinen Computer zulässig.
+
+Hinweis: Die Richtlinieneinstellung "Delegierung von gespeicherten Anmeldeinformationen mit reiner NTLM-Serverauthentifizierung zulassen" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen delegiert werden können. Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+"TERMSRV/*.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf allen Computern in "humanresources.fabrikam.com" ausgeführt wird</string>
+      <string id="CredentialsDelegation">Delegierung von Anmeldeinformationen</string>
+      <string id="DenyDefaultCredentials">Delegierung von Standardanmeldeinformationen verweigern</string>
+      <string id="DenyDefaultCredentials_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die Standardanmeldeinformationen von Benutzern nicht delegiert werden können (unter den Standardanmeldeinformationen sind die Anmeldeinformationen zu verstehen, die Sie bei der ersten Anmeldung bei Windows verwenden).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren (Standardeinstellung), werden mithilfe dieser Richtlinieneinstellung keine Server angegeben.
+
+Hinweis:Die Richtlinieneinstellung "Delegierung von Standardanmeldeinformationen verweigern" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen nicht delegiert werden können. Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+"TERMSRV/*.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf allen Computern in ".humanresources.fabrikam.com" ausgeführt wird
+
+Diese Einstellung kann zusammen mit "Delegierung von Standardanmeldeinformationen zulassen" verwendet werden, um Ausnahmen für bestimmte Server festzulegen, die bei der Verwendung von Platzhaltern in der Serverliste von "Delegierung von Standardanmeldeinformationen zulassen" ansonsten zugelassen wären.</string>
+      <string id="DenyFreshCredentials">Delegierung von aktuellen Anmeldeinformationen verweigern</string>
+      <string id="DenyFreshCredentials_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die aktuellen Anmeldeinformationen von Benutzern nicht delegiert werden können (unter den aktuellen Anmeldeinformationen sind die Anmeldeinformationen zu verstehen, zu deren Eingabe Sie beim Ausführen der Anwendung aufgefordert werden).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren (Standardeinstellung), werden mithilfe dieser Richtlinieneinstellung keine Server angegeben.
+
+Hinweis:Die Richtlinieneinstellung "Delegierung von aktuellen Anmeldeinformationen verweigern" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen nicht delegiert werden können. Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen Computern in ".humanresources.fabrikam.com" ausgeführt wird
+
+Diese Richtlinieneinstellung kann zusammen mit "Delegierung von aktuellen Anmeldeinformationen zulassen" verwendet werden, um Ausnahmen für bestimmte Server festzulegen, die bei der Verwendung von Platzhaltern in der Serverliste von "Delegierung von aktuellen Anmeldeinformationen zulassen" ansonsten zugelassen wären.</string>
+      <string id="DenySavedCredentials">Delegierung von gespeicherten Anmeldeinformationen verweigern</string>
+      <string id="DenySavedCredentials_Explain">Diese Richtlinieneinstellung gilt für Anwendungen, für die die Komponente Cred SSP verwendet wird (Beispiel: Remotedesktopverbindung).
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie die Server angeben, an die die gespeicherten Anmeldeinformationen von Benutzern nicht delegiert werden können (unter den gespeicherten Anmeldeinformationen sind die Anmeldeinformationen zu verstehen, deren Speicherung Sie mithilfe der Anmeldeinformationsverwaltung festlegen).
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren (Standardeinstellung), werden mithilfe dieser Richtlinieneinstellung keine Server angegeben.
+
+Hinweis:Die Richtlinieneinstellung "Delegierung von gespeicherten Anmeldeinformationen verweigern" kann für mindestens einen Dienstprinzipalnamen (Service Principal Name, SPN) festgelegt werden. Der Dienstprinzipalname (Service Principal Name, SPN) stellt den Zielserver dar, für den die Benutzeranmeldeinformationen nicht delegiert werden können. Bei der Angabe des Dienstprinzipalnamens ist die Verwendung eines einzelnen Platzhalterzeichens zulässig.
+
+Beispiel:
+"TERMSRV/host.humanresources.fabrikam.com": Remotedesktopsitzungs-Host, der auf dem Computer "host.humanresources.fabrikam.com" ausgeführt wird
+"TERMSRV/*": Remotedesktopsitzungshost, der auf allen Computern ausgeführt wird.
+TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen Computern in ".humanresources.fabrikam.com" ausgeführt wird
+
+Diese Richtlinieneinstellung kann zusammen mit "Delegierung von gespeicherten Anmeldeinformationen zulassen" verwendet werden, um Ausnahmen für bestimmte Server festzulegen, die bei der Verwendung von Platzhaltern in der Serverliste von "Delegierung von gespeicherten Anmeldeinformationen zulassen" ansonsten zugelassen wären.</string>
+      <string id="RestrictedRemoteAdministration">Delegierung von Anmeldeinformationen an Remoteserver einschränken</string>
+      <string id="RestrictedRemoteAdministration_Explain">Bei der Ausführung im eingeschränkten Modus machen teilnehmende Apps Anmeldeinformationen nicht für Remotecomputer verfügbar (unabhängig von der Delegierungsmethode). Im eingeschränkten Modus kann der Zugriff nicht nur auf den Zielcomputer, sondern auch auf Ressourcen auf anderen Servern oder in anderen Netzwerken beschränkt sein, da die Anmeldeinformationen nicht delegiert werden.
+
+Teilnehmende Apps:
+Remotedesktopclient
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, wird der eingeschränkte Modus erzwungen, und Anmeldeinformationen werden von teilnehmenden Apps nicht an Remotecomputer delegiert.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird der eingeschränkte Modus nicht erzwungen, und teilnehmende Apps können Anmeldeinformationen an Remotecomputer delegieren.
+
+Hinweis: Zum Deaktivieren der Delegierung von Anmeldeinformationen reicht es möglicherweise aus, die Delegierung in CredSSP (Credential Security Support Provider) zu verweigern. Ändern Sie dazu die Einstellungen in der administrativen Vorlage (unter "Computerkonfiguration\Administrative Vorlagen\System\Delegierung von Anmeldeinformationen").</string>
+      <string id="SUPPORTED_VISTA">Windows Vista</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowDefaultCredentials">
+        <listBox refId="AllowDefaultCredentials_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="AllowDefCredentialsWhenNTLMOnly">
+        <listBox refId="AllowDefCredentialsWhenNTLMOnly_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_ADCN" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentials">
+        <listBox refId="AllowFreshCredentials_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="AllowFreshCredentialsWhenNTLMOnly">
+        <listBox refId="AllowFreshCredentialsWhenNTLMOnly_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_AFCN" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentials">
+        <listBox refId="AllowSavedCredentials_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="AllowSavedCredentialsWhenNTLMOnly">
+        <listBox refId="AllowSavedCredentialsWhenNTLMOnly_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_ASCN" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="DenyDefaultCredentials">
+        <listBox refId="DenyDefaultCredentials_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_DDC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="DenyFreshCredentials">
+        <listBox refId="DenyFreshCredentials_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_DFC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+      <presentation id="DenySavedCredentials">
+        <listBox refId="DenySavedCredentials_Name">Server zur Liste hinzufügen:</listBox>
+        <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Betriebssystemstandards mit vorheriger Eingabe verknüpfen</checkBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

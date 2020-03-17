@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>skriv inn visningsnavn her</displayName>
+  <description>skriv inn beskrivelse her</description>
+  <resources>
+    <stringTable>
+      <string id="DisallowCpls">Skjul angitte Kontrollpanel-appleter</string>
+      <string id="DisallowCpls_Help">Du kan bruke denne innstillingen til å vise eller skjule angitte kontrollpanelelementer, for eksempel Mus, System eller Personalisering, i Kontrollpanel-vinduet og på startskjermen. Denne innstillingen påvirker startskjermen og Kontrollpanel-vinduet samt andre måter å få tilgang til kontrollpanelelementer på, for eksempel snarveier i Hjelp og støtte eller kommandolinjer der Control.exe brukes. Denne policyinnstillingen har ingen virkning på elementer som vises i PC-innstillinger.
+
+Hvis du aktiverer denne innstillingen, kan du angi at bestemte elementer ikke skal vises i Kontrollpanel-vinduet og på startskjermen.
+
+Hvis du vil skjule et kontrollpanelelement, aktiverer du denne policyinnstillingen og klikker Vis for å få tilgang til listen over ikke tillatte kontrollpanelelementer. Skriv inn det kanoniske navnet på kontrollpanelelementet i Verdi-kolonnen i dialogboksen Vis innhold. Du kan for eksempel skrive inn "Microsoft.Mouse", "Microsoft.System" eller "Microsoft.Personalization".
+
+Obs!  Når det gjelder Windows Vista, Windows Server 2008 og tidligere versjoner av Windows, må du skrive inn modulnavnet, for eksempel Timedate.cpl eller Inetcpl.cpl. Hvis et kontrollpanelelement ikke har en CPL-fil eller CPL-filen inneholder flere appleter, skriver du inn modulnavnet og ID-nummeret for strengressurs, for eksempel "@systemcpl.dll,-1" for System eller "@themecpl.dll,-1" for Personalisering. Du finner en fullstendig liste over kanoniske navn og modulnavn ved å søke etter "Control Panel items" på MSDN. 
+
+Hvis både innstillingen Skjul angitte Kontrollpanel-appleter og Vis bare angitte Kontrollpanel-appleter er aktivert, ignoreres innstillingen Vis bare angitte Kontrollpanel-appleter.
+
+Obs!  Kontrollpanelelementet som vises, kan ikke skjules på hurtigmenyen på skrivebordet med denne innstillingen. Hvis du vil skjule kontrollpanelelementet som vises, og hindre brukere fra å endre visningsinnstillingene på datamaskinen, bruker du innstillingen for å deaktivere visning i Kontrollpanel i stedet.</string>
+      <string id="ForceClassicControlPanel">Åpne alltid alle elementer når du åpner Kontrollpanel</string>
+      <string id="ForceClassicControlPanel_Help">Denne policyinnstillingen styrer standardvisningen i Kontrollpanel, enten med kategorier eller ikoner. 
+
+Hvis du aktiverer denne policyinnstillingen, åpnes Kontrollpanel med ikonvisning.
+
+Hvis du deaktiverer denne policyinnstillingen, åpnes Kontrollpanel med kategorivisning.
+
+Hvis du ikke konfigurerer denne policyinnstillingen, åpnes Kontrollpanel med visningen som ble brukt i forrige kontrollpaneløkt.
+Obs!  Ikonstørrelsen er avhengig av hva brukeren angav for den i forrige økt.</string>
+      <string id="NoControlPanel">Forhindre tilgang til Kontrollpanel og PC-innstillinger (Prohibit access to Control Panel and PC settings)</string>
+      <string id="NoControlPanel_Help">Deaktiverer alle programmer i Kontrollpanel og appen PC-innstillinger.
+
+Denne innstillingen forhindrer Control.exe og SystemSettings.exe, programfilene for Kontrollpanel og PC-innstillinger, fra å starte. Brukerne kan dermed ikke starte Kontrollpanel eller PC-innstillinger eller kjøre noen av elementene i dem.
+
+Denne innstillingen fjerner Kontrollpanel fra følgende steder:
+Startskjermen
+Filutforsker
+
+Denne innstillingen fjerner PC-innstillinger fra følgende steder:
+Startskjermen
+Innstillinger-perlen
+Kontobilde
+Søkeresultater
+
+Hvis brukerne prøver å velge et kontrollpanelelement fra Egenskaper-elementet på en hurtigmeny, vises en melding om at en innstilling forhindrer handlingen.</string>
+      <string id="RestrictCpls">Vis bare angitte Kontrollpanel-appleter</string>
+      <string id="RestrictCpls_Help">Denne policyinnstillingen angir hvilke kontrollpanelelementer, for eksempel Mus, System eller Personalisering, som vises i Kontrollpanel-vinduet og på startskjermen. De eneste elementene som vises i Kontrollpanel, er de du angir i denne innstillingen. Denne innstillingen påvirker startskjermen og Kontrollpanel-vinduet samt andre måter å få tilgang til kontrollpanelelementer på, for eksempel snarveier i Hjelp og støtte eller kommandolinjer der Control.exe brukes. Denne policyinnstillingen har ingen virkning på elementer som vises i PC-innstillinger.
+
+Hvis du vil vise et kontrollpanelelement, aktiverer du denne policyinnstillingen og klikker Vis for å få tilgang til listen over tillatte kontrollpanelelementer. Skriv inn det kanoniske navnet på kontrollpanelelementet i Verdi-kolonnen i dialogboksen Vis innhold. Du kan for eksempel skrive inn "Microsoft.Mouse", "Microsoft.System" eller "Microsoft.Personalization".
+
+Obs!  Når det gjelder Windows Vista, Windows Server 2008 og tidligere versjoner av Windows, må du skrive inn modulnavnet, for eksempel Timedate.cpl eller Inetcpl.cpl. Hvis et kontrollpanelelement ikke har en CPL-fil eller CPL-filen inneholder flere appleter, må du skrive inn modulnavnet og ID-nummeret for strengressurs. Du skriver for eksempel "@systemcpl.dll,-1" for System og "@themecpl.dll,-1" for Personalisering. Du finner en fullstendig liste over kanoniske navn og modulnavn på kontrollpanelelementer ved å søke etter "Control Panel items" på MSDN.
+
+Hvis både innstillingen Skjul angitte Kontrollpanel-appleter og Vis bare angitte Kontrollpanel-appleter er aktivert, ignoreres innstillingen Vis bare angitte Kontrollpanel-appleter.
+
+Obs!  Kontrollpanelelementet som vises, kan ikke skjules på hurtigmenyen på skrivebordet med denne innstillingen. Hvis du vil skjule kontrollpanelelementet som vises, og hindre brukere fra å endre visningsinnstillingene på datamaskinen, bruker du innstillingen for å deaktivere visning i Kontrollpanel i stedet.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisallowCpls">
+        <listBox refId="DisallowCplsList">Liste over ikke tillatte Kontrollpanel-appleter</listBox>
+      </presentation>
+      <presentation id="RestrictCpls">
+        <listBox refId="RestrictCplsList">Liste over tillatte Kontrollpanel-appleter</listBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

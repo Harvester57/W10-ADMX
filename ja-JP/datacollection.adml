@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>表示名をここに入力する</displayName>
+  <description>説明をここに入力する</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">利用統計情報の許可</string>
+      <string id="AllowTelemetry_0">0 - セキュリティ [Enterprise のみ]</string>
+      <string id="AllowTelemetry_1">1 - 基本</string>
+      <string id="AllowTelemetry_2">2 - 拡張</string>
+      <string id="AllowTelemetry_3">3 - フル</string>
+      <string id="AllowTelemetry_Explain">このポリシー設定で、Microsoft に報告される診断と使用量データの量が決まります。値を 0 にした場合は、最小限のデータがマイクロソフトに送信されます。このデータには、悪意のあるソフトウェアの削除ツール (MSRT) および Windows Defender のデータ (有効になっている場合) と、利用統計情報クライアントの設定が含まれます。0 への設定が適用されるのはエンタープライズ、EDU、IoT、サーバー デバイスのみです。その他のデバイスに 0 を設定しても、1 に設定した場合と同じ結果になります。1 に設定した場合は、診断と使用量に関して少量のデータのみが送信されます。0 や 1 に設定すると、デバイスでのエクスペリエンスが一部制限されます。2 に設定すると、診断と使用量データに関する拡張情報が送信されます。3 に設定した場合は、2 のときと同じデータに加え、追加の診断データ (問題の原因となった可能性のあるファイルやコンテンツを含む) が送信されます。Windows 10 の利用統計設定は、Windows オペレーティング システムと一部のファースト パーティ アプリにのみ適用されます。この設定は、Windows 10 で実行されているサード パーティ アプリには適用されません。
+
+このポリシー設定を無効にした場合または構成しなかった場合、ユーザーは [設定] から利用統計情報レベルを構成することができます。
+
+</string>
+      <string id="EnableExperimentation">プレリリースの機能または設定を無効にする</string>
+      <string id="EnableExperimentation_1">デバイスの設定のみ</string>
+      <string id="EnableExperimentation_2">すべての試験</string>
+      <string id="EnableExperimentation_Explain">このポリシー設定は、Microsoft がユーザーの好みやデバイスの動作を調査するために製品に対して実施できる試験のレベルを決定します。この値を 1 にした場合、Microsoft が構成できるのはデバイスの設定のみとなります。2 にした場合、すべての試験が Microsoft に許可されます。
+
+このポリシー設定を無効にした場合、すべての試験が無効となります。
+
+このポリシー設定を構成しなかった場合、ユーザーは [設定] の "このビルドの機能に対する試験を Microsoft に許可する" オプションを構成することができます。
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

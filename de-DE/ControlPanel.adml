@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Anzeigenamen hier eingeben</displayName>
+  <description>Beschreibung hier eingeben</description>
+  <resources>
+    <stringTable>
+      <string id="DisallowCpls">Angegebene Systemsteuerungssymbole ausblenden</string>
+      <string id="DisallowCpls_Help">Mit dieser Richtlinieneinstellung können Sie angegebene Systemsteuerungssymbole (wie "Maus", "System" oder "Anpassung") im Systemsteuerungsfenster und auf dem Startbildschirm anzeigen oder ausblenden. Die Richtlinieneinstellung wirkt sich auf den Startbildschirm und das Systemsteuerungsfenster sowie auf weitere Zugriffsmethoden für Systemsteuerungselemente aus, z. B. Verknüpfungen in "Hilfe und Support" oder Befehlszeilen, in denen "control.exe" verwendet wird. Diese Richtlinieneinstellung hat keine Auswirkung auf die in den PC-Einstellungen angezeigten Elemente.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie bestimmte Symbole auswählen, die im Fenster der Systemsteuerung und auf dem Startbildschirm nicht angezeigt werden sollen.
+
+Zum Ausblenden eines Systemsteuerungssymbols aktivieren Sie diese Richtlinieneinstellung und klicken auf "Anzeigen", um auf die Liste der nicht zugelassenen Systemsteuerungssymbole zuzugreifen. Geben Sie im Dialogfeld "Inhalt anzeigen" in der Spalte "Wert" den kanonischen Namen des Systemsteuerungselements ein. Geben Sie beispielsweise "Microsoft.Maus", "Microsoft.System" oder "Microsoft.Personalisierung" ein.
+
+Hinweis: Für Windows Vista, Windows Server 2008 und frühere Windows-Versionen sollte der Modulname (z. B. "timedate.cpl" oder "inetcpl.cpl") eingegeben werden. Wenn einem Systemsteuerungselement keine CPL-Datei zugewiesen wurde oder die CPL-Datei zahlreiche Applets enthält, sollten der zugehörige Modulname und die ID der Zeichenfolgenressource eingegeben werden, z. B. "@systemcpl.dll,-1" für "System" oder "@themecpl.dll,-1" für "Anpassung". Eine vollständige Liste der kanonischen Namen und Modulnamen finden Sie im MSDN, indem Sie nach "Systemsteuerungselemente" suchen. 
+
+Wenn sowohl die Richtlinieneinstellung "Angegebene Systemsteuerungssymbole ausblenden" als auch die Richtlinieneinstellung "Nur angegebene Systemsteuerungssymbole anzeigen" aktiviert ist, wird die Richtlinieneinstellung "Nur angegebene Systemsteuerungssymbole anzeigen" ignoriert.
+
+Hinweis: Das Systemsteuerungselement "Anzeige" kann nicht im Kontextmenü "Desktop" mithilfe dieser Richtlinieneinstellung ausgeblendet werden. Um das Systemsteuerungselement "Anzeige" auszublenden und Benutzer daran zu hindern, die Anzeigeeinstellungen des Computers zu ändern, verwenden Sie stattdessen die Richtlinieneinstellung "Systemsteuerungsoption 'Anzeige' deaktivieren".</string>
+      <string id="ForceClassicControlPanel">Beim Öffnen der Systemsteuerung immer alle Systemsteuerungselemente öffnen</string>
+      <string id="ForceClassicControlPanel_Help">Diese Richtlinieneinstellung steuert die Standardansicht der Systemsteuerung entweder nach Kategorie oder nach Symbolen. 
+
+Wenn diese Richtlinieneinstellung aktiviert ist, wird die Systemsteuerung in der Symbolansicht geöffnet.
+
+Wenn diese Richtlinieneinstellung deaktiviert ist, wird die Systemsteuerung in der Kategorieansicht geöffnet.
+
+Wenn diese Richtlinieneinstellung nicht konfiguriert ist, wird die Systemsteuerung in der zuletzt verwendeten Ansicht geöffnet.
+Hinweis: Die Symbolgröße hängt von der Benutzereinstellung in der vorhergehenden Sitzung ab.</string>
+      <string id="NoControlPanel">Zugriff auf Systemsteuerung und PC-Einstellungen nicht zulassen</string>
+      <string id="NoControlPanel_Help">Deaktiviert alle Programme der Systemsteuerung und die Anwendung für die PC-Einstellungen.
+
+Mit dieser Richtlinieneinstellung wird verhindert, dass "Control.exe" und "SystemSettings.exe" (Programmdateien für Systemsteuerung und PC-Einstellungen) starten können. Dadurch können die Benutzer die Systemsteuerung bzw. die PC-Einstellungen nicht starten und kein Element der Systemsteuerung oder der PC-Einstellungen ausführen.
+
+Mit dieser Richtlinieneinstellung wird die Systemsteuerung von folgenden Orten entfernt:
+Startbildschirm
+Datei-Explorer
+
+Mit dieser Richtlinieneinstellung werden die PC-Einstellungen von folgenden Orten entfernt:
+Startbildschirm
+Charm "Einstellungen"
+Kontobild
+Suchergebnisse
+
+Wenn Benutzer versuchen, über den Eintrag "Eigenschaften" eines Kontextmenüs ein Element der Systemsteuerung auszuwählen, wird die Meldung angezeigt, dass eine Richtlinieneinstellung diesen Vorgang verhindert.</string>
+      <string id="RestrictCpls">Nur angegebene Systemsteuerungssymbole anzeigen</string>
+      <string id="RestrictCpls_Help">Mit dieser Richtlinieneinstellung wird gesteuert, welche Systemsteuerungselemente (wie "Maus", "System" oder "Anpassung") im Fenster der Systemsteuerung und dem Startbildschirm angezeigt werden. Nur die in dieser Richtlinieneinstellung angegebenen Elemente werden in der Systemsteuerung angezeigt. Diese Richtlinieneinstellung wirkt sich auf den Startbildschirm und die Systemsteuerung sowie auf weitere Zugriffsmethoden für Systemsteuerungselemente aus, z. B. Verknüpfungen in "Hilfe und Support" oder Befehlszeilen, in denen "control.exe" verwendet wird. Diese Richtlinieneinstellung hat keine Auswirkung auf die in den PC-Einstellungen angezeigten Elemente.
+
+Zum Anzeigen eines Systemsteuerungssymbols aktivieren Sie diese Richtlinieneinstellung und klicken auf "Anzeigen", um auf die Liste der zugelassenen Systemsteuerungssymbole zuzugreifen. Geben Sie im Dialogfeld "Inhalt anzeigen" in der Spalte "Wert" den kanonischen Namen des Systemsteuerungselements ein. Geben Sie beispielsweise "Microsoft.Maus", "Microsoft.System" oder "Microsoft.Personalisierung" ein.
+
+Hinweis: Für Windows Vista, Windows Server 2008 und frühere Windows-Versionen sollte der Modulname (z. B. "timedate.cpl" oder "inetcpl.cpl") eingegeben werden. Wenn einem Systemsteuerungselement keine CPL-Datei zugewiesen wurde oder die CPL-Datei zahlreiche Applets enthält, sollten der zugehörige Modulname und die ID der Zeichenfolgenressource eingegeben werden. Geben Sie beispielsweise "@systemcpl.dll,-1" für "System" oder "@themecpl.dll,-1" für "Anpassung" ein. Eine vollständige Liste der kanonischen Namen und Modulnamen für Systemsteuerungselemente finden Sie im MSDN, indem Sie nach "Systemsteuerungselemente" suchen.
+
+Wenn sowohl die Richtlinieneinstellung "Angegebene Systemsteuerungssymbole ausblenden" als auch die Richtlinieneinstellung "Nur angegebene Systemsteuerungssymbole anzeigen" aktiviert ist, wird die Richtlinieneinstellung "Nur angegebene Systemsteuerungssymbole anzeigen" ignoriert.
+
+Hinweis: Das Systemsteuerungselement "Anzeige" kann nicht im Kontextmenü "Desktop" mithilfe dieser Richtlinieneinstellung ausgeblendet werden. Um das Systemsteuerungselement "Anzeige" auszublenden und Benutzer daran zu hindern, die Anzeigeeinstellungen des Computers zu ändern, verwenden Sie stattdessen die Richtlinieneinstellung "Systemsteuerungsoption 'Anzeige' deaktivieren".</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisallowCpls">
+        <listBox refId="DisallowCplsList">Liste der nicht zugelassenen Systemsteuerungssymbole</listBox>
+      </presentation>
+      <presentation id="RestrictCpls">
+        <listBox refId="RestrictCplsList">Liste der zugelassenen Systemsteuerungssymbole</listBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

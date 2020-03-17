@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>voer hier de weergavenaam in</displayName>
+  <description>voer hier een beschrijving in</description>
+  <resources>
+    <stringTable>
+      <string id="AllowTelemetry">Telemetrie toestaan</string>
+      <string id="AllowTelemetry_0">0 - Beveiliging [Alleen Enterprise]</string>
+      <string id="AllowTelemetry_1">1 - Basis</string>
+      <string id="AllowTelemetry_2">2 - Uitgebreid</string>
+      <string id="AllowTelemetry_3">3 - Volledig</string>
+      <string id="AllowTelemetry_Explain">Met deze beleidsinstelling wordt bepaald hoeveel diagnostische gegevens en gebruiksgegevens naar Microsoft worden verzonden. Een waarde van 0 betekent dat er minimale gegevens naar Microsoft worden verzonden. Deze gegevens omvatten gegevens van het hulpprogramma voor verwijderen van schadelijke software (MSRT) en Windows Defender, indien ingeschakeld, en telemetrie-clientinstellingen. De waarde 0 geldt alleen voor Enterprise-, EDU-, IoT- en serverapparaten. Als u de waarde 0 instelt voor andere apparaten, wordt dit gelijkgesteld aan de waarde 1. Bij een waarde van 1 wordt slechts een basishoeveelheid diagnostische gegevens en gebruiksgegevens verzonden. De waarden 0 en 1 kunnen een verminderde gebruikerservaring op het apparaat veroorzaken. Bij een waarde van 2 worden uitgebreide diagnostische gegevens en gebruiksgegevens verzonden. Bij een waarde 3 worden dezelfde gegevens verzonden als bij waarde 2, aangevuld met extra diagnostische gegevens, zoals de bestanden en inhoud die mogelijk het probleem hebben veroorzaakt. Windows 10 telemetrie-instellingen gelden voor het Windows-besturingssysteem en een aantal apps van Microsoft. Deze instelling geldt niet voor apps van derden die in Windows 10 worden uitgevoerd.
+
+Als u deze instelling uitschakelt of niet configureert, kunnen gebruikers het telemetrieniveau configureren in Instellingen.
+
+</string>
+      <string id="EnableExperimentation">Evaluatieonderdelen of -instellingen uitschakelen</string>
+      <string id="EnableExperimentation_1">Alleen apparaatinstellingen</string>
+      <string id="EnableExperimentation_2">Volledig experimenteren</string>
+      <string id="EnableExperimentation_Explain">Deze beleidsinstelling bepaalt de mate waarin Microsoft met het product kan experimenteren om gebruikersvoorkeuren of de werking van apparaten te onderzoeken. Met een waarde van 1 kan Microsoft alleen apparaatinstellingen configureren. Met een waarde van 2 kan Microsoft volledige experimenten uitvoeren.
+
+Als u deze beleidsinstelling uitschakelt, worden alle experimenten uitgeschakeld.
+
+Als u deze beleidsinstelling niet configureert, kunnen gebruikers de optie Microsoft mag onderdelen in deze versie uitproberen in Instellingen configureren.
+</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="AllowTelemetry">
+        <dropdownList refId="AllowTelemetry" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+      <presentation id="EnableExperimentation">
+        <dropdownList refId="EnableExperimentation" noSort="true" defaultItem="1"></dropdownList>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

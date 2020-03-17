@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2015 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>Microsoft Windows Eszközvédelem</displayName>
+  <description>Windows Eszközvédelem biztonsága</description>
+  <resources>
+    <stringTable>
+      <string id="DeviceGuard">Eszközvédelem</string>
+      <string id="VirtualizationBasedSecurity">Virtualizálás-alapú biztonság bekapcsolása</string>
+      <string id="VirtualizationBasedSecurityHelp">Itt adhatja meg, hogy engedélyezve van-e a virtualizálásalapú biztonság.
+
+A virtualizálásalapú biztonság a Windows hipervizor használatával nyújt támogatást a biztonsági szolgáltatásoknak. A virtualizálásalapú biztonsághoz szükséges a Biztonságos rendszerindítás, és engedélyezhető a DMA-védelmekkel együttes használata is. A DMA-védelmekhez megfelelő hardver szükséges, és csak a megfelelően konfigurált eszközökön engedélyezhető.
+
+Kódintegritás virtualizálásalapú biztonsága
+
+Ez a beállítás engedélyezi a kernel módú kódintegritás virtualizálásalapú biztonságát. Ha engedélyezve van, a rendszer betartatja a kernel módú memóriavédelmet, és a kódintegritás ellenőrzési útvonalát a virtualizálásalapú biztonság védi.
+
+Figyelmeztetés: A rendszer összes illesztőprogramjának kompatibilisnek kell lennie ezzel a szolgáltatással, különben a rendszer összeomolhat. Csak olyan számítógépeken helyezze üzembe ezt a házirend-beállítást, amelyeknek a kompatibilitása nem kétséges. 
+
+Hitelesítőadat-védelem
+
+Ezzel a beállítással engedélyezi a felhasználók számára a virtualizálásalapú biztonságot használó hitelesítőadat-védelem bekapcsolását.
+
+A Letiltva beállítás távolról letiltja a hitelesítőadat-védelmet, ha korábban az Engedélyezve zárolás nélkül beállítással volt bekapcsolva.
+
+Az Engedélyezve UEFI zárolással beállítás esetén nem lehet távolról letiltani a hitelesítőadat-védelmet. Ha le szeretné tiltani a funkciót, akkor a csoportházirendet a Letiltva értékre kell állítania, de minden egyes számítógépnél egy fizikailag jelen lévő felhasználónak el kell távolítania ezt a biztonsági funkciót ahhoz, hogy törlődjön az UEFI által tárolt konfiguráció.
+
+Az Engedélyezve zárolás nélkül beállítás esetén távolról, csoportházirenddel is le lehet tiltani a hitelesítőadat-védelmet. Az ezt a beállítást használó rendszereken legalább a Windows 10-nek (az 1511-es verziónak) kell futnia.
+      </string>
+      <string id="SecureBoot">Biztonságos rendszerindítás</string>
+      <string id="SecureBootAndDmaProtection">Biztonságos rendszerindítás és DMA-védelem</string>
+      <string id="Disabled">Letiltva</string>
+      <string id="Enabled">Engedélyezve</string>
+      <string id="EnabledWithoutLock">Engedélyezve zárolás nélkül</string>
+      <string id="EnabledWithUefiLock">Engedélyezve UEFI-zárolással</string>
+      <string id="ConfigCIPolicy">Kódintegritási házirend üzembe helyezése</string>
+      <string id="ConfigCIPolicyHelp">Kódintegritási házirend üzembe helyezése
+
+Ezzel a házirend-beállítással kódintegritási házirendet lehet üzembe helyezni az adott gépen futtatható kódok szabályozására.
+
+Kódintegritási házirend üzembe helyezésekor a Windows ezen házirend alapján dönti el, hogy mi futhat rendszermag módban és a Windows asztalon. A házirend engedélyezéséhez a gépet újra kell indítani. 
+
+A fájl elérési útját vagy UNC elérési útként (például \\KiszolgaloNeve\MegosztasNeve\SIPolicy.p7b), vagy érvényes helyi elérési útként (például C:\MappaNeve\SIPolicy.p7b) kell megadni. A helyi gépfióknak (LOCAL SYSTEM) elérési engedélyt kell adni a házirendfájlhoz.
+ 
+Ha aláírt és védett házirendet használ, akkor ennek a házirend-beállításnak a letiltása nem távolítja el az érintett funkciót a számítógépről. Ehelyett:
+
+   1) először kapcsolja ki a házirend védettségét, és úgy tiltsa le a beállítást, vagy
+   2) tiltsa le a beállítást, és minden egyes gépről helyileg bejelentkezve távolítsa el a biztonsági funkciókat.
+      </string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="VirtualizationBasedSecurity">
+        <dropdownList refId="RequirePlatformSecurityFeaturesDrop" defaultItem="0">Platformbiztonsági szint megadása:</dropdownList>
+        <checkBox refId="HypervisorEnforcedCodeIntegrityCheck" defaultChecked="false">Kódintegritás virtualizálás-alapú védelmének engedélyezése</checkBox>
+        <dropdownList refId="CredentialIsolationDrop" defaultItem="0">Hitelesítőadat-védelem konfigurálása:</dropdownList>
+      </presentation>
+      <presentation id="ConfigCIPolicy">
+        <textBox refId="ConfigCIPolicyFilePathText">
+          <label>Kódintegritási házirend elérési útja:</label>
+        </textBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>

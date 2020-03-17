@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  (c) 2006 Microsoft Corporation  -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+  <displayName>여기에 표시 이름 입력</displayName>
+  <description>여기에 설명 입력</description>
+  <resources>
+    <stringTable>
+      <string id="DisallowCpls">지정된 제어판 항목 숨기기</string>
+      <string id="DisallowCpls_Help">이 설정을 사용하면 제어판 창과 시작 화면에서 지정한 제어판 항목(예: 마우스, 시스템 또는 개인 설정)을 표시하거나 숨길 수 있습니다. 이 설정은 시작 화면과 제어판 창뿐 아니라 제어판 항목에 액세스하는 다른 방법(예: 도움말 및 지원의 바로 가기 또는 control.exe를 사용하는 명령줄)에도 영향을 줍니다. 이 정책은 PC 설정에 표시되는 항목에는 영향을 미치지 않습니다.
+
+이 설정을 사용하면 제어판 창 및 시작 화면에 표시하지 않을 특정 항목을 선택할 수 있습니다.
+
+제어판 항목을 숨기려면 이 정책 설정을 사용하도록 설정하고 표시를 클릭하여 허용되지 않는 제어판 항목 목록에 액세스합니다. 내용 표시 대화 상자의 값 열에 제어판 항목의 정식 이름을 입력합니다. 예를 들어 Microsoft.Mouse, Microsoft.System 또는 Microsoft.Personalization을 입력합니다.
+
+참고: Windows Vista, Windows Server 2008 및 이전 버전의 Windows에서는 모듈 이름(예: timedate.cpl 또는 inetcpl.cpl)을 입력해야 합니다. 제어판 항목에 CPL 파일이 없거나 CPL 파일에 여러 개의 애플릿이 포함되어 있으면 해당 모듈 이름과 문자열 리소스 식별 번호를 입력해야 합니다. 예를 들어 시스템의 경우 @systemcpl.dll,-1을 입력하고 개인 설정의 경우 @themecpl.dll,-1을 입력합니다. MSDN에서 "제어판 항목"을 검색하여 전체 정식 이름 및 모듈 이름 목록을 찾을 수 있습니다. 
+
+"지정된 제어판 항목 숨기기" 설정 및 "지정된 제어판 항목만 표시" 설정을 사용하는 경우 "지정된 제어판 항목만 표시" 설정이 무시됩니다.
+
+참고: 이 설정을 사용하여 바탕 화면의 상황에 맞는 메뉴에서 디스플레이 제어판 항목은 숨길 수 없습니다. 디스플레이 제어판 항목을 숨기고 사용자가 컴퓨터의 디스플레이 설정을 수정하지 못하게 하려면 대신 "Disable Display Control Panel(디스플레이 제어판 사용 안 함)" 설정을 사용하십시오.</string>
+      <string id="ForceClassicControlPanel">제어판 클래식 보기 사용</string>
+      <string id="ForceClassicControlPanel_Help">이 정책 설정은 기본 제어판 보기를 범주 또는 아이콘별로 표시하도록 제어합니다. 
+
+이 정책 설정을 사용하면 제어판이 아이콘 보기로 열립니다.
+
+이 정책 설정을 사용하지 않으면 제어판이 범주 보기로 열립니다.
+
+이 정책 설정을 구성하지 않으면 제어판이 마지막 제어판 세션에서 사용한 보기로 열립니다.
+참고: 아이콘 크기는 사용자가 이전 세션에서 설정한 크기에 따라 달라집니다.</string>
+      <string id="NoControlPanel">Prohibit access to Control Panel and PC settings(제어판 및 PC 설정에 대한 액세스 금지)</string>
+      <string id="NoControlPanel_Help">모든 제어판 프로그램과 PC 설정 앱을 사용하지 않도록 설정합니다.
+
+이 설정은 Control.exe 및 SystemSettings.exe, 제어판 및 PC 설정의 프로그램 파일을 시작하지 않도록 설정합니다. 따라서 사용자는 제어판 또는 PC 설정을 시작하거나 해당 항목을 실행할 수 없습니다.
+
+이 설정은 다음 항목에서 제어판을 제거합니다.
+시작 화면
+파일 탐색기
+
+이 설정은 다음 항목에서 PC 설정을 제거합니다.
+시작 화면
+설정 참
+계정 사진
+검색 결과
+
+사용자가 상황에 맞는 메뉴의 속성 항목에서 제어판 항목을 선택하려고 하면 설정에 따라 이 작업을 할 수 없다는 설명의 메시지가 나타납니다.</string>
+      <string id="RestrictCpls">지정된 제어판 항목만 표시</string>
+      <string id="RestrictCpls_Help">이 정책 설정은 마우스, 시스템 또는 개인 설정 등의 제어판 항목을 제어판 창과 시작 화면에 표시할지 여부를 제어합니다. 이 설정에 지정하는 내용만 제어판에 표시됩니다. 이 설정은 시작 화면과 제어판뿐 아니라 제어판 항목에 액세스하는 다른 방법(예: 도움말 및 지원의 바로 가기 또는 control.exe를 사용하는 명령줄)에도 영향을 줍니다. 이 정책은 PC 설정에 표시되는 항목에는 영향을 미치지 않습니다.
+
+제어판 항목을 표시하려면 이 정책 설정을 사용하도록 설정하고 표시를 클릭하여 허용된 제어판 항목 목록에 액세스합니다. 내용 표시 대화 상자의 값 열에 제어판 항목의 정식 이름을 입력합니다. 예를 들어 Microsoft.Mouse, Microsoft.System 또는 Microsoft.Personalization을 입력합니다.
+
+참고: Windows Vista, Windows Server 2008 및 이전 버전의 Windows에서는 모듈 이름(예: timedate.cpl 또는 inetcpl.cpl)을 입력해야 합니다. 제어판 항목에 CPL 파일이 없거나 CPL 파일에 여러 개의 애플릿이 포함되어 있으면 해당 모듈 이름과 문자열 리소스 식별 번호를 입력해야 합니다. 예를 들어 시스템의 경우 @systemcpl.dll,-1을 입력하고 개인 설정의 경우 @themecpl.dll,-1을 입력합니다. MSDN에서 "제어판 항목"을 검색하여 제어판 항목의 정식 이름 및 모듈 이름 전체 목록을 찾을 수 있습니다.
+
+"지정된 제어판 항목 숨기기" 설정 및 "지정된 제어판 항목만 표시" 설정을 사용하는 경우 "지정된 제어판 항목만 표시" 설정이 무시됩니다.
+
+참고: 이 설정을 사용하여 바탕 화면의 상황에 맞는 메뉴에서 디스플레이 제어판 항목은 숨길 수 없습니다. 디스플레이 제어판 항목을 숨기고 사용자가 컴퓨터의 디스플레이 설정을 수정하지 못하게 하려면 대신 "Disable Display Control Panel(디스플레이 제어판 사용 안 함)" 설정을 사용하십시오.</string>
+    </stringTable>
+    <presentationTable>
+      <presentation id="DisallowCpls">
+        <listBox refId="DisallowCplsList">허용되지 않는 제어판 항목 목록</listBox>
+      </presentation>
+      <presentation id="RestrictCpls">
+        <listBox refId="RestrictCplsList">허용된 제어판 항목 목록</listBox>
+      </presentation>
+    </presentationTable>
+  </resources>
+</policyDefinitionResources>
