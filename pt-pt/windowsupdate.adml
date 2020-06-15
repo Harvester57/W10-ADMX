@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Pelo menos o sistema operativo Windows Server 2003 ou Windows XP Professional com SP1, excluindo o Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Pelo menos, Windows XP Professional Service Pack 1 ou, pelo menos, Windows 2000 Service Pack 3 a Windows 8.1 ou Windows Server 2012 R2 com o service pack mais recente</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Pelo menos, Windows Vista a Windows 8.1 ou Windows Server 2012 R2 com o service pack mais recente</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 ou, Pelo menos, Windows 2000 Service Pack 3
+A opção 7 é apenas suportada por servidores com edição do Windows Server 2016, no mínimo</string>
       <string id="AUDontShowUasHelp">Esta definição de política permite-lhe gerir se a opção 'Instalar Atualizações e Encerrar' é apresentada na caixa de diálogo Encerrar o Windows.
 
 Se ativar esta definição de política, 'Instalar Atualizações e Encerrar' não irá aparecer como uma opção na caixa de diálogo Encerrar o Windows, mesmo que estejam disponíveis atualizações para instalação quando o utilizador selecionar a opção Encerrar no menu Iniciar.
@@ -74,18 +76,23 @@ Esta definição permite-lhe especificar se as atualizações automáticas estã
 
         Quando a opção "Automático" estiver selecionada como a hora agendada para instalação, o Windows irá verificar, transferir e instalar atualizações automaticamente. O dispositivo será reiniciado de acordo com as predefinições do Windows, exceto se configurado pela política de grupo. (Aplica-se ao Windows 10, versão 1809 e superiores)
 
-        Especifique o horário utilizando as opções da Definição de Política de Grupo. Para a versão 1709 e superiores, existe uma escolha adicional de limitar as atualizações para uma ocorrência semanal, quinzenal ou mensal. Se não for especificado nenhum horário, o horário predefinido para todas as instalações será todos os dias às 3:00. Se alguma atualização exigir um reinício para concluir a instalação, o Windows reiniciará o computador automaticamente. (Se um utilizador tiver sessão iniciada no computador quando o Windows estiver pronto para reiniciar, será notificado e ser-lhe-á dada a opção de adiar o reinício.)
+        Especifique o horário utilizando as opções da Definição de Política de Grupo. Para a versão 1709 e superior, existe uma escolha adicional de limitar as atualizações para uma ocorrência semanal, quinzenal ou mensal. Se não for especificado nenhum horário, o horário predefinido para todas as instalações será todos os dias às 3:00. Se alguma atualização exigir um reinício para concluir a instalação, o Windows reiniciará o computador automaticamente. (Se um utilizador tiver sessão iniciada no computador quando o Windows estiver pronto para reiniciar, o utilizador será notificado e ser-lhe-á dada opção de adiar o reinício.)
 
         No Windows 8 e posterior, pode definir a instalação das atualizações durante a manutenção automática, em vez de um horário específico. A manutenção automática instalará as atualizações quando o computador não estiver a ser utilizado e impedirá a instalação quando o computador estiver a funcionar apenas com alimentação de bateria. Se a manutenção automática não conseguir instalar as atualizações durante 2 dias, o Windows Update instalará as atualizações de imediato. Os utilizadores serão notificados sobre um reinício futuro que só ocorrerá se não existirem riscos potenciais de perda de dados.
 
         5 = Permitir que os administradores locais selecionem o modo de configuração das notificações e instalação de atualizações das Atualizações Automáticas. (Esta opção não foi transportada para nenhuma das versões do Windows 10)
 
-        Com esta opção, os administradores locais poderão usar o painel de controlo do Windows Update para selecionarem a opção de configuração pretendida. Os administradores locais não terão permissão para desativar a configuração de Atualizações Automáticas.
+        Com esta opção, os administradores locais poderão utilizar o painel de controlo do Windows Update para selecionarem a opção de configuração pretendida. Os administradores locais não terão permissão para desativar a configuração de Atualizações Automáticas.
 
-Se o estado desta política estiver definido como Desativado, quaisquer atualizações que estejam disponíveis no Windows Update têm de ser transferidas e instaladas manualmente. Para tal, procure Windows Update em Iniciar.
+        7 = Notificar antes de quaisquer atualizações e notificar antes de reiniciar. (Apenas Windows Server)
 
-Se o estado estiver definido como Não Configurado, a utilização das Atualizações Automáticas não é especificada ao nível da Política de Grupo. No entanto, um administrador ainda pode configurar Atualizações Automáticas através do Painel de Controlo.</string>
+        Com esta opção do Windows Server 2016, aplicável apenas a dispositivos SKU do Servidor, os administradores locais poderão utilizar o Windows Update para prosseguir com as instalações ou reiniciar manualmente.
 
+Se o estado desta política estiver definido como Desativado, quaisquer atualizações que estejam disponíveis no Windows Update têm de ser transferidas e instaladas manualmente. Para tal, procure pelo Windows Update em Iniciar.
+
+Se o estado estiver definido como Não Configurado, a utilização das Atualizações Automáticas não é especificada ao nível da Política de Grupo. No entanto, um administrador ainda pode configurar as Atualizações Automáticas através do Painel de Controlo.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Transferir Automaticamente, Notificar para instalar, Notificar para Reiniciar</string>
       <string id="AutoUpdateModeAdminChooses">5 - Permitir ao administrador local escolher a definição</string>
       <string id="AutoUpdateModeAuto">4 - Transferir automaticamente e agendar a instalação</string>
       <string id="AutoUpdateModeDownload">3 - Transferir automaticamente e notificar para instalar</string>
@@ -356,6 +363,10 @@ Para impedir que as atualizações de qualidade sejam recebidas à hora agendada
 Para retomar a receção de Atualizações de Qualidade que estejam colocadas em pausa, limpe o campo de data de início.
 
 Se desativar ou não configurar esta política, o Windows Update não altera o respetivo comportamento.</string>
+      <string id="TargetReleaseVersion_Title">Selecione a versão de destina da Atualização de Funcionalidades</string>
+      <string id="TargetReleaseVersion_Help">Ative esta política para especificar uma versão de Atualização de Funcionalidades a ser solicitada em análises subsequentes.
+
+Introduza a versão listada na página de Informações de Versão do Windows aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Não inclua os controladores nas Atualizações do Windows</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Ative esta política para não incluir controladores com atualizações de qualidade do Windows.
 
@@ -705,6 +716,11 @@ Esta política substituirá as seguintes políticas:
         <text>este período de tempo para guardarem o</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">trabalho (minutos):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Versão de Destino das Atualizações de Funcionalidades</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Definir o comportamento para receber preview builds:</dropdownList>
       </presentation>

@@ -59,9 +59,9 @@ Nota: per nascondere le pagine nell'app Impostazioni di sistema, utilizzare l'im
       <string id="SettingsPageVisibility">Visibilità della pagina delle impostazioni</string>
       <string id="SettingsPageVisibility_Help">Specifica l'elenco di pagine da mostrare o nascondere nell'app Impostazioni di sistema.
 
-Questo criterio consente a un amministratore di bloccare una determinata serie di pagine dell'app Impostazioni di sistema. Le pagine bloccate non saranno visibili nell'app, e se tutte le pagine di una categoria vengono bloccate, anche la categoria sarà nascosta. Lo spostamento diretto a una pagina bloccata tramite URI, il menu contestuale in Esplora risorse o altri mezzi causeranno la visualizzazione delle impostazioni.
+Questi criteri consentono a un amministratore di bloccare una determinata serie di pagine dell'app Impostazioni di sistema. Le pagine bloccate non saranno visibili nell'app e se tutte le pagine di una categoria vengono bloccate anche la categoria sarà nascosta. Lo spostamento diretto a una pagina bloccata tramite URI, menu contestuale in Esplora risorse o altri mezzi causeranno la visualizzazione delle impostazioni.
 
-Il criterio presenta due modalità: può specificare un elenco di pagine di impostazioni da visualizzare o un elenco di pagine da nascondere. Per specificare un elenco di pagine da mostrare, la stringa del criterio deve iniziare per "showonly:" (senza virgolette), mentre per specificare un elenco di pagine da nascondere, deve iniziare per "hide:". Se una pagina in un elenco showonly sarebbe normalmente nascosta per altre ragioni (ad esempio un dispositivo hardware mancante), questo criterio non ne forzerà la visualizzazione. La stringa del criterio deve inoltre contenere un elenco delimitato da punti e virgole di identificatori delle pagine di impostazioni. L'identificatore di una pagina di impostazioni è l'URI pubblicato per quella pagina meno la parte di protocollo "ms-settings:".
+I criteri presentano due modalità: possono specificare un elenco di pagine delle impostazioni da visualizzare o un elenco di pagine da nascondere. Per specificare un elenco di pagine da mostrare, la stringa dei criteri deve iniziare per "showonly:" (senza virgolette), mentre per specificare un elenco di pagine da nascondere, deve iniziare per "hide:". Se una pagina in un elenco showonly sarebbe normalmente nascosta per altre ragioni (ad esempio un dispositivo hardware mancante), questi criteri non ne forzeranno la visualizzazione. La stringa dei criteri deve inoltre contenere un elenco delimitato da punti e virgole di identificatori delle pagine delle impostazioni. L'identificatore di una pagina di impostazioni è l'URI pubblicato per quella pagina meno la parte di protocollo "ms-settings:".
 
 Ad esempio: per specificare che è necessario visualizzare solo le pagine Informazioni su e Bluetooth (i cui URI sono, rispettivamente ms-settings:about e ms-settings:bluetooth) e che tutte le altre pagine devono essere nascoste:
 
@@ -69,7 +69,9 @@ showonly:about;bluetooth
 
 Esempio: per specificare che è necessario nascondere solo la pagina Bluetooth (il cui URI è ms-settings:bluetooth):
 
-hide:bluetooth</string>
+hide:bluetooth
+
+La disponibilità di supporto per l'utente è documentata qui: https://go.microsoft.com/fwlink/?linkid=2102995</string>
       <string id="AllowOnlineTips">Consenti suggerimenti online</string>
       <string id="AllowOnlineTips_Help">Abilita o disabilita il recupero della guida e dei suggerimenti online per l'app Impostazioni.
 

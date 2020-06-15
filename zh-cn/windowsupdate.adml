@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Windows Server 2003 操作系统或 Windows XP Professional SP1 及以上版本，不包括 Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Windows XP Professional Service Pack 1 及其更高版本，或者 Windows 2000 Service Pack 3 到 Windows 8.1 或 Windows Server 2012 R2(带最新 Service Pack)及其更高版本</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Windows Vista 到 Windows 8.1 或 Windows Server 2012 R2(带最新 Service Pack)及其更高版本</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 或者 Windows 2000 Service Pack 3 及以上版本
+选项 7 仅在 Windows Server 2016 及以上版本的服务器上受支持</string>
       <string id="AUDontShowUasHelp">此策略设置允许你管理“安装更新并关机”选项是否在“关闭 Windows”对话框中显示。
 
 如果启用此策略设置，即使用户在“开始”菜单中选择“关机”选项时有更新可以安装，“安装更新并关机”选项也不会在“关闭 Windows”对话框中作为一项选择显示。
@@ -56,36 +58,41 @@
       <string id="RemoveWindowsUpdateModeAll">0 - 不显示任何通知</string>
       <string id="RemoveWindowsUpdateModeReboot">1 - 显示需要重新启动的通知</string>
       <string id="AutoUpdateCfg">配置自动更新</string>
-      <string id="AutoUpdateCfg_Help">指定此计算机是否通过 Windows 自动更新服务来接收安全更新和其他重要下载。
+      <string id="AutoUpdateCfg_Help">指定此计算机是否通过 Windows 自动更新服务接收安全更新和其他重要下载。
 
 注意: 此策略不适用于 Windows RT。
 
-此设置允许你指定是否在此计算机上启用自动更新。如果已启用该服务，必须在“组策略设置”中的四个选项中选择一个:
+此设置允许你指定是否在此计算机上启用自动更新。如果启用该服务，则必须在组策略设置中选择四个选项之一:
 
-        2 = 在下载和安装任何更新前发出通知。
+        2 = 在下载和安装任何更新之前通知。
 
-        当 Windows 找到适用于此计算机的更新时，系统将通知用户可以下载更新。转到 Windows 更新后，用户即可下载和安装任何可用更新。
+        当 Windows 找到适用于此计算机的更新时，系统将通知用户更新已准备好下载。转到 Windows 更新后，用户可以下载并安装任何可用更新。
 
-        3 = (默认设置)自动下载更新，并在准备好安装时发出通知
+        3 = (默认设置)自动下载更新并在准备好安装时通知
 
-        Windows 会查找适用于此计算机的更新，并在后台下载它们(在此过程中，用户不会收到通知或发生中断)。下载完成后，系统将通知用户他们已准备好进行安装。转到 Windows 更新后，用户即可安装它们。
+        Windows 查找适用于该计算机的更新，并在后台下载它们(在此过程中，用户不会收到通知或被打扰)。下载完成后，将通知用户更新已准备好进行安装。在转到 Windows 更新后，用户可以安装它们。
 
         4 = 自动下载更新并按下面指定的计划进行安装。
 
-        选择“自动”作为计划的安装时间时，Windows 将自动检查、下载和安装更新。除非由组策略配置，否则设备将按照 Windows 默认设置重启。(适用于 Windows 10 版本 1809 和更高版本)
+        选择“自动”作为计划的安装时间时，Windows 将自动检查、下载和安装更新。除非通过组策略进行配置，否则，设备将按照 Windows 默认设置重新启动。(适用于 Windows 10 版本 1809 及更高版本)
 
-        使用“组策略设置”中的选项指定计划。对于版本 1709 和更高版本，存在一个附加选项，即将更新频率限制为每周、每两周或每月。如果未指定任何计划，所有安装的默认计划将在每天上午 3:00 时进行。如果有任何更新需要重启才能完成安装，Windows 将自动重启计算机。(如果用户在 Windows 准备重启时已登录到计算机，系统将通知用户并提供延迟重启的选项。)
+        使用组策略设置中的选项指定计划。对于版本 1709 及更高版本，还可以选择将更新限制为每周、每两周或每月一次。如果未指定任何计划，则所有安装的默认计划都将是每天凌晨的 3:00。如果有任何更新需要重启才能完成安装，Windows 将自动重启计算机。(如果用户在 Windows 准备重启时已登录到计算机，则用户将收到通知，并可以选择延迟重启。)
 
-        在 Windows 8 和更高版本中，你可以将更新设置为在自动维护期间而不是按指定计划安装。自动维护将在计算机未在使用时安装更新，并在计算机使用电池供电时避免执行此操作。如果自动维护在 2 天内无法安装更新，Windows 更新将立即安装更新。然后，系统将通知用户即将重启，并且仅在不会发生数据意外丢失的情况下才重启。
+        在 Windows 8 和更高版本中，可以将更新设置为在自动维护期间安装，而不是按特定计划安装。自动维护将在计算机未使用时安装更新，并在计算机使用电池电源运行时避免这样做。如果自动维护无法在 2 天内安装更新，Windows 更新将立即安装更新。随后，将会通知用户即将重启，并且只有在数据不会意外丢失的情况下，才会进行重启。
 
-        5 = 允许本地管理员选择自动更新应通知并安装更新的配置模式。(此选项尚未移到任何 Win 10 版本)
+        5 = 允许本地管理员选择自动更新应通知并安装更新的配置模式。(此选项尚未传递到任何 Win 10 版本)
 
-使用此选项，允许本地管理员使用 Windows 更新控制面板选择所选的配置选项。不允许本地管理员禁用自动更新的配置。
+        如果选择此选项，则本地管理员将可以使用 Windows 更新控制面板选择所选的配置选项。本地管理员将无法禁用自动更新的配置。
 
-如果将此策略的状态设置为“已禁用”，必须手动下载并安装 Windows 更新上可用的任何更新。若要执行此操作，请使用“开始”菜单搜索 Windows 更新。
+        7 = 安装任何更新之前通知并在重启之前通知。(仅限 Windows Server)
 
-如果将状态设置为“未配置”，不会在“组策略”级别上指定使用自动更新。但是，管理员仍然可以通过控制面板配置自动更新。</string>
+        如果选择 Windows Server 2016 中的此选项(仅适用于服务器 SKU 设备)，则将允许本地管理员使用 Windows 更新继续手动进行安装或重新启动。
 
+如果将此策略的状态设置为“已禁用”，则必须手动下载并安装 Windows 更新中可用的任何更新。若要执行此操作，请使用“开始”搜索 Windows 更新。
+
+如果状态设置为“未配置”，则不在组策略级别指定自动更新的使用。但管理员仍然可以通过控制面板配置自动更新。</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - 自动下载，通知安装，通知重启</string>
       <string id="AutoUpdateModeAdminChooses">5 - 允许本地管理员选择设置</string>
       <string id="AutoUpdateModeAuto">4 - 自动下载并计划安装</string>
       <string id="AutoUpdateModeDownload">3 - 自动下载并通知安装</string>
@@ -356,6 +363,10 @@ Windows 更新还将唤醒系统并在安装最后期限安装更新。
 若要继续接收已暂停的质量更新，请清除开始日期字段。
 
 如果禁用或不配置此策略，Windows 更新不会改变其行为。</string>
+      <string id="TargetReleaseVersion_Title">选择目标功能更新版本</string>
+      <string id="TargetReleaseVersion_Help">启用此策略可指定要在后续扫描中请求的功能更新版本。
+
+输入 Windows 版本信息页面 aka.ms/ReleaseInformationPage 中列出的版本</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Windows 更新不包括驱动程序</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">启用此策略将不会在 Windows 质量更新中包括驱动程序。
 
@@ -705,6 +716,11 @@ Windows 更新还将唤醒系统并在安装最后期限安装更新。
         <text>足够时间保存其</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">工作（分钟）：  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>功能更新的目标版本</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">设置接收预览版的行为:</dropdownList>
       </presentation>

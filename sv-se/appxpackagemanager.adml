@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>AppX-pakethanterare</displayName> 
+  <displayName>AppX-pakethanterare</displayName>
   <description>AppX-pakethanterare</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Om du aktiverar den här principinställningen tillåter grupprincipen distribut
 Om du inaktiverar eller låter bli att konfigurera principinställningen blockeras distributionsåtgärder för Windows Store-appar av grupprincipen när en specialprofil används.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Tillåt utveckling av Windows Store-appar och installation av dem från en Integrated Development Environment (IDE)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Tillåter eller nekar utveckling av Windows Store-appar och installation av dem direkt från en IDE.
+        Tillåter eller nekar utveckling av Microsoft Store-appar och installation av dem direkt från en IDE.
 
-        Om du aktiverar den här inställningen och aktiverar grupprincipen Tillåt att alla betrodda appar installeras kan du utveckla Windows Store-appar och installera dem direkt från en IDE.
-        
-        Om du inaktiverar eller låter bli att konfigurera inställningen kan du inte utveckla Windows Store-appar eller installera dem direkt från en IDE.
+        Om du aktiverar den här inställningen och aktiverar grupprincipen Tillåt att alla betrodda appar installeras kan du utveckla Microsoft Store-appar och installera dem direkt från en IDE.
+
+        Om du inaktiverar eller låter bli att konfigurera inställningen kan du inte utveckla Microsoft Store-appar eller installera dem direkt från en IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Inaktivera installation av Windows-appar på volymer som inte är systemvolymer</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -54,10 +54,17 @@ Om du inaktiverar eller låter bli att konfigurera principinställningen blocker
       </string>
       <string id="AllowSharedLocalAppData">Tillåt att Windows-appar delar programdata mellan användare</string>
       <string id="AllowSharedLocalAppDataExplanation">Hanterar en Windows-apps funktioner för att dela data mellan användare som har installerat appen.
-      
+
         Om du aktiverar den här principen kan en Windows-app dela appdata med andra instanser av den appen. Data delas via mappen SharedLocal. Den här mappen är tillgänglig via Windows.Storage API.
 
-        Om du inaktiverar principen kan en Windows-app inte dela appdata med andra instanser av den appen. Om principen tidigare var aktiverad behålls redan delade appdata i mappen SharedLocal. 
+        Om du inaktiverar principen kan en Windows-app inte dela appdata med andra instanser av den appen. Om principen tidigare var aktiverad behålls redan delade appdata i mappen SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Förhindra att användare som inte är administratörer installerar paketerade Windows-appar</string>
+      <string id="BlockNonAdminUserInstallExplanation">Reglerar möjligheten för användare som inte är administratörer att installera Windows-appaket.
+
+        Om du aktiverar den här principen kan användare som inte är administratörer inte starta installationer av Windows-appaket. Administratörer som vill installera en app måste göra det i en administratörskontext (till exempel i ett PowerShell-fönster för administratörer). Alla användare kan fortfarande installera Windows-appaket via Microsoft Store, om det tillåts av andra principer.
+
+        Om du inaktiverar eller låter bli att konfigurera den här principen kan alla användare starta installationer av Windows-appaket.
       </string>
     </stringTable>
   </resources>

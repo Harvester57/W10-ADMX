@@ -10,16 +10,15 @@
       <string id="AllowTelemetry_1">1 - Básico</string>
       <string id="AllowTelemetry_2">2 - Aprimorado</string>
       <string id="AllowTelemetry_3">3 - Total</string>
-      <string id="AllowTelemetry_Explain">Esta configuração de política determina o nível mais alto de dados de diagnóstico do Windows enviados à Microsoft. Ao definir esta configuração, você não impede as pessoas de alterarem suas Configurações de Telemetria; no entanto, você as impede de escolher um nível mais alto do que você definiu para a organização. As configurações de dados de diagnóstico do Windows 10 se aplicam apenas ao sistema operacional Windows e aos aplicativos fornecidos com o Windows. Essas configurações não se aplicam a aplicativos de terceiros executados no Windows 10.
+      <string id="AllowTelemetry_Explain">Ao definir esta configuração no Windows 10, os usuários finais não poderão aceitar um nível mais alto de coleta de telemetria do que o nível definido para a sua organização. Essa limitação se aplica somente ao sistema operacional Windows e aos aplicativos incluídos no Windows, não sendo aplicável a aplicativos de terceiros em execução no Windows 10.
 
-Se habilitar esta configuração, você pode decidir que nível de dados de diagnóstico enviar à Microsoft, incluindo:
+Os dados de diagnóstico são categorizados em quatro níveis, descritos a seguir:
+  - 0 (Segurança). Informações necessárias para ajudar a manter o Windows, o Windows Server e o System Center seguros, incluindo dados sobre as configurações dos componentes Experiências do Usuário Conectado e Telemetria, a Ferramenta de Remoção de Software Mal-Intencionado e o Microsoft Defender.
+  - 1 (Básico). Informações básicas do dispositivo, incluindo dados relacionados à qualidade, compatibilidade de aplicativos e dados do nível de Segurança.
+  - 2 (Avançado). Informações adicionais, incluindo como o Windows, o Windows Server, o System Center e os aplicativos são usados, como são executados, dados de confiabilidade avançados e dados dos níveis Básico e de Segurança.
+  - 3 (Completo). Todos os dados necessários para identificar e ajudar a corrigir problemas, além de dados dos níveis de Segurança, Básico e Avançado.
 
-  - 0 (Segurança). Envia apenas uma quantidade mínima de dados à Microsoft, necessários para ajudar a manter o Windows seguro. Os componentes de segurança do Windows, como a Ferramenta de Remoção de Software Mal-Intencionado (MSRT) e o Windows Defender, podem enviar dados à Microsoft nesse nível, se habilitados. A definição do valor 0 aplica-se a dispositivos que executam apenas as Enterprise, Education, IoT ou Windows Server. A definição do valor 0 para outras edições equivale à definição do valor 1.
-  - 1 (Básico). Envia os mesmos dados que o valor 0, além de uma quantidade muito limitada de dados de diagnóstico, como informações básicas do dispositivo, dados relacionados à qualidade e informações de compatibilidade de aplicativos. Observe que a definição de valores 0 ou 1 prejudicará certas experiências no dispositivo.
-  - 2 (Avançado). Envia os mesmos dados que o valor 1, além de dados adicionais, do tipo como o Windows, Windows Server, System Center e apps são usados, qual é o desempenho deles e dados de confiabilidade avançados.
-  - 3 (Completo). Envia os mesmos dados que o valor 2, além de dados avançados de diagnóstico usados para diagnosticar e corrigir problemas em dispositivos, incluindo os arquivos e conteúdo que podem ter causado um problema com o dispositivo.
-
-Se você desabilitar ou não configurar esta política, as configurações de telemetria poderão ser definidas individualmente em Configurações.
+As opções disponíveis para os usuários no aplicativo Configurações são alteradas por meio da definição desta configuração e, mesmo que não estejam definidas, podem ser afetadas por outras configurações de política de grupo.  Observe que, se esta política estiver definida para permitir uma configuração de telemetria no nível de Segurança ou Básico, os usuários finais não poderão selecionar um nível superior.
       </string>
 
       <string id="TelemetryProxy">Configurar Experiências do Usuário Conectado e Telemetria</string>
@@ -67,14 +66,14 @@ Se você desabilitar ou não definir esta configuração de política, o nome do
       <string id="ConfigureTelemetryOptInSettingsUx">Configure a interface do usuário de configuração de permissão de telemetria.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Desabilitar configurações de permissão de telemetria</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Habilitar configurações de permissão de telemetria</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta configuração de política determina se as pessoas podem alterar os próprios níveis de telemetria em Configurações. Esta configuração deve ser usada em conjunto com as configurações de Permitir Telemetria.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta configuração de política determina se um usuário final pode alterar os níveis de telemetria em Configurações.
 
-Se você definir esta configuração de política para "Desabilitar configurações de permissão de telemetria", os níveis de telemetria serão desabilitados em Configurações, impedindo que as pessoas os alterem.
+Se você definir esta configuração de política como "Desabilitar Configurações de aceitação de Telemetria", os níveis de telemetria serão desabilitados em Configurações, impedindo que os usuários finais os alterem.
 
-Se você definir esta configuração de política como "Habilitar configurações de permissão de telemetria" ou não configurar esta política, as pessoas poderão alterar os próprios níveis de telemetria em Configurações.
+Se você não definir esta configuração de política, ou defini-la como "Habilitar Configurações de aceitação de Telemetria", os usuários finais poderão alterar o nível de telemetria do dispositivo no aplicativo Configurações.
 
 Observação:
-Defina a configuração de política Permitir Telemetria para impedir que as pessoas enviem dados de diagnóstico à Microsoft além do limite de sua organização.
+para definir um limite para o nível de dados de diagnóstico que são enviados à Microsoft pela sua organização, use a configuração de política Permitir telemetria.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Configure as notificações de alteração de permissão de telemetria.</string>

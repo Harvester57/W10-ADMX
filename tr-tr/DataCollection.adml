@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1 - Temel</string>
       <string id="AllowTelemetry_2">2 - Geliştirilmiş</string>
       <string id="AllowTelemetry_3">3 - Tam</string>
-      <string id="AllowTelemetry_Explain">Bu ilke ayarı, Microsoft'a gönderilen Windows tanılama verisinin en yüksek düzeyini belirler. Bu ayarı yapılandırarak kullanıcıların Telemetri Ayarları'nı değiştirmelerini engellemezsiniz ancak kuruluş için ayarladığınızdan daha yüksek bir düzey seçmelerini engellersiniz. Windows 10 tanılama verisi ayarları, yalnızca Windows işletim sistemi ve Windows ile birlikte gelen uygulamalar için geçerlidir. Bu ayarlar, Windows 10'da çalışan üçüncü taraf uygulamalar için geçerli değildir.
+      <string id="AllowTelemetry_Explain">Bu ayar Windows 10'da yapılandırıldığında son kullanıcılar, kuruluşunuz için ayarlamış olduğunuz düzeyden daha yüksek düzeyli bir telemetri koleksiyonuna katılamayacaktır.  Bu sınırlama yalnızca Windows işletim sistemi ve Windows'ta bulunan uygulamalar için geçerlidir, Windows 10'da çalışan üçüncü taraf uygulamalar için geçerli değildir.
 
-Bu ayarı etkinleştirirseniz şunlar dâhil olmak üzere Microsoft'a gönderilecek tanılama verisinin düzeyine karar verebilirsiniz:
+Tanılama verileri, aşağıdaki şekilde dört düzeye ayrılır:
+  - 0 (Güvenlik). Bağlı Kullanıcı Deneyimleri ve Telemetrisi bileşeni ayarları ile ilgili veriler, Kötü Amaçlı Yazılımları Temizleme Aracı ve Microsoft Defender dâhil olmak üzere Windows, Windows Server ve System Center'ın güvenli kalmasına yardımcı olmak için gerekli bilgiler.
+  - 1 (Temel). Kaliteye ilişkin veriler, uygulama uyumluluğu ve Güvenlik düzeyinden veriler dâhil olmak üzere temel cihaz bilgileri.
+  - 2 (Gelişmiş). Windows, Windows Server, System Center ve uygulamaların nasıl kullanıldığı ve nasıl çalıştığına yönelik veriler, gelişmiş güvenilirlik verileri ve hem temel hem de Güvenlik düzeylerinden veriler dâhil olmak üzere ek bilgiler.
+  - 3 (Tam). Sorunları tanımlamak ve çözmek için gerekli olan tüm veriler ve Güvenlik düzeyleri, Temel düzeyler ve Gelişmiş düzeylerden veriler.
 
-  - 0 (Güvenlik). Microsoft'a yalnızca minimum miktarda veri gönderir, Windows'un güvenliğini sağlamak için gereklidir. Kötü Amaçlı Yazılımları Temizleme Aracı (MSRT) ve Windows Defender gibi Windows güvenliği bileşenleri etkinleştirilmişse bu düzeyde Microsoft'a veri gönderebilirler. 0 değerini ayarlama yalnızca Enterprise, Education, IoT veya Windows Server sürümlerini çalıştıran cihazlar için geçerlidir. Diğer sürümler için 0 değerini ayarlama, 1 değerini ayarlamaya eşdeğerdir.
-  - 1 (Temel). Aynı verileri 0 değeri olarak gönderir ve ek olarak temel cihaz bilgileri, kaliteyle ilgili veriler ve uygulama uyumluluğu bilgileri gibi çok sınırlı miktarda tanılama verisi gönderir. 0 veya 1 değerlerini ayarlamanın cihaz üzerinde bazı deneyimlerin performansını düşüreceğini unutmayın.
-  - 2 (Gelişmiş). Aynı verileri 1 değeri olarak gönderir ve ayrıca Windows, Windows Server, System Center ve uygulamalarının nasıl kullanıldığı, nasıl çalıştığına dair bilgiler ve gelişmiş güvenilirlik verileri gibi ek veriler gönderir.
-  - 3 (Tam). Aynı verileri 2 değeri olarak gönderir ve ayrıca cihazla ilgili bir soruna neden olabilecek dosyalar ve içerikler de dâhil olmak üzere cihazlarla ilgili sorunları tanılamak ve düzeltmek için kullanılan gelişmiş tanılama verisini gönderir.
-
-Bu ilke ayarını devre dışı bırakırsanız veya yapılandırmazsanız telemetri ayarları ayrı olarak Ayarlar'da yapılandırılabilir.
+Ayarlar uygulamasında kullanıcıların kullanabileceği seçenekler, bu ayar yapılandırılarak değiştirilir; ayarlanmamış olsa da diğer grup ilkesi ayarlarından etkilenebilir.  Bu ilke, Güvenlik veya Temel bir telemetri ayarına izin verecek şekilde yapılandırılırsa son kullanıcılar, daha yüksek bir düzey seçemezler.
       </string>
 
-      <string id="TelemetryProxy">Bağlı Kullanıcı Deneyimlerini ve Telemetriyi Yapılandır</string>
+      <string id="TelemetryProxy">Bağlı Kullanıcı Deneyimleri ve Telemetrisi'ni yapılandır</string>
       <string id="TelemetryProxy_Explain">Bu ilke ayarı ile Bağlı Kullanıcı Deneyimi ve Telemetrisi isteklerini bir ara sunucuya gönderebilirsiniz.
 
 Bu ilke ayarını etkinleştirirseniz, kuruluşunuzun ağı içerisindeki hedef cihazın FQDN veya IP adresini (ve isteğe bağlı olarak bir bağlantı noktası numarası) belirleyebilirsiniz. Bağlantı, Güvenli Yuva Katmanı (SSL) bağlantısı üzerinden yapılır. Belirtilen ara sunucu başarısız olursa ya da bu ilke ayarını devre dışı bırakır veya yapılandırmazsanız, Bağlı Kullanıcı Deneyimi ve Telemetrisi verileri varsayılan ara sunucu yapılandırmasını kullanarak Microsoft’a gönderilir.
@@ -67,14 +66,14 @@ Bu ilke ayarını devre dışı bırakırsanız veya yapılandırmazsanız cihaz
       <string id="ConfigureTelemetryOptInSettingsUx">Telemetri katılımı ayarı kullanıcı arabirimini yapılandırın.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Telemetri katılımı Ayarlarını devre dışı bırak</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Telemetri katılım Ayarlarını etkinleştir</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Bu ilke ayarı, kişilerin Ayarlar'da kendi telemetri düzeylerini değiştirip değiştiremeyeceklerini belirler. Bu ayar, Telemetriye İzin Ver ayarlarıyla birlikte kullanılmalıdır.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Bu ilke ayarı, son kullanıcının Ayarlar'da telemetri düzeylerini değiştirip değiştiremeyeceğini belirler.
 
-Bu ilke ayarını "Telemetri Katılım Ayarlarını Devre Dışı Bırak" olarak ayarlarsanız telemetri düzeyleri Ayarlar'da devre dışı bırakılır ve kullanıcıların bu ayarları değiştirmeleri engellenir.
+Bu ilke ayarını "Telemetri Katılım Ayarlarını Devre Dışı Bırak" olarak ayarlarsanız telemetri düzeyleri Ayarlar'da devre dışı bırakılır ve son kullanıcıların bu ayarları değiştirmeleri engellenir.
 
-Bu ilke ayarını "Telemetri Katılım Ayarlarını Etkinleştir" olarak ayarlarsanız veya yapılandırmazsanız kullanıcılar, Ayarlar'da kendi telemetri düzeylerini değiştirebilirler.
+Bu ilke ayarını "Telemetri Katılım Ayarlarını Etkinleştir" olarak ayarlarsanız veya yapılandırmazsanız son kullanıcılar, Ayarlar uygulamasında cihaz telemetri düzeyini değiştirebilirler.
 
 Not:
-Kullanıcıların kuruluşunuzun sınırını aşan tanılama verilerini Microsoft'a göndermelerini engellemek için Telemetriye İzin Ver ilke ayarını ayarlayın.
+Kuruluşunuz tarafından Microsoft'a gönderilen tanılama verileri düzeyinde bir sınır belirlemek için Telemetriye izin ver ilke ayarını kullanın.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Telemetri katılımı değişikliği bildirimlerini yapılandırın.</string>
@@ -100,7 +99,7 @@ Kullanıcıların kuruluşunuzun sınırını aşan tanılama verilerini Microso
           Bu ilke ayarını devre dışı bırakırsanız veya yapılandırmazsanız Tanılama Veri Görüntüleyicisi Ayarlar sayfasında etkinleştirilir.
       </string>
 
-      <string id="ConfigureMicrosoft365UploadEndpoint">Masaüstü Analizi için tanılama verileri karşıya yükleme uç noktasını yapılandır</string>
+      <string id="ConfigureMicrosoft365UploadEndpoint">Desktop Analytics için tanılama verileri karşıya yükleme uç noktasını yapılandır</string>
       <string id="ConfigureMicrosoft365UploadEndpoint_Explain">
           Bu ilke, Masaüstü Analizi programının bir parçası olarak bu cihazın tanılama verileri için karşıya yükleme bitiş noktasını ayarlar.
           Kuruluşunuz programa katılıyorsa ve özel bir karşıya yükleme bitiş noktası yapılandırmak için talimat aldıysa bu bitiş noktasını tanımlamak için bu ayarı kullanın.

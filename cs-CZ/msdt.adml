@@ -74,7 +74,7 @@ Při povolení této zásady můžete nakonfigurovat, jak se budou doporučené 
 Po nastavení této nové zásady můžete doporučené postupy pro řešení problémů u zařízení ve vaší doméně spouštět podle následujících pokynů:
 1. Vytvořte skript bat s následujícím obsahem:
 rem Následující dávkový skript spustí doporučené postupy pro řešení problémů
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
 2. Pokud chcete vytvořit novou okamžitou úlohu, přejděte na Editor pro správu zásad skupiny &gt; Konfigurace počítače &gt; Předvolby a vyberte Nastavení ovládacích panelů. 
 3. V části Nastavení ovládacích panelů klikněte pravým tlačítkem myši na Naplánované úlohy a vyberte Nová. Vyberte možnost Okamžitá úloha (alespoň Windows 7).

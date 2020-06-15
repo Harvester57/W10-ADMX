@@ -10,16 +10,15 @@
       <string id="AllowTelemetry_1">1 – Alapszintű</string>
       <string id="AllowTelemetry_2">2 – Közepes</string>
       <string id="AllowTelemetry_3">3 – Teljes</string>
-      <string id="AllowTelemetry_Explain">Ezzel a házirend-beállítással határozható meg a Microsoftnak küldött Windows diagnosztikai adatok legmagasabb szintje. A beállítás konfigurálása nem akadályozza meg, hogy a felhasználók módosítsák saját telemetriabeállításaikat; viszont megakadályozza, hogy magasabb szintet válasszanak annál, mint amit Ön állít be a szervezet számára. A Windows 10 diagnosztikai adatokra vonatkozó beállításai csak a Windows operációs rendszerre, valamint az alapértelmezés szerint a Windows részét képező alkalmazásokra vonatkoznak. Ezek a beállítások nem vonatkoznak a Windows 10-en futó, harmadik féltől származó alkalmazásokra.
+      <string id="AllowTelemetry_Explain">Ha konfigurálja ezt a beállítást a Windows 10 rendszeren, a végfelhasználók nem tudnak a szervezethez beállítottnál magasabb szintű használatiadat-gyűjtést bekapcsolni.  Ez a korlátozás csak a Windows operációs rendszerre és a Windows rendszer részét képező alkalmazásokra vonatkozik, a Windows 10 rendszeren futó külső alkalmazásokra nem.
 
-A beállítás engedélyezésével meghatározhatja a Microsoftnak történő diagnosztikaiadat-küldés szintjét, ideértve a következőket:
+A diagnosztikai adatok négy szintre vannak bontva:
+  – 0 (biztonság). A Windows, a Windows Server és a System Center biztonságának megőrzéséhez szükséges információk, beleértve a Összekapcsolt felhasználói élmények és telemetria összetevő beállításait, a Kártevő-eltávolító eszközt és a Windows Defendert.
+  – 1 (Alap). Alapvető eszközadatok, többek között a minőséggel kapcsolatos adatok, az alkalmazások kompatibilitása és a Biztonsági szintről származó adatok.
+  – 2 (Bővített). További elemzések, többek között a következőkkel kapcsolatban: a Windows, a Windows Server, a System Center és az alkalmazások használatának módja, ezek teljesítménye, bővített megbízhatósági adatai, valamint az Alap és a Biztonsági szintről származó adatok.
+  – 3 (Teljes). A problémák azonosításához és megoldásához szükséges összes adat, valamint a Biztonsági, az Alap és a Bővített szintről származó adatok.
 
-  - 0 (Biztonság). Csak minimális mennyiségű adat küldése a Microsoftnak, melyek elküldése szükséges ahhoz, hogy elősegítsük a Windows biztonságának megőrzését. A Windows biztonsági összetevői – például a Kártevő-eltávolító eszköz (MSRT) és a Windows Defender – küldhetnek adatokat a Microsoftnak ezen a szinten, ha engedélyezve vannak. A 0 érték kizárólag Enterprise, Education, IoT, illetve Windows Server kiadásokat futtató eszközökön használható. Más kiadásokon a 0 érték beállításának hatása az 1 értékével azonos.
-  - 1 (Alapszintű). A rendszer ugyanazokat az adatokat küldi el, mint a 0 érték esetén, továbbá nagyon korlátozott mennyiségű diagnosztikai adatot is küld, például alapvető eszközadatokat, minőséghez kapcsolódó adatokat és alkalmazáskompatibilitási információt. Érdemes megemlíteni, hogy a 0 vagy az 1 érték beállítása az eszközön elérhető bizonyos élmények romlásához vezet.
-  - 2 (Közepes). A rendszer ugyanazokat az adatokat küldi el, mint az 1 érték esetén, továbbá egyéb adatokat is küld, például a Windows, a Windows Server, a System Center és az alkalmazások használatára és működésére vonatkozó adatokat, valamint speciális megbízhatósági adatokat.
-  - 3 (Teljes). A rendszer ugyanazokat az adatokat küldi el, mint a 2 érték esetén, továbbá az eszközökkel kapcsolatos problémák diagnosztizálásához és elhárításához használt speciális diagnosztikai adatokat is küld, ideértve azokat a fájlokat és tartalmakat, amelyek esetleg problémát okozhattak az eszközön.
-
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, az egyes telemetriabeállítások a Gépházban konfigurálhatók.
+A Gépház alkalmazásban a felhasználók számára elérhető beállítások köre módosul ennek a beállításnak a konfigurálása esetén, és még akkor is hatással lehetnek rá más csoportházirend-beállítások, ha nincs beállítva. Ne feledje, hogy ha ez a házirend úgy van konfigurálva, hogy a Biztonság vagy az Alap szint telemetriai beállítást engedélyezze, akkor a végfelhasználók nem tudnak magasabb szintet választani.
       </string>
 
       <string id="TelemetryProxy">Az Összekapcsolt felhasználói élmények és telemetria szolgáltatás konfigurálása</string>
@@ -69,14 +68,14 @@ Ha letiltja vagy nem konfigurálja a házirend-beállítást, az eszköznév nem
       <string id="ConfigureTelemetryOptInSettingsUx">Telemetria-jóváhagyási beállítás felhasználói felületének konfigurálása.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Telemetria-jóváhagyási beállítások letiltása</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Telemetria-jóváhagyási beállítások engedélyezése</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Ez a házirend-beállítás meghatározza, hogy a felhasználók megváltoztathatják-e saját telemetriaszintjeiket a Gépházban. Ez a beállítás a Telemetria engedélyezése beállításaival közösen használandó.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Ez a házirend-beállítás azt határozza meg, hogy a végfelhasználók módosíthatják-e a telemetriai szinteket a Gépházban.
 
-Ha ezt a házirend-beállítást „Telemetria-jóváhagyási beállítások letiltása” értékre állítja, akkor a rendszer letiltja a telemetriaszinteket a Gépházban, megakadályozva azok felhasználók általi módosítását.
+Ha ehhez a házirendhez a „Telemetria-jóváhagyási beállítások letiltása” beállítást adja meg, a telemetriaszintek ki lesznek kapcsolva a Gépházban, és a végfelhasználók nem módosíthatják őket.
 
-Ha ezt a házirend-beállítást „Telemetria-jóváhagyási beállítások engedélyezése” értékre állítja vagy nem konfigurálja ezt a házirend-beállítást, akkor a felhasználók megváltoztathatják saját telemetriaszintjeiket a Gépházban.
+Ha nem konfigurálja ezt a házirend-beállítást, vagy a „Telemetria-jóváhagyási beállítások engedélyezése” beállítást adja meg, a végfelhasználók módosíthatják az eszköz telemetriai szintjét a Gépház alkalmazásban.
 
-Megjegyzés:
-Állítsa be a Telemetria engedélyezése házirend-beállítást, ha szeretné megakadályozni, hogy a felhasználók a szervezet számára beállított korlátnál több diagnosztikai adatot küldjenek a Microsoftnak.
+Megjegyzés
+A szervezet által a Microsoft számára küldött diagnosztikai adatok szintjének korlátozásához használja a „Telemetria engedélyezése” házirend-beállítást.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Telemetria-jóváhagyás megváltoztatására vonatkozó értesítések konfigurálása.</string>

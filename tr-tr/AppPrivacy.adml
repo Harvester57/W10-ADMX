@@ -321,6 +321,21 @@ Bu ilke ayarını devre dışı bırakırsanız veya yapılandırmazsanız kurul
 
 Bu ilke, Windows uygulamalarına ve Cortana'ya uygulanır. "Cortana'ya kilit ekranı üzerinde izin ver" ilkesini önceliklidir. Bu ilke yalnızca, "Sesle etkinleştirmeye izin ver" ilkesi, uygulamaların sesle etkinleştirilmesini sağlayacak şekilde yapılandırıldığında uygulanabilir.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Arka planda çalışırken Windows uygulamalarının kullanıcı hareketlerine erişmesine izin ver</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Bu ilke ayarı, Windows uygulamaları arka planda çalışırken uygulamaların kullanıcının kafa ve el hareketlerine, hareket denetleyicilerine ve diğer izlenen nesnelere erişip erişemeyeceğini belirler.
+
+Bütün uygulamalar için varsayılan bir ayar veya bir Paket Aile Adı belirleyerek her bir uygulama için ayrı bir ayar belirleyebilirsiniz. Get-AppPackage Windows PowerShell cmdlet'i kullanarak uygulamalar için Paket Aile Adı alabilirsiniz. Uygulama başına ayarı varsayılan ayarı devre dışı bırakır.
+
+"Kullanıcının denetiminde" seçeneğini belirlerseniz kuruluşunuzdaki çalışanlar, arka planda çalışan Windows uygulamalarının kullanıcının hareketlerine erişip erişemeyeceğine cihaz üzerinde Ayarlar &gt; Gizlilik'i kullanarak karar verebilirler.
+
+"İzin Vermeye Zorla" seçeneğini belirlerseniz Windows uygulamaları arka planda çalışırken uygulamaların kullanıcı hareketlerine erişimine izin verilir ve kuruluşunuzdaki çalışanlar bunu değiştiremez.
+
+"Zorla Reddet" seçeneğini belirlerseniz Windows uygulamaları arka planda çalışırken uygulamaların kullanıcı hareketlerine erişimine izin verilmez ve kuruluşunuzdaki çalışanlar bunu değiştiremezler.
+
+Bu ilke ayarını devre dışı bırakır veya yapılandırmazsanız kuruluşunuzdaki çalışanlar, arka planda çalışan Windows uygulamalarının kullanıcı hareketlerine erişip erişemeyeceğine cihaz üzerinde Ayarlar &gt; Gizlilik'i kullanarak karar verebilirler.
+
+Bu Grup İlkesi nesnesi cihazda uygulandığında açık olan bir uygulama varsa ilke değişikliklerinin cihaza uygulanabilmesi için çalışanların uygulamayı veya cihazı yeniden başlatmaları gerekecektir.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Bu ilke, Windows uygulamalarına ve Cortana'ya uygulanır. "Cortana'ya kilit ekr
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Bütün uygulamalar için varsayılan:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Bütün uygulamalar için varsayılan:</dropdownList>
+        <text>Belirli uygulamaların (Paket Aile Adlarını kullanın) denetimini kullanıcıya ver:</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Belirli uygulamalara (Paket Aile Adlarını kullanın) izin vermeye zorla:</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Belirli uygulamaları (Paket Aile Adlarını kullanın) reddetmeye zorla:</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

@@ -321,6 +321,21 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
 
 Den här principen gäller för Windows-appar och Cortana. Den åsidosätter principen Tillåt Cortana när systemet är låst. Den här principen kan endast tillämpas när principen Tillåt röstaktivering är konfigurerad för att låta appar aktiveras med röstkommandon.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Låt Windows-appar få tillgång till användarnas rörelsedata när apparna körs i bakgrunden</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Med den här principinställningen anger du om Windows-appar får tillgång till användarnas rörelsedata beträffande huvud, händer, rörelsekontroller och andra spårade objekt när apparna körs i bakgrunden.
+
+Du kan antingen ange en standardinställning för alla appar eller en inställning per app genom att ange ett paketfamiljenamn. Du kan erhålla paketfamiljenamnet för en app med hjälp av Windows PowerShell-cmdleten Get-AppPackage. Inställning per app ersätter standardinställningen.
+
+Om du väljer Användaren har kontrollen kan anställda i din organisation själva bestämma om Windows-appar får tillgång till deras rörelsedata när apparna körs i bakgrunden via Inställningar &gt; Sekretess på enheten.
+
+Om du väljer Tvinga tillåt så får Windows-appar tillgång till användarnas rörelsedata när apparna körs i bakgrunden och anställda i din organisation kan inte ändra det.
+
+Om du väljer Tvinga neka så får Windows-appar inte tillgång till användarnas rörelsedata när apparna körs i bakgrunden och anställda i din organisation kan inte ändra det.
+
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan anställda i din organisation själva bestämma om Windows-appar får tillgång till deras rörelsedata när apparna körs i bakgrunden via Inställningar &gt; Sekretess på enheten.
+
+Om en app är öppen när det här grupprincipobjektet tillämpas på en enhet måste anställda starta om appen eller enheten för att principändringarna ska börja gälla för appen.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Den här principen gäller för Windows-appar och Cortana. Den åsidosätter pri
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Standard för alla appar:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Standard för alla appar:</dropdownList>
+        <text>Låt användaren ha kontrollen över dessa specifika appar (använd paketfamiljenamn):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Tvinga tillåt för dessa specifika appar (använd paketfamiljenamn):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Tvinga neka för dessa specifika appar (använd paketfamiljenamn):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

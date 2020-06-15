@@ -3922,6 +3922,33 @@ Huomautus: Jos olet ottanut käyttöön myös Hallintamallit\Windowsin osat\Micr
 Jos otat tämän asetuksen käyttöön, työntekijöille näytetään Internet Explorer 11:n lisäsivu, jossa ilmoitetaan, että sivusto on avattu käyttämällä Microsoft Edgen yritystilaa.
 
 Jos poistat tämän asetuksen käytöstä tai et määritä sitä, sovellus toimii oletusasetusten mukaan eikä lisäsivua näytetä.</string>
+      <string id="NeedEdgeBrowser">Määritä, mitä Microsoft Edge -kanavaa käytetään uudelleenohjattujen sivustojen avaamiseen</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Voit määrittää uudelleenohjattujen sivustojen avaamisessa käytettävät Microsoft Edge -versiot. Versioita voi olla enintään kolme, ja ne voi asettaa ensisijaisuusjärjestykseen. Käytä tätä käytäntöä, jos käyttöympäristöösi on määritetty sivustojen uudelleenohjaus Internet Explorer 11:stä Microsoft Edgeen. Jos jokin valituista versiosta ei ole laitteeseen asennettuna, se ohitetaan.
+
+Jos Windows Updaten kautta saatavilla oleva seuraava Microsoft Edge* -versio sekä stabiili Microsoft Edge -kanava ovat asennettuina, toimintaperiaate on seuraava:
+- Jos poistat tämän käytännön käytöstä tai et määritä sitä, stabiili Microsoft Edge -kanava on käytössä. Tämä on oletusasetus.
+- Jos otat tämän käytännön käyttöön, voit määrittää uudelleenohjattujen sivustojen avaamisessa käytettäviksi versioiksi enintään kolme seuraavista vaihtoehdoista:
+    1 = stabiili Microsoft Edge
+    2 = Microsoft Edge Beta -versio 77 tai uudempi
+    3 = Microsoft Edge Dev -versio 77 tai uudempi
+    4 = Microsoft Edge Canary -versio 77 tai uudempi.
+
+Jos Windows Updaten kautta saatavilla olevaa seuraavaa Microsoft Edge* -versiota tai stabiilia Microsoft Edge -kanavaa ei ole asennettuna, toimintaperiaate on seuraava:
+- Jos poistat tämän käytännön käytöstä tai et määritä sitä, Microsoft Edge -versio 45 tai sitä aiempi versio on automaattisesti käytössä. Tämä on oletusasetus.
+- Jos otat tämän käytännön käyttöön, voit määrittää uudelleenohjattujen sivustojen avaamisessa käytettäviksi versioiksi enintään kolme seuraavista vaihtoehdoista:
+    0 = Microsoft Edge -versio 45 tai aiempi
+    1 = stabiili Microsoft Edge
+    2 = Microsoft Edge Beta -versio 77 tai uudempi
+    3 = Microsoft Edge Dev -versio 77 tai uudempi
+    4 = Microsoft Edge Canary -versio 77 tai uudempi.
+
+*Lisätietoja Windows Updaten kautta saatavilla olevasta seuraavasta Microsoft Edge -versiosta sekä siitä, kuinka se voidaan poistaa käytöstä, on osoitteessa https://go.microsoft.com/fwlink/?linkid=2102115. Tämä päivitys koskee vain Windows 10 -versiota 1709 ja sitä uudempia versioita.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta -versio 77 tai uudempi</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev -versio 77 tai uudempi</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary -versio 77 tai uudempi</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge -versio 45 tai aiempi</string>
       <string id="KeepIntranetSitesInInternetExplorer">Pidä kaikki intranet-sivustot Internet Explorerissa</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Estää intranet-sivustojen avaamisen kaikilla muilla selaimilla kuin Internet Explorerilla. Huomaa kuitenkin, että jos Lähetä kaikki Microsoft Edgen yritystilan sivustoluetteloon kuulumattomat sivustot (RestrictIE) -käytäntöä ei oteta käyttöön, tällä käytännöllä ei ole vaikutusta.
 
@@ -4806,6 +4833,11 @@ Lisätietoja on Internet Explorerin TechNet-kirjaston Vanhentuneiden ActiveX-kom
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Toimialueluettelo</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Ensimmäinen vaihtoehto</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Toinen vaihtoehto</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Kolmas vaihtoehto</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

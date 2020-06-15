@@ -7,19 +7,19 @@
       <string id="DeliveryOptimizationCat">Leveringsoptimalisering</string>
       <string id="DownloadMode">Nedlastingsmodus</string>
       <string id="DownloadMode_Help">Angir nedlastingsmetoden Leveringsoptimalisering kan bruke til nedlasting av Windows-oppdateringer, apper og appoppdateringer.
-      
+
 I følgende liste vises verdiene som støttes:
 
 0 = bare HTTP, ingen nodefordeling.
-      
+
 1 = HTTP blandet med nodefordeling bak samme NAT.
 
 2 = HTTP blandet med nodefordeling innad i en lukket gruppe. Som standard foregår nodefordelingen på enheter i samme Active Directory-område (hvis disse finnes) eller på det samme domenet. Når dette alternativet er valgt, foregår nodefordelingen på tvers av NAT-er. Hvis du vil opprette en egendefinert gruppe, bruker du gruppe-ID-en sammen med modus 2.
-      
+
 3 = HTTP blandet med nodefordeling via Internett. 
 
 99 = enkel nedlastingsmodus uten nodefordeling. Leveringsoptimalisering laster ned ved hjelp av HTTP og vil ikke prøve å kontakte skytjenestene for Leveringsoptimalisering.
-      
+
 100 = bypass-modus. Ikke bruk Leveringsoptimalisering. Bruk BITS i stedet.</string>
       <string id="DownloadMode_CdnOnly">Bare HTTP (0)</string>
       <string id="DownloadMode_Lan">LAN (1)</string>
@@ -29,88 +29,99 @@ I følgende liste vises verdiene som støttes:
       <string id="DownloadMode_Bypass">Omgå (100)</string>
       <string id="GroupId">Gruppe-ID</string>
       <string id="GroupId_Help">Gruppe-ID må angis som en GUID. Denne policyen angir en vilkårlig gruppe-ID som enheten tilhører.
-      
+
 Bruk dette hvis du må opprette en enkelt gruppe for nodefordeling på lokale nettverk for avdelinger som tilhører forskjellige domener eller ikke finnes på samme LAN.
-      
+
 Obs!  Dette er bare en anbefalt fremgangsmåte, og den bør ikke brukes til godkjenning av identiteter.</string>
-      <string id="MaxUploadBandwidth">Maksimal opplastingsbåndbredde (i kB/s)</string>
-      <string id="MaxUploadBandwidth_Help">Angir den maksimale opplasting båndbredden som Leveringsoptimalisering bruker på tvers av alle samtidige opplastingsaktiviteter i kB/s.
-      
-Standardverdien 0 (null) tillater ubegrenset bruk, og opplastingene optimaliseres dynamisk for minimal bruk av opplastingsbåndbredde.</string>
       <string id="MaxCacheSize">Maksimal hurtigbufferstørrelse (i prosent)</string>
       <string id="MaxCacheSize_Help">Angir maksimal størrelse på hurtigbufferen som Leveringsoptimalisering bruker, i form av en tilgjengelig diskstørrelse (1-100).</string>
       <string id="AbsoluteMaxCacheSize">Absolutt maksimal hurtigbufferstørrelse (i Storbritannia)</string>
       <string id="AbsoluteMaxCacheSize_Help">Angir den maksimale størrelsen i GB for hurtigbufferen for Leveringsoptimalisering.
-      
+
 Denne policyen overstyrer DOMaxCacheSize-policyen.
-      
+
 Verdien 0 (null) innebærer en «ubegrenset» hurtigbuffer. Leveringsoptimalisering tømmer hurtigbufferen når enheten har lite ledig diskplass.</string>
       <string id="MaxCacheAge">Maksimal alder på hurtigbuffer (i sekunder)</string>
       <string id="MaxCacheAge_Help">Angir hvor mange sekunder hver fil maksimalt beholdes i hurtigbufferen for leveringsoptimalisering etter at den er lastet ned.
-      
+
 Verdien 0 (null) betyr «ubegrenset». Leveringsoptimalisering beholder nedlastede filer i hurtigbufferen lenger og gjør filene tilgjengelige for opplasting til andre enheter, så lenge hurtigbufferstørrelsen ikke er overskredet.</string>
       <string id="MonthlyUploadDataCap">Båndbreddegrense for månedlig opplasting (i Storbritannia)</string>
-      <string id="MonthlyUploadDataCap_Help">Angir maksimalt antall byte i GB som Leveringsoptimalisering har tillatelse til å laste opp til Internett-nodenett hver kalendermåned. 
-      
+      <string id="MonthlyUploadDataCap_Help">Angir maksimalt antall byte i GB som Leveringsoptimalisering har tillatelse til å laste opp til Internett-nodenett hver kalendermåned.
+
 Verdien 0 (null) betyr «ubegrenset». Ingen månedlig opplastingsgrense brukes hvis 0 er angitt.</string>
       <string id="MinBackgroundQos">Minimum bakgrunns-QoS (i kB/s)</string>
-      <string id="MinBackgroundQos_Help">Angir minimum nedlastings-QoS (tjenestekvalitet eller hastighet) for bakgrunnsnedlastinger i kilobyte per sekund. 
-      
+      <string id="MinBackgroundQos_Help">Angir minimum nedlastings-QoS (tjenestekvalitet eller hastighet) for bakgrunnsnedlastinger i kilobyte per sekund.
+
 Denne policyen påvirker blandingen av nodenett- og HTTP-kilder. Leveringsoptimalisering komplementerer nedlastingen fra HTTP-kilden for å oppnå den angitte minimumsverdien for QoS.</string>
       <string id="ModifyCacheDrive">Endre hurtigbufferstasjon</string>
-      <string id="ModifyCacheDrive_Help">Angir stasjonen Leveringsoptimalisering bruker til hurtigbufferen. 
-      
-Som standard brukes %SystemDrive% for å lagre hurtigbufferen. Stasjonsbokstaven kan angis med miljøvariabler, stasjonsbokstav eller med en fullstendig bane.</string>
-      <string id="MaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i kB/s)</string>
-      <string id="MaxDownloadBandwidth_Help">Angir den maksimale båndbredden i kilobyte/sekund som enheten kan bruke for alle samtidige nedlastingsaktiviteter via Leveringsoptimalisering. 
-      
-Standardverdien 0 (null) betyr at Leveringsoptimalisering justeres dynamisk for å bruke den tilgjengelige båndbredden for nedlastinger.</string>
-      <string id="PercentageMaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i prosent)</string>
-      <string id="PercentageMaxDownloadBandwidth_Help">Angir den maksimale nedlastingsbåndbredden som Leveringsoptimalisering bruker på tvers av alle nedlastingsaktiviteter, som en prosent av tilgjengelig nedlastingsbåndbredde. 
-      
-Standardverdien 0 (null) betyr at Leveringsoptimalisering justeres til å bruke tilgjengelig båndbredde for nedlastinger.
+      <string id="ModifyCacheDrive_Help">Angir stasjonen Leveringsoptimalisering bruker til hurtigbufferen.
 
-Denne policyen er avskrevet og blir fjernet i neste versjon. Bruk i stedet maksimal båndbredde for forgrunnsnedlasting (prosent) eller maksimal båndbredde for bakgrunnsnedlasting (prosent).</string>
+Som standard brukes %SystemDrive% for å lagre hurtigbufferen. Stasjonsbokstaven kan angis med miljøvariabler, stasjonsbokstav eller med en fullstendig bane.</string>
+      <string id="MaxBackgroundDownloadBandwidth">Maksimal nedlastingsbåndbredde i bakgrunnen (i kB/s)</string>
+      <string id="MaxBackgroundDownloadBandwidth_Help">Angir maksimal nedlastingsbåndbredde i bakgrunnen i kilobyte/sekund som enheten kan bruke på tvers av alle samtidige nedlastingsaktiviteter med leveringsoptimalisering.
+
+Standardverdien 0 (null) betyr at leveringsoptimalisering justeres dynamisk for å bruke tilgjengelig båndbredde for nedlastinger.
+      </string>
+      <string id="MaxForegroundDownloadBandwidth">Maksimal nedlastingsbåndbredde i forgrunnen (i kB/s)</string>
+      <string id="MaxForegroundDownloadBandwidth_Help">Angir maksimal nedlastingsbåndbredde i forgrunnen i kilobyte/sekund som enheten kan bruke på tvers av alle samtidige nedlastingsaktiviteter med Leveringsoptimalisering.
+
+Standardverdien 0 (null) betyr at leveringsoptimalisering justeres dynamisk for å bruke tilgjengelig båndbredde for nedlastinger.
+      </string>
       <string id="PercentageMaxBackgroundBandwidth">Maksimal båndbredde for nedlasting i bakgrunnen (prosentandel)</string>
-      <string id="PercentageMaxBackgroundBandwidth_Help">Spesifiserer den maksimale båndbredden for nedlastning i bakgrunnen som Leveringsoptimalisering bruker på tvers av alle samtidige nedlastningsaktiviteter, som en prosentandel av tilgjengelig nedlastingsbåndbredde. 
-      
+      <string id="PercentageMaxBackgroundBandwidth_Help">Spesifiserer den maksimale båndbredden for nedlastning i bakgrunnen som Leveringsoptimalisering bruker på tvers av alle samtidige nedlastningsaktiviteter, som en prosentandel av tilgjengelig nedlastingsbåndbredde.
+
 Standardverdien 0 (null) betyr at Leveringsoptimalisering på en dynamisk måte justerer bruken av den tilgjengelige båndbredden for nedlasting i bakgrunnen.</string>
       <string id="PercentageMaxForegroundBandwidth">Maksimal båndbredde for nedlasting i forgrunnen (prosentandel)</string>
       <string id="PercentageMaxForegroundBandwidth_Help">Spesifiserer den maksimale båndbredden for nedlastning i forgrunnen som Leveringsoptimalisering bruker på tvers av alle samtidige nedlastningsaktiviteter, som en prosentandel av tilgjengelig nedlastingsbåndbredde.
-      
+
 Standardverdien 0 (null) betyr at Leveringsoptimalisering på en dynamisk måte justerer bruken av den tilgjengelige båndbredden for nedlasting i forgrunnen.</string>
       <string id="MinFileSizeToCache">Minimum innholdsfilstørrelse for Nodebufring (i MB)</string>
-      <string id="MinFileSizeToCache_Help">Angir minimumsstørrelse i MB for innholdsfiler som kan bruke nodebufring. 
-      
+      <string id="MinFileSizeToCache_Help">Angir minimumsstørrelse i MB for innholdsfiler som kan bruke nodebufring.
+
 Anbefalte verdier: 1 MB til 100000 MB.</string>
       <string id="AllowVPNPeerCaching">Aktiver Nodebufring mens enheten kobler til via VPN</string>
       <string id="AllowVPNPeerCaching_Help">Angi til «true» for å tillate at enheten deltar i nodebufring mens du er koblet til domenenettverket via VPN.
-      
+
 Dette betyr at enheten kan laste ned fra eller laste opp til andre domenenettverksenheter, enten på VPN eller på domenenettverket til firmaet.</string>
       <string id="MinRAMAllowedToPeer">Minimum RAM-kapasitet (inklusiv) som kreves for å aktivere bruk av Nodebufring (i GB)</string>
-      <string id="MinRAMAllowedToPeer_Help">Angir minimum RAM-størrelse i GB som kreves for å bruke nodebufring. 
-      
-Hvis minimum angitt størrelse for eksempel er 1 GB, får enheter med en tilgjengelig RAM-størrelse på 1 GB eller høyere tillatelse til å bruke nodebufring. 
-      
+      <string id="MinRAMAllowedToPeer_Help">Angir minimum RAM-størrelse i GB som kreves for å bruke nodebufring.
+
+Hvis minimum angitt størrelse for eksempel er 1 GB, får enheter med en tilgjengelig RAM-størrelse på 1 GB eller høyere tillatelse til å bruke nodebufring.
+
 Anbefalte verdier: 1 GB til 4 GB.</string>
       <string id="MinDiskSizeAllowedToPeer">Minimum diskstørrelse som er tillatt for å bruke Nodebufring (i GB)</string>
-      <string id="MinDiskSizeAllowedToPeer_Help">Angir minimum diskstørrelse (kapasitet i GB) for enheter for at de skal kunne bruke nodebufring. Skytjenestens angitte standardverdi blir brukt. 
-      
-Anbefalte verdier: 64 GB til 256 GB. 
-      
+      <string id="MinDiskSizeAllowedToPeer_Help">Angir minimum diskstørrelse (kapasitet i GB) for enheter for at de skal kunne bruke nodebufring. Skytjenestens angitte standardverdi blir brukt.
+
+Anbefalte verdier: 64 GB til 256 GB.
+
 Obs!  Hvis policyen DOModifyCacheDrive er angitt, gjelder diskstørrelseskontrollen for den nye arbeidsmappen som er angitt av denne policyen.</string>
       <string id="MinBatteryPercentageAllowedToUpload">Tillat opplastinger mens enheten går på batteristrøm under angitt batterinivå (i prosent)</string>
-      <string id="MinBatteryPercentageAllowedToUpload_Help">Angi en verdi mellom 1 og 100 (i prosent) for å tillate at enheten laster opp data til LAN- og gruppenoder mens den går på likestrøm (batteri). 
-      
-Den anbefalte verdien å sette hvis du tillater opplastinger på batteridrift er 40 (for 40 %). Enheten kan laste ned fra noder mens den går på batteristrøm uavhengig av denne policyen. 
-      
+      <string id="MinBatteryPercentageAllowedToUpload_Help">Angi en verdi mellom 1 og 100 (i prosent) for å tillate at enheten laster opp data til LAN- og gruppenoder mens den går på likestrøm (batteri).
+
+Den anbefalte verdien å sette hvis du tillater opplastinger på batteridrift er 40 (for 40 %). Enheten kan laste ned fra noder mens den går på batteristrøm uavhengig av denne policyen.
+
 Verdien 0 betyr «ikke ubegrenset». Den angitte standardverdien for skytjenesten vil bli brukt.</string>
-      <string id="CacheHost">[Reservert for fremtidig bruk] Vertsnavn for hurtigbufferserver</string>
-      <string id="CacheHost_Help">[Reservert for fremtidig bruk]</string>
+      <string id="CacheHost">Vertsnavn for hurtigbufferserver</string>
+      <string id="CacheHost_Help">Med denne policyen kan du angi én eller flere leveringsoptimaliseringer i nettverksbufferservere som skal brukes av klienten(e).
+
+Én eller flere verdier kan legges til som enten fullstendig kvalifiserte domenenavn (FQDN) eller IP-adresser. Hvis du vil legge til flere verdier, skiller du hvert FQDN eller hver IP-adresse med komma.
+      </string>
+      <string id="CacheHostSource">Vertsnavnkilde for bufferserver</string>
+      <string id="CacheHostSource_Help">Med denne policyinnstillingen kan du angi hvordan klienten(e) kan oppdage leveringsoptimalisering i servere for nettverkshurtigbuffer dynamisk.
+
+Tilgjengelige alternativer:
+
+1 = DHCP-alternativ 235.
+
+2 = DHCP-alternativ 235 tvang.
+
+For begge alternativene spør klienten etter ID for DHCP-alternativ 235 og bruker den returnerte verdien som vertsnavnet for bufferserveren. alternativ 2 overstyrer policyen for vertsnavn for bufferserver, hvis den er konfigurert.</string>
+      <string id="CacheHostSource_DHCP">DHCP-alternativ 235</string>
+      <string id="CacheHostSource_DHCP_Force">DHCP-alternativ 235 tvang</string>
       <string id="GroupIdSource">Velg kilden for gruppe-ID-er</string>
-      <string id="GroupIdSource_Help">Angi denne policyen for å begrense nodeutvalg til en bestemt kilde. 
-      
-Alternativene er: 
+      <string id="GroupIdSource_Help">Angi denne policyen for å begrense nodeutvalg til en bestemt kilde.
+
+Alternativene er:
 
 1 = AD-område.
 
@@ -118,13 +129,13 @@ Alternativene er:
 
 3 = ID for DHCP-alternativ.
 
-4 = DNS-suffiks. 
+4 = DNS-suffiks.
 
-5 = AAD-tenant-ID. 
+5 = AAD-tenant-ID.
 
-Når den er angitt, tilordnes gruppe-ID-en automatisk fra den valgte kilden. Hvis du angir denne policyen, ignoreres GroupID-policyen. 
-      
-Alternativene som er angitt i denne policyen, gjelder bare for nedlastingsmodus Gruppe (2). Hvis Gruppe (2) ikke er angitt som nedlastingsmodus, ignoreres denne policyen. 
+Når den er angitt, tilordnes gruppe-ID-en automatisk fra den valgte kilden. Hvis du angir denne policyen, ignoreres GroupID-policyen.
+
+Alternativene som er angitt i denne policyen, gjelder bare for nedlastingsmodus Gruppe (2). Hvis Gruppe (2) ikke er angitt som nedlastingsmodus, ignoreres denne policyen.
 
 For alternativ 3 – ID for DHCP-alternativ vil klienten sende forespørselen 234 for ID for DHCP-alternativ og bruke den returnerte GUID-verdien som gruppe-ID.</string>
       <string id="GroupIdSource_Unset">Ikke angitt (0)</string>
@@ -135,34 +146,34 @@ For alternativ 3 – ID for DHCP-alternativ vil klienten sende forespørselen 23
       <string id="GroupIdSource_AAD">AAD-tenant-ID (5)</string>
       <string id="DelayBackgroundDownloadFromHttp">Forsinkelse av bakgrunnsnedlasting fra http (i sek)</string>
       <string id="DelayBackgroundDownloadFromHttp_Help">Med denne policyen kan du utsette bruken av en HTTP-kilde i en bakgrunnsnedlasting som har tillatelse til å bruke P2P.
-      
+
 Når du har nådd maksimal forsinkelse, gjenopptas nedlastingen ved hjelp av HTTP, enten ved å laste ned hele nyttelasten eller ved å supplerer byte som ikke kan lastes ned fra motparter.
-      
+
 Legg merke til at en nedlasting som venter på motpartkilder, vises som fastlåst for sluttbrukeren.
-      
+
 Anbefalt verdi er 1 time (3600).</string>
       <string id="DelayForegroundDownloadFromHttp">Forsinkelse av forgrunnsnedlasting fra http (i sek)</string>
       <string id="DelayForegroundDownloadFromHttp_Help">Med denne policyen kan du utsette bruken av en HTTP-kilde i en forgrunnsnedlasting (interaktiv) som har tillatelse til å bruke P2P.
-      
+
 Når du har nådd maksimal forsinkelse, gjenopptas nedlastingen ved hjelp av HTTP, enten ved å laste ned hele nyttelasten eller ved å supplere byte som ikke kan lastes ned fra motparter.
-      
+
 Legg merke til at en nedlasting som venter på motpartkilder, vises som fastlåst for sluttbrukeren.
-      
+
 Anbefalt verdi er 1 minutt (60).</string>
       <string id="DelayCacheServerFallbackBackground">Utsett veksling fra bufferserver for bakgrunnsnedlasting (i sekunder)</string>
-      <string id="DelayCacheServerFallbackBackground_Help">Angi denne policyinnstillingen til å utsette vekslingen fra bufferserveren til HTTP-kilden for en innholdsnedlasting i bakgrunnen med X sekunder. 
+      <string id="DelayCacheServerFallbackBackground_Help">Angi denne policyinnstillingen til å utsette vekslingen fra bufferserveren til HTTP-kilden for en innholdsnedlasting i bakgrunnen med X sekunder.
 
 Obs!  Hvis du angir at policyen skal utsette bakgrunnsnedlasting fra http, aktiveres den først (for å tillate nedlastinger fra motparter først).</string>
       <string id="DelayCacheServerFallbackForeground">Utsett veksling fra bufferserver for forgrunnsnedlasting (i sekunder)</string>
-      <string id="DelayCacheServerFallbackForeground_Help">Angi denne policyinnstillingen til å utsette vekslingen fra bufferserveren til HTTP-kilden for en innholdsnedlasting i forgrunnen med X sekunder. 
+      <string id="DelayCacheServerFallbackForeground_Help">Angi denne policyinnstillingen til å utsette vekslingen fra bufferserveren til HTTP-kilden for en innholdsnedlasting i forgrunnen med X sekunder.
 
 Obs!  Hvis du angir at policyen skal utsette forgrunnsnedlasting fra http, aktiveres den først (for å tillate nedlastinger fra motparter først).</string>
       <string id="RestrictPeerSelectionBy">Velg en metode for å begrense valg av motpart</string>
-      <string id="RestrictPeerSelectionBy_Help">Konfigurer denne policyen for å begrense motpartvalg via valgt alternativ. 
-      
-Alternativene er: 
-1 = nettverksmaske (flere alternativer blir lagt til i en fremtidig versjon). 
-      
+      <string id="RestrictPeerSelectionBy_Help">Konfigurer denne policyen for å begrense motpartvalg via valgt alternativ.
+
+Alternativene er:
+1 = nettverksmaske (flere alternativer blir lagt til i en fremtidig versjon).
+
 Alternativ 1 (nettverksmaske) gjelder både Nedlastingsmodus LAN (1) og Gruppe (2).</string>
       <string id="RestrictPeerSelectionBy_None">Ingen</string>
       <string id="RestrictPeerSelectionBy_Subnet">Delnett</string>
@@ -204,10 +215,6 @@ Alternativ 1 (nettverksmaske) gjelder både Nedlastingsmodus LAN (1) og Gruppe (
           <label>Gruppe-ID:</label>
         </textBox>
       </presentation>
-      <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Maksimal opplastingsbåndbredde (i KB/s):</decimalTextBox>
-        <text>Standardverdien er 0 (ubegrenset).</text>
-      </presentation>
       <presentation id="MaxCacheSize">
         <decimalTextBox defaultValue="20" refId="MaxCacheSize">Maksimal hurtigbufferstørrelse (i prosent):</decimalTextBox>
         <text>Standardverdien er 20 %.</text>
@@ -233,12 +240,12 @@ Alternativ 1 (nettverksmaske) gjelder både Nedlastingsmodus LAN (1) og Gruppe (
           <label>Endre hurtigbufferstasjon:</label>
         </textBox>
       </presentation>
-      <presentation id="MaxDownloadBandwidth">
-        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i kB/s):</decimalTextBox>
+      <presentation id="MaxBackgroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxBackgroundDownloadBandwidth">Maksimal nedlastingsbåndbredde i bakgrunnen (i kB/s)</decimalTextBox>
         <text>Standardverdien er 0 (ubegrenset).</text>
       </presentation>
-      <presentation id="PercentageMaxDownloadBandwidth">
-        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Maksimal nedlastingsbåndbredde (i prosent):</decimalTextBox>
+      <presentation id="MaxForegroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxForegroundDownloadBandwidth">Maksimal nedlastingsbåndbredde i forgrunnen (i kB/s)</decimalTextBox>
         <text>Standardverdien er 0 (ubegrenset).</text>
       </presentation>
       <presentation id="PercentageMaxBackgroundBandwidth">
@@ -247,7 +254,7 @@ Alternativ 1 (nettverksmaske) gjelder både Nedlastingsmodus LAN (1) og Gruppe (
       </presentation>
       <presentation id="PercentageMaxForegroundBandwidth">
         <decimalTextBox defaultValue="0" refId="PercentageMaxForegroundBandwidth">Maksimal båndbredde for nedlasting i forgrunnen (prosentandel):</decimalTextBox>
-        <text>Standardverdien 0 (ubegrenset)</text>
+        <text>Standardverdien er 0 (ubegrenset).</text>
       </presentation>
       <presentation id="MinFileSizeToCache">
         <decimalTextBox defaultValue="100" refId="MinFileSizeToCache">Minimum innholdsfilstørrelse for Nodebufring (i MB):</decimalTextBox>
@@ -266,15 +273,18 @@ Alternativ 1 (nettverksmaske) gjelder både Nedlastingsmodus LAN (1) og Gruppe (
       </presentation>
       <presentation id="MinBatteryPercentageAllowedToUpload">
         <decimalTextBox defaultValue="0" refId="MinBatteryPercentageAllowedToUpload">Minimum batterinivå (i prosent):</decimalTextBox>
-        <text>Standardverdien er 0 (ubegrenset)</text>
+        <text>Standardverdien 0 (ubegrenset)</text>
       </presentation>
       <presentation id="CacheHost">
         <textBox refId="CacheHost">
           <label>Hurtigbufferserver:</label>
         </textBox>
       </presentation>
+      <presentation id="CacheHostSource">
+        <dropdownList defaultItem="0" noSort="true" refId="CacheHostSource">Vertsnavnkilde for bufferserver:</dropdownList>
+      </presentation>
       <presentation id="GroupIdSource">
-        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Kilde for gruppe-ID-er:</dropdownList>        
+        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Kilde for gruppe-ID-er:</dropdownList>
       </presentation>
       <presentation id="DelayBackgroundDownloadFromHttp">
         <decimalTextBox defaultValue="0" refId="DelayBackgroundDownloadFromHttp">Forsinkelse av bakgrunnsnedlasting fra http (i sek)</decimalTextBox>

@@ -1534,7 +1534,7 @@ Pokud toto nastavení povolíte, nemohou uživatelé nastavit vlastní nastaven�
 Pokud toto nastavení zakážete nebo nenakonfigurujete, mohou uživatelé v jednom počítači vytvořit vlastní nastavení proxy serveru.
 
 Nastavení této zásady slouží k zajištění stejných nastavení proxy serveru pro všechny uživatele jednoho počítače.</string>
-      <string id="IE_ExplainView_NoTheaterMode">Zabraňuje uživatelům v zobrazení prohlížeče v režimu celé obrazovky bez standardních panelů nástrojů.
+      <string id="IE_ExplainView_NoTheaterMode">Zabraňuje uživatelům v zobrazení prohlížeče v režimu celé obrazovky (kiosek) bez standardních panelů nástrojů.
 
 Pokud toto nastavení povolíte, bude příkaz Celá obrazovka v nabídce Zobrazit zobrazen šedě a klávesa F11 nepřepne zobrazení prohlížeče do režimu Celá obrazovka.
 
@@ -3917,6 +3917,33 @@ Poznámka: Pokud jste zároveň povolili nastavení zásady Šablony pro správu
 Pokud toto nastavení zásad povolíte, uživatelům se v Internet Exploreru 11 zobrazí další stránka se zprávou, že web se otevřel v Microsoft Edgi v podnikovém režimu.
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete, budou se aplikace chovat výchozím způsobem a žádná další stránka se nezobrazí.</string>
+      <string id="NeedEdgeBrowser">Nakonfigurovat, který kanál Microsoft Edge se má používat pro otevírání přesměrovaných webů</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Umožňuje nakonfigurovat až 3 verze Microsoft Edge pro otevření přesměrovaného webu (podle pořadí priority). Tuto zásadu použijte, pokud je vaše prostředí nakonfigurované na přesměrovávání webů z prohlížeče Internet Explorer 11 do Microsoft Edge. Pokud nebude některá ze zvolených verzí na konkrétním zařízení nainstalovaná, bude tato předvolba vynechána.
+
+Pokud je nainstalována aktualizace Windows Update pro další verzi Microsoft Edge* i stabilní kanál Microsoft Edge, stane se toto:
+- Pokud tuto zásadu zakážete nebo nenakonfigurujete, použije se stabilní kanál Microsoft Edge. To je výchozí chování.
+- Pokud tuto zásadu povolíte, můžete přesměrované weby nakonfigurovat tak, aby se otevíraly až ve 3 následujících kanálech:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta verze 77 nebo novější
+    3 = Microsoft Edge Dev verze 77 nebo novější
+    4 = Microsoft Edge Canary verze 77 nebo novější
+
+Pokud aktualizace Windows Update pro další verzi Microsoft Edge* nebo stabilní kanál Microsoft Edge není nainstalována, stane se toto:
+- Pokud tuto zásadu zakážete nebo nenakonfigurujete, automaticky se použije Microsoft Edge verze 45 nebo starší. To je výchozí chování.
+- Pokud tuto zásadu povolíte, můžete přesměrované weby nakonfigurovat tak, aby se otevíraly až ve 3 následujících kanálech:
+    0 = Microsoft Edge verze 45 nebo starší
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta verze 77 nebo novější
+    3 = Microsoft Edge Dev verze 77 nebo novější
+    4 = Microsoft Edge Canary verze 77 nebo novější
+
+*Další informace o aktualizaci Windows pro další verzi Microsoft Edge, včetně pokynů, jak ji zakázat, najdete na stránce https://go.microsoft.com/fwlink/?linkid=2102115. Tato aktualizace platí jen pro Windows 10 verze 1709 a novější.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta verze 77 nebo novější</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev verze 77 nebo novější</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary verze 77 nebo novější</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge verze 45 nebo starší</string>
       <string id="KeepIntranetSitesInInternetExplorer">Všechny intranetové weby otevírat výhradně v Internet Exploreru</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Zabrání otevírání intranetových webů v jiném prohlížeči než v Internet Exploreru. Je ale nutné myslet na to, že pokud není povolená zásada Posílat do Microsoft Edge všechny weby, které nejsou v seznamu webů podnikového režimu  (RestrictIE), nebude mít tato zásada žádný vliv.
 
@@ -4801,6 +4828,11 @@ Další informace najdete v článku Out-of-date ActiveX control blocking (Bloko
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Seznam domén</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">První volba</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Druhá volba</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Třetí volba</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -3917,6 +3917,33 @@ Internet Explorer 9 和 10:
 若啟用此設定，員工會在 Internet Explorer 11 中看到額外的頁面，說明已使用 Microsoft Edge 搭配「企業模式」開啟網站。
 
 若停用或未設定此設定，會發生預設 App 行為，而且不會顯示額外的頁面。</string>
+      <string id="NeedEdgeBrowser">設定開啟重新導向網站要使用的 Microsoft Edge 通道</string>
+      <string id="IE_ExplainNeedEdgeBrowser">可讓您設定最多三個版本的 Microsoft Edge 來開啟重新導向的網站 (按優先順序排列)。如果您的環境設定為將網站從 Internet Explorer 11 重新導向到 Microsoft Edge，請使用此原則。如果裝置上未安裝任何選定版本，則將忽略此優先順序。
+
+如果同時安裝了 Microsoft Edge * 下一版本的 Windows Update 與 Microsoft Edge 穩定通道，則會發生下列行為：
+-如果停用或不設定此原則，則使用 Microsoft Edge 穩定通道。此為預設行為。
+-如果啟用此原則，則可以將重新導向的網站設定為在下列最多三個通道中開啟，其通道為：
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta 77 版或更新版本
+    3 = Microsoft Edge Dev 77 版或更新版本
+    4 = Microsoft Edge Canary 77 版或更新版本
+
+如果未安裝 Microsoft Edge * 下一版本的 Windows Update 或 Microsoft Edge 穩定通道，則會發生下列行為：
+-如果停用或未設定此原則，則會自動使用 Microsoft Edge 45 版本或更早版本。此為預設行為。
+-如果啟用此原則，則可以將重新導向的網站設定為在下列最多三個通道中開啟，其通道為：
+    0 = Microsoft Edge 45 版或更早版本
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta 77 版或更新版本
+    3 = Microsoft Edge Dev 77 版或更新版本
+    4 = Microsoft Edge Canary 77 版或更新版本
+
+*有關 Microsoft Edge 下一版本的 Windows Update 詳細資訊 (包括停用方法)，請參閱 https://go.microsoft.com/fwlink/?linkid=2102115。此更新僅適用於 Windows 10 1709 版及更新版本。</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta 77 版或更新版本</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev 77 版或更新版本</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary 77 版或更新版本</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge 45 版或更早版本</string>
       <string id="KeepIntranetSitesInInternetExplorer">保留 Internet Explorer 中所有的內部網路網站</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">防止在 Internet Explorer 之外的任何瀏覽器中開啟內部網路網站。但請注意，如果未啟用 [將未包含在企業模式網站清單中的所有網站，傳送到 Microsoft Edge] ([RestrictIE]) 原則，則此原則將無效。
 
@@ -4801,6 +4828,11 @@ LOBApp.contoso.com</string>
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">網域清單</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">首選</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">第二選擇</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">第三選擇</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

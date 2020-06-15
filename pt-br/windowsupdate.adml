@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Pelo menos sistemas operacionais Windows Server 2003 ou Windows XP Professional com SP1, excluindo o Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Pelo menos o Windows XP Professional Service Pack 1 ou pelo menos o Windows 2000 Service Pack 3 até o Windows 8.1 ou Windows Server 2012 R2 com service pack mais recente</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Pelo menos Windows Vista até Windows 8.1 ou Windows Server 2012 R2 com o service pack mais recente</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 ou Windows 2000 Service Pack 3 ou posterior
+A opção 7 só é compatível com servidores na edição do Windows Server 2016 ou posterior</string>
       <string id="AUDontShowUasHelp">Esta configuração de política permite gerenciar se a opção Instalar Atualizações e Desligar é exibida na caixa de diálogo Desligar o Windows.
 
 Se você habilitar essa configuração de política, a opção Instalar Atualizações e Desligar não aparecerá na caixa de diálogo Desligar o Windows, mesmo que atualizações estejam disponíveis para instalação quando o usuário selecionar a opção Desligar do menu Iniciar.
@@ -56,36 +58,41 @@ No Windows 8 e no Windows RT, se essa política estiver Habilitada, apenas as no
       <string id="RemoveWindowsUpdateModeAll">0 - Não mostrar notificações</string>
       <string id="RemoveWindowsUpdateModeReboot">1 - Mostrar notificações de reinicialização necessárias</string>
       <string id="AutoUpdateCfg">Configurar Atualizações Automáticas</string>
-      <string id="AutoUpdateCfg_Help">Especifica se este computador receberá atualizações de segurança e outros downloads importantes por meio do serviço de atualizações automáticas do Windows.
+      <string id="AutoUpdateCfg_Help">Especifica se este computador receberá atualizações de segurança e outros downloads importantes por meio do serviço de atualização automática do Windows.
 
-Observação: esta política não se aplica ao Windows RT.
+Observação: essa política não se aplica ao Windows RT.
 
-Essa configuração permite especificar se as atualizações automáticas estão habilitadas no computador. Se o serviço estiver habilitado, você deverá selecionar uma das quatro opções na Configuração de Política de Grupo:
+Essa configuração permite especificar se as atualizações automáticas estão habilitadas neste computador. Se o serviço for habilitado, você deverá selecionar uma das quatro opções na Configuração de Política de Grupo:
 
-        2 = Avisar antes de baixar e instalar qualquer atualização.
+        2 = Notificar antes de baixar e instalar qualquer atualização.
 
-        Quando o Windows encontrar atualizações que se aplicam ao computador, os usuários serão informados de que há atualizações prontas para serem baixadas. Após acessar o Windows Update, os usuários poderão baixar e instalar todas as atualizações disponíveis.
+        Quando o Windows encontrar atualizações que se aplicam ao computador, os usuários serão notificados de que as atualizações estão prontas para serem baixadas. Depois de acessar o Windows Update, os usuários poderão baixar e instalar todas as atualizações disponíveis.
 
         3 = (Configuração padrão) Baixar as atualizações automaticamente e avisar quando elas estiverem prontas para serem instaladas
 
-        O Windows localiza as atualizações que se aplicam ao computador e baixa-as em segundo plano (o usuário não é avisado nem interrompido durante o processo). Quando o download for concluído, os usuários serão informados de que as atualizações estão prontas para serem instaladas. Após acessar o Windows Update, os usuários poderão instalá-las.
+        O Windows localiza as atualizações que se aplicam ao computador e baixa-as em segundo plano (o usuário não é notificado ou interrompido durante o processo). Quando os downloads forem concluídos, os usuários serão notificados de que estão prontos para serem instalados. Após acessar o Windows Update, os usuários poderão instalá-los.
 
-        4 = Baixar automaticamente as atualizações e instalá-las de acordo com a agenda especificada a seguir.
+        4 = Baixar automaticamente as atualizações e instalá-las de acordo com o cronograma especificado a seguir.
 
-        Quando a opção "Automático" for selecionada de acordo com o horário de instalação agendado, o Windows verificará, baixará e instalará automaticamente as atualizações. O dispositivo será reinicializado conforme as configurações padrão do Windows, a menos que seja configurado pela política de grupo. (Aplica-se ao Windows 10, versão 1809 e posterior)
+        Quando a opção "Automático" estiver selecionada como o horário de instalação agendado, o Windows verificará, baixará e instalará automaticamente as atualizações. O dispositivo será reiniciado de acordo com as configurações padrão do Windows, a menos que seja configurado pela política de grupo. (Aplicável ao Windows 10, versão 1809 e posterior)
 
-        Especifique a agenda usando as opções da Configuração de Política de Grupo. Para a versão 1709 e posteriores, existe uma opção adicional para limitar as ocorrências das atualizações por semana, quinzena ou mês. Se nenhuma agenda for especificada, a agenda padrão de todas as instalações será todos os dias às 3h. Se for necessário reiniciar o computador para concluir a instalação de qualquer atualização, o Windows o reiniciará automaticamente. (Se um usuário entrar no computador quando o Windows estiver pronto para reiniciar, o usuário será notificado e terá a opção de reiniciar depois.)
+        Especifique o cronograma usando as opções na Configuração de Política de Grupo. Para a versão 1709 e posterior, há uma opção adicional de limitar a atualização para uma ocorrência semanal, quinzenal ou mensal. Se nenhum cronograma for especificado, o cronograma padrão para todas as instalações será todos os dias às 3:00. Se alguma atualização exigir uma reinicialização para concluir a instalação, o Windows reiniciará o computador automaticamente. (Se um usuário estiver conectado ao computador quando o Windows estiver pronto para ser reiniciado, o usuário será notificado e terá a opção de atrasar a reinicialização.)
 
-        No Windows 8 e posterior, você pode definir as atualizações para serem instaladas durante a manutenção automática, e não conforme uma agenda específica. A manutenção automática instalará as atualizações quando o computador não estiver em uso e evitará fazer isso quando o computador estiver funcionando à bateria. Se a manutenção automática não puder instalar as atualizações por dois dias, o Windows Update as instalará imediatamente. Os usuários serão, então, notificados sobre uma reinicialização próxima e ela ocorrerá somente se não houver possibilidade de perda acidental de dados.
+        No Windows 8 e posterior, você pode definir as atualizações a serem instaladas durante a manutenção automática, em vez de um cronograma específico. A manutenção automática instalará as atualizações quando o computador não estiver em uso e evitará fazer isso quando o computador estiver funcionando somente com a energia da bateria. Se a manutenção automática não puder instalar atualizações por 2 dias, o Windows Update instalará atualizações imediatamente. Os usuários serão notificados sobre uma reinicialização futura, e essa reinicialização só ocorrerá se não houver possibilidade de perda acidental de dados.
 
-        5 = Permitir que os administradores locais selecionem o modo de configuração usado pelas Atualizações Automáticas para notificar e instalar atualizações. (Esta opção não foi transferida para as versões do Win 10)
+        5 = Permitir que os administradores locais selecionem o modo de configuração que as Atualizações Automáticas devem usar para notificar e instalar atualizações. (Essa opção não foi transferida para nenhuma versão do Win 10)
 
-        Com esta opção, os administradores locais poderão usar o painel de controle do Windows Update para selecionar uma opção de configuração de sua preferência. Os administradores locais não poderão desabilitar a configuração das Atualizações Automáticas.
+        Com essa opção, os administradores locais poderão usar o painel de controle do Windows Update para selecionar uma opção de configuração de sua preferência. Os administradores locais não terão permissão para desabilitar a configuração das atualizações automáticas.
 
-Se o status dessa política estiver definido como Desabilitado, todas as atualizações disponíveis no Windows Update deverão ser baixadas e instaladas manualmente. Para fazer isso, procure Windows Update em Iniciar.
+        7 = Notificar para instalar e notificar a reinicialização. (Somente Windows Server)
 
-Se o status estiver definido como Não Configurado, o uso das Atualizações Automáticas não será especificado no nível da Política de Grupo. Porém, um administrador ainda poderá configurar as Atualizações Automáticas por meio do Painel de Controle.</string>
+        Com essa opção do Windows Server 2016, aplicável somente a dispositivos SKU de servidor, os administradores locais poderão usar o Windows Update para prosseguir com instalações ou reinicializações manualmente.
 
+Se o status dessa política estiver definido como Desabilitado, todas as atualizações disponíveis no Windows Update deverão ser baixadas e instaladas manualmente. Para fazer isso, procure pelo Windows Update usando o menu Iniciar.
+
+Se o status for definido como Não Configurado, o uso das Atualizações Automáticas não será especificado no nível da Política de Grupo. No entanto, um administrador ainda poderá configurar as Atualizações Automáticas por meio do Painel de Controle.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Download Automático, Notificar para instalar, Notificar para Reiniciar</string>
       <string id="AutoUpdateModeAdminChooses">5 - Permitir que o administrador local escolha a configuração</string>
       <string id="AutoUpdateModeAuto">4 - Baixar automaticamente e agendar a instalação</string>
       <string id="AutoUpdateModeDownload">3 - Baixar automaticamente as atualizações e avisar quando elas estiverem prontas para serem instaladas</string>
@@ -356,6 +363,10 @@ Para evitar o recebimento de atualizações de qualidade no horário agendado, v
 Para retomar o recebimento das atualizações de qualidade que estão em pausa, limpe o campo de data inicial.
 
 Se você desabilitar ou não configurar essa política, o Windows Update não mudará de comportamento.</string>
+      <string id="TargetReleaseVersion_Title">Selecione a versão da Atualização de Recursos de destino</string>
+      <string id="TargetReleaseVersion_Help">Habilite essa política para especificar uma versão da Atualização de Recursos a ser solicitada nas verificações subsequentes.
+
+Digite a versão conforme listado na página de Informações sobre Versões do Windows aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Não incluir drivers com as Atualizações do Windows</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Habilite esta política para não incluir drivers com atualizações de qualidade do Windows.
 
@@ -705,6 +716,11 @@ Esta política substituirá as seguintes políticas:
         <text>esse tempo para salvar seu</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">trabalho (minutos):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Versão de Destino para Atualizações de Recursos</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Defina o comportamento para receber versões prévias:</dropdownList>
       </presentation>

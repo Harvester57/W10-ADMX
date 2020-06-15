@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Appx 套件管理員</displayName> 
+  <displayName>Appx 套件管理員</displayName>
   <description>Appx 套件管理員</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Guest 帳戶以及 Guests 群組成員的使用者設定檔
 如果您停用或未設定這個原則設定，群組原則會在使用特殊設定檔時封鎖 Windows 市集應用程式的部署作業。</string>
       <string id="AllowDevelopmentWithoutDevLicense">允許開發 Windows 市集應用程式，並從整合式開發環境 (IDE) 安裝它們。</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        允許或拒絕開發 Windows 市集應用程式並直接從 IDE 安裝它們。
+        允許或拒絕開發 Microsoft Store 應用程式，並直接從 IDE 安裝應用程式。
 
-        如果您啟用這個設定並啟用 [允許安裝所有受信任的應用程式] 群組原則，即可開發 Windows 市集應用程式並直接從 IDE 安裝它們。
-        
-        如果您停用或未設定這個設定，就不能開發 Windows 市集應用程式並直接從 IDE 安裝它們。
+        如果啟用此設定，並啟用「允許安裝所有受信任的應用程式」群組原則，則可以開發 Windows 市集應用程式，並直接從 IDE 安裝應用程式。
+
+        如果停用或未設定此設定，則無法開發 Windows 市集應用程式，或直接從 IDE 安裝應用程式。
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">停用安裝 Windows 應用程式到非系統磁碟區</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Guest 帳戶以及 Guests 群組成員的使用者設定檔
         如果您停用或是未設定這個設定，那麼當應用程式移動到不同的磁碟區時，使用者的應用程式資料也將移動到該磁碟區。
       </string>
       <string id="AllowSharedLocalAppData">允許 Windows 應用程式在使用者間共用應用程式資料</string>
-      <string id="AllowSharedLocalAppDataExplanation">管理 Windows 應用程式在多個安裝該應用程式之使用者間共用資料的功能。
-      
-        如果您啟用這個原則，Windows 應用程式將可以與應用程式的其他執行個體共用應用程式資料。資料會透過 SharedLocal 資料夾共用。這個資料夾可透過 Windows.Storage API 來存取。
+      <string id="AllowSharedLocalAppDataExplanation">管理 Windows 應用程式在已安裝應用程式的使用者之間共用資料的功能。
 
-        如果您停用這個原則，Windows 應用程式將無法與該應用程式的其他執行個體共用應用程式資料。如果預先停用此原則，任何預先共用的應用程式資料將保留於 SharedLocal 資料夾中。 
+        如果啟用此原則，Windows 應用程式可以與該應用程式的其他執行個體共用應用程式資料。資料透過 SharedLocal 資料夾共用。此資料夾可透過 Windows.Storage API 來存取。
+
+        如果停用此原則，則 Windows 應用程式無法與該應用程式的其他執行個體共用應用程式資料。如果先前已啟用此原則，則之前共用的所有應用程式資料都將保留在 SharedLocal 資料夾中。
+      </string>
+      <string id="BlockNonAdminUserInstall">防止非系統管理員使用者安裝 Windows 應用程式套件</string>
+      <string id="BlockNonAdminUserInstallExplanation">管理非系統管理員使用者安裝 Windows 應用程式套件的能力。
+
+        如果啟用此原則，非系統管理員將無法啟動 Windows 應用程式套件的安裝。希望安裝應用程式的系統管理員，需要從系統管理員內容 (如系統管理員 PowerShell 視窗) 執行此操作。如果其他原則允許，所有使用者仍可以透過 Microsoft Store 安裝 Windows 應用程式套件。
+
+        如果停用或未設定此原則，則所有使用者都可以啟動 Windows 應用程式套件的安裝。
       </string>
     </stringTable>
   </resources>

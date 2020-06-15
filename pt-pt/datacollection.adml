@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1 - Básico</string>
       <string id="AllowTelemetry_2">2 - Melhorado</string>
       <string id="AllowTelemetry_3">3 - Completo</string>
-      <string id="AllowTelemetry_Explain">Esta definição de política determina o nível máximo de dados de diagnóstico do Windows enviados à Microsoft. Ao configurar esta definição, não impede que outras pessoas alterem as respetivas Definições de Telemetria; no entanto, impede que escolham um nível mais elevado do que aquele que definiu para a organização. As definições de dados de diagnóstico do Windows 10 só se aplicam ao sistema operativo Windows e às aplicações incluídas no Windows. Estas definições não se aplicam a aplicações de terceiros em execução no Windows 10.
+      <string id="AllowTelemetry_Explain">Ao configurar esta definição no Windows 10, os utilizadores finais não poderão optar por aderir a um nível superior de uma coleção de telemetria do que o nível definido para a sua organização.  Esta limitação aplica-se apenas ao sistema operativo Windows e às aplicações incluídas no Windows e não se aplica a aplicações de terceiros em execução no Windows 10.
 
-Se ativar esta definição, pode decidir qual o nível de dados de diagnóstico a enviar à Microsoft, incluindo:
+Os dados de diagnóstico são categorizados em quatro níveis, da seguinte forma:
+  - 0 (Segurança). Informações necessárias para ajudar a manter o Windows, o Windows Server e o System Center seguros, incluindo dados sobre as definições de componentes de Experiências de Utilizador e Telemetria Interligadas, a Ferramenta de Remoção de Software Malicioso e o Windows Defender.
+  - 1 (Básico). Informações básicas do dispositivo, incluindo: dados relacionados com qualidade, compatibilidade de aplicações e dados a partir do nível de Segurança.
+  - 2 (Melhorado). Informações adicionais, incluindo: como o Windows, o Windows Server, o System Center e as aplicações são utilizados, qual o desempenho que apresentam, dados de fiabilidade avançados e dados dos níveis Básico e Segurança.
+  - 3 (Completo). Todos os dados necessários para identificar e ajudar a corrigir problemas, bem como dados dos níveis Segurança, Básico e Melhorado.
 
-  - 0 (Segurança). Envia apenas uma quantidade mínima de dados à Microsoft, necessária para ajudar a manter o Windows seguro. Neste nível, os componentes de segurança do Windows, como a Ferramenta de Remoção de Software Malicioso (MSRT) e o Windows Defender, podem enviar dados à Microsoft, se estiverem ativados. O valor 0 aplica-se apenas a dispositivos que executam as edições Enterprise, Education, IoT ou Windows Server. Definir um valor igual a 0 noutras edições é equivalente a definir um valor igual a 1.
-  -1 (Básico). Envia os mesmos dados que um valor de 0, bem como uma quantidade muito limitada de dados de diagnóstico, como informações básicas do dispositivo, dados relacionados com a qualidade e informações de compatibilidade de aplicações. Tenha em atenção que definir valores de 0 ou 1 degrada determinadas experiências no dispositivo.
-  - 2 (Melhorado). Envia os mesmos dados que um valor de 1, bem como dados adicionais, como a forma como o Windows, o Windows Server, o System Center e as aplicações são utilizadas, como se comportam e dados de fiabilidade avançados.
-  - 3 (Completo). Envia os mesmos dados que um valor de 2, bem como dados de diagnóstico avançados utilizados para diagnosticar e corrigir problemas com dispositivos, incluindo os ficheiros e o conteúdo que possam ter causado um problema com o dispositivo.
-
-Se desativar ou não configurar esta definição de política, as definições de telemetria podem ser configuradas individualmente em Definições.
+As opções disponíveis para os utilizadores na aplicação Definições são alteradas através da configuração desta definição e, mesmo que não estejam definidas, podem ser afetadas por outras definições de política de grupo.  Tenha em atenção que, se esta política estiver configurada para permitir uma definição de telemetria Segurança ou Básica, os utilizadores finais não conseguirão selecionar um nível superior.
       </string>
 
-      <string id="TelemetryProxy">Configurar Experiência de Utilizador e Telemetria Interligadas</string>
+      <string id="TelemetryProxy">Configurar Experiências de Utilizador e Telemetria Interligadas</string>
       <string id="TelemetryProxy_Explain">Com esta definição de política, pode reencaminhar pedidos de Experiência de Utilizador e Telemetria Interligadas para um servidor proxy.
 
 Se ativar esta definição de política, pode especificar o endereço IP ou FQDN do dispositivo de destino na rede da sua organização (e, como opção, um número de porta). A ligação será estabelecida através de uma ligação SSL (Secure Sockets Layer). Se ocorrer uma falha no proxy nomeado ou se desativar ou não configurar esta definição de política, os dados de Experiência de Utilizador e Telemetria Interligadas serão enviados para a Microsoft utilizando a configuração de proxy predefinida.
@@ -67,14 +66,14 @@ Se desativar ou não configurar esta definição de política, em seguida, o nom
       <string id="ConfigureTelemetryOptInSettingsUx">Configure a interface de utilizador de definição de opção ativa de participação em telemetria.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Desativar as Definições de opção ativa de participação em telemetria</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Ativar as Definições de opção ativa de participação em telemetria</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta definição de política determina se as pessoas podem alterar os respetivos níveis de telemetria em Definições. Esta definição deve ser utilizada juntamente com as definições Permitir Telemetria.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Esta definição de política determina se um utilizador final pode alterar os níveis de telemetria em Definições.
 
-Se definir esta definição de política para "Desativar as Definições de opção ativa de participação em Telemetria", os níveis de telemetria são desativados em Definições, impedindo que sejam alterados.
+Se definir esta definição de política como "Desativar as Definições de opção ativa de participação em Telemetria", os níveis de telemetria são desativados em Definições e os utilizadores finais não os podem alterar.
 
-Se definir esta definição de política para "Ativar as Definições de opção ativa de participação em Telemetria" ou não configurar esta definição de política, as pessoas podem alterar os respetivos níveis de telemetria em Definições.
+Se não configurar esta definição de política, ou a configurar como "Ativar Definições de opção ativa de participação em Telemetria", os utilizadores finais poderão alterar o nível de telemetria do dispositivo na aplicação Definições.
 
 Nota:
-Configure a definição de política Permitir Telemetria para impedir que as pessoas enviem dados de diagnóstico à Microsoft que excedam o limite da organização.
+Para definir um limite no nível de dados de diagnóstico que são enviados à Microsoft pela sua organização, utilize a definição de política Permitir Telemetria.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Configure as notificações de alteração de opção ativa de participação em telemetria.</string>

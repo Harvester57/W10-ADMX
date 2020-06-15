@@ -57,19 +57,21 @@ Not: Görüntü Denetim Masası öğesi bu ayar kullanılarak Masaüstü içerik
 
 Not: Sistem ayarları uygulamasında sayfaları gizlemek için Bilgisayar Yapılandırması başlığı altında "Ayar Sayfası Görünürlüğü" ayarını kullanın.</string>
       <string id="SettingsPageVisibility">Ayar Sayfası Görünürlüğü</string>
-      <string id="SettingsPageVisibility_Help">Sistem ayarları uygulamasında görüntülemek veya gizlemek için sayfa listesini belirtir.
+      <string id="SettingsPageVisibility_Help">Sistem Ayarları uygulamasında görüntülenecek veya gizlenecek sayfalar listesini belirtir.
 
-Bu ilke yöneticinin belli bir sayfa setini sistem ayarları uygulamasından engellemesini sağlar. Bloke sayfalar uygulamada görünmez ve bir kategorideki tüm sayfalar engellenirse kategori de gizlenir. URI, Explorer'daki bağlam menüsü veya başka yollarla bloke bir sayfaya yapılan direkt navigasyon ayarların ilk sayfasının gösterilmesiyle sonuçlanır.
+Bu ilke, bir yöneticinin Sistem Ayarları uygulamasında belirli bir sayfa kümesini engelleyebilmesini sağlar. Engellenmiş sayfalar uygulamada görüntülenmez; bir kategorinin içindeki bütün sayfalar engellenmişse kategori de gizlenir. Engellenmiş bir sayfaya URI, Gezgin'deki bağlam menüsü aracılığıyla veya başka bir yolla doğrudan ulaşmak, Ayarlar'ın ön sayfasının açılmasıyla sonuçlanır.
 
-Bu ilkenin iki modu vardır: Gösterilecek ayar sayfalarını ya da gizlenecek sayfaların listesini belirtebilir. Gösterilecek sayfaların listesini belirtmek için ilke dizesi "showonly:" (alıntısız) ile başlamalı ve gizlenecek sayfaların listesini belirtmek için de "Gizle:" ile başlamalıdır. Şayet showonly listesindeki bir sayfa normalde başka sebepler yüzünden (örneğin eksik donanım aygıtı) gizlenecekse ilke o sayfanın görüntülenmesini zorlayamaz. Bundan sonra ilke dizesi ayar sayfası tanımlayıcılarının noktalı virgülle sınırlanmış bir listesini içermelidir. Belirli bir ayar sayfası için tanımlayıcı o sayfaya ilişkin yayımlanmış URI eksi "ms-ayarları:" protokol bölümüdür.
+Bu ilkenin iki modu vardır: Gösterilecek ayarlar sayfalarının listesini veya gizlenecek sayfaların listesini belirtebilir. İlke dizesi, gösterilecek sayfaların listesini belirtmek için "showonly:" (tırnak işareti olmadan) ile başlamalı, gizlenecek sayfaların listesini belirtmek için ise "hide:" (tırnak işareti olmadan) ile başlamalıdır. showonly listesindeki bir sayfa başka sebeplerden dolayı (eksik donanım cihazı gibi) normal durumda da gizli hâldeyse bu ilke, sayfanın görüntülenmesini zorlamaz. Ayrıca ilke dizesi, ayarlar sayfası tanımlayıcılarının noktalı virgülle ayrılmış bir listesini içermelidir. Belirli bir ayarlar sayfası tanımlayıcısı, ilgili sayfanın "ms-settings:" protokol kısmı olmadan yayımlanmış URI'sıdır.
 
-Örnek: yalnızca Hakkında ve Bluetooth sayfalarının görüntüleneceğini (ilgili URI'lar ms ayarları:hakkında ve ms ayarları:bluetooth) ve diğer tüm sayfaların gizleneceğini belirtme:
+Örnek: Yalnızca Hakkında ve Bluetooth sayfalarının (ilgili URI'ları sırasıyla ms-settings:about ve ms-settings:bluetooth) görüntülenmesini ve diğer tüm sayfaların gizlenmesini belirtmek için:
 
-showonly hakkında;bluetooth
+showonly:about;bluetooth
 
-Örnek: Yalnızca Bluetooth sayfasının (URI ms-ayarları:bluetooth ile ilgili olan) gizleneceğini belirtme:
+Örnek: Yalnızca Bluetooth sayfasının (URI'sı ms-setting:bluetooth) gizlenmesini belirtmek için:
 
-gizle:bluetooth</string>
+hide:bluetooth
+
+Kullanıcı başına desteğin kullanılabilirliği burada belgelenmiştir: https://go.microsoft.com/fwlink/?linkid=2102995</string>
       <string id="AllowOnlineTips">Çevrimiçi İpuçları'na izin ver</string>
       <string id="AllowOnlineTips_Help">Ayarlar uygulaması için çevrimiçi ipuçlarının ve yardımın alınmasını etkinleştirir veya devre dışı bırakır.
 

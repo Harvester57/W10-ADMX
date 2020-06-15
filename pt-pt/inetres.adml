@@ -3918,6 +3918,33 @@ Nota: Se tiver ativado também a definição de política Modelos Administrativo
 Se ativar esta definição, os colaboradores irão ver uma página adicional no Internet Explorer 11 indicando que foi aberto um site utilizando o Microsoft Edge com o Modo Empresarial.
 
 Se desativar ou não configurar esta definição, ocorre o comportamento padrão da aplicação e não aparece nenhuma página adicional.</string>
+      <string id="NeedEdgeBrowser">Configure o canal do Microsoft Edge a utilizar para abrir sites redirecionados</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Permite-lhe configurar até três versões do Microsoft Edge para abrir um site redirecionado (por ordem de preferência). Utilize esta política se o seu ambiente estiver configurado para redirecionar sites do Internet Explorer 11 para o Microsoft Edge. Se alguma das versões escolhidas não estiver instalada no dispositivo, essa preferência é ignorada.
+
+Se o Windows Update para a versão seguinte do Microsoft Edge* e o canal estável Microsoft Edge estiverem instalados, ocorrem os seguintes comportamentos:
+- Se desativar ou não configurar esta política, é utilizado o canal estável Microsoft Edge. Este é o comportamento predefinido.
+- Se ativar esta política, pode configurar o redirecionamento de sites para abertura em até três dos seguintes canais:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, versão 77 ou posterior
+    3 = Microsoft Edge Dev, versão 77 ou posterior
+    4 = Microsoft Edge Canary, versão 77 ou posterior
+
+Se o Windows Update para a versão seguinte do Microsoft Edge* ou o canal estável Microsoft Edge não estiverem instalados, ocorrem os seguintes comportamentos:
+- Se desativar ou não configurar esta política, é utilizada automaticamente a versão 45 ou posterior do Microsoft Edge. Este é o comportamento predefinido.
+- Se ativar esta política, pode configurar o redirecionamento de sites para abertura em até três dos seguintes canais:
+    0 = Microsoft Edge, versão 45 ou posterior
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, versão 77 ou posterior
+    3 = Microsoft Edge Dev, versão 77 ou posterior
+    4 = Microsoft Edge Canary, versão 77 ou posterior
+
+*Para obter mais informações sobre o Windows Update para a versão seguinte do Microsoft Edge, incluindo como a desativar, aceda a https://go.microsoft.com/fwlink/?linkid=2102115. Esta atualização aplica-se apenas à versão 1709 ou superior do Windows 10.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta, versão 77 ou posterior</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev, versão 77 ou posterior</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary, versão 77 ou posterior</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge, versão 45 ou posterior</string>
       <string id="KeepIntranetSitesInInternetExplorer">Manter todos os sites da intranet no Internet Explorer</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Impede a abertura de sites da intranet em qualquer browser que não o Internet Explorer. Mas note-se que se a política "Enviar todos os sites não incluídos na Lista de Sites do Modo de Empresa para o Microsoft Edge" ("RestrictIE") não estiver ativa, não tem efeito.
 
@@ -4802,6 +4829,11 @@ Para obter mais informações, consulte "Bloqueio de controlo do ActiveX desatua
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Lista de domínios</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Primeira escolha</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Segunda escolha</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Terceira escolha</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

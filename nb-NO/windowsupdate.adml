@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Minst Windows Server 2003-operativsystemer eller Windows XP Professional med SP1, unntatt Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Minst Windows XP Professional Service Pack 1, minst Windows 2000 Service Pack 3 til og med Windows 8.1, eller Windows Server 2012 R2 med den nyeste oppdateringspakken</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Minst Windows Vista til og med Windows 8.1, eller Windows Server 2012 R2 med den nyeste oppdateringspakken</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 eller minst Windows 2000 Service Pack 3
+Alternativ 7 støttes bare på servere med minst Windows Server 2016-utgaven</string>
       <string id="AUDontShowUasHelp">Denne policyen tillater at du kan velge om alternativet Installer oppdateringer og avslutt skal vises i dialogboksen Avslutt Windows.
 
 Hvis du aktiverer denne policyinnstillingen, vil ikke Installer oppdateringer og avslutt vises som et valg i dialogboksen Avslutt Windows, selv om oppdateringer er tilgjengelige for installasjon når brukeren velger alternativet Avslutt i Start-menyen.
@@ -56,7 +58,7 @@ Hvis denne policyen er aktivert i Windows 8 og Windows RT, vises bare varslinger
       <string id="RemoveWindowsUpdateModeAll">0 – Ikke vis noen varslinger</string>
       <string id="RemoveWindowsUpdateModeReboot">1 – Vis varslinger om at maskinen må startes på nytt</string>
       <string id="AutoUpdateCfg">Konfigurer automatiske oppdateringer</string>
-      <string id="AutoUpdateCfg_Help">Angir om denne datamaskinen skal motta sikkerhetsoppdateringer og andre viktige nedlastinger via den automatiske oppdateringstjenesten for Windows.
+      <string id="AutoUpdateCfg_Help">Angir om denne datamaskinen skal motta sikkerhetsoppdateringer og andre viktige nedlastinger via Windows-tjenesten for automatisk oppdatering.
 
 Obs!  Denne policyen gjelder ikke Windows RT.
 
@@ -68,24 +70,29 @@ Med denne innstillingen kan du angi om automatiske oppdateringer skal aktiveres 
 
         3 = (standardinnstilling) Last ned oppdateringene automatisk, og varsle når de er klare til å installeres
 
-        Windows finner oppdateringer som gjelder for datamaskinen, og laster dem ned i bakgrunnen (brukeren blir ikke varslet eller forstyrret under denne prosessen). Når nedlastingene er fullført, blir brukerne varslet om at de er klare til å installeres. Når brukerne har gått til Windows Update, kan de installere dem.
+        Windows finner oppdateringer som gjelder for datamaskinen, og laster dem ned i bakgrunnen (brukeren blir ikke varslet eller avbrutt under denne prosessen). Når nedlastingene er fullført, blir brukerne varslet om at de er klare til å installeres. Når brukerne har gått til Windows Update, kan de installere dem.
 
-        4 = Last ned oppdateringer automatisk, og installer dem på tidspunktet angitt nedenfor.
+        4 = Last ned oppdateringer automatisk, og installer dem i tidsplanen som er angitt nedenfor.
 
-        Når Automatisk er valgt som planlagt installasjonstidspunkt, vil Windows automatisk kontrollere, laste ned og installere oppdateringer. Enheten startes på nytt i henhold til standardinnstillingene i Windows, med mindre den er konfigurert av gruppepolicy. (Gjelder Windows 10, versjon 1809 og nyere)
+        Når «automatisk» velges som planlagt installasjons tid, vil Windows automatisk kontrollere, laste ned og installere oppdateringer. Enheten starter på nytt i henhold til standardinnstillingene for Windows, med mindre den er konfigurert av gruppepolicy. (Gjelder Windows 10, versjon 1809 og nyere)
 
-        Angi tidspunktet ved hjelp av alternativene i gruppepolicyinnstillingen. For versjon 1709 og nyere finnes det flere valgmuligheter for å begrense oppdateringen til en forekomst ukentlig, annenhver uke eller månedlig. Hvis ingen tidspunkter er angitt, er standardtidspunkt for alle installasjoner hver dag klokken 03:00. Hvis oppdateringer krever omstart for at installasjonen skal fullføres, starter Windows datamaskinen på nytt automatisk. (Hvis en bruker er logget på datamaskinen når Windows er klar til å starte på nytt, får brukeren beskjed om det og får mulighet til å utsette omstarten.)
+        Angi tidsplanen ved hjelp av alternativene i gruppepolicyinnstillingen. For versjon 1709 og nyere er det et ekstra valg for begrensning av oppdatering til en ukentlig, annenhver uke eller månedlig forekomst. Hvis det ikke er angitt noen tidsplan, vil standard tidsplan for alle installasjoner være hver dag kl. 03:00. Hvis noen oppdateringer krever omstart for at installasjonen skal fullføres, starter Windows automatisk datamaskinen på nytt. (Hvis en bruker er logget på datamaskinen når Windows er klar til å starte på nytt, blir brukeren varslet og få muligheten til å forsinke omstarten.)
 
-        I Windows 8 og nyere kan du konfigurere oppdateringer som skal installeres under automatisk vedlikehold, i stedet for på et bestemt tidspunkt. Automatisk vedlikehold installerer oppdateringer når datamaskinen ikke er i bruk, og unngår å gjøre dette når datamaskinen kjører på batteristrøm. Hvis automatisk vedlikehold ikke kan installere oppdateringer på to dager, installerer Windows Update oppdateringer umiddelbart. Brukerne blir da varslet om en forestående omstart, og denne omstarten finner bare sted hvis det ikke er mulighet for utilsiktet datatap.
+        I Windows 8 og nyere kan du konfigurere oppdateringer som skal installeres under automatisk vedlikehold i stedet for en bestemt tidsplan. Automatisk vedlikehold vil installere oppdateringer når datamaskinen ikke er i bruk, og unngå å gjøre det når datamaskinen kjører på batteristrøm. Hvis automatisk vedlikehold ikke kan installere oppdateringer i to dager, vil Windows Update installere oppdateringer umiddelbart. Brukerne blir deretter varslet om en kommende omstart, og denne omstarten foregår bare hvis det ikke er mulig å miste data.
 
-        5 = Tillat at lokale administratorer velger konfigurasjonsmodusen som automatiske oppdateringer skal bruke til å varsle og installere oppdateringer. (Dette alternativet er ikke overført til noen av Win 10-versjonene)
+        5 = Tillat lokale administratorer å velge konfigurasjonsmodusen som automatiske oppdateringer skal varsle og installere oppdateringer. (Dette alternativet er ikke overført til noen av Win 10-versjonene)
 
-        Med dette alternativet kan lokale administratorer bruke kontrollpanelet for Windows Update til å velge et konfigurasjonsalternativ etter eget ønske. Lokale administratorer har ikke tillatelse til å deaktivere konfigurasjonen for automatiske oppdateringer.
+        Med dette alternativet kan lokale administratorer bruke kontrollpanelet for Windows Update til å velge et konfigurasjonsalternativ som er valgt. Lokale administratorer har ikke tillatelse til å deaktivere konfigurasjonen for automatiske oppdateringer.
 
-Hvis statusen for denne policyinnstillingen er satt til deaktivert, må oppdateringer som er tilgjengelige på Windows Update, lastes ned og installeres manuelt. Du kan gjøre dette ved å søke etter Windows Update ved hjelp av start.
+        7 = Varsle om installasjon og varsle om omstart. (Bare Windows Server)
 
-Hvis statusen er satt til Ikke konfigurert, er ikke bruk av automatiske oppdateringer angitt på gruppepolicynivå. En administrator kan imidlertid fortsatt konfigurere automatiske oppdateringer via kontrollpanelet.</string>
+        Med dette alternativet fra Windows Server 2016, som bare gjelder for server-SKU-enheter, kan lokale administratorer bruke Windows Update til å fortsette installasjoner eller starte på nytt manuelt.
 
+Hvis statusen for denne policyen er satt til deaktivert, må alle oppdateringer som er tilgjengelige på Windows Update, lastes ned og installeres manuelt. Hvis du vil gjøre dette, søker du etter Windows Update med Start.
+
+Hvis statusen er satt til ikke konfigurert, er ikke bruk av automatiske oppdateringer angitt på gruppepolicynivå. En administrator kan imidlertid fortsatt konfigurere automatiske oppdateringer via Kontrollpanel.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 – Automatisk nedlasting, Varsle om installasjon, Varsle om omstart</string>
       <string id="AutoUpdateModeAdminChooses">5 – Tillat administratorer å velge innstilling</string>
       <string id="AutoUpdateModeAuto">4 – Last automatisk og planlegg installasjon</string>
       <string id="AutoUpdateModeDownload">3 – Last automatisk og varsle om installasjon</string>
@@ -356,6 +363,10 @@ Hvis du vil hindre at kvalitetsoppdateringer mottas til planlagt tidspunkt, kan 
 Hvis du vil fortsette å motta kvalitetsoppdateringer på pause, tømmer du feltet med startdato.
 
 Hvis du deaktiverer eller ikke konfigurerer denne policyen, vil ikke Windows Update endre virkemåte.</string>
+      <string id="TargetReleaseVersion_Title">Velg oppdateringsversjonen for målfunksjonen</string>
+      <string id="TargetReleaseVersion_Help">Aktiver denne policyen for å angi en funksjonsoppdateringsversjon som skal forespørres i senere søk.
+
+Angi versjon som oppført på informasjonssiden for Windows aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Ikke ta med drivere i Windows-oppdateringer</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Aktiver denne policyen slik at drivere ikke inkluderes med kvalitetsoppdateringer for Windows
 
@@ -705,6 +716,11 @@ Denne policyen overstyrer følgende policyer:
         <text>følgende antall minutter til å</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">lagre arbeidet:  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Målversjon for funksjonsoppdateringer</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Angi hvordan du vil motta forhåndsversjonsbygg:</dropdownList>
       </presentation>

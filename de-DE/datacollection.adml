@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1 – Einfach</string>
       <string id="AllowTelemetry_2">2 – Erweitert</string>
       <string id="AllowTelemetry_3">3 – Vollständig</string>
-      <string id="AllowTelemetry_Explain">Diese Richtlinieneinstellung bestimmt die höchste Ebene der Windows-Diagnosedaten, die an Microsoft gesendet werden. Wenn Sie diese Einstellung konfigurieren, verhindern Sie, dass Benutzer Ihre Telemetrie-Einstellungen ändern. Sie verhindern jedoch auch, dass sie eine höhere Ebene auswählen, als Sie für die Organisation festgelegt haben. Die Einstellungen  für die Windows 10-Diagnosedaten gelten nur für das Windows-Betriebssystem und die in Windows enthaltenen Apps. Diese Einstellungen gelten nicht für Apps von Drittanbietern, die unter Windows 10 ausgeführt werden.
+      <string id="AllowTelemetry_Explain">Wenn diese Einstellung in Windows 10 konfiguriert wird, können Endbenutzer keine höhere Ebene der Telemetriedatensammlung auswählen als diejenige, die Sie für Ihre Organisation festgelegt haben. Diese Beschränkung gilt nur für das Windows-Betriebssystem und für Apps, die in Windows enthalten sind, und nicht etwa für Drittanbieter-Apps, die unter Windows 10 ausgeführt werden.
 
-Wenn Sie diese Einstellung aktivieren, können Sie entscheiden, welche Ebene von Diagnosedaten an Microsoft gesendet werden soll, darunter:
+Diagnosedaten sind in die folgenden vier Ebenen kategorisiert:
+  - 0 (Sicherheit). Für den Schutz von Windows, Windows Server und System Center erforderliche Informationen – einschließlich Daten zu den Einstellungen der Komponente "Benutzererfahrungen und Telemetrie im verbundenen Modus", zum Tool zum Entfernen bösartiger Software sowie zu Microsoft Defender.
+  - 1 (Allgemein). Grundlegende Geräteinformationen, einschließlich qualitätsbezogener Daten, App-Kompatibilität und Daten zur Sicherheitsstufe.
+  - 2 (Erweitert). Zusätzliche Einblicke, etwa hinsichtlich der Nutzung und Leistung von Windows, Windows Server, System Center und Apps, erweiterter Daten zur Zuverlässigkeit sowie Daten der Ebenen "Allgemein" und "Sicherheit".
+  - 3 (Vollständig). Alle zum Identifizieren und Beheben von Problemen erforderlichen Daten, sowie Daten der Ebenen "Sicherheit", "Allgemein" und "Erweitert".
 
-  - 0 (Sicherheit). Sendet nur eine minimale Datenmenge an Microsoft, die erforderlich ist, um die Sicherheit von Windows zu gewährleisten. Windows-Sicherheitskomponenten, z.B. das Tool zum Entfernen bösartiger Software (MSRT) und Windows Defender, senden möglicherweise Daten an Microsoft auf dieser Ebene, sofern aktiviert. Das Festlegen eines Werts von 0 gilt nur für Geräte, die die Editionen Enterprise, Education, IoT oder Windows Server ausführen. Das Festlegen eines Werts von 0 für andere Editionen entspricht dem Festlegen eines Werts von 1.
-  - 1 (Basis). Sendet dieselben Daten wie ein Wert von 0, zuzüglich einer sehr begrenzten Anzahl von Diagnosedaten, z.B. grundlegende Geräteinformationen, qualitätsbezogene Daten und App-Kompatibilitätsinformationen. Beachten Sie, dass Einstellungswerte von 0 oder 1 bestimmte Erfahrungen auf dem Gerät beeinträchtigen können.
-  - 2 (Erweitert). Sendet dieselben Daten wie ein Wert von 1 sowie zusätzliche Daten, wie z. b. wie Windows, Windows Server, System Center und Apps verwendet werden, sowie deren Leistung und erweiterte Zuverlässigkeitsdaten.
-  - 3 (Voll). Sendet die gleichen Daten wie ein Wert von 2, sowie zusätzlich erweiterte Diagnosedaten, die verwendet werden, um Probleme mit Geräten zu diagnostizieren und zu beheben, einschließlich der Dateien und Inhalte, die möglicherweise ein Problem mit dem Gerät verursacht haben.
-
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können die Telemetrie-Einstellungen in den Einstellungen einzeln konfiguriert werden.
+Optionen, die Benutzern in der Einstellungs-App zur Verfügung stehen, werden durch die Konfiguration dieser Einstellung geändert und können selbst dann durch andere Gruppenrichtlinieneinstellungen beeinflusst werden, wenn sie nicht festgelegt wurden. Beachten Sie, dass Endbenutzer keine höhere Ebene auswählen können, wenn diese Richtlinie für die Telemetrieeinstellung "Sicherheit" oder "Allgemein" konfiguriert ist.
       </string>
 
-      <string id="TelemetryProxy">Benutzererfahrung und Telemetrie im verbundenen Modus konfigurieren</string>
+      <string id="TelemetryProxy">Benutzererfahrungen und Telemetrie im verbundenen Modus konfigurieren</string>
       <string id="TelemetryProxy_Explain">Mit dieser Richtlinieneinstellung können Sie Anfragen des Diensts "Benutzererfahrung und Telemetrie im verbundenen Modus" an einen Proxyserver weiterleiten.
 
 Wenn Sie die Richtlinieneinstellung aktivieren, können Sie den FQDN oder die IP-Adresse des Zielgeräts in Ihrem Unternehmensnetzwerk (und optional eine Portnummer) angeben. Die Verbindung erfolgt über SSL (Secure Sockets Layer). Bei einem Fehler mit dem benannten Proxy oder bei deaktivierter oder nicht konfigurierter Richtlinieneinstellung werden die Daten zu "Benutzererfahrung und Telemetrie im verbundenen Modus" über die Standardproxykonfiguration an Microsoft gesendet.
@@ -67,14 +66,14 @@ Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird 
       <string id="ConfigureTelemetryOptInSettingsUx">Konfigurieren der Benutzeroberfläche der Telemetrie-Opt-in-Einstellung.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Deaktivieren der Telemetrie-Opt-in-Einstellungen</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Aktivieren von Telemetrie-Opt-in-Einstellungen</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Diese Richtlinieneinstellung bestimmt, ob Benutzer in den Einstellungen ihre eigenen Telemetrie-Ebenen ändern können. Diese Einstellung sollte in Verbindung mit den Einstellungen für "Telemetrie zulassen" verwendet werden.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Diese Richtlinieneinstellung bestimmt, ob Benutzer in den Einstellungen ihre eigenen Telemetrie-Ebenen ändern können.
 
-Wenn Sie diese Richtlinieneinstellung auf "Telemetrie-Opt-in-Einstellungen deaktivieren" festlegen, werden die Telemetrie-Ebenen in den Einstellungen deaktiviert und verhindern, dass Benutzer Sie ändern.
+Wenn Sie diese Richtlinieneinstellung auf "Telemetrie-Opt-in-Einstellungen deaktivieren" festlegen, werden die Telemetrie-Ebenen in den Einstellungen deaktiviert und verhindern, dass Benutzer diese ändern.
 
-Wenn Sie diese Richtlinieneinstellung auf "Telemetrie-Opt-in-Einstellungen aktivieren" festlegen oder diese Richtlinieneinstellung nicht konfigurieren, können Benutzer in den Einstellungen ihre eigenen Telemetrie-Ebenen ändern.
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren oder die Einstellung "Telemetrie-Opt-in-Einstellungen aktivieren" festlegen, können Endbenutzer die Telemetrie-Ebene in der Einstellungs-App ändern.
 
 Hinweis:
-Legen Sie die Einstellung "Telemetrie-Richtlinie zulassen" fest, um zu verhindern, dass Benutzer über das Organisationslimit hinaus Diagnosedaten an Microsoft senden.
+Verwenden Sie die Einstellung "Telemetrie-Richtlinie zulassen", um die Ebene der von Ihrer Organisation an Microsoft gesendeten Diagnosedaten zu beschränken.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Konfigurieren von Telemetrie-Opt-in-Änderungsbenachrichtigungen.</string>

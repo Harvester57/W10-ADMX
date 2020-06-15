@@ -3917,6 +3917,33 @@ Obs!  Hvis du også har aktivert policyinnstillingen Administrative maler\Window
 Hvis du aktiverer denne innstillingen, ser de ansatte en tilleggsside i Internet Explorer 11 der det står at et område er åpnet med Microsoft Edge i organisasjonsmodus.
 
 Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, brukes standard virkemåte for appen, og ingen tilleggsside vises.</string>
+      <string id="NeedEdgeBrowser">Konfigurer hvilken kanal for Microsoft Edge som skal brukes til å åpne omdirigerte områder</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Med denne policyen kan du konfigurere opptil tre versjoner av Microsoft Edge til å åpne et omdirigert område (i henhold til innstillinger). Bruk denne policyen hvis miljøet er konfigurert til å omdirigere områder fra Internet Explorer 11 til Microsoft Edge. Hvis noen av de valgte versjonene ikke er installert på enheten, blir innstillingen omgått.
+
+Hvis Windows Update for den neste versjonen av Microsoft Edge* og Microsoft Edge Stable-kanalen er installert, skjer følgende virkemåter:
+– Hvis du deaktiverer eller ikke konfigurerer denne policyen, brukes Microsoft Edge Stable-kanalen. Dette er standard virkemåte.
+– Hvis du aktiverer denne policyen, kan du konfigurere at omdirigerte områder åpnes i opptil tre av de følgende kanalene der:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, versjon 77 eller nyere
+    3 = Microsoft Edge Dev, versjon 77 eller nyere
+    4 = Microsoft Edge Canary, versjon 77 eller nyere
+
+Hvis Windows Update for den neste versjonen av Microsoft Edge* eller Microsoft Edge Stable-kanalen ikke er installert, skjer følgende virkemåter:
+– Hvis du deaktiverer eller ikke konfigurerer denne policyen, brukes Microsoft Edge, versjon 45 eller tidligere automatisk. Dette er standard virkemåte.
+– Hvis du aktiverer denne policyen, kan du konfigurere at omdirigerte områder åpnes i opptil tre av følgende kanaler der:
+    0 = Microsoft Edge, versjon 45 eller tidligere
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, versjon 77 eller nyere
+    3 = Microsoft Edge Dev, versjon 77 eller nyere
+    4 = Microsoft Edge Canary, versjon 77 eller nyere
+
+*Hvis du vil ha informasjon om Windows-oppdateringen for den neste versjonen av Microsoft Edge deriblant hvordan du deaktiverer den, kan du se https://go.microsoft.com/fwlink/?linkid=2102115. Denne oppdateringen gjelder bare Windows 10, versjon 1709 og nyere.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta, versjon 77 eller nyere</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev, versjon 77 eller nyere</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary, versjon 77 eller nyere</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge, versjon 45 eller nyere</string>
       <string id="KeepIntranetSitesInInternetExplorer">Behold alle intranettområder i Internet Explorer</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Hindrer at intranettområder åpnes i andre nettlesere enn Internet Explorer. Vær imidlertid oppmerksom på at hvis policyen Send alle områder som ikke er inkludert i listen over nettstedsplasseringer for Organisasjonsmodus, til Microsoft Edge (RestrictIE) ikke er aktivert, har ikke denne policyen noen innvirkning.
 
@@ -4801,6 +4828,11 @@ Hvis du vil ha mer informasjon, kan du se Out-of-date ActiveX control blocking (
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Domeneliste</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Førstevalg</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Andrevalg</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Tredjevalg</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

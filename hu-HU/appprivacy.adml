@@ -294,7 +294,7 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a szervezet al
 
 Ha egy alkalmazás meg van nyitva, amikor alkalmazzák ezt a csoportházirend-objektumot egy eszközön, az alkalmazottaknak a házirend-módosítás érvénybe léptetéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
-      <string id="LetAppsActivateWithVoice_Name">A Windows-alkalmazások hangparancsokkal aktiválhatók</string>
+      <string id="LetAppsActivateWithVoice_Name"> A Windows-alkalmazások aktiválása hanggal</string>
       <string id="LetAppsActivateWithVoice_Explain">Ezzel a házirend-beállítással meghatározhatja, hogy a Windows-alkalmazások aktiválhatók-e hangparancsokkal.
 
 Ha „A felhasználó döntheti el” lehetőséget választja, a szervezet alkalmazottai az eszköz Gépház &gt; Adatvédelem lapján megadhatják, hogy a Windows-alkalmazások aktiválhatók-e hangkulcsszóval.
@@ -320,6 +320,21 @@ Ha a „Mindig letiltva” lehetőséget választja, a felhasználók nem vezér
 Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a szervezet alkalmazottai az eszköz Gépház &gt; Adatvédelem lapján megadhatják, hogy a felhasználók vezérelhetik-e az alkalmazásokat hangparancsokkal, amikor a rendszer zárolva van.
 
 Ezt a házirendet a Windows-alkalmazásokra és a Cortana szolgáltatásra alkalmazza a rendszer. Ez a beállítás elsőbbséget élvez a „Cortana zárolt állapotban is működhet” házirenddel szemben. Ez a házirend csak akkor lép érvénybe, ha a „Hangaktiválás engedélyezése” házirend az alkalmazások hangparancsokkal való aktiválásának engedélyezésére van konfigurálva.
+      </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">A Windows-alkalmazások hozzáférhetnek a felhasználók mozgásához, amikor a háttérben futnak</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a felhasználók fejének és kezének mozgásához, a mozgásvezérlőkhöz, valamint más követett tárgyakhoz, amikor a háttérben futnak.
+
+Megadhat egy alapértelmezett beállítást az összes alkalmazáshoz, vagy a csomagcsalád nevének megadásával alkalmazásonként is megadhatja a beállítást. Az alkalmazáshoz tartozó csomagcsaládnevet Get-AppPackage Windows PowerShell-parancsmag használatával tekintheti meg. Az alkalmazásonkénti beállítás felülírja az alapértelmezett beállítást.
+
+Ha megadja „A felhasználó döntheti el” lehetőséget, a szervezet alkalmazottai az eszköz adatvédelmi beállításaiban megadhatják, hogy a Windows-alkalmazások hozzáférhetnek-e a felhasználók mozgásához, amikor a háttérben futnak.
+
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a felhasználók mozgásához, amikor a háttérben futnak, és a szervezet alkalmazottai nem módosíthatják ezt a beállítást.
+
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a felhasználók mozgásához, amikor a háttérben futnak, és a szervezet alkalmazottai nem módosíthatják ezt a beállítást.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a szervezet alkalmazottai saját maguk adhatják meg az eszköz adatvédelmi beállításaiban, hogy a Windows-alkalmazások hozzáférhetnek-e a felhasználók mozgásához, amikor a háttérben futnak.
+
+Ha egy alkalmazás meg van nyitva, amikor ezt a csoportházirend-objektumot az eszközre alkalmazzák, az alkalmazottaknak a házirend módosításainak életbe léptetéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
       </string>
     </stringTable>
     <presentationTable>
@@ -499,6 +514,15 @@ Ezt a házirendet a Windows-alkalmazásokra és a Cortana szolgáltatásra alkal
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

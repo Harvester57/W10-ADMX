@@ -66,18 +66,18 @@ Nieskonfigurowanie tego ustawienia zasad umożliwi użytkownikowi określenie, c
 Włączenie tej zasady umożliwia skonfigurowanie sposobu stosowania zalecanych kroków rozwiązywania problemów na urządzeniu użytkownika. Możesz wybrać jedną z następujących wartości:
 0 = Wyłącz tę funkcję.
 1 = Wyłącz tę funkcję, ale nadal stosuj kroki rozwiązywania problemów krytycznych.
-2 = Powiadom użytkowników o dostępności zalecanych kroków rozwiązywania problemów, a następnie umożliw użytkownikowi uruchomienie ich lub zignorowanie.
-3 = Uruchom automatycznie zalecane kroki rozwiązywania problemów i powiadom użytkownika po pomyślnym ich wykonaniu.
-4 = Uruchom automatycznie zalecane kroki rozwiązywania problemów bez powiadamiania użytkownika.
+2 = Powiadom użytkowników o dostępności zalecanych kroków rozwiązywania problemów, a następnie umożliw użytkownikowi wykonanie ich lub zignorowanie.
+3 = Wykonaj automatycznie zalecane kroki rozwiązywania problemów i powiadom użytkownika po pomyślnym ich wykonaniu.
+4 = Wykonaj automatycznie zalecane kroki rozwiązywania problemów bez powiadamiania użytkownika.
 5 = Zezwól użytkownikowi na wybranie własnych zalecanych kroków rozwiązywania problemów.
 
 Aby po określeniu wartości tego nowego ustawienia wyzwolić wykonanie zalecanych kroków rozwiązywania problemów dla urządzeń w Twojej domenie, wykonaj następujące instrukcje:
 1. Utwórz skrypt BAT z następującą zawartością:
 rem Ten skrypt wsadowy wyzwala wykonanie zalecanych kroków rozwiązywania problemów
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
 2. Aby utworzyć nowe zadanie natychmiastowe, wybierz kolejno pozycje Edytor zarządzania zasadami grupy &gt; Konfiguracja komputera &gt; Preferencje i wybierz pozycję Ustawienia Panelu sterowania. 
-3. W obszarze Ustawienia Panelu sterowania kliknij prawym przyciskiem myszy pozycję Zaplanowane zadania i wybierz polecenie Nowe. Wybierz pozycję Zadanie natychmiastowe (przynajmniej system Windows 7).
+3. W obszarze Ustawienia Panelu sterowania kliknij prawym przyciskiem myszy pozycję Zaplanowane zadania i wybierz polecenie Nowe. Wybierz pozycję Zadanie natychmiastowe (co najmniej system Windows 7).
 4. Podaj odpowiednią nazwę i opis, a następnie w obszarze Opcje zabezpieczeń w polu Konto użytkownika wybierz wartość System i zaznacz pole wyboru Uruchom z najwyższymi uprawnieniami.
 5. Na karcie Akcje utwórz nową akcję, jako jej typ wybierz pozycję Uruchom program, a następnie wprowadź plik utworzony w kroku 1.
 6. Skonfiguruj zadanie do wdrożenia w swojej domenie.</string>

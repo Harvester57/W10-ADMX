@@ -72,9 +72,9 @@ Om du aktiverar den här principen kan du konfigurera hur rekommenderad felsökn
 När du har konfigurerat den här nya inställningen följer du anvisningarna nedan för att utlösa rekommenderad felsökning för enheter i din domän:
 1. Skapa ett bat-skript med följande innehåll:
 rem Följande batchskript utlöser rekommenderad felsökning.
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
-2. om du vill skapa en ny omedelbar aktivitet går du till Redigeraren för grupprinciphantering &gt; Datorkonfiguration &gt; Inställningar och väljer Kontrollpanelsinställningar. 
+2. Om du vill skapa en ny omedelbar aktivitet går du till Redigeraren för grupprinciphantering &gt; Datorkonfiguration &gt; Inställningar och väljer Kontrollpanelsinställningar. 
 3. Högerklicka på Schemalagda aktiviteter under Kontrollpanelsinställningar och välj Ny. Välj Omedelbar aktivitet (Windows 7 och senare).
 4. Ange ett lämpligt namn och en beskrivning. Sätt sedan användarkontot till System under Säkerhetsalternativ och markera kryssrutan Kör med högsta behörighet.
 5. Skapa en ny åtgärd på fliken Åtgärder, välj Starta ett program som typ och ange filen som skapades i steg 1.
@@ -84,7 +84,7 @@ C:\Windows\System32\mitigationscanner.exe
 <string id="RecommendationsDropDown_AskFirst">Meddela användarna när rekommenderad felsökning är tillgänglig och låt sedan användarna välja att köra eller ignorera den.</string>
 <string id="RecommendationsDropDown_ApplyThenNotify">Kör rekommenderad felsökning automatiskt och meddela användarna när den är klar.</string>
 <string id="RecommendationsDropDown_ApplySilently">Kör rekommenderad felsökning automatiskt utan att meddela användarna.</string>
-<string id="RecommendationsDropDown_DeferToUser">Låt användarna välja inställningar för rekommenderad felsökning.</string>
+<string id="RecommendationsDropDown_DeferToUser">Låt användaren välja inställningar för rekommenderad felsökning.</string>
     </stringTable>
     <presentationTable>
       <presentation id="MsdtToolDownloadPolicy">

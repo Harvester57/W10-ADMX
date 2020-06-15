@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Appx-paketinhallinta</displayName> 
+  <displayName>Appx-paketinhallinta</displayName>
   <description>Appx-paketinhallinta</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Jos otat tämän käytäntöasetuksen käyttöön, ryhmäkäytäntö sallii Wind
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ryhmäkäytäntö estää Windows-kaupan sovellusten käyttöönottotoiminnot, kun käyttäjä käyttää erityisprofiilia.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Sallii Windows-kaupan sovellusten kehittämisen ja asentamisen integroidusta kehitysympäristöstä (IDE)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Sallii tai estää Windows-kaupan sovellusten kehittämisen ja asentamisen suoraan integroidusta kehitysympäristöstä.
+        Sallii tai estää Microsoft Storen sovellusten kehittämisen ja asentamisen suoraan integroidusta kehitysympäristöstä.
 
-        Jos otat tämän asetuksen käyttöön ja jos otat käyttöön Salli kaikkien luotettujen sovellusten asennus -ryhmäkäytännön, voit kehittää Windows-kaupan sovelluksia ja asentaa niitä suoraan integroidusta kehitysympäristöstä.
-        
-        Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, et voi kehittää Windows-kaupan sovelluksia tai asentaa niitä suoraan integroidusta kehitysympäristöstä.
+        Jos otat käyttöön tämän asetuksen ja Salli kaikkien luotettujen sovellusten asennus -ryhmäkäytännön, voit kehittää Microsoft Storen sovelluksia ja asentaa niitä suoraan integroidusta kehitysympäristöstä.
+
+        Jos poistat tämän asetuksen käytöstä tai et määritä sitä, et voi kehittää Microsoft Storen sovelluksia tai asentaa niitä suoraan integroidusta kehitysympäristöstä.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Poista käytöstä Windows-sovellusten asentaminen muihin kuin järjestelmäasemiin</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ry
         Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjien sovellustiedot siirretään mukana, kun sovellus siirretään eri asemaan.
       </string>
       <string id="AllowSharedLocalAppData">Salli Windows-sovelluksen jakaa sovellustietoja käyttäjien välillä</string>
-      <string id="AllowSharedLocalAppDataExplanation">Hallitsee Windows-sovelluksen kykyä jakaa tietoja sovelluksen asentaneiden käyttäjien välillä.
-      
-        Jos otat tämän käytännön käyttöön, Windows-sovellus voi jakaa tietoja kyseisen sovelluksen muiden esiintymien kanssa. Tiedot jaetaan SharedLocal-kansion kautta. Tämä kansio on käytettävissä Windows.Storage-ohjelmointirajapinnan kautta.
+      <string id="AllowSharedLocalAppDataExplanation">Hallinnoi Windows-sovelluksen kykyä jakaa tietoja sovelluksen asentaneiden käyttäjien välillä.
 
-        Jos poistat tämän käytännön käytöstä, Windows-sovellus ei voi jakaa sovellustietoja kyseisen sovelluksen muiden esiintymien kanssa. Jos tämä käytäntö oli otettu käyttöön aiemmin, aiemmin jaetut sovellustiedot pysyvät SharedLocal-kansiossa. 
+        Jos otat tämän käytännön käyttöön, Windows-sovellus pystyy jakamaan sovellustietoja kyseisen sovelluksen muiden esiintymien kanssa. Tiedot jaetaan SharedLocal-kansion kautta. Tämä kansio on käytettävissä Windows.Storage-ohjelmointirajapinnan kautta.
+
+        Jos poistat tämän käytännön käytöstä, Windows-sovellus ei pysty jakamaan sovellustietoja kyseisen sovelluksen muiden esiintymien kanssa. Jos tämä käytäntö on otettu aiemmin käyttöön, aiemmin jaetut sovellustiedot pysyvät SharedLocal-kansiossa.
+      </string>
+      <string id="BlockNonAdminUserInstall">Estä muita kuin järjestelmänvalvojaa asentamasta paketoituja Windows-sovelluksia</string>
+      <string id="BlockNonAdminUserInstallExplanation">Hallinnoi muiden kuin järjestelmänvalvojien mahdollisuutta asentaa Windows-sovelluspaketteja.
+
+        Jos otat tämän käytännön käyttöön, muut kuin järjestelmänvalvojat eivät voi asentaa Windows-sovelluspaketteja. Kun järjestelmänvalvoja haluaa asentaa sovelluksen, hänen on tehtävä se järjestelmänvalvojaympäristössä (esimerkiksi järjestelmänvalvojan PowerShell-ikkunassa). Kaikki käyttäjät voivat edelleen asentaa Windows-sovelluspaketteja Microsoft Storesta, jos muut käytännöt sallivat sen.
+
+        Jos poistat tämän käytännön käytöstä tai et määritä sitä, kaikki käyttäjät pystyvät asentamaan Windows-sovelluspaketteja.
       </string>
     </stringTable>
   </resources>

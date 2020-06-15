@@ -57,19 +57,21 @@ Poznámka: Ovládací panel Zobrazení nelze pomocí tohoto nastavení skrýt v�
 
 Poznámka: Chcete-li skrýt stránky v aplikaci Nastavení Systému, použijte nastavení Viditelnost stránky nastavení v položce Konfigurace počítače.</string>
       <string id="SettingsPageVisibility">Viditelnost stránky nastavení</string>
-      <string id="SettingsPageVisibility_Help">Určuje seznam stránek zobrazených nebo skrytých z aplikace Nastavení systému.
+      <string id="SettingsPageVisibility_Help">Určuje seznam stránek, které se mají zobrazit nebo skrýt v aplikaci Nastavení systému.
 
-Tato zásada umožňuje správci blokovat danou sadu stránek z aplikace Nastavení systému. Blokované stránky nebudou v aplikaci viditelné a pokud jsou blokovány všechny stránky v kategorie, bude skryta i tato kategorie. Přímá navigace na blokovanou stránku prostřednictvím URI, kontextové nabídky v Průzkumníku nebo jiným způsobem způsobí zobrazení hlavní stránky Nastavení.
+Tato zásada umožňuje správci blokovat určitou sadu stránek v aplikaci Nastavení systému. Blokované stránky nebudou v aplikaci viditelné, a pokud jsou blokovány všechny stránky v určité kategorii, bude skryta i tato kategorie. Přímá navigace na blokovanou stránku přes identifikátor URI, místní nabídky v Průzkumníku nebo jiným způsobem způsobí zobrazení hlavní stránky Nastavení.
 
-Tato zásada má dva režimy: Buď může určovat seznam stránek nastavení pro zobrazení nebo seznam stránek pro skrytí. Pro určení seznamu stránek pro zobrazení musí na začátku řetězce zásady být "showonly:" (bez uvozovek) a pro určení seznamu stránek pro skrytí musí na začátku řetězce být "hide:". Pokud by stránka v seznamu showonly byla skryta z jiného důvodu (např. chybějící hardwarové zařízení), zásada nezpůsobí, že se daná stránka zobrazí. Dále musí řetězec zásady obsahovat středníky oddělený seznam identifikátorů stránky nastavení. Identifikátorem pro jakoukoli stránku nastavení je publikovaný URI pro danou stránku bez části protokolu "ms-settings:"
+Tato zásada má dva režimy: buď může určovat seznam stránek nastavení k zobrazení, nebo seznam stránek ke skrytí. Pro určení seznamu stránek k zobrazení musí být na začátku zásady řetězec „showonly:“ (bez uvozovek) a pro určení seznamu stránek ke skrytí musí být na začátku řetězec „hide:“. Pokud by stránka v seznamu showonly byla skryta z jiného důvodu (např. kvůli chybějícímu hardwarovému zařízení), zásada nezpůsobí, že se daná stránka zobrazí. Dále musí řetězec zásady obsahovat středníky oddělený seznam identifikátorů stránek nastavení. Identifikátorem pro jakoukoli stránku nastavení je její publikovaný identifikátor URI bez části označující protokol: „ms-settings:“.
 
-Příklad: pro určení, aby se zobrazily pouze stránky O produktu a Bluetooth (jejich URI jsou ms-settings:about a ms-settings:bluetooth) a skrytí všech ostatních stránek:
+Příklad: Pro určení, aby se zobrazily pouze stránky O produktu a Bluetooth (jejich identifikátory URI jsou ms-settings:about a ms-settings:bluetooth) a skryly všechny ostatní stránky:
 
 showonly:about;bluetooth
 
-Příklad: pro určení, aby se skryla pouze stránka Bluetooth (která má URI ms-settings:bluetooth):
+Příklad: Pro určení, aby se skryla pouze stránka Bluetooth (která má identifikátor URI ms-settings:bluetooth):
 
-hide:bluetooth</string>
+hide:bluetooth
+
+Dokumentace k dostupnosti podpory pro jednotlivé uživatele: https://go.microsoft.com/fwlink/?linkid=2102995</string>
       <string id="AllowOnlineTips">Povolit online tipy</string>
       <string id="AllowOnlineTips_Help">Povolí nebo zakáže načítání online tipů a nápovědy pro aplikaci Nastavení.
 

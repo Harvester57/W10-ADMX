@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">En azından Windows Server 2003 işletim sistemleri veya SP1'li Windows XP Professional, Windows RT hariç</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">En az Windows XP Professional Hizmet Paketi 1 veya en az Windows 2000 Hizmet Paketi 3'ten Windows 8.1'e kadar veya en güncel hizmet paketiyle Windows Server 2012 R2</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">En az Windows Vista'dan Windows 8.1'e kadar veya en güncel hizmet paketiyle Windows Server 2012 R2</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 veya En az Windows 2000 Service Pack 3
+Seçenek 7 yalnızca en az Windows Server 2016 sürümünü çalıştıran sunucularda desteklenir​</string>
       <string id="AUDontShowUasHelp">Bu ilke ayarı sizin Windows Kapatma iletişim kutusunda "Güncelleştirmeleri Yükle ve Kapat" seçeneğinin gösterilip gösterilmemesini yönetmenizi sağlar.
 
 Bu ilke ayarını etkinleştirdiğiniz takdirde, kullanıcı Başlat menüsünden Kapat'ı seçtiğinde kurulum için güncelleştirmeler hazır olsa bile "Güncelleştirmeleri Yükle ve Kapat" Windows Kapatma iletişim kutusunda bir seçenek olarak görülmeyecektir.
@@ -66,7 +68,7 @@ Bu ayar, bilgisayarda otomatik güncelleştirmelerin etkinleştirilmiş olup olm
 
         4 = Güncelleştirmeleri otomatik olarak indir ve bunları aşağıda belirtilen zamanlamaya uygun olarak yükle.
 
-        Zamanlanan yükleme zamanı olarak "Otomatik" seçilirse Windows, güncelleştirmeleri otomatik olarak denetler, indirir ve yükler. Cihaz, grup ilkesi tarafından yapılandırılmadığı sürece Windows varsayılan ayarlarına göre yeniden başlayacaktır. (Windows 10, sürüm 1809 ve üzeri sürümler için geçerlidir)
+        Zamanlanan yükleme zamanı olarak "Otomatik" seçilirse Windows, güncelleştirmeleri otomatik olarak denetler, indirir ve yükler. Cihaz, grup ilkesi tarafından yapılandırılmadığı sürece Windows varsayılan ayarlarına göre yeniden başlatılır. (Windows 10, sürüm 1809 ve üzeri sürümler için geçerlidir.)
 
         Grup İlkesi Ayarı'ndaki seçenekleri kullanarak zamanlamayı belirtin. Sürüm 1709 ve üzeri için güncelleştirmeyi haftada bir, iki haftada bir veya ayda bir gerçekleşecek şekilde sınırlama seçeneği vardır. Herhangi bir zamanlama belirtilmezse tüm yüklemeler için varsayılan zamanlama her gün saat 03:00 olacaktır. Güncelleştirmeler, yüklemenin tamamlanabilmesi için bilgisayarın yeniden başlatılmasını gerektiriyorsa Windows, bilgisayarı otomatik olarak yeniden başlatır. (Windows yeniden başlatmaya hazır olduğunda bir kullanıcı oturum açmışsa kullanıcı uyarılır ve kendisine yeniden başlatmayı geciktirme seçeneği sunulur).
 
@@ -76,10 +78,15 @@ Bu ayar, bilgisayarda otomatik güncelleştirmelerin etkinleştirilmiş olup olm
 
         Bu seçenekle, yerel yöneticilerin istedikleri yapılandırma seçeneğini belirtmek üzere Windows Update denetim masasını kullanmalarına izin verilir. Yerel yöneticilerin Otomatik Güncelleştirmeler yapılandırmasını devre dışı bırakmalarına izin verilmez.
 
-Bu ilkenin durumu Devre Dışı Bırakıldı olarak ayarlanırsa Windows Update üzerindeki tüm güncelleştirmeler manuel olarak indirilmeli ve yüklenmelidir. Bunu yapmak için Başlat'ı kullanarak Windows Update'i arayın.
+        7 = Yükleme bildirimi göster ve yeniden başlatma bildirimi göster. (Yalnızca Windows Server)
+
+        Yalnızca Server SKU cihazlarına uygulanabilen bu Windows Server 2016 seçeneğiyle yerel yöneticiler yüklemeleri veya yeniden başlatmaları el ile sürdürmek için Windows Update'i kullanabilirler.
+
+Bu ilkenin durumu Devre Dışı bırakıldı olarak ayarlanırsa Windows Update'te mevcut tüm güncelleştirmelerin el ile indirilip yüklenmesi gerekir. Bunun için Başlat menüsünü kullanarak Windows Update'i arayın.
 
 Durum Yapılandırılmadı olarak ayarlanırsa Otomatik Güncelleştirmeler'in kullanımı Grup İlkesi düzeyinde belirtilmez. Ancak bir yönetici, Denetim Masası'ndan Otomatik Güncelleştirmeler'i yine de yapılandırabilir.</string>
 
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Otomatik İndir, Yüklemeyi bildir, Yeniden Başlatmayı Bildir</string>
       <string id="AutoUpdateModeAdminChooses">5 - Yerel yöneticinin ayarı seçmesine izin ver</string>
       <string id="AutoUpdateModeAuto">4 - Otomatik karşıdan yükle, kurmayı zamanla</string>
       <string id="AutoUpdateModeDownload">3 - Otomatik karşıdan yükle, kurma için uyar</string>
@@ -350,6 +357,10 @@ Kalite güncelleştirmelerinin planlanan sürede alınmasını engellemek için 
 Duraklatılan Kalite Güncelleştirmelerini almaya devam etmek için başlangıç tarihi alanını temizleyin.
 
 Bu ilkeyi devre dışı bırakır veya yapılandırmazsanız, Windows Update davranışını değiştirmez.</string>
+      <string id="TargetReleaseVersion_Title">Hedef Özellik Güncelleştirmesi sürümünü seç</string>
+      <string id="TargetReleaseVersion_Help">Sonraki taramalarda istenecek bir Özellik Güncelleştirmesi sürümü belirtmek için bu ilkeyi etkinleştirin.
+
+Sürümü aka.ms/ReleaseInformationPage adresindeki Windows Sürüm Bilgileri sayfasında listelendiği şekliyle girin</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Windows Güncelleştirmeleri olan sürücüleri dahil etme</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Sürücüleri Windows kalite güncelleştirmelerine dahil etmemek için bu ilkeyi etkinleştirin.
 
@@ -699,6 +710,11 @@ Bu ilke, aşağıdaki ilkeleri geçersiz kılar:
         <text>çalışmalarını kaydetmeleri için şu kadar</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">zaman verir (dakika):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Özellik Güncelleştirmeleri için Hedef Sürüm</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Önizleme sürümlerini alma davranışını ayarla:</dropdownList>
       </presentation>

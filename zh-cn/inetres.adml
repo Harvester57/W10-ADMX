@@ -3917,6 +3917,33 @@ InPrivate 筛选可帮助用户控制第三方是否可以根据用户访问的�
 如果启用此设置，则员工会在 Internet Explorer 11 中看到一个指出某个站点已在企业模式下使用 Microsoft Edge 打开的附加页。
 
 如果禁用或未配置此设置，则会出现默认应用行为，不显示任何附加页。</string>
+      <string id="NeedEdgeBrowser">配置用于打开重定向的站点的 Microsoft Edge 通道</string>
+      <string id="IE_ExplainNeedEdgeBrowser">使你最多可以配置三个版本的 Microsoft Edge 来打开重定向的站点(按首选项顺序)。如果你的环境配置为将站点从 Internet Explorer 11 重定向到 Microsoft Edge，请使用此策略。如果设备上未安装任何选定版本，则将忽视该首选项。
+
+如果同时安装了适用于下一版本 Microsoft Edge* 的 Windows 更新和 Microsoft Edge 稳定渠道，则会发生以下行为:
+- 如果禁用或未配置此策略，则使用 Microsoft Edge 稳定渠道。这是默认行为。
+- 如果启用此策略，则可以将重定向的站点配置为最多在以下三个渠道中打开，其中:
+    1 = Microsoft Edge 稳定渠道
+    2 = Microsoft Edge 测试版本 77 或更高版本
+    3 = Microsoft Edge Dev 版本 77 或更高版本
+    4 = Microsoft Edge Canary 版本 77 或更高版本
+
+如果未安装适用于下一版本 Microsoft Edge* 的 Windows 更新或 Microsoft Edge 稳定渠道，则会发生以下行为:
+- 如果禁用或未配置此策略，则会自动使用 Microsoft Edge 45 或更早版本。这是默认行为。
+- 如果启用此策略，则可以将重定向的站点配置为最多在以下三个渠道中打开，其中:
+    0 = Microsoft Edge 版本 45 或更早版本
+    1 = Microsoft Edge 稳定渠道
+    2 = Microsoft Edge 测试版本 77 或更高版本
+    3 = Microsoft Edge Dev 版本 77 或更高版本
+    4 = Microsoft Edge Canary 版本 77 或更高版本
+
+*有关适用于下一版本 Microsoft Edge 的 Windows 更新的详细信息(包括如何禁用)，请参阅 https://go.microsoft.com/fwlink/?linkid=2102115。此更新仅适用于 Windows 10 版本 1709 及更高版本。</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta 版本 77 或更高版本</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev 版本 77 或更高版本</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary 版本 77 或更高版本</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge 版本 45 或更早版本</string>
       <string id="KeepIntranetSitesInInternetExplorer">在 Internet Explorer 中保留所有 Intranet 站点</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">阻止 Intranet 站点在除 Internet Explorer 以外的任何浏览器中打开。但请注意，如果“将企业模式站点列表中不包含的所有站点发送到 Microsoft Edge”("RestrictIE") 策略未启用，则此策略不起作用。
 
@@ -4801,6 +4828,11 @@ LOBApp.contoso.com</string>
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">域列表</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">第一个选项</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">第二个选项</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">第三个选项</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

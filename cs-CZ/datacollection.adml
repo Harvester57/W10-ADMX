@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1 – Základní</string>
       <string id="AllowTelemetry_2">2 – Rozšířené</string>
       <string id="AllowTelemetry_3">3 – Úplné</string>
-      <string id="AllowTelemetry_Explain">Nastavení této zásady určuje nejvyšší úroveň diagnostických dat Windows odesílaných do Microsoftu. Konfigurací tohoto nastavení nezabráníte uživatelům ve změně jejich nastavení telemetrie, ale nebudou si moct zvolit vyšší úroveň, než jste nastavili pro organizaci. Nastavení diagnostických dat Windows 10 se vztahuje jen na operační systém Windows a aplikace, které jsou jeho součástí. Nevztahuje se na aplikace třetích stran běžící ve Windows 10.
+      <string id="AllowTelemetry_Explain">Konfigurací tohoto nastavení ve Windows 10 znemožníte koncovým uživatelům, aby vyjádřili výslovný souhlas se shromažďováním telemetrie na vyšší úrovni, než jakou jste nastavili pro organizaci. Toto omezení platí jen pro operační systém Windows a aplikace, které jsou jeho součástí – nevztahuje se na aplikace třetích stran běžící ve Windows 10.
 
-Pokud toto nastavení povolíte, můžete určit úroveň diagnostických dat, která se mají odesílat do Microsoftu. K dispozici jsou tyto možnosti:
+Diagnostická data se dělí do těchto čtyř úrovní:
+  – 0 (Zabezpečení): Informace potřebné k zajištění zabezpečení systémů Windows, Windows Server a System Center, včetně dat o nastavení součásti Propojená uživatelská prostředí a telemetrie, Nástroje pro odstranění škodlivého softwaru a programu Windows Defender.
+  – 1 (Základní): Základní informace o zařízení včetně dat týkajících se kvality a kompatibility aplikací a dat z úrovně Zabezpečení.
+  – 2 (Rozšířené): Další analytické informace včetně dat o využití a výkonu systémů Windows, Windows Server a System Center, jakož i aplikací, pokročilých dat o spolehlivosti a dat z úrovně Základní a Zabezpečení.
+  – 3 (Úplná): Veškerá data potřebná k identifikaci a řešení problémů plus data z úrovně Zabezpečení, Základní a Rozšířené.
 
-  -0 (Zabezpečení): Odesílá do Microsoftu jen minimální množství dat, které je nutné k zajištění zabezpečení Windows. Pokud je toto nastavení povolené, můžou součásti zabezpečení systému Windows, například Nástroj pro odstranění škodlivého softwaru a program Windows Defender, odesílat do Microsoftu data na této úrovni. Nastavení hodnoty 0 se vztahuje jen na zařízení s edicí Enterprise, Education, IoT nebo Windows Server. Nastavení hodnoty 0 pro ostatní edice má stejnou hodnotu jako nastavení hodnoty 1.
-  -1 (Základní): Odesílá stejná data jako hodnota 0 plus velmi omezené množství diagnostických dat, jako jsou základní informace o zařízení, data související s kvalitou a informace o kompatibilitě aplikací. Mějte na paměti, že nastavení hodnoty 0 nebo 1 bude znamenat omezení některých funkcí zařízení.
-  -2 (Rozšířené): Odesílá stejná data jako hodnota 1 plus další data, například jak jsou systémy Windows, Windows Server, System Center a aplikace používány a jaký mají výkon, jakož i pokročilá data o spolehlivosti.
-  -3 (Úplné): Odesílá stejná data jako hodnota 2 plus rozšířená data pro diagnostiku a řešení problémů se zařízeními, včetně souborů a obsahu, které mohly způsobit potíže se zařízením.
-
-Pokud nastavení této zásady zakážete nebo nenakonfigurujete, nastavení telemetrie bude možné v Nastavení konfigurovat jednotlivě.
+Konfigurací tohoto nastavení se změní možnosti, které jsou uživatelům k dispozici v aplikaci Nastavení, a i v případě, že toto nastavení není zadané, může mít na dostupnost jednotlivých možností vliv nastavení jiných zásad skupiny. Mějte na paměti, že pokud je tato zásada nakonfigurovaná tak, aby povolovala nastavení telemetrie na úrovni Zabezpečení nebo Základní, koncoví uživatelé nebudou moct vybrat vyšší úroveň.
       </string>
 
-      <string id="TelemetryProxy">Konfigurovat propojené uživatelské prostředí a telemetrii</string>
+      <string id="TelemetryProxy">Konfigurovat službu Propojená uživatelská prostředí a telemetrie</string>
       <string id="TelemetryProxy_Explain">Pomocí tohoto nastavení zásad můžete předávat žádosti služby Propojené uživatelské prostředí a telemetrie na proxy server.
 
 Pokud toto nastavení zásad povolíte, můžete zadat plně kvalifikovaný název domény nebo IP adresu cílového zařízení v síti vaší organizace (a pokud chcete, tak i číslo portu). Připojení bude využívat protokol SSL (Secure Sockets Layer). Pokud bude určený proxy server v chybovém stavu nebo pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou data služby Propojené uživatelské prostředí a telemetrie odcházet do Microsoftu s využitím výchozí konfigurace proxy serveru.
@@ -67,14 +66,14 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, nebude se název zařízen
       <string id="ConfigureTelemetryOptInSettingsUx">Umožňuje nakonfigurovat uživatelské rozhraní pro nastavení výslovného souhlasu s telemetrií.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Zakázat nastavení výslovného souhlasu s telemetrií</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Povolit nastavení výslovného souhlasu s telemetrií</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Nastavení této zásady určuje, jestli si uživatelé můžou v Nastavení změnit vlastní úrovně telemetrie. Toto nastavení by se mělo používat ve spojení s nastavením Povolit telemetrii.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Nastavení této zásady určuje, jestli si koncový uživatel může v Nastavení změnit úroveň telemetrie.
 
-Pokud tuto zásadu nastavíte na Zakázat nastavení výslovného souhlasu s telemetrií, budou úrovně telemetrie v Nastavení zakázané, což uživatelům znemožní jejich změny.
+Pokud tuto zásadu nastavíte na Zakázat nastavení výslovného souhlasu s telemetrií, budou úrovně telemetrie v Nastavení zakázané, což koncovým uživatelům znemožní jejich změny.
 
-Pokud tuto zásadu nastavíte na Povolit nastavení výslovného souhlasu s telemetrií nebo ji nenakonfigurujete, uživatelé si vlastní úrovně telemetrie v Nastavení budou moct změnit.
+Pokud tuto zásadu nenakonfigurujete nebo ji nastavíte na Povolit nastavení výslovného souhlasu s telemetrií, koncoví uživatelé si úroveň telemetrie v Nastavení budou moct změnit.
 
 Poznámka:
-Zásadu Povolit telemetrii nastavte tak, aby uživatelé nemohli do Microsoftu odesílat diagnostická data nad limit vaší organizace.
+Pokud chcete omezit úroveň diagnostických dat, která bude vaše organizace odesílat do Microsoftu, použijte nastavení zásady Povolit telemetrii.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Umožňuje nakonfigurovat oznámení o změnách výslovného souhlasu s telemetrií.</string>

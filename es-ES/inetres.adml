@@ -3911,6 +3911,33 @@ Nota: Si has habilitado también la configuración de directiva Plantillas admin
 Si habilitas esta configuración, los empleados verán una página adicional en Internet Explorer 11 que les indicará que se ha abierto un sitio mediante Microsoft Edge con el Modo de empresa.
 
 Si deshabilitas o no configuras esta opción, se aplicará el comportamiento predeterminado de la aplicación y no aparecerá ninguna página adicional.</string>
+      <string id="NeedEdgeBrowser">Configurar el canal de Microsoft Edge que se usará para abrir los sitios redirigidos</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Permite configurar hasta tres versiones de Microsoft Edge para abrir un sitio redirigido (en orden de preferencia). Usa esta directiva si tu entorno está configurado para redirigir sitios de Internet Explorer 11 a Microsoft Edge. Si alguna de las versiones elegidas no está instalada en el dispositivo, esa preferencia se omitirá.
+
+Si tanto la actualización de Windows Update para la siguiente versión de Microsoft Edge* como el canal estable Microsoft Edge están instalados, se producen los comportamientos siguientes:
+- Si deshabilitas o no configuras esta directiva, se usa el canal estable Microsoft Edge. Este es el comportamiento predeterminado.
+- Si habilitas esta directiva, puedes especificar en la configuración que los sitios redirigidos se abran en un máximo de tres de los canales siguientes, donde:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta versión 77 o posterior
+    3 = Microsoft Edge Dev versión 77 o posterior
+    4 = Microsoft Edge Canary versión 77 o posterior
+
+Si la actualización de Windows Update para la siguiente versión de Microsoft Edge* o el canal estable Microsoft Edge no están instalados, se producen los comportamientos siguientes:
+- Si deshabilitas o no configuras esta directiva, se usará Microsoft Edge versión 45 o una versión anterior automáticamente. Este es el comportamiento predeterminado.
+- Si habilitas esta directiva, puedes especificar en la configuración que los sitios redirigidos se abran en un máximo de tres de los canales siguientes, donde:
+    0 = Microsoft Edge versión 45 o anterior
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta versión 77 o posterior
+    3 = Microsoft Edge Dev versión 77 o posterior
+    4 = Microsoft Edge Canary versión 77 o posterior
+
+*Para obtener más información acerca de la actualización de Windows Update para la siguiente versión de Microsoft Edge; p. ej., cómo deshabilitarla, consulta https://go.microsoft.com/fwlink/?linkid=2102115. Esta actualización solo se aplica a Windows 10 versión 1709 o superior.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta versión 77 o posterior</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev versión 77 o posterior</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary versión 77 o posterior</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge versión 45 o anterior</string>
       <string id="KeepIntranetSitesInInternetExplorer">Mantener todos los sitios de la intranet en Internet Explorer</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Impide que los sitios de la intranet se abran en cualquier explorador, excepto en Internet Explorer. Sin embargo, ten en cuenta que si la directiva "Enviar todos los sitios que no están incluidos en la lista de sitios del modo de empresa a Microsoft Edge" ("RestrictIE") no está habilitada, esta directiva no tendrá ningún efecto.
 
@@ -4795,6 +4822,11 @@ Para obtener más información, consulta "Bloqueo de controles ActiveX obsoletos
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Lista de dominios</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Primera opción</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Segunda opción</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Tercera opción</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

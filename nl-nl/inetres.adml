@@ -3914,6 +3914,33 @@ Opmerking: als u ook de beleidsinstelling Beheersjablonen\Windows-onderdelen\Mic
 Als u deze instelling inschakelt, kunnen werknemers een extra pagina zien in Internet Explorer 11, met de melding dat een site is geopend in Microsoft Edge vanuit de Ondernemingsmodus.
 
 Als u deze instelling uitschakelt of niet configureert, past de app de standaardprocedures toe en wordt er geen extra pagina weergegeven.</string>
+      <string id="NeedEdgeBrowser">Configureer welk kanaal van Microsoft Edge moet worden gebruikt voor het openen van omgeleide sites</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Hiermee kunt u tot drie versies van Microsoft Edge configureren voor het openen van een omgeleide site (in volgorde van voorkeur). Gebruik dit beleid als in uw omgeving is geconfigureerd dat sites van Internet Explorer 11 worden omgeleid naar Microsoft Edge. Als een gekozen versie niet is geïnstalleerd op het apparaat, worden die voorkeur overgeslagen.
+
+Als zowel de Windows Update voor de volgende versie van Microsoft Edge* als stabiel Microsoft Edge-kanaal zijn geïnstalleerd, doet zich het volgende gedrag voor:
+- Als u dit beleid uitschakelt of niet configureert, wordt stabiel Microsoft Edge-kanaal gebruikt. Dit is het standaardgedrag.
+- Als u dit beleid inschakelt, kunt u configureren dat omgeleide sites worden geopend in tot drie van de volgende kanalen, waarbij:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta versie 77 of hoger
+    3 = Microsoft Edge Dev versie 77 of hoger
+    4 = Microsoft Edge Canary versie 77 of hoger
+
+Als de Windows Update voor de volgende versie van Microsoft Edge* of stabiel Microsoft Edge-kanaal niet zijn geconfigureerd, doet zich het volgende gedrag voor:
+- Als u dit beleid uitschakelt of niet configureert, wordt Microsoft Edge versie 45 of lager automatisch gebruikt. Dit is het standaardgedrag.
+- Als u dit beleid inschakelt, kunt u configureren dat omgeleide sites worden geopend in tot drie van de volgende kanalen, waarbij:
+    0 = Microsoft Edge versie 45 of lager
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta versie 77 of hoger
+    3 = Microsoft Edge Dev versie 77 of hoger
+    4 = Microsoft Edge Canary versie 77 of hoger
+
+*Voor meer informatie over de Windows-update voor de volgende versie van Microsoft Edge inclusief hoe deze kan worden uitgeschakeld, zie https://go.microsoft.com/fwlink/?linkid=2102115. Deze update is alleen van toepassing op Windows 10 versie 1709 en hoger.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta versie 77 of hoger</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev versie 77 of hoger</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary versie 77 of hoger</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge versie 45 of lager</string>
       <string id="KeepIntranetSitesInInternetExplorer">Alle intranetsites in Internet Explorer houden</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Met deze beleidsregel kunt u voorkomen dat intranetpagina's worden geopend in andere browsers dan Internet Explorer. Houd er rekening mee dat deze beleidsregel geen effect heeft als de beleidsregel 'Alle sites die niet zijn opgenomen in de lijst met websites voor de ondernemingsmodus doorzenden naar Microsoft Edge' ('RestrictIE') niet is ingeschakeld.
 
@@ -4798,6 +4825,11 @@ Zie 'Out-of-date ActiveX control blocking' in de TechNet library voor Internet E
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Lijst met domeinen</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Eerste keuze</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Tweede keuze</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Derde keuze</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Appx パッケージ マネージャー</displayName> 
+  <displayName>Appx パッケージ マネージャー</displayName>
   <description>Appx パッケージ マネージャー</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Guest アカウントと Guests グループのメンバー向けのユーザー
 このポリシー設定を無効にした場合、または構成しなかった場合、グループ ポリシーによって、特殊なプロファイルを使っているときは Windows ストア アプリの展開操作がブロックされます。</string>
       <string id="AllowDevelopmentWithoutDevLicense">Windows ストア アプリの開発と統合開発環境 (IDE) からのインストールを許可する</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Windows ストア アプリケーションの開発と IDE からの直接のインストールを許可または禁止します。
+        Microsoft Store アプリケーションの開発と IDE からの直接インストールを許可または拒否します。
 
-        この設定を有効にして、"信頼できるすべてのアプリのインストールを許可する" グループ ポリシーを有効にした場合、Windows ストア アプリを開発して IDE から直接インストールすることができます。
-        
-        このポリシー設定を無効にした場合、または構成しなかった場合、Windows ストア アプリを開発することも、IDE から直接インストールすることもできません。
+        この設定を有効にして、"信頼できるすべてのアプリのインストールを許可する" グループ ポリシーを有効にした場合、Microsoft Store アプリを開発して IDE から直接インストールすることができます。
+
+        この設定を無効にした場合、または構成しなかった場合は、Microsoft Store アプリを開発することも、IDE から直接インストールすることもできません。
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">システム ボリューム以外への Windows アプリのインストールを無効にする</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Guest アカウントと Guests グループのメンバー向けのユーザー
         この設定を無効にした場合、または構成しなかった場合、アプリが別のボリュームに移動されると、ユーザーのアプリ データもそのボリュームに移動されます。
       </string>
       <string id="AllowSharedLocalAppData">アプリケーション データのユーザー間の共有を Windows アプリに許可する</string>
-      <string id="AllowSharedLocalAppDataExplanation">Windows アプリをインストールしたユーザー間でデータを共有する Windows アプリの機能を管理します。
-      
-        このポリシーを有効にした場合、Windows アプリは、アプリ データをそのアプリの他のインスタンスと共有できます。データは SharedLocal フォルダーを通じて共有されます。このフォルダーは Windows.Storage API によって使用できるようになります。
+      <string id="AllowSharedLocalAppDataExplanation">アプリをインストールしたユーザー間でデータを共有する Windows アプリの機能を管理します。
 
-        このポリシーを無効にした場合、Windows アプリは、アプリ データをそのアプリの他のインスタンスと共有できません。このポリシーが以前に有効になっていた場合、以前共有されていたアプリ データが SharedLocal フォルダーに残ります。 
+        このポリシーを有効にすると、Windows アプリは、アプリ データをそのアプリの他のインスタンスと共有できます。データは SharedLocal フォルダーで共有されます。このフォルダーは、Windows.Storage API で使用できます。
+
+        このポリシーを無効にした場合、Windows アプリは、アプリ データをそのアプリの他のインスタンスと共有できません。このポリシーが以前に有効になっていた場合は、以前共有されていたアプリ データが SharedLocal フォルダーに残ります。
+      </string>
+      <string id="BlockNonAdminUserInstall">管理者以外のユーザーがパッケージ化された Windows アプリをインストールできないようにする</string>
+      <string id="BlockNonAdminUserInstallExplanation">管理者以外のユーザーによる Windows アプリ パッケージのインストールを管理します。
+
+        このポリシーを有効にすると、管理者以外は Windows アプリ パッケージのインストールを開始できなくなります。アプリのインストールを希望する管理者は、管理者コンテキスト (たとえば、管理者 PowerShell ウィンドウ) からアプリをインストールする必要があります。他のポリシーで許可されている場合は、すべてのユーザーが Microsoft Store から Windows アプリ パッケージをインストールできます。
+
+        このポリシーを無効にした場合、または構成しなかった場合は、すべてのユーザーが Windows アプリ パッケージのインストールを開始できます。
       </string>
     </stringTable>
   </resources>

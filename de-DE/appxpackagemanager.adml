@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>AppX-Paket-Manager</displayName> 
+  <displayName>AppX-Paket-Manager</displayName>
   <description>AppX-Paket-Manager</description>
   <resources>
     <stringTable>
@@ -30,10 +30,11 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, lässt die Gruppenrichtlinie b
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verhindert die Gruppenrichtlinie bei Verwendung eines speziellen Profils Bereitstellungsvorgänge für Windows Store-Apps.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Ermöglicht die Entwicklung von Windows Store-Apps und deren Installation von einer integrierten Entwicklungsumgebung (IDE) aus.</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Erlaubt oder verweigert die Entwicklung von Windows Store-Anwendungen und deren direkte Installation von einer IDE aus.
-        Wenn Sie diese Einstellung und die Gruppenrichtlinie "Installation aller vertrauenswürdigen Apps zulassen" aktivieren, können Sie Windows Store-Apps entwickeln und direkt von einer IDE aus installieren.
-        
-        Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, können Sie keine Windows Store-Apps entwickeln oder direkt von einer IDE aus installieren.
+        Erlaubt oder verweigert die Entwicklung von Microsoft Store-Anwendungen und deren direkte Installation von einer IDE aus.
+
+        Wenn Sie diese Einstellung und die Gruppenrichtlinie "Installation aller vertrauenswürdigen Apps zulassen" aktivieren, können Sie Microsoft Store-Apps entwickeln und direkt von einer IDE aus installieren.
+
+        Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, können Sie keine Microsoft Store-Apps entwickeln oder direkt von einer IDE aus installieren.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Installation von Windows-Apps auf Nicht-Systemvolumes deaktivieren</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -52,11 +53,18 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, ver
         Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren und eine App auf ein anderes Volume verschoben wird, werden die App-Daten der Benutzer ebenfalls auf dieses Volume verschoben.
       </string>
       <string id="AllowSharedLocalAppData">Windows-Apps die Freigabe von Anwendungsdaten zwischen Benutzern erlauben</string>
-      <string id="AllowSharedLocalAppDataExplanation">Verwaltet die Fähigkeit einer Windows-App, Daten zwischen Benutzern, die die App installiert haben, freizugeben.
-      
-        Wenn Sie diese Richtlinie aktivieren, kann eine Windows-App App-Daten für andere Instanzen der App freigeben. Die Daten werden über den Ordner "SharedLocal" freigegeben, der durch die Windows.Storage API verfügbar gemacht wird.
+      <string id="AllowSharedLocalAppDataExplanation">Verwaltet die Fähigkeit einer Windows-App, Daten zwischen Benutzern freizugeben, die die App installiert haben.
 
-        Wenn Sie diese Richtlinie deaktivieren, kann eine Windows-App keine App-Daten für andere Instanzen dieser App freigeben. Falls diese Richtlinie zuvor aktiviert war, verbleiben alle zuvor freigegebenen App-Daten im Ordner "SharedLocal". 
+        Wenn Sie diese Richtlinie aktivieren, kann eine Windows-App ihre Daten für andere Instanzen der App freigeben. Die Daten werden über den Ordner "SharedLocal" freigegeben, der durch die Windows.Storage-API verfügbar gemacht wird.
+
+        Wenn Sie diese Richtlinie deaktivieren, kann eine Windows-App keine App-Daten für andere Instanzen dieser App freigeben. Falls diese Richtlinie zuvor aktiviert war, verbleiben alle zuvor freigegebenen App-Daten im Ordner "SharedLocal".
+      </string>
+      <string id="BlockNonAdminUserInstall">Verhindern, dass Benutzer ohne Administratorrechte verpackte Windows-Apps installieren</string>
+      <string id="BlockNonAdminUserInstallExplanation">Verwaltet für Benutzer ohne Administratorrechte die Möglichkeit, verpackte Windows-Apps zu installieren.
+
+        Wenn Sie diese Richtlinie aktivieren, können Benutzer ohne Administratorrechte die Installation von Windows-App-Paketen nicht initiieren. Administratoren, die eine App installieren möchten, müssen dies in einem Administratorkontext tun (z. B. in einem PowerShell-Fenster mit Administratorrechten). Alle Benutzer können weiterhin Windows-App-Pakete über den Microsoft Store installieren, sofern dies nach anderen Richtlinien zulässig ist.
+
+        Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, können alle Benutzer Windows-App-Pakete installieren.
       </string>
     </stringTable>
   </resources>

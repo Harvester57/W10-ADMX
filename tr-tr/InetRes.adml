@@ -3917,6 +3917,33 @@ Not: Yönetim Şablonları\Windows Bileşenleri\Internet Explorer\Microsoft Edge
 Bu ayarı etkinleştirirseniz, çalışanlar Internet Explorer 11’de, Microsoft Edge Kuruluş Modu kullanılarak bir sitenin açıldığını bildiren ek bir sayfa görürler.
 
 Bu ayarı devre dışı bırakır veya yapılandırmazsanız, varsayılan uygulama davranışı gerçekleşir ve hiçbir ek sayfa görünmez.</string>
+      <string id="NeedEdgeBrowser">Yeniden yönlendirilen siteleri açmak için hangi Microsoft Edge kanalının kullanılacağını yapılandırın</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Yeniden yönlendirilen bir siteyi açmak üzere en fazla üç Microsoft Edge sürümünü (tercih sırasına göre) yapılandırmanızı sağlar. Ortamınız siteleri Internet Explorer 11'den Microsoft Edge'e yeniden yönlendirecek şekilde yapılandırılmışsa bu ilkeyi kullanın. Seçili sürümlerden herhangi biri cihazınızda yüklü değilse bu tercih atlanır.
+
+Hem sonraki Microsoft Edge* sürümü için Windows Update hem de Microsoft Edge Kararlı kanalı yüklüyse aşağıdaki davranışlar gerçekleşir:
+- Bu ilkeyi devre dışı bırakırsanız veya yapılandırmazsanız Microsoft Edge Kararlı kanalı kullanılır. Bu varsayılan davranıştır.
+- Bu ilkeyi etkinleştirirseniz yeniden yönlendirilen siteleri, aşağıdaki kanalların en fazla üçünde açılacak şekilde yapılandırabilirsiniz:
+    1 = Microsoft Edge Kararlı
+    2 = Microsoft Edge Beta sürüm 77 veya sonrası
+    3 = Microsoft Edge Dev sürüm 77 veya sonrası
+    4 = Microsoft Edge Canary sürüm 77 veya sonrası
+
+Sonraki Microsoft Edge* sürümü için Windows Update veya Microsoft Edge Stable kanalı yüklü değilse aşağıdaki davranışlar gerçekleşir:
+- Bu ilkeyi devre dışı bırakırsanız veya yapılandırmazsanız Microsoft Edge sürüm 45 veya önceki sürümleri otomatik olarak kullanılır. Bu varsayılan davranıştır.
+- Bu ilkeyi etkinleştirirseniz yeniden yönlendirilen siteleri, aşağıdaki kanalların en fazla üçünde açılacak şekilde yapılandırabilirsiniz:
+    0 = Microsoft Edge sürüm 45 veya öncesi
+    1 = Microsoft Edge Kararlı
+    2 = Microsoft Edge Beta sürüm 77 veya sonrası
+    3 = Microsoft Edge Dev sürüm 77 veya sonrası
+    4 = Microsoft Edge Canary sürüm 77 veya sonrası
+
+*Sonraki Microsoft Edge sürümüne yönelik Windows güncelleştirmesi ve nasıl devre dışı bırakılacağı hakkında daha fazla bilgi için https://go.microsoft.com/fwlink/?linkid=2102115 adresine bakın. Bu güncelleştirme yalnızca Windows 10 sürüm 1709 ve üzeri sürümler için geçerlidir.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta sürüm 77 veya sonrası</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev sürüm 77 veya sonrası</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary sürüm 77 veya sonrası</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge sürüm 45 veya öncesi</string>
       <string id="KeepIntranetSitesInInternetExplorer">Tüm intranet sitelerini Internet Explorer'da tut</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Tüm intranet sitelerinin Internet Explorer dışında herhangi bir tarayıcıda açılmasını engeller. Ancak ‘Kuruluş Modu Site Listesi'ne dâhil edilmeyen tüm siteleri Microsoft Edge'e gönder’ (‘RestrictIE’) ilkesi etkinleştirilmediğinde bu ilkenin hiçbir etkisi olmayacağını unutmayın.
 
@@ -4801,6 +4828,11 @@ Daha fazla bilgi için Internet Explorer TechNet kitaplığındaki "Tarihi geçm
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Etki alanı listesi</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">İlk tercih</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">İkinci tercih</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Üçüncü tercih</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

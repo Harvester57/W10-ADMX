@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Almeno i sistemi operativi Windows Server 2003 o Windows XP Professional con SP1, escluso Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Almeno Windows XP Professional Service Pack 1 o almeno da Windows 2000 Service Pack 3 a Windows 8.1 o Windows Server 2012 R2 con il Service Pack più recente</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Almeno da Windows Vista a Windows 8.1 o Windows Server 2012 R2 con il Service Pack più recente</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 o almeno Windows 2000 Service Pack 3
+L'opzione 7 è supportata solo su server con almeno Windows Server 2016 Edition</string>
       <string id="AUDontShowUasHelp">Questa impostazione dei criteri consente di gestire la visualizzazione dell'opzione Installa aggiornamenti e spegni nella finestra di dialogo Fine della sessione di lavoro.
 
 Se si abilita questa impostazione dei criteri, l'opzione Installa aggiornamenti e spegni non verrà visualizzata nella finestra di dialogo Fine della sessione di lavoro, anche se sono disponibili aggiornamenti per l'installazione quando l'utente fa clic sul pulsante Start e quindi sceglie Chiudi sessione.
@@ -58,7 +60,7 @@ In Windows 8 e Windows RT, se questo criterio è abilitato, verranno visualizzat
       <string id="AutoUpdateCfg">Configura Aggiornamenti automatici</string>
       <string id="AutoUpdateCfg_Help">Specifica se sul computer verranno scaricati aggiornamenti per la sicurezza e altri importanti download mediante il servizio di aggiornamento automatico di Windows.
 
-Nota: questa impostazione di criteri non si applica a Windows RT.
+Nota: questa impostazione dei criteri non si applica a Windows RT.
 
 Questa impostazione consente di specificare se abilitare gli aggiornamenti automatici sul computer. Se il servizio è abilitato, è necessario selezionare una delle quattro opzioni in Impostazione Criteri di gruppo:
 
@@ -66,15 +68,15 @@ Questa impostazione consente di specificare se abilitare gli aggiornamenti autom
 
         Quando vengono individuati aggiornamenti applicabili al computer, gli utenti vengono avvisati che è possibile scaricare gli aggiornamenti. Dopo essere passati a Windows Update, gli utenti possono scaricare e installare gli aggiornamenti disponibili.
 
-        3 = (Impostazione predefinita) Scarica automaticamente gli aggiornamenti e avvisa quando sono pronti per l'installazione
+        3 = (Impostazione predefinita) Scarica automaticamente gli aggiornamenti e avvisa quando sono pronti per l'installazione.
 
         Quando vengono individuati aggiornamenti applicabili al computer, Windows li scarica in background senza avvisare o interrompere l'utente. Al termine dei download, verrà segnalato che sono pronti per l'installazione. Dopo essere passati a Windows Update, gli utenti possono installarli.
 
         4 = Scarica automaticamente gli aggiornamenti ed esegui l'installazione in base alla pianificazione specificata.
 
-        Quando è selezionato "Automatico" come ora pianificata per l'installazione, Windows eseguirà in automatico il controllo, il download e l'installazione degli aggiornamenti. Il dispositivo verrà riavviato in base alle impostazioni predefinite di Windows, purché non sia configurato tramite i criteri di gruppo. Applicabile a Windows 10, versione 1809 e superiore
+        Quando è selezionato "Automatico" come ora pianificata per l'installazione, Windows eseguirà in automatico il controllo, il download e l'installazione degli aggiornamenti. Il dispositivo verrà riavviato in base alle impostazioni predefinite di Windows, purché non sia configurato tramite i criteri di gruppo. Applicabile a Windows 10, versione 1809 e superiore.
 
-        Specificare la pianificazione utilizzando le opzioni presenti in Impostazione Criteri di gruppo. Per la versione 1709 e successive è possibile anche scegliere di limitare l'aggiornamento a una cadenza settimanale, bisettimanale o mensile. Se non si specifica alcuna pianificazione, tutte le installazioni verranno eseguite ogni giorno alle 3.00 in base alla pianificazione predefinita. Il computer verrà riavviato automaticamente nel caso in cui sia necessario per completare l'installazione di un aggiornamento. Se al momento del riavvio un utente è connesso al computer, verrà visualizzato un messaggio che consente di eseguire il riavvio in un momento successivo.
+        Specifica la pianificazione utilizzando le opzioni presenti in Impostazione Criteri di gruppo. Per la versione 1709 e successive è possibile anche scegliere di limitare l'aggiornamento a una cadenza settimanale, bisettimanale o mensile. Se non specifichi alcuna pianificazione, tutte le installazioni verranno eseguite ogni giorno alle 3.00 in base alla pianificazione predefinita. Il computer verrà riavviato automaticamente nel caso in cui sia necessario per completare l'installazione di un aggiornamento. Se al momento del riavvio un utente è connesso al computer, verrà visualizzato un messaggio che consente di eseguire il riavvio in un momento successivo.
 
         In Windows 8 e versioni successive è possibile impostare gli aggiornamenti in modo che vengano installati durante la manutenzione automatica anziché in base a una pianificazione specifica. Con la manutenzione automatica gli aggiornamenti vengono installati quando il computer non è in uso, ma vengono evitate installazioni mentre il computer è alimentato a batteria. Se trascorrono due giorni senza che sia possibile installare gli aggiornamenti con la manutenzione automatica, Windows Update li installerà immediatamente. Gli utenti verranno quindi avvisati di un imminente riavvio, il quale verrà eseguito solo se non vi è il rischio di perdite accidentali di dati.
 
@@ -82,10 +84,15 @@ Questa impostazione consente di specificare se abilitare gli aggiornamenti autom
 
         Con questa opzione, gli amministratori locali potranno utilizzare il pannello di controllo Windows Update per selezionare un'opzione di configurazione desiderata. Gli amministratori locali non potranno disabilitare la configurazione di Aggiornamenti automatici.
 
-Se lo stato di questa impostazione di criteri è impostato su Disabilitato, sarà necessario scaricare e installare manualmente tutti gli aggiornamenti disponibili in Windows Update. A tale scopo, ricercare Windows Update tramite Start.
+        7 = Notifica per l'installazione e notifica per il riavvio (solo Windows Server).
 
-Se lo stato è impostato su Non configurato, l'utilizzo di Aggiornamenti automatici non sarà specificato a livello di Criteri di gruppo. Tuttavia, un amministratore sarà comunque in grado di configurare il servizio Aggiornamenti automatici mediante il Pannello di controllo.</string>
+        Con questa opzione di Windows Server 2016, applicabile solo ai dispositivi SKU Server, gli amministratori locali potranno utilizzare Windows Update per procedere con l'installazione o il riavvio manuale.
 
+Se lo stato di questa impostazione dei criteri è impostato su Disabilitato, sarà necessario scaricare e installare manualmente tutti gli aggiornamenti disponibili in Windows Update. A tale scopo, ricerca Windows Update tramite Start.
+
+        Se lo stato è impostato su Non configurato, l'utilizzo di Aggiornamenti automatici non sarà specificato a livello di Criteri di gruppo. Tuttavia, un amministratore sarà comunque in grado di configurare il servizio Aggiornamenti automatici mediante il Pannello di controllo.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Download automatico, Notifica per l'installazione, Notifica per il riavvio</string>
       <string id="AutoUpdateModeAdminChooses">5 - Consenti scelta impostazioni all'amministratore locale</string>
       <string id="AutoUpdateModeAuto">4 - Download automatico e pianificazione dell'installazione</string>
       <string id="AutoUpdateModeDownload">3 - Download automatico e avviso per l'installazione</string>
@@ -356,6 +363,10 @@ Per evitare che gli aggiornamenti qualitativi vengano ricevuti all'orario pianif
 Per riprendere la ricezione degli aggiornamenti qualitativi sospesi, deseleziona il campo della data di inizio.
 
 Se disabiliti o non configuri questo criterio, il funzionamento di Windows Update non verrà modificato.</string>
+      <string id="TargetReleaseVersion_Title">Seleziona la versione di aggiornamento delle funzionalità di destinazione</string>
+      <string id="TargetReleaseVersion_Help">Abilita questo criterio per specificare una versione di aggiornamento delle funzionalità da richiedere nelle analisi successive.
+
+Immetti la versione come riportata nella pagina delle informazioni sul rilascio di Windows aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Non includere i driver con gli aggiornamenti di Windows</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Abilita questo criterio per non includere i driver con gli aggiornamenti qualitativi di Windows.
 
@@ -705,6 +716,11 @@ Questo criterio sostituirà i criteri seguenti:
         <text>questo intervallo di tempo per salvare il</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">lavoro (minuti):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Versione di destinazione per gli aggiornamenti delle funzionalità</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Imposta il comportamento per ricevere versioni di anteprima:</dropdownList>
       </presentation>

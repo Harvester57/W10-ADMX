@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Vähintään Windows Server 2003 -käyttöjärjestelmät tai Windows XP Professional SP1, pois lukien Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Vähintään Windows XP Professional Service Pack 1 tai vähintään Windows 2000 Service Pack 3 – Windows 8.1 tai Windows Server 2012 R2, jossa on uusin Service Pack -paketti</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Vähintään Windows Vista – Windows 8.1 tai Windows Server 2012 R2, jossa on uusin Service Pack -paketti</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 tai vähintään Windows 2000 Service Pack 3
+Asetusta 7 tuetaan vain palvelimissa, joissa on vähintään versio Windows Server 2016</string>
       <string id="AUDontShowUasHelp">Tällä käytäntöasetuksella määritetään, näytetäänkö Asenna päivitykset ja sammuta -vaihtoehto Sammuta Windows -valintaikkunassa.
 
 Jos tämä käytäntöasetus otetaan käyttöön, Asenna päivitykset ja sammuta ei näy vaihtoehtona Sammuta Windows -valintaikkunassa, vaikka asennettavia päivityksiä olisi käytettävissä, kun käyttäjä valitsee Sammuta-vaihtoehdon Käynnistä-valikossa.
@@ -82,10 +84,15 @@ Tämän käytäntöasetuksen avulla voit määrittää, ovatko automaattiset pä
 
         Tätä vaihtoehtoa käytettäessä paikalliset järjestelmänvalvojat voivat valita haluamansa määritysvaihtoehdon Windows Updaten ohjauspaneelissa. Paikalliset järjestelmänvalvojat eivät voi poistaa automaattisten päivitysten määritystä käytöstä.
 
+        7 = Ilmoita ennen asentamista ja ilmoita uudelleenkäynnistyksestä. (vain Windows Server)
+
+        Käytettäessä tätä Windows Server 2016:n vaihtoehtoa, jota sovelletaan ainoastaan palvelimen SKU-laitteisiin, paikalliset järjestelmänvalvojat saavat käyttää Windows Updatea asennusten tai uudelleenkäynnistysten jatkamiseksi manuaalisesti.
+
 Jos tämän käytäntöasetuksen tilaksi on määritetty Ei käytössä, mahdolliset Windows Updatessa käytettävissä olevat päivitykset on ladattava ja asennettava manuaalisesti. Voit tehdä tämän hakemalla Windows Updatea Käynnistä-valikon kautta.
 
 Jos tilana on Ei määritetty, automaattisten päivitysten käyttöä ei ole määritetty ryhmäkäytäntötasolla. Järjestelmänvalvoja voi kuitenkin määrittää automaattiset päivitykset ohjauspaneelin kautta.</string>
 
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Automaattinen lataus, ilmoita asennuksesta, ilmoita uudelleenkäynnistyksestä</string>
       <string id="AutoUpdateModeAdminChooses">5 - Anna paikallisten järjestelmänvalvojien valita asetus</string>
       <string id="AutoUpdateModeAuto">4 - Lataa automaattisesti ja ajoita asentaminen</string>
       <string id="AutoUpdateModeDownload">3 - Lataa automaattisesti ja ilmoita ennen asentamista</string>
@@ -356,6 +363,10 @@ Voit estää laatupäivitysten vastaanottamisen ajoitettuna ajankohtana keskeytt
 Voit jatkaa keskeytettyjen laatupäivitysten vastaanottamista tyhjentämällä aloituspäivämääräkentän tiedot.
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Windows Update ei muuta toimintaansa.</string>
+      <string id="TargetReleaseVersion_Title">Valitse ominaisuuspäivityksen kohdeversio</string>
+      <string id="TargetReleaseVersion_Help">Ota tämä käytäntöasetus käyttöön, jos haluat määrittää seuraavissa tarkistuksissa pyydettävän ominaisuuspäivityksen version.
+
+Anna versio, joka on lueteltu Windowsin julkaisutiedot -sivulla aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Älä sisällytä ohjaimia Windows-päivityksiin</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Kun otat tämän käytäntöasetuksen käyttöön, voit sulkea ohjaimet pois Windowsin laatupäivityksistä.
 
@@ -705,6 +716,11 @@ Tämä käytäntö korvaa seuraavat käytännöt:
         <text>tämän verran aikaa tallentaa</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">työnsä (minuuttia): </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Ominaisuuspäivitysten kohdeversio</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Määritä Insider-esiversioiden vastaanoton toimintatapa:</dropdownList>
       </presentation>

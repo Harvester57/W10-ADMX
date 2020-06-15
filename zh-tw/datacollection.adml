@@ -10,16 +10,15 @@
       <string id="AllowTelemetry_1">1 - 基本</string>
       <string id="AllowTelemetry_2">2 - 加強</string>
       <string id="AllowTelemetry_3">3 - 完整</string>
-      <string id="AllowTelemetry_Explain">這個原則設定決定傳送給 Microsoft 的最高層級 Windows 診斷資料。設定此設定並不會阻止使用者變更其遙測設定，但可防止使用者選擇高於您為組織設定的層級。Windows 10 診斷資料設定只適用於 Windows 作業系統及 Windows 隨附的應用程式。這些設定不適用於在 Windows 10 上執行的協力廠商應用程式。
+      <string id="AllowTelemetry_Explain">在 Windows 10 中設置此設定後，使用者將無法選擇加入比組織設定層級更高的遙測收集層級。此限制僅適用於 Windows 作業系統及 Windows 隨附的應用程式，並不適用於在 Windows 10 上執行的第三方應用程式。
 
-如果啟用此設定，您可以決定傳送給 Microsoft 的診斷資料層級，包括:
+診斷資料被分成四個層級，如下所示: 
+  - 0 (安全性)。協助維持 Windows、Windows Server 和 System Center 安全的資訊，包括 [已連線使用者體驗與遙測] 的元件設定、惡意軟體移除工具以及 Windows Defender。
+  - 1 (基本)。基本裝置資訊，包括：品質相關資料、應用程式相容性以及安全性層級的資料。
+  - 2 (增強)。其他深入解析包括: Windows、Windows Server、System Center 和應用程式的使用方式、執行方式、進階可靠性資料，以及基本和安全性層級的資料。
+  - 3 (完整)。識別和協助修復問題所需的所有資料，以及來自安全性、基本和增強層級的資料。
 
-  - 0 (安全性)。只傳送保持 Windows 安全所需的最少量資料給 Microsoft。若啟用，Windows 安全性元件 (例如惡意軟體移除工具 (MSRT) 和 Windows Defender) 可在此層級傳送資料給 Microsoft。將值設定為 0 只適用於執行企業版、教育版、IoT 或 Windows Server 版本的裝置。針對其他版本，若將值設定為 0，等於將值設定為 1。
-  - 1 (基本)。傳送與值為 0 時相同的資料，加上極為有限的診斷資料，例如基本裝置資訊、品質相關資料和應用程式相容性資訊。請注意，將值設定為 0 或 1 會降低裝置上的某些體驗。
-  - 2 (增強)。傳送與值為 1 時相同的資料，加上額外的資料，例如 Windows、Windows Server、System Center 和應用程式的使用方式、執行方式，以及進階的可靠性資料。
-  - 3 (完整)。傳送與值為 2 時相同的資料，加上用來診斷及修正裝置問題的進階診斷資料，例如裝置問題可能起因的檔案和內容。
-
-如果停用或未設定這個原則設定，則可在 [設定] 中個別設定遙測設定。
+透過設置此設定，可以變更 [設定] 應用程式中使用者可用的選項，即使未設定，也可能會受到其他群組原則設定的影響。請注意，如果原則設定為允許安全性或基本的遙測設定，使用者將無法選取更高層級。
       </string>
 
       <string id="TelemetryProxy">設定已連線使用者體驗與遙測</string>
@@ -67,14 +66,14 @@
       <string id="ConfigureTelemetryOptInSettingsUx">設定遙測加入設定使用者介面。</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">停用遙測加入設定</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">啟用遙測加入設定</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">這個原則設定決定使用者能否在 [設定] 中變更自己的遙測層級。這個設定應與 [允許遙測] 設定一起使用。
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">此原則設定會決定使用者是否能在 [設定] 中變更遙測層級。
 
-如果將這個原則設定設為 [停用遙測加入設定]，[設定] 中就會停用遙測層級，以防止使用者變更。
+如果您將此原則設定為「停用設定中的遙測選擇」，[設定] 中的遙測層級將會停用，並讓使用者無法變更。
 
-如果將這個原則設定設為 [啟用遙測加入設定] 或未設定這個原則設定，則使用者可在 [設定] 中變更自己的遙測層級。
+如果您未設置此原則設定，或將其設定為「啟用設定中的遙測選擇」，使用者將能在 [設定] 應用程式中變更裝置遙測層級。
 
-注意:
-設定 [允許遙測] 原則設定可防止使用者傳送超出組織限制的診斷資料給 Microsoft。
+請注意：
+若要替組織發送給 Microsoft 的診斷資料層級設定限制，請使用 [允許遙測] 原則設定。
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">設定遙測加入變更通知。</string>
@@ -107,7 +106,7 @@
           Microsoft 會提供此設定的值，作為計劃上線流程的一部分。 
       </string>
 
-      <string id="AllowCommercialDataPipeline">允許商業資料管線</string>
+      <string id="AllowCommercialDataPipeline">允許商用資料管線</string>
       <string id="AllowCommercialDataPipeline_Explain">
           AllowCommercialDataPipeline 會將裝置加入 Windows 企業資料管線。
           若您啟用此設定，便會將從裝置收集到的資料加入 Windows 企業資料管線。

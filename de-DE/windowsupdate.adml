@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Mindestens Windows Server 2003-Betriebssysteme oder Windows XP Professional mit SP1, Windows RT ausgenommen</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Mindestens Windows XP Professional Service Pack 1 oder mindestens Windows 2000 Service Pack 3 bis Windows 8.1 oder Windows Server 2012 R2 mit dem aktuellen Service Pack</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Mindestens Windows Vista bis Windows 8.1 oder Windows Server 2012 R2 mit dem aktuellen Service Pack</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 oder mindestens Windows 2000 Service Pack 3
+Option 7 wird nur auf Servern unterstützt, auf denen mindestens Windows Server 2016-Edition installiert ist​</string>
       <string id="AUDontShowUasHelp">Mit dieser Richtlinieneinstellung können Sie festlegen, ob die Option "Updates installieren und herunterfahren" im Dialogfeld "Windows herunterfahren" angezeigt wird.
 
 Durch Aktivieren dieser Richtlinieneinstellung wird die Option "Updates installieren und herunterfahren" im Dialogfeld "Windows herunterfahren" nicht angezeigt, auch wenn Updates zum Installieren verfügbar sind und der Benutzer die Option "Herunterfahren" im Startmenü auswählt.
@@ -58,7 +60,7 @@ Wenn diese Richtlinie unter Windows 8 oder Windows RT aktiviert wird, werden nur
       <string id="AutoUpdateCfg">Automatische Updates konfigurieren</string>
       <string id="AutoUpdateCfg_Help">Legt fest, ob der Computer Sicherheitsupdates und andere wichtige Downloads über den Windows-Dienst für automatische Updates erhält.
 
-Hinweis: Diese Richtlinie gilt nicht unter Windows RT.
+Hinweis: Diese Richtlinie gilt nicht unter Windows RT.
 
 Mit dieser Einstellung können Sie festlegen, ob auf dem Computer automatische Updates aktiviert werden. Falls der Dienst aktiviert ist, müssen Sie in der Gruppenrichtlinieneinstellung eine der folgenden vier Optionen auswählen:
 
@@ -74,18 +76,23 @@ Mit dieser Einstellung können Sie festlegen, ob auf dem Computer automatische U
 
         Wenn "Automatisch" als die geplante Installationszeit angegeben ist, führt Windows das Prüfen, Herunterladen und Installieren von Updates automatisch durch. Das Gerät wird gemäß Windows-Standardeinstellungen neu gestartet, sofern keine Gruppenrichtlinie konfiguriert ist. (Gilt für Windows 10, Version 1809, und höher.)
 
-        Geben Sie den Zeitplan mithilfe der Optionen in der Gruppenrichtlinieneinstellung an. Ab Version 1709 gibt es die zusätzliche Möglichkeit, die Aktualisierung auf ein wöchentliches, zweiwöchentliches oder monatliches Ereignis zu beschränken. Standardmäßig sind Installationen täglich für 3 Uhr morgens geplant, falls kein Zeitplan angegeben wird. Wenn zum Abschluss der Updateinstallation ein Neustart erforderlich ist, startet Windows den Computer automatisch neu. (Falls ein Benutzer am Computer angemeldet ist, wenn Windows neu gestartet werden soll, wird der Benutzer benachrichtigt und kann den Neustart verzögern.)
+        Geben Sie den Zeitplan mithilfe der Optionen in der Gruppenrichtlinieneinstellung an. Ab Version 1709 gibt es die zusätzliche Möglichkeit, die Aktualisierung auf ein wöchentliches, zweiwöchentliches oder monatliches Ereignis zu beschränken. Standardmäßig sind Installationen täglich für 3 Uhr morgens geplant, falls kein Zeitplan angegeben wird. Wenn zum Abschluss der Updateinstallation ein Neustart erforderlich ist, startet Windows den Computer automatisch neu. (Falls ein Benutzer am Computer angemeldet ist, wenn Windows neu gestartet werden soll, wird der Benutzer benachrichtigt und kann den Neustart verzögern.)
 
-        Unter Windows 8 und höher können Sie festlegen, dass Updates nicht nach einem bestimmten Zeitplan, sondern während der automatischen Wartung installiert werden. Die automatische Wartung installiert Updates, wenn der Computer nicht verwendet wird; befindet sich der Computer im Akkubetrieb, werden keine Updates installiert. Wenn Updates zwei Tage lang nicht von der automatischen Wartung installiert werden können, werden Updates von Windows Update sofort installiert. Benutzer werden über einen bevorstehenden Neustart benachrichtigt, und der Neustart wird nur durchgeführt, wenn keine Gefahr für zufällige Datenverluste besteht.
+        Unter Windows 8 und höher können Sie festlegen, dass Updates nicht nach einem bestimmten Zeitplan, sondern während der automatischen Wartung installiert werden. Die automatische Wartung installiert Updates, wenn der Computer nicht verwendet wird; befindet sich der Computer im Akkubetrieb, werden keine Updates installiert. Wenn Updates zwei Tage lang nicht von der automatischen Wartung installiert werden können, werden Updates von Windows Update sofort installiert. Benutzer werden über einen bevorstehenden Neustart benachrichtigt, und der Neustart wird nur durchgeführt, wenn keine Gefahr für zufällige Datenverluste besteht.
 
-        5 = Lokalen Administratoren erlauben, den Konfigurationsmodus für "Automatische Updates" auszuwählen. (Diese Option wurde nicht auf andere Win 10-Versionen übertragen).
+        5 = Lokalen Administratoren erlauben, den Konfigurationsmodus für "Automatische Updates" auszuwählen. (Diese Option wurde nicht auf andere Win 10-Versionen übertragen)
 
         Mit dieser Option wird es lokalen Administratoren ermöglicht, über die Systemsteuerung von Windows Update eine Konfigurationsoption auszuwählen. Lokalen Administratoren wird nicht gestattet, die Konfiguration für "Automatische Updates" zu deaktivieren.
 
-Falls der Status für diese Richtlinie auf "Deaktiviert" festgelegt ist, müssen alle unter "Windows Update" verfügbaren Updates manuell heruntergeladen und installiert werden. Suchen Sie dazu auf der Startseite nach "Windows-Update".
+        7 = Vor dem Installieren von Updates und vor Neustarts benachrichtigen. (Nur Windows Server)
 
-Falls der Status auf "Nicht konfiguriert" festgelegt ist, ist die Verwendung von automatischen Updates nicht auf Gruppenrichtlinienebene festgelegt. Ein Administrator kann automatische Updates jedoch über die Systemsteuerung konfigurieren.</string>
+        Mit dieser Option von Windows Server 2016, die nur für Server-SKU-Geräte gilt, wird es lokalen Administratoren ermöglicht, Windows Update zu verwenden, um mit manuellen Installationen oder Neustarts fortzufahren.
 
+Falls der Status für diese Richtlinie auf "Deaktiviert" festgelegt ist, müssen alle unter "Windows Update" verfügbaren Updates manuell heruntergeladen und installiert werden. Suchen Sie dazu auf der Startseite nach "Windows Update".
+
+nFalls der Status auf "Nicht konfiguriert" festgelegt ist, ist die Verwendung von automatischen Updates nicht auf Gruppenrichtlinienebene festgelegt. Ein Administrator kann automatische Updates jedoch über die Systemsteuerung konfigurieren.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Automatisch herunterladen, Zur Installation benachrichtigen, Zum Neustart benachrichtigen</string>
       <string id="AutoUpdateModeAdminChooses">5 - Lokalen Administrator ermöglichen, Einstellung auszuwählen</string>
       <string id="AutoUpdateModeAuto">4 - Autom. Herunterladen und laut Zeitplan installieren</string>
       <string id="AutoUpdateModeDownload">3 - Autom. Herunterladen, aber vor Installation benachrichtigen</string>
@@ -356,6 +363,10 @@ Um den Empfang von Qualitätsupdates zum geplanten Zeitpunkt zu verhindern, kön
 Um ausgesetzte Qualitätsupdates wieder zu empfangen, löschen Sie das Datum aus dem Feld Startdatumsfeld.
 
 Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, wird das Verhalten von Windows Update nicht geändert.</string>
+      <string id="TargetReleaseVersion_Title">Zielversion des Funktionsupdates auswählen</string>
+      <string id="TargetReleaseVersion_Help">Aktivieren Sie diese Richtlinie, um eine Funktionsupdate-Version anzugeben, die bei nachfolgenden Scans angefordert werden soll.
+
+Geben Sie die Version an wie auf der Seite „Windows-Versionsinformationen" unter aka.ms/ReleaseInformationPage.</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Keine Treiber in Windows-Updates einschließen</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Aktivieren Sie diese Richtlinie, um Treiber aus Windows-Qualitätsupdates auszuschließen.
 
@@ -592,7 +603,7 @@ Wichtig: Wenn Sie entscheiden, keine Updatebenachrichtigungen zu erhalten und au
       <string id="DefaultNotification">0 (Standard): Standardmäßige Windows Update-Betriebssystembenachrichtigungen</string>
       <string id="ExcludingRebootWarnings">1: Deaktivieren aller Benachrichtigungen, mit Ausnahme von Neustartwarnungen</string>
       <string id="IncludingRebootWarnings">2: Deaktivieren aller Benachrichtigungen, einschließlich Neustartwarnungen</string>
-      <string id="ComplianceDeadline_Title">Fristen für automatische Updates und Neustarts angeben</string>
+      <string id="ComplianceDeadline_Title">Stichtage für automatische Updates und Neustarts angeben</string>
       <string id="ComplianceDeadline_Help">Mit dieser Richtlinie können Sie die Anzahl der Tage angeben, die einem Benutzer zustehen, bevor die Qualitäts- und Funktionsaktualisierungen automatisch auf den Geräten installiert werden. Außerdem wird eine Karenzzeit festgelegt, nach der die erforderlichen Neustarts automatisch durchgeführt werden. Aktualisierungen und Neustarts werden unabhängig von der Nutzungszeit ausgeführt, und der Benutzer kann keine Neuplanung durchführen.
 
 Fristen für Funktionsaktualisierungen und Qualitätsupdates können bis zu 30 Tage betragen. Die Zeitspanne für den automatischen Neustart kann zwischen 0 und 7 Tagen liegen.
@@ -705,6 +716,11 @@ Diese Richtlinie setzt die folgenden Richtlinien außer Kraft:
         <text>diesen Zeitraum zum Speichern</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">ihrer Arbeit (Minuten):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Zielversion für Funktionsupdates</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Verhalten für den Empfang von Vorabversionen festlegen:</dropdownList>
       </presentation>

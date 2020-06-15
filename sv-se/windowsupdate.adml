@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Minst Windows Server 2003-operativsystem eller Windows XP Professional med SP1, med undantag för Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Minst Windows XP Professional Service Pack 1, eller minst Windows 2000 Service Pack 3 till Windows 8.1 eller Windows Server 2012 R2 med senaste Service Pack</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Minst Windows Vista till Windows 8.1 eller Windows Server 2012 R2 med senaste Service Pack</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 eller minst Windows 2000 Service Pack 3
+Alternativ 7 stöds endast på servrar med minst Windows Server 2016</string>
       <string id="AUDontShowUasHelp">Du kan använda den här principinställningen för att ange om alternativet "Installera uppdateringar och stäng av" ska visas i dialogrutan "Avsluta Windows".
 
 Om du aktiverar inställningen visas inte alternativet "Installera uppdateringar och stäng av" i dialogrutan "Avsluta Windows" även om det finns uppdateringar som kan installeras när användaren klickar på "Stäng av" på Start-menyn.
@@ -74,7 +76,7 @@ Med den här inställningen kan du ange om automatiska uppdateringar är aktiver
 
         När Automatiskt är valt som schemalagd installationstid söker Windows automatiskt efter uppdateringar och laddar ned och installerar dem. Enheten startas om enligt Windows standardinställningar såvida det inte är konfigurerat av en grupprincip. (Gäller Windows 10 version 1809 och senare)
 
-        Ange schemat med hjälp av alternativen i grupprincipinställningen. För version 1709 och senare finns det ytterligare ett alternativ för att begränsa uppdateringar till varje vecka, varannan vecka eller varje månad. Om inget schema anges är standardschemat att alla installationer sker varje dag klockan tre på morgonen. Om en uppdatering kräver en omstart för att installationen ska slutföras startar Windows om datorn automatiskt. (Om en användare är inloggad på datorn när den är klar att startas om meddelas användaren och ges möjlighet att vänta med omstarten.)
+        Ange schemat med hjälp av alternativen i grupprincipinställningen. För version 1709 och senare finns det ytterligare ett alternativ för att begränsa uppdateringar till varje vecka, varannan vecka eller varje månad. Om inget schema anges är standardschemat att alla installationer sker varje dag klockan tre på morgonen. Om en uppdatering kräver en omstart för att installationen ska slutföras startar Windows om datorn automatiskt. (Om en användare är inloggad på datorn när den är klar att startas om meddelas användarna och ges möjlighet att vänta med omstarten.)
 
         I Windows 8 och senare kan du ange att uppdateringar ska installeras vid automatiskt underhåll i stället för enligt ett schema. Vid automatiskt underhåll installeras uppdateringarna när datorn inte används (installation undviks när datorn körs med batteri). Om det inte går att installera uppdateringarna inom två dagar vid automatiskt underhåll installeras uppdateringarna direkt med Windows Update. Användarna meddelas om att datorn kommer att startas om och att omstarten endast utförs om det inte föreligger risk att data går förlorade.
 
@@ -82,10 +84,15 @@ Med den här inställningen kan du ange om automatiska uppdateringar är aktiver
 
         Med det här alternativet tillåts lokala administratörer att använda Windows Update på Kontrollpanelen och välja ett konfigurationsalternativ. Lokala administratörer tillåts inte inaktivera konfigurationen av Automatiska uppdateringar.
 
-Om status för den här principen är Inaktiverad måste tillgängliga uppdateringar på Windows Update laddas ned och installeras manuellt. Det gör du genom att söka efter Windows Update på Start.
+        7 = Meddela innan installation och omstart görs. (endast Windows Server)
+
+        Med det här alternativet från Windows Server 2016 (gäller endast enheter med server-SKU) tillåts lokala administratörer använda Windows Update och fortsätta med installationer eller omstarter manuellt.
+
+Om status för den här principen är Inaktiverad måste eventuella uppdateringar på Windows Update laddas ned och installeras manuellt. Det gör du genom att söka efter Windows Update på Start.
 
 Om statusen är Inte konfigurerad så används inte Automatiska uppdateringar på grupprincipsnivå. En administratör kan emellertid fortfarande konfigurera Automatiska uppdateringar via Kontrollpanelen.</string>
 
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - Ladda ned automatiskt och meddela om installation och omstart</string>
       <string id="AutoUpdateModeAdminChooses">5 - Låt lokala administratörer välja inställning</string>
       <string id="AutoUpdateModeAuto">4 - Hämta automatiskt och schemalägg installationen</string>
       <string id="AutoUpdateModeDownload">3 - Hämta automatiskt och meddela om installation</string>
@@ -356,6 +363,10 @@ Om du inte vill ta emot kvalitetsuppdateringar den schemalagda tiden kan du till
 Rensa fältet för startdatum om du vill återuppta kvalitetsuppdateringar som pausats.
 
 Om du inaktiverar eller låter bli att konfigurera den här principen kommer Windows Update inte att ändra sin uppdateringsprocess.</string>
+      <string id="TargetReleaseVersion_Title">Välj målversion för funktionsuppdatering</string>
+      <string id="TargetReleaseVersion_Help">Aktivera den här principen om du vill ange den funktionsuppdateringsversion som ska begäras i efterföljande sökningar.
+
+Ange versionen enligt sidan med versionsinformation för Windows: aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Ta inte med drivrutiner med Windows-uppdateringar</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Aktivera den här principen om du inte vill inkludera drivrutiner i kvalitetsuppdateringar för Windows.
 
@@ -705,6 +716,11 @@ Den här principen åsidosätter följande principer:
         <text>så här mycket tid att spara sitt</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">arbete (minuter):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Målversion för funktionsuppdateringar</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Ange beteende för mottagande av förhandsversioner:</dropdownList>
       </presentation>

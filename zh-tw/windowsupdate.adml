@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">至少需要 Windows Server 2003 作業系統或 Windows XP Professional 含 SP1，但不包含 Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">至少需要 Windows XP Professional Service Pack 1 或至少需要 Windows 2000 Service Pack 3 到 Windows 8.1 或 Windows Server 2012 R2 含最新的 Service Pack</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">至少需要 Windows Vista 到 Windows 8.1 或 Windows Server 2012 R2 的最新的 Service Pack</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 或至少 Windows 2000 Service Pack 3
+選項 7 最低只支援 Windows Server 2016 版本的伺服器</string>
       <string id="AUDontShowUasHelp">這個原則設定允許您管理是否要在 [關閉 Windows] 對話方塊中顯示 [安裝更新並關機] 選項。
 
 如果您啟用這個原則設定，即使當使用者在 [開始] 功能表中選擇 [關機] 選項且有可用的更新可以安裝，也不會在 [關閉 Windows] 對話方塊中出現 [安裝更新並關機] 的選擇。
@@ -56,36 +58,41 @@
       <string id="RemoveWindowsUpdateModeAll">0 - 不顯示任何通知</string>
       <string id="RemoveWindowsUpdateModeReboot">1 - 顯示需要重新啟動通知</string>
       <string id="AutoUpdateCfg">設定自動更新</string>
-      <string id="AutoUpdateCfg_Help">指定這部電腦是否將經由 Windows 的自動更新服務接收安全性更新和其他重要的下載。
+      <string id="AutoUpdateCfg_Help">指定此電腦是否透過 Windows 自動更新服務，接收安全性更新和其他重要下載。
 
-注意: Windows RT 不適用此原則。
+注意：此原則不適用於 Windows RT。
 
-此設定可以讓您指定這部電腦是否啟用自動更新。如果啟用服務，您必須於群組原則設定中選取以下四個選項的其中一個:
+此設定可讓您指定是否在此電腦上啟用自動更新。如果您啟用該服務，您必須在群組原則設定中選取以下四個選項之一：
 
         2 = 下載和安裝任何更新之前先通知。
 
-        當 Windows 找到適用於這部電腦的更新時，將會通知使用者已經準備好可以下載更新。移至 Windows Update 之後，使用者即可下載和安裝任何可用的更新。
+當 Windows 找到適用於此電腦的更新時，將會通知使用者更新已準備好可以下載。前往 Windows Update 之後，使用者便可以下載和安裝任何可用更新。
 
-        3 = (預設設定) 自動下載更新並在準備好可安裝更新時通知。
+        3 = (預設設定) 自動下載更新，並在準備好安裝時通知
 
-        Windows 尋找適用於電腦的更新，並於背景進行下載 (在這個過程中使用者不會收到通知或被打擾)。下載完成時，將通知使用者已經準備好可以安裝更新。移至 Windows Update 之後，使用者即可進行安裝。
+Windows 會尋找適用於您電腦的更新，並於背景下載這些內容 (過程中使用者不會收到通知或受到打擾)。下載完成時，將會通知使用者更新已經準備好安裝。前往 Windows Update 後，使用者便可以進行安裝。
 
         4 = 自動下載更新，並於以下指定的排程安裝更新。
 
-        當排定的安裝時間選擇 [自動] 時，Windows 會自動檢查、下載和安裝更新。裝置將依據 Windows 預設設定重新開機，除非透過群組原則另行設定 (適用於 Windows 10 版本 1809 和更高版本)。
+選擇排程安裝時間為「自動」時，Windows 將自動檢查、下載並安裝更新。除非群組原則設定，否則裝置將依照 Windows 預設設定重新開機。(適用於 Windows 10 版本 1809及更高版本) 
 
-        使用群組原則設定中的選項指定排程。若版本為 1709 及以上版本，將有額外選項可限定每週、每兩週或每個月進行更新。如果未指定排程，所有安裝的預設排程是每天早上 3:00。如果有任何更新需要重新開機才能完成安裝，Windows 會自動將電腦重新開機 (若使用者在 Windows 準備好重新開機時登入電腦，使用者將收到通知，並且可以選擇延後重新開機)。
+        使用 [群組原則] 設定中的選項指定排程。對於版本 1709及更高版本，限制更新的其他選擇為每週、每兩週或每月進行。如果未指定排程，則所有安裝的預設排程將在每日的上午 3 點。如果有任何更新需要重新開機以完成安裝，Windows 會自動重新啟動電腦。(如果 Windows 準備重新開機時使用者已登入電腦，則使用者將會收到通知和延遲重新開機選項。) 
 
-        對於 Windows 8 和更新版本，您可以設定在自動維護期間而不是特定排程安裝更新。自動維護會在電腦未使用時安裝更新，也將避免在電腦使用電池電力時安裝更新。如果自動維護連續兩天無法安裝更新，Windows Update 將立即安裝更新。接著會通知使用者即將重新開機，而且只在不會意外遺失資料的情形下才重新開機。
+        在 Windows 8 和更高版本中，您可以設定讓更新在自動維護期間安裝，而不是依照特定排程安裝。自動維護將在電腦未使用時安裝更新，並避免在電腦電力不足時執行這項作業。如果自動維護無法在 2 天內安裝更新，Windows Update 將立即安裝更新。使用者將收到即將重新啟動的通知，並在確認沒有潛在的意外資料遺失問題後，才會執行重新開機。
 
-        5 = 允許本機系統管理員選取自動更新應該通知並安裝更新的設定模式 (此選項並未沿用到 Win 10 的任何版本)。
+        5 = 允許本機系統管理員選擇自動更新應通知和安裝更新的設定模式。(此選項並未沿用至 Win 10 版本) 
 
-        此選項將允許本機系統管理員使用 Windows Update 控制台自行選取所需的設定選項。本機系統管理員無法停用自動更新的設定。
+        透過此選項，將允許本機系統管理員使用 Windows Update 控制台選取他們所選擇的設定選項。不允許本機系統管理員停用自動更新的設定。
 
-如果此原則的狀態設定成 [已停用]，任何在 Windows Update 上可用的更新都必須以手動方式下載和安裝。為此，請使用 [開始] 搜尋 Windows Update。
+        7 = 通知安裝並通知重新開機。(僅限 Windows Server) 
 
-如果狀態設定成 [尚未設定]，群組原則等級將不會指定使用自動更新。不過，系統管理員還是能從 [控制台] 設定 [自動更新] 功能。</string>
+        根據此來自 Windows Server 2016、僅適用於伺服器 SKU 裝置的選項，本機系統管理員將可以使用 Windows Update 繼續進行安裝，或以手動方式重新開機。
 
+如果此原則狀態設定為 [停用]，則 Windows Update 的所有可用更新都必須手動下載並安裝。若要執行此動作，請透過 [開始] 搜尋 Windows Update。
+
+如果狀態設定為 [未設定]，自動更新的使用將不會指定為群組原則層級。不過，系統管理員仍可以透過 [控制台] 設定自動更新。</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - 自動下載，通知安裝，通知重新啟動</string>
       <string id="AutoUpdateModeAdminChooses">5 - 允許本機系統管理員選擇設定</string>
       <string id="AutoUpdateModeAuto">4 - 自動下載和排程安裝</string>
       <string id="AutoUpdateModeDownload">3 - 自動下載和通知我安裝</string>
@@ -356,6 +363,10 @@ Windows Update 只會在設定為自動安裝更新時，才會自動喚醒系�
 若要繼續收到已暫停的品質更新，請清除開始日期欄位。
 
 若您停用或未設定此原則，則 Windows Update 不會改變其行為。</string>
+      <string id="TargetReleaseVersion_Title">選擇 [目標功能更新] 版本</string>
+      <string id="TargetReleaseVersion_Help">啟用此原則以指定要在後續掃描中請求的 [功能更新] 版本。
+
+請輸入 Windows 版本資訊頁面 aka.ms/ReleaseInformationPage 中列出的版本</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">不包含 Windows 更新的驅動程式</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">啟用此原則以排除驅動程式 (含 Windows 品質更新)。
 
@@ -705,6 +716,11 @@ Windows Update 只會在設定為自動安裝更新時，才會自動喚醒系�
         <text>儲存他們的</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">工作的時間 (分鐘):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>功能更新的目標版本</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">設定接收預覽版的行為:</dropdownList>
       </presentation>

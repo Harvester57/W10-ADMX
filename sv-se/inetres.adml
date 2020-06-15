@@ -3921,6 +3921,33 @@ Obs! Om du även aktiverar principinställningen Administrativa mallar\Windows-k
 Om du aktiverar inställningen visas en extra sida i Internet Explorer 11 som indikerar att en webbplats har öppnats med Microsoft Edge i företagsläge.
 
 Om du inaktiverar eller låter bli att konfigurera inställningen visas ingen extra sida.</string>
+      <string id="NeedEdgeBrowser">Ange vilken Microsoft Edge-kanal som ska användas när omdirigerade webbplatser öppnas</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Gör att du kan ställa in upp till tre versioner av Microsoft Edge som ska öppna en omdirigerad webbplats (i den ordning du föredrar). Använd den här principen om er miljö är inställd på att omdirigera webbplatser från Internet Explorer 11 till Microsoft Edge. Om någon av de valda versionerna inte är installerad på enheten ignoreras den.
+
+Om både Windows Update för nästa version av Microsoft Edge* och Microsoft Edge Stable-kanalen är installerade sker följande:
+- Om du inaktiverar eller låter bli att konfigurera principen så används Microsoft Edge Stable-kanalen. Detta sker som standard.
+- Om du aktiverar principen kan du ställa in att omdirigerade webbplatser ska öppnas i upp till tre av följande kanaler:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta version 77 eller senare
+    3 = Microsoft Edge Dev version 77 eller senare
+    4 = Microsoft Edge Canary version 77 eller senare
+
+Om Windows Update för nästa version av Microsoft Edge* eller Microsoft Edge Stable-kanalen inte är installerade sker följande:
+- Om du inaktiverar eller låter bli att konfigurera principen så används Microsoft Edge version 45 eller tidigare automatiskt. Detta sker som standard.
+- Om du aktiverar principen kan du ställa in att omdirigerade webbplatser ska öppnas i upp till tre av följande kanaler:
+    0 = Microsoft Edge version 45 eller tidigare
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta version 77 eller senare
+    3 = Microsoft Edge Dev version 77 eller senare
+    4 = Microsoft Edge Canary version 77 eller senare
+
+*Mer information om Windows Update för nästa version av Microsoft Edge samt hur du inaktiverar det hittar du i https://go.microsoft.com/fwlink/?linkid=2102115. Den här uppdateringen gäller endast Windows 10 version 1709 och senare.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta version 77 eller senare</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev version 77 eller senare</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary version 77 eller senare</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge Dev version 45 eller tidigare</string>
       <string id="KeepIntranetSitesInInternetExplorer">Behåll alla intranätplatser i Internet Explorer</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Förhindrar att webbplatser öppnas i andra webbläsare än Internet Explorer. Observera att den här principen har ingen verkan om principen Skicka alla webbplatser som inte ingår i listan över webbplatser i företagsläge till Microsoft Edge (RestrictIE) inte är aktiverad.
 
@@ -4805,6 +4832,11 @@ Mer information finns på sidan Out-of-date ActiveX control blocking i TechNet-b
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Domänlista</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">I första hand</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">I andra hand</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">I tredje hand</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

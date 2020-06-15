@@ -10,16 +10,15 @@
       <string id="AllowTelemetry_1">1 - 기본</string>
       <string id="AllowTelemetry_2">2 - 확장</string>
       <string id="AllowTelemetry_3">3 - 전체</string>
-      <string id="AllowTelemetry_Explain">이 정책 설정에 따라 Microsoft에 보내는 Windows 진단 데이터의 최고 수준이 결정됩니다. 이 설정을 구성하면 사용자가 원격 분석 설정을 변경하는 것을 막을 수 없지만 조직에서 설정한 것보다 높은 수준을 선택하지 못하게 합니다. Windows 10 진단 데이터 설정은 Windows에 포함된 Windows 운영 체제 및 앱에만 적용됩니다. 이러한 설정은 Windows 10에서 실행 중인 타사 앱에는 적용되지 않습니다.
+      <string id="AllowTelemetry_Explain">Windows 10에서 이 설정을 구성하면 최종 사용자가 조직에 설정된 수준보다 더 높은 수준의 원격 분석 모음을 선택할 수 없습니다.  이 제한 사항은 Windows 운영 체제 및 Windows에 포함된 앱에만 적용 되며 Windows 10에서 실행 중인 타사 앱에는 적용되지 않습니다.
 
-이 설정을 사용하면 Microsoft에 보낼 진단 데이터의 수준을 결정할 수 있습니다.
+진단 데이터는 다음과 같이 네 단계로 분류됩니다.
+  - 0 (보안). 연결된 사용자 환경 및 원격 측정 구성 요소 설정, 악성 소프트웨어 제거 도구 및 Windows Defender에 대한 데이터를 포함하여 Windows, Windows Server 및 System 센터의 보안을 유지하는 데 필요한 정보입니다.
+  - 1 (기본). 품질 관련 데이터, 앱 호환성 및 보안 수준의 데이터를 포함한 기본 장치 정보입니다.
+  - 2 (고급). Windows, Windows Server, System 센터, 앱의 사용 방법과 수행 방법, 고급 안정성 데이터와 기본 수준 및 보안 수준에서의 데이터를 포함한 추가 정보를 제공 합니다.
+  - 3 (전체). 문제를 식별하고 해결하는 데 필요한 모든 데이터와 보안, 기본 및 향상된 수준의 데이터를 제공합니다.
 
-  - 0(보안). Windows를 안전하게 유지하는 데 필요한 최소한의 데이터만 Microsoft로 보냅니다. MSRT(악성 소프트웨어 제거 도구), Windows Defender 등의 Windows 보안 구성 요소가 사용 가능한 경우, 이 수준에서 Microsoft에 데이터를 보낼 수 있습니다. 값을 0으로 설정하면 Enterprise, Education, IoT 또는 Windows Server 버전을 실행하는 장치에만 적용됩니다. 다른 버전의 값을 0으로 설정하는 것은 값을 1로 설정하는 것과 같습니다.
-  - 1(기본). 값이 0일 때 제공하는 데이터에 기본 장치 정보, 품질 관련 데이터, 앱 호환성 정보 등 지극히 제한적인 분량의 진단 데이터를 추가로 보냅니다. 값을 0 또는 1로 설정하면 장치의 특정 환경이 저하됩니다.
-  - 2(강화). 값이 1일 때 제공하는 데이터에 Windows, Windows Server, System Center, 앱의 작동 상태, 성능, 고급 안정성 데이터 등의 데이터를 추가로 보냅니다.
-  - 3(전체). 값이 2일 때 제공하는 데이터에 장치의 문제를 진단하고 해결하는 데 사용되는 고급 진단 데이터를 추가로 보냅니다. 여기에는 장치에 문제를 일으켰을 수 있는 파일과 콘텐츠가 포함됩니다.
-
-이 정책 설정을 사용하지 않거나 구성하지 않은 경우 설정에서 원격 분석 설정을 개별적으로 구성할 수 있습니다.
+설정 앱에서 사용자가 사용할 수 있는 옵션은 이 설정을 구성하여 변경되며 설정되지 않은 경우에도 다른 그룹 정책 설정의 영향을 받을 수 있습니다.  보안 또는 기본 원격 분석 설정을 허용하도록 이 정책을 구성하면 최종 사용자가 더 높은 수준을 선택할 수 없습니다.
       </string>
 
       <string id="TelemetryProxy">연결된 사용자 환경 및 원격 분석 구성</string>
@@ -67,14 +66,14 @@
       <string id="ConfigureTelemetryOptInSettingsUx">원격 분석 옵트인 설정 사용자 인터페이스를 구성합니다.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">원격 분석 옵트인 설정 사용 안 함</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">원격 분석 옵트인 설정 사용</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">이 정책 설정은 사용자가 설정에서 자신의 원격 분석 수준을 변경할 수 있는지 여부를 결정합니다. 이 설정은 원격 분석 허용 설정과 함께 사용해야 합니다.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">이 정책 설정은 최종 사용자가 설정에서 원격 분석 수준을 변경할 수 있는지 여부를 결정합니다.
 
-이 정책 설정을 "원격 분석 옵트인 설정 사용 안 함"으로 설정하면 원격 분석 수준이 설정에서 비활성화되어 사용자가 설정을 변경하지 못하게 됩니다.
+이 정책 설정을 "원격 분석 옵션 설정 사용 안 함"으로 설정하면 설정에서 원격 분석 수준이 사용되지 않으며, 최종 사용자가 이를 변경할 수 없습니다.
 
-이 정책 설정을 "원격 분석 옵트인 설정 사용"으로 설정하거나 이 정책 설정을 구성하지 않으면 사용자가 설정에서 자신의 원격 분석 수준을 변경할 수 있습니다.
+이 정책 설정을 구성하지 않거나 "원격 분석 옵션 설정 사용"으로 설정하면 최종 사용자가 설정 앱에서 장치 원격 분석 수준을 변경할 수 있습니다.
 
 참고:
-사용자가 조직의 제한을 벗어나 Microsoft로 진단 데이터를 보내지 못하도록 원격 분석 허용 정책 설정을 설정하세요.
+조직에서 Microsoft로 보내는 진단 데이터의 수준을 제한하려면 원격 측정 정책 설정 허용을 사용하십시오.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">원격 분석 옵트인 변경 알림을 구성합니다.</string>

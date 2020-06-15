@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Gestor de Pacotes Appx</displayName> 
+  <displayName>Gestor de Pacotes Appx</displayName>
   <description>Gestor de Pacotes Appx</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Se ativar esta definição de política, a Política de Grupo permitirá operaç
 Se desativar ou não configurar esta definição de política, a Política de Grupo bloqueará as operações de implementação de aplicações da Loja Windows ao utilizar um perfil especial.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Permite o desenvolvimento de aplicações da Loja Windows e a respetiva instalação a partir de um ambiente de desenvolvimento integrado (IDE)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Permite ou nega o desenvolvimento de aplicação da Loja Windows e a respetiva instalação diretamente a partir de um IDE.
+        Permite ou nega o desenvolvimento de aplicações da Microsoft Store e instala-as diretamente a partir de um IDE.
 
-	Se ativar esta definição e a Política de Grupo "Permitir a instalação de todas as aplicações fidedignas", é possível desenvolver aplicações da Loja Windows e instalá-las diretamente a partir de um IDE.
-        
-	Se desativar ou não configurar esta definição, não é possível desenvolver aplicações da Loja Windows ou instalá-las diretamente a partir de um IDE.
+        Se ativar esta definição e ativar a Política de Grupo "Permitir a instalação de todas as aplicações fidedignas", pode desenvolver aplicações da Microsoft Store e instalá-las diretamente a partir de um IDE.
+
+        Se desativar ou não configurar esta definição, não pode desenvolver aplicações da Microsoft Store ou instalá-las diretamente a partir de um IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Desativar a instalação das aplicações Windows em volumes que não de sistema</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Se desativar ou não configurar esta definição de política, a Política de Gr
         Se desativar ou não configurar esta definição, quando uma aplicação é movida para um volume diferente, os dados de aplicações dos utilizadores também serão movidos para este volume.
       </string>
       <string id="AllowSharedLocalAppData">Permitir que uma aplicação Windows partilhe dados de aplicações entre utilizadores</string>
-      <string id="AllowSharedLocalAppDataExplanation">Gere a capacidade de uma aplicação Windows partilhar dados entre utilizadores que tenham a aplicação instalada.
-      
-        Se ativar esta política, uma aplicação Windows poderá partilhar dados de aplicações com outras instâncias dessa mesma aplicação. Os dados são partilhados através da pasta SharedLocal. Esta pasta está disponível através da API Windows.Storage.
+      <string id="AllowSharedLocalAppDataExplanation">Gere a capacidade de uma aplicação Windows partilhar dados entre utilizadores que tenham instalado a aplicação.
 
-        Se desativar esta política, uma aplicação Windows não poderá partilhar dados de aplicações com outras instâncias dessa mesma aplicação. Se esta política tiver sido previamente ativada, quaisquer dados de aplicações anteriormente partilhados permanecerão na pasta SharedLocal. 
+        Se ativar esta política, uma aplicação Windows poderá partilhar dados de aplicações com outras instâncias dessa aplicação. Os dados são partilhados através da pasta SharedLocal. Esta pasta está disponível através da API Windows. Storage.
+
+        Se desativar esta política, uma aplicação Windows não poderá partilhar dados de aplicações com outras instâncias dessa aplicação. Se esta política tiver sido ativada anteriormente, quaisquer dados de aplicações anteriormente partilhados permanecerão na pasta SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Impede que utilizadores que não são administradores instalem aplicações em pacote do Windows</string>
+      <string id="BlockNonAdminUserInstallExplanation">Gere a capacidade de os utilizadores não Administradores instalarem pacotes de aplicações do Windows.
+
+        Se ativar esta política, os utilizadores não Administradores não conseguirão iniciar a instalação de pacotes de aplicações do Windows. Os administradores que pretendem instalar uma aplicação terão de o fazer a partir de um contexto de Administrador (por exemplo, uma janela do PowerShell como Administrador). Todos os utilizadores continuarão a poder instalar pacotes de aplicações do Windows através da Microsoft Store, se permitido por outras políticas.
+
+        Se desativar ou não configurar esta política, todos os utilizadores poderão iniciar a instalação de pacotes de aplicações do Windows.
       </string>
     </stringTable>
   </resources>

@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Minimálně operační systémy Windows Server 2003 nebo Windows XP Professional s aktualizací Service Pack 1, kromě systému Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Minimálně Windows XP Professional Service Pack 1 nebo minimálně Windows 2000 Service Pack 3 až Windows 8.1 nebo Windows Server 2012 R2 s nejnovější aktualizací Service Pack</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Minimálně Windows Vista až Windows 8.1 nebo Windows Server 2012 R2 s nejnovější aktualizací Service Pack</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 nebo alespoň Windows 2000 Service Pack 3
+Možnost 7 je podporována na serverech minimálně s edicí Windows Server 2016.</string>
       <string id="AUDontShowUasHelp">Nastavení této zásady umožňuje určit, zda bude v dialogu pro vypnutí počítače zobrazena možnost Nainstalovat aktualizace a vypnout.
 
 Pokud toto nastavení zásad povolíte, nebude volba Nainstalovat aktualizace a vypnout zobrazena v dialogovém okně pro vypnutí počítače, ani v případě, že jsou při vypínání připraveny aktualizace k instalaci.
@@ -59,7 +61,7 @@ Pokud je tato zásada povolena ve Windows 8 a Windows RT, budou se zobrazovat po
 
 Poznámka: Tato zásada neplatí pro Windows RT.
 
-Toto nastavení umožňuje zadat, jestli jsou na tomto počítači povolené automatické aktualizace. Pokud je služba povolená, je třeba v nastavení zásad skupiny vybrat jednu ze čtyř možností:
+Toto nastavení umožňuje určit, jestli jsou na tomto počítači povolené automatické aktualizace. Pokud je služba povolená, je třeba v nastavení zásad skupiny vybrat jednu ze čtyř možností:
 
         2 = Před stažením a instalací aktualizací se zobrazí oznámení.
 
@@ -81,10 +83,15 @@ Toto nastavení umožňuje zadat, jestli jsou na tomto počítači povolené aut
 
         S touto možností můžou místní správci pomocí ovládacího panelu Windows Update sami vybrat možnost konfigurace. Místní správci nebudou moct zakázat konfiguraci pro službu automatických aktualizací.
 
+        7 = Upozorní na instalaci a pak na restartování (jen Windows Server).
+
+        S touto možností z verze Windows Server 2016, která je použitelná jen u skladových jednotek (SKU) představujících serverová zařízení, budou správci smět při použití služby Windows Update spouštět instalace a restartování ručně.
+
 Pokud bude tato zásada nastavena na Zakázáno, bude třeba všechny aktualizace, které jsou k dispozici prostřednictvím služby Windows Update, stáhnout a nainstalovat ručně. Pokud to chcete udělat, vyhledejte v nabídce Start službu Windows Update.
 
 Pokud bude nastavena na Nenakonfigurováno, používání automatických aktualizací není na úrovni zásad skupiny nastavené. Správce ale pořád může automatické aktualizace nakonfigurovat přes Ovládací panely.</string>
 
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 – Automaticky stáhnout, upozornit na instalaci, upozornit na restartování</string>
       <string id="AutoUpdateModeAdminChooses">5 – Povolit místnímu správci změnit nastavení</string>
       <string id="AutoUpdateModeAuto">4 – Automaticky stahovat a plánovat instalaci</string>
       <string id="AutoUpdateModeDownload">3 – Automaticky stahovat a upozorňovat na instalaci</string>
@@ -355,6 +362,10 @@ Pokud chcete zabránit příjmu aktualizací pro zvýšení kvality v jejich pl�
 Pokud chcete znovu přijímat aktualizace pro zvýšení kvality, které jsou pozastavené, vymažte pole pro počáteční datum.
 
 Pokud tuto zásadu zakážete nebo nenakonfigurujete, služba Windows Update své chování nezmění.</string>
+      <string id="TargetReleaseVersion_Title">Vybrat cílovou verzi aktualizace funkcí</string>
+      <string id="TargetReleaseVersion_Help">Pokud povolíte tuto zásadu, můžete určit cílovou verzi aktualizace funkcí, která má být vyžadována při následných kontrolách.
+
+Zadejte verzi uvedenou na stránce s informacemi o verzích Windows: aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Nezahrnovat ovladače do aktualizací systému Windows</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Když povolíte tuto zásadu, do aktualizací pro zvýšení kvality Windows se nebudou zahrnovat ovladače.
 
@@ -704,6 +715,11 @@ Tato zásada přepíše následující zásady:
         <text>následující čas k uložení jejich</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">práce (v minutách):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Cílová verze pro aktualizace funkcí</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Nastavte chování pro příjem buildů Preview:</dropdownList>
       </presentation>

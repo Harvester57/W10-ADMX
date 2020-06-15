@@ -61,25 +61,25 @@ Du skal ikke genstarte computeren eller tjenesten, for at politikindstillingen k
 </string>
 <string id="TroubleshootingAllowRecommendations">Fejlfinding: Giv brugere adgang til anbefalet fejlfinding for kendte problemer</string>
 <string id="TroubleshootingAllowRecommendationsExplain">Denne politikindstilling anvender anbefalet fejlfinding for kendte problemer på enheden og giver administratorer mulighed for at konfigurere, hvordan den anvendes på deres domæner/it-miljøer.
-Hvis du ikke konfigurerer denne politikindstilling, kan brugeren konfigurere, om og hvordan anbefalet fejlfinding skal anvendes.
+Hvis du undlader at konfigurere denne politikindstilling, kan brugerne konfigurere, om og hvordan anbefalet fejlfinding skal anvendes.
 
-Hvis du aktiverer denne politikindstilling, kan du konfigurere, hvordan anbefalet fejlfinding anvendes på brugerens enhed. Du kan vælge mellem følgende værdier:
+Hvis du aktiverer politikindstillingen, kan du konfigurere, hvordan anbefalet fejlfinding anvendes på brugernes enheder. Du kan vælge mellem følgende værdier:
 0 = Slå denne funktion fra.
 1 = Slå denne funktion fra, men anvend stadig kritisk fejlfinding.
-2 = Giv brugerne besked, når den anbefalede fejlfinding er tilgængelig, så brugeren kan køre eller ignorere den.
-3 = Kør den anbefalede fejlfinding automatisk, og giv brugeren besked, når den er blevet kørt korrekt.
-4 = Kør den anbefalede fejlfinding automatisk uden at give brugeren besked.
-5 = Gør det muligt for brugeren at vælge de anbefalede fejlfindingsindstillinger.
+2 = Giv brugerne besked, hvis den anbefalede fejlfinding er tilgængelig, så brugerne kan køre eller ignorere den.
+3 = Kør den anbefalede fejlfinding automatisk, og giv brugerne besked, når den er blevet kørt korrekt.
+4 = Kør den anbefalede fejlfinding automatisk uden at give brugerne besked.
+5 = Giv brugerne mulighed for at vælge deres egne anbefalede fejlfindingsindstillinger.
 
 Når du har angivet denne nye indstilling, skal du følge denne vejledning for at aktivere anbefalet fejlfinding for enheder i dit domæne:
 1. Opret et BAT-script med følgende indhold:
 rem Følgende batchscript udløser anbefalet fejlfinding
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
-2. Hvis du vil oprette en ny omgående opgave, skal du åbne editoren til administration af Gruppepolitik &gt; Computerkonfiguration &gt; Indstillinger og vælge Kontrolpanel. 
+2. Hvis du vil oprette en ny omgående opgave, skal du gå til editoren til administration af gruppepolitik &gt; Computerkonfiguration &gt; Indstillinger og vælge Kontrolpanel. 
 3. Højreklik på Planlagte opgaver under Kontrolpanel, og vælg Ny. Vælg Omgående opgave (mindst Windows 7).
-4. Angiv det ønskede navn og den ønskede beskrivelse, og vælg derefter brugerkontoen under Sikkerhedsindstillinger, og markér afkrydsningsfeltet Kør med højeste rettigheder.
-5. Opret en ny handling under fanen Handlinger, Vælg Start et program som dens type, og skriv derefter den fil, der blev oprettet i trin 1.
+4. Angiv ønsket navn og beskrivelse, og vælg derefter brugerkontoen under Sikkerhedsindstillinger. Markér afkrydsningsfeltet Kør med højeste rettigheder.
+5. Opret en ny handling under fanen Handlinger, vælg Start et program som type, og angiv den fil, der blev oprettet i trin 1.
 6. Konfigurer opgaven til at blive installeret på dit domæne.</string>
 <string id="RecommendationsDropDown_DoNothing">Slå denne funktion fra</string>
 <string id="RecommendationsDropDown_ApplyCoreSystemMitigationsOnly">Slå denne funktion fra, men anvend stadig kritisk fejlfinding.</string>

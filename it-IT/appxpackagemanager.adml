@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Gestione di pacchetti appx</displayName> 
+  <displayName>Gestione di pacchetti appx</displayName>
   <description>Gestione di pacchetti appx</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Se si abilita questa impostazione dei criteri, Criteri di gruppo consente le ope
 Se si disabilita o non si configura questa impostazione dei criteri, Criteri di gruppo blocca le operazioni di distribuzione di app di Windows Store quando si utilizza un profilo speciale.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Consenti lo sviluppo di app di Windows Store e la loro installazione da un ambiente di sviluppo integrato</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Consente o impedisce lo sviluppo di applicazioni di Windows Store e la relativa installazione direttamente da un ambiente di sviluppo integrato.
+        Consente o impedisce lo sviluppo di applicazioni di Microsoft Store e la relativa installazione direttamente da un ambiente di sviluppo integrato.
 
-        Se si abilita questa impostazione dei criteri e si abilita l'impostazione di Criteri di gruppo "Consenti l'installazione di tutte le app attendibili", è possibile sviluppare app di Windows Store e installarle direttamente da un ambiente di sviluppo integrato.
-        
-        Se si disabilita o non si configura questa impostazione dei criteri, non è possibile sviluppare app di Windows Store o installarle direttamente da un ambiente di sviluppo integrato.
+        Se abiliti questa impostazione dei criteri e abiliti l'impostazione di Criteri di gruppo "Consenti l'installazione di tutte le app attendibili", puoi sviluppare app di Microsoft Store e installarle direttamente da un ambiente di sviluppo integrato.
+
+        Se disabiliti o non configuri questa impostazione dei criteri, non puoi sviluppare app di Microsoft Store o installarle direttamente da un ambiente di sviluppo integrato.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Disabilita l'installazione di app di Windows in volumi non di sistema</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -54,10 +54,17 @@ Se si disabilita o non si configura questa impostazione, quando un'app viene spo
       </string>
       <string id="AllowSharedLocalAppData">Consenti a un'app di Windows di condividere i dati dell'applicazione tra gli utenti</string>
       <string id="AllowSharedLocalAppDataExplanation">Per un'app di Windows, gestisce la possibilità di condividere dati tra gli utenti che hanno installato l'app.
-        
-Se si abilita questa impostazione dei criteri, un'app di Windows può condividere i dati con altre istanze di tale app. I dati vengono condivisi tramite la cartella SharedLocal. La cartella è disponibile tramite l'API Windows.Storage.
 
-Se si disabilita questo criterio, un'app di Windows non può condividere i dati dell'app con altre istanze di tale app. Se questa impostazione dei criteri è stata abilitata in precedenza, tutti i dati dell'app condivisi in precedenza rimarranno nella cartella SharedLocal. 
+        Se abiliti questa impostazione dei criteri, un'app di Windows può condividere i dati con altre istanze di tale app. I dati vengono condivisi tramite la cartella SharedLocal. La cartella è disponibile tramite l'API Windows.Storage.
+
+        Se disabiliti questi criteri, un'app di Windows non può condividere i dati dell'app con altre istanze di tale app. Se questa impostazione dei criteri è stata abilitata in precedenza, tutti i dati dell'app condivisi in precedenza rimarranno nella cartella SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Impedisci agli utenti non amministratori di installare app di Windows in pacchetto</string>
+      <string id="BlockNonAdminUserInstallExplanation">Gestisce la capacità degli utenti non amministratori di installare pacchetti di app di Windows.
+
+        Se abiliti questi criteri, gli utenti non amministratori non saranno in grado di avviare l'installazione dei pacchetti di app di Windows. Gli amministratori che desiderano installare un'app dovranno eseguire questa operazione da un contesto amministratore, ad esempio una finestra di PowerShell per l'amministratore. Tutti gli utenti potranno comunque installare pacchetti di app di Windows tramite Microsoft Store, se consentito da altri criteri.
+
+        Se disabiliti o non configuri questi criteri, tutti gli utenti potranno avviare l'installazione dei pacchetti di app di Windows.
       </string>
     </stringTable>
   </resources>

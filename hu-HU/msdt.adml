@@ -74,7 +74,7 @@ A házirend engedélyezésével megadhatja, hogy a rendszer hogyan alkalmazza az
 Az új beállítás megadása után a tartományban lévő eszközökre vonatkozó ajánlott hibaelhárítási lépések megjelenítéséhez kövesse az alábbi utasításokat:
 1. Hozzon létre .bat parancsfájlt az alábbi tartalommal:
 rem Az alábbi kötegfájl elindítja az Ajánlott hibaelhárítási lépések szolgáltatást
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
 2. Új azonnali feladat létrehozásához navigáljon a Csoportházirend-felügyeleti szerkesztő &gt; Számítógép konfigurációja &gt; Beállítások menüpontra, és válassza a Vezérlőpult-beállítások elemet. 
 3. A Vezérlőpult beállításai területen kattintson a jobb gombbal az Ütemezett feladatok lehetőségre, és válassza az Új lehetőséget. Válassza az Azonnali feladat lehetőséget (legalább Windows 7).

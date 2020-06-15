@@ -321,6 +321,21 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan 
 
 Denne politik gælder for Windows-apps og Cortana. Den har højere prioritet end politikken "Tillad Cortana over låseskærm". Denne politik kan kun anvendes, når politikken "Tillad stemmeaktivering" er konfigureret til at tillade, at programmer aktiveres med stemmen.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Lad Windows-apps få adgang til brugerbevægelser, mens de kører i baggrunden</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Denne politikindstilling angiver, om Windows-apps kan få adgang til brugerens bevægelser af hoved, hænder, bevægelsescontrollere og andre sporede objekter, mens disse apps kører i baggrunden.
+
+Du kan angive enten en standardindstilling for alle apps eller en pr. app-indstilling ved at angive et pakkefamilienavn. Du kan få pakkefamilienavnet for en app ved at bruge cmdlet'en Get-AppPackage Windows PowerShell. En pr. app-indstilling tilsidesætter standardindstillingen.
+
+Hvis du vælger indstillingen "Brugeren har kontrol", kan medarbejdere i din organisation bestemme, om Windows-apps kan få adgang til brugerens bevægelser, mens apps kører i baggrunden, via Indstillinger &gt; Beskyttelse af personlige oplysninger på enheden.
+
+Hvis du vælger indstillingen "Gennemtving tilladelse", kan Windows-apps kan få adgang til brugerens bevægelser, mens apps kører i baggrunden, og medarbejdere i din organisation kan ikke ændre det.
+
+Hvis du vælger indstillingen "Gennemtving afvisning", kan Windows-apps ikke få adgang til brugerens bevægelser, mens apps kører i baggrunden, og medarbejdere i din organisation kan ikke ændre det.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan medarbejdere i din organisation bestemme, om Windows-apps kan få adgang til brugerens bevægelser, mens apps kører i baggrunden, ved hjælp af Indstillinger &gt; Beskyttelse af personlige oplysninger på enheden.
+
+Hvis en app er åben, når dette gruppepolitikobjekt anvendes på en enhed, skal medarbejdere genstarte appen eller enheden, for at politikændringerne kan træde i kraft i appen.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Denne politik gælder for Windows-apps og Cortana. Den har højere prioritet end
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Standard for alle apps:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Standard for alle apps:</dropdownList>
+        <text>Giv brugeren kontrol over disse bestemte apps (brug pakkefamilienavne):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Gennemtving tilladelse af disse bestemte apps (brug pakkefamilienavne):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Gennemtving afvisning af disse bestemte apps (brug pakkefamilienavne):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

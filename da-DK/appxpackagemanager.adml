@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Styring af AppX-pakke</displayName> 
+  <displayName>Styring af AppX-pakke</displayName>
   <description>Styring af AppX-pakke</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Hvis du aktiverer denne politikindstilling, tillader gruppepolitikken installati
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, blokerer gruppepolitikken for installationshandlinger på Windows Store-apps, når der anvendes en særlig profil.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Tillad udvikling af Windows Store-apps og installation af dem fra et IDE (integrated development environment)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Tillader eller afviser udvikling af Windows Store-programmer og installation af dem direkte fra et IDE.
+        Tillader eller afviser udvikling af Microsoft Store-programmer og installation af dem direkte fra et IDE.
 
-        Hvis du aktiverer denne indstilling og aktiverer gruppepolitikken "Tillad installation af alle de apps, der er tillid til", kan du udvikle Windows Store-apps og installere dem direkte fra et IDE.
-        
-        Hvis du deaktiverer denne politikindstilling eller undlader at konfigurere den, kan du ikke udvikle Windows Store-apps eller installere dem direkte fra et IDE.
+        Hvis du aktiverer denne indstilling og aktiverer gruppepolitikken "Tillad alle apps, der er tillid til, at installere", kan du udvikle Microsoft Store-apps og installere dem direkte fra et IDE.
+
+        Hvis du deaktiverer eller undlader at konfigurere denne indstilling, kan du ikke udvikle Microsoft Store-apps eller installere dem direkte fra et IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Deaktiver installation af Windows-apps på drev, som ikke er systemdrev</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, blok
         Hvis du deaktiverer eller undlader at konfigurere denne indstilling, betyder det, når en app flyttes til et andet drev, flyttes brugernes data også til dette drev.
       </string>
       <string id="AllowSharedLocalAppData">Tillad, at en Windows-app kan dele programdata mellem brugere</string>
-      <string id="AllowSharedLocalAppDataExplanation">Administrer en Windows-apps mulighed for at dele data mellem de brugere, der har installeret appen.
-      
-        Hvis du aktiverer denne politik, kan en Windows-app dele appdata med andre forekomster af den app. Data deles via mappen SharedLocal. Denne mappe er tilgængelig via Windows.Storage API.
+      <string id="AllowSharedLocalAppDataExplanation">Administrerer en Windows-apps mulighed for at dele data mellem brugere, der har installeret appen.
 
-        Hvis du deaktiverer denne politik, kan en Windows-app ikke dele appdata med andre forekomster af den app. Hvis denne politik tidligere var aktiveret, forbliver appdata, der tidligere er delt, i mappen SharedLocal. 
+        Hvis du aktiverer denne politik, kan en Windows-app dele appdata med andre forekomster af den app. Data deles via mappen SharedLocal. Denne mappe er tilgængelig via Windows.Storage-API'en.
+
+        Hvis du deaktiverer denne politik, kan en Windows-app ikke dele appdata med andre forekomster af den app. Hvis denne politik tidligere var aktiveret, forbliver alle tidligere delte appdata i mappen SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Forbyd brugere, der ikke er administratorer, i at installere pakkede Windows-apps</string>
+      <string id="BlockNonAdminUserInstallExplanation">Styrer muligheden for, at brugere, der ikke er administratorer, kan installere Windows-app-pakker.
+
+        Hvis du aktiverer denne politik, vil ikke-administratorer ikke kunne starte installationen af Windows-app-pakker. Administratorer, der ønsker at installere en app, skal gøre det fra en administratorkontekst (f.eks. et administratorvindue i PowerShell). Alle brugere vil stadig kunne installere Windows-app-pakker via Microsoft Store, hvis det er tilladt i andre politikker.
+
+        Hvis du deaktiverer eller undlader at konfigurere denne politik, kan alle brugere starte installationen af Windows-app-pakker.
       </string>
     </stringTable>
   </resources>

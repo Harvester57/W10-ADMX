@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Mindst Windows Server 2003-operativsystemer eller Windows XP Professional med SP1, eksklusive Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Mindst Windows XP Professional Service Pack 1 eller mindst Windows 2000 Service Pack 3 til og med Windows 8.1 eller Windows Server 2012 R2 med den mest aktuelle servicepakke</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Mindst Windows Vista til og med Windows 8.1 eller Windows Server 2012 R2 med den mest aktuelle servicepakke</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Mindst Windows XP Professional Service Pack 1 eller mindst Windows 2000 Service Pack 3
+Indstilling 7 understøttes kun på servere med mindst Windows Server 2016 Edition​</string>
       <string id="AUDontShowUasHelp">Denne politik giver dig mulighed for at administrere, om indstillingen Installer opdateringer og luk computeren skal vises i dialogboksen Luk Windows.
 
 Hvis du aktiverer denne politikindstilling, vises Installer opdateringer og luk computeren ikke vises som en indstilling i dialogboksen Luk Windows, heller ikke selvom der er opdateringer klar til installation, når brugeren vælger indstillingen Luk computeren i menuen Start.
@@ -60,32 +62,37 @@ Hvis denne politik er aktiveret i Windows 8 og Windows RT, vises kun beskeder i 
 
 Bemærk! Denne politikindstilling gælder ikke for Windows RT.
 
-Med denne indstilling kan du angive, om automatiske opdateringer er aktiveret på denne computer. Hvis tjenesten er aktiveret, skal du vælge en af de fire indstillinger i indstillingen for GruppePolitik:
+Med denne indstilling kan du angive, om automatiske opdateringer er aktiveret på denne computer. Hvis tjenesten er aktiveret, skal du vælge en af de fire indstillinger i gruppepolitikindstillingen:
 
         2 = Giv besked, før der hentes og installeres opdateringer.
 
         Når Windows finder opdateringer, der gælder for denne computer, får brugerne besked om, at opdateringerne er klar til at blive downloadet. Når brugerne starter til Windows Update, kan de downloade og installere alle tilgængelige opdateringer.
 
-        3 = (standardindstilling) Download opdateringerne automatisk, og giv besked, når de er klar til at blive installeret
+        3 = (standardindstilling) Download opdateringerne automatisk, og giv besked, når de er klar til at blive installeret.
 
         Windows finder opdateringer, der gælder for computeren og downloader dem i baggrunden (brugeren underrettes ikke og bliver ikke afbrudt). Når downloaden er fuldført, får brugerne besked om, at de er klar til at blive installeret. Efter at have startet Windows Update kan brugerne installere dem.
 
-        4 = Download automatisk opdateringer, og installer dem efter planen, der er angivet nedenfor.
+        4 = Download automatisk opdateringer, og installér dem efter planen, der er angivet nedenfor.
 
-        Når "automatisk" er valgt som den planlagte installationstid, vil Windows automatisk kontrollere, downloade og installere opdateringer. Enheden genstartes ifølge Windows-standardindstillinger, medmindre det er konfigureret af gruppepolitik. (Gælder for Windows 10, version 1809 og højere)
+        Når "automatisk" er valgt som den planlagte installationstid, vil Windows automatisk kontrollere, downloade og installere opdateringer. Enheden genstartes ifølge Windows-standardindstillinger, medmindre det er konfigureret af gruppepolitik. (Gælder for Windows 10, version 1809 og højere).
 
-        Angiv tidsplanen ved hjælp af indstillingerne i Indstilling for gruppepolitik. For version 1709 og senere er der et ekstra valg til at begrænse opdatering til en ugentlig, to-ugentlig eller månedlig forekomst. Hvis der ikke angives en tidsplan, vil standardplanen for alle installationer være hver dag kl. 3:00. Hvis opdateringer kræver genstart for at fuldføre installationen, vil Windows genstarte computeren automatisk. (Hvis en bruger er logget på computeren, når Windows er klar til at genstarte, får brugeren besked, og får mulighed for at udskyde genstarten).
+        Angiv tidsplanen ved hjælp af indstillingerne i gruppepolitikindstillingen. For version 1709 og senere er der et ekstra valg til at begrænse opdatering til en ugentlig, to-ugentlig eller månedlig forekomst. Hvis der ikke angives en tidsplan, vil standardplanen for alle installationer være hver dag kl. 3:00. Hvis opdateringer kræver genstart for at fuldføre installationen, vil Windows genstarte computeren automatisk. (Hvis en bruger er logget på computeren, når Windows er klar til at genstarte, får brugeren besked, og får mulighed for at udskyde genstarten).
 
         I Windows 8 og nyere versioner kan du angive opdateringer, der skal installeres under automatisk vedligeholdelse i stedet for en bestemt tidsplan. Automatisk vedligeholdelse installerer opdateringer, når computeren ikke er i brug og undgår at gøre det, når computeren kører på batteristrøm. Hvis automatisk vedligeholdelse ikke kan installere opdateringer i 2 dage, installerer Windows Update dem med det samme. Brugerne får derefter besked om en kommende genstart, og genstart vil kun finde sted, hvis der ikke er nogen mulighed for at miste data.
 
-        5 = Giv lokale administratorer tilladelse til at vælge den konfigurationstilstand, hvor automatiske opdateringer giver besked om og installerer opdateringer. (Denne indstilling er ikke overført til nogen version på Windows 10)
+        5 = Giv lokale administratorer tilladelse til at vælge den konfigurationstilstand, hvor automatiske opdateringer giver besked om og installerer opdateringer. (Denne indstilling er ikke overført til nogen version på Windows 10).
 
         Med denne indstilling vil lokale administratorer have tilladelse til at bruge Windows Update-kontrolpanelet til at vælge deres egen konfigurationsindstilling. Lokale administratorer vil ikke have tilladelse til at deaktivere konfigurationen for automatiske opdateringer.
 
-Hvis status for denne politik er deaktiveret, skal alle opdateringer, der er tilgængelige på Windows Update, downloades og installeres manuelt. Det kan du gøre ved at søge efter Windows Update vha. Start.
+        7 = Giv besked om installation, og giv besked om genstart. (kun Windows Server).
 
-Hvis status er angivet til Ikke konfigureret, er brug af automatiske opdateringer ikke angivet på Gruppepolitikniveau. En administrator kan dog stadig konfigurere automatiske opdateringer via kontrolpanel.</string>
+        Med denne indstilling fra Windows Server 2016, der kun gælder for Server SKU-enheder, kan lokale administratorer bruge Windows Update til at fortsætte med installationer eller genstarter manuelt.
 
+Hvis status for denne politik er angivet til Deaktiveret, skal alle opdateringer, der er tilgængelige på Windows Update, downloades og installeres manuelt. Det kan du gøre ved at søge efter Windows Update vha. Start.
+
+Hvis status er angivet til Ikke konfigureret, er brug af automatiske opdateringer ikke angivet på Gruppepolitikniveau. En administrator kan dog stadig konfigurere automatiske opdateringer via Kontrolpanel.</string>
+
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 – Download automatisk, Giv besked for at installere, Giv besked for at genstarte</string>
       <string id="AutoUpdateModeAdminChooses">5 – Tillad, at en lokal administrator vælger indstillingen</string>
       <string id="AutoUpdateModeAuto">4 – Hent automatisk, og planlæg installationen</string>
       <string id="AutoUpdateModeDownload">3 – Hent automatisk, og giv besked om installation</string>
@@ -356,6 +363,10 @@ Hvis du vil forhindre, at kvalitetsopdateringer modtages på det planlagte tidsp
 Hvis du vil genoptage modtagelsen af kvalitetsopdateringer, der er midlertidigt afbrudt, skal du rydde feltet Startdato.
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vil Windows Update ikke ændre funktionsmåden.</string>
+      <string id="TargetReleaseVersion_Title">Vælg opdateringsversion for målfunktion</string>
+      <string id="TargetReleaseVersion_Help">Aktivér denne politik for at angive en version af Funktionsopdatering, der skal anmodes om i efterfølgende scanninger.
+
+Angiv version, som den er angivet på siden med oplysninger om Windows Release - aka.ms/ReleaseInformationPage</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Medtag ikke drivere i Windows-opdateringer</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Aktivér denne politik for ikke at medtage drivere sammen Windows-kvalitetsopdateringer.
 
@@ -705,6 +716,11 @@ Denne politik tilsidesætter følgende politikker:
         <text>så meget tid til at gemme deres</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">arbejde (minutter):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Målversion for funktionsopdateringer</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Angiv funktionen for at modtage eksempelbuilds:</dropdownList>
       </presentation>

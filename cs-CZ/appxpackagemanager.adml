@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Správce balíčků Appx</displayName> 
+  <displayName>Správce balíčků Appx</displayName>
   <description>Správce balíčků Appx</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Když toto nastavení zásad povolíte, umožní zásady skupiny provádět u ap
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou zásady skupiny blokovat operace nasazení, když uživatel používá speciální profil.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Povolí vývoj aplikací pro Windows Store a jejich instalaci z integrovaného vývojového prostředí (IDE)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Povolí nebo zakáže vývoj aplikací pro Windows Store a jejich instalaci z IDE.
+        Povolí nebo zakáže vývoj aplikací pro Microsoft Store a jejich instalaci z IDE.
 
-        Pokud toto nastavení povolíte a zároveň povolíte zásadu skupiny Povolit instalaci všech důvěryhodných aplikací, můžete vyvíjet aplikace pro Windows Store a instalovat je přímo z IDE.
-        
-        Pokud nastavení této zásady zakážete nebo nenakonfigurujete, nebudete moct vyvíjet aplikace pro Windows Store ani je instalovat z IDE.
+        Pokud toto nastavení povolíte a zároveň povolíte zásadu skupiny Povolit instalaci všech důvěryhodných aplikací, můžete vyvíjet aplikace pro Microsoft Store a instalovat je přímo z IDE.
+
+        Pokud nastavení této zásady zakážete nebo nenakonfigurujete, nebudete moct vyvíjet aplikace pro Microsoft Store ani je instalovat z IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Zakázat instalaci aplikací pro Windows na nesystémové svazky</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -54,10 +54,17 @@ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, budou zásady sk
       </string>
       <string id="AllowSharedLocalAppData">Povolit aplikaci pro Windows sdílení aplikačních dat mezi uživateli</string>
       <string id="AllowSharedLocalAppDataExplanation">Řídí schopnost aplikace pro Windows sdílet data mezi uživateli, kteří si ji nainstalovali.
-      
+
         Pokud nastavení této zásady povolíte, aplikace pro Windows bude moct sdílet aplikační data s jinými instancemi stejné aplikace. Data se sdílejí přes složku SharedLocal, která je dostupná přes rozhraní API Windows.Storage.
 
-        Pokud nastavení této zásady zakážete, aplikace pro Windows nebude moct sdílet aplikační data s jinými instancemi stejné aplikace. Pokud byla tato zásada dříve povolená, zůstanou všechna dříve sdílená aplikační data ve složce SharedLocal. 
+        Pokud nastavení této zásady zakážete, aplikace pro Windows nebude moct sdílet aplikační data s jinými instancemi stejné aplikace. Pokud byla tato zásada dříve povolená, zůstanou všechna dříve sdílená aplikační data ve složce SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Zabránit uživatelům bez oprávnění správce instalovat zabalené aplikace pro Windows</string>
+      <string id="BlockNonAdminUserInstallExplanation">Určuje, jestli si uživatelé, kteří nejsou správci, můžou nainstalovat balíčky aplikací pro Windows.
+
+        Pokud tuto zásadu povolíte, uživatelé bez oprávnění správce nebudou moct instalaci balíčků aplikací pro Windows spustit. Správci, kteří si chtějí nainstalovat určitou aplikaci, budou muset tuto operaci spustit z kontextu správce (například z okna prostředí PowerShell, které si otevřou jako správci). Všichni uživatelé si budou moct nadále instalovat balíčky aplikací pro Windows přes Microsoft Store, pokud to povolují jiné zásady.
+
+        Pokud tuto zásadu zakážete nebo nenakonfigurujete, budou moct instalaci balíčků aplikací pro Windows spouštět všichni uživatelé.
       </string>
     </stringTable>
   </resources>

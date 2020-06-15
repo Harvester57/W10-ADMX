@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Appx-pakketbeheer</displayName> 
+  <displayName>Appx-pakketbeheer</displayName>
   <description>Appx-pakketbeheer</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Als u deze beleidsinstelling inschakelt, staat Groepsbeleid implementaties (het 
 Als u deze beleidsinstelling uitschakelt of niet configureert, blokkeert Groepsbeleid implementaties van Windows Store-apps wanneer er een speciaal profiel wordt gebruikt.</string>
       <string id="AllowDevelopmentWithoutDevLicense">De ontwikkeling van Windows Store-apps en de installatie hiervan via een IDE (Integrated Development Environment) toestaan</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Hiermee wordt de ontwikkeling van Windows Store-apps en het rechtstreeks installeren hiervan via een IDE al dan niet toegestaan of geweigerd.
+        Hiermee wordt de ontwikkeling van Microsoft Store-apps en het rechtstreeks installeren hiervan via een IDE al dan niet toegestaan of geweigerd.
 
-        Als u deze instelling inschakelt en het groepsbeleid Installatie van alle vertrouwde apps toestaan inschakelt, kunt u Windows Store-apps ontwikkelen en rechtstreeks installeren via een IDE.
-        
-        Als u deze beleidsinstelling uitschakelt of niet configureert, kunt u geen Windows Store-apps ontwikkelen of rechtstreeks installeren via een IDE.
+        Als u deze instelling inschakelt en het groepsbeleid Installatie van alle vertrouwde apps toestaan inschakelt, kunt u Microsoft Store-apps ontwikkelen en rechtstreeks installeren via een IDE.
+
+        Als u deze beleidsinstelling uitschakelt of niet configureert, kunt u geen Microsoft Store-apps ontwikkelen of rechtstreeks installeren via een IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Installatie van Windows-apps op volumes die geen deel uitmaken van het systeem uitschakelen</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -54,10 +54,17 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, blokkeert Groepsb
       </string>
       <string id="AllowSharedLocalAppData">Toestaan dat een Windows-app toepassingsgegevens kan delen tussen gebruikers</string>
       <string id="AllowSharedLocalAppDataExplanation">Hiermee wordt de mogelijkheid van een Windows-app beheerd om gegevens te delen tussen gebruikers die de app hebben geïnstalleerd.
-      
+
         Als u dit beleid inschakelt, kunnen gegevens in een Windows-app worden gedeeld met andere exemplaren van deze app. Gegevens worden gedeeld via de SharedLocal-map. Deze map is toegankelijk via de Windows.Storage-API.
 
-        Als u dit beleid uitschakelt, kunnen gegevens in een Windows-app niet worden gedeeld met andere exemplaren van deze app. Als het beleid eerder ingeschakeld is geweest, blijven eerder gedeelde app-gegevens in de SharedLocal-map staan. 
+        Als u dit beleid uitschakelt, kunnen gegevens in een Windows-app niet worden gedeeld met andere exemplaren van deze app. Als het beleid eerder ingeschakeld is geweest, blijven eerder gedeelde app-gegevens in de SharedLocal-map staan.
+      </string>
+      <string id="BlockNonAdminUserInstall">Voorkomen dat gebruikers die geen administrator zijn Windows-toepassingspakketten installeren</string>
+      <string id="BlockNonAdminUserInstallExplanation">Hiermee beheert u de mogelijkheid van gebruikers die geen beheerder zijn om Windows-app-pakketten te installeren.
+
+        Als u dit beleid inschakelt, kunnen gebruikers die geen beheerder zijn, de installatie van Windows-app-pakketten niet starten. Beheerders die een app willen installeren, moeten dit doen vanuit een Administrator-context (bijvoorbeeld een PowerShell-venster voor beheerders). Alle gebruikers kunnen nog steeds Windows-app-pakketten installeren via de Microsoft Store indien dit wordt toegestaan door andere beleidsregels.
+
+        Als u dit beleid uitschakelt of niet configureert, kunnen alle gebruikers de installatie van Windows-app-pakketten starten.
       </string>
     </stringTable>
   </resources>

@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Gerenciador de Pacotes de Aplicativos</displayName> 
+  <displayName>Gerenciador de Pacotes de Aplicativos</displayName>
   <description>Gerenciador de Pacotes de Aplicativos</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Se você habilitar essa configuração de política, a Política de Grupo permit
 Se desabilitar ou não definir essa configuração de política, a Política de Grupo bloqueará as operações de implantação de aplicativos da Windows Store, quando um perfil especial estiver em uso.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Permitir o desenvolvimento de aplicativos da Windows Store e a instalação de um ambiente de desenvolvimento integrado (IDE)</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Permite ou nega o desenvolvimento de aplicativos da Windows Store e sua instalação diretamente de um IDE.
+        Permite ou nega o desenvolvimento de aplicativos da Microsoft Store e sua instalação diretamente de um IDE.
 
-        Se você habilitar essa configuração e também a Política de Grupo "Permitir instalação de todos os aplicativos confiáveis", poderá desenvolver aplicativos da Windows Store e instalá-los diretamente de um IDE.
-        
-        Caso desabilite ou não defina essa configuração, você não poderá desenvolver aplicativos da Windows Store ou instalá-los diretamente de um IDE.
+        Se você habilitar essa configuração e também a Política de Grupo "Permitir instalação de todos os aplicativos confiáveis", poderá desenvolver aplicativos da Microsoft Store e instalá-los diretamente de um IDE.
+
+        Caso desabilite ou não defina essa configuração, você não poderá desenvolver aplicativos da Microsoft Store ou instalá-los diretamente de um IDE.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Desabilitar a instalação de aplicativos do Windows em volumes que não sejam do sistema</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Se desabilitar ou não definir essa configuração de política, a Política de 
         Se você desabilitar ou não definir essa configuração, quando um aplicativo for movido para outro volume, os dados do aplicativo do usuário também serão movidos para esse volume.
       </string>
       <string id="AllowSharedLocalAppData">Permitir que um aplicativo do Windows compartilhe os dados do aplicativo entre usuários</string>
-      <string id="AllowSharedLocalAppDataExplanation">Gerencie a capacidade de um aplicativo do Windows compartilhar dados entre usuários que tenham instalado o aplicativo.
-      
-        Se você habilitar essa política, um aplicativo do Windows poderá compartilhar os dados do aplicativo com outras instâncias desse aplicativo. Os dados serão compartilhados via pasta SharedLocal. Essa pasta está disponível por meio da API do Windows.Storage.
+      <string id="AllowSharedLocalAppDataExplanation">Gerencia a capacidade de um aplicativo do Windows de compartilhar dados entre usuários que tenham instalado o aplicativo.
 
-       Se você desabilitar essa política, um aplicativo do Windows não poderá compartilhar os dados do aplicativo com outras instâncias desse aplicativo. Se essa política tiver sido habilitada anteriormente, todos os dados compartilhados do aplicativo permanecerão na pasta SharedLocal. 
+        Se você habilitar essa política, um aplicativo do Windows poderá compartilhar os dados do aplicativo com outras instâncias desse aplicativo. Os dados serão compartilhados via pasta SharedLocal. Essa pasta está disponível por meio da API Windows.Storage.
+
+        Se você desabilitar essa política, um aplicativo do Windows não poderá compartilhar os dados do aplicativo com outras instâncias desse aplicativo. Se essa política tiver sido habilitada anteriormente, todos os dados compartilhados do aplicativo permanecerão na pasta SharedLocal.
+      </string>
+      <string id="BlockNonAdminUserInstall">Impedir que usuários não administradores instalem aplicativos do Windows empacotados</string>
+      <string id="BlockNonAdminUserInstallExplanation">Gerencia a capacidade de os usuários não administradores instalar pacotes de aplicativos do Windows.
+
+        Se você habilitar essa política, os usuários que não são administradores não poderão iniciar a instalação de pacotes de apps do Windows. Os administradores que desejam instalar um app precisarão fazer isso por meio de um contexto de Administrador (por exemplo, uma janela Administrador do PowerShell). Todos os usuários ainda poderão instalar pacotes de aplicativos do Windows por meio da Microsoft Store, se permitido por outras políticas.
+
+        Se você desabilitar ou não configurar essa política, todos os usuários poderão iniciar a instalação de pacotes de apps do Windows.
       </string>
     </stringTable>
   </resources>

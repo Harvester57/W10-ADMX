@@ -64,8 +64,8 @@ Det er ikke nødvendig å starte systemet eller tjenestene på nytt for at denne
 Hvis du ikke konfigurerer denne policyinnstillingen, kan brukeren konfigurere om og hvor anbefalt feilsøking brukes.
 
 Hvis du aktiverer denne policyen, kan du konfigurere hvor anbefalt feilsøking skal brukes på brukerens enhet. Du kan velge fra en av følgende verdier:
-0 = Slå av denne funksjonen.
-1 = Slå av denne funksjonen, men bruk fortsatt kritisk feilsøking.
+0 = Deaktiver denne funksjonen.
+1 = Deaktiver denne funksjonen, men bruk fortsatt kritisk feilsøking.
 2 = Varsle brukere når anbefalt feilsøking er tilgjengelig, og la brukeren kjøre eller ignorere den.
 3 = Kjør anbefalt feilsøking automatisk, og varsle brukeren når den er kjørt.
 4 = Kjør anbefalt feilsøking automatisk uten å gi beskjed til brukeren.
@@ -73,12 +73,12 @@ Hvis du aktiverer denne policyen, kan du konfigurere hvor anbefalt feilsøking s
 
 Når du har angitt denne nye innstillingen, må du følge disse instruksjonene når du skal utløse anbefalt feilsøking for enheter i domenet:
 1. Opprett et bat-skript med følgende innhold:
-REM følgende satsvise skript utløser anbefalt feilsøking
-C:\Windows\System32\mitigationscanner.exe
+rem Følgende satsvise skript utløser anbefalt feilsøking
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
 2. Hvis du vil opprette en ny umiddelbar oppgave, navigerer du til redigeringsprogrammet for gruppepolicybehandling &gt; Datamaskinkonfigurasjon &gt; Innstillinger og velger Innstillinger for kontrollpanel. 
 3. Under Innstillinger for kontrollpanel høyreklikker du på Planlagte oppgaver og velger Ny. Velg Umiddelbar oppgave (minst Windows 7).
-4. Oppgi navn og beskrivelse etter behov, og velg Kjør under Sikkerhetsalternativer angitt brukerkontoen til System og velg Kjør med høyeste rettigheter-avmerkingsboksen.
+4. Oppgi navn og beskrivelse etter behov, og velg Kjør under Sikkerhetsalternativer angitt for brukerkontoen til System og velg Kjør med høyeste rettigheter-avmerkingsboksen.
 5. I Handlinger-fanen oppretter du en ny handling, velger Start et program som type, og angir filen opprettet i trinn 1.
 6. Konfigurer oppgaven som skal distribueres til domenet ditt.</string>
 <string id="RecommendationsDropDown_DoNothing">Deaktiver denne funksjonen</string>

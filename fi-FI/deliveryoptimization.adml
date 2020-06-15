@@ -7,19 +7,19 @@
       <string id="DeliveryOptimizationCat">Toimituksen optimointi</string>
       <string id="DownloadMode">Lataustila</string>
       <string id="DownloadMode_Help">Määrittää lataustavan, jota Toimituksen optimointi voi käyttää Windows Update -päivitysten, sovellusten ja sovelluspäivitysten latauksissa.
-      
+
 Tuettuja arvoja ovat seuraavat:
 
 0 = vain HTTP, ei vertaistoimintoja.
-      
+
 1 = HTTP yhdistettynä vertaistoimintoihin samassa NAT-toiminnossa.
 
 2 = HTTP yhdistettynä vertaistoimintoihin yksityisessä ryhmässä. Vertaistoimintoja käytetään laitteissa, jotka ovat oletusarvon mukaan samassa Active Directory -palvelimessa (jos sellainen on) tai samalla toimialueella. Kun tämä vaihtoehto on valittuna, vertaistoimintoja käytetään NAT-toimintojen välisesti. Jos haluat luoda mukautetun ryhmän, käytä ryhmätunnusta yhdessä tilan 2 kanssa.
-      
-3 = HTTP yhdistettynä Internet-vertaistoimintoihin. 
+
+3 = HTTP yhdistettynä Internet-vertaistoimintoihin.
 
 99 = yksinkertainen lataustapa ilman vertaistoimintoja. Toimituksen optimointi lataa tiedostot käyttämällä vain HTTP-protokollaa eikä yritä muodostaa yhteyttä Toimituksen optimoinnin pilvipalveluihin.
-      
+
 100 = ohitustila. Toimituksen optimointia ei käytetä, vaan sen sijaan käytetään BITS-siirtoa.</string>
       <string id="DownloadMode_CdnOnly">Vain HTTP (0)</string>
       <string id="DownloadMode_Lan">LAN (1)</string>
@@ -29,87 +29,98 @@ Tuettuja arvoja ovat seuraavat:
       <string id="DownloadMode_Bypass">Ohitus (100)</string>
       <string id="GroupId">Ryhmätunnus</string>
       <string id="GroupId_Help">Ryhmän tunnus on määritettävä GUID-tunnukseksi. Tämä käytäntö määrittää satunnaisen ryhmätunnuksen, johon laite kuuluu.
-      
+
 Käytä tätä, jos haluat luoda yksittäisen ryhmän paikallisen verkon vertaistoimintoja varten haaroille, jotka ovat eri toimialueilla tai eri lähiverkossa.
-      
+
 Huomautus: tämä on parhaaseen ratkaisuun perustuva optimointi, johon ei tule luottaa tunnistetietojen todennuksessa.</string>
-      <string id="MaxUploadBandwidth">Palveluun latauksen enimmäiskaistanleveys (kt/s)</string>
-      <string id="MaxUploadBandwidth_Help">Määrittää palveluun suuntautuvien latausten enimmäiskaistanleveyden (kilotavuina sekunnissa), jota Toimituksen optimointi käyttää kaikkiin samanaikaisiin lataustoimintoihin.
-      
-Oletusarvo 0 (nolla) sallii rajoittamattoman käytön, ja tällöin lataukset palveluun optimoidaan dynaamisesti, jotta kaistanleveyttä käytetään mahdollisimman vähän.</string>
       <string id="MaxCacheSize">Välimuistin enimmäiskoko (prosenttiosuus)</string>
       <string id="MaxCacheSize_Help">Määrittää Toimituksen optimoinnin käyttämän välimuistin enimmäiskoon prosenttiosuutena käytettävissä olevasta levytilasta (1–100).</string>
       <string id="AbsoluteMaxCacheSize">Absoluuttinen välimuistin enimmäiskoko (gigatavua)</string>
       <string id="AbsoluteMaxCacheSize_Help">Määrittää Toimituksen optimoinnin välimuistin enimmäiskoon gigatavuina.
-      
+
 Tämä käytäntö ohittaa DOMaxCacheSize-käytännön.
-      
-Jos arvoksi määritetään 0 (nolla), välimuistin kokoa ei rajoiteta, vaan Toimituksen optimointi tyhjentää välimuistin laitteen levytilan ollessa vähissä.</string>
+
+Jos arvoksi määritetään 0, välimuistin kokoa ei rajoiteta, vaan Toimituksen optimointi tyhjentää välimuistin laitteen levytilan ollessa vähissä.</string>
       <string id="MaxCacheAge">Välimuistin enimmäisikä (sekunteina)</string>
       <string id="MaxCacheAge_Help">Määrittää enimmäisajan (sekunteina) sille, kuinka kauan kutakin tiedostoa säilytetään Toimituksen optimoinnin välimuistissa onnistuneen lataamisen jälkeen.
-      
-Jos arvoksi määritetään 0 (nolla), aikaa ei rajoiteta. Tällöin Toimituksen optimointi säilyttää tiedostoja välimuistissa kauemmin ja tiedostot ovat ladattavissa muihin laitteisiin niin kauan kuin välimuistin koko ei ylity.</string>
+
+Jos arvoksi määritetään 0 eli ”rajoittamaton”, Toimituksen optimointi säilyttää tiedostoja välimuistissa kauemmin, jolloin ne ovat ladattavissa muihin laitteisiin, niin kauan kuin välimuistin koko ei ylity.</string>
       <string id="MonthlyUploadDataCap">Palvelinlatausten kuukausittainen enimmäismäärä (gigatavua)</string>
-      <string id="MonthlyUploadDataCap_Help">Määrittää enimmäistavumäärän (gigatavuina), jonka Toimituksen optimointi saa ladata Internet-vertaiskoneisiin kalenterikuukauden aikana. 
-      
-Jos arvoksi määritetään 0 (nolla), määrää ei rajoiteta eikä kuukausittaista latausrajaa ole.</string>
+      <string id="MonthlyUploadDataCap_Help">Määrittää (gigatavuina) enimmäistavumäärän, jonka Toimituksen optimointi saa ladata Internet-vertaiskoneisiin kalenterikuukauden aikana.
+
+Jos arvoksi määritetään 0, määrää ei rajoiteta eikä kuukausittaista latausrajaa ole.</string>
       <string id="MinBackgroundQos">Taustalatauksen QoS:n vähimmäistaso (kt/s)</string>
-      <string id="MinBackgroundQos_Help">Määrittää taustalatausten pienimmän mahdollisen QoS:n (Quality of Service eli nopeus) kilotavuina sekunnissa. 
-      
+      <string id="MinBackgroundQos_Help">Määrittää taustalatausten pienimmän mahdollisen QoS:n (Quality of Service eli nopeus) kilotavuina sekunnissa.
+
 Käytäntö vaikuttaa vertais- ja HTTP-lähteiden sekoitukseen. Toimituksen optimointi täydentää latausta HTTP-lähteestä saavuttaakseen määritetyn QoS:n vähimmäistason.</string>
       <string id="ModifyCacheDrive">Muokkaa välimuistin asemaa</string>
-      <string id="ModifyCacheDrive_Help">Määrittää, aseman, jota Toimituksen optimointi käyttää välimuistia varten. 
-      
-Oletusarvon mukaan välimuistin tallennussijaintina on %SystemDrive% -asema. Asemasijainnin voi määrittää käyttämällä ympäristömuuttujia, aseman kirjainta tai koko polkua.</string>
-      <string id="MaxDownloadBandwidth">Latauksen enimmäiskaistanleveys (kt/s)</string>
-      <string id="MaxDownloadBandwidth_Help">Määrittää enimmäiskaistanleveyden (kilotavuina sekunnissa), jota laite voi käyttää kaikkiin samanaikaisiin lataustoimintoihin käyttämällä Toimituksen optimointia. 
-      
-Oletusarvo 0 (nolla) tarkoittaa, että Toimituksen optimointi käyttää latauksiin käytettävissä olevaa kaistanleveyttä dynaamisesti.</string>
-      <string id="PercentageMaxDownloadBandwidth">Latauksen enimmäiskaistanleveys (prosenttiosuus)</string>
-      <string id="PercentageMaxDownloadBandwidth_Help">Määrittää enimmäiskaistanleveyden, jota Toimituksen optimointi käyttää kaikkiin samanaikaisiin lataustoimintoihin. Tämä määritetään prosenttiosuutena latausta varten käytettävissä olevasta kaistanleveydestä. 
-      
-Oletusarvo on 0 (nolla), joka tarkoittaa, että Toimituksen optimointi käyttää latauksia varten käytettävissä olevaa kaistanleveyttä dynaamisesti.
+      <string id="ModifyCacheDrive_Help">Määrittää, aseman, jota Toimituksen optimointi käyttää välimuistia varten.
 
-Tämä käytäntö on vanhentunut, ja se poistetaan seuraavassa versiossa. Voit käyttää sen sijaan Suurin edustalatauksiin käytettävä kaistanleveys (prosenttiosuutena)- ja Suurin taustalatauksiin käytettävä kaistanleveys (prosenttiosuutena) -toimintoja.</string>
+Oletusarvon mukaan välimuistin tallennussijaintina on %SystemDrive%-asema. Asemasijainnin voi määrittää käyttämällä ympäristömuuttujia, aseman kirjainta tai koko polkua.</string>
+      <string id="MaxBackgroundDownloadBandwidth">Taustalatauksen enimmäiskaistanleveys (kt/s)</string>
+      <string id="MaxBackgroundDownloadBandwidth_Help">Määrittää taustalatauksen enimmäiskaistanleveyden (kilotavuina sekunnissa), jota laite voi käyttää kaikkiin samanaikaisiin lataustoimintoihin käyttämällä Toimituksen optimointia.
+
+Oletusarvo 0 (nolla) tarkoittaa, että Toimituksen optimointi käyttää latauksiin käytettävissä olevaa kaistanleveyttä dynaamisesti.
+      </string>
+      <string id="MaxForegroundDownloadBandwidth">Edustalatauksen enimmäiskaistanleveys (kt/s)</string>
+      <string id="MaxForegroundDownloadBandwidth_Help">Määrittää edustalatauksen enimmäiskaistanleveyden (kilotavuina sekunnissa), jota laite voi käyttää kaikkiin samanaikaisiin lataustoimintoihin käyttämällä Toimituksen optimointia.
+
+Oletusarvo 0 (nolla) tarkoittaa, että Toimituksen optimointi käyttää latauksiin käytettävissä olevaa kaistanleveyttä dynaamisesti.
+      </string>
       <string id="PercentageMaxBackgroundBandwidth">Suurin taustalatauksiin käytettävä kaistanleveys (prosenttiosuutena)</string>
-      <string id="PercentageMaxBackgroundBandwidth_Help">Määrittää taustalatausten enimmäiskaistanleveyden, jota Toimituksen optimointi käyttää kaikkiin samanaikaisiin lataustoimintoihin. Tämä määritetään prosenttiosuutena latausta varten käytettävissä olevasta kaistanleveydestä. 
-      
-Oletusarvo on 0 (nolla), joka tarkoittaa, että Toimituksen optimointi käyttää taustalatauksia varten käytettävissä olevaa kaistanleveyttä dynaamisesti.</string>
+      <string id="PercentageMaxBackgroundBandwidth_Help">Määrittää enimmäiskaistanleveyden, jota Toimituksen optimointi käyttää kaikkiin samanaikaisiin lataustoimintoihin. Tämä määritetään prosenttiosuutena latausta varten käytettävissä olevasta kaistanleveydestä.
+
+Oletusarvo on 0, joka tarkoittaa, että Toimituksen optimointi käyttää latauksia varten käytettävissä olevaa kaistanleveyttä dynaamisesti.</string>
       <string id="PercentageMaxForegroundBandwidth">Suurin edustalatauksiin käytettävä kaistanleveys (prosenttiosuutena)</string>
-      <string id="PercentageMaxForegroundBandwidth_Help">Määrittää edustalatausten enimmäiskaistanleveyden, jota Toimituksen optimointi käyttää kaikkiin samanaikaisiin lataustoimintoihin. Tämä määritetään prosenttiosuutena latausta varten käytettävissä olevasta kaistanleveydestä.
-      
-Oletusarvo on 0 (nolla), joka tarkoittaa, että Toimituksen optimointi käyttää edustalatauksia varten käytettävissä olevaa kaistanleveyttä dynaamisesti.</string>
+      <string id="PercentageMaxForegroundBandwidth_Help">Määrittää enimmäiskaistanleveyden, jota Toimituksen optimointi käyttää kaikkiin samanaikaisiin lataustoimintoihin. Tämä määritetään prosenttiosuutena latausta varten käytettävissä olevasta kaistanleveydestä.
+
+Oletusarvo on 0, joka tarkoittaa, että Toimituksen optimointi käyttää latauksia varten käytettävissä olevaa kaistanleveyttä dynaamisesti.</string>
       <string id="MinFileSizeToCache">Vertaisvälimuistin sisältötiedoston vähimmäiskoko (Mt)</string>
-      <string id="MinFileSizeToCache_Help">Määrittää vertaisvälimuistin käyttöönottoon tarvittavan sisältötiedoston vähimmäiskoon megatavuina. 
-      
+      <string id="MinFileSizeToCache_Help">Määrittää vertaisvälimuistin käyttöönottoon tarvittavan sisältötiedoston vähimmäiskoon megatavuina.
+
 Suositellut arvot ovat 1–100 000 Mt.</string>
       <string id="AllowVPNPeerCaching">Ota käyttöön vertaisvälimuisti, kun laite muodostaa yhteyden VPN-verkon kautta</string>
       <string id="AllowVPNPeerCaching_Help">Määritä arvoksi tosi, jos haluat, että laite voi käyttää vertaisvälimuistia, kun se on yhdistetty toimialueverkkoon VPN-yhteyden kautta.
-      
-Tämä tarkoittaa, että laite pystyy lataamaan sisältöä muista toimialueverkon laitteista tai muihin toimialueverkon laitteisiin joko näennäisessä yksityisverkossa (VPN) tai yrityksen toimialueverkossa.</string>
+
+Tämä tarkoittaa, että laite voi ladata muista toimialueverkon laitteista tai muihin toimialueverkon laitteisiin joko näennäisessä yritysverkossa tai yrityksen toimialueverkossa.</string>
       <string id="MinRAMAllowedToPeer">Vertaisvälimuistin käyttöönottoon tarvittava RAM-muistin vähimmäiskapasiteetti (sisällyttävä) (Gt)</string>
-      <string id="MinRAMAllowedToPeer_Help">Määrittää vertaisvälimuistin käyttöön tarvittavan RAM-muistin vähimmäismäärän gigatavuina. 
-      
-Jos vähimmäisasetus on esimerkiksi 1 Gt, laitteet, joissa on käytettävissä vähintään yksi gigatavu RAM-muistia, voivat käyttää vertaisvälimuistia. 
-      
+      <string id="MinRAMAllowedToPeer_Help">Määrittää vertaisvälimuistin käyttöön tarvittavan RAM-muistin vähimmäismäärän gigatavuina.
+
+Jos vähimmäisasetus on esimerkiksi 1 Gt, laitteet, joissa on käytettävissä vähintään yksi gigatavua RAM-muistia, voivat käyttää vertaisvälimuistia.
+
 Suositellut arvot ovat 1–4 Gt.</string>
       <string id="MinDiskSizeAllowedToPeer">Vertaisvälimuistin käytön levyn sallittu vähimmäiskoko (Gt)</string>
-      <string id="MinDiskSizeAllowedToPeer_Help">Määrittää vertaisvälimuistin käyttöön tarvittavan levyn vähimmäiskoon (Gt) laitteessa. Järjestelmä käyttää pilvipalvelun asettamaa oletusarvoa. 
-      
-Suositellut arvot ovat 64–256 Gt. 
-      
-Huomautus: Jos DOModifyCacheDrive-käytäntö on määritetty, levykoon tarkistusta käytetään tämän käytännön määrittämään uuteen työhakemistoon.</string>
+      <string id="MinDiskSizeAllowedToPeer_Help">Määrittää vertaisvälimuistin käyttöön tarvittavan levyn vähimmäiskoon (Gt) laitteessa. Järjestelmä käyttää pilvipalvelun asettamaa oletusarvoa.
+
+Suositellut arvot ovat 64–256 Gt.
+
+Huomautus: DOModifyCacheDrive-käytäntö on määritetty, levykoon tarkistusta käytetään tämän käytännön määrittämään uuteen työhakemistoon.</string>
       <string id="MinBatteryPercentageAllowedToUpload">Salli lähetykset laitetta akkuvirralla käytettäessä, kun akun varaustaso (prosenttiosuus) on asetettua pienempi</string>
-      <string id="MinBatteryPercentageAllowedToUpload_Help">Määritä mikä tahansa arvo väliltä 1 ja 100 (prosentteina), jotta laite pystyy lataamaan tietoja lähiverkkoon ja ryhmän muille käyttäjille tasavirtaa (akkua) käytettäessä. 
-      
-Jos sallit lataukset akkuvirtaa käytettäessä, suositeltu asetusarvo on 40 (40 %). Laite pystyy akkuvirtaa käytettäessä lataamaan sisältöä muilta käyttäjiltä tästä käytäntöasetuksesta riippumatta. 
-      
+      <string id="MinBatteryPercentageAllowedToUpload_Help">Määritä mikä tahansa arvo väliltä 1 ja 100 (prosentteina), jotta laite pystyy lataamaan tietoja lähiverkkoon ja ryhmän muille käyttäjille tasavirtaa (akkua) käytettäessä.
+
+Jos sallit lataukset akkuvirtaa käytettäessä, suositeltu asetusarvo on 40 (40 %). Laite pystyy akkuvirtaa käytettäessä lataamaan sisältöä muilta käyttäjiltä tästä käytäntöasetuksesta riippumatta.
+
 Arvo 0 (nolla) tarkoittaa, että rajoitusta ei ole, vaan pilvipalvelulle asetettu oletusarvo on käytössä.</string>
-      <string id="CacheHost">[Varattu tulevaa käyttöä varten] Välimuistipalvelimen isäntänimi</string>
-      <string id="CacheHost_Help">[Varattu tulevaa käyttöä varten]</string>
+      <string id="CacheHost">Välityspalvelimen isäntänimi</string>
+      <string id="CacheHost_Help">Tämän käytännön avulla voit määrittää yhden tai usean toimituksen optimoinnin asiakkaidesi käyttämiin verkon välimuistipalvelimiin.
+
+Yhden tai usean arvon voi lisätä joko täydellisenä toimialuenimenä tai IP-osoitteena. Jos haluat lisätä useita arvoja, erota toimialuenimet tai IP-osoitteet pilkuilla.
+      </string>
+      <string id="CacheHostSource">Välityspalvelimen isäntänimen lähde</string>
+      <string id="CacheHostSource_Help">Tämän käytännön avulla voit määrittää, miten asiakas voi etsiä Toimituksen optimoinnin verkon välimuistipalvelimista dynaamisesti.
+
+Käytettävissä olevat asetukset ovat seuraavat:
+
+1 = DHCP-asetus 235.
+
+2 = DHCP-asetus 235 Force.
+
+Molemmissa tapauksissa asiakas lähettää DHCP-asetustunnus 235 -kyselyn ja käyttää palautettua GUID-arvoa välityspalvelimen isäntänimenä. Vaihtoehto 2 korvaa Välityspalvelimen isäntänimi -käytännön, jos se on määritetty.</string>
+      <string id="CacheHostSource_DHCP">DHCP-asetus 235</string>
+      <string id="CacheHostSource_DHCP_Force">DHCP-asetus 235 Force</string>
       <string id="GroupIdSource">Valitse ryhmätunnusten lähde</string>
       <string id="GroupIdSource_Help">Tämän käytännön avulla voit rajoittaa vertaisjärjestelmän valinnan tiettyyn lähteeseen.
-      
+
 Käytettävissä olevat asetukset ovat seuraavat:
 
 1 = AD-toimipaikka
@@ -134,35 +145,35 @@ Asetuksen 3 (DHCP-asetustunnus) osalta asiakas lähettää DHCP-asetustunnusta 2
       <string id="GroupIdSource_DNS">DNS-liite (4)</string>
       <string id="GroupIdSource_AAD">AAD-vuokraajan tunnus (5)</string>
       <string id="DelayBackgroundDownloadFromHttp">HTTP-lähteen käytön viive taustalatauksessa (sekunteina)</string>
-      <string id="DelayBackgroundDownloadFromHttp_Help">Tämän käytännön avulla voit viivästyttää HTTP-lähteen käyttöä taustalatauksessa, jossa P2P:n käyttö on sallittua.
-      
+      <string id="DelayBackgroundDownloadFromHttp_Help">Tämän käytäntöasetuksen avulla voit viivästyttää HTTP-lähteen käyttöä taustalatauksessa, jossa P2P:n käyttö on sallittua.
+
 Kun enimmäisviive on saavutettu, latausta jatketaan HTTP:tä käyttäen joko lataamalla kaikki tiedot tai täydentämällä latausta niiden tavujen osalta, joita ei ole pystytty lataamaan vertaiskoneista.
-      
+
 Huomaa, että vertaislähteitä odottava lataus näkyy käyttäjän näkökulmasta latauksena, joka on pysähtynyt.
-      
+
 Suositeltu arvo on 1 tunti (3 600).</string>
       <string id="DelayForegroundDownloadFromHttp">HTTP-lähteen käytön viive edustalatauksessa (sekunteina)</string>
-      <string id="DelayForegroundDownloadFromHttp_Help">Tämän käytännön avulla voit viivästyttää HTTP-lähteen käyttöä (vuorovaikutteisessa) edustalatauksessa, jossa P2P:n käyttö on sallittua.
-      
+      <string id="DelayForegroundDownloadFromHttp_Help">Tämän käytäntöasetuksen avulla voit viivästyttää HTTP-lähteen käyttöä (vuorovaikutteisessa) edustalatauksessa, jossa P2P:n käyttö on sallittua.
+
 Kun enimmäisviive on saavutettu, latausta jatketaan HTTP:tä käyttäen joko lataamalla kaikki tiedot tai täydentämällä latausta niiden tavujen osalta, joita ei ole pystytty lataamaan vertaiskoneista.
-      
+
 Huomaa, että vertaislähteitä odottava lataus näkyy käyttäjän näkökulmasta latauksena, joka on pysähtynyt.
-      
+
 Suositeltu arvo on 1 minuutti (60).</string>
       <string id="DelayCacheServerFallbackBackground">Välimuistipalvelimen palautumisviive taustalatauksessa (sekunteina)</string>
-      <string id="DelayCacheServerFallbackBackground_Help">Määritä tämä käytäntö, jos haluat viivyttää palautumista välimuistipalvelimesta HTTP-lähteeseen sisällön taustalatauksessa X sekunnilla. 
+      <string id="DelayCacheServerFallbackBackground_Help">Määritä tämä käytäntö, jos haluat viivyttää palautumista välimuistipalvelimesta HTTP-lähteeseen sisällön taustalatauksessa X sekunnilla.
 
 Huomautus: Jos määrität käytäntöasetuksen viivästyttämään taustalatausta HTTP-lähteestä, tätä asetusta sovelletaan ensisijaisesti (jotta lataukset vertaislähteistä sallitaan ensin).</string>
       <string id="DelayCacheServerFallbackForeground">Välimuistipalvelimen palautumisviive edustalatauksessa (sekunteina)</string>
-      <string id="DelayCacheServerFallbackForeground_Help">Määritä tämä käytäntö, jos haluat viivyttää palautumista välimuistipalvelimesta HTTP-lähteeseen sisällön edustalatauksessa X sekunnilla. 
+      <string id="DelayCacheServerFallbackForeground_Help">Määritä tämä käytäntö, jos haluat viivyttää palautumista välimuistipalvelimesta HTTP-lähteeseen sisällön edustalatauksessa X sekunnilla.
 
 Huomautus: Jos määrität käytäntöasetuksen viivästyttämään edustalatausta HTTP-lähteestä, tätä asetusta sovelletaan ensisijaisesti (jotta lataukset vertaislähteistä sallitaan ensin).</string>
       <string id="RestrictPeerSelectionBy">Valitse menetelmä, jolla rajoitetaan vertaisjärjestelmän valintaa</string>
-      <string id="RestrictPeerSelectionBy_Help">Määrittämällä tämän käytännön voit rajoittaa vertaisjärjestelmän valintaa valittua vaihtoehtoa käyttäen. 
-      
-Käytettävissä olevat asetukset ovat seuraavat: 
-1 = Aliverkon peite. (Lisää vaihtoehtoja lisätään tulevissa versioissa.) 
-      
+      <string id="RestrictPeerSelectionBy_Help">Määritä tämä käytäntö, jotta voit rajoittaa vertaisjärjestelmän valintaa valittua vaihtoehtoa käyttäen.
+
+Käytettävissä olevat asetukset ovat seuraavat:
+1 = Aliverkon peite (Lisää vaihtoehtoja lisätään tulevissa versioissa.)
+
 Asetus 1 (Aliverkon peite) koskee sekä lataustilan lähiverkkoa (1) että ryhmää (2).</string>
       <string id="RestrictPeerSelectionBy_None">Ei mitään</string>
       <string id="RestrictPeerSelectionBy_Subnet">Aliverkko</string>
@@ -204,10 +215,6 @@ Asetus 1 (Aliverkon peite) koskee sekä lataustilan lähiverkkoa (1) että ryhm�
           <label>Ryhmätunnus:</label>
         </textBox>
       </presentation>
-      <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Palveluun latauksen suurin kaistanleveys (kt/s):</decimalTextBox>
-        <text>Oletusarvo on 0 (rajoittamaton)</text>
-      </presentation>
       <presentation id="MaxCacheSize">
         <decimalTextBox defaultValue="20" refId="MaxCacheSize">Välimuistin enimmäiskoko (prosenttiosuus):</decimalTextBox>
         <text>Oletusarvo on 20 %</text>
@@ -233,12 +240,12 @@ Asetus 1 (Aliverkon peite) koskee sekä lataustilan lähiverkkoa (1) että ryhm�
           <label>Muokkaa välimuistin asemaa:</label>
         </textBox>
       </presentation>
-      <presentation id="MaxDownloadBandwidth">
-        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Latauksen enimmäiskaistanleveys (kt/s):</decimalTextBox>
+      <presentation id="MaxBackgroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxBackgroundDownloadBandwidth">Taustalatauksen enimmäiskaistanleveys (kt/s):</decimalTextBox>
         <text>Oletusarvo on 0 (rajoittamaton)</text>
       </presentation>
-      <presentation id="PercentageMaxDownloadBandwidth">
-        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Latauksen enimmäiskaistanleveys (prosenttiosuus):</decimalTextBox>
+      <presentation id="MaxForegroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxForegroundDownloadBandwidth">Edustalatauksen enimmäiskaistanleveys (kt/s):</decimalTextBox>
         <text>Oletusarvo on 0 (rajoittamaton)</text>
       </presentation>
       <presentation id="PercentageMaxBackgroundBandwidth">
@@ -273,8 +280,11 @@ Asetus 1 (Aliverkon peite) koskee sekä lataustilan lähiverkkoa (1) että ryhm�
           <label>Välimuistipalvelin:</label>
         </textBox>
       </presentation>
+      <presentation id="CacheHostSource">
+        <dropdownList defaultItem="0" noSort="true" refId="CacheHostSource">Välityspalvelimen isäntänimen lähde:</dropdownList>
+      </presentation>
       <presentation id="GroupIdSource">
-        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Ryhmätunnusten lähde:</dropdownList>        
+        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Ryhmätunnusten lähde:</dropdownList>
       </presentation>
       <presentation id="DelayBackgroundDownloadFromHttp">
         <decimalTextBox defaultValue="0" refId="DelayBackgroundDownloadFromHttp">HTTP-lähteen käytön viive taustalatauksessa (sekunteina):</decimalTextBox>

@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>AppX Csomagkezelő</displayName> 
+  <displayName>AppX Csomagkezelő</displayName>
   <description>AppX Csomagkezelő</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Ha engedélyezi ezt a házirend-beállítást, a csoportházirend speciális pro
 Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a csoportházirend tiltani fogja a Windows Áruházbeli alkalmazások telepítési műveleteit, ha a felhasználó speciális profilt használ.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Windows Áruházbeli alkalmazások fejlesztésének és integrált fejlesztőkörnyezetből (IDE) való telepítésének engedélyezése</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Ezzel a beállítással Windows Áruházbeli alkalmazások fejlesztését és integrált fejlesztőkörnyezetből való telepítését engedélyezheti vagy tilthatja le.
+        Ezzel a beállítással Microsoft Store áruházbeli alkalmazások fejlesztését és integrált fejlesztőkörnyezetből való telepítését engedélyezheti vagy tilthatja le.
 
-        Ha ezt és a „Megbízható alkalmazások telepítésének engedélyezése” csoportházirendet egyaránt engedélyezi, lehetővé teszi a Windows Áruházbeli alkalmazások fejlesztését és fejlesztőkörnyezetből való közvetlen telepítését.
-        
-        Ha letiltja vagy nem konfigurálja ezt a beállítást, nem fejleszthet Windows Áruházbeli alkalmazásokat, és nem telepítheti őket közvetlenül a fejlesztőkörnyezetből.
+        Ha ezt és a „Megbízható alkalmazások telepítésének engedélyezése” csoportházirendet egyaránt engedélyezi, lehetővé teszi a Microsoft Store áruházbeli alkalmazások fejlesztését és fejlesztőkörnyezetből való közvetlen telepítését.
+
+        Ha letiltja vagy nem konfigurálja ezt a beállítást, nem fejleszthet Microsoft Store áruházbeli alkalmazásokat, és nem telepítheti őket közvetlenül a fejlesztőkörnyezetből.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Windows Áruházbeli alkalmazások nem rendszerkötetekre történő telepítésének letiltása</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -54,10 +54,17 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a csopor
       </string>
       <string id="AllowSharedLocalAppData">Alkalmazásadatok felhasználók közötti megosztásának engedélyezése egy Windows-alkalmazásnak</string>
       <string id="AllowSharedLocalAppDataExplanation">Itt szabályozható, hogy egy Windows-alkalmazás megoszthatja-e az alkalmazásadatokat a felhasználók között.
-      
+
         Ha engedélyezi ezt a házirendet, a Windows-alkalmazás megoszthat alkalmazásadatokat az alkalmazás más példányaival. Az adatok megosztása a SharedLocal mappában történik. Ez a mappa a Windows.Storage API-val érhető el.
 
-        Ha letiltja ezt a házirendet, a Windows-alkalmazás nem tud alkalmazásadatokat megosztani az alkalmazás más példányaival. Ha ez a házirend már engedélyezve volt, a korábban megosztott adatok megmaradnak a SharedLocal mappában. 
+        Ha letiltja ezt a házirendet, a Windows-alkalmazás nem tud alkalmazásadatokat megosztani az alkalmazás más példányaival. Ha ez a házirend már engedélyezve volt, a korábban megosztott adatok megmaradnak a SharedLocal mappában.
+      </string>
+      <string id="BlockNonAdminUserInstall">A nem rendszergazda felhasználók nem telepíthetnek csomagolt Windows-alkalmazásokat</string>
+      <string id="BlockNonAdminUserInstallExplanation">A nem rendszergazda felhasználók Windows-alkalmazáscsomagok telepítésére vonatkozó jogosultságát kezeli.
+
+        Ha engedélyezi ezt a házirendet, a nem rendszergazda felhasználók nem kezdeményezhetik Windows-alkalmazáscsomagok telepítését. Az alkalmazásokat telepíteni kívánó rendszergazdáknak  rendszergazdai kontextusból (például rendszergazdai PowerShell-ablakból) kell ezt tenniük. A Microsoft Store áruházon keresztül minden felhasználó továbbra is telepíthet Windows-alkalmazáscsomagokat, ha ezt az egyéb házirendek lehetővé teszik.
+
+        Ha letiltja vagy nem konfigurálja ezt a házirendet, minden felhasználó kezdeményezheti a Windows-alkalmazáscsomagok telepítését.
       </string>
     </stringTable>
   </resources>

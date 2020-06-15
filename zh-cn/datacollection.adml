@@ -10,16 +10,15 @@
       <string id="AllowTelemetry_1">1 - 基本</string>
       <string id="AllowTelemetry_2">2 - 增强</string>
       <string id="AllowTelemetry_3">3 - 完整</string>
-      <string id="AllowTelemetry_Explain">此策略设置确定向 Microsoft 发送的 Windows 诊断数据的最高级别。通过配置此设置，你不会阻止用户更改其遥测设置；但是，你将阻止他们选择比你为组织设置的级别更高的级别。Windows 10 诊断数据设置仅适用于 Windows 操作系统和 Windows 随附的应用。这些设置不适用于在 Windows 10 上运行的第三方应用。
+      <string id="AllowTelemetry_Explain">通过在 Windows 10 中配置此设置，最终用户将无法选择使用比你为组织设置的级别更高的遥测收集级别。此限制仅适用于 Windows 操作系统和 Windows 附带的应用，但不适用于在 Windows 10 上运行的第三方应用。
 
-如果启用此设置，你可以决定向 Microsoft 发送的诊断数据的级别，包括:
+诊断数据分为四个级别，如下所示:
+  - 0 (安全)。保持 Windows、Windows Server 和 System Center 安全所需的信息，包括有关互联用户体验和遥测组件设置、恶意软件删除工具和 Windows Defender 的数据。
+  - 1 (基本)。基本设备信息，包括: 质量相关数据、应用兼容性以及来自安全级别的数据。
+  - 2 (增强)。其他信息，包括: Windows、Windows Server、System Center 和应用的使用方式、它们的执行方式、高级可靠性数据以及来自基本和安全级别的数据。
+  - 3 (全面)。识别问题和解决问题所需的所有数据，以及来自“安全”、“基本”和“增强”级别的数据。
 
-  - 0 (安全)。只向 Microsoft 发送所需的少量数据，以帮助确保 Windows 安全。Windows 安全中心组件(如恶意软件删除工具(MSRT)和 Windows Defender)可能会以该级别向 Microsoft 发送数据(如果已启用)。将值设置为 0 适用于仅运行企业版、教育版、IoT 版本或 Windows Server 版本的设备。对于其他版本，将值设置为 0 等同于将值设置为 1。
-  - 1 (基本)。发送与值为 0 时相同的数据，外加数量非常有限的诊断数据，如基本设备信息、质量相关数据和应用兼容性信息。请注意，将值设置为 0 或 1 会降低设备上的某些体验。
-  - 2 (增强)。发送与值为 1 时相同的数据，外加 Windows、Windows Server、System Center 和应用的使用方式、执行方式以及高级可靠性数据等附加数据。
-  - 3 (完全)。发送与值为 2 时相同的数据，外加用于诊断和修复设备问题的高级诊断数据，包括可能导致设备问题的文件和内容。
-
-如果禁用或不配置此策略设置，可以在“设置”中单独配置遥测设置。
+“设置”应用中用户可用的选项可通过配置此设置进行更改，即使未设置，也可能受到其他组策略设置的影响。请注意，如果将此策略配置为允许遥测设置为“安全”或“基本”，则最终用户将无法选择更高的级别。
       </string>
 
       <string id="TelemetryProxy">配置互连用户体验和遥测</string>
@@ -67,14 +66,14 @@
       <string id="ConfigureTelemetryOptInSettingsUx">配置遥测选择加入设置用户界面。</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">禁用遥测选择加入设置</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">启用遥测选择加入设置</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">此策略设置确定用户是否可以在“设置”中更改其自己的遥测级别。此设置应与“允许遥测”设置一起使用。
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">此策略设置用于确定最终用户是否可以在“设置”中更改遥测级别。
 
-如果将此策略设置设为“禁用遥测选择加入设置”，则遥测级别将在“设置”中禁用，以防用户更改它们。
+如果将此策略设置设置为“禁用遥测选择加入设置”，则遥测级别将在“设置”中禁用，并阻止最终用户进行更改。
 
-如果将此策略设置设为“启用遥测选择加入设置”或不配置此策略设置，则用户可以在“设置”中更改自己的遥测级别。
+如果未配置此策略设置，或将其设置为“启用遥测选择加入设置”，则最终用户可以在“设置”应用中更改设备遥测级别。
 
 注意:
-设置“允许遥测”策略设置，以防止用户向 Microsoft 发送超出组织限制范围的诊断数据。
+若要对你的组织发送到 Microsoft 的诊断数据级别设置限制，请使用“允许遥测”策略设置。
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">配置遥测选择加入更改通知。</string>

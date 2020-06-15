@@ -3919,6 +3919,33 @@ InPrivate フィルターを使用すると、ユーザーが訪れた Web サ�
 この設定を有効にした場合は、Microsoft Edge のエンタープライズ モードでサイトが開かれたことを示す追加ページが Internet Explorer 11 で従業員に表示されます。
 
 この設定を無効にした場合または構成しなかった場合、追加ページは表示されずアプリの既定動作が実行されます。</string>
+      <string id="NeedEdgeBrowser">リダイレクトされたサイトを開くために使用する Microsoft Edge のチャネルを構成します</string>
+      <string id="IE_ExplainNeedEdgeBrowser">リダイレクトされたサイトを開くために、Microsoft Edge のバージョンを最大 3 つ (優先順に) 構成できます。このポリシーは、Internet Explorer 11 から Microsoft Edge にサイトをリダイレクトするように設定されている環境で使用します。選択したバージョンがデバイスにインストールされていない場合、その設定はバイパスされます。
+
+Microsoft Edge* の次期バージョンの Windows Update と Microsoft Edge 安定チャネルの両方がインストールされている場合、動作は次のようになります。
+- このポリシーを無効にするか、未構成にした場合、Microsoft Edge 安定チャネルが使用されます。これが既定の動作です。
+- このポリシーを有効にすると、リダイレクトされたサイトを次のうち最大 3 つのチャネルで開くように構成できます。
+    1 = Microsoft Edge 安定
+    2 = Microsoft Edge Beta version 77 またはそれ以降
+    3 = Microsoft Edge Dev version 77 またはそれ以降
+    4 = Microsoft Edge Canary version 77 またはそれ以降
+
+Microsoft Edge* の次期バージョンの Windows Update がインストールされていない場合、または Microsoft Edge 安定チャネルがインストールされていない場合、動作は次のようになります。
+- このポリシーを無効にするか、未構成にした場合、Microsoft Edge version 45 またはそれ以前が自動的に使用されます。これが既定の動作です。
+- このポリシーを有効にすると、リダイレクトされたサイトを次のうち最大 3 つのチャネルで開くように構成できます。
+    0 = Microsoft Edge version 45 またはそれ以前
+    1 = Microsoft Edge 安定
+    2 = Microsoft Edge Beta version 77 またはそれ以降
+    3 = Microsoft Edge Dev version 77 またはそれ以降
+    4 = Microsoft Edge Canary version 77 またはそれ以降
+
+*無効にする方法を含めて Microsoft Edge の次期バージョンの Windows Update については、https://go.microsoft.com/fwlink/?linkid=2102115 を参照してください。この更新は Windows 10 version 1709 およびそれ以降にのみ適用されます。</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta version 77 またはそれ以降</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev version 77 またはそれ以降</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary version 77 またはそれ以降</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge version 45 またはそれ以前</string>
       <string id="KeepIntranetSitesInInternetExplorer">Internet Explorer ですべてのイントラネット サイトを保持する</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Internet Explorer 以外のブラウザーでイントラネット サイトが開かれないようにします。ただし、このポリシーは、"エンタープライズ モード サイト一覧に含まれていないすべてのサイトを Microsoft Edge に送信します" ('RestrictIE') ポリシーが有効になっていない場合は無効です。
 
@@ -4804,6 +4831,11 @@ LOBApp.contoso.com</string>
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">ドメインの一覧</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">最初の選択</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">2 番目の選択</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">3 番目の選択</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

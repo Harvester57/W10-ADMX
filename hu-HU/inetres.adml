@@ -3917,6 +3917,33 @@ Megjegyzés: Amennyiben a Felügyeleti sablonok\Windows-összetevők\Microsoft E
 Ha engedélyezi ezt a beállítást, külön oldal jelzi az Internet Explorer 11-ben, hogy a Microsoft Edge vállalati módjában nyílt meg a webhely.
 
 Ha letiltja a beállítást, vagy nem konfigurálja azt, az alapértelmezett módon működik a böngésző, azaz nem jelenik meg külön értesítő oldal.</string>
+      <string id="NeedEdgeBrowser">Az átirányított webhelyek megnyitásához használandó Microsoft Edge-csatorna beállítása</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Lehetővé teszi akár három Microsoft Edge-verzió konfigurálását az átirányított webhelyek megnyitására (a preferencia sorrendjében). Akkor használja ezt a házirendet, ha a környezete úgy van konfigurálva, hogy a webhelyek át legyenek irányítva az Internet Explorer 11-ből a Microsoft Edge-be. Ha a kiválasztott verziók valamelyike nincs telepítve az eszközön, akkor az adott preferenciát megkerüli a rendszer.
+
+Ha telepítve van a Microsoft Edge következő verziójához kapcsolódó Windows Update-frissítés* és a Microsoft Edge stabil csatorna egyaránt, az alábbi viselkedés figyelhető meg:
+– Ha letiltja vagy nem konfigurálja ezt a házirendet, a rendszer a Microsoft Edge stabil csatornát használja. Ez az alapértelmezett viselkedés.
+– Ha engedélyezi ezt a házirendet, az átirányított webhelyek megnyitásához konfigurálhat legfeljebb hármat az alábbi csatornákból, ahol:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, 77-es vagy újabb verzió
+    3 = Microsoft Edge Dev, 77-es vagy újabb verzió
+    4 = Microsoft Edge Canary, 77-es vagy újabb verzió
+
+Ha nincs telepítve a Microsoft Edge következő verziójához kapcsolódó Windows Update-frissítés* vagy a Microsoft Edge stabil csatorna, az alábbi viselkedés figyelhető meg:
+– Ha letiltja vagy nem konfigurálja ezt a házirendet, a rendszer automatikusan a Microsoft Edge 45-ös vagy korábbi verzióját használja. Ez az alapértelmezett viselkedés.
+– Ha engedélyezi ezt a házirendet, az átirányított webhelyek megnyitásához konfigurálhat legfeljebb hármat az alábbi csatornákból, ahol:
+    0 = Microsoft Edge, 45-ös vagy korábbi verzió
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, 77-es vagy újabb verzió
+    3 = Microsoft Edge Dev, 77-es vagy újabb verzió
+    4 = Microsoft Edge Canary, 77-es vagy újabb verzió
+
+*A Microsoft Edge következő verziójához kapcsolódó Windows-frissítéssel, illetve annak letiltásával kapcsolatos további információért lásd: https://go.microsoft.com/fwlink/?linkid=2102115. Ez a frissítés kizárólag a Windows 10 1709-es és újabb verzióira érvényes.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta, 77-es vagy újabb verzió</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev, 77-es vagy újabb verzió</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary, 77-es vagy újabb verzió</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge, 45-ös vagy korábbi verzió</string>
       <string id="KeepIntranetSitesInInternetExplorer">Az összes intranethely megtartása az Internet Explorerben</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Megakadályozza, hogy az intranethelyeket meg lehessen nyitni az Internet Explorertől eltérő böngészőben. Azonban vegye figyelembe, hogy ha „A vállalati mód webhelylistáján nem szereplő webhelyek megnyitása a Microsoft Edge-ben” (RestrictIE) házirend nincs engedélyezve, akkor a jelen házirendnek nincs semmilyen hatása.
 
@@ -4801,6 +4828,11 @@ Ha további információra van szüksége, keressen rá az „Elavult ActiveX-ve
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Tartománylista</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Első választási lehetőség</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Második választási lehetőség</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Harmadik választási lehetőség</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

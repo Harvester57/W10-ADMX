@@ -7,19 +7,19 @@
       <string id="DeliveryOptimizationCat">Otimização da Entrega</string>
       <string id="DownloadMode">Modo de Transferência</string>
       <string id="DownloadMode_Help">Especifica o método de transferência que a Otimização da Entrega pode utilizar em transferências de Atualizações do Windows, Aplicações e Atualizações de aplicações.
-      
+
 A lista seguinte apresenta os valores suportados:
 
 0 = HTTP apenas, sem peering.
-      
+
 1 = HTTP combinado com peering atrás do mesmo NAT.
 
 2 = HTTP combinado com peering num grupo privado. Por predefinição, o peering ocorre em dispositivos no mesmo Site do Active Directory (se existente) ou no mesmo domínio. Quando esta opção é selecionada, o peering cruza com NATs. Para criar um grupo personalizado, utilize o ID de Grupo em combinação com o Modo 2.
-      
-3 = HTTP combinado com Peering de Internet. 
+
+3 = HTTP combinado com Peering de Internet.
 
 99 = Modo de transferência simples sem peering. A Otimização da Entrega efetua as transferências utilizando HTTP apenas e não tenta contactar os serviços cloud de Otimização da Entrega.
-      
+
 100 = Modo de ignorar. Não utilize a Otimização da Entrega; em alternativa, utilize BITS.</string>
       <string id="DownloadMode_CdnOnly">Apenas HTTP (0)</string>
       <string id="DownloadMode_Lan">LAN (1)</string>
@@ -29,88 +29,99 @@ A lista seguinte apresenta os valores suportados:
       <string id="DownloadMode_Bypass">Ignorar (100)</string>
       <string id="GroupId">ID do Grupo</string>
       <string id="GroupId_Help">O ID de Grupo tem de ser definido como um GUID. Esta Política especifica um ID de grupo arbitrário ao qual o dispositivo pertence.
-      
+
 Utilize esta opção se necessitar de criar um grupo exclusivo para Peering de Rede Local em ramos que estejam em diferentes domínios ou que não estejam na mesma LAN.
-      
+
 Nota: esta é uma otimização de melhor esforço da qual não se deve depender para uma autenticação de identidade.</string>
-      <string id="MaxUploadBandwidth">Largura de Banda Máxima de Carregamento (em KB/s)</string>
-      <string id="MaxUploadBandwidth_Help">Especifica a largura de banda máxima de carregamento que a Otimização da Entrega utiliza em todas as atividades de carregamento em simultâneo KB/segundo.
-      
-O valor predefinido 0 (zero) permite uma utilização ilimitada na qual os carregamentos são otimizados dinamicamente para garantir uma utilização mínima da largura de banda de carregamento.</string>
       <string id="MaxCacheSize">Tamanho Máximo da Cache (percentagem)</string>
       <string id="MaxCacheSize_Help">Especifica o tamanho máximo da cache que a Otimização da Entrega utiliza como uma percentagem do tamanho do disco disponível (1-100).</string>
       <string id="AbsoluteMaxCacheSize">Tamanho Máximo Absoluto da Cache (em GB)</string>
       <string id="AbsoluteMaxCacheSize_Help">Especifica o tamanho máximo em GB da cache da Otimização da Entrega.
-      
+
 Esta política substitui a política DOMaxCacheSize.
-      
+
 O valor 0 (zero) significa cache "ilimitada"; a Otimização da Entrega limpará a cache quando o dispositivo estiver com pouco espaço em disco.</string>
       <string id="MaxCacheAge">Duração Máxima da Cache (em segundos)</string>
       <string id="MaxCacheAge_Help">Especifica o período de tempo máximo (em segundos) em que cada ficheiro é mantido na cache da Otimização da Entrega após ser transferido com êxito.
-      
+
 O valor 0 (zero) significa "ilimitado"; a Otimização da Entrega irá manter os ficheiros durante mais tempo na cache e disponibilizar estes ficheiros para carregamentos para outros dispositivos, desde que o tamanho da cache não seja ultrapassado.</string>
       <string id="MonthlyUploadDataCap">Limite de Dados de Carregamento Mensal (em GB)</string>
-      <string id="MonthlyUploadDataCap_Help">Especifica a quantidade máxima total de bytes (em GB) que a Otimização da Entrega está autorizada a carregar para elementos de rede de Internet em cada mês do calendário. 
-      
+      <string id="MonthlyUploadDataCap_Help">Especifica a quantidade máxima total de bytes (em GB) que a Otimização da Entrega está autorizada a carregar para elementos de rede de Internet em cada mês do calendário.
+
 O valor 0 (zero) significa "ilimitado"; Se o valor 0 for definido, não é aplicado qualquer limite de carregamento mensal.</string>
       <string id="MinBackgroundQos">QoS Mínima em Segundo Plano (em KB/s)</string>
-      <string id="MinBackgroundQos_Help">Especifica a QoS (Quality of Service ou velocidade) mínima de transferência para transferências em segundo plano em Quilobytes/segundo. 
-      
+      <string id="MinBackgroundQos_Help">Especifica a QoS (Quality of Service ou velocidade) mínima de transferência para transferências em segundo plano em Quilobytes/segundo.
+
 Esta política afeta a combinação das fontes de elementos de rede e HTTP. A Otimização da Entrega complementa a transferência da fonte HTTP para atingir o valor de QoS mínimo especificado.</string>
       <string id="ModifyCacheDrive">Modificar a Unidade de Cache</string>
-      <string id="ModifyCacheDrive_Help">Especifica a unidade que a Otimização da Entrega deverá utilizar para a respetiva cache. 
-      
-Por predefinição, %SystemDrive% é utilizada para armazenar a cache. A localização da unidade pode ser especificada utilizando variáveis de ambiente, letra de unidade ou um caminho completo.</string>
-      <string id="MaxDownloadBandwidth">Largura de Banda Máxima de Transferência (em KB/s)</string>
-      <string id="MaxDownloadBandwidth_Help">Especifica a largura de banda máxima de transferências em Quilobytes/segundo que o dispositivo pode utilizar em todas as atividades de transferência em simultâneo utilizando a Otimização da Entrega. 
-      
-O valor predefinido 0 (zero) significa que a Otimização da Entrega se ajusta dinamicamente para utilizar a largura de banda disponível para transferências.</string>
-      <string id="PercentageMaxDownloadBandwidth">Largura de Banda Máxima de Transferência (percentagem)</string>
-      <string id="PercentageMaxDownloadBandwidth_Help">Especifica a largura de banda máxima de transferência que a Otimização da Entrega utiliza em todas as atividades de transferência em simultâneo como uma percentagem da largura de banda de transferência disponível. 
-      
-O valor predefinido 0 (zero) significa que a Otimização da Entrega se ajusta dinamicamente para utilizar a largura de banda disponível para transferências.
+      <string id="ModifyCacheDrive_Help">Especifica a unidade que a Otimização da Entrega deverá utilizar para a respetiva cache.
 
-Esta política foi preterida e será removida na próxima versão. Utilize antes a Largura de Banda de Transferência em Primeiro Plano (percentagem) Máxima ou a Largura de Banda de Transferência em Segundo Plano (percentagem) Máxima.</string>
+Por predefinição, %SystemDrive% é utilizada para armazenar a cache. A localização da unidade pode ser especificada utilizando variáveis de ambiente, letra de unidade ou um caminho completo.</string>
+      <string id="MaxBackgroundDownloadBandwidth">Largura de Banda Máxima de Transferência em Segundo Plano (em KB/s)</string>
+      <string id="MaxBackgroundDownloadBandwidth_Help">Especifica a largura de banda máxima de transferência em segundo plano em Quilobytes/segundo que o dispositivo pode utilizar em todas as atividades de transferência em simultâneo utilizando a Otimização da Entrega.
+
+O valor predefinido 0 (zero) significa que a Otimização da Entrega se ajusta dinamicamente para utilizar a largura de banda disponível para transferências.
+      </string>
+      <string id="MaxForegroundDownloadBandwidth">Largura de Banda Máxima de Transferência em Primeiro Plano (em KB/s)</string>
+      <string id="MaxForegroundDownloadBandwidth_Help">Especifica a largura de banda máxima de transferência em primeiro plano em Quilobytes/segundo que o dispositivo pode utilizar em todas as atividades de transferência em simultâneo utilizando a Otimização da Entrega.
+
+O valor predefinido 0 (zero) significa que a Otimização da Entrega se ajusta dinamicamente para utilizar a largura de banda disponível para transferências.
+      </string>
       <string id="PercentageMaxBackgroundBandwidth">Largura de Banda Máxima de Transferência de Fundo (percentagem)</string>
-      <string id="PercentageMaxBackgroundBandwidth_Help">Especifica a largura de banda máxima de transferência de fundo que a Otimização da Entrega utiliza em todas as atividades de transferência em simultâneo como uma percentagem da largura de banda de transferências disponível. 
-      
+      <string id="PercentageMaxBackgroundBandwidth_Help">Especifica a largura de banda máxima de transferência de fundo que a Otimização da Entrega utiliza em todas as atividades de transferência em simultâneo como uma percentagem da largura de banda de transferências disponível.
+
 O valor predefinido 0 (zero) significa que a Otimização da Entrega se ajusta dinamicamente para utilizar a largura de banda disponível para transferências de fundo.</string>
       <string id="PercentageMaxForegroundBandwidth">Largura de Banda Máxima de Transferência em Primeiro Plano (percentagem)</string>
       <string id="PercentageMaxForegroundBandwidth_Help">Especifica a largura de banda máxima de transferência em primeiro plano que a Otimização da Entrega utiliza em todas as atividades de transferência em simultâneo como uma percentagem de largura de banda de transferência disponível.
-      
+
 O valor predefinido 0 (zero) significa que a Otimização da Entrega se ajusta dinamicamente para utilizar a largura de banda disponível para transferências em primeiro plano.</string>
       <string id="MinFileSizeToCache">Tamanho Mínimo do Ficheiro de Conteúdo de Colocação em Cache Ponto a Ponto (em MB)</string>
-      <string id="MinFileSizeToCache_Help">Especifica o tamanho mínimo do ficheiro de conteúdo em MB ativado para utilizar a Colocação em Cache Ponto a Ponto. 
-      
+      <string id="MinFileSizeToCache_Help">Especifica o tamanho mínimo do ficheiro de conteúdo em MB ativado para utilizar a Colocação em Cache Ponto a Ponto.
+
 Valores recomendados: 1 MB a 100.000 MB.</string>
       <string id="AllowVPNPeerCaching">Ativar Colocação em Cache Ponto a Ponto enquanto o dispositivo estabelece ligação através de VPN</string>
       <string id="AllowVPNPeerCaching_Help">Especifique "verdadeiro" para permitir que o dispositivo participe na Colocação em Cache Ponto a Ponto enquanto estiver ligado através de VPN à rede de domínio.
-      
+
 Isto significa que o dispositivo pode transferir de ou carregar para outros dispositivos de rede de domínio, na VPN ou na rede de domínio empresarial.</string>
       <string id="MinRAMAllowedToPeer">Capacidade mínima de RAM (inclusiva) necessária para permitir a utilização de Colocação em Cache Ponto a Ponto (em GB)</string>
-      <string id="MinRAMAllowedToPeer_Help">Especifica o tamanho mínimo de RAM em GB necessário para utilizar a Colocação em Cache Ponto a Ponto. 
-      
-Por exemplo, se o mínimo definido for 1 GB, os dispositivos com 1 GB de RAM disponível ou mais terão permissão para utilizar a Colocação em Cache Ponto a Ponto. 
-      
+      <string id="MinRAMAllowedToPeer_Help">Especifica o tamanho mínimo de RAM em GB necessário para utilizar a Colocação em Cache Ponto a Ponto.
+
+Por exemplo, se o mínimo definido for 1 GB, os dispositivos com 1 GB de RAM disponível ou mais terão permissão para utilizar a Colocação em Cache Ponto a Ponto.
+
 Valores recomendados: 1 GB a 4 GB.</string>
       <string id="MinDiskSizeAllowedToPeer">Tamanho do disco mínimo permitido para utilizar a Colocação em Cache Ponto a Ponto (em GB)</string>
-      <string id="MinDiskSizeAllowedToPeer_Help">Especifica o tamanho do disco mínimo necessário (capacidade em GB) para o dispositivo utilizar a Colocação em Cache Ponto a Ponto. Será utilizado o valor predefinido de conjunto de serviço cloud. 
-      
-Valores recomendados: 64 GB a 256 GB. 
-      
+      <string id="MinDiskSizeAllowedToPeer_Help">Especifica o tamanho do disco mínimo necessário (capacidade em GB) para o dispositivo utilizar a Colocação em Cache Ponto a Ponto. Será utilizado o valor predefinido de conjunto de serviço cloud.
+
+Valores recomendados: 64 GB a 256 GB.
+
 Nota: se a política DOModifyCacheDrive estiver definida, a verificação de tamanho do disco será aplicada ao novo diretório de trabalho especificado por esta política.</string>
       <string id="MinBatteryPercentageAllowedToUpload">Permitir carregamentos enquanto o dispositivo está no modo de bateria quando se encontrar abaixo do nível da bateria definido (percentagem)</string>
-      <string id="MinBatteryPercentageAllowedToUpload_Help">Especifique qualquer valor entre 1 e 100 (em percentagem) para permitir que o dispositivo carregue dados para os elementos de LAN e Grupo enquanto estiver no modo de alimentação CC (Bateria). 
-      
-O valor recomendado a definir na bateria se permitir carregamentos é de 40 (para 40%). O dispositivo pode fazer transferências a partir de elementos enquanto está no modo de bateria independentemente desta política. 
-      
+      <string id="MinBatteryPercentageAllowedToUpload_Help">Especifique qualquer valor entre 1 e 100 (em percentagem) para permitir que o dispositivo carregue dados para os elementos de LAN e Grupo enquanto estiver no modo de alimentação CC (Bateria).
+
+O valor recomendado a definir na bateria se permitir carregamentos é de 40 (para 40%). O dispositivo pode fazer transferências a partir de elementos enquanto está no modo de bateria independentemente desta política.
+
 O valor 0 significa "não limitado"; Será utilizado o valor predefinido de conjunto de serviço cloud.</string>
-      <string id="CacheHost">[Reservado para utilização futura] Nome do Anfitrião do Servidor de Cache</string>
-      <string id="CacheHost_Help">[Reservado para utilização futura]</string>
+      <string id="CacheHost">Nome de Anfitrião do Servidor de Cache</string>
+      <string id="CacheHost_Help">Esta política permite-lhe definir uma ou mais Otimizações da Entrega em servidores de Cache de Rede que serão utilizados pelos clientes.
+
+Um ou mais valores podem ser adicionados como nomes de domínio completamente qualificados (FQDN) ou como endereços IP. Para adicionar vários valores, separe cada FQDN ou endereço IP com vírgulas.
+      </string>
+      <string id="CacheHostSource">Origem do Nome de Anfitrião do Servidor de Cache</string>
+      <string id="CacheHostSource_Help">Esta política permite-lhe especificar a forma como os clientes podem descobrir dinamicamente a Otimização da Entrega em servidores de Cache de Rede.
+
+As opções disponíveis são:
+
+1 = Opção DHCP 235.
+
+2 = Opção DHCP 235 Force.
+
+Para ambas as opções, o cliente consultará o ID da Opção DHCP 235 e utilizará o valor devolvido como Nome de Anfitrião do Servidor de Cache. A opção 2 substitui a política Nome de Anfitrião do Servidor de Cache, se estiver configurada.</string>
+      <string id="CacheHostSource_DHCP">Opção DHCP 235</string>
+      <string id="CacheHostSource_DHCP_Force">Opção DHCP 235 Force</string>
       <string id="GroupIdSource">Selecione a origem de IDs de Grupo</string>
-      <string id="GroupIdSource_Help">Defina esta política para limitar a seleção de elemento da rede para uma origem específica. 
-      
-As opções disponíveis são: 
+      <string id="GroupIdSource_Help">Defina esta política para limitar a seleção de elemento da rede para uma origem específica.
+
+As opções disponíveis são:
 
 1 = Site do AD.
 
@@ -118,13 +129,13 @@ As opções disponíveis são:
 
 3 = ID de Opção de DHCP.
 
-4 = Sufixo DNS. 
+4 = Sufixo DNS.
 
-5 = ID de Inquilino do AAD. 
+5 = ID de Inquilino do AAD.
 
-Quando definido, o GroupID será atribuído automaticamente a partir da origem selecionada. Se definir esta política, a política do GroupID será ignorada. 
-      
-As opções definidas nesta política apenas se aplicam ao modo de transferência do Grupo (2). Caso o Grupo (2) não esteja definido para o modo de Transferência, esta política será ignorada. 
+Quando definido, o ID do Grupo será atribuído automaticamente a partir da origem selecionada. Se definir esta política, a política do GroupID será ignorada.
+
+As opções definidas nesta política apenas se aplicam ao modo de transferência do Grupo (2). Caso o Grupo (2) não esteja definido para o modo de Transferência, esta política será ignorada.
 
 Para a opção 3 - ID de Opção de DHCP, o cliente irá consultar o ID da Opção de DHCP 234 e utilizar o valor GUID devolvido como o ID do Grupo.</string>
       <string id="GroupIdSource_Unset">Não definir (0)</string>
@@ -135,34 +146,34 @@ Para a opção 3 - ID de Opção de DHCP, o cliente irá consultar o ID da Opç�
       <string id="GroupIdSource_AAD">ID de Inquilino do AAD (5)</string>
       <string id="DelayBackgroundDownloadFromHttp">Atrasar transferência em segundo plano de http (em segundos)</string>
       <string id="DelayBackgroundDownloadFromHttp_Help">Esta política permite-lhe atrasar a utilização de uma origem HTTP numa transferência em segundo plano que tenha permissão para utilizar P2P.
-      
+
 Depois de o atraso máximo ser atingido, a transferência será retomada utilizando HTTP, quer a transferir o payload completo ou a complementar os bytes que não foi possível transferir de Elementos da Rede.
-      
+
 Tenha em conta que uma transferência que esteja a aguardar por origens de elemento da rede será apresentada como estando bloqueada para o utilizador final.
-      
+
 O valor recomendado é de 1 hora (3600).</string>
       <string id="DelayForegroundDownloadFromHttp">Atrasar transferência em primeiro plano de http (em segundos)</string>
       <string id="DelayForegroundDownloadFromHttp_Help">Esta política permite-lhe atrasar a utilização de uma origem de HTTP numa transferência de primeiro plano (interativo) que tenha permissão para utilizar P2P.
-      
+
 Depois de o atraso máximo ser atingido, a transferência será retomada utilizando HTTP, quer a transferir o payload completo ou a complementar os bytes que não foi possível transferir de Elementos da Rede.
-      
+
 Tenha em conta que uma transferência que esteja a aguardar por origens de elemento da rede será apresentada como estando bloqueada para o utilizador final.
-      
+
 O valor recomendado é de 1 minuto (60).</string>
       <string id="DelayCacheServerFallbackBackground">Atrasar a contingência do Servidor de Cache em transferências em Segundo plano (em segundos)</string>
-      <string id="DelayCacheServerFallbackBackground_Help">Defina esta política para atrasar em X segundos a contingência do Servidor de Cache para a fonte HTTP relativamente a uma transferência de conteúdo em segundo plano. 
+      <string id="DelayCacheServerFallbackBackground_Help">Defina esta política para atrasar em X segundos a contingência do Servidor de Cache para a fonte HTTP relativamente a uma transferência de conteúdo em segundo plano.
 
 Nota: se definir a política para atrasar a transferência em segundo plano a partir de http, será aplicada primeiro (para permitir transferências a partir de elementos em primeiro lugar).</string>
       <string id="DelayCacheServerFallbackForeground">Atrasar a contingência do Servidor de Cache em transferências em Primeiro plano (em segundos)</string>
-      <string id="DelayCacheServerFallbackForeground_Help">Defina esta política para atrasar em X segundos a contingência do Servidor de Cache para a fonte HTTP relativamente a uma transferência de conteúdo em primeiro plano. 
+      <string id="DelayCacheServerFallbackForeground_Help">Defina esta política para atrasar em X segundos a contingência do Servidor de Cache para a fonte HTTP relativamente a uma transferência de conteúdo em primeiro plano.
 
 Nota: se definir a política para atrasar a transferência em primeiro plano a partir de http, será aplicada primeiro (para permitir transferências a partir de elementos em primeiro lugar).</string>
       <string id="RestrictPeerSelectionBy">Selecione um método para limitar a Seleção de Elemento da Rede</string>
-      <string id="RestrictPeerSelectionBy_Help">Defina esta política para limitar a seleção do elemento da rede através da opção selecionada. 
-      
-As opções disponíveis são: 
-1 = Máscara de sub-rede (serão adicionadas mais opções numa versão futura). 
-      
+      <string id="RestrictPeerSelectionBy_Help">Defina esta política para limitar a seleção do elemento da rede através da opção selecionada.
+
+As opções disponíveis são:
+1 = Máscara de sub-rede (serão adicionadas mais opções numa versão futura).
+
 A opção 1 (Máscara de sub-rede) aplica-se à LAN (1) e ao Grupo (2) do Modo de Transferência.</string>
       <string id="RestrictPeerSelectionBy_None">Nenhum</string>
       <string id="RestrictPeerSelectionBy_Subnet">Sub-rede</string>
@@ -204,10 +215,6 @@ A opção 1 (Máscara de sub-rede) aplica-se à LAN (1) e ao Grupo (2) do Modo d
           <label>ID do Grupo:</label>
         </textBox>
       </presentation>
-      <presentation id="MaxUploadBandwidth">
-        <decimalTextBox defaultValue="0" refId="MaxUploadBandwidth">Largura de Banda Máxima de Carregamento (em KB/s):</decimalTextBox>
-        <text>O valor predefinido é 0 (ilimitado)</text>
-      </presentation>
       <presentation id="MaxCacheSize">
         <decimalTextBox defaultValue="20" refId="MaxCacheSize">Tamanho Máximo da Cache (Percentagem):</decimalTextBox>
         <text>O valor predefinido é 20%</text>
@@ -233,12 +240,12 @@ A opção 1 (Máscara de sub-rede) aplica-se à LAN (1) e ao Grupo (2) do Modo d
           <label>Modificar a Unidade de Cache:</label>
         </textBox>
       </presentation>
-      <presentation id="MaxDownloadBandwidth">
-        <decimalTextBox defaultValue="0" refId="MaxDownloadBandwidth">Largura de Banda Máxima de Transferência (em KB/s):</decimalTextBox>
+      <presentation id="MaxBackgroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxBackgroundDownloadBandwidth">Largura de Banda Máxima de Transferência em Segundo Plano (em KB/s):</decimalTextBox>
         <text>O valor predefinido é 0 (ilimitado)</text>
       </presentation>
-      <presentation id="PercentageMaxDownloadBandwidth">
-        <decimalTextBox defaultValue="0" refId="PercentageMaxDownloadBandwidth">Largura de Banda Máxima de Transferência (Percentagem):</decimalTextBox>
+      <presentation id="MaxForegroundDownloadBandwidth">
+        <decimalTextBox defaultValue="0" refId="MaxForegroundDownloadBandwidth">Largura de Banda Máxima de Transferência em Primeiro Plano (em KB/s):</decimalTextBox>
         <text>O valor predefinido é 0 (ilimitado)</text>
       </presentation>
       <presentation id="PercentageMaxBackgroundBandwidth">
@@ -273,8 +280,11 @@ A opção 1 (Máscara de sub-rede) aplica-se à LAN (1) e ao Grupo (2) do Modo d
           <label>Servidor de Cache:</label>
         </textBox>
       </presentation>
+      <presentation id="CacheHostSource">
+        <dropdownList defaultItem="0" noSort="true" refId="CacheHostSource">Origem do Nome de Anfitrião do Servidor de Cache:</dropdownList>
+      </presentation>
       <presentation id="GroupIdSource">
-        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Origem de IDs de Grupo:</dropdownList>        
+        <dropdownList defaultItem="0" noSort="true" refId="GroupIdSource">Origem de IDs de Grupo:</dropdownList>
       </presentation>
       <presentation id="DelayBackgroundDownloadFromHttp">
         <decimalTextBox defaultValue="0" refId="DelayBackgroundDownloadFromHttp">Atrasar transferência em segundo plano de http (em segundos):</decimalTextBox>

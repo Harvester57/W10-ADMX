@@ -57,19 +57,21 @@
 
 注意: 若要隱藏系統設定應用程式中的頁面，請使用 [電腦設定] 下的 [設定頁面可見度] 設定。</string>
       <string id="SettingsPageVisibility">設定頁面可見度</string>
-      <string id="SettingsPageVisibility_Help">指定要在系統設定應用程式中顯示或隱藏的頁面清單。
+      <string id="SettingsPageVisibility_Help">指定要在 [系統設定應用程式] 中顯示或隱藏的頁面清單。
 
-這個原則允許系統管理員封鎖來自系統設定應用程式的特定一組頁面。封鎖的頁面不會顯示在應用程式中，而且，如果封鎖分類中的所有頁面，則也會一併隱藏分類。透過 URI、檔案總管中的操作功能表或其他方法直接瀏覽至封鎖的頁面，將改為顯示設定的首頁。
+此原則可使管理員在 [系統設定應用程式] 中封鎖指定的一組頁面。在應用程式中無法看到已封鎖的頁面，而且如果某一類別中的所有頁面都遭封鎖，則該類別也會隱藏。透過 URI、Explorer 中的操作功能表或其他方式直接導航到已封鎖的頁面，將會改為顯示 [設定] 的首頁。
 
-這個原則有兩種模式: 它可以指定要顯示的設定頁面清單或要隱藏的頁面清單。若要指定要顯示的頁面清單，原則字串的開頭必須是 "showonly:" (沒有引號)，若要指定要隱藏的頁面清單，則其開頭為 "hide:"。如果一般會因其他原因 (例如遺漏硬體裝置) 而隱藏 showonly 清單中的頁面，這個原則將不會強制顯示該頁面。之後，原則字串必須包含設定頁面識別碼的分號分隔清單。任何給定設定頁面的識別碼都是該頁面的已發行 URI，去除 "ms-settings:" 通訊協定部分。
+此原則有兩種模式：可以指定要顯示的 [設定] 頁面清單或要隱藏的頁面清單。若要指定要顯示的頁面清單，原則字串必須以 "showonly:" (不含引號) 開頭，若要指定要隱藏的頁面清單，則必須以 "hide:" 開頭。如果 showonly 清單中的某一頁通常會因其他原因 (如缺少硬體裝置) 而隱藏，此原則就不會強制顯示此頁。此後，原則字串必須包含以分號分隔的 [設定頁面識別碼] 清單。任何指定之設定頁面的識別碼都是此頁的已發佈 URI，而不是 "ms-settings：" 協定部分。
 
-範例: 指定僅應該顯示 [關於] 和 [藍牙] 頁面 (其個別 URI 是 ms-settings:about 和 ms-settings:bluetooth) 並隱藏所有其他頁面:
+例如：指定僅顯示 [關於] 和 [藍牙] 頁面 (其各自的 URI 是 ms-settings:about 和 ms-settings:bluetooth)，所有其他的頁面皆隱藏：
 
 showonly:about;bluetooth
 
-範例: 指定僅應該隱藏 [藍牙] 頁面 (其具有 URI ms-settings:bluetooth):
+例如：指定僅隱藏藍牙頁面 (具有 URI ms-settings:bluetooth)：
 
-hide:bluetooth</string>
+hide:bluetooth
+
+每一使用者支援的可用性記錄於：https://go.microsoft.com/fwlink/?linkid=2102995</string>
       <string id="AllowOnlineTips">允許線上提示</string>
       <string id="AllowOnlineTips_Help">啟用或停用擷取 [設定] 應用程式的線上提示和說明。
 

@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Appx Paketi Yöneticisi</displayName> 
+  <displayName>Appx Paketi Yöneticisi</displayName>
   <description>Appx Paketi Yöneticisi</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@ Bu ilke ayarını etkinleştirirseniz Grup İlkesi, dağıtım işlemlerine (bir
 Bu ilke ayarını devre dışı bırakır veya yapılandırmazsanız özel profil kullanıldığında Grup İlkesi Windows Mağazası uygulamalarının dağıtım işlemlerini engeller.</string>
       <string id="AllowDevelopmentWithoutDevLicense">Windows Mağazası uygulamalarının geliştirilmesine ve bir tümleşik geliştirme ortamından (IDE) yüklenmesine izin verir</string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        Windows Mağazası uygulamalarının geliştirilmesine ve doğrudan bir IDE'den yüklenmesine izin verir veya bunu engeller.
+        Microsoft Store uygulamalarının geliştirilmesine ve doğrudan bir IDE'den yüklenmesine izin verir veya bunu reddeder.
 
-        Bu ayarı ve "Tüm güvenilen uygulamaların yüklenmesine izin ver" Grup İlkesini etkinleştirirseniz, Windows Mağazası uygulamaları geliştirebilirsiniz ve onları doğrudan bir IDE'den yükleyebilirsiniz.
-        
-        Bu ayarı devre dışı bırakır veya yapılandırmazsanız, Windows Mağazası uygulamaları geliştiremez veya onları doğrudan bir IDE'den yükleyemezsiniz.
+        Bu ayarı ve "Tüm güvenilen uygulamaların yüklenmesine izin ver" Grup İlkesi'ni etkinleştirirseniz Microsoft Store uygulamalarını geliştirebilir ve doğrudan bir IDE'den yükleyebilirsiniz.
+
+        Bu ayarı devre dışı bırakırsanız veya yapılandırmazsanız Microsoft Store uygulamalarını geliştiremez veya doğrudan bir IDE'den yükleyemezsiniz.
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">Windows uygulamalarının sistem dışı birimlere yüklenmesini devre dışı bırak</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -53,11 +53,18 @@ Bu ilke ayarını devre dışı bırakır veya yapılandırmazsanız özel profi
         Bu ayarı devre dışı bırakırsanız veya yapılandırmazsanız, bir uygulama farklı bir birime taşındığında, kullanıcıların uygulama verileri de o birime taşınır.
       </string>
       <string id="AllowSharedLocalAppData">Windows uygulamasının kullanıcılar arasında uygulama verileri paylaşmasına izin ver</string>
-      <string id="AllowSharedLocalAppDataExplanation">Windows uygulamasının, uygulamayı yükleyen kullanıcılar arasında veri paylaşımı yapabilmesini yönetir.
+      <string id="AllowSharedLocalAppDataExplanation">Bir Windows uygulamasının, uygulamayı yükleyen kullanıcılar arasında veri paylaşımı yapabilmesini yönetir.
 
-        Bu ilkeyi etkinleştirirseniz, Windows uygulaması, o uygulamanın diğer örnekleriyle uygulama verilerini paylaşabilir. Veriler SharedLocal klasörü aracılığıyla paylaşılır. Bu klasöre, Windows.Storage API'sinden erişilebilir.
+        Bu ilkeyi etkinleştirirseniz Windows uygulaması, o uygulamanın diğer örnekleriyle uygulama verilerini paylaşabilir. Veriler SharedLocal klasörü aracılığıyla paylaşılır. Bu klasöre, Windows.Storage API'sinden erişilebilir.
 
-        Bu ilkeyi devre dışı bırakırsanız, Windows uygulaması, o uygulamanın diğer örnekleriyle uygulama verilerini paylaşamaz. Bu ilke daha önce etkinleştirilmişse, daha önce paylaşılan uygulama verileri SharedLocal klasöründe kalır. 
+        Bu ilkeyi devre dışı bırakırsanız Windows uygulaması, o uygulamanın diğer örnekleriyle uygulama verilerini paylaşamaz. Bu ilke daha önce etkinleştirilmişse daha önce paylaşılan uygulama verileri SharedLocal klasöründe kalır.
+      </string>
+      <string id="BlockNonAdminUserInstall">Yönetici olmayan kullanıcıların paketlenmiş Windows uygulamalarını yüklemesini engelle</string>
+      <string id="BlockNonAdminUserInstallExplanation">Yönetici olmayan kullanıcıların Windows uygulama paketlerini yükleme yeteneğini yönetir.
+
+        Bu ilkeyi etkinleştirirseniz Yönetici olmayanlar, Windows uygulama paketlerinin yüklenmesini başlatamaz. Uygulama yüklemek isteyen Yöneticilerin bir Yönetici bağlamından (örneğin, bir Yönetici PowerShell penceresinden) bu işlemi yapması gerekir. Diğer ilkeler tarafından izin verilirse tüm kullanıcılar, Windows uygulama paketlerini Microsoft Store aracılığıyla yüklemeye devam edebilir.
+
+        Bu ilkeyi devre dışı bırakırsanız veya yapılandırmazsanız tüm kullanıcılar, Windows uygulama paketlerinin yüklemesini başlatabilirler.
       </string>
     </stringTable>
   </resources>

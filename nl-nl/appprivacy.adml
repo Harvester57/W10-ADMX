@@ -321,6 +321,21 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen werknemers
 
 Dit beleid wordt toegepast op Windows-apps en Cortana. Het heeft voorrang op het beleid 'Cortana toestaan bij vergrendeling'. Dit beleid is alleen van toepassing wanneer het beleid 'Stemactivering toestaan' is geconfigureerd zodat apps met spraak kunnen worden geactiveerd.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Windows-apps op de achtergrond toegang geven tot bewegingen van de gebruiker</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Met deze beleidsinstelling bepaalt u of Windows-apps op de achtergrond toegang hebben tot de beweging van het hoofd, de handen, de bewegingscontrollers en andere gevolgde objecten van de gebruiker.
+
+U kunt ofwel een standaardinstelling opgeven voor alle apps of een instelling per afzonderlijke app door de familienaam van het pakket op te geven. U kunt de familienaam van het pakket voor een app ophalen met behulp van de Windows PowerShell-cmdlet Get-AppPackage. Een aparte instelling voor een app heeft voorrang boven de standaardinstelling.
+
+Als u de optie 'De gebruiker bepaalt' kiest, kunnen medewerkers in uw organisatie zelf beslissen of Windows-apps op de achtergrond toegang hebben tot de bewegingen van de gebruiker worden uitgevoerd met behulp van Instellingen &gt; Privacy op het apparaat.
+
+Als u de optie 'Toestaan forceren' kiest, hebben Windows-apps op de achtergrond toegang hebben tot de bewegingen van de gebruiker en kan dit niet worden gewijzigd door de medewerkers in uw organisatie.
+
+Als u de optie 'Weigeren forceren' kiest, hebben Windows-apps op de achtergrond geen toegang hebben tot de bewegingen van de gebruiker en kan dit niet worden gewijzigd door de medewerkers in uw organisatie.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen de medewerkers in uw organisatie zelf beslissen of Windows-apps op de achtergrond toegang hebben tot de bewegingen van de gebruiker met behulp van Instellingen &gt; Privacy op het apparaat.
+
+Als een app is geopend op het moment dat dit groepsbeleidsobject wordt toegepast op een apparaat, moeten medewerkers de app of het apparaat opnieuw opstarten. Daarna zijn de beleidswijzigingen van kracht op de app.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Dit beleid wordt toegepast op Windows-apps en Cortana. Het heeft voorrang op het
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Standaard voor alle apps:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Standaard voor alle apps:</dropdownList>
+        <text>Gebruiker laten bepalen voor deze specifieke apps (gebruik namen van pakketfamilies):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Toestaan forceren voor deze specifieke apps (gebruik namen van pakketfamilies):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Weigeren forceren voor deze specifieke apps (gebruik namen van pakketfamilies):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

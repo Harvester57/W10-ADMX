@@ -10,16 +10,15 @@
       <string id="AllowTelemetry_1">1 - Basis</string>
       <string id="AllowTelemetry_2">2 - Uitgebreid</string>
       <string id="AllowTelemetry_3">3 - Volledig</string>
-      <string id="AllowTelemetry_Explain">Deze beleidsinstelling bepaalt het hoogste niveau aan diagnostische Windows-gegevens die naar Microsoft worden verzonden. Door deze instelling te configureren, verhindert u niet dat gebruikers hun telemetrie-instellingen kunnen wijzigen. Zij kunnen echter geen hoger niveau kiezen dan het niveau dat u voor de organisatie hebt ingesteld. De instellingen voor diagnostische Windows-gegevens voor Windows 10 zijn alleen van toepassing op het Windows-besturingssysteem en apps die bij Windows zijn inbegrepen. Deze instellingen zijn niet van toepassing op apps van derden die in Windows 10 worden uitgevoerd.
+      <string id="AllowTelemetry_Explain">Als deze instelling wordt geconfigureerd in Windows 10, kunnen eindgebruikers niet kiezen voor een hoger niveau van telemetrieverzameling dan het niveau dat u hebt ingesteld voor uw organisatie. Deze beperking geldt uitsluitend voor het Windows-besturingssysteem en de apps die worden meegeleverd met Windows en niet voor apps van derden die worden uitgevoerd op Windows 10.
 
-Als u deze instelling inschakelt, kunt u bepalen op welk niveau diagnostische gegevens worden verzonden naar Microsoft, waaronder:
+Diagnosegegevens worden als volgt onderverdeeld in vier niveaus:
+  - 0 (Beveiliging). Informatie die is vereist om Windows, Windows Server en System Center veilig te houden, met inbegrip van gegevens over de instellingen voor het onderdeel Connected User Experiences and Telemetry, het hulpprogramma voor verwijderen van schadelijke software en Windows Defender.
+  - 1 (Basis). Basisapparaatgegevens, met inbegrip van: kwaliteitsgegevens, app-compatibiliteit en gegevens van het niveau Beveiliging.
+  - 2 (Uitgebreid). Aanvullende inzichten, met inbegrip van: de wijze van gebruik van Windows, Windows Server, System Center en apps, hun prestaties, geavanceerde betrouwbaarheidsgegevens en gegevens van het niveau Basis en het niveau Beveiliging.
+  - 3 (Volledig). Alle gegevens die nodig zijn voor het identificeren en helpen oplossen van problemen, plus gegevens van de niveaus Beveiliging, Basis en Uitgebreid.
 
-  - 0 (Beveiliging). Alleen een minimale hoeveelheid gegevens, die vereist is om de beveiliging van Windows instand te houden, wordt naar Microsoft verzonden. Op dit niveau (indien ingeschakeld) kunnen gegevens van Windows-beveiligingsonderdelen, zoals het Hulpprogramma voor verwijderen van schadelijke software en Windows Defender, naar Microsoft worden verzonden. Het instellen van de waarde 0 is alleen van toepassing op apparaten met de edities Enterprise, Education, IoT of Windows Server. Het instellen van de waarde 0 voor andere edities is gelijk aan het instellen van de waarde 1.
-  - 1 (Basis). Hiermee worden dezelfde gegevens verzonden als met de waarde 0. Er wordt ook een zeer beperkte hoeveelheid diagnostische gegevens verzonden, zoals basale apparaatgegevens, kwaliteitsgerelateerde gegevens en gegevens over app-compatibiliteit. Het instellen van de waarde 0 of 1 kan van invloed zijn op het gebruik van bepaalde apparaatfuncties.
-  - 2 (Uitgebreid). Hiermee worden dezelfde gegevens verzonden als met de waarde 1. Er worden ook aanvullende gegevens verzonden zoals gegevens over de manier waarop Windows, Windows Server, System Center en apps worden gebruikt, gegevens over hun werking en geavanceerde betrouwbaarheidsgegevens.
-  - 3 (Volledig). Hiermee worden dezelfde gegevens verzonden als met de waarde 2. Er worden ook geavanceerde diagnostische gegevens verzonden die worden gebruikt om problemen met apparaten vast te stellen en op te lossen. Tot de gegevens behoren de bestanden en inhoud die ten grondslag kunnen liggen aan apparaatproblemen.
-
-Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen de telemetrie-instellingen afzonderlijk worden geconfigureerd in Instellingen.
+Opties die beschikbaar zijn voor gebruikers in de app Instellingen worden gewijzigd door het configureren van deze instelling, en zelfs als zij niet zijn ingesteld, kunnen zij worden beïnvloed door andere instellingen voor groepsbeleid. Opmerking: als dit beleid zodanig is geconfigureerd dat een telemetrie-instelling van het niveau Beveiliging of Basis is toegestaan, zijn gebruikers niet in staat om een hoger niveau te selecteren.
       </string>
 
       <string id="TelemetryProxy">De Connected User Experiences and Telemetry-service configureren</string>
@@ -67,14 +66,14 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de apparaat
       <string id="ConfigureTelemetryOptInSettingsUx">Gebruikersinterface van instelling voor telemetrie-inschrijving configureren.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Instellingen voor telemetrie-inschrijving uitschakelen</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Instellingen voor telemetrie-inschrijving inschakelen</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Deze beleidsinstelling bepaalt of gebruikers hun eigen telemetrieniveaus kunnen wijzigen in Instellingen. Deze instelling moet samen met de instellingen van Telemetrie toestaan worden gebruikt.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Deze beleidsinstelling bepaalt of een eindgebruiker zelf telemetrieniveaus kan wijzigen in Instellingen.
 
-Als u dit beleid instelt op 'Instellingen voor telemetrie-inschrijving uitschakelen', worden telemetrieniveaus uitgeschakeld in Instellingen, zodat gebruikers deze niet kunnen wijzigen.
+Als u dit beleid instelt op 'Instellingen voor telemetrie-inschrijving uitschakelen', worden telemetrieniveaus uitgeschakeld in Instellingen en kunnen eindgebruikers deze niet wijzigen.
 
-Als u dit beleid instelt op 'Instellingen voor telemetrie-inschrijving inschakelen' of niet configureert, kunnen gebruikers hun eigen telemetrieniveaus wijzigen in Instellingen.
+Als u dit beleid instelt op 'Instellingen voor telemetrie-inschrijving inschakelen' of niet configureert, kunnen eindgebruikers het telemetrieniveau van hun apparaat wijzigen in de app Instellingen.
 
 Opmerking:
-Stel de beleidsinstelling Telemetrie toestaan in als u wilt voorkomen dat gebruikers meer diagnostische gegevens naar Microsoft kunnen verzenden dan maximaal voor uw organisatie is ingesteld.
+Als u een limiet wilt instellen voor het niveau van diagnostische gegevens dat naar Microsoft wordt verzonden door uw organisatie, gebruikt u de beleidsinstelling Telemetrie toestaan.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Wijzigingsmeldingen voor telemetrie-inschrijving configureren.</string>

@@ -2,7 +2,7 @@
 <!--  Copyright (C) Microsoft. All rights reserved.  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
   <!-- displayName and description are not used. Not supported by current Group Policy tools. -->
-  <displayName>Appx 包管理器</displayName> 
+  <displayName>Appx 包管理器</displayName>
   <description>Appx 包管理器</description>
   <resources>
     <stringTable>
@@ -30,11 +30,11 @@
 如果禁用或未配置此策略设置，则组策略会阻止在使用特殊配置文件时对 Windows 应用商店应用执行部署操作。</string>
       <string id="AllowDevelopmentWithoutDevLicense">允许开发 Windows 应用商店应用并从集成开发环境(IDE)安装这些应用 </string>
       <string id="AllowDevelopmentWithoutDevLicenseExplanation">
-        允许或拒绝在不安装开发者许可证的情况下开发 Windows 应用商店应用程序。
+        允许或拒绝开发 Microsoft Store 应用程序，并直接从 IDE 进行安装。
 
-        如果启用此设置并启用“允许安装所有受信任的应用”组策略，则可以在不安装开发者许可证的情况下开发 Windows 应用商店应用。
-        
-        如果禁用或未配置此设置，则需要先安装开发者许可证，然后才能开发 Windows 应用商店应用。
+        如果启用此设置并启用“允许安装所有受信任的应用程序”组策略，则可以开发 Microsoft Store 应用并直接从 IDE 进行安装。
+
+        如果禁用或不配置此设置，则无法开发 Microsoft Store 应用或直接从 IDE 进行安装。
       </string>
       <string id="DisableDeploymentToNonSystemVolumes">禁止将 Windows 应用安装到非系统卷</string>
       <string id="DisableDeploymentToNonSystemVolumesExplanation">
@@ -54,10 +54,17 @@
       </string>
       <string id="AllowSharedLocalAppData">允许 Windows 应用在用户之间共享应用程序数据</string>
       <string id="AllowSharedLocalAppDataExplanation">管理 Windows 应用在安装了该应用的用户之间共享数据的功能。
-      
+
         如果启用此策略，则 Windows 应用可以与该应用的其他实例共享应用数据。数据通过 SharedLocal 文件夹共享。可通过 Windows.Storage API 使用此文件夹。
 
-        如果禁用此策略，Windows 应用将无法与该应用的其他实例共享应用数据。如果以前启用过此策略，则以前共享的应用数据仍将保留在 SharedLocal 文件夹中。 
+        如果禁用此策略，则 Windows 应用将无法与该应用的其他实例共享应用数据。如果以前启用过此策略，则以前共享的应用数据仍将保留在 SharedLocal 文件夹中。
+      </string>
+      <string id="BlockNonAdminUserInstall">阻止非管理员用户安装打包的 Windows 应用</string>
+      <string id="BlockNonAdminUserInstallExplanation">管理非管理员用户安装 Windows 应用程序包的能力。
+
+        如果启用此策略，则非管理员用户将无法启动 Windows 应用程序包的安装。想要安装应用的管理员需要从管理员上下文(例如，管理员 PowerShell 窗口)中执行此操作。如果其他策略允许，则所有用户仍可以通过 Microsoft Store 安装 Windows 应用程序包。
+
+        如果禁用或未配置此策略，则所有用户都将能够启动 Windows 应用程序包的安装。
       </string>
     </stringTable>
   </resources>

@@ -10,19 +10,18 @@
       <string id="AllowTelemetry_1">1 – Standard</string>
       <string id="AllowTelemetry_2">2 - Forbedret</string>
       <string id="AllowTelemetry_3">3 - Fuld</string>
-      <string id="AllowTelemetry_Explain">Denne politikindstilling bestemmer det højeste niveau af Windows-diagnosticeringsdata, der sendes til Microsoft. Ved at konfigurere denne indstilling forhindrer du ikke brugerne i at ændre deres telemetriindstillinger. men du forhindrer dem i at vælge et højere niveau, end du har angivet for organisationen. Indstillingerne i diagnostiske Windows 10-data gælder kun for Windows-operativsystemet og de apps, der leveres sammen med Windows. Disse indstillinger gælder ikke for tredjepartsapps, der kører på Windows 10.
+      <string id="AllowTelemetry_Explain">Ved at konfigurere denne indstilling i Windows 10 kan slutbrugere ikke vælge et højere niveau af telemetrisamlinger end det niveau, du har angivet for organisationen. Denne begrænsning gælder kun for Windows-operativsystemet og- apps, der leveres sammen med Windows, og gælder ikke for tredjepartsprogrammer, der kører på Windows 10.
 
-Hvis du aktiverer denne indstilling, kan du bestemme, hvilket niveau af diagnosticeringsdata der skal sendes til Microsoft, herunder:
+Diagnosticeringsdata kategoriseres i fire niveauer som følger:
+  - 0 (Sikkerhed). Oplysninger, der er nødvendige for at hjælpe med at beskytte Windows, Windows Server og System Center, herunder data om indstillingerne for komponenten Tilsluttede brugeroplevelser og telemetri, Værktøj til fjernelse af skadelig software og Microsoft Defender.
+  - 1 (Grundlæggende). Grundlæggende enhedsoplysninger, herunder: kvalitetsrelaterede data, appkompatibilitet og data fra sikkerhedsniveauet.
+  - 2 (Udvidet). Yderligere indsigt, herunder: hvordan Windows, Windows Server, System Center og apps bruges, hvordan de fungerer, avancerede overvågningsdata og data fra både det grundlæggende niveau og sikkerhedsniveauerne.
+  - 3 (Fuld). Alle de data, der er nødvendige for at identificere og hjælpe med at løse problemer, plus data fra niveauerne Sikkerhed, Grundlæggende og Udvidet.
 
-  - 0 (sikkerhed). Sender kun den mindste mængde data til Microsoft, som er nødvendig for at sikre, at Windows beskyttes. Komponenter i Windows Sikkerhed, f.eks. Værktøj til fjernelse af skadelig software (MSRT) og Windows Defender, sender muligvis data til Microsoft på dette niveau, hvis de er aktiveret. Hvis du angiver en værdi på 0, gælder det kun for enheder, der kører Enterprise-, Education-, IoT- eller Windows Server-udgaver. Hvis du angiver en værdi på 0 for andre udgaver, svarer det til at angive en værdi på 1.
-  - 1 (grundlæggende). Sender de samme data som en værdi på 0 plus en meget begrænset mængde diagnosticeringsdata, såsom grundlæggende enhedsoplysninger, kvalitetsrelaterede data og oplysninger om appkompatibilitet. Bemærk, at hvis du angiver værdier på 0 eller 1, forringes visse oplevelser på enheden.
-  - 2 (udvidet). Sender de samme data som en værdi på 1 plus yderligere data, såsom hvordan Windows, Windows Server, System Center og apps bruges, hvordan de fungerer samt avancerede pålidelighedsdata.
-  - 3 (fuld). Sender de samme data som en værdi på 2 plus avancerede diagnosticeringsdata, der bruges til at diagnosticere og løse problemer med enheder, herunder filer og indhold, der kan have forårsaget et problem med enheden.
-
-Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, kan telemetriindstillinger konfigureres individuelt i indstillinger.
+De indstillinger, der er tilgængelige for brugere i appen Indstillinger, ændres ved at konfigurere denne indstilling, og selvom de ikke er angivet, kan de påvirkes af andre gruppepolitikindstillinger. Bemærk, at hvis denne politik er konfigureret til at tillade en telemetriindstilling af Sikkerhed eller Grundlæggende, kan slutbrugere ikke vælge et højere niveau.
       </string>
 
-      <string id="TelemetryProxy">Konfigurer brugeroplevelser for tilsluttede brugere samt telemetri</string>
+      <string id="TelemetryProxy">Konfigurer Tilsluttede brugeroplevelser og telemetri</string>
       <string id="TelemetryProxy_Explain">Med denne politikindstilling kan du videresende anmodninger om Tilsluttet brugeroplevelse og telemetri til en proxyserver.
 
 Hvis du aktiverer politikindstillingen, kan du angive FQDN eller IP-adressen på destinationsenheden i din organisations netværk (og eventuelt et portnummer, hvis der er brug for det). Tilslutningen sker via en SSL-forbindelse (Secure Sockets Layer). Hvis den navngivne proxyanmodning ikke lykkes, eller hvis du deaktiverer eller undlader at konfigurere politikindstillingen, bliver data om Tilsluttet brugeroplevelse og telemetri sendt til Microsoft ved brug af standardproxykonfigurationen.
@@ -67,14 +66,14 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, bliv
       <string id="ConfigureTelemetryOptInSettingsUx">Konfigurer tilmeldingsindstillinger for telemetri i brugergrænsefladen.</string>
       <string id="ConfigureTelemetryOptInSettingsUx_1">Deaktiver tilmeldingsindstillinger for telemetri</string>
       <string id="ConfigureTelemetryOptInSettingsUx_2">Aktivér tilmeldingsindstillinger for telemetri</string>
-      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Denne politikindstilling bestemmer, om brugerne kan ændre deres eget telemetriniveau i indstillinger. Denne indstilling skal bruges sammen med indstillingen Tillad telemetri.
+      <string id="ConfigureTelemetryOptInSettingsUx_Explain">Denne politikindstilling bestemmer, om en slutbruger kan ændre telemetriniveauer i Indstillinger.
 
-Hvis du indstiller denne politikindstilling til "Deaktiver tilmeldingsindstillinger for telemetri", deaktiveres telemetriniveauer i Indstillinger, hvilket forhindrer brugerne i at ændre dem.
+Hvis du angiver denne politikindstilling til "Deaktiver tilvalgsindstillinger for telemetri", deaktiveres telemetriniveauer i Indstillinger, og slutbrugerne kan ikke ændre dem.
 
-Hvis du angiver denne politikindstilling til "Aktivér tilmeldingsindstillinger for telemetri" eller ikke konfigurerer denne politikindstilling, kan brugerne ændre deres eget telemetriniveau under Indstillinger.
+Hvis du undlader at konfigurere denne politikindstilling, eller hvis du angiver den til "Aktivér tilvalgsindstillinger for telemetri", kan slutbrugerne ændre niveauet for enhedstelemetri i appen Indstillinger.
 
-Bemærk!
-Indstil politikindstillingen Tillad telemetri for at forhindre brugerne i at sende diagnosticeringsdata til Microsoft uden for organisationens grænser.
+Bemærk
+Hvis du vil angive en grænse for niveauet af diagnosticeringsdata, der sendes til Microsoft af din organisation, skal du bruge politikindstillingen Tillad telemetri.
       </string>
 
       <string id="ConfigureTelemetryOptInChangeNotification">Konfigurer ændringer i tilmeldingsmeddelelser for telemetri.</string>

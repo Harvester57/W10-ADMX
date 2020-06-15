@@ -321,6 +321,21 @@ Pokud tuto zásadu zakážete nebo nenakonfigurujete, zaměstnanci ve vaší org
 
 Tato zásada se vztahuje na aplikace pro Windows a Cortanu. Má přednost před zásadou Povolit Cortanu nad zamykací obrazovkou. Tato zásada platí jen v případě, že je nakonfigurováno nastavení Povolit aktivaci hlasem.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Umožnit aplikacím pro Windows přístup k pohybům uživatele při běhu na pozadí</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Nastavení této zásady určuje, jestli aplikace pro Windows budou mít při běhu na pozadí přístup k pohybům hlavy, rukou, ovladačů pohybu a dalších sledovaných objektů.
+
+Můžete zadat buď výchozí nastavení pro všechny aplikace, nebo nastavení pro jednotlivé aplikace, a to zadáním jejich identit. Identitu aplikace získáte pomocí rutiny Get-AppPackage prostředí Windows PowerShell. Nastavení pro jednotlivé aplikace přepíše výchozí nastavení.
+
+Pokud zvolíte možnost Určuje uživatel, zaměstnanci ve vaší organizaci budou moct rozhodnout, jestli mají mít aplikace pro Windows při běhu na pozadí přístup k pohybům uživatele, a to v nabídce Nastavení &gt; Soukromí na zařízení.
+
+Pokud zvolíte možnost Vynutit povolení, aplikace pro Windows při běhu na pozadí přístup k pohybům uživatele mít budou a zaměstnanci ve vaší organizaci to nebudou moct změnit.
+
+Pokud zvolíte možnost Vynutit odepření, aplikace pro Windows při běhu na pozadí přístup k pohybům uživatele mít nebudou a zaměstnanci ve vaší organizaci to nebudou moct změnit.
+
+Pokud tuto zásadu zakážete nebo nenakonfigurujete, budou moct zaměstnanci ve vaší organizaci rozhodnout, jestli aplikace pro Windows mají mít při běhu na pozadí přístup k pohybům uživatele, a to v nabídce Nastavení &gt; Soukromí na zařízení.
+
+Pokud je při použití tohoto objektu zásad skupiny některá aplikace na některém zařízení spuštěná, musí zaměstnanci tuto aplikaci nebo celé zařízení restartovat, aby se u ní tato změna zásad projevila.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Tato zásada se vztahuje na aplikace pro Windows a Cortanu. Má přednost před 
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Výchozí pro všechny aplikace:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Výchozí pro všechny aplikace:</dropdownList>
+        <text>Ponechat uživateli kontrolu na těmito konkrétními aplikacemi (použít identity aplikací):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Vynutit povolení těchto konkrétních aplikací (použít identity aplikací):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Vynutit odepření těchto konkrétních aplikací (použít identity aplikací):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

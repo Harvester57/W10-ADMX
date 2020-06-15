@@ -60,10 +60,10 @@ Não é necessário reinicializar o computador ou o serviço para que essa confi
 
 </string>
 <string id="TroubleshootingAllowRecommendations">Solução de problemas: permitir que os usuários acessem a solução recomendada para problemas conhecidos</string>
-<string id="TroubleshootingAllowRecommendationsExplain">Esta configuração de política aplica a solução recomendada para problemas conhecidos no dispositivo e permite que os administradores configurem como ela será aplicada aos seus domínios/ambientes de TI.
-Não definir esta configuração de política permite que o usuário configure se e como a solução de problemas recomendada será aplicada.
+<string id="TroubleshootingAllowRecommendationsExplain">Essa configuração de política aplica a solução recomendada para problemas conhecidos no dispositivo e permite que os administradores configurem como ela será aplicada aos seus domínios/ambientes de TI.
+Não definir essa configuração de política permite que o usuário configure se e como a solução de problemas recomendada será aplicada.
 
-Habilitar esta política permite configurar como a solução de problemas recomendada será aplicada no dispositivo do usuário. Você pode selecionar um dos seguintes valores:
+Habilitar essa política permite configurar como a solução de problemas recomendada será aplicada no dispositivo do usuário. Você pode selecionar um dos seguintes valores:
 0 = Desativar este recurso.
 1 = Desativar este recurso, mas ainda aplicar a solução de problemas críticos.
 2 = Notificar os usuários quando a solução de problemas recomendada estiver disponível e permitir que o usuário a execute ou a ignore.
@@ -74,7 +74,7 @@ Habilitar esta política permite configurar como a solução de problemas recome
 Depois de definir esta nova configuração, para disparar a solução de problemas recomendada para os dispositivos em seu domínio, siga estas instruções:
 1. Crie um script bat com o seguinte conteúdo:
 rem O seguinte script em lotes dispara a Solução de Problemas Recomendada
-C:\Windows\System32\mitigationscanner.exe
+schtasks /run /TN "\Microsoft\Windows\Diagnosis\RecommendedTroubleshootingScanner"
 
 2. Para criar uma nova tarefa imediata, navegue até o Editor de Gerenciamento de Política de Grupo &gt; Configuração do Computador &gt; Preferências e selecione Configurações do Painel de Controle. 
 3. Em Configurações do Painel de Controle, clique com o botão direito do mouse em Tarefas Agendadas e selecione Novo. Selecione Tarefa Imediata (no mínimo, Windows 7).

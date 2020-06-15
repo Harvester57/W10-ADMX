@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Przynajmniej system Windows Server 2003 lub Windows XP Professional z dodatkiem SP1, oprócz systemu Windows RT</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Co najmniej system Windows XP Professional z dodatkiem Service Pack 1 lub co najmniej system Windows 2000 z dodatkiem Service Pack 3 do systemu Windows 8.1 lub Windows Server 2012 R2 z najnowszym dodatkiem Service Pack</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Co najmniej system Windows Vista do systemu Windows 8.1 lub Windows Server 2012 R2 z najnowszym dodatkiem Service Pack</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">System Windows XP Professional z dodatkiem Service Pack 1 albo system Windows 2000 z dodatkiem Service Pack 3 lub nowszy
+Opcja 7 jest obsługiwana tylko na serwerach z systemem nie starszym niż Windows Server 2016</string>
       <string id="AUDontShowUasHelp">To ustawienie zasad umożliwia określenie, czy opcja „Zainstaluj aktualizacje i zamknij system” ma być wyświetlana w oknie dialogowym Zamykanie systemu Windows.
 
 Jeśli to ustawienie zasad zostanie włączone, opcja „Zainstaluj aktualizacje i zamknij system” nie będzie dostępna do wybrania w oknie dialogowym Zamykanie systemu Windows po wybraniu przez użytkownika opcji Zamknij w menu Start, nawet jeśli aktualizacje będą gotowe do instalacji.
@@ -72,20 +74,25 @@ To ustawienie umożliwia określenie, czy na tym komputerze są włączone aktua
 
         4 = Automatycznie pobierz aktualizacje i zainstaluj je według harmonogramu określonego poniżej.
 
-        Gdy jako godzina zaplanowanej instalacji zostanie wybrana wartość „Automatycznie”, system Windows będzie automatycznie wyszukiwał, pobierał i instalował aktualizacje. Ponowne rozruchy urządzenia będą wykonywane zgodnie z domyślnymi ustawieniami systemu Windows, chyba że zostaną skonfigurowane za pośrednictwem zasad grupy. (Dotyczy systemu Windows 10 w wersji 1809 i nowszych).
+        Gdy jako godzina zaplanowanej instalacji zostanie wybrana wartość „Automatycznie”, system Windows będzie automatycznie wyszukiwał, pobierał i instalował aktualizacje. Ponowne rozruchy urządzenia będą wykonywane zgodnie z domyślnymi ustawieniami systemu Windows, chyba że zostaną skonfigurowane za pośrednictwem zasad grupy. (Dotyczy systemu Windows 10, wersja 1809 i nowszych).
 
         Określ harmonogram przy użyciu opcji w ustawieniu zasad grupy. W przypadku wersji 1709 i nowszych istnieje dodatkowa możliwość ograniczenia aktualizacji do aktualizacji co tydzień, co dwa tygodnie lub co miesiąc. Jeżeli nie zostanie określony harmonogram, domyślny harmonogram dla wszystkich instalacji określa ich wykonywanie codziennie o godzinie 3:00. Jeśli do zakończenia jakiejkolwiek aktualizacji będzie wymagane ponowne uruchomienie komputera, system Windows automatycznie uruchomi ponownie komputer. (Jeśli użytkownik będzie zalogowany do komputera w chwili, gdy system Windows będzie gotowy do ponownego uruchomienia, zostanie powiadomiony i będzie mógł wybrać opcję opóźnienia ponownego uruchomienia).
 
         W przypadku systemu Windows 8 lub nowszego możesz skonfigurować aktualizacje tak, aby były instalowane podczas automatycznej konserwacji, a nie zgodnie z określonym harmonogramem. Aktualizacje będą instalowane w ramach automatycznej konserwacji, gdy komputer nie będzie używany, ale nie będą instalowane, gdy komputer będzie zasilany z baterii. Jeśli w ramach automatycznej konserwacji nie będzie można zainstalować aktualizacji w ciągu 2 dni, usługa Windows Update zainstaluje aktualizacje natychmiast. Użytkownicy zostaną powiadomieni o nadchodzącym ponownym uruchomieniu, a komputer zostanie uruchomiony ponownie tylko wtedy, gdy nie będzie ryzyka przypadkowej utraty danych.
 
-        5 = Zezwalaj administratorom lokalnym na wybranie trybu konfiguracji, w ramach którego aktualizacje automatyczne powinny powiadamiać o aktualizacjach i instalować je. (Ta opcja nie została przeniesiona do żadnej z wersji systemu Win 10)
+        5 = Zezwalaj administratorom lokalnym na wybranie trybu konfiguracji, w ramach którego funkcja Aktualizacje automatyczne powinna powiadamiać o aktualizacjach i instalować je. (Ta opcja nie została przeniesiona do żadnej z wersji systemu Win 10).
 
-        Ta opcja umożliwia administratorom lokalnym używanie panelu sterowania usługi Windows Update w celu wybrania odpowiedniej opcji konfiguracji. Administratorzy lokalni nie będą mogli wyłączyć konfiguracji aktualizacji automatycznych.
+        Ta opcja umożliwia administratorom lokalnym używanie panelu sterowania usługi Windows Update w celu wybrania odpowiedniej opcji konfiguracji. Administratorzy lokalni nie będą mogli wyłączyć konfiguracji funkcji Aktualizacje automatyczne.
+
+        7 = Powiadamiaj o instalacji i o konieczności ponownego uruchomienia. (Tylko system Windows Server).
+
+        Za pomocą tej opcji z systemu Windows Server 2016, która ma zastosowanie tylko do urządzeń z produktami (SKU) serwerowymi, administratorzy lokalni mogą używać usługi Windows Update, aby ręcznie kontynuować instalacje lub ponowne rozruchy.
 
 Jeśli ta zasada będzie mieć stan Wyłączone, wszystkie aktualizacje dostępne w usłudze Windows Update będą musiały być pobierane i instalowane ręczne. W tym celu wyszukaj usługę Windows Update za pomocą menu Start.
 
-Jeśli ta zasada będzie mieć stan Nieskonfigurowane, użycie aktualizacji automatycznych nie zostanie określone na poziomie zasad grupy. Administrator będzie jednak mógł nadal skonfigurować aktualizacje automatyczne przy użyciu Panelu sterowania.</string>
+Jeśli ta zasada będzie mieć stan Nieskonfigurowane, użycie funkcji Aktualizacje automatyczne nie zostanie określone na poziomie zasad grupy. Administrator będzie jednak mógł nadal skonfigurować funkcję Aktualizacje automatyczne przy użyciu Panelu sterowania.</string>
 
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 — Pobierz automatycznie, powiadom o instalacji, powiadom o ponownym uruchomieniu</string>
       <string id="AutoUpdateModeAdminChooses">5 — Zezwalaj adm. lokalnym na wybier. ustawienia</string>
       <string id="AutoUpdateModeAuto">4 — Pobierz autom. i zaplanuj instal</string>
       <string id="AutoUpdateModeDownload">3 — Pobierz autom. i powiadom o instalacji</string>
@@ -356,6 +363,10 @@ Aby nie otrzymywać aktualizacji dotyczących jakości w zaplanowanym czasie, mo
 Aby wznowić odbieranie wstrzymanych aktualizacji dotyczących jakości, wyczyść pole daty rozpoczęcia.
 
 Jeśli wyłączysz tę zasadę albo jej nie skonfigurujesz, zachowanie usługi Windows Update nie ulegnie zmianie.</string>
+      <string id="TargetReleaseVersion_Title">Wybierz docelową wersję aktualizacji funkcji</string>
+      <string id="TargetReleaseVersion_Help">Włącz tę zasadę, aby określić wersję aktualizacji funkcji, która ma być żądana podczas kolejnych skanowań.
+
+Wprowadź wersję wymienioną na stronie z informacjami o wydaniach systemu Windows (aka.ms/ReleaseInformationPage).</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Nie uwzględniaj sterowników w aktualizacjach systemu Windows</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">To ustawienie zasad umożliwia nieuwzględnianie sterowników w aktualizacjach dotyczących jakości systemu Windows.
 
@@ -705,6 +716,11 @@ Ta zasada zastąpi następujące zasady:
         <text>na zapisanie pracy przez następującą</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">liczbę minut:  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>Docelowa wersja aktualizacji funkcji</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">Ustaw zachowanie dotyczące odbierania kompilacji w wersji Preview:</dropdownList>
       </presentation>

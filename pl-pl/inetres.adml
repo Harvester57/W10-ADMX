@@ -3917,6 +3917,33 @@ Uwaga: jeśli zostanie także włączone ustawienie zasad Szablony administracyj
 Jeśli to ustawienie zostanie włączone, pracownicy będą widzieć dodatkową stronę w programie Internet Explorer 11, zawierającą informację, że witryna została otwarta przy użyciu trybu przedsiębiorstwa w programie Microsoft Edge.
 
 Jeśli to ustawienie zostanie wyłączone lub nie zostanie skonfigurowane, aplikacja będzie zachowywać się w sposób domyślny i nie będzie wyświetlana żadna dodatkowa strona.</string>
+      <string id="NeedEdgeBrowser">Określ, który kanał przeglądarki Microsoft Edge ma być używany do otwierania przekierowanych witryn</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Umożliwia skonfigurowanie maksymalnie trzech wersji przeglądarki Microsoft Edge do otwierania przekierowanej witryny (w kolejności preferencji). Użyj tej zasady, jeśli Twoje środowisko jest skonfigurowane do przekierowywania witryn z przeglądarki Internet Explorer 11 do przeglądarki Microsoft Edge. Jeśli dowolna z wybranych wersji nie będzie zainstalowana na urządzeniu, odpowiadająca jej preferencja zostanie pominięta.
+
+Jeśli będzie zainstalowana zarówno aktualizacja z usługi Windows Update dla następnej wersji przeglądarki Microsoft Edge*, jak i stabilny kanał Microsoft Edge, system będzie zachowywał się w następujący sposób:
+- Jeśli wyłączysz tę zasadę albo jej nie skonfigurujesz, będzie używany stabilny kanał Microsoft Edge. Jest to zachowanie domyślne.
+- Jeśli włączysz tę zasadę, będziesz mieć możliwość określenia, że przekierowane witryny będą otwierane w maksymalnie trzech z wymienionych poniżej kanałów, gdzie:
+    1 = Stabilny kanał Microsoft Edge
+    2 = Microsoft Edge Beta w wersji 77 lub nowszej
+    3 = Microsoft Edge Dev w wersji 77 lub nowszej
+    4 = Microsoft Edge Canary w wersji 77 lub nowszej
+
+Jeśli nie będzie zainstalowana aktualizacja z usługi Windows Update dla następnej wersji przeglądarki Microsoft Edge* lub stabilny kanał Microsoft Edge, system będzie zachowywał się w następujący sposób:
+- Jeśli wyłączysz tę zasadę albo jej nie skonfigurujesz, automatycznie będzie używana przeglądarka Microsoft Edge w wersji 45. Jest to zachowanie domyślne.
+- Jeśli włączysz tę zasadę, będziesz mieć możliwość określenia, że przekierowane witryny będą otwierane w maksymalnie trzech z wymienionych poniżej kanałów, gdzie:
+    0 = Microsoft Edge w wersji 45 lub nowszej
+    1 = Stabilny kanał Microsoft Edge
+    2 = Microsoft Edge Beta w wersji 77 lub nowszej
+    3 = Microsoft Edge Dev w wersji 77 lub nowszej
+    4 = Microsoft Edge Canary w wersji 77 lub nowszej
+
+*Aby uzyskać więcej informacji dotyczących aktualizacji systemu Windows dla następnej wersji przeglądarki Microsoft Edge, w tym jak ją wyłączyć, zobacz https://go.microsoft.com/fwlink/?linkid=2102115. Ta aktualizacja dotyczy tylko systemu Windows 10 w wersji 1709 i nowszych.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta w wersji 77 lub nowszej</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev w wersji 77 lub nowszej</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary w wersji 77 lub nowszej</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge w wersji 45 lub nowszej</string>
       <string id="KeepIntranetSitesInInternetExplorer">Pozostaw wszystkie witryny intranetowe w przeglądarce Internet Explorer</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Uniemożliwia otwieranie witryn intranetowych w przeglądarkach innych niż Internet Explorer. Należy jednak pamiętać, że jeśli nie będzie włączona zasada „Wysyłaj wszystkie witryny spoza listy witryn trybu przedsiębiorstwa do programu Microsoft Edge” (RestrictIE), ta zasada nie będzie działać.
 
@@ -4801,6 +4828,11 @@ Więcej informacji zawiera artykuł „Blokowanie nieaktualnych kontrolek Active
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Lista domen</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Pierwszy wybór</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Drugi wybór</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Trzeci wybór</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

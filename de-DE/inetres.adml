@@ -3917,6 +3917,33 @@ Hinweis: Wenn Sie zusätzlich die Richtlinieneinstellung "Administrative Vorlage
 Wenn Sie diese Einstellung aktivieren, wird Mitarbeitern in Internet Explorer 11 eine zusätzliche Seite mit dem Hinweis angezeigt, dass eine Website unter Verwendung von Microsoft Edge im Unternehmensmodus geöffnet wurde.
 
 Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, verhält sich die App gemäß der Standardeinstellung, und es wird keine zusätzliche Seite angezeigt.</string>
+      <string id="NeedEdgeBrowser">Konfigurieren Sie, welcher Kanal von Microsoft Edge zum Öffnen umgeleiteter Websites verwendet werden soll.</string>
+      <string id="IE_ExplainNeedEdgeBrowser">Ermöglicht es, bis zu drei Versionen von Microsoft Edge für das Öffnen einer umgeleiteten Website (in der gewünschten Reihenfolge) zu konfigurieren. Verwenden Sie diese Richtlinie, wenn Ihre Umgebung für die Umleitung von Websites von Internet Explorer 11 zu Microsoft Edge konfiguriert ist. Wenn eine der ausgewählten Versionen nicht auf dem Gerät installiert ist, wird diese Einstellung umgangen.
+
+Wenn sowohl das Windows Update für die nächste Version von Microsoft Edge* als auch der Microsoft Edge Stable Channel installiert sind, tritt folgendes Verhalten auf:
+- Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, wird der Microsoft Edge Stable Channel verwendet. Dies ist das Standardverhalten.
+- Wenn Sie diese Richtlinie aktivieren, können Sie umgeleitete Websites so konfigurieren, dass sie in bis zu drei der folgenden Kanäle geöffnet werden, wobei Folgendes gilt:
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, Version 77 oder höher
+    3 = Microsoft Edge Dev, Version 77 oder höher
+    4 = Microsoft Edge Canary, Version 77 oder höher
+
+Wenn das Windows Update für die nächste Version von Microsoft Edge* oder den Microsoft Edge Stable Channel nicht installiert wird, tritt folgendes Verhalten auf:
+- Wenn Sie diese Richtlinie deaktivieren oder nicht konfigurieren, wird automatisch Microsoft Edge, Version 45 oder früher verwendet. Dies ist das Standardverhalten.
+- Wenn Sie diese Richtlinie aktivieren, können Sie umgeleitete Websites so konfigurieren, dass sie in bis zu drei der folgenden Kanäle geöffnet werden, wobei Folgendes gilt:
+    0 = Microsoft Edge, Version 45 oder früher
+    1 = Microsoft Edge Stable
+    2 = Microsoft Edge Beta, Version 77 oder höher
+    3 = Microsoft Edge Dev, Version 77 oder höher
+    4 = Microsoft Edge Canary, Version 77 oder höher
+
+*Weitere Informationen zum Windows Update für die nächste Version von Microsoft Edge, einschließlich Informationen zu dessen Deaktivierung, finden Sie unter https://go.microsoft.com/fwlink/?linkid=2102115. Dieses Update gilt nur für Windows 10, Version 1709 und höher.</string>
+      <string id="NeedEdgeBrowserChoice_None"></string>
+      <string id="NeedEdgeBrowserChoice_ChromiumStable">Microsoft Edge Stable</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumBeta">Microsoft Edge Beta, Version 77 oder höher</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumDev">Microsoft Edge Dev, Version 77 oder höher</string>
+      <string id="NeedEdgeBrowserChoice_ChromiumCanary">Microsoft Edge Canary, Version 77 oder höher</string>
+      <string id="NeedEdgeBrowserChoice_EdgeHTML">Microsoft Edge, Version 45 oder früher</string>
       <string id="KeepIntranetSitesInInternetExplorer">Alle Intranetsites in Internet Explorer beibehalten</string>
       <string id="IE_ExplainKeepIntranetSitesInInternetExplorer">Verhindert, dass Intranetsites in jedem Browser, mit Ausnahme von Internet Explorer, geöffnet werden. Beachten Sie jedoch, dass diese Richtlinie keine Auswirkungen hat, wenn die Richtlinie ‘Alle Websites, die nicht in der Enterprise Mode Site List enthalten sind, an Microsoft Edge senden’ (‘RestrictIE’) nicht aktiviert ist.
 
@@ -4801,6 +4828,11 @@ Weitere Informationen finden Sie in der Internet Explorer TechNet-Bibliothek unt
       </presentation>
       <presentation id="SiteDiscoveryDomainAllowList">
         <multiTextBox refId="SiteDiscoveryDomainAllowList">Domänenliste</multiTextBox>
+      </presentation>
+      <presentation id="NeedEdgeBrowser">
+        <dropdownList refId="NeedEdgeBrowser" noSort="true" defaultItem="0">Erste Auswahl</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser2" noSort="true" defaultItem="0">Zweite Auswahl</dropdownList>
+        <dropdownList refId="NeedEdgeBrowser3" noSort="true" defaultItem="0">Dritte Auswahl</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

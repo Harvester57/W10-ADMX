@@ -16,6 +16,8 @@
       <string id="WU_SUPPORTED_WindowsXPSP1_NoWinRT">Windows Server 2003 オペレーティング システムまたは Windows XP Professional SP1 以降 (Windows RT を除く)</string>
       <string id="WU_SUPPORTED_Win2kSP3_Or_XPSP1_Through_Win81_or_Server2012R2">Windows XP Professional Service Pack 1 以降、または Windows 2000 Service Pack 3 から最新の Service Pack が適用された Windows 8.1 または Windows Server 2012 R2 以降</string>
       <string id="WU_SUPPORTED_WindowsVista_Through_Win81_or_Server2012R2">Windows Vista から最新の Service Pack が適用された Windows 8.1 または Windows Server 2012 R2 以降</string>
+      <string id="WU_SUPPORTED_XPSP1_or_Win2kSP3_AUOption7_SUPPORTED_Server2016">Windows XP Professional Service Pack 1 または Windows 2000 Service Pack 3 以降
+オプション 7 は Windows Server 2016 エディション以降のサーバーでのみサポートされています</string>
       <string id="AUDontShowUasHelp">このポリシー設定で、[Windows のシャットダウン] ダイアログ ボックスに [更新をインストールしてシャットダウン] オプションを表示するかどうか管理します。
 
 このポリシー設定を有効にすると、ユーザーが [スタート] メニューの [シャットダウン] を選択したとき、インストールできる更新がある場合でも、[更新をインストールしてシャットダウン] は [Windows のシャットダウン] ダイアログ ボックスに選択肢として表示されません。
@@ -72,20 +74,25 @@ Windows 8 および Windows RT では、このポリシーが有効な場合、�
 
         4 = 更新プログラムを自動的にダウンロードし、以下に指定されたスケジュールでインストールする。
 
-        インストールを実行する時間として [自動] を選択すると、更新プログラムの確認、ダウンロード、インストールが Windows によって自動的に実行されます。グループ ポリシーで構成されている場合を除き、Windows の既定の設定に従ってデバイスが再起動されます (Windows 10 バージョン 1809 以上に適用)。
+        インストールを実行する時間として [自動] を選択すると、更新プログラムの確認、ダウンロード、インストールが Windows によって自動的に実行されます。グループ ポリシーで構成されている場合を除き、Windows の既定の設定に従ってデバイスが再起動されます (Windows 10 Version 1809 以上に適用)。
 
         グループ ポリシー設定のオプションを使用してスケジュールを指定します。バージョン 1709 およびそれ以降では、更新を毎週、隔週、または毎月行うように制限する追加の選択項目があります。スケジュールが指定されていない場合は、すべてのインストールに使用される既定のスケジュールは、毎日 3:00 AM です。更新プログラムのインストールを完了するために再起動が必要な場合、コンピューターは自動的に再起動されます (Windows の再起動が準備できた時点でユーザーがコンピューターにサインインしている場合は、ユーザーに通知が表示され、再起動を延期するオプションが表示されます)。
 
-        Windows 8 以降では、特定のスケジュールではなく自動メンテナンス時にインストールするように更新プログラムを設定できます。自動メンテナンスでは、更新プログラムはコンピューターを使用していないときにインストールされます。また、コンピューターがバッテリで動作している場合はインストールされません。自動メンテナンスで更新プログラムをインストールできない状態が 2 日間続くと、Windows Update にｙとってすぐに更新プログラムがインストールされます。その後、もうすぐ再起動されることがユーザーに通知されます。この再起動は、誤ってデータが失われる可能性がない場合にのみ実行されます。その後、もうすぐ再起動されることがユーザーに通知されます。この再起動は、誤ってデータが失われる可能性がない場合にのみ実行されます。
+        Windows 8 以降では、特定のスケジュールではなく自動メンテナンス時にインストールするように更新プログラムを設定できます。自動メンテナンスでは、更新プログラムはコンピューターを使用していないときにインストールされます。また、コンピューターがバッテリで動作している場合はインストールされません。自動メンテナンスで更新プログラムをインストールできない状態が 2 日間続くと、Windows Update によってすぐに更新プログラムがインストールされます。その後、もうすぐ再起動されることがユーザーに通知されます。この再起動は、誤ってデータが失われる可能性がない場合にのみ実行されます。その後、もうすぐ再起動されることがユーザーに通知されます。この再起動は、誤ってデータが失われる可能性がない場合にのみ実行されます。
 
         5 = ローカルの管理者が構成モードを選択し、自動更新による更新の通知とインストールを実行できるようにする (このオプションは、Windows 10 バージョンではサポートされていません)。
 
         このオプションを使用すると、ローカルの管理者は Windows Update コントロール パネルを使用して任意の構成オプションを選択できます。ローカルの管理者が自動更新の構成を無効にすることはできません。
 
-このポリシーの状態が無効に設定されている場合、Windows Update に利用できる更新プログラムがあるときは、手動でダウンロードしてインストールする必要があります。。これを行うには、スタート画面を使用して「Windows Update」を検索します。
+        7 = インストールと再起動について通知します (Windows Server 専用)。
+
+        Server SKU デバイスのみに適用される、Windows Server 2016 のこのオプションを使用すると、ローカルの管理者は Windows Update を使用して手動でインストールまたは再起動を進めることができます。
+
+このポリシーの状態が無効に設定されている場合、Windows Update で利用できる更新プログラムがあるときは、手動でダウンロードしてインストールする必要があります。これを行うには、[スタート] を使用して「Windows Update」を検索します。
 
 状態が未構成に設定されている場合は、自動更新の使用はグループ ポリシー レベルでは指定されません。ただし、管理者はコントロール パネルを使用して自動更新を構成できます。</string>
 
+      <string id="AutoUpdateModeNotifyToInstallNotifyToReboot">7 - 自動ダウンロード、インストール時に通知、再起動を通知</string>
       <string id="AutoUpdateModeAdminChooses">5 - ローカルの管理者の設定選択を許可</string>
       <string id="AutoUpdateModeAuto">4 - 自動ダウンロードしインストール日時を指定</string>
       <string id="AutoUpdateModeDownload">3 - 自動ダウンロードしインストールを通知</string>
@@ -356,6 +363,10 @@ Windows Update は、更新を自動的にインストールするように構�
 一時停止している品質更新プログラムの受信を再開するには、開始日フィールドをクリアします。
 
 このポリシーを無効にした場合、または構成しなかった場合は、Windows Update の動作は変更されません。</string>
+      <string id="TargetReleaseVersion_Title">ターゲット機能更新プログラムのバージョンを選択する</string>
+      <string id="TargetReleaseVersion_Help">このポリシーを有効にすると、以降のスキャンで要求される機能更新プログラムのバージョンを指定できます。
+
+Windows リリース情報ページ (aka.ms/ReleaseInformationPage) に記載されているバージョンを入力します</string>
       <string id="ExcludeWUDriversInQualityUpdate_Title">Windows Update からドライバーを除外する</string>
       <string id="ExcludeWUDriversInQualityUpdate_Help">Windows 品質更新プログラムにドライバーを含めないようにするには、このポリシーを有効にします。
 
@@ -705,6 +716,11 @@ Windows Update は、更新を自動的にインストールするように構�
         <text>作業内容の保存にかかる</text>
         <decimalTextBox refId="AlwaysAutoRebootAtScheduledTime_Minutes" defaultValue="15">時間 (分):  </decimalTextBox>
       </presentation>
+      <presentation id="TargetReleaseVersion">
+        <textBox refId="TargetReleaseVersionId">
+          <label>機能更新プログラムのターゲット バージョン</label>
+        </textBox>
+      </presentation>      
       <presentation id="ManagePreviewBuilds">
         <dropdownList refId="ManagePreviewBuildsId" noSort="true" defaultItem="2">プレビュー ビルドを受信する方法を設定します:</dropdownList>
       </presentation>

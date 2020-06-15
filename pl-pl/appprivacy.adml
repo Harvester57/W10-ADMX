@@ -321,6 +321,21 @@ Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, pracownicy Tw
 
 Ta zasada jest stosowana do aplikacji systemu Windows i Cortany. Ma ona pierwszeństwo przed zasadą „Zezwalaj na Cortanę na ekranie blokady”. Ta zasada ma zastosowanie tylko wtedy, gdy konfiguracja zasady „Zezwalaj na aktywację głosową” zezwala na aktywowanie aplikacji za pomocą głosu.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Zezwalaj aplikacjom systemu Windows na dostęp do ruchów użytkownika podczas działania w tle</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">To ustawienie zasad określa, czy aplikacje systemu Windows mogą uzyskiwać dostęp do ruchów głowy, rąk i kontrolerów ruchu użytkownika oraz innych śledzonych obiektów, gdy działają w tle.
+
+Możesz określić ustawienie domyślne dla wszystkich aplikacji albo ustawienia dla poszczególnych aplikacji, określając nazwę rodziny pakietów. Nazwę rodziny pakietów dla danej aplikacji możesz pobrać za pomocą polecenia cmdlet Get-AppPackage programu Windows PowerShell. Ustawienia dla poszczególnych aplikacji zastępują ustawienie domyślne.
+
+Jeśli wybierzesz opcję Pod kontrolą użytkownika, pracownicy Twojej organizacji będą mogli określać, czy aplikacje systemu Windows będą mogły uzyskiwać dostęp do ruchów użytkownika, gdy będą działać w tle, wybierając kolejno pozycje Ustawienia &gt; Prywatność na urządzeniu.
+
+Jeśli wybierzesz opcję Wymuś zezwalanie, aplikacje systemu Windows będą mogły uzyskiwać dostęp do ruchów użytkownika, gdy będą działać w tle, a pracownicy Twojej organizacji nie będą mogli zmienić tego ustawienia.
+
+Jeśli wybierzesz opcję Wymuś odmowę, aplikacje systemu Windows nie będą mogły uzyskiwać dostępu do ruchów użytkownika, gdy będą działać w tle, a pracownicy Twojej organizacji nie będą mogli zmienić tego ustawienia.
+
+Jeśli wyłączysz to ustawienie zasad albo go nie skonfigurujesz, pracownicy Twojej organizacji będą mogli określać, czy aplikacje systemu Windows będą mogły uzyskiwać dostęp do ruchów użytkownika, gdy będą działać w tle, wybierając kolejno pozycje Ustawienia &gt; Prywatność na urządzeniu.
+
+Jeśli aplikacja będzie otwarta w momencie zastosowania tego obiektu zasad grupy na urządzeniu, pracownicy będą musieli uruchomić ponownie aplikację lub urządzenie, aby zmiany zasad zostały zastosowane do danej aplikacji.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Ta zasada jest stosowana do aplikacji systemu Windows i Cortany. Ma ona pierwsze
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Domyślne dla wszystkich aplikacji:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Domyślne dla wszystkich aplikacji:</dropdownList>
+        <text>Pozwól użytkownikom kontrolować te konkretne aplikacje (użyj nazw rodzin pakietów):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Wymuś zezwalanie tym konkretnym aplikacjom (użyj nazw rodzin pakietów):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Wymuś odmowę tym konkretnym aplikacjom (użyj nazw rodzin pakietów):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

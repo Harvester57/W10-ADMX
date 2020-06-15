@@ -321,6 +321,21 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai jätät sen määrittä
 
 Tämä käytäntö koskee Windows-sovelluksia ja Cortanaa. Se ohittaa Salli Cortana lukitusnäytön päällä -käytännön. Tämä käytäntö on käytettävissä vain, jos Salli ääniaktivointi -käytännössä on määritetty, että sovelluksia voi aktivoida äänikomennoilla.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Anna Windows-sovellusten käyttää käyttäjän liikkeitä, kun sovellukset ovat käynnissä taustalla</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Tämä käytäntöasetus määrittää, voivatko Windows-sovellukset käyttää käyttäjän pään, käsien, liikeohjainten ja muiden seurattujen objektien liikkeitä, kun sovellukset ovat käynnissä taustalla.
+
+Voit määrittää joko oletusasetuksen kaikille sovelluksille tai sovelluskohtaisen asetuksen määrittämällä pakettiperheen nimen. Voit selvittää sovelluksen pakettiperheen nimen käyttämällä Windows PowerShellin cmdlet-komentoa Get-AppPackage.
+
+Jos valitset Hallinta on käyttäjällä -vaihtoehdon, organisaation työntekijät voivat valitsemalla laitteessa Asetukset &gt; Tietosuoja määrittää, voivatko Windows-sovellukset käyttää käyttäjän liikkeitä, kun sovellukset ovat käynnissä taustalla.
+
+Jos valitset Pakota salliminen -vaihtoehdon, Windows-sovellukset voivat käyttää käyttäjän liikkeitä, kun sovellukset ovat käynnissä taustalla, ja organisaation työntekijät eivät voi muuttaa tätä.
+
+Jos valitset Pakota estäminen -vaihtoehdon, Windows-sovellukset eivät voi käyttää käyttäjän liikkeitä, kun sovellukset ovat käynnissä taustalla, ja organisaation työntekijät eivät voi muuttaa tätä.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, organisaation työntekijät voivat valitsemalla laitteessa Asetukset &gt; Tietosuoja määrittää, voivatko Windows-sovellukset käyttää käyttäjän liikkeitä, kun sovellukset ovat käynnissä taustalla.
+
+Jos sovellus on avoinna, kun tämä ryhmäkäytäntöobjekti otetaan käyttöön laitteessa, työntekijöiden on käynnistettävä sovellus tai laite uudelleen, jotta käytäntömuutokset tulevat käyttöön sovelluksessa.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Tämä käytäntö koskee Windows-sovelluksia ja Cortanaa. Se ohittaa Salli Cort
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Oletusarvo kaikille sovelluksille:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Oletusarvo kaikille sovelluksille:</dropdownList>
+        <text>Anna käyttäjän hallita näitä tiettyjä sovelluksia (käytä pakettiperheiden nimiä):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Pakota näiden tiettyjen sovellusten salliminen (käytä pakettiperheiden nimiä):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Pakota näiden tiettyjen sovellusten estäminen (käytä pakettiperheiden nimiä):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

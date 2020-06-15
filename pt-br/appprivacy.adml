@@ -321,6 +321,21 @@ Se você desabilitar ou não configurar essa política, os funcionários de sua 
 
 Esta política é aplicada aos aplicativos do Windows e à Cortana. Ela tem precedência à política “Permitir a Cortana acima da tela de bloqueio”. Esta política é aplicável somente quando a política “Permitir ativação por voz” é configurada para permitir que os aplicativos sejam ativados por voz.
       </string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Name">Permitir que aplicativos do Windows acessem movimentos do usuário enquanto estiverem em execução em segundo plano</string>
+      <string id="LetAppsAccessBackgroundSpatialPerception_Explain">Esta configuração de política especifica se os aplicativos do Windows podem ou não acessar os movimentos da cabeça e das mãos do usuário, os controladores de movimento e outros objetos acompanháveis enquanto os aplicativos estiverem em execução em segundo plano.
+
+Você pode especificar uma configuração padrão para todos os aplicativos ou uma configuração por aplicativo. Basta especificar um Nome da Família de Pacote. Para obter o Nome da Família de Pacote de um aplicativo, você pode usar o cmdlet Get-AppPackage Windows PowerShell. Uma configuração por aplicativo substitui a configuração padrão.
+
+Se você usar a opção "O usuário está no controle", os funcionários na organização poderão decidir se os aplicativos do Windows podem acessar ou não os movimentos do usuário enquanto os aplicativos estiverem em execução em segundo plano. Basta usar as opções Configurações &gt; Privacidade no dispositivo.
+
+Se você escolher a opção "Forçar Permissão", os aplicativos do Windows terão permissão para acessar os movimentos do usuário enquanto os aplicativos estiverem em execução em segundo plano, e os funcionários da organização não poderão alterar essa configuração.
+
+Se você escolher a opção "Forçar Negação", os aplicativos do Windows não terão permissão para acessar os movimentos do usuário enquanto os aplicativos estiverem em execução em segundo plano, e os funcionários da organização poderão alterar essa configuração.
+
+Se você desabilitar ou não definir essa configuração de política, os funcionários na organização poderão decidir se os aplicativos do Windows podem ou não acessar os movimentos do usuário enquanto os aplicativos estiverem em execução em segundo plano. Basta usar Configurações &gt; Privacidade no dispositivo.
+
+Se houver um aplicativo aberto quando esse objeto de Política de Grupo for aplicado a um dispositivo, os funcionários deverão reiniciar o aplicativo ou reinicializar o dispositivo para que as alterações na política sejam aplicadas ao aplicativo.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
@@ -499,6 +514,15 @@ Esta política é aplicada aos aplicativos do Windows e à Cortana. Ela tem prec
       </presentation>
       <presentation id="LetAppsActivateWithVoiceAboveLock">
         <dropdownList refId="LetAppsActivateWithVoiceAboveLock_Enum" noSort="true" defaultItem="0">Padrão para todos os apps:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessBackgroundSpatialPerception">
+        <dropdownList refId="LetAppsAccessBackgroundSpatialPerception_Enum" noSort="true" defaultItem="0">Padrão para todos os apps:</dropdownList>
+        <text>Colocar o usuário no controle destes aplicativos específicos (usar Nomes da Família de Pacotes):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_UserInControlOfTheseApps_List"/>
+        <text>Forçar permissão destes aplicativos específicos (usar Nomes da Família de Pacotes):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceAllowTheseApps_List"/>
+        <text>Forçar negação destes aplicativos específicos (usar Nomes da Família de Pacotes):</text>
+        <multiTextBox refId="LetAppsAccessBackgroundSpatialPerception_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>
