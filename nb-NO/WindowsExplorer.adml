@@ -267,14 +267,14 @@ Obs!  Ikonene som representerer de angitte stasjonene, vil fortsatt vises i Min 
  Denne innstillingen hindrer ikke brukere i å bruke programmer for å få tilgang til lokale stasjoner og nettverksstasjoner. Den forhindrer dem heller ikke fra å bruke snapin-modulen for diskbehandling for å vise og endre stasjonsegenskaper.
 
 Se også innstillingen Skjul disse angitte stasjonene i Min datamaskin.</string>
-      <string id="NoWindowsHotKeys">Deaktiver Windows+X-hurtigtaster</string>
-      <string id="NoWindowsHotKeys_Help">Deaktiver Windows+X-hurtigtaster.
+      <string id="NoWindowsHotKeys">Deaktiver bruk av Windows-tast som snarvei</string>
+      <string id="NoWindowsHotKeys_Help">Deaktiver bruk av Windows+tast som snarvei.
 
-Tastaturene med Windows-tast gir brukere hurtigtastkombinasjoner for vanlige skallfunksjoner. Hvis du for eksempel trykker tastekombinasjonen Windows+R, åpnes dialogboksen Kjør. Hvis du trykker Windows+E, startes Filutforsker. Ved å bruke denne innstillingen kan du deaktivere disse Windows+X-hurtigtastene.
+Tastaturer med Windows-tast gir brukere snarveier til vanlige grensesnittfunksjoner. Hvis du for eksempel trykker tastekombinasjonen Windows+R, åpnes dialogboksen Kjør. Hvis du trykker Windows+E, startes Filutforsker. Ved å bruke denne innstillingen kan du deaktivere snarveiene som benytter Windows-tasten.
 
-Hvis du aktiverer denne policyinnstillingen, er Windows+X-hurtigtastene ikke tilgjengelige.
+Hvis du aktiverer denne innstillingen, vil ikke snarveiene som benytter Windows-tasten, være tilgjengelige.
 
-Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, er Windows+X-hurtigtastene tilgjengelige.</string>
+Hvis du deaktiverer eller ikke konfigurerer denne innstillingen, vil snarveier som benytter Windows-tasten, være tilgjengelige.</string>
       <string id="NoWorkgroupContents">Ingen datamaskiner i nærheten i Nettverksplasseringer</string>
       <string id="NoWorkgroupContents_Help">Med denne policyinnstillingen kan du fjerne datamaskiner i brukerens arbeidsgruppe og lokale domene fra listene over nettverksressurser i Filutforsker og Nettverksplasseringer.
 
@@ -458,21 +458,26 @@ Hvis du aktiverer denne policyinnstillingen, kan systemansvarlige angi en bane d
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, gjøres ingen endringer i plasseringen av standard definisjonsfiler for bibliotek.
       
       </string>
-      <string id="EnableSmartScreen">Konfigurer Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Ved hjelp av denne policyinnstillingen kan du administrere virkemåten til Windows SmartScreen. Windows SmartScreen hjelper til med å beskytte PC-er ved å advare brukere før de kjører ukjente programmer som er lastet ned fra Internett. Deler av informasjonen sendes til Microsoft om filer og programmer som kjøres på PC-er med denne funksjonen aktivert.
+      <string id="EnableSmartScreen">Konfigurer Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">Vis advarsel og forhindre omgåelse</string>
+      <string id="SmartScreen_Warn">Varsle</string>
+      <string id="EnableSmartScreen_Help">Denne policyinnstillingen lar deg aktivere eller deaktivere Windows Defender SmartScreen. SmartScreen beskytter PC-er ved å varsle brukerne før kjøring av potensielt skadelige programmer som er lastet ned fra Internett. Denne advarselen vises som en mellomliggende dialogboks før du kjører en app som er lastet ned fra Internett, og som er ukjent eller kjent for å være skadelig. Ingen dialogboks vises for apper som ikke er mistenkelige.
 
-Hvis du aktiverer denne policyinnstillingen, kan Windows SmartScreen-virkemåten kontrolleres ved å angi ett av følgende alternativer:
+Noe informasjon blir sendt til Microsoft om filer og programmer som kjører på PC-er der denne funksjonen er aktivert.
 
-• Krev godkjenning av en systemansvarlig før kjøring av nedlastet ukjent programvare
-• Gi brukeren en advarsel før kjøring av nedlastet ukjent programvare
+Hvis du aktiverer denne policyen, blir SmartScreen aktivert for alle brukere. Atferden kan styres av følgende alternativer:
 
-Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, styres Windows SmartScreen-virkemåten av administratorer på PC-en ved hjelp av innstillinger for Windows SmartScreen i Sikkerhet og vedlikehold.
+• Varsle og forhindre omgåelse
+• Varsle
 
-Alternativer:
-• Gi brukeren en advarsel før kjøring av nedlastet ukjent programvare
-• Deaktiver SmartScreen
+Hvis du aktiverer denne policyen med alternativet "Varsle og forhindre omgåelse", får ikke brukeren en SmartScreen-dialogboks med muligheten til å se bort fra advarselen og kjøre appen. SmartScreen fortsetter å vise advarselen ved fremtidige forsøk på å kjøre appen.
 
-</string>
+Hvis du aktiverer denne policyen med alternativet "Varsle", varsler SmartScreen-dialogbokser brukeren om at appen ser mistenkelig ut, men brukeren kan se bort fra advarselen og kjøre appen likevel. SmartScreen advarer ikke brukeren på nytt for den samme appen hvis brukeren ber SmartScreen om å kjøre den.
+
+Hvis du deaktiverer denne policyen, slås SmartScreen av for alle brukere. Brukerne får ikke en advarsel hvis de prøver å kjøre mistenkelige apper fra Internett.
+
+Hvis du ikke konfigurerer denne policyen, blir SmartScreen aktivert som standard, men brukerne kan endre innstillingene.
+      </string>
       <string id="ShowLockOption">Vis lås på Brukerpanel-menyen</string>
       <string id="ShowLockOption_Help">Viser eller skjuler lås på Brukerpanel-menyen.
 Hvis du aktiverer denne policyinnstillingen, vises låsealternativet på Brukerpanel-menyen.
@@ -619,6 +624,9 @@ Hvis policyinnstillingen er aktivert, deaktivert eller ikke konfigurert, kan bru
         <textBox refId="DefaultLibrariesLocation">
           <label>Standard definisjonsplassering for bibliotek</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Velg en av følgende policyinnstillinger:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

@@ -48,7 +48,21 @@
 
       Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, bude při přechodu počítače do pohotovostního režimu povoleno řízení spotřeby.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Povolit systému Windows měkké odpojení počítače od sítě</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Nastavení této zásady určuje, jestli systém Windows provede měkké odpojení počítače od sítě.
+
+      Pokud je tato zásada povolená nebo není nakonfigurovaná, systém Windows provede měkké odpojení počítače od sítě, když zjistí, že by už neměl být k síti připojený.
+
+      Pokud je tato zásada zakázaná, pak když systém Windows zjistí, že počítač by už neměl být k síti připojený, odpojí počítač od sítě okamžitě.
+
+      Pokud je měkké odpojení povolené:
+      - Když systém Windows rozhodne, že počítač by už neměl být k síti připojený, počká na dokončení přenosů v této síti. Existující relace TCP bude pokračovat bez přerušení.
+      - Systém Windows pak pravidelně kontroluje úroveň provozu v síti. Pokud je úroveň provozu nad určitou prahovou hodnotou, neproběhne žádná další akce. Počítač zůstane připojený k síti a bude ji dál používat. Pokud se například přes síťové připojení aktuálně stahují soubory z internetu, bude tento proces pokračovat.
+      - Pokud síťový provoz klesne pod prahovou hodnotou, počítač bude od sítě odpojen. Aplikace, které udržují síťové připojení aktivní, i když ho aktivně nepoužívají (například e-mailové aplikace), můžou ztratit připojení. Pokud k tomu dojde, měly by tyto aplikace obnovit připojení přes jinou síť. 
+
+      Nastavení této zásady závisí na nastavení jiných zásad skupiny. Pokud je například zakázaná zásada Minimalizovat počet současných připojení k internetu nebo doméně systému Windows, neodpojí se systém Windows od žádných sítí.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

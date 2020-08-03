@@ -11,7 +11,7 @@
       <string id="FontMitigation_On">Blokovat nedůvěryhodná písma a protokolovat události</string>
       <string id="FontMitigation_Off">Neblokovat nedůvěryhodná písma</string>
       <string id="FontMitigation_Audit">Protokolovat události bez blokování nedůvěryhodných písem</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Možnosti pro zmírnění rizik u procesu</string>
       <string id="ProcessMitigationOptions_List_Help">
         Tato funkce zabezpečení slouží k přepisu nastavení možností pro zmírnění rizik u jednotlivých procesů. Díky tomu je možné vynutit určitý počet zásad zabezpečení specifických pro aplikace. Název aplikace se zadává jako hodnota, včetně rozšíření. Hodnota se zadává jako bitové pole s řadou příznaků na konkrétních pozicích. Bity je možné nastavit na 0 (nastavení je vypnuté), na 1 (nastavení je zapnuté) nebo na ? (nastavení si před vyhodnocením objektů zásad skupiny zachová svou aktuální hodnotu). Rozpoznávané bitové pozice:
@@ -35,7 +35,7 @@
         Pokud chcete například povolit PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE a PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, zakažte PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, a pokud chcete ponechat u všech možností výchozí nastavení, zadejte hodnotu:
         ???????????????0???????1???????1
 
-        Nastavení zde neuvedených příznaků na jakoukoli jinou hodnotu než ? bude mít za následek nedefinované chování.	  
+        Nastavení zde neuvedených příznaků na jakoukoli jinou hodnotu než ? bude mít za následek nedefinované chování.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Povolit synchronizaci řadiče domény služby AD/DFS během aktualizace zásad</string>
@@ -50,15 +50,35 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Používat na tomto zařízení spojitá prostředí</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Nastavení této zásady určuje, jestli se toto zařízení s Windows může zapojit do prostředí napříč zařízeními (spojitá prostředí).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Pokud toto nastavení povolíte, bude toto zařízení s Windows zjistitelné pro jiná zařízení s Windows, která patří stejnému uživateli, a může se zapojit do prostředí napříč zařízeními.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Pokud toto nastavení zakážete, nebude toto zařízení s Windows zjistitelné pro jiná zařízení a nebude se moct zapojit do prostředí napříč zařízeními.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Pokud toto nastavení nenakonfigurujete, bude výchozí chování záviset na edici Windows. Změny této zásady se projeví po restartování.
+      </string>
+      <string id="EnableMMX">Propojení telefonu a počítače na tomto zařízení</string>
+      <string id="EnableMMX_Help">
+Tato zásada umožňuje správcům IT vypnout možnost propojení telefonu s osobním počítačem, aby bylo možné pokračovat ve čtení, e-mailování a dalších úlohách, při kterých se toto propojení vyžaduje.
+
+Pokud tuto zásadu povolíte, zařízení s Windows se bude moct zaregistrovat do funkce pro propojení telefonu s osobním počítačem a zapojit se do prostředí Pokračovat na osobním počítači.
+
+Pokud toto nastavení zakážete, zařízení s Windows nebude možné propojit s telefony, odebere se ze seznamu zařízení na všech propojených telefonech a zapojit se do prostředí Pokračovat na osobním počítači.
+
+Pokud toto nastavení nenakonfigurujete, bude výchozí chování záviset na konkrétní edici Windows. Změny této zásady se projeví až po restartování počítače.
+      </string>
+      <string id="EnableAppUriHandlers">Nakonfigurovat propojení webu s aplikací pomocí obslužných rutin adres URL</string>
+      <string id="EnableAppUriHandlers_Help">
+Tato zásada určuje, zda systém Windows podporuje obslužné rutiny pro propojení webu s aplikací.
+
+Pokud tuto zásadu povolíte, bude fungovat propojování webů s aplikacemi, takže aplikace bude možné spouštět pomocí adres URL s protokolem http(s).
+
+Zákaz této zásady nepovolí propojování webů s aplikacemi, takže se adresy URL s protokolem http(s) budou otevírat ve webovém prohlížeči namísto v přidružených aplikacích.
+
+Pokud nastavení těchto zásad nenakonfigurujete, bude výchozí chování záviset na verzi systému Windows. Změny této zásady se projeví až po restartu.
       </string>
       <string id="Fonts">Písma</string>
       <string id="EnableFontProviders">Povolit poskytovatele písem</string>
@@ -73,19 +93,13 @@ If you do not configure this policy setting, the default behavior depends on the
       </string>
       <string id="EnableLogonOptimization">Konfigurovat ukládání zásad skupiny do mezipaměti</string>
       <string id="EnableLogonOptimization_Help">
-        
-        Toto nastavení zásad umožňuje nakonfigurovat chování ukládání zásad skupiny mezipaměti.
-        
-        Pokud toto nastavení zásad povolíte nebo nenakonfigurujete, zásady skupiny budou po každé relaci zpracování na pozadí ukládat do mezipaměti informace o zásadách. Do této mezipaměti jsou ukládány příslušné objekty zásad skupiny a nastavení, která jsou v nich obsažena. Jestliže zásady skupiny běží v synchronním režimu na popředí, odkazují se na tuto mezipaměť, což urychluje jejich chod. Po načtení mezipaměti se zásady skupiny pokusí kontaktovat řadič přihlašovací domény a určit rychlost připojení. Jestliže jsou zásady skupiny spuštěny na pozadí nebo v asynchronním režimu na popředí, dál stahují nejnovější verzi informací o zásadách a k určení limitních hodnot pomalého připojení používají odhad šířky pásma. (Možnosti konfigurace chování v asynchronním režimu na popředí můžete určit v nastavení Konfigurovat rozpoznání pomalého připojení zásad skupiny.)
-        
-        Hodnota pomalého připojení, která je definována v tomto nastavení zásad, určuje, jak dlouho budou zásady skupiny čekat na odpověď řadiče domény, než oznámí, že je rychlost spojení pomalá. Výchozí hodnota je 500 milisekund.
-        
-        Hodnota časového limitu, která je definována v tomto nastavení zásad, určuje, jak dlouho budou zásady skupiny čekat na odpověď řadiče domény, než oznámí, že připojení k síti není k dispozici. V takovém případě se zastaví aktuální zpracovávání zásad skupiny. Při dalším navázání připojení k řadiči domény se zásady skupiny spustí na pozadí. Nastavíte-li tuto hodnotu příliš vysokou, může uživatel při spouštění systému nebo přihlašování zaznamenat delší prodlevy. Výchozí hodnota je 5000 milisekund.
-        
-        Pokud toto nastavení zásad zakážete, klient zásad skupiny nebude příslušné objekty zásad skupiny ani nastavení v nich obsažená ukládat do mezipaměti. Pokud jsou zásady skupiny spuštěny v synchronním režimu, stahují ze sítě nejnovější verzi zásad a k určení hodnoty pomalého připojení používají odhad šířky pásma. (Možnosti konfigurace chování v asynchronním režimu na popředí můžete určit v nastavení Konfigurovat rozpoznání pomalého připojení zásad skupiny.)
-      
+        Toto nastavení zásad umožňuje nakonfigurovat chování ukládání zásad skupiny do mezipaměti.
+        Pokud toto nastavení zásad povolíte nebo nenakonfigurujete, modul Zásady skupiny bude po každé relaci zpracování na pozadí ukládat informace o zásadách do mezipaměti. Do této mezipaměti jsou ukládány příslušné objekty zásad skupiny a nastavení, která jsou v nich obsažena. Jestliže modul Zásady skupiny běží v synchronním režimu na popředí, odkazuje se na tuto mezipaměť, což urychluje jeho chod. Po přečtení mezipaměti se modul Zásady skupiny pokusí kontaktovat řadič přihlašovací domény a určit rychlost připojení. Jestliže je modul Zásady skupiny spuštěn na pozadí nebo v asynchronním režimu na popředí, dál stahuje nejnovější verzi informací o zásadách a k určení limitních hodnot pomalého připojení používá odhad šířky pásma. (Možnosti konfigurace chování v asynchronním režimu na popředí můžete určit v nastavení Konfigurovat rozpoznání pomalého připojení zásad skupiny.)
+        Hodnota pomalého připojení, která je definována v tomto nastavení zásad, určuje, jak dlouho bude modul Zásady skupiny čekat na odpověď řadiče domény, než oznámí, že je rychlost spojení pomalá. Výchozí hodnota je 500 milisekund.
+        Hodnota časového limitu, která je definována v tomto nastavení zásad, určuje, jak dlouho bude modul Zásady skupiny čekat na odpověď řadiče domény, než oznámí, že připojení k síti není k dispozici. V takovém případě se zastaví aktuální zpracovávání zásad skupiny. Při dalším navázání připojení k řadiči domény se modul Zásady skupiny spustí na pozadí. Nastavíte-li tuto hodnotu příliš vysokou, může uživatel při spouštění systému nebo přihlašování zaznamenat delší prodlevy. Výchozí hodnota je 5000 milisekund.
+        Pokud toto nastavení zásad zakážete, klient zásad skupiny nebude příslušné objekty zásad skupiny ani nastavení v nich obsažená ukládat do mezipaměti. Pokud je modul Zásady skupiny spuštěn v synchronním režimu, stahuje nejnovější verzi zásad ze sítě a k určení prahové hodnoty pomalého připojení používá odhad šířky pásma. (Možnosti konfigurace chování v asynchronním režimu na popředí můžete určit v nastavení Konfigurovat rozpoznání pomalého připojení zásad skupiny.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Povolit ukládání zásad skupiny do mezipaměti pro servery</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,10 +110,9 @@ If you do not configure this policy setting, the default behavior depends on the
         Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, klient zásad skupiny nebude příslušné objekty zásad skupiny ani nastavení v nich obsažená ukládat do mezipaměti. Pokud je modul Zásady skupiny spuštěn v synchronním režimu, stahuje nejnovější verzi zásad ze sítě a k určení prahové hodnoty pomalého připojení používá odhad šířky pásma. (Možnosti konfigurace chování v asynchronním režimu na popředí můžete určit v nastavení Konfigurovat rozpoznání pomalého připojení zásad skupiny.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Konfigurovat prodlevu přihlašovacího skriptu</string>
       <string id="LogonScriptDelay_Help">
-        
         Zadáním hodnoty 0 zakážete prodlevu přihlašovacího skriptu.
         
         Toto nastavení zásad umožňuje nakonfigurovat, jak dlouho klient zásad skupiny po přihlášení čeká, než spustí skripty.
@@ -111,9 +124,8 @@ If you do not configure this policy setting, the default behavior depends on the
         Jestliže toto nastavení zásad zakážete, zásady skupiny spustí skripty okamžitě po přihlášení.
         
         Pokud toto nastavení zásad nenakonfigurujete, zásady skupiny budou před spuštěním přihlašovacích skriptů čekat pět minut.
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Konfigurovat připojení Direct Access jako rychlá síťová připojení</string>
       <string id="SlowLinkDefaultForDirectAccess_Help">Toto nastavení zásad umožňuje správci definovat, že připojení Direct Access má být pro účely použití a aktualizace zásad skupiny považováno za rychlé síťové připojení. 
  
@@ -124,9 +136,7 @@ Poznámka: Když zásady skupiny zjistí pomalé síťové připojení, zpracuj�
 Pokud toto nastavení zásad povolíte a zásady skupiny nebudou moci zjistit širokopásmovou rychlost přes připojení Direct Access, bude síťové připojení vyhodnoceno jako rychlé a zpracují se všechna klientská rozšíření.
  
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, zásady skupiny vyhodnotí síťové připojení jako pomalé a zpracují pouze ta klientská rozšíření, která jsou nakonfigurována ke zpracování přes pomalý spoj.
-          
-      
-          
+
       </string>
      <string id="SlowlinkDefaultToAsync">Při zjištění pomalého síťového připojení změnit zpracování zásad skupiny na asynchronní</string>
       <string id="SlowlinkDefaultToAsync_Help">Toto nastavení zásad způsobí, že pokud je zjištěno pomalé síťové připojení, zásady skupiny vynechají zpracování všech klientských rozšíření, která vyžadují synchronní zpracování (určuje tedy, zda počítače během spouštění počítače a přihlašování uživatele čekají, než bude zcela inicializována síť).  
@@ -140,8 +150,6 @@ Poznámka: Existují dvě podmínky, které způsobí, že zásady skupiny se bu
 2. Pokud je povoleno nastavení zásad Při spouštění a přihlašování počítače vždy počkat na síť.
  
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nebude mít zjištění pomalého síťového připojení vliv na to, zda zpracování zásad skupiny bude synchronní nebo asynchronní.
-
-      
 
       </string>
       <string id="DisableLGPOProcessing">Vypnout zpracování místních objektů zásad skupiny</string>
@@ -162,7 +170,7 @@ Poznámka: V případě počítačů připojených k doméně se důrazně dopor
 Pokud toto nastavení zásad povolíte, použijí zásady skupiny tuto maximální dobou čekání nakonfigurovanou správcem a přepíší výchozí nebo systémem vypočítanou dobu čekání.
 
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, použijí zásady skupiny v počítačích s operačním systémem Windows Vista výchozí 30sekundovou dobu čekání. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Povolit zásady uživatele mezi doménovými strukturami a cestovní profily uživatelů</string>

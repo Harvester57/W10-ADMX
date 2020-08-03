@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">至少需要 Windows Server 2008 R2 或 Windows 7。不支援 Windows 10 或更新版本</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 及 Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">清除新使用者的最近使用程式清單</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">如果您啟用這個原則設定，則每一個新使用者在 [開始] 功能表中看到的最新程式清單機將會是空白。
 
@@ -165,11 +166,17 @@ XML 檔案產生並移到想要的檔案路徑之後，請輸入 XML 檔案的�
       <string id="NoClose">移除並禁止存取 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令</string>
       <string id="NoClose_Help">這個原則設定會防止使用者從 [開始] 功能表或 [Windows 安全性] 畫面中執行下列命令:[關機]、[重新啟動]、[ 睡眠] 和 [休眠]。這個原則設定不會防止使用者執行 Windows 程式 (執行這些功能的 Windows 程式)。
 
-如果您啟用這個原則設定，則會從 [開始] 功能表中移除 [電源] 按鈕及 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令。也會從 [Windows 安全性] 畫面中移除 [電源] 按鈕，[Windows 安全性] 畫面會在您按 CTRL+ALT+DELETE 時出現。
+如果您啟用這個原則設定，則會從 [開始] 功能表中移除 [開啟/關閉] 按鈕及 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令。也會從 [Windows 安全性] 畫面中移除 [開啟/關閉] 按鈕，[Windows 安全性] 畫面會在您按 CTRL+ALT+DELETE 時出現。
 
-如果停用或未進行這個原則設定，則可在 [開始] 功能表中使用 [電源] 按鈕及 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令。也可以使用 [Windows 安全性] 畫面上的 [電源] 按鈕。
+如果停用或未進行這個原則設定，則可在 [開始] 功能表中使用 [開啟/關閉] 按鈕及 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令。也可以使用 [Windows 安全性] 畫面上的 [開啟/關閉] 按鈕。
 
 注意: 需要使用通過 Microsoft Windows Vista、Windows XP SP2、Windows XP SP1、Windows XP 或 Windows 2000 Professional 相容性認證的第三方程式，才能支援這個原則設定。</string>
+      <string id="HidePowerOptions">移除並禁止存取 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令</string>
+      <string id="HidePowerOptions_Help">這個原則設定會防止使用者從 [Windows 安全性] 畫面、登入畫面和 [開始] 畫面中執行下列命令: [關機]、[重新啟動]、[睡眠] 和 [休眠]。這個原則設定不會防止使用者執行 Windows 程式 (執行這些功能的 Windows 程式)。
+
+如果您啟用這個原則設定，則會從 [開始] 功能表中移除 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令。也會從 [Windows 安全性] 畫面中移除 [開啟/關閉] 按鈕 ([Windows 安全性] 畫面會在您按 CTRL+ALT+DELETE 時出現)，以及從登入畫面中移除。
+
+如果停用或未進行這個原則設定，則可在 [開始] 功能表中使用 [開啟/關閉] 按鈕及 [關機]、[重新啟動]、[睡眠] 及 [休眠] 命令。也可以使用 [Windows 安全性] 畫面和登入畫面上的 [開啟/關閉] 按鈕。</string>
       <string id="NoCommonGroups">從 [開始] 功能表中移除公用程式群組</string>
       <string id="NoCommonGroups_Help">從 [開始] 功能表的 [程式集] 功能表中移除 [所有使用者] 設定檔中的項目。
 
@@ -222,12 +229,22 @@ XML 檔案產生並移到想要的檔案路徑之後，請輸入 XML 檔案的�
 另外，請參閱下列相關原則設定:「從 [開始] 功能表中移除常用程式清單」和「關閉個人化的功能表」。
 
 這個原則設定不會防止使用者將程式釘選到 [開始] 功能表或工作列。請參閱「從 [開始] 功能表上移除釘選出現的程式清單」和「不允許釘選程式到工作列」原則設定。</string>
+
       <string id="NoMoreProgramsList">從 [開始] 功能表上移除所有程式清單</string>
-      <string id="NoMoreProgramsList_Help">這個原則設定可讓您移除 [開始] 功能表中的 [所有程式] 清單。
+      <string id="NoMoreProgramsList_Help">如果啟用此設定，[開始] 功能表會將所有應用程式清單摺疊起來，或將它從 [開始] 功能表中移除。
 
-如果您啟用這個原則設定，則會從簡易 [開始] 功能表中移除 [所有程式] 項目。 [開始] 畫面將會顯示 [所有應用程式] 檢視，但是只會包含釘選到 [開始] 的項目。
+如選取 [摺疊]，[開始] 功能表中已釘選的磚旁不會顯示應用程式清單。[開始] 功能表上會顯示 [所有應用程式] 按鈕，用來開啟所有應用程式清單。這相當於在 [設定] 中將「在 [開始] 功能表中顯示應用程式清單」設為 [關閉]。
 
-如果您停用或未設定這個原則設定，則 [所有程式] 項目會保留在簡易 [開始] 功能表上。</string>
+選取 [摺疊並停用設定] 的作用與摺疊選項相同，並且會停用 [設定] 中的「在 [開始] 功能表中顯示應用程式清單」，讓使用者無法將其設為 [開啟]。
+
+選取 [移除並停用設定] 將會移除 [開始] 功能表中的所有應用程式清單，並停用 [設定] 中的「在 [開始] 功能表中顯示應用程式清單」，讓使用者無法將其設為 [開啟]。選取此選項是為了與舊版 Windows 相容。
+
+如果停用或不設定此設定，預設狀況下會顯示所有應用程式清單，而且使用者可以在 [設定] 中變更「在 [開始] 功能表中顯示應用程式清單」。</string>
+      <string id="APPLIST_NONE">無</string>
+      <string id="APPLIST_COLLAPSE">摺疊</string>
+      <string id="APPLIST_COLLAPSESETTING">摺疊並停用設定</string>
+      <string id="APPLIST_REMOVESETTING">移除並停用設定</string>    
+
       <string id="NoNetAndDialupConnect">從 [開始] 功能表中移除 [網路連線]</string>
       <string id="NoNetAndDialupConnect_Help">這個原則設定可讓您移除 [開始] 功能表中的 [網路連線]。
 
@@ -482,14 +499,14 @@ Windows Update 是 Windows 的線上延伸，提供軟體更新讓使用者的�
         <string id="NoUninstallFromStart_Help">如果您啟用這個設定，使用者無法從 [開始] 功能表解除安裝應用程式。
 
 如果您停用或未設定這個設定，則使用者可以從 [開始] 使用解除安裝命令</string>
-      <string id="PowerButtonAction_DisplayName">變更 [開始] 功能表電源按鈕</string>
-      <string id="PowerButtonAction_ExplainText">設定 [開始] 功能表上電源按鈕的預設動作。
+      <string id="PowerButtonAction_DisplayName">變更 [開始] 功能表開啟/關閉按鈕</string>
+      <string id="PowerButtonAction_ExplainText">設定 [開始] 功能表上開啟/關閉按鈕的預設動作。
 
-如果您啟用這個設定，[開始] 功能表會將電源按鈕設為選定的動作，不讓使用者變更這個動作。
+如果您啟用這個設定，[開始] 功能表會將開啟/關閉按鈕設為選定的動作，不讓使用者變更這個動作。
 
 如果將按鈕設為 [睡眠] 或 [休眠]，而且電腦不支援該狀態，按鈕就會改為 [關機]。
 
-如果您停用或未設定這個設定，[開始] 功能表電源按鈕將預設為 [關機]，而且使用者可以將這個設定變更為其他動作。</string>
+如果您停用或未設定這個設定，[開始] 功能表開啟/關閉按鈕將預設為 [關機]，而且使用者可以將這個設定變更為其他動作。</string>
       <string id="SHTDN_LOGOFF">登出</string>
       <string id="SHTDN_SHUTDOWN">關機</string>
       <string id="SHTDN_RESTART">重新啟動</string>
@@ -515,6 +532,18 @@ Windows Update 是 Windows 的線上延伸，提供軟體更新讓使用者的�
 如果您啟用這個原則設定，[開始] 功能表不會顯示 [下載] 資料夾的連結。
 
 如果您停用或未設定這個原則設定，則可在 [開始] 功能表中使用 [下載] 連結。</string>
+      <string id="NoStartMenuExplorerPlace">從 [開始] 功能表 [常用位置] 列中移除 [檔案總管] 連結</string>
+      <string id="NoStartMenuExplorerPlace_Help">這個原則設定可讓您從 [開始] 功能表 [常用位置] 列將 [檔案總管] 連結移除。
+
+如果您啟用這個原則設定，[開始] 功能表 [常用位置] 清單不會顯示檔案總管。
+
+如果您停用或不設定這個原則設定，[開始] 功能表 [常用位置] 清單就會顯示檔案總管。</string>
+      <string id="NoStartMenuSettingsPlace">從 [開始] 功能表 [常用位置] 列中移除 [設定] 連結</string>
+      <string id="NoStartMenuSettingsPlace_Help">這個原則設定可讓您從 [開始] 功能表 [常用位置] 列將 [設定] 連結移除。
+
+如果您啟用這個原則設定，[開始] 功能表 [常用位置] 清單不會顯示 [設定]。
+
+如果您停用或不設定這個原則設定，[開始] 功能表 [常用位置] 清單就會顯示 [設定]。</string>
       <string id="NoStartMenuRecordedTV">從 [開始] 功能表中移除 [錄製的節目] 連結</string>
       <string id="NoStartMenuRecordedTV_Help">這個原則設定可讓您移除 [開始] 功能表中的 [錄製的節目] 連結。
 
@@ -575,8 +604,23 @@ Windows Update 是 Windows 的線上延伸，提供軟體更新讓使用者的�
 若停用或未設定此原則設定，Windows 將會根據硬體尺寸自動選取大小，而且使用者將可以在 [設定] 中變更 [開始] 的大小。</string>
       <string id="ForceLauncherSize_Collapsed">[開始] 功能表</string>
       <string id="ForceLauncherSize_Expanded">全螢幕的 [開始]</string>
+      <string id="HidePeopleBar_DisplayName">從工作列移除連絡人列</string>
+      <string id="HidePeopleBar_ExplainText">這個原則可讓您從工作列移除連絡人列，並停用「朋友圈」體驗。
+
+如果啟用這個原則，連絡人圖示會從工作列移除，對應的設定切換會從工作列設定頁面移除，使用者將無法把連絡人釘選在工作列。</string>
+      <string id="HideRecentlyAddedApps">從 [開始] 功能表移除 [最近新增] 清單</string>
+      <string id="HideRecentlyAddedApps_Help">此原則可讓您防止 [開始] 功能表顯示最近安裝的應用程式清單。
+
+如果您啟用這個原則，[開始] 功能表將不會再顯示 [最近新增] 清單，而 [設定] 中也會停用對應的設定。</string>
+      <string id="DisableContextMenusInStart">停用 [開始] 功能表中的操作功能表</string>
+      <string id="DisableContextMenusInStart_Help">此原則可讓您防止使用者在 [開始] 功能表中開啟操作功能表。
+
+如果您啟用這個原則，則會忽略在 [開始] 功能表中對操作功能表的叫用。</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">選擇下列其中一個動作</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">選擇下列其中一個動作</dropdownList>
       </presentation>

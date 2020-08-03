@@ -156,18 +156,58 @@ TERMSRV/*.humanresources.fabrikam.com Remote Desktop Session Host wordt uitgevoe
 
 De beleidsinstelling kan worden gebruikt in combinatie met de beleidsinstelling "Delegeren van opgeslagen referenties toestaan" om uitzonderingen voor bepaalde servers aan te geven die anders alleen zijn toegestaan indien jokertekens in de serverlijst voor "Delegeren van opgeslagen referenties toestaan" wordt gebruikt.</string>
       <string id="RestrictedRemoteAdministration">Delegeren van referenties aan externe servers beperken</string>
-      <string id="RestrictedRemoteAdministration_Explain">Wanneer deelnemende apps in de beperkte modus worden uitgevoerd, stellen deze geen referenties bloot aan externe computers (ongeacht de methode voor delegeren). De beperkte modus kan de toegang beperkten tot bronnen die zich op andere servers of netwerken buiten de doelcomputer bevinden, omdat de referenties niet worden gedelegeerd.
+      <string id="RestrictedRemoteAdministration_Explain">Wanneer deelnemende apps in de modus Beperkt beheer of Externe Credential Guard worden uitgevoerd, worden door deze apps geen aangemelde of opgegeven referenties beschikbaar gesteld aan externe hosts. De modus Beperkt beheer beperkt de toegang tot bronnen die zich op andere servers of netwerken dan de externe host bevinden, omdat de referenties niet worden gedelegeerd. Met Externe Credential Guard wordt de toegang tot bronnen niet beperkt, omdat alle aanvragen worden teruggeleid naar het clientapparaat.
 
 Deelnemende apps:
-Client voor extern bureaublad
+Extern-bureaubladclient
 
-Als u deze beleidsinstelling inschakelt, wordt de beperkte modus afgedwongen en zullen deelnemende apps geen referenties delegeren aan externe computers.
+Als u deze beleidsinstelling inschakelt, worden de volgende opties ondersteund:
+ 
+Delegeren van referenties beperken: deelnemende toepassingen moeten de modus Beperkt beheer of Externe Credential Guard gebruiken om verbinding te maken met externe hosts.
+ 
+Externe Credential Guard vereisen: deelnemende toepassingen moeten de modus Externe Credential Guard gebruiken om verbinding te maken met externe hosts.
+ 
+Beperkt beheer vereisen: deelnemende toepassingen moeten de modus Beperkt beheer gebruiken om verbinding te maken met externe hosts.
 
-Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de beperkte modus niet afgedwongen en kunnen deelnemende apps referenties delegeren aan externe computers.
+Als u deze beleidsinstelling uitschakelt of niet configureert, worden de modi Beperkt beheer en Externe Credential Guard niet afgedwongen en kunnen deelnemende apps referenties naar externe apparaten delegeren.
 
-Opmerking: als u het delegeren van de meest referenties wilt uitschakelen, kan het voldoende zijn om het delegeren te weigeren in CredSSP (Credential Security Support Provider) door de instellingen van beheersjablonen (te vinden onder Computerconfiguratie\Beheersjablonen\Systeem\Delegeren van referenties) aan te passen.</string>
+Opmerking: als u het delegeren van de meeste referenties wilt uitschakelen, kan het voldoende zijn om het delegeren te weigeren in CredSSP (Credential Security Support Provider) door de instellingen van beheersjablonen (te vinden onder Computerconfiguratie\Beheersjablonen\Systeem\Delegeren van referenties) aan te passen.
+
+Opmerking: als dit beleid wordt ingeschakeld in Windows 8.1 en Windows Server 2012 R2, wordt de modus Beperkt beheer afgedwongen, ongeacht de modus die u kiest. Deze versies bieden geen ondersteuning voor Externe Credential Guard.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Delegeren van referenties beperken</string>
+      <string id="RequireRemoteCredentialGuard">Gebruik van externe Credential Guard vereisen</string>
+      <string id="RequireRestrictedAdmin">Beperkt beheer vereisen</string>
+      <string id="AllowProtectedCreds">Externe host staat het delegeren van niet-exporteerbare referenties toe</string>
+      <string id="AllowProtectedCreds_Explain">Externe host staat het delegeren van niet-exporteerbare referenties toe
+
+Wanneer het delegeren van referenties wordt gebruikt, geven apparaten een exporteerbare versie van referenties door aan de externe host. Dit stelt gebruikers bloot aan het risico dat aanvallers van de externe host hun referenties kunnen stelen.
+
+Als u deze beleidsinstelling inschakelt, ondersteunt de host de modus Beperkt beheer of Externe Credential Guard.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, worden de modi Beperkt beheer en Externe Credential Guard niet ondersteunt. Gebruikers moet hun referenties altijd aan de host doorgeven.</string>
+      <string id="AllowEncryptionOracle">Versleutelingslekken weren</string>
+      <string id="AllowEncryptionOracle_Explain">Versleutelingslekken weren
+
+Deze beleidsinstelling geldt voor toepassingen waarvoor de CredSSP-component wordt gebruikt (bijvoorbeeld: Verbinding met extern bureaublad).
+
+Sommige versies van het CredSSP-protocol zijn kwetsbaar voor aanvallen op basis van versleutelingslekken op de client. Met dit beleid bepaalt u de compatibiliteit tussen kwetsbare clients en servers. Middels het beleid kunt u het gewenste beveiligingsniveau voor het weren van versleutelingslekken instellen.
+
+Als u deze beleidsinstelling inschakelt, wordt de ondersteuning voor de CredSSP-versie geselecteerd op basis van de volgende opties: 
+
+Bijgewerkte clients afdwingen: Clienttoepassingen op basis van CredSSP kunnen niet terugvallen op de onveilige versies, en services op basis van CredSSP accepteren geen clients zonder patch. Implementeer deze instelling pas als de nieuwste versie door alle externe hosts wordt ondersteund.
+
+Beperkt: Clienttoepassingen op basis van CredSSP kunnen niet terugvallen op de onveilige versie, maar services op basis van CredSSP accepteren wel clients zonder patch. Zie de onderstaande koppeling voor belangrijke informatie over het risico dat u loopt als u clients zonder patch blijft gebruiken.
+
+Kwetsbaar: Clienttoepassingen op basis van CredSSP maken de externe servers kwetsbaar voor aanvallen doordat ze kunnen terugvallen op de onveilige versies, en services op basis van CredSSP accepteren clients zonder patch.
+
+Meer informatie over het beveiligingsprobleem en over de onderhoudsvereisten voor beveiliging vindt u op https://go.microsoft.com/fwlink/?linkid=866660.</string>
+      <string id="AllowEncryptionOracle_Force">Bijgewerkte clients afdwingen</string>
+      <string id="AllowEncryptionOracle_Secure">Beperkt</string>
+      <string id="AllowEncryptionOracle_Allow">Kwetsbaar</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Servers toevoegen aan de lijst:</listBox>
@@ -205,6 +245,15 @@ Opmerking: als u het delegeren van de meest referenties wilt uitschakelen, kan h
         <listBox refId="DenySavedCredentials_Name">Servers toevoegen aan de lijst:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Standaardwaarden van besturingssysteem samenvoegen met bovenstaande invoer</checkBox>
       </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Gebruik de volgende beperkte modus:</dropdownList>
+      </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Beveiligingsniveau:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

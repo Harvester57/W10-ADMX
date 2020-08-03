@@ -5,81 +5,88 @@
   <description>kirjoita kuvaus tähän</description>
   <resources>
     <stringTable>
-      <string id="W32TIME_CONFIG_EXPLAIN">Tällä käytäntöasetuksella voit määrittää Windows-aikapalvelun (W32time) kellon tarkkuuden ja yleiset arvot toimialueiden ohjauskoneille, mukaan lukien RODC-koneet.
+      <string id="W32TIME_CONFIG_EXPLAIN">Tämän käytäntöasetuksen avulla voit määrittää kellon tarkkuuden ja yleiset arvot Windowsin aikapalvelulle (W32time) toimialueen ohjauskoneita varten, mukaan lukien vain luettavat toimialueen ohjauskoneet.
 
-Jos otat käyttöön tämän käytäntöasetuksen, voit määrittää tälle palvelulle seuraavat kellon tarkkuusparametrit, yleiset parametrit ja RODC-parametrit.
+Jos tämä käytäntöasetus on käytössä, W32time-palvelu käyttää kohdekoneissa tässä annettuja asetuksia. Muussa tapauksessa palvelu käyttää kohdekoneissa paikallisesti määritettyjä asetuksia.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Windows-aikapalvelu käyttää seuraavien parametrien oletusasetuksia.
+Lisätietoja yksittäisistä parametreista, parametriarvojen yhdistelmistä sekä merkintöjen määritelmistä on osoitteessa https://go.microsoft.com/fwlink/?linkid=847809.
 
-Monet seuraavista arvoista ovat skalaarisia, eli ne ovat merkityksellisiä vain suhteessa toisiinsa, eivätkä ne ole määritetty mittayksiköin.
+        FrequencyCorrectRate
+Tämä parametri ohjaa nopeutta, jolla W32time korjaa paikallisen kellon taajuuden. Alemmat arvot aiheuttavat hitaampia korjauksia ja suuremmat arvot useampia korjauksia. Oletusarvo: 4 (skalaari).
 
-FrequencyCorrectRate
-Tämä parametri säätelee, kuinka usein W32time-palvelu korjaa paikallisen kellon taajuutta. Pienillä arvoilla korjauksia tapahtuu harvoin ja suurilla usein. Liian pieni arvo saattaa aiheuttaa ylikorjauksia ja epävakautta. Liian suuri arvo voi johtaa hitaaseen synkronointiin. Oletusarvo: 4 (skalaarinen).
+        HoldPeriod
+Tämä parametri kertoo, kuinka monta yhdenmukaista aikanäytettä asiakastietokoneen on vastaanotettava sarjassa, ennen kuin myöhemmät aikanäytteet arvioidaan mahdollisiksi piikeiksi. Oletusarvo: 5
 
-HoldPeriod
-Tämä parametri ilmaisee, montako mahdollisesti tarkkaa aikanäytettä asiakastietokoneen on vastaanotettava sarjana, ennen kuin seuraavat aikanäytteet arvioidaan mahdollisiksi piikkiarvoiksi. Kun käyttökelpoisia aikanäytteitä ei ole saatu tietyn ajanjakson aikana, aika-asiakas lopettaa aikanäytteiden arvioinnin piikkiarvojen suhteen, kun ensimmäinen mahdollinen tarkka aikanäyte vastaanotetaan. Kun vastaanotetaan sarja aikanäytteitä (HoldPeriod-määrityksen ilmaisemalla tavalla), aika-asiakas analysoi seuraavat aikanäytteet piikkiarvojen suhteen. Aikanäyte tulkitaan piikkiarvoksi, kun aikaero aikanäytteen ja asiakastietokoneen paikallisen kellon välillä on suurempi kuin LargePhaseOffset-arvo. Oletusarvo: viisi aikanäytettä.
+        LargePhaseOffset
+Jos aikanäyte eroaa asiakastietokoneen paikallisesta kellosta enemmän kuin LargePhaseOffset, paikallisen kellon katsotaan poikenneen huomattavasti eli siinä on ollut piikki. Oletusarvo: 50 000 000 sadan nanosekunnin yksikköä (ns) tai 5 sekuntia.
 
-LargePhaseOffset
-Tämä parametri määrittää asiakastietokoneen kellonajan eroavuuden (vaihesiirtymä), joka aikanäytteessä on oltava, jotta sitä pidetään piikkiarvona. Aikanäytteitä, joiden aikaero on suurempi kuin LargePhaseOffset-arvo, pidetään piikkiarvoina. Oletusarvo: 50 000 000 sadan nanosekunnin (ns) yksikköä eli viisi sekuntia.
+        MaxAllowedPhaseOffset
+Jos vastaanotetaan vastaus, jonka aikaero on tätä parametriarvoa suurempi, W32time määrittää asiakkaan paikallisen kellon ajaksi heti ajan, joka hyväksytään tarkaksi NTP (Network Time Protocol) -palvelimesta. Jos aikaero on tätä arvoa pienempi, asiakkaan paikallisen kellon aika korjataan vähitellen. Oletusarvo: 300 sekuntia.
 
-MaxAllowedPhaseOffset
-Tämä parametri määrittää, miten W32time korjaa kelloa aikanäytteen ja asiakastietokoneen paikallisen kellon välisen lasketun aikaeron perusteella. Jos saadun vastauksen mukaan aikaero on tätä arvoa suurempi, W32time asettaa asiakastietokoneen paikallisen kellon NTP (Network Time Protocol) -palvelimesta tarkaksi hyväksyttyyn aikaan. Jos aikaero on tätä arvoa pienempi, asiakastietokoneen paikallinen kello korjataan asteittain. Oletusarvo: 300 sekuntia.
+        MaxNegPhaseCorrection
+Jos vastaanotetaan aikanäyte, joka ilmaisee jo kulunutta aikaa (verrattuna asiakkaan paikalliseen kelloon), ja aikaero on suurempi kuin MaxNegPhaseCorrection-arvo, aikanäyte hylätään. Oletusarvo: 172 800 sekuntia.
 
-MaxNegPhaseCorrection
-Tämä parametri määrittää suurimman sallitun kellonajan korjauksen, joka voidaan tehdä taaksepäin. Jos vastaanotettu aikanäyte ilmaisee menneisyydessä olevaa kellonaikaa (asiakastietokoneen paikalliseen kelloon verrattuna) ja aikaero on suurempi kuin MaxNegPhaseCorrection-arvo, aikanäyte hylätään. Jos näin tapahtuu, Windows-aikalähde kirjaa tapahtuman Tapahtumienvalvonnan järjestelmälokiin. Oletusarvo: 172 800 sekuntia.
+        MaxPosPhaseCorrection
+Jos vastaanotetaan aikanäyte, joka ilmaisee tulevaisuudessa olevaa aikaa (verrattuna asiakkaan paikalliseen kelloon), ja aikaero on suurempi kuin MaxPosPhaseCorrection-arvo, aikanäyte hylätään. Oletusarvo: 172 800 sekuntia.
 
-MaxPosPhaseCorrection
-Tämä parametri määrittää suurimman sallitun kellonajan korjauksen, joka voidaan tehdä eteenpäin. Jos vastaanotettu aikanäyte ilmaisee tulevaisuudessa olevaa kellonaikaa (asiakastietokoneen paikalliseen kelloon verrattuna) ja aikaero on suurempi kuin MaxPosPhaseCorrection-arvo, aikanäyte hylätään. Oletusarvo: 172 800 sekuntia.
+        PhaseCorrectRate
+Tämä parametri määrittää, miten nopeasti W32time korjaa asiakkaan paikallisen kellon eron vastaamaan aikanäytteitä, jotka hyväksytään tarkoiksi NTP-palvelimesta. Pienet arvot tarkoittavat korjausten tekemistä hitaasti ja suuret nopeasti. Oletusarvo: 7 (skalaarinen).
 
-PhaseCorrectRate
-Tämä parametri määrittää, miten nopeasti W32time korjaa asiakastietokoneen kellonajan eron vastaamaan tarkoiksi hyväksyttyjä aikanäytteitä NTP-palvelimesta. Pienet arvot tarkoittavat korjausten tekemistä hitaasti ja suuret nopeasti. Oletusarvo: 7 (skalaarinen).
+        PollAdjustFactor
+Tämä parametri määrittää, miten nopeasti W32time muuttaa kyselyaikavälejä. Kun vastauksia pidetään tarkkoina, kyselyaikaväli pitenee automaattisesti. Kun vastauksia pidetään epätarkkoina, kyselyaikaväli lyhenee automaattisesti. Oletusarvo: 5 (skalaarinen).
 
-PollAdjustFactor
-Tämä parametri määrittää, miten nopeasti W32time muuttaa kyselyiden aikavälejä. Kun vastauksia pidetään tarkkoina, kyselyaikaväliä pidennetään automaattisesti. Kun vastauksia pidetään epätarkkoina, kyselyaikaväliä lyhennetään automaattisesti. Oletusarvo: 5 (skalaarinen).
+        SpikeWatchPeriod
+Tämä parametri määrittää ajan, jona aikanäytteitä, joiden aikaero on suurempi kuin  LargePhaseOffset, vastaanotetaan, ennen kuin nämä aikanäytteet hyväksytään tarkoiksi. SpikeWatchPeriod-määritystä käytetään yhdessä HoldPeriod-määrityksen kanssa, jotta satunnaiset, epätarkat vertaiskoneesta palautetut aikanäytteet voidaan eliminoida. Oletusarvo: 900 sekuntia.
 
-SpikeWatchPeriod
-Tämä parametri määrittää ajan, jonka verran epäilyttäviä aikanäytteitä vastaanotetaan aikalähteestä, ennen kuin aikanäytteet hyväksytään tarkoiksi. Aikanäytettä pidetään epäilyttävänä, kun aikaero aikanäytteen ja asiakastietokoneen paikallisen kellon välillä on suurempi kuin LargePhaseOffset-arvo. SpikeWatchPeriod-määritystä käytetään yhdessä HoldPeriod-määrityksen kanssa, jotta satunnaiset, epätarkat vertaiskoneesta palautetut aikanäytteet voidaan eliminoida. Oletusarvo: 900 sekuntia.
+        UpdateInterval
+Tämä parametri määrittää ajan, jonka W32time odottaa korjausten välillä, kun kellon aikaa korjataan vähitellen. Kun se tekee asteittaisen korjauksen, palvelu säätää kellon aikaa hieman, odottaa tämän ajan ja tarkistaa sitten, tarvitaanko uutta säätöä, kunnes korjaaminen on valmis. Oletusarvo: 100 sadasosasekunnin yksikköä eli yksi sekunti.
 
-UpdateInterval
-Tämä parametri määrittää, kuinka kauan W32time odottaa korjausten välillä, kun kelloa korjataan asteittain. Kun se tekee asteittaisen korjauksen, palvelu säätää kellon aikaa hieman, odottaa tämän ajan ja tarkistaa sitten, tarvitaanko uutta säätöä, kunnes korjaaminen on valmis. Oletusarvo: 100 sadasosasekunnin yksikköä eli yksi sekunti.
+        Yleiset parametrit:
 
-Yleiset parametrit:
+        AnnounceFlags
+Tämä parametri on bittipeitearvo, joka määrittää, miten aikapalvelun saatavuus ilmoitetaan NetLogonin kautta. Oletusarvo: 0x0a (heksadesimaali)
 
-AnnounceFlags
-Tämä parametri on bittipeite, joka määrittää, miten aikapalveluiden käytettävyydestä ilmoitetaan verkkokirjauksen kautta. Oletusarvo: 0x0a (heksadesimaali). Katso mahdolliset arvot Microsoftin TechNet Library -kirjaston aiheista, jotka käsittelevät NtpClient\EventLogFlags-aliavainta.
+        EventLogFlags
+Tämä parametri määrittää erityiset tapahtumat, jotka saatetaan kirjata Tapahtumienvalvonnan järjestelmälokiin. Oletusarvo: 0x02 (heksadesimaalinen bittipeite).
 
-EventLogFlags
-Tämä parametri määrittää erityistapahtumat, jotka voidaan kirjata Tapahtumienvalvonnan järjestelmälokiin. Oletusarvo: 0x02 (heksadesimaalinen bittipeite). Katso mahdolliset arvot Microsoftin TechNet Library -kirjaston aiheista, jotka käsittelevät NtpClient\EventLogFlags-aliavainta.
+        LocalClockDispersion
+Tämä parametri ilmaisee sekunteina suurimman mahdollisen virheen, jonka NTP-palvelin ilmoittaa asiakkaille, jotka pyytävät aikanäytettä. (Tämä koskee ainoastaan tilannetta, jossa NTP-palvelin käyttää paikallisen CMOS-kellon aikaa.) Oletusarvo: 10 sekuntia.
 
-LocalClockDispersion
-Tämä parametri ilmaisee sekunteina enimmäisvirheen, jonka NTP-palvelin raportoi aikanäytettä pyytäville asiakaskoneille. (Tämä koskee ainoastaan tilannetta, jossa NTP-palvelin käyttää paikallisen CMOS-kellon aikaa.) Oletusarvo: 10 sekuntia.
+        MaxPollInterval
+Tämä parametri määrittää suurimman mahdollisen kyselyaikavälin, joka määrittää suurimman mahdollisen vertaiskonekyselyiden välisen ajan. Oletusarvo: 10, jonka kaksikantainen logaritmi antaa arvon 1 024 sekuntia. (Tämän asetuksen ei tule olla suurempi kuin 15.)
 
-MaxPollInterval
-Tämä parametri ohjaa kyselyiden enimmäisaikaväliä, joka määrittää pisimmän ajan vertaiskoneen kyselyiden välillä. Oletusarvo: 10, jonka kaksikantainen logaritmi antaa arvon 1 024 sekuntia. (Tämän asetuksen ei tule olla suurempi kuin 15.)
+        MinPollInterval
+Tämä parametri määrittää pienimmän mahdollisen kyselyaikavälin, joka määrittää pienimmän mahdollisen vertaiskonekyselyiden välisen ajan. Oletusarvo: 6, jonka kaksikantainen logaritmi antaa arvon 64 sekuntia.
 
-MinPollInterval
-Tämä parametri ohjaa kyselyiden vähimmäisaikaväliä, joka määrittää lyhyimmän ajan vertaiskoneen kyselyiden välillä. Oletusarvo: 6, jonka kaksikantainen logaritmi antaa arvon 64 sekuntia.
+        ClockHoldoverPeriod
+Tämä parametri ilmaisee enimmäisaikamäärän sekunteina, jonka järjestelmäkello pystyy säilyttämään tarkkuutensa ilman synkronointia aikalähteen kanssa. Jos W32time ei saa tämän ajanjakson aikana uusia näytteitä sen tietopalveluista, W32time alkaa etsiä aikalähteitä uudelleen. Oletusarvo: 7 800 sekuntia.
 
-RequireSecureTimeSyncRequests
+        RequireSecureTimeSyncRequests
 Tämä parametri määrittää, vastaako toimialueen ohjauskone ajansynkronointipyyntöihin, jotka käyttävät vanhempia todennusprotokollia. Jos tämä on käytössä (eli arvona on 1), toimialueen ohjauskone ei vastaa tällaisia protokollia käyttäviin pyyntöihin. Oletusarvo: 0 (totuusarvo).
 
-RODC-parametrit:
+        UtilizeSslTimeData
+Tämä parametri määrittää, käyttääkö W32time SSL-liikenteestä laskettuja tietoja koneessa lisätietoina paikallisen kellon korjaamiseen. Oletusarvo: 1 (käytössä) totuusarvo
 
-ChainEntryTimeout
-Tämä parametri määrittää enimmäisajan, jonka verran merkintä voi olla ketjutustaulukossa, ennen kuin merkintää tulkitaan vanhentuneeksi. Vanhentuneet merkinnät voidaan poistaa, kun seuraava pyyntö tai vastaus käsitellään. Oletusarvo: 16 sekuntia.
+        ClockAdjustmentAuditLimit
+Tämä parametri määrittää pienimmät paikallisen kellon säädöt, jotka voidaan kirjata kohdetietokoneen W32time-tapahtumalokiin. Oletusarvo: 800 miljoonasosaa (PPM).
 
-ChainMaxEntries
-Tämä parametri määrittää ketjutustaulukossa sallittujen merkintöjen enimmäismäärän. Jos ketjutustaulukko on täysi, eikä vanhentuneita merkintöjä voi poistaa, saapuvat pyynnöt hylätään. Oletusarvo: 128 merkintää.
+        Vain luettavan toimialueen ohjauskoneen parametrit:
 
-ChainMaxHostEntries
-Tämä parametri määrittää ketjutustaulukossa tietylle isäntäkoneelle sallittujen merkintöjen enimmäismäärän. Oletusarvo: 4 merkintää.
+        ChainEntryTimeout
+Tämä parametri määrittää pisimmän ajan, jonka merkintä voi olla ketjutustaulukossa, ennen kuin merkintää pidetään vanhentuneena. Vanhentuneet merkinnät voidaan poistaa, kun seuraava pyyntö tai vastaus käsitellään. Oletusarvo: 16 sekuntia.
 
-ChainDisable
-Tämä parametri määrittää, onko ketjutusmekanismi poistettu käytöstä. Jos ketjutus on poistettu käytöstä (asetus on 0), RODC voi synkronoida minkä tahansa toimialueen ohjauskoneen kanssa, mutta isännät, joiden salasanat eivät ole RODC:n välimuistissa, eivät pysty synkronoimaan RODC:n kanssa. Oletusarvo: 0 (totuusarvo).
+        ChainMaxEntries
+Tämä parametri määrittää ketjutustaulukkoon sisältyvien merkintöjen sallitun enimmäismäärän. Jos ketjutustaulukko on täysi eikä vanhentuneita merkintöjä voi poistaa, saapuvat pyynnöt hylätään. Oletusarvo: 128 merkintää.
 
-ChainLoggingRate
-Tämä parametri määrittää, kuinka usein onnistuneiden ja epäonnistuneiden ketjutusyritysten määrän ilmoittava tapahtuma kirjataan Tapahtumienvalvonnan järjestelmälokiin. Oletusarvo: 30 minuuttia.
-</string>
+        ChainMaxHostEntries
+Tämä parametri määrittää merkintöjen enimmäismäärän, joka sallitaan tietylle isännälle ketjutustaulukossa. Oletusarvo: 4 merkintää.
+
+        ChainDisable
+Tämä parametri määrittää, onko ketjutusmekanismi poistettu käytöstä. Jos ketjutus on poistettu käytöstä (asetus on 0), vain luettava toimialueen ohjauskone voi synkronoida minkä tahansa toimialueen ohjauskoneen kanssa, mutta isännät, joiden salasanat eivät ole vain luettavan toimialueen ohjauskoneen välimuistissa, eivät pysty synkronoimaan vain luettavan toimialueen ohjauskoneen kanssa. Oletusarvo: 0 (totuusarvo).
+
+        ChainLoggingRate
+Tämä parametri määrittää taajuuden, jolla onnistuneiden ja epäonnistuneiden ketjutusyritysten määrää ilmaiseva tapahtuma kirjataan Tapahtumienvalvonnan järjestelmälokiin. Oletusarvo: 30 minuuttia.
+      </string>
 
 <string id="W32TIME_CONFIGURE_NTPCLIENT_EXPLAIN">Tämä käytäntöasetus määrittää joukon parametreja, joilla voi ohjata Windows NTP -asiakasta.
 
@@ -88,7 +95,7 @@ Jos otat käyttöön tämän käytäntöasetuksen, voit määrittää Windows NT
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Windows NTP -asiakas käyttää seuraavien parametrien oletusasetuksia.
 
 NtpServer
-NTP-aikalähteen DNS-nimi tai IP-osoite. Tämä arvo on muotoa ""dnsName,liput"", jossa ""liput"" on kyseisen isäntäkoneen lippujen heksadesimaalimuotoinen bittipeite. Lisätietoja on Windows-aikapalvelun ryhmäkäytäntöjen asetukset -ohjeaiheen kohdassa Windows-aikaan liittyvien NTP-asiakastietokoneen ryhmäkäytäntöjen asetukset.  Oletusarvo on ""time.windows.com,0x09"". 
+NTP-aikalähteen DNS-nimi tai IP-osoite. Tämä arvo on muotoa ""dnsName,liput"", jossa ""liput"" on kyseisen isäntäkoneen lippujen heksadesimaalimuotoinen bittipeite. Lisätietoja on Windows-aikapalvelun ryhmäkäytäntöjen asetukset -ohjeaiheen kohdassa Windows-aikaan liittyvien NTP-asiakastietokoneen ryhmäkäytäntöjen asetukset. Oletusarvo ""time.windows.com,0x09"". 
 
 Type
 Tämä arvo määrittää todennuksen, jota W32time käyttää. Oletusarvo on NT5DS.
@@ -103,11 +110,10 @@ ResolvePeerBackoffMaxTimes
 Tämä arvo määrittää, miten monta kertaa W32time yrittää selvittää DNS-nimen, ennen kuin etsimisprosessi aloitetaan uudelleen. Aina, kun DNS-nimenselvitys epäonnistuu, ennen seuraavaa yritystä odotettava aika on kaksi kertaa edellisen ajan pituinen. Oletusarvo on seitsemän yritystä.
 
 SpecialPollInterval
-Tämä sekunteina ilmaistava NTP-asiakastietokoneen arvo määrittää, miten usein manuaalisesti määritettyä aikalähdettä kysellään, kun aikalähde on määritetty käyttämään erityistä kyselyväliä. Jos SpecialInterval-merkintä on käytössä NTPServer-asetuksessa, asiakas yrittää käyttää kohteessa SpecialPollInterval määritettyä arvoa MinPollInterval- ja MaxPollInterval-arvojen sijaan selvittäessään, miten usein aikalähteelle tehdään kysely. Oletusarvo on 3 600 sekuntia (1 tunti).
+Tämä sekunteina ilmaistava NTP-asiakastietokoneen arvo määrittää, miten usein manuaalisesti määritettyä aikalähdettä kysellään, kun aikalähde on määritetty käyttämään erityistä kyselyväliä. Jos SpecialInterval-merkintä on käytössä NTPServer-asetuksessa, asiakas yrittää käyttää kohteessa SpecialPollInterval määritettyä arvoa MinPollInterval- ja MaxPollInterval-arvojen sijaan selvittäessään, miten usein aikalähteelle tehdään kysely. SpecialPollInterval-arvon on oltava välillä [MinPollInterval, MaxPollInterval], tai muutoin valitaan arvoalueen lähin arvo. Oletusarvo: 1 024 sekuntia.
 
 EventLogFlags
-Tämä parametri on bittipeite, joka määrittää tapahtumia, jotka voidaan kirjata Tapahtumienvalvonnan järjestelmälokiin. Jos täksi arvoksi asetetaan 0x1, W32time luo tapahtuman aina, kun ajassa havaitaan siirtymä. Jos täksi arvoksi asetetaan 0x2, W32time luo tapahtuman aina, kun aikalähdemuutos tehdään. Koska se on bittipeitearvo, asetus 0x3 (asetusten 0x1 ja 0x2 lisäksi) ilmaisee, että sekä ajan siirtymät että aikalähdemuutokset kirjataan.
-      
+Tämä arvo on bittipeite, joka määrittää, mitkä tapahtumat voidaan kirjata Tapahtumienvalvonnan järjestelmälokiin. Jos täksi arvoksi asetetaan 0x1, W32time luo tapahtuman aina, kun ajassa havaitaan siirtymä. Jos täksi arvoksi asetetaan 0x2, W32time luo tapahtuman aina, kun aikalähdemuutos tehdään. Koska tämä on bittipeitearvo, asetus 0x3 (asetusten 0x1 ja 0x2 lisäksi) ilmaisee, että sekä ajan siirtymät että aikalähdemuutokset kirjataan.
       </string>
       <string id="W32TIME_ENABLE_NTPCLIENT_EXPLAIN">Tämä käytäntöasetus määrittää, onko Windows NTP -asiakas käytössä.
 
@@ -158,8 +164,10 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ti
         <decimalTextBox refId="W32TIME_LocalClockDispersion" defaultValue="10">LocalClockDispersion</decimalTextBox>
         <decimalTextBox refId="W32TIME_MaxPollInterval" defaultValue="10">MaxPollInterval</decimalTextBox>
         <decimalTextBox refId="W32TIME_MinPollInterval" defaultValue="6">MinPollInterval</decimalTextBox>
+        <decimalTextBox refId="W32TIME_ClockHoldoverPeriod" defaultValue="7800">ClockHoldoverPeriod</decimalTextBox>
         <decimalTextBox refId="W32TIME_RequireSecureTimeSyncRequests" defaultValue="0">RequireSecureTimeSyncRequests</decimalTextBox>
         <decimalTextBox refId="W32TIME_UtilizeSslTimeData" defaultValue="1">UtilizeSslTimeData</decimalTextBox>
+        <decimalTextBox refId="W32TIME_ClockAdjustmentAuditLimit" defaultValue="800">ClockAdjustmentAuditLimit</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainEntryTimeout" defaultValue="16">ChainEntryTimeout</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainMaxEntries" defaultValue="128">ChainMaxEntries</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainMaxHostEntries" defaultValue="4">ChainMaxHostEntries</decimalTextBox>
@@ -175,7 +183,7 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ti
         <decimalTextBox refId="W32TIME_CrossSiteSyncFlags" defaultValue="2">CrossSiteSyncFlags</decimalTextBox>
         <decimalTextBox refId="W32TIME_ResolvePeerBackoffMinutes" defaultValue="15">ResolvePeerBackoffMinutes</decimalTextBox>
         <decimalTextBox refId="W32TIME_ResolvePeerBackoffMaxTimes" defaultValue="7">ResolvePeerBackoffMaxTimes</decimalTextBox>
-        <decimalTextBox refId="W32TIME_SpecialPollInterval" defaultValue="3600">SpecialPollInterval</decimalTextBox>
+        <decimalTextBox refId="W32TIME_SpecialPollInterval" defaultValue="1024">SpecialPollInterval</decimalTextBox>
         <decimalTextBox refId="W32TIME_NtpClientEventLogFlags" defaultValue="0">EventLogFlags</decimalTextBox>
       </presentation>
     </presentationTable>

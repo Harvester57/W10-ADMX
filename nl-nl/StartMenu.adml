@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Minimaal Windows Server 2008 R2 of Windows 7. Niet ondersteund in Windows 10 of hoger</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 en Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">De lijst met recent gebruikte programma's wissen voor nieuwe gebruikers</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Als u deze beleidsinstelling inschakelt, is de lijst met recent gebruikte programma's in het Startmenu leeg voor iedere nieuwe gebruiker.
 
@@ -166,6 +167,12 @@ Als u deze beleidsinstelling inschakelt, worden de aan/uit-knop en de opdrachten
 Als u deze beleidsinstelling uitschakelt of niet configureert, zijn de aan/uit-knop en de opdrachten Afsluiten, Opnieuw opstarten, Slaapstand en Sluimerstand beschikbaar in het Startmenu. De aan/uit-knop in het scherm Windows-beveiliging is ook beschikbaar.
 
 U voorkomt hiermee ook niet dat gebruikers op andere gangbare manieren verbinding maken met externe computers, bijvoorbeeld door de naam van de share te typen in het dialoogvenster Uitvoeren of het dialoogvenster Netwerkverbinding maken.</string>
+      <string id="HidePowerOptions">De opdrachten Afsluiten, Opnieuw opstarten, Slaapstand en Sluimerstand verwijderen en andere gebruikswijzen verhinderen</string>
+      <string id="HidePowerOptions_Help">Met deze beleidsinstelling voorkomt u dat gebruikers de volgende opdrachten uitvoeren op het Windows-beveiligingsscherm, het aanmeldingsscherm en in het Startmenu: Afsluiten, Opnieuw opstarten, Slaapstand en Sluimerstand. Met deze beleidsinstelling voorkomt u niet dat gebruikers Windows-programma's uitvoeren waarmee deze functies kunnen worden uitgevoerd.
+
+Als u deze beleidsinstelling inschakelt, worden de opdrachten Afsluiten, Opnieuw opstarten, Slaapstand en Sluimerstand uit het Startmenu verwijderd. De aan/uit-knop wordt ook van het aanmeldingsscherm en van het Windows-beveiligingsscherm verwijderd. Dit tweede scherm wordt weergegeven wanneer u op Ctrl+Alt+Delete drukt.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, zijn de aan/uit-knop en de opdrachten Afsluiten, Opnieuw opstarten, Slaapstand en Sluimerstand beschikbaar in het Startmenu. De aan/uit-knop op het Windows-beveiligingsscherm en het aanmeldingsscherm is ook beschikbaar.</string>
       <string id="NoCommonGroups">Algemene programmagroepen verwijderen uit het Startmenu</string>
       <string id="NoCommonGroups_Help">Hiermee verwijdert u items uit het profiel All Users in het menu Programma's van het Startmenu.
 
@@ -218,12 +225,22 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, wordt bijgehouden
 Zie ook de volgende gerelateerde beleidsinstellingen: 'Lijst met meest gebruikte programma's uit het Startmenu verwijderen' en 'Persoonlijke menu's uitschakelen'.
 
 Gebruikers kunnen wel programma's vastmaken aan het Startmenu of de taakbalk. Zie de instellingen 'De lijst met aan het Startmenu vastgemaakte programma's verwijderen' en 'Niet toestaan dat programma's worden vastgemaakt aan de taakbalk'.</string>
+
       <string id="NoMoreProgramsList">De lijst Alle programma's uit het Startmenu verwijderen</string>
-      <string id="NoMoreProgramsList_Help">Met deze beleidsinstelling kunt u de lijst Alle programma's verwijderen uit het Startmenu.
+      <string id="NoMoreProgramsList_Help">Als u deze instelling inschakelt, wordt het Startmenu samengevouwen of wordt de lijst met alle apps verwijderd uit het Startmenu.
 
-Als u deze beleidsinstelling inschakelt, wordt het item Alle programma's verwijderd uit het basisStartmenu.  In het startscherm wordt de weergave Alle apps weergegeven, maar deze bevat alleen items die zijn vastgemaakt aan het startscherm.
+Als u 'Samenvouwen' selecteert, wordt de app-lijst niet weergegeven naast de vastgemaakte tegels in het Startmenu. In het Startmenu wordt de knop 'Alle apps' weergegeven, waarmee u de lijst met alle apps kunt openen. Hiermee bereikt u hetzelfde als wanneer u 'Lijst met apps in Startmenu weergeven' uitschakelt in Instellingen.
 
-Als u deze beleidsinstelling uitschakelt of niet configureert, blijft het item Alle programma's behouden in het basisStartmenu.</string>
+Als u 'Samenvouwen en instelling uitschakelen' selecteert, bereikt u hetzelfde als wanneer u de optie 'Samenvouwen' gebruikt en 'Lijst met apps in Startmenu weergeven' uitschakelt in Instellingen. Gebruikers kunnen dit niet inschakelen.
+
+Als u 'Verwijderen en instelling uitschakelen' selecteert, verwijdert u de lijst met alle apps uit het Startmenu en schakelt u 'Lijst met apps in Startmenu weergeven' uit in Instellingen. Gebruikers kunnen dit niet inschakelen. Selecteer deze optie voor compatibiliteit met oudere versies van Windows.
+
+Als u deze instelling uitschakelt of niet configureert, is de lijst met alle apps standaard zichtbaar en kan de gebruiker de optie 'Lijst met apps in Startmenu weergeven' in Instellingen wijzigen.</string>
+      <string id="APPLIST_NONE">Geen</string>
+      <string id="APPLIST_COLLAPSE">Samenvouwen</string>
+      <string id="APPLIST_COLLAPSESETTING">Samenvouwen en instelling uitschakelen</string>
+      <string id="APPLIST_REMOVESETTING">Verwijderen en instelling uitschakelen</string>    
+
       <string id="NoNetAndDialupConnect">Netwerkverbindingen uit het Startmenu verwijderen</string>
       <string id="NoNetAndDialupConnect_Help">Met deze beleidsinstelling kunt u Netwerkverbindingen verwijderen uit het Startmenu.
 
@@ -285,7 +302,7 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, worden standaard 
 
 Opmerking: deze beleidsinstelling is alleen van toepassing op bestanden op NTFS-partities. Op FAT-partities is het niet mogelijk om id's te volgen en zoeken.
 
-Zie ook de beleidsinstellingen 'Do Not Track gebruiken voor shell-snelkoppelingen tijdens zwerven' en 'De traceermethode niet gebruiken tijdens het omzetten van shell-snelkoppelingen'.</string>
+Zie ook de beleidsinstellingen 'Niet volgen gebruiken voor shell-snelkoppelingen tijdens zwerven' en 'De traceermethode niet gebruiken tijdens het omzetten van shell-snelkoppelingen'.</string>
       <string id="NoResolveTrack">De traceermethode niet gebruiken tijdens het omzetten van shell-snelkoppelingen</string>
       <string id="NoResolveTrack_Help">Met deze beleidsinstelling kunnen NTFS-onderdelen voor volgen niet worden gebruikt om een snelkoppeling op te lossen.
 
@@ -295,7 +312,7 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, worden standaard 
 
 Opmerking: deze beleidsinstelling is alleen van toepassing op doelbestanden op NTFS-partities. Op FAT-partities is het niet mogelijk om id's te volgen en zoeken.
 
-Zie ook de beleidsinstellingen 'Do Not Track gebruiken voor shell-snelkoppelingen tijdens zwerven' en 'De zoekmethode niet gebruiken tijdens het omzetten van shell-snelkoppelingen'.</string>
+Zie ook de beleidsinstellingen 'Niet volgen gebruiken voor shell-snelkoppelingen tijdens zwerven' en 'De zoekmethode niet gebruiken tijdens het omzetten van shell-snelkoppelingen'.</string>
       <string id="NoRun">Het menu Uitvoeren verwijderen uit het Startmenu</string>
       <string id="NoRun_Help">Hiermee kunt u de opdracht Uitvoeren verwijderen uit het Startmenu, Internet Explorer en Taakbeheer.
 
@@ -503,6 +520,18 @@ Als u deze beleidsinstelling niet configureert, kunnen gebruikers de balk Snel s
 Als u deze beleidsinstelling inschakelt, wordt er in het Startmenu geen koppeling naar de map Downloads weergegeven.
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, is de koppeling Downloads beschikbaar in het Startmenu.</string>
+      <string id="NoStartMenuExplorerPlace">De koppeling Verkenner uit de locatiebalk in het Startmenu verwijderen</string>
+      <string id="NoStartMenuExplorerPlace_Help">Met deze beleidsinstelling kunt u de koppeling Verkenner verwijderen van de locatiebalk in het Startmenu.
+
+Als u deze beleidsinstelling inschakelt, wordt Verkenner niet weergegeven in de locatielijst van het Startmenu.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, kan de koppeling Verkenner worden weergegeven in de locatielijst in het Startmenu.</string>
+      <string id="NoStartMenuSettingsPlace">De koppeling Instellingen uit de locatiebalk in het Startmenu verwijderen</string>
+      <string id="NoStartMenuSettingsPlace_Help">Met deze beleidsinstelling kunt u de koppeling Instellingen verwijderen van de locatiebalk in het Startmenu.
+
+Als u deze beleidsinstelling inschakelt, wordt het Startmenu niet weergegeven in de locatielijst van het Startmenu.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, kan de koppeling Instellingen worden weergegeven in de locatielijst in het Startmenu.</string>
       <string id="NoStartMenuRecordedTV">De koppeling Tv-opnamen verwijderen uit het Startmenu</string>
       <string id="NoStartMenuRecordedTV_Help">Met deze beleidsinstelling kunt u de koppeling Tv-opnamen verwijderen uit het Startmenu.
 
@@ -563,8 +592,23 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, wordt het startsc
 Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de grootte automatisch geselecteerd op basis van de hardware en kunnen gebruikers de grootte van Start wijzigen in Instellingen.</string>
       <string id="ForceLauncherSize_Collapsed">Startmenu</string>
       <string id="ForceLauncherSize_Expanded">Start in volledig scherm</string>
+      <string id="HidePeopleBar_DisplayName">De balk met contacten verwijderen uit de taakbalk</string>
+      <string id="HidePeopleBar_ExplainText">Met deze beleidsinstelling kunt u de balk Personen verwijderen uit de taakbalk en wordt de functie Mijn contacten uitgeschakeld.
+
+Als u deze beleidsinstelling inschakelt, wordt het pictogram Personen verwijderd van de taakbalk, wordt de bijbehorende schakeloptie verwijderd van de pagina met taakbalkinstellingen en kunnen gebruikers geen contactpersonen vastmaken aan de taakbalk.</string>
+      <string id="HideRecentlyAddedApps">Lijst 'Onlangs toegevoegd' verwijderen uit Startmenu</string>
+      <string id="HideRecentlyAddedApps_Help">Met dit beleid kunt u voorkomen dat in het Startmenu een lijst met onlangs geïnstalleerde toepassingen wordt weergegeven.
+
+Als u dit beleid inschakelt, wordt de lijst 'Onlangs toegevoegd' niet meer weergegeven in het Startmenu. De overeenkomstige instelling wordt ook uitgeschakeld in Instellingen.</string>
+      <string id="DisableContextMenusInStart">Snelmenu's in het Startmenu uitschakelen</string>
+      <string id="DisableContextMenusInStart_Help">Met dit beleid kunt u voorkomen dat gebruikers contextmenu's openen in het Startmenu.
+
+Als u dit beleid inschakelt, worden aanroepen van contextmenu's in het Startmenu genegeerd.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Kies een van de volgende acties</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Kies een van de volgende acties</dropdownList>
       </presentation>

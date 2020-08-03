@@ -77,7 +77,9 @@ Als u deze beleidsinstelling inschakelt, kunt u een van de volgende drie instell
 
     - Uit: geen inhoud voor volwassenen wegfilteren uit de zoekresultaten.
 
-Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen gebruikers de instelling voor Veilig Zoeken zelf bepalen.</string>
+Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen gebruikers de instelling voor Veilig Zoeken zelf bepalen.
+
+Windows 10-gebruikers moeten Search/DoNotUseWebResults gebruiken.</string>
       <string id="SharePrivacyAllAndLocation">Gebruikersgegevens en -locatie</string>
       <string id="SharePrivacyAll">Alleen gebruikersgegevens</string>
       <string id="SharePrivacyAnonymous">Anonieme gegevens</string>
@@ -114,8 +116,8 @@ Deze beleidsinstelling is standaard uitgeschakeld.</string>
 Als u deze beleidsinstelling in- of uitschakelt, wordt de index onmiddellijk opnieuw samengesteld. 
 
 Volledige versleuteling voor volumes (zoals BitLocker-stationsversleuteling of een oplossing die niet van Microsoft is) moet worden gebruikt voor de locatie van de index, zodat de versleutelde bestanden beveiligd blijven.</string>
-      <string id="PreventIndexOnBattery">Indexeren tijdens het gebruik van de accu voorkomen om energie te besparen</string>
-      <string id="ExplainPreventIndexOnBattery">Als dit beleid is ingeschakeld, wordt de indexeerfunctie onderbroken wanneer de computer de accu gebruikt. Wanneer deze is uitgeschakeld, verloopt het indexeren op de standaardmanier. De indexeerfunctie is standaard uitgeschakeld.</string>
+      <string id="PreventIndexOnBattery">Indexeren tijdens het gebruik van de batterij voorkomen om energie te besparen</string>
+      <string id="ExplainPreventIndexOnBattery">Als dit beleid is ingeschakeld, wordt de indexeerfunctie onderbroken wanneer de computer de batterij gebruikt. Wanneer deze is uitgeschakeld, verloopt het indexeren op de standaardmanier. De indexeerfunctie is standaard uitgeschakeld.</string>
       <string id="PreventRemoteQueries">Voorkomen dat clienten de index extern doorzoeken</string>
       <string id="ExplainPreventRemoteQueries">Als dit beleid is ingeschakeld, kunnen clients de index van deze computer niet extern doorzoeken.  Dit houdt in dat de index niet wordt gebruikt wanneer clients door netwerkshares bladeren die op deze computer zijn opgeslagen. Wanneer dit beleid is uitgeschakeld, wordt bij zoekopdrachten van clients de index van deze computer gebruikt. Het beleid is standaard uitgeschakeld.</string>
       <string id="DisableBackoff">Uitstelfunctie van de indexeerfunctie uitschakelen</string>
@@ -272,11 +274,26 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, zullen gebruikers
  
 Als u deze instelling inschakelt of niet configureert, is Cortana toegestaan op het apparaat. Als u deze instelling uitschakelt, wordt Cortana uitgeschakeld.
  
-Wanneer Cortana is uitgeschakeld, kunnen gebruikers toch zoekopdrachten uitvoeren op het apparaat en op internet.</string>
+Wanneer Cortana is uitgeschakeld, kunnen gebruikers toch zoekopdrachten uitvoeren op het apparaat.</string>
+      <string id="AllowCortanaAboveLock">Cortana toestaan bij vergrendeling</string>
+      <string id="ExplainAllowCortanaAboveLock">Met deze beleidsinstelling wordt bepaald of de gebruiker wel of niet kan praten met Cortana wanneer het systeem is vergrendeld.
+
+Als u deze instelling inschakelt of niet configureert, kan de gebruiker praten met Cortana wanneer het systeem is vergrendeld.
+
+Als u deze instelling uitschakelt, moet eerst het systeem worden ontgrendeld voordat de gebruiker kan praten met Cortana.</string>
       <string id="AllowSearchToUseLocation">Gebruik van locatie voor zoekopdrachten en Cortana toestaan</string>
       <string id="ExplainAllowSearchToUseLocation">Met deze beleidsinstelling wordt bepaald of voor zoekopdrachten en Cortana van de locatie afhankelijke zoek en Cortana-resultaten worden gevonden.
  
 Als deze instelling is ingeschakeld, hebben zoekopdrachten en Cortana toegang tot locatiegegevens.</string>
+      <string id="AllowCloudSearch">Zoeken in de cloud toestaan</string>
+      <string id="AllowCortanaInAADPathOOBE">Cortana-pagina in OOBE toestaan voor een AAD-account</string>
+      <string id="ExplainAllowCloudSearch">Toestaan dat de zoekfunctie en Cortana zoeken in cloudbronnen zoals OneDrive en SharePoint</string>
+      <string id="ExplainCortanaAAD">Cortana-inschrijvingspagina toestaan tijdens Out-of-Box Experience Windows-installatie</string>
+      <string id="AllowCloudSearchDisabled">Zoeken in de cloud uitschakelen</string>
+      <string id="AllowCortanainAADDisabled">Cortana-pagina in AAD uitschakelen</string>
+      <string id="AllowCortanainAADEnabled">Cortana-pagina in AAD inschakelen</string>
+      <string id="AllowCloudSearchEnabled">Zoeken in de cloud inschakelen</string>
+      <string id="AllowCloudSearchControlledByUser">Door gebruiker geselecteerd</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ Als deze instelling is ingeschakeld, hebben zoekopdrachten en Cortana toegang to
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Standaard instelling voor Veilig Zoeken</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Instelling voor zoeken in de cloud</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Cortana in AAD-instelling</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

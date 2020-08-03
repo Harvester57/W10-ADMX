@@ -38,6 +38,34 @@ Ha letiltja vagy nem konfigurálja ezt a beállítást, a 4G-kapcsolatok költs�
       <string id="Cost_DropDownList_Unrestricted">Korlátlan</string>
       <string id="Cost_DropDownList_Fixed">Rögzített</string>
       <string id="Cost_DropDownList_Variable">Változó</string>
+      <string id="UISettings_Category">WWAN UI beállításai</string>
+      <string id="ShowAppCellularAccessUI">Alkalmazásonkénti mobil-hozzáférési felhasználói felület láthatóságának beállítása</string>
+      <string id="ShowAppCellularAccessUI_Help">Ez a házirend-beállítás az alkalmazásonkénti mobil hozzáférés-vezérlési oldalra mutató hivatkozás láthatóságát konfigurálja a mobilbeállítások felhasználói felületén.
+
+Ha a házirend-beállítás engedélyezve van, a választható értékeket tartalmazó legördülő menü aktív lesz. Az alkalmazásonkénti mobil hozzáférés-vezérlési oldalra mutató hivatkozás elrejtéséhez vagy megjelenítéséhez válassza az „Elrejtés” vagy „Megjelenítés” lehetőséget.
+Ha a házirend-beállítás le van tiltva vagy nincs konfigurálva, alapértelmezésben az alkalmazásonkénti mobil hozzáférés-vezérlési oldalra mutató hivatkozás jelenik meg.
+      </string>
+      <string id="ShowAppCellularAccessUI_Option_Hide">Elrejtés</string>
+      <string id="ShowAppCellularAccessUI_Option_Show">Megjelenítés</string>
+      <string id="CellularDataAccess">Mobiladat-hozzáférés</string>
+      <string id="UserInControl">A felhasználó döntheti el</string>
+      <string id="ForceAllow">Mindig engedélyezve</string>
+      <string id="ForceDeny">Mindig letiltva</string>
+      <string id="LetAppsAccessCellularData_Name">A Windows-alkalmazások hozzáférhetnek a mobiladat-forgalomhoz</string>
+      <string id="LetAppsAccessCellularData_Explain">Ezzel a házirend-beállítással megadhatja, hogy a Windows-alkalmazások hozzáférhetnek-e a mobiladat-forgalomhoz.
+
+Megadhat az összes alkalmazásra érvényes alapértelmezett beállítást, vagy a csomagcsalád nevének megadásával alkalmazásonként is konfigurálhatja a viselkedést. Egy adott alkalmazáshoz a csomagcsalád nevét a Get-AppPackage Windows PowerShell parancsmaggal lehet megállapítani. Az egyes alkalmazásokra vonatkozó beállítás felülbírálja az alapértelmezett beállítást.
+
+Ha „A felhasználó döntheti el” lehetőséget választja, a dolgozók saját maguk választhatják meg az eszközön a Gépház &gt; Hálózat és internet &gt; Mobiladat-forgalom pontban, hogy a Windows-alkalmazások hozzáférhetnek-e a mobiladat-forgalomhoz.
+
+Ha a „Mindig engedélyezve” lehetőséget választja, akkor a Windows-alkalmazások hozzáférhetnek a mobiladat-forgalomhoz, és a dolgozók nem módosíthatják a beállítást.
+
+Ha a „Mindig letiltva” lehetőséget választja, akkor a Windows-alkalmazások nem férhetnek hozzá a mobiladat-forgalomhoz, és a dolgozók nem módosíthatják a beállítást.
+
+Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a dolgozók saját maguk választhatják meg az eszközön a Gépház &gt; Hálózat és internet &gt; Mobiladat-forgalom pontban, hogy a Windows-alkalmazások hozzáférhetnek-e a mobiladat-forgalomhoz.
+
+Ha egy alkalmazás meg van nyitva, amikor a csoportházirend-objektumot az eszközre alkalmazzák, a dolgozóknak a házirend-módosítás életbe lépéséhez újra kell indítaniuk az alkalmazást vagy az eszközt.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="SetCost3G_Presentation">
@@ -45,6 +73,18 @@ Ha letiltja vagy nem konfigurálja ezt a beállítást, a 4G-kapcsolatok költs�
       </presentation>
       <presentation id="SetCost4G_Presentation">
         <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Adja meg a 4G-kapcsolatok költségértékét:</dropdownList>
+      </presentation>
+      <presentation id="ShowAppCellularAccessUI_Presentation">
+        <dropdownList refId="ShowAppCellularAccessUI_Option" defaultItem="1">Jelöljön ki legalább beállítani kívánt lehetőséget:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessCellularData">
+        <dropdownList refId="LetAppsAccessCellularData_Enum" noSort="true" defaultItem="0">Alapértelmezett az összes alkalmazáshoz:</dropdownList>
+        <text>A következő alkalmazásokat a felhasználó felügyelheti (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_UserInControlOfTheseApps_List"/>
+        <text>Engedélyezés kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceAllowTheseApps_List"/>
+        <text>Tiltás kényszerítése a következő alkalmazásokhoz (a csomagcsaládok nevének használatával):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

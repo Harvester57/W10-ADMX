@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">Ce paramètre de stratégie vous permet de spécifier l’URL HTTPS du site Web d’entreprise que les clients utilisent pour déterminer l’emplacement actuel du domaine (en d’autres termes, si l’ordinateur se trouve à l’intérieur ou à l’extérieur du réseau d’entreprise). L’accès à la destination de l’URL indique que l’emplacement du client se trouve à l’intérieur du réseau d’entreprise ; sinon, il se trouve à l’extérieur du réseau.</string>
       <string id="NCSI_PassivePolling">Spécifier l’interrogation passive</string>
       <string id="NCSI_PassivePolling_Help">Ce paramètre de stratégie vous permet de spécifier une interrogation passive. NCSI interroge diverses mesures dans la pile réseau à intervalles réguliers pour déterminer si la connectivité réseau est toujours présente.  Contrôlez l’interrogation passive à l’aide des options.</string>
+      <string id="NCSI_GlobalDns">Spécifier le DNS global</string>
+      <string id="NCSI_GlobalDns_Help">Ce paramètre de stratégie vous permet de spécifier le comportement de liaison DNS. NCSI restreint par défaut les recherches DNS à l'interface qu'il détecte actuellement. Si vous activez ce paramètre, NCSI autorisera les recherches DNS sur toutes les interfaces.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>La case à cocher suivante désactive le mécanisme d’interrogation passive dans NCSI.   Cela peut améliorer la charge de travail de l’UC sur les serveurs ou autres ordinateurs dont la connectivité réseau est statique.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Désactiver l’interrogation passive</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>La case à cocher suivante désactive la liaison d'interface pendant les recherches DNS dans NCSI. Cela peut permettre à NCSI de mieux fonctionner avec des configurations réseau spéciales, comme un serveur DNS exécuté sur localhost.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Utiliser le DNS global</checkBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">Especificar o tempo limite de suspensão do sistema (ligado)</string>
       <string id="ACStandbyWithHiberfileEnable">Desativar suspensão híbrida (ligado)</string>
       <string id="ACSystemLidAction">Selecionar a ação do interruptor da tampa (ligado)</string>
+      <string id="ACConnectivityInStandby">Permitir a conectividade de rede durante o estado de modo de espera (ligado à tomada)</string>
       <string id="BatteryDischargeAction0Explain">Esta definição de política especifica a ação que o Windows efetua quando a capacidade da bateria atinge o nível de notificação de bateria muito fraca.
 
 Se ativar esta definição de política, selecione uma das seguintes ações:
@@ -82,6 +83,7 @@ Se desativar ou não configurar esta definição de política, os utilizadores p
       <string id="DCStandbyTimeOut">Especificar o tempo limite de suspensão do sistema (com bateria)</string>
       <string id="DCStandbyWithHiberfileEnable">Desativar suspensão híbrida (com bateria)</string>
       <string id="DCSystemLidAction">Selecionar a ação do interruptor da tampa (com bateria)</string>
+      <string id="DCConnectivityInStandby">Permitir a conectividade de rede durante o modo de espera ligado (apenas com a bateria)</string>
       <string id="DiskACPowerDownTimeOut">Desativar o disco rígido (ligado)</string>
       <string id="DiskDCPowerDownTimeOut">Desativar o disco rígido (com bateria)</string>
       <string id="DiskPowerDownTimeOutExplain">Esta definição de política especifica o período de inatividade antes de o Windows desativar o disco rígido.
@@ -205,9 +207,9 @@ Se o utilizador tiver configurado uma apresentação de diapositivos para ser ex
       <string id="AllowStandbyStatesDC">Permitir estados de espera (S1-S3) durante períodos de suspensão (com bateria)</string>
       <string id="AllowStandbyStatesExplain">Esta definição de política gere a permissão para o Windows poder ou não utilizar estados de espera ao colocar o computador num estado de suspensão.
 
-Se ativar esta definição de política, o Windows utiliza estado de espera para colocar o computador num estado de suspensão.
+Se ativar ou não configurar esta definição de política, o Windows utiliza os estados de espera para colocar o computador num estado de suspensão.
 
-Se desativar ou não configurar esta definição de política, o único estado de suspensão em que o computador pode entrar é a hibernação.</string>
+Se desativar esta definição de política, os estados de espera (S1-S3) não são permitidos.</string>
 
       <string id="AllowSystemSleepWithRemoteFilesOpenAC">Permitir suspensão automática com ficheiros de rede abertos (ligado à corrente)</string>
       <string id="AllowSystemSleepWithRemoteFilesOpenDC">Permitir suspensão automática com ficheiros de rede abertos (em bateria)</string>
@@ -270,6 +272,30 @@ Se ativar esta definição de política, terá de introduzir um valor numérico 
 
 Se desativar ou não configurar esta definição de política, os utilizadores poderão ver e alterar esta definição.</string>
     
+      <string id="EnergySaverSettingsCat">Definições de Poupança de Energia</string>
+      <string id="EsBattThresholdAC">Limiar de Poupança de Energia da Bateria (ligado à tomada)</string>
+      <string id="EsBattThresholdDC">Limiar de Poupança de Energia da Bateria (apenas com a bateria)</string>
+      <string id="EsBattThresholdExplain">Esta definição de política permite especificar o nível de carga da bateria em que a Poupança de Energia é ativada.
+
+Se ativar esta definição de política, tem de fornecer um valor de percentagem, indicando o nível de carga da bateria. A Poupança de Energia será ativada automaticamente no (e abaixo do) nível especificado.
+
+Se desativar ou não configurar esta definição de política, os utilizadores controlarão esta definição.</string>
+
+      <string id="ConnectivityInStandbyExplain">Esta definição de política permite-lhe controlar o estado de conectividade de rede no modo de espera em sistemas modernos compatíveis com o modo de espera.
+
+Se ativar esta definição de política, a conectividade de rede será mantida no modo de espera.
+
+Se desativar esta definição de política, a conectividade de rede no modo de espera não é garantida. Esta restrição de conectividade só se aplica atualmente a redes WLAN e está sujeita a alterações.
+
+Se não configurar esta definição de política, os utilizadores controlam esta definição.</string>
+
+      <string id="PowerThrottlingSettingsCat">Definições de Limitação de Potência</string>
+      <string id="PowerThrottlingTurnOff">Desligar a Limitação de Potência</string>
+      <string id="PowerThrottlingTurnOffExplain">Esta definição de política permite-lhe desligar a Limitação de Potência.
+
+Se ativar esta definição de política, a Limitação de Potência será desativada.
+
+Se desativar ou não configurar esta definição de política, esta definição será controlada pelos utilizadores.</string>
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +445,9 @@ Se desativar ou não configurar esta definição de política, os utilizadores p
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">Nível de Notificação de Reserva da Bateria (percentagem):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">Limiar de Poupança de Energia da Bateria (percentagem):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

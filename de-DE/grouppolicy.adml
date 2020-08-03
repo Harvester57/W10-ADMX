@@ -11,31 +11,31 @@
       <string id="FontMitigation_On">Nicht vertrauenswürdige Schriftarten blockieren und Ereignisse protokollieren</string>
       <string id="FontMitigation_Off">Keine vertrauenswürdigen Schriftarten blockieren</string>
       <string id="FontMitigation_Audit">Ereignisse ohne Blockierung nicht vertrauenswürdiger Schriftarten protokollieren</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Optionen für den Prozessausgleich</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Dieses Sicherheitsfeature bietet eine Möglichkeit, die MitigationOptions-Einstellungen einzelner Prozesse zu überschreiben. Auf diese Weise können eine Reihe von Sicherheitsrichtlinien für Anwendungen erzwungen werden. Der Anwendungsname wird als Wertname einschließlich Erweiterung angegeben. Der Wert wird als Bitfeld mit einer Reihe von Kennzeichen an bestimmten Positionen angegeben. Bits können auf 0 (Deaktivierung der Einstellung erzwungen), 1 (Aktivierung der Einstellung erzwungen) oder ? (Einstellung behält den aktuellen Wert vor der GPO-Auswertung) festgelegt werden. Die erkannten Bitpositionen sind:
+        Dieses Sicherheitsfeature bietet eine Möglichkeit, die MitigationOptions-Einstellungen einzelner Prozesse zu überschreiben. Auf diese Weise können eine Reihe von Sicherheitsrichtlinien für Anwendungen erzwungen werden. Der Anwendungsname wird als Wertname einschließlich Erweiterung angegeben. Der Wert wird als Bitfeld mit einer Reihe von Kennzeichen an bestimmten Positionen angegeben. Bits können auf 0 (Deaktivierung der Einstellung erzwungen), 1 (Aktivierung der Einstellung erzwungen) oder ? (Einstellung behält den aktuellen Wert vor der GPO-Auswertung) festgelegt werden. Die erkannten Bit-Speicherorte sind:
 
-        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
         Aktiviert die Datenausführungsverhinderung (DEP) für den untergeordneten Prozess.
 
-        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Aktiviert die Emulation von DEP-ATL-Thunks für den untergeordneten Prozess. Die Emulation von DEP-ATL-Thunks führt dazu, dass das System NX-Fehler von der Active Template Library (ATL)-Thunkebene abfängt. 
+PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Aktiviert die Emulation von DEP-ATL-Thunks für den untergeordneten Prozess. Die Emulation von DEP-ATL-Thunks führt dazu, dass das System NX-Fehler von der Active Template Library (ATL)-Thunkebene abfängt.
 
-        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
         Aktiviert SEHOP (Structured Exception Handler Overwrite Protection) für den untergeordneten Prozess. SEHOP blockiert Exploits, die das SEH (Structured Exception Handler)-Überschreibungsverfahren verwenden.
 
-        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
         Die Richtlinie zum Erzwingen von ASLR (Address Space Layout Randomization) erzwingt die Neubasierung von Images, die nicht DynamicBase-kompatibel sind. Dabei verhalten sie sich so, als ob zur Ladezeit ein Imagebasiskonflikt aufgetreten wäre. Wenn eine Neupositionierung erforderlich ist, werden Images, die über keinen Abschnitt für die Basisneupositionierung verfügen, nicht geladen.
 
-        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
         Die Richtlinie für die zufällige Anordnung von unten nach oben, die Optionen für die zufällige Stapelanordnung enthält, führt dazu, dass eine zufällige Position als niedrigste Benutzeradresse verwendet wird.
 
-        Zum Aktivieren von PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE und PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON deaktivieren Sie z. B. PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, und um die Standardwerte aller anderen Optionen beizubehalten, geben Sie den folgenden Wert an:
-        ???????????????0???????1???????1
+Um beispielsweise PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE und PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON zu aktivieren, deaktivieren Sie PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, und um die Standardwerte aller anderen Optionen beizubehalten, geben Sie den folgenden Wert an:
+        ??????????????? 0??????? 1??????? 1
 
-        Das Festlegen von Kennzeichen, die hier nicht angegeben sind, auf einen anderen Wert als ?, führt zu einem undefinierten Verhalten.	  
+Das Festlegen von Kennzeichen, die hier nicht angegeben sind, auf einen anderen Wert als ?, führt zu einem undefinierten Verhalten.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Synchronisierung der AD/DFS-Domänencontroller während der Richtlinienaktualisierung aktivieren</string>
@@ -50,42 +50,61 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Auf der Oberfläche dieses Geräts weiterarbeiten</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Diese Richtlinieneinstellung bestimmt, ob das Windows-Gerät Oberflächen geräteübergreifend nutzen (auf der Oberfläche weiterarbeiten) darf.
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Wenn Sie diese Richtlinieneinstellung aktivieren, ist das Windows-Gerät für andere Windows-Geräte desselben Benutzers auffindbar und kann Oberflächen geräteübergreifend nutzen.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Wenn Sie diese Richtlinieneinstellung deaktivieren, ist das Windows-Gerät für andere Geräte nicht auffindbar und kann Oberflächen nicht geräteübergreifend nutzen.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, richtet sich das Standardverhalten nach der Windows-Edition. Änderungen an dieser Richtlinie werden beim Neustart wirksam.
+      </string>
+      <string id="EnableMMX">Telefon-PC-Verbindung auf diesem Gerät</string>
+      <string id="EnableMMX_Help">
+Diese Richtlinie ermöglicht es IT-Administratoren, die Möglichkeit zum Verbinden eines Telefons mit einem PC zu deaktivieren, um weiterhin lesen, E-Mails versenden und andere Aufgaben ausführen zu können, die eine Verbindung zwischen dem Telefon und dem PC erfordern.
+
+Wenn Sie diese Richtlinieneinstellung aktivieren, kann das Windows-Gerät sich für die Verbindungfunktion zwischen Telefon und PC anmelden und an "Weiter auf dem PC“-Funktionen teilnehmen.
+
+Wenn Sie diese Richtlinieneinstellung deaktivieren, darf das Windows-Gerät keine Verbindungen mit Telefonen herstellen, wird von der Geräteliste verknüpfter Telefone entfernt und kann nicht an "Weiter auf dem PC“-Funktionen teilnehmen.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, hängt das Standardverhalten von der Windows-Edition ab. Änderungen an der Richtlinie werden beim Neustart wirksam.
+      </string>
+      <string id="EnableAppUriHandlers">Web-zu-App-Verknüpfung mit App-URI-Handlern konfigurieren</string>
+      <string id="EnableAppUriHandlers_Help">
+Durch die Richtlinieneinstellung wird festgelegt, ob Windows die Web-zu-App-Verknüpfung mithilfe von App-URI-Handlern unterstützt.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, wird die Web-zu-App-Verknüpfung aktiviert, sodass die Apps mit einem HTTP(S)-URI gestartet werden können.
+
+Wenn Sie die Richtlinie deaktivieren, wird die Web-zu-App-Verknüpfung deaktiviert, und HTTP(S)-URIs werden im Standardbrowser geöffnet, anstatt die zugehörige App zu starten.
+
+Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, richtet sich das Standardverhalten nach der Windows-Edition. Änderungen an dieser Richtlinie werden beim Neustart wirksam.
       </string>
       <string id="Fonts">Schriftarten</string>
       <string id="EnableFontProviders">Schriftartenanbieter aktivieren</string>
       <string id="EnableFontProviders_Help">
-        Mit dieser Richtlinieneinstellung wird festgelegt, ob Windows Schriftarten und Schriftartenkatalogdaten von einem Onlineschriftartenanbieter herunterladen darf.
-        
+        Mit dieser Richtlinieneinstellung wird festgelegt, ob Windows Schriftarten und Schriftartenkatalogdaten von einem Onlineschriftartenanbieter herunterladen darf. 
+
         Wenn Sie die Richtlinieneinstellung aktivieren, sendet Windows regelmäßig Abfragen an einen Onlineschriftartenanbieter, um zu ermitteln, ob ein neuer Schriftartenkatalog verfügbar ist. Windows kann auch Schriftartdaten herunterladen, die zum Formatieren oder Rendern von Text benötigt werden.
-        
+
         Wenn Sie die Richtlinieneinstellung deaktivieren, stellt Windows keine Verbindung mit einem Onlineschriftartenanbieter her und zählt nur lokal installierte Schriftarten auf.
-      
+
         Wenn Sie die Richtlinieneinstellung nicht konfigurieren, richtet sich das Standardverhalten nach der Windows-Edition. Änderungen an dieser Richtlinie werden beim Neustart wirksam.
       </string>
       <string id="EnableLogonOptimization">Zwischenspeichern von Gruppenrichtlinien konfigurieren</string>
       <string id="EnableLogonOptimization_Help">
-        
         Mit dieser Richtlinieneinstellung können Sie das Zwischenspeichern von Gruppenrichtlinien konfigurieren.
-        
-        Wenn Sie diese Richtlinieneinstellung aktivieren oder nicht konfigurieren, werden Richtlinieninformationen von der Gruppenrichtlinie nach jeder Hintergrundverarbeitungssitzung zwischengespeichert. In diesem Cache werden anwendbare Gruppenrichtlinienobjekte (GPOs) und die darin enthaltenen Einstellungen gespeichert. Wenn die Gruppenrichtlinie im synchronen Vordergrundmodus ausgeführt wird, wird auf diesen Cache verwiesen, um eine schnellere Ausführung zu ermöglichen. Beim Lesen des Caches wird von der Gruppenrichtlinie versucht, eine Verbindung mit einem Domänencontroller für die Anmeldung herzustellen, um die Übertragungsrate zu ermitteln. Wenn die Gruppenrichtlinie im Hintergrundmodus oder im asynchronen Vordergrundmodus ausgeführt wird, wird das Herunterladen der aktuellen Version der Richtlinieninformationen fortgesetzt und eine Bandbreitenschätzung verwendet, um die Schwellenwerte für langsame Verbindungen zu ermitteln. (Informationen zum Konfigurieren des asynchronen Vordergrundverhaltens finden Sie unter der Richtlinieneinstellung "Gruppenrichtlinien zur Erkennung von langsamen Verbindungen konfigurieren".)
-        
+
+        Wenn Sie diese Richtlinieneinstellung aktivieren oder nicht konfigurieren, werden Richtlinieninformationen von der Gruppenrichtlinie nach jeder Hintergrundverarbeitungssitzung zwischengespeichert. In diesem Cache werden anwendbare Gruppenrichtlinienobjekte (GPOs) und die darin enthaltenen Einstellungen gespeichert. Wenn die Gruppenrichtlinie im synchronen Vordergrundmodus ausgeführt wird, wird auf diesen Cache verwiesen, um eine schnellere Ausführung zu ermöglichen. Beim Lesen des Caches wird von der Gruppenrichtlinie versucht, eine Verbindung mit einem Domänencontroller für die Anmeldung herzustellen, um die Verknüpfungsgeschwindigkeit zu ermitteln. Wenn die Gruppenrichtlinie im Hintergrundmodus oder im asynchronen Vordergrundmodus ausgeführt wird, wird das Herunterladen der aktuellen Version der Richtlinieninformationen fortgesetzt, und eine Bandbreitenschätzung wird verwendet, um die Schwellenwerte für langsame Verbindungen zu ermitteln. (Informationen zum Konfigurieren des asynchronen Vordergrundverhaltens finden Sie unter der Richtlinieneinstellung "Gruppenrichtlinien zur Erkennung von langsamen Verbindungen konfigurieren".)
+
         Anhand des in dieser Richtlinieneinstellung festgelegten Werts für langsame Verbindungen wird bestimmt, wie lange von einer Gruppenrichtlinie auf eine Antwort vom Domänencontroller gewartet wird, bevor die Geschwindigkeit der Verbindung als langsam gemeldet wird. Die Standardeinstellung lautet 500 Millisekunden.
-        
-        Anhand des in dieser Richtlinieneinstellung festgelegten Zeitüberschreitungswerts wird bestimmt, wie lange von einer Gruppenrichtlinie auf eine Antwort vom Domänencontroller gewartet wird, bevor die Netzwerkverbindung als nicht vorhanden erkannt wird. Die aktuelle Gruppenrichtlinienverarbeitung wird dadurch gestoppt. Die Gruppenrichtlinie wird im Hintergrund ausgeführt, wenn das nächste Mal eine Verbindung zu einem Domänencontroller hergestellt wird. Wenn Sie diesen Wert zu hoch festlegen, führt dies möglicherweise dazu, dass für Benutzer beim Starten oder Anmelden längere Wartezeiten entstehen. Die Standardeinstellung lautet 5.000 Millisekunden.
-        
+
+        Anhand des in dieser Richtlinieneinstellung festgelegten Zeitüberschreitungswerts wird bestimmt, wie lange von einer Gruppenrichtlinie auf eine Antwort vom Domänencontroller gewartet wird, bevor die Netzwerkverbindung als nicht vorhanden erkannt wird. Die aktuelle Gruppenrichtlinienverarbeitung wird dadurch angehalten. Die Gruppenrichtlinie wird im Hintergrund ausgeführt, wenn das nächste Mal eine Verbindung zu einem Domänencontroller hergestellt wird. Wenn Sie diesen Wert zu hoch festlegen, führt dies möglicherweise dazu, dass für Benutzer beim Starten oder Anmelden längere Wartezeiten entstehen. Die Standardeinstellung lautet 5.000 Millisekunden.
+
         Wenn Sie diese Richtlinieneinstellung deaktivieren, werden vom Gruppenrichtlinienclient keine anwendbaren Gruppenrichtlinienobjekte (GPOs) oder darin enthaltene Einstellungen zwischengespeichert. Wenn die Gruppenrichtlinie synchron ausgeführt wird, wird die aktuelle Version der Richtlinie aus dem Netzwerk heruntergeladen, und es werden Bandbreitenschätzungen verwendet, um die Schwellenwerte für langsame Verbindungen zu ermitteln. (Informationen zum Konfigurieren des asynchronen Vordergrundverhaltens finden Sie unter der Richtlinieneinstellung "Gruppenrichtlinien zur Erkennung von langsamen Verbindungen konfigurieren".)
-      
+
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Aktivieren der Zwischenspeicherung von Gruppenrichtlinien für Server</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,54 +115,51 @@ If you do not configure this policy setting, the default behavior depends on the
         Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden vom Gruppenrichtlinienclient keine anwendbaren Gruppenrichtlinienobjekte (GPOs) oder darin enthaltene Einstellungen zwischengespeichert. Wenn die Gruppenrichtlinie synchron ausgeführt wird, wird die aktuelle Version der Richtlinie aus dem Netzwerk heruntergeladen, und es werden Bandbreitenschätzungen verwendet, um die Schwellenwerte für langsame Verbindungen zu ermitteln. (Informationen zum Konfigurieren des asynchronen Vordergrundverhaltens finden Sie unter der Richtlinieneinstellung "Gruppenrichtlinien zur Erkennung von langsamen Verbindungen konfigurieren".)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Anmeldeskriptverzögerung konfigurieren</string>
       <string id="LogonScriptDelay_Help">
-        
         Geben Sie "0" ein, um die Anmeldeskriptverzögerung zu deaktivieren.
-        
+
         Mit dieser Richtlinieneinstellung können Sie konfigurieren, wie lange vom Gruppenrichtlinienclient nach der Anmeldung gewartet wird, bevor Skripts ausgeführt werden.
-        
+
         Standardmäßig wird vom Gruppenrichtlinienclient fünf Minuten gewartet, bevor Anmeldeskripts ausgeführt werden. Dies führt zu einer höheren Reaktionsfähigkeit der Desktopumgebung, indem eine Datenträgerauslastung verhindert wird.
-        
+
         Wenn Sie diese Richtlinieneinstellung aktivieren, wird von der Gruppenrichtlinie vor dem Ausführen von Anmeldeskripts so lange gewartet, bis der angegebene Zeitraum verstrichen ist.
-        
-        Wenn Sie diese Richtlinieneinstellung deaktivieren, werden Anmeldeskripts von der Gruppenrichtlinie sofort nach der Anmeldung ausgeführt.
-        
+
+        Wenn Sie diese Richtlinieneinstellung deaktivieren, werden Skripts von der Gruppenrichtlinie sofort nach der Anmeldung ausgeführt.
+
         Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, wird von der Gruppenrichtlinie vor dem Ausführen von Anmeldeskripts fünf Minuten gewartet.
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">DirectAccess-Verbindung als schnelle Netzwerkverbindung konfigurieren</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Mit dieser Richtlinieneinstellung kann ein Administrator beim Anwenden und Aktualisieren der Gruppenrichtlinie die DirectAccess-Verbindung als schnelle Netzwerkverbindung definieren. 
- 
+      <string id="SlowLinkDefaultForDirectAccess_Help">Mit dieser Richtlinieneinstellung kann ein Administrator beim Anwenden und Aktualisieren der Gruppenrichtlinie die DirectAccess-Verbindung als schnelle Netzwerkverbindung definieren.
+
 Beim Versuch der Gruppenrichtlinie, die Bandbreitengeschwindigkeit einer DirectAccess-Verbindung zu erkennen, kann es vorkommen, dass keine Informationen zur Bandbreitengeschwindigkeit bereitgestellt werden. Die Gruppenrichtlinie folgt beim Erkennen der Bandbreitengeschwindigkeit den normalen Regeln und wertet aus, ob es sich bei der DirectAccess-Verbindung um eine schnelle oder eine langsame Netzwerkverbindung handelt. Wenn keine Bandbreitengeschwindigkeit erkannt wird, geht die Gruppenrichtlinie standardmäßig von einer langsamen Netzwerkverbindung aus. Diese Richtlinieneinstellung ermöglicht es dem Administrator, die Standardeinstellung der langsamen Netzwerkverbindung außer Kraft zu setzen und anstelle dessen standardmäßig eine schnelle Netzwerkverbindung zu verwenden, sofern keine Bandbreitengeschwindigkeit erkannt wird.
- 
-Hinweis: Wird eine langsame Netzwerkverbindung von der Gruppenrichtlinie erkannt, werden nur die clientseitigen Erweiterungen verarbeitet, die für eine langsame Verbindung (langsame Netzwerkverbindung) konfiguriert sind.  
- 
-Wenn Sie diese Richtlinieneinstellung aktivieren, wird die Netzwerkverbindung von der Gruppenrichtlinie als schnelle Verbindung ausgewertet und alle clientseitigen Erweiterungen verarbeitet, wenn die Bandbreitengeschwindigkeit der DirectAccess-Verbindung nicht von der Gruppenrichtlinie erkannt werden kann.
- 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird die Netzwerkverbindung von der Gruppenrichtlinie als langsame Verbindung ausgewertet. Es werden dann nur die clientseitigen Erweiterungen verarbeitet, die für eine langsame Verbindung konfiguriert wurden.
-          
-      
-          
+
+Hinweis: Wird eine langsame Netzwerkverbindung von der Gruppenrichtlinie erkannt, werden nur die clientseitigen Erweiterungen verarbeitet, die für eine langsame Verbindung (langsame Netzwerkverbindung) konfiguriert sind.
+
+Wenn Sie diese Richtlinie aktivieren, wird die Netzwerkverbindung von der Gruppenrichtlinie als schnelle Verbindung ausgewertet, und alle clientseitigen Erweiterungen werden verarbeitet, wenn die Bandbreitengeschwindigkeit der DirectAccess-Verbindung nicht von der Gruppenrichtlinie erkannt werden kann.
+
+Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird die Netzwerkverbindung von der Gruppenrichtlinie als langsame Verbindung ausgewertet. Es werden dann nur die clientseitigen Erweiterungen verarbeitet, die für eine langsame Verbindung konfiguriert wurden.
+
+
+
       </string>
      <string id="SlowlinkDefaultToAsync">Asynchrone Verarbeitung der Gruppenrichtlinie bei langsamen Netzwerkverbindungen.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Mit dieser Richtlinieneinstellung werden bei der Verarbeitung der Gruppenrichtlinie alle clientseitigen Erweiterungen übersprungen, die eine synchrone Verarbeitung (der Computer wartet während des Startens und der Benutzeranmeldung auf die vollständige Initialisierung des Netzwerks) erfordern, wenn eine langsame Netzwerkverbindung erkannt wird.  
- 
+      <string id="SlowlinkDefaultToAsync_Help">Mit dieser Richtlinieneinstellung werden bei der Verarbeitung der Gruppenrichtlinie alle clientseitigen Erweiterungen übersprungen, die eine synchrone Verarbeitung (der Computer wartet während des Startens und der Benutzeranmeldung auf die vollständige Initialisierung des Netzwerks) erfordern, wenn eine langsame Netzwerkverbindung erkannt wird.
+
 Wenn Sie diese Richtlinieneinstellung aktivieren, wird die Gruppenrichtlinienverarbeitung immer asynchron ausgeführt, wenn eine langsame Netzwerkverbindung erkannt wird.
-Clientcomputer warten beim Starten und bei der Benutzeranmeldung nicht auf die vollständige Initialisierung des Netzwerks. Vorhandene Benutzer werden mithilfe zwischengespeicherter Anmeldeinformationen angemeldet, 
-was zu kürzeren Anmeldezeiten führt. Sobald das Netzwerk verfügbar ist, wird die Gruppenrichtlinie im Hintergrund angewendet.   
+Clientcomputer warten beim Starten und bei der Benutzeranmeldung nicht auf die vollständige Initialisierung des Netzwerks. Vorhandene Benutzer werden mithilfe zwischengespeicherter Anmeldeinformationen angemeldet,
+was zu kürzeren Anmeldezeiten führt. Sobald das Netzwerk verfügbar ist, wird die Gruppenrichtlinie im Hintergrund angewendet.
 Da es sich hierbei um eine Hintergrundaktualisierung handelt, werden Erweiterungen nicht angewendet, die eine synchrone Verarbeitung erfordern, wie die Softwareinstallation, Ordnerumleitung
- und die Einstellungserweiterung "Laufwerkzuordnungen".
- 
-Hinweis: Unter zwei Voraussetzungen wird die Gruppenrichtlinie synchron verarbeitet, selbst wenn diese Richtlinieneinstellung aktiviert ist:
-1 - Beim erstmaligen Starten des Computers nach Hinzufügen des Clientcomputers zur Domäne.
-2 - Wenn die Richtlinieneinstellung "Beim Neustart des Computers und bei der Anmeldung immer auf das Netzwerk warten" aktiviert ist.
- 
+und die Einstellungserweiterung "Laufwerkzuordnungen".
+
+Hinweis: Es gibt zwei Bedingungen, die dazu führen, dass die Gruppenrichtlinie synchron verarbeitet wird, selbst wenn diese Richtlinieneinstellung aktiviert ist:
+1 – Beim erstmaligen Starten des Computers nach Hinzufügen des Clientcomputers zur Domäne.
+2 – Wenn die Richtlinieneinstellung "Beim Neustart des Computers und bei der Anmeldung immer auf das Netzwerk warten" aktiviert ist.
+
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, hat die Erkennung einer langsamen Netzwerkverbindung keine Auswirkungen darauf, ob die Gruppenrichtlinie synchron oder asynchron verarbeitet wird.
 
-      
 
       </string>
       <string id="DisableLGPOProcessing">Verarbeitung lokaler Gruppenrichtlinienobjekte deaktivieren</string>
@@ -164,7 +180,7 @@ Hinweis: Für Computer, die einer Domäne angehören, wird dringend empfohlen, d
 Wenn Sie diese Richtlinieneinstellung aktivieren, verwendet die Gruppenrichtlinie die vom Administrator konfigurierte maximale Wartezeit und setzt die standardmäßige oder vom System berechnete Wartezeit außer Kraft.
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verwendet die Gruppenrichtlinie die Standardwartezeit von 30 Sekunden auf Computern mit dem Betriebssystem Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Gesamtstrukturübergreifende Benutzerrichtlinien und servergespeicherte Benutzerprofile zulassen</string>

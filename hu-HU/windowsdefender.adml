@@ -3,9 +3,13 @@
 <description>itt adja meg a leírást</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Windows Defender</string>
+    <string id="AntiSpywareDefender">Windows Defender víruskereső</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Kizárások</string>
+    <string id="ExploitGuard">Windows Defender – biztonsági rés kiaknázása elleni védelem</string>
+    <string id="ExploitGuard_ASR">Támadási felület csökkentése</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Mappákhoz való hozzáférés szabályozása</string>
+    <string id="ExploitGuard_NetworkProtection">Hálózati védelem</string>
     <string id="NetworkRealtimeInspection">Hálózatvizsgáló rendszer</string>
     <string id="NetworkRealtimeInspection_Exclusions">Kivételek</string>
     <string id="Quarantine">Karantén</string>
@@ -17,6 +21,7 @@
     <string id="Spynet">MAPS</string>
     <string id="Threats">Veszélyforrások</string>
     <string id="ClientInterface">Ügyféloldali felület</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">A kártevőirtó szolgáltatás normál prioritással való indításának engedélyezése</string>
     <string id="AllowFastServiceStartup_Explain">Ez a házirend-beállítás szabályozza a kártevőirtó szolgáltatás betöltési prioritását. A betöltési prioritás értékének növelésével gyorsítható a szolgáltatás indítása, de ez negatív hatással lehet a teljesítményre.
 
@@ -25,7 +30,18 @@ Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a kártevőirtó szo
 Ha letiltja a beállítást, a kártevőirtó szolgáltatás alacsony prioritású feladatként töltődik be.</string>
 
     <string id="DisableAutoExclusions">Automatikus kizárások kikapcsolása</string>
-    <string id="DisableAutoExclusions_Explain">Lehetővé teszi a rendszergazda számára annak megadását, hogy ki kell-e kapcsolni a Server termékváltozatokban az Automatikus kizárások funkciót.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Lehetővé teszi a rendszergazdák számára annak megadását, hogy ki kell-e kapcsolni az Automatikus kizárások funkciót a Server termékváltozatokban.
+
+        Letiltva (alapértelmezés):
+        A Windows Defender a teljesítmény növelése érdekében kihagyja az elérési utak előre definiált listáját a vizsgálatból.
+
+        Engedélyezve:
+        A Windows Defender nem hagyja ki az elérési utak előre definiált listáját a vizsgálatból. Ez bizonyos esetekben hatással lehet a gép teljesítményére.
+
+        Nincs konfigurálva:
+        Ugyanaz, mint a Letiltva beállítás.
+    </string>
     <string id="DisableAntiSpyware">Az Endpoint Protection kikapcsolása</string>
     <string id="DisableAntiSpyware_Explain">Ezzel a házirend-beállítással kikapcsolható az Endpoint Protection szolgáltatás.
 
@@ -33,12 +49,12 @@ Ha letiltja a beállítást, a kártevőirtó szolgáltatás alacsony prioritás
 
     Ha letiltja vagy nem konfigurálja a házirend-beállítást, az Endpoint Protection alapértelmezés szerint elindul, és megvizsgálja, hogy található-e kártevő vagy egyéb, vélhetően nemkívánatos szoftver a számítógépeken.
     </string>
-    <string id="DisableAntiSpywareDefender">A Windows Defender kikapcsolása</string>
-    <string id="DisableAntiSpywareDefender_Explain">Ez a házirend-beállítás kikapcsolja a Windows Defender szolgáltatást.
+    <string id="DisableAntiSpywareDefender">A Windows Defender víruskereső kikapcsolása</string>
+    <string id="DisableAntiSpywareDefender_Explain">Ez a házirend-beállítás kikapcsolja a Windows Defender víruskeresőt.
 
-    A házirend-beállítás engedélyezése esetén a Windows Defender nem fut, és nem vizsgálja meg, nincsenek-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.
+    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender víruskereső nem fut, és nem vizsgálja meg, hogy vannak-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.
 
-    Ha a házirend-beállítás le van tiltva vagy nincs konfigurálva, a Windows Defender alapértelmezés szerint fut, és megvizsgálja, hogy vannak-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.</string>
+    Ha letiltja, vagy nem konfigurálja a házirend-beállítást, a Windows Defender víruskereső alapértelmezés szerint fut, és megvizsgálja, hogy vannak-e a számítógépen kártevők és más, vélhetően nemkívánatos szoftverek.</string>
     <string id="DisableLocalAdminMerge">A helyi rendszergazda által megadott listabeállítások és a csoportházirend egyesítése</string>
     <string id="DisableLocalAdminMerge_Explain">Ez a házirend-beállítás a helyi rendszergazda által megadott összetett listabeállítások és a csoportházirend-beállítások egyesítését szabályozza. Ez a beállítás többek között a veszélyforrások és a kizárások listáját érinti.
 
@@ -47,11 +63,11 @@ Ha engedélyezi vagy nem konfigurálja ezt a beállítást, a csoportházirendbe
 Ha letiltja a beállítást, az érvényes eredő házirend csak a csoportházirendben definiált elemeket fogja használni. A csoportházirend-beállítások felülírják a helyi rendszergazda által konfigurált beállításokat.</string>
     <string id="DisableRoutinelyTakingAction">A rutinszerű szervizelés kikapcsolása</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Ez a házirend-beállítás lehetővé teszi annak konfigurálását, hogy a Windows Defender eltávolítsa-e automatikusan az összes észlelt veszélyforrást. Az adott veszélyforrással kapcsolatban elvégzendő művelet függ a házirend, a felhasználó és az aláírás által definiált művelettől.
+    Ezzel a házirend-beállítással konfigurálhatja, hogy a Windows Defender víruskereső automatikusan intézkedjen-e az összes észlelt veszélyforrással szemben. Az adott veszélyforrással kapcsolatban elvégzendő művelet a házirend, a felhasználó és az aláírás által definiált művelettől függ.
 
-    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender nem távolítja el automatikusan az észlelt veszélyforrásokat, hanem megkéri a felhasználót, hogy az egyes veszélyforrásokra vonatkozóan válassza ki a kívánt műveletet az elérhető műveletek közül.
+    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender víruskereső nem intézkedik automatikusan az észlelt veszélyforrásokkal szemben, hanem minden egyes veszélyforrás esetében megkéri a felhasználót, hogy válasszon az elérhető műveletek közül.
 
-    Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a Windows Defender kb. öt másodperc múlva automatikusan elkezdi eltávolítani az összes észlelt veszélyforrást (a késleltetés nem konfigurálható).</string>
+    Ha letiltja, vagy nem konfigurálja ezt a házirend-beállítást, a Windows Defender víruskereső kb. öt másodperc késleltetés után (amely nem konfigurálható) automatikusan megteszi a szükséges intézkedéseket az összes észlelt veszélyforrással szemben.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Ezzel a házirend-beállítással konfigurálható, hogy az Endpoint Protection automatikusan reagáljon-e az összes észlelt veszélyforrásra. Egy adott veszélyforrás esetén az elvégzendő műveletet a házirend által definiált művelet, a felhasználó által definiált művelet és az aláírás által definiált művelet kombinációja határozza meg.
 
@@ -100,6 +116,21 @@ Ha letiltja a beállítást, az ütemezett feladatok végrehajtása a megadott i
 Ha engedélyezi a beállítást, a kártevőirtó szolgáltatás a vírus- és kémprogram-definíciók letiltása után továbbra is futni fog.
 
 Ha letiltja vagy nem konfigurálja a beállítást, a kártevőirtó szolgáltatás a vírus- és kémprogram-definíciók letiltásakor leáll. Ha újraindítja a számítógépet, a szolgáltatás elindul, ha automatikus indításra van beállítva. Miután elindult, a szolgáltatás ellenőrzi, hogy a vírus- és kémprogram-definíciók engedélyezve vannak-e. Ha ezek legalább egyike engedélyezve van, a szolgáltatás továbbra is futni fog. Ha mindkét definíciótípus le van tiltva, a szolgáltatás leáll.</string>
+    <string id="Root_PUAProtection">Vélhetően nemkívánatos alkalmazások észlelésének beállítása</string>
+    <string id="Root_PUAProtection_Explain">
+        Engedélyezheti vagy letilthatja a nemkívánatos alkalmazások észlelését. Letilthatja, naplózhatja vagy engedélyezheti, ha vélhetően nemkívánatos szoftverek letöltődnek, vagy megkísérlik telepíteni magukat a számítógépen.
+
+        Engedélyezve:
+        Adja meg az üzemmódot a Beállítások szakaszban:
+        – Letiltás: A vélhetően nemkívánatos szoftverek le lesznek tiltva.
+        – Naplózási mód: A vélhetően nemkívánatos szoftverek nem lesznek letiltva, ha azonban ez a szolgáltatás letiltotta volna a hozzáférést a Letiltás beállítás megadása esetén, akkor az esemény rekordja szerepelni fog az eseménynaplókban.
+
+        Letiltva:
+        A vélhetően nemkívánatos szoftverek nem lesznek letiltva.
+
+        Nincs konfigurálva:
+        A letiltott állapottal azonos.
+    </string>
     <string id="Exclusions_Extensions">Kiterjesztéskizárások</string>
     <string id="Exclusions_Extensions_Explain">Ezzel a házirend-beállítással megadhatja az ütemezett, egyéni és valós idejű ellenőrzésekből kizárandó fájltípusok listáját. A fájltípusokat a beállítás szerkesztésére szolgáló párbeszédpanel Beállítások területén kell hozzáadni. Minden bejegyzést név–érték párként kell megadni, ahol a névnek egy adott fájltípus-kiterjesztést (például „obj” vagy „lib”) azonosító karakterláncnak kell lennie. Az értéket nem használja a rendszer, ezért célszerű nullára állítani.</string>
     <string id="Exclusions_Paths">Elérésiút-kizárások</string>
@@ -159,11 +190,11 @@ Ha kikapcsolja a beállítást, a nyerskötet írásával kapcsolatos értesít�
     <string id="DisableRealtimeMonitoring">Valós idejű védelem kikapcsolása</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">Ez a házirend-beállítás kikapcsolja a valós idejű védelemre vonatkozó kérdéseket ismert kártevő észlelésekor.
 
-    A Windows Defender riasztást jelenít meg, amikor kártevő vagy egyéb, vélhetően nemkívánatos szoftver megkísérli magát telepíteni vagy futtatni a számítógépen.
+    A Windows Defender víruskereső riasztást jelenít meg, amikor kártevő vagy vélhetően nemkívánatos szoftver megkísérli telepíteni vagy futtatni magát a számítógépen.
 
-    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender nem fogja megkérdezni, hogy eltávolítsa-e az észlelt kártevőket.
+    Ha engedélyezi ezt a házirend-beállítást, a Windows Defender víruskereső nem kérdezi meg a felhasználót, hogy intézkedjen-e az észlelt kártevőkkel szemben.
 
-    Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a Windows Defender meg fogja kérdezni, hogy eltávolítsa-e az észlelt kártevőket.</string>
+    Ha letiltja, vagy nem konfigurálja ezt a házirend-beállítást, a Windows Defender víruskereső megkérdezi a felhasználót, hogy intézkedjen-e az észlelt kártevőkkel szemben.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Ezzel a házirend-beállítással kikapcsolhatók a valós idejű védelem ismert kártevők észlelését jelző értesítései.
 
@@ -289,13 +320,21 @@ Ha letiltja a beállítást, a rendszer nem küldi el a Watson-eseményeket.</st
     <string id="Reporting_WppTracingComponents_Explain">Ez a házirend a Windows-szoftverek nyomkövetési előfeldolgozójának (WPP-szoftvernyomkövetés) összetevőit konfigurálja.</string>
     <string id="Reporting_WppTracingLevel">WPP-myomkövetési szint konfigurálása</string>
     <string id="Reporting_WppTracingLevel_Explain">Ez a házirend-beállítással a Windows-szoftverek nyomkövetési előfeldolgozójának (WPP-szoftvernyomkövetés) nyomkövetési szintjeit konfigurálhatja. 
+    Az alábbi szinteket definiálhatja:
+    1 - Hiba
+    2 - Figyelmeztetés
+    3 - Információ
+    4 - Hibakeresés</string>
+    <string id="Reporting_DisableEnhancedNotifications">Bővített értesítések kikapcsolása</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Ezzel a házirend-beállítással megadhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender víruskereső bővített értesítései.
+      
+      Ha letiltja, vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender víruskereső bővített értesítései.
+      
+      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender víruskereső bővített értesítései.
+    </string>
 
-Az alábbi szinteket definiálhatja:
-1 - Hiba
-2 - Figyelmeztetés
-3 - Információ
-4 - Hibakeresés</string>
-    <string id="Scan_AllowPause">Az ellenőrzés szüneteltetésének engedélyezése a felhasználóknak</string>
+      <string id="Scan_AllowPause">Az ellenőrzés szüneteltetésének engedélyezése a felhasználóknak</string>
     <string id="Scan_AllowPause_Explain">Ezzel a házirend-beállítással azt szabályozhatja, hogy a végfelhasználók szüneteltethessék-e a folyamatban lévő ellenőrzéseket.
 
 Ha engedélyezi vagy nem konfigurálja ezt a beállítást, egy új parancs jelenik meg a feladat tálcaikonjának helyi menüjében, amely lehetővé teszi, hogy a felhasználó szüneteltesse az ellenőrzést.
@@ -496,6 +535,14 @@ Ha letiltja vagy nem konfigurálja a beállítást, a rendszer az alapértelmeze
     E házirend-beállítás engedélyezése esetén a megadott számú egymást követő ütemezett ellenőrzés elmaradása esetén a program pótlólagos ellenőrzést fog futtatni.
 
     Ha letiltja vagy nem konfigurálja ezt a beállítást, akkor 2 egymást követő ütemezett ellenőrzés elmaradása esetén a program pótlólagos ellenőrzést fog futtatni.</string>
+    <string id="Scan_LowCpuPriority">Alacsony CPU-prioritás beállítása az ütemezett ellenőrzésekhez</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Ezzel a házirend-beállítással engedélyezheti vagy letilthatja az alacsony CPU-prioritást az ütemezett ellenőrzésekhez.
+
+        Ha engedélyezi ezt a beállítást, a rendszer az alacsony CPU-prioritást használja az ütemezett ellenőrzések során.
+
+        Ha letiltja vagy nem konfigurálja ezt a beállítást, nem módosul az ütemezett ellenőrzésekhez megadott CPU-prioritás.
+    </string>
     <string id="SignatureUpdate_ASSignatureDue">A kémprogram-definíciók elavulási idejének megadása napban kifejezve</string>
     <string id="SignatureUpdate_ASSignatureDue_Explain">Ezzel a házirend-beállítással megadhatja, hogy a kémprogram-definíciókat hány nap után kell elavultnak tekinteni. A definíciók „elavult” állapota számos további művelet kiváltója lehet, beleértve a másodlagos frissítési forrásra való visszalépést vagy egy figyelmeztető ikon megjelenítését a felhasználói felületen. Az alapértelmezett érték 14 nap.
 
@@ -701,10 +748,10 @@ A szervizelési műveletként megadható értékek a következők:
       A beállítás engedélyezése esetén nem jelennek meg az újraindítási értesítések az AM felhasználói felületén.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Az összes értesítés elrejtése</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender értesítései.
-      Ha letiltja vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender értesítései.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Ezzel a házirend-beállítással megadhatja, hogy megjelenjenek-e az ügyfélgépeken a Windows Defender víruskereső értesítései.
+      Ha letiltja, vagy nem konfigurálja ezt a beállítást, az ügyfélgépeken megjelennek a Windows Defender víruskereső értesítései.
 
-      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender értesítései.
+      Ha engedélyezi ezt a beállítást, az ügyfélgépeken nem jelennek meg a Windows Defender víruskereső értesítései.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Kiegészítő szöveg megjelenítése, ha az ügyfélnek műveleteket kell végrehajtania</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Ezzel a házirend-beállítással azt konfigurálhatja, hogy megjelenjen-e kiegészítő szöveg, ha az ügyfélnek műveletet kell végrehajtania. A megjelenített szöveg egy rendszergazda által megadott egyéni karakterlánc, például a vállalat ügyfélszolgálatának telefonszáma. Az ügyfél kezelőfelülete csak legfeljebb 1024 karaktert tud megjeleníteni. Az ennél hosszabb karakterláncok csonkolva jelennek meg.
@@ -712,6 +759,201 @@ A szervizelési műveletként megadható értékek a következők:
 Ha engedélyezi a beállítást, megjelenik a megadott kiegészítő szöveg.
 
 Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészítő szöveg.</string>
+    <string id="MpCloudBlockLevel">Felhővédelem szintjének kiválasztása</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Ezzel a házirend-beállítással megadhatja, hogy a Windows Defender víruskereső mennyire agresszíven blokkolja és vizsgálja meg a gyanús fájlokat.
+
+      Ha a beállítás engedélyezve van, a Windows Defender víruskereső agresszívebben végzi a blokkolandó és vizsgálandó gyanús fájlok azonosítását; ellenkező esetben kevésbé lesz agresszív, vagyis ritkábban végez blokkolást és vizsgálatot. 
+      
+      A támogatott értékekről a Windows Defender víruskereső dokumentációs webhelyén olvashat további információt.
+
+      Megjegyzés: A funkció működéséhez engedélyezni kell a „Csatlakozás a Microsoft MAPS közösséghez” beállítást.
+
+      A lehetséges beállítások:
+      (0x0) A Windows Defender alapértelmezett blokkolási szintje
+      (0x2) Magas blokkolási szint – az ismeretlen elemek agresszív blokkolása és az ügyfél teljesítményének optimalizálása (nagyobb esély a téves riasztásokra)
+      (0x4) Magas+ blokkolási szint – az ismeretlen elemek agresszív blokkolása és további védelmi intézkedések foganatosítása (hatással lehet az ügyfél teljesítményére)
+      (0x6) Nulla tolerancia blokkolási szint – az összes ismeretlen végrehajtható fájl blokkolása
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">A Windows Defender víruskereső alapértelmezett blokkolási szintje</string>
+    <string id="MpCloudBlockLevel_High_Level">Magas blokkolási szint</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Magas+ blokkolási szint</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nulla tolerancia blokkolási szint</string>
+    <string id="MpBafsExtendedTimeout">Felhőben történő bővített vizsgálat konfigurálása</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Ez a funkció lehetővé teszi, hogy a Windows Defender víruskereső akár 60 másodpercig blokkolja a gyanús fájlokat, és a felhőben vizsgálja meg, hogy biztonságosak-e.
+      
+      A felhőben történő vizsgálat jellemzően 10 másodpercet vesz igénybe. A felhőben történő bővített ellenőrzés engedélyezéséhez adja meg a bővített ellenőrzés idejét másodpercben (legfeljebb 50 másodperc).
+
+      Ha például 60 másodperc időtúllépést szeretne beállítani, adjon meg 50 másodpercet ebben a beállításban, amivel engedélyezi a felhőben történő bővített vizsgálatot, és a teljes vizsgálati időt 60 másodpercre növeli.
+
+      Megjegyzés: Ez a funkció három másik MAPS-beállítástól függ: a működéséhez engedélyezni kell a „Blokkolás első látásra funkció konfigurálása”, a „Csatlakozás a Microsoft MAPS közösséghez”, valamint a „Fájlminták küldése további elemzési igény esetén” beállítást.
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Annak megakadályozása, hogy a felhasználók és az alkalmazások veszélyes webhelyeket érjenek el</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Engedélyezi vagy letiltja a Windows Defender – biztonsági rés kiaknázása elleni védelem nevű hálózatvédelmet, amely megakadályozza az alkalmazottakat abban, hogy bármilyen alkalmazás használatával olyan, veszélyes tartományokat érjenek el, amelyek adathalász csalások, biztonsági réseket kiaknázó webhelyek vagy egyéb kártékony internetes tartalmak futtatására vagy tárolására szolgálhatnak.
+
+    Engedélyezve:
+    Adja meg az üzemmódot a Beállítások szakaszban:
+    – Blokkolás: A felhasználók és az alkalmazások nem érhetik el a veszélyes tartományokat.
+        – Naplózás: A felhasználók és az alkalmazások csatlakozhatnak veszélyes tartományokhoz, ha azonban a funkció Blokkolás üzemmód esetén letiltotta volna a hozzáférést, akkor az eseményt rögzítő rekord megjelenik a Windows Defender biztonsági központban.
+
+    Letiltva:
+    Nem lesz letiltva a veszélyes tartományokhoz való csatlakozás a felhasználók és alkalmazások számára.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Fájlok és elérési utak kizárása a támadási felület csökkentésére szolgáló szabályok alól</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Fájlokat és elérési utakat zár ki a támadási felület csökkentésére szolgáló (ASR-) szabályok alól.
+
+    Engedélyezve:
+    A Beállítások szakaszban adja meg azokat a mappákat, illetve fájlokat és erőforrásokat, amelyeket ki szeretne zárni az ASR-szabályok alól.
+    Mindegyik szabályt új sorban adja meg név-érték párként:
+    – Név oszlop: Adja meg egy mappa elérési útját vagy egy erőforrás teljes nevét. A „C:\Windows” érték például az adott mappában levő összes fájlt kizárja. A „C:\Windows\App.exe” érték csak az adott mappában levő adott fájlt zárja ki.
+    – Érték oszlop: Mindegyik elemhez írja be a „0” értéket.
+
+    Letiltva:
+    Nem lesznek kivételek az ASR-szabályok alól.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    Az ASR-szabályok A támadási felület csökkentésére szolgáló szabályok konfigurálása nevű csoportházirend-beállításban állíthatók be.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">A támadási felület csökkentésére szolgáló szabályok konfigurálása</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Beállítja a támadási felület csökkentésére szolgáló (ASR-) szabályok állapotát.
+
+    A beállítás engedélyezése után a következő állapotokat adhatja meg az egyes szabályokhoz a Beállítások szakaszban:
+    – Letiltás: a rendszer alkalmazza a szabályt.
+    – Naplózási mód: ha a szabály normális esetben eseményt váltana ki, akkor a rendszer rögzíti az eseményt (de nem alkalmazza ténylegesen a szabályt).
+    – Kikapcsolva: a rendszer nem alkalmazza a szabályt.
+
+        Engedélyezve:
+    Ehhez a beállításhoz adja meg mindegyik ASR-szabály állapotát a Beállítások szakaszban.
+        Mindegyik szabályt új sorban adja meg név-érték párként:
+    – Név oszlop: Adja meg egy ASR-szabály érvényes azonosítóját.
+    – Érték oszlop: Adja meg a társított szabályhoz megadni kívánt állapothoz tartozó állapotazonosítót.
+
+    A következő állapotazonosítók adhatók meg az Érték oszlopban:
+    – 1 (Letiltás)
+    – 0 (Kikapcsolva)
+    – 2 (Naplózás)
+    
+    Példa:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Letiltva:
+    Nem lesznek konfigurálva ASR-szabályok.
+
+        Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    Kizárhat mappákat vagy fájlokat a „Fájlok és elérési utak kizárása a támadási felület csökkentésére szolgáló szabályok alól” csoportházirend-beállításban.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Mappákhoz való hozzáférés szabályozásának konfigurálása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Engedélyezi vagy letiltja a mappákhoz való hozzáférés szabályozását a nem megbízható alkalmazásokra vonatkozóan. Letilthatja, naplózhatja vagy engedélyezheti a nem megbízható alkalmazások kísérleteit a következő műveletek végrehajtására:
+    – Fájlok módosítása vagy törlése a védett mappákban, például a Dokumentumok mappában
+    – Írás a lemezszektorokra
+
+    Megadhatja, hogy csak a lemezszektorokra való írás legyen letiltva vagy naplózva, míg a védett mappákban lévő fájlok módosítása vagy törlése továbbra is engedélyezve legyen.
+
+    A Windows Defender víruskereső automatikusan meghatározza, hogy mely alkalmazások tekinthetők megbízhatónak. Felvehet további megbízható alkalmazásokat is az Engedélyezett alkalmazások konfigurálása csoportházirend-beállításban.
+    Az alapértelmezett rendszermappák automatikusan védve vannak, azonban felvehet mappákat a Védett mappák konfigurálása csoportházirend-beállításban.
+
+    Tiltás:
+    A következő műveletek lesznek letiltva:
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    A Windows-eseménynapló az Alkalmazás- és szolgáltatásnaplók&gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1123 területen naplózza ezeket a kísérleteket.
+
+
+    Letiltva:
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    Ezeket a kísérleteket a rendszer nem rögzíti a Windows-eseménynaplóban.
+
+
+    Naplózás mód:
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+    – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    A Windows-eseménynapló az Alkalmazás- és szolgáltatásnaplók&gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1124 területen naplózza ezeket a kísérleteket.
+
+
+    Csak a lemezmódosítás letiltása:
+    A következő műveletek le lesznek tiltva:
+   – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    A Windows-eseménynapló az Alkalmazás- és szolgáltatásnaplók&gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1123 területen naplózza ezeket a kísérleteket.
+
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    Ezeket a kísérleteket a rendszer nem rögzíti a Windows-eseménynaplóban.
+
+
+    Csak a lemezmódosítás naplózása:
+    A következő műveleteket a rendszer nem tiltja le és a futásuk engedélyezett:
+   – A nem megbízható alkalmazások kísérletei a lemezszektorokra való írásra
+    – A nem megbízható alkalmazások kísérletei a védett mappákban lévő fájlok módosítására vagy törlésére
+    A rendszer csak a védett lemezszektorokra való írásra vonatkozó kísérleteket rögzíti a Windows-eseménynaplóban (az Alkalmazás- és szolgáltatásnaplók &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Műveletek &gt; Azonosító: 1124 területen).
+    A rendszer nem rögzíti a védett mappákban lévő fájlok módosítására vagy törlésére vonatkozó kísérleteket.
+
+    Nincs konfigurálva:
+    A letiltott állapottal azonos.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Letiltás (alapértelmezés)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Letiltás</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Naplózási mód</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Csak a lemezmódosítás letiltása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Csak a lemezmódosítás naplózása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Engedélyezett alkalmazások konfigurálása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Felvehet további alkalmazásokat, amelyeket a mappákhoz való hozzáférést szabályozó funkció „megbízhatónak” tekint.
+
+    Ezek az alkalmazások módosíthatják vagy törölhetik a szabályozott hozzáférésű mappákban levő fájlokat.
+
+    A Windows Defender víruskereső automatikusan határozza meg, hogy mely alkalmazások tekinthetők megbízhatónak. E beállítás konfigurálásával további alkalmazásokat vehet fel.
+
+    Engedélyezve:
+    Adjon meg további engedélyezett alkalmazásokat a Beállítások szakaszban.
+
+    Letiltva:
+    A szoftver nem vesz fel további alkalmazásokat a megbízható alkalmazások listájára.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    A mappákhoz való hozzáférés szabályozása a Mappákhoz való hozzáférés szabályozásának konfigurálása csoportházirend-beállításban engedélyezhető.
+
+    A szoftver automatikusan védi az alapértelmezett rendszermappákat, de felvehet további mappákat is a Védett mappák konfigurálása csoportházirend-beállításban.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Védett mappák konfigurálása</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Megadhat további mappákat, amelyeket védeni kíván a Mappákhoz való hozzáférés szabályozása funkcióval.
+
+        A nem megbízható alkalmazások nem módosíthatják és nem törölhetik az ezekben a mappákban levő fájlokat.
+
+        A szoftver automatikusan védi az alapértelmezett rendszermappákat. E beállítás konfigurálásával felvehet további mappákat.
+    A védelem alatt álló alapértelmezett rendszermappák listája a Windows biztonság szolgáltatásban tekinthető meg.
+
+    Engedélyezve:
+    Adjon meg további védendő mappákat a Beállítások szakaszban.
+
+    Letiltva:
+    Nem lesznek további védett mappák.
+
+    Nincs konfigurálva:
+    Ugyanaz, mint a Letiltva beállítás.
+
+    A mappákhoz való hozzáférés szabályozása a Mappákhoz való hozzáférés szabályozásának konfigurálása csoportházirend-beállításban engedélyezhető.
+
+    A Windows Defender víruskereső automatikusan meghatározza, hogy mely alkalmazások tekinthetők megbízhatónak. További megbízható alkalmazásokat az Engedélyezett alkalmazások konfigurálása csoportházirend-beállításban vehet fel.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -852,6 +1094,33 @@ Ha letiltja vagy nem konfigurálja a beállítást, nem jelenik meg kiegészít�
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Adja meg a lejárati értesítések időközét</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Felhő blokkolási szintjének kiválasztása</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Adja meg a felhőben történő bővített ellenőrzés idejét másodpercben</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">A mappavédelmi funkció konfigurálása</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Az ASR-szabályok alóli kivételek:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Az egyes ASR-szabályok állapotának beállítása:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">A megbízhatónak tekintendő alkalmazások megadása:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">A védendő mappák megadása:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

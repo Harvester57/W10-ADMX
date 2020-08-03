@@ -156,23 +156,56 @@ TERMSRV/*.humanresources.fabrikam.com .humanresources.fabrikam.com 内のすべ�
 
 このポリシー設定は、"保存された資格情報の委任を許可する" ポリシー設定と組み合わせて使用できます。こうすることにより、"保存された資格情報の委任を許可する" サーバー一覧でワイルドカード文字を使用した場合に許可される特定のサーバーに対し、例外を定義できます。</string>
       <string id="RestrictedRemoteAdministration">リモート サーバーへの資格情報の委任を制限する</string>
-      <string id="RestrictedRemoteAdministration_Explain">制限付き管理モードで実行中の場合、またはデバイスが Remote Credential Guard を使用している場合、参加アプリはリモート デバイスに資格情報を公開しません (委任方法は問いません)。制限付き管理モードでは、資格情報が委任されないため、目的のコンピューター以外の他のサーバーまたはネットワークに存在するリソースへのアクセスが制限されることがあります。Remote Credential Guard では、すべての要求がリダイレクトによってクライアント デバイスに戻され、リソースへのアクセスは制限されません。
+      <string id="RestrictedRemoteAdministration_Explain">制限付き管理モードまたは Remote Credential Guard モードで実行中の場合、参加アプリは、サインインに使用された資格情報または指定された資格情報をリモート デバイスに公開しません。制限付き管理では、資格情報が委任されないため、リモート ホストから他のサーバーまたはネットワークに存在するリソースへのアクセスが制限されます。Remote Credential Guard では、すべての要求がリダイレクトによってクライアント デバイスに戻されるため、リソースへのアクセスは制限されません。
 
 参加アプリ:
 リモート デスクトップ クライアント
 
-このポリシー設定を有効にした場合、制限付き管理モードまたは Remote Credential Guard が適用され、参加アプリはリモート デバイスに資格情報を委任しません。
+このポリシー設定を有効にした場合、次のオプションがサポートされます:
+ 
+資格情報の委任を制限する: 参加アプリケーションは制限付き管理または Remote Credential Guard を使用してリモート ホストに接続する必要があります。
+ 
+Remote Credential Guard を要求する: 参加アプリケーションは Remote Credential Guard を使用してリモート ホストに接続する必要があります。
+ 
+制限付き管理を要求する: 参加アプリケーションは制限付き管理を使用してリモート ホストに接続する必要があります。
 
-このポリシー設定を無効にするか、構成しなかった場合、制限付き管理モードと Remote Credential Guard は適用されず、参加アプリはリモート デバイスに資格情報を委任できます。
+このポリシー設定を無効にするか、構成しなかった場合、制限付き管理モードと Remote Credential Guard モードは適用されず、参加アプリはリモート デバイスに資格情報を委任できます。
 
 注意: ほとんどの資格情報の委任を無効にするには、管理用テンプレートの設定を変更して、Credential Security Support Provider (CredSSP) での委任を拒否するだけで十分です (この設定は、"コンピューターの構成\管理用テンプレート\システム\資格情報の委任" にあります)。
 
 注意: Windows 8.1 および Windows Server 2012 R2 では、このポリシーを有効にすると、選択しているモードに関係なく制限付き管理モードが適用されます。これらのバージョンでは、Remote Credential Guard はサポートされていません。
 </string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
-      <string id="PreferRemoteCredentialGuard">Remote Credential Guard を優先</string>
+      <string id="PreferRemoteCredentialGuard">資格情報の委任を制限する</string>
       <string id="RequireRemoteCredentialGuard">Remote Credential Guard が必要</string>
       <string id="RequireRestrictedAdmin">制限付き管理が必要</string>
+      <string id="AllowProtectedCreds">リモート ホストでエクスポート不可の資格情報の委任を許可する</string>
+      <string id="AllowProtectedCreds_Explain">リモート ホストでエクスポート不可の資格情報の委任を許可する
+
+資格情報の委任を使用する場合、エクスポート可能なバージョンの資格情報がデバイスからリモート ホストに提供されます。これにより、ユーザーの資格情報はリモート ホスト上の攻撃者によって盗み取られる危険にさらされます。
+
+このポリシー設定を有効にした場合、ホストは制限付き管理モードまたは Remote Credential Guard モードをサポートします。
+
+このポリシー設定を無効にするか、構成しなかった場合、制限付き管理モードと Remote Credential Guard モードはサポートされません。ユーザーは常に資格情報をホストに渡す必要があります。</string>
+      <string id="AllowEncryptionOracle">暗号化オラクルの修復</string>
+      <string id="AllowEncryptionOracle_Explain">暗号化オラクルの修復
+
+このポリシー設定は、CredSSP コンポーネント (例: リモート デスクトップ接続) を使用するアプリケーションに適用されます。
+
+一部のバージョンの CredSSP プロトコルには、クライアントに対する暗号化オラクル攻撃を受けやすい脆弱性があります。このポリシーは、攻撃を受けやすいクライアントおよびサーバーとの互換性を制御します。このポリシーを使用すると、暗号化オラクル攻撃に対する脆弱性について、望ましい保護レベルを設定できます 
+
+このポリシー設定を有効にした場合、サポート対象の CredSSP バージョンは、以下のオプションに基づいて選択されます。
+
+クライアントの強制更新: CredSSP を使用するクライアント アプリケーションは、安全でないバージョンにフォールバックすることができなくなります。CredSSP を使用するサービスは、パッチ未適用のクライアントを拒否します。注: この設定は、すべてのリモート ホストが最新バージョンに対応するまで展開しないでください。
+
+軽減: CredSSP を使用するアプリケーションは、安全でないバージョンにフォールバックすることができなくなります。ただし、CredSSP を使用するサービスは、パッチ未適用のクライアントを拒否しません。パッチ未適用のクライアントが原因で生じるリスクに関する重要な情報については、以下のリンクを参照してください。
+
+脆弱: CredSSP を使用するクライアント アプリケーションが安全でないバージョンにフォールバックできるようになり、リモート サーバーが攻撃に対して無防備な状態になります。CredSSP を使用するサービスは、パッチ未適用のクライアントを拒否しません。
+
+脆弱性と保護のサービス処理要件について詳しくは、https://go.microsoft.com/fwlink/?linkid=866660 を参照してください。</string>
+      <string id="AllowEncryptionOracle_Force">更新済みクライアントの強制</string>
+      <string id="AllowEncryptionOracle_Secure">緩和</string>
+      <string id="AllowEncryptionOracle_Allow">脆弱</string>
     </stringTable>
     
     <presentationTable>
@@ -215,6 +248,12 @@ TERMSRV/*.humanresources.fabrikam.com .humanresources.fabrikam.com 内のすべ�
       <presentation id="RestrictedRemoteAdministration">
         <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">次の制限付きモードを使用する:</dropdownList>
       </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">保護レベル:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

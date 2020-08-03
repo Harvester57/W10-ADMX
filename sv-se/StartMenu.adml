@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Minst Windows Server 2008 R2 eller Windows 7. Stöds inte på Windows 10 eller senare</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 och Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Rensa listan med senast använda program för nya användare</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Om du aktiverar den här principinställningen kommer listan över senast använda program på Start-menyn att vara tom för varje ny användare.
 
@@ -170,6 +171,12 @@ Om du aktiverar den här principinställningen, tas funktionerna Strömbrytare o
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen, är funktionerna Strömbrytare och Stäng av, Starta om, Strömsparläge och Vänteläge tillgängliga på Start-menyn. Strömbrytaren visas också i fönstret Windows-säkerhet.
 
 Obs! Program från tredje part som är certifierade för att vara kompatibla med Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP eller Windows 2000 Professional ska stöda den här principinställningen.</string>
+      <string id="HidePowerOptions">Ta bort och neka åtkomst till kommandona Stäng av, Starta om, Strömsparläge och Viloläge</string>
+      <string id="HidePowerOptions_Help">Den här principinställningen förhindrar användarna från att köra följande kommandon från Windows-säkerhetsskärmen, inloggningsskärmen och Start-menyn: Stäng av, Starta om, Strömsparläge och Viloläge. Den här principinställningen förhindrar inte användarna från att köra Windows-baserade program som utför de här funktionerna.
+
+Om du aktiverar den här principinställningen tas Stäng av, Starta om, Strömsparläge och Viloläge bort från Start-menyn. Strömbrytarknappen tas även bort från Windows-säkerhetsskärmen som visas när du trycker på CTRL+ALT+DELETE och från inloggningsskärmen.
+
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen är Strömbrytarknappen (Av/på) och Stäng av, Starta om, Strömsparläge och Vänteläge tillgängliga på Start-menyn. Strömbrytarknappen visas också på Windows-säkerhetsskärmen och inloggningsskärmen.</string>
       <string id="NoCommonGroups">Ta bort delade programgrupper från Start-menyn</string>
       <string id="NoCommonGroups_Help">Tar bort innehållet i profilen Alla användare från Program-menyn på Start-menyn.
 
@@ -222,12 +229,22 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
 Mer information finns i de här relaterade principinställningarna: Ta bort listan över vanliga program från Start-menyn och Inaktivera anpassade menyer.
 
 Den här principinställningen hindrar inte att användare fäster program på Start-menyn eller Aktivitetsfältet. Mer information finns i principinställningarna Ta bort listan över fasta program från Start-menyn och Tillåt inte att program fästs i Aktivitetsfältet.</string>
+
       <string id="NoMoreProgramsList">Ta bort listan Alla program från Start-menyn</string>
-      <string id="NoMoreProgramsList_Help">Med den här principinställningen kan du ta bort kommandot Alla program från Start-menyn.
+      <string id="NoMoreProgramsList_Help">Om du aktiverar den här inställningen minimeras Start-menyn eller så tas listan Alla appar bort från Start-menyn.
 
-Om den här principinställningen aktiveras tas objektet Alla program bort från den klassiska Start-menyn.  På Start-skärmen visas vyn Alla appar, men den innehåller bara de objekt som är fästa på Start-skärmen.
+Om du väljer "Minimera" visas inte applistan bredvid de fästa panelerna på Start. Knappen Alla appar visas däremot på Start så att du kan öppna listan Alla appar. Detta är samma som att sätta inställningen "Visa applistan på Start-menyn" till Av i Inställningar.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen blir Alla program kvar på den klassiska Start-menyn.</string>
+Om du väljer "Minimera och inaktivera inställningen" är detta samma som att använda alternativet "Minimera" och sätta "Visa applistan på Start-menyn" till Av i Inställningar – användarna kan sätta det till På.
+
+Om du väljer "Ta bort och inaktivera inställningen" tas listan Alla appar bort från Start och "Visa applistan på Start-menyn" sätts till Av i Inställningar – användarna kan sätta det till På. Välj det här alternativet för kompatibilitet med tidigare versioner av Windows.
+
+Om du inaktiverar eller låter bli att konfigurera den här inställningen visas listan Alla appar som standard och användarna kan ändra "Visa applistan på Start-menyn" i Inställningar.</string>
+      <string id="APPLIST_NONE">Inget</string>
+      <string id="APPLIST_COLLAPSE">Minimera</string>
+      <string id="APPLIST_COLLAPSESETTING">Minimera och inaktivera inställningen</string>
+      <string id="APPLIST_REMOVESETTING">Ta bort och inaktivera inställningen</string>    
+
       <string id="NoNetAndDialupConnect">Ta bort Nätverksanslutningar från Start-menyn</string>
       <string id="NoNetAndDialupConnect_Help">Med den här principinställningen kan du ta bort Nätverksanslutningar från Start-menyn.
 
@@ -515,6 +532,18 @@ Om du låter bli att konfigurera den här principinställningen kan användarna 
 Om du aktiverar den här principinställningen visas inte någon länk till mappen Hämtade filer på Start-menyn.
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen är länken Hämtade filer tillgänglig på Start-menyn.</string>
+      <string id="NoStartMenuExplorerPlace">Ta bort länken Utforskaren från listan Platser på Start-menyn</string>
+      <string id="NoStartMenuExplorerPlace_Help">Med den här principinställningen kan du ta bort länken Utforskaren från listan Platser på Start-menyn.
+
+Om du aktiverar principinställningen visas inte Utforskaren i listan Platser på Start-menyn.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen kan Utforskaren visas i listan Platser på Start-menyn.</string>
+      <string id="NoStartMenuSettingsPlace">Ta bort länken Inställningar från listan Platser på Start-menyn</string>
+      <string id="NoStartMenuSettingsPlace_Help">Med den här principinställningen kan du ta bort länken Inställningar från listan Platser på Start-menyn.
+
+Om du aktiverar principinställningen visas inte Inställningar i listan Platser på Start-menyn.
+
+Om du inaktiverar eller låter bli att konfigurera principinställningen kan Inställningar visas i listan Platser på Start-menyn.</string>
       <string id="NoStartMenuRecordedTV">Ta bort länken Inspelad TV från Start-menyn</string>
       <string id="NoStartMenuRecordedTV_Help">Med den här principinställningen kan du ta bort länken Inspelade program från Start-menyn.
 
@@ -572,11 +601,26 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen visas a
       <string id="ForceStartSize_DisplayName">Framtvinga helskärmsläge eller Start-menyläge för Startskärmen</string>
       <string id="ForceStartSize_ExplainText">Om du aktiverar den här principen och väljer Start-meny eller helskärmsläge visas Start i den storlek du har valt, och användare kan inte ändra storlek på Start i Inställningar.
 
-Om du inaktiverar eller inte konfigurerar den här principinställningen väljs storleken automatiskt baserat på den aktuella maskinvaran, och användare kan ändra storlek för Start i Inställningar.</string>
+Om du inaktiverar eller inte konfigurerar den här principinställningen väljs storleken automatiskt baserat på den aktuella maskinvarans formfaktor, och användare kan ändra storlek för Start i Inställningar.</string>
       <string id="ForceLauncherSize_Collapsed">Start-meny</string>
       <string id="ForceLauncherSize_Expanded">Start i helskärmsläge</string>
+      <string id="HidePeopleBar_DisplayName">Ta bort Kontaktfältet från aktivitetsfältet</string>
+      <string id="HidePeopleBar_ExplainText">Med den här principen kan du ta bort Kontaktfältet från aktivitetsfältet och inaktivera funktionen Mina kontakter.
+
+Om du aktiverar principen tas ikonen för kontakter bort från aktivitetsfältet, motsvarande inställning på inställningssidan för aktivitetsfältet tas bort och användarna kommer inte att kunna fästa kontakter i aktivitetsfältet.</string>
+      <string id="HideRecentlyAddedApps">Ta bort listan Nyligen tillagda från Start-menyn</string>
+      <string id="HideRecentlyAddedApps_Help">Med den här principen kan du hindra att listan över nyligen installerade program visas på Start-menyn.
+
+Om du aktiverar principen visas inte listan Nyligen tillagda på Start-menyn. Motsvarande inställning i Inställningar inaktiveras också.</string>
+      <string id="DisableContextMenusInStart">Inaktivera snabbmenyer på Start-menyn</string>
+      <string id="DisableContextMenusInStart_Help">Med den här principen kan du hindra användare från att öppna snabbmenyer på Start-menyn.
+
+Om du aktiverar principen går det inte att öppna snabbmenyer på Start-menyn.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Välj en av följande åtgärder</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Välj en av följande åtgärder</dropdownList>
       </presentation>

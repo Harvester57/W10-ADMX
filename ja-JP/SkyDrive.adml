@@ -6,7 +6,7 @@
     <stringTable>
       <!-- general -->
       <string id="OneDriveSettingCategory">OneDrive</string>
-      
+
       <!-- prevent file sync-->
       <string id="PreventOneDriveFileSync">OneDrive をファイル記憶域として使用できないようにする</string>
       <string id="PreventOneDriveFileSync_help">このポリシー設定を使用すると、アプリや機能で OneDrive 上のファイルを操作できなくなります。
@@ -19,6 +19,16 @@
 * ユーザーは "カメラ ロール" フォルダーの写真やビデオを自動的にアップロードできません。
 
 このポリシー設定を無効にした場合、または構成しなかった場合、アプリや機能で OneDrive ファイル記憶域を使用できます。</string>
+
+      <!-- prevent OneDrive sync client (OneDrive.exe) from generating network traffic (checking for updates, etc.) until the user signs in to OneDrive -->
+      <string id="PreventNetworkTrafficPreUserSignIn">OneDrive にサインインするまで OneDrive のネットワーク トラフィックが生成されないようにします</string>
+      <string id="PreventNetworkTrafficPreUserSignIn_help">この設定を有効にすると、ユーザーが OneDrive にサインインするか、ローカル コンピューターへのファイルの同期を開始するまで、OneDrive 同期クライアント (OneDrive.exe) のネットワーク トラフィック (更新の確認など) は生成されません。
+
+この設定を有効にした場合、同期クライアントを自動的に開始するためには、ユーザーがローカル コンピューターの OneDrive 同期クライアントにサインインするか、ローカル コンピューター上の OneDrive または SharePoint ファイルを同期することを選択する必要があります。
+
+この設定が有効になっていない場合、OneDrive 同期クライアントはユーザーが Windows にサインインしたときに自動的に開始します。
+
+この設定を有効または無効にした場合は、設定を [未構成] に戻さないでください。設定を [未構成] に戻しても構成は変更されず、最後に構成した設定が引き続き有効です。</string>
 
       <!-- prevent file sync for Blue-->
       <string id="PreventOneDriveFileSyncForBlue">Windows 8.1 で OneDrive をファイル記憶域として使用できないようにする</string>

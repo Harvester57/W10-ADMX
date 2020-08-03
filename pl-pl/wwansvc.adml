@@ -38,6 +38,34 @@ Jeśli to połączenie zostanie wyłączone lub nie zostanie skonfigurowane, kos
       <string id="Cost_DropDownList_Unrestricted">Bez ograniczeń</string>
       <string id="Cost_DropDownList_Fixed">Stały</string>
       <string id="Cost_DropDownList_Variable">Zmienny</string>
+      <string id="UISettings_Category">Ustawienia interfejsu użytkownika bezprzewodowej sieci WAN</string>
+      <string id="ShowAppCellularAccessUI">Ustaw widoczność interfejsu użytkownika dostępu do sieci komórkowej dla poszczególnych aplikacji</string>
+      <string id="ShowAppCellularAccessUI_Help">To ustawienie zasad konfiguruje widoczność linku do strony sterowania dostępem do sieci komórkowej dla poszczególnych aplikacji w środowisku użytkownika ustawień sieci komórkowej.
+
+Jeśli to ustawienie zasad będzie włączone, będzie aktywne pole listy rozwijanej zawierającej możliwe wartości. Wybierz wartość Ukryj lub Pokaż, aby ukryć lub wyświetlić link do strony sterowania dostępem do sieci komórkowej dla poszczególnych aplikacji.
+Jeśli to ustawienie zostanie będzie wyłączone lub nie zostanie skonfigurowane, link do strony sterowania dostępem do sieci komórkowej dla poszczególnych aplikacji będzie wyświetlany domyślnie.
+      </string>
+      <string id="ShowAppCellularAccessUI_Option_Hide">Ukryj</string>
+      <string id="ShowAppCellularAccessUI_Option_Show">Pokaż</string>
+      <string id="CellularDataAccess">Dostęp do danych komórkowych</string>
+      <string id="UserInControl">Pod kontrolą użytkownika</string>
+      <string id="ForceAllow">Wymuś zezwalanie</string>
+      <string id="ForceDeny">Wymuś odmowę</string>
+      <string id="LetAppsAccessCellularData_Name">Zezwalaj aplikacjom systemu Windows na dostęp do danych komórkowych</string>
+      <string id="LetAppsAccessCellularData_Explain">To ustawienie zasad określa, czy aplikacje systemu Windows mogą uzyskiwać dostęp do danych komórkowych.
+
+Możesz określić ustawienie domyślne dla wszystkich aplikacji lub skonfigurować je dla każdej aplikacji osobno, podając nazwę rodziny pakietów. Aby uzyskać nazwę rodziny pakietów aplikacji, możesz użyć polecenia cmdlet Get-AppPackage programu Windows PowerShell. Ustawienie na poziomie aplikacji zastępuje ustawienie domyślne.
+
+Wybranie opcji „Pod kontrolą użytkownika” umożliwi pracownikom w organizacji decydowanie, czy aplikacje systemu Windows mogą uzyskiwać dostęp do danych komórkowych (z poziomu ekranu Ustawienia &gt; Sieć — Internet &gt; Dane komórkowe na urządzeniu).
+
+W przypadku wybrania opcji „Wymuś zezwalanie” aplikacje systemu Windows będą mogły uzyskiwać dostęp do danych komórkowych i pracownicy w organizacji nie będą mogli tego zmienić.
+
+W przypadku wybrania opcji „Wymuś odmowę” aplikacje systemu Windows nie będą mogły uzyskiwać dostępu do danych komórkowych i pracownicy w organizacji nie będą mogli tego zmienić.
+
+Jeśli to ustawienie zasad zostanie wyłączone lub nie zostanie skonfigurowane, pracownicy w organizacji będą mogli decydować, czy aplikacje systemu Windows będą mogły uzyskiwać dostęp do danych komórkowych (z poziomu ekranu Ustawienia &gt; Sieć — Internet &gt; Dane komórkowe na urządzeniu).
+
+Jeśli ten obiekt zasad grupy zostanie zastosowany do urządzenia, gdy będzie otwarta aplikacja, pracownicy będą musieli ponownie uruchomić aplikację lub urządzenie w celu zastosowania zmian zasad do aplikacji.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="SetCost3G_Presentation">
@@ -45,6 +73,18 @@ Jeśli to połączenie zostanie wyłączone lub nie zostanie skonfigurowane, kos
       </presentation>
       <presentation id="SetCost4G_Presentation">
         <dropdownList refId="Cost4G_Dropdownlist" defaultItem="0">Wybierz wartość kosztu połączenia 4G, która ma zostać ustawiona:</dropdownList>
+      </presentation>
+      <presentation id="ShowAppCellularAccessUI_Presentation">
+        <dropdownList refId="ShowAppCellularAccessUI_Option" defaultItem="1">Wybierz jedną opcję do ustawienia:</dropdownList>
+      </presentation>
+      <presentation id="LetAppsAccessCellularData">
+        <dropdownList refId="LetAppsAccessCellularData_Enum" noSort="true" defaultItem="0">Domyślne dla wszystkich aplikacji:</dropdownList>
+        <text>Pozwól użytkownikom kontrolować te konkretne aplikacje (użyj nazw rodzin pakietów):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_UserInControlOfTheseApps_List"/>
+        <text>Wymuś zezwalanie tym konkretnym aplikacjom (użyj nazw rodzin pakietów):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceAllowTheseApps_List"/>
+        <text>Wymuś odmowę tym konkretnym aplikacjom (użyj nazw rodzin pakietów):</text>
+        <multiTextBox refId="LetAppsAccessCellularData_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

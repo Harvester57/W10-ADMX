@@ -143,6 +143,7 @@ Hvis du ikke konfigurerer denne policyinnstillingen, er ikke omadressering av kl
       <string id="TS_CLIENT_HELP">Kontrollerer klientinnstillingene for tilkobling til eksternt skrivebord</string>
       <string id="TS_CLIENT_LPT">Ikke tillat omadressering av LPT-port</string>
       <string id="TS_CLIENT_PNP">Ikke tillat støttet omadressering av Plug and Play-enhet</string>
+      <string id="TS_CAMERA_REDIRECTION">Ikke tillat omadressering av videoopptak</string>
       <string id="TS_CLIENT_PRINTER">Ikke tillat omadressering av klientskriver</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Denne policyinnstillingen angir om deling av innholdet på utklippstavlen (omadressering av utklippstavle) skal forhindres eller ikke mellom en ekstern datamaskin og en klientdatamaskin i en Remote Desktop Services-økt.
 
@@ -197,6 +198,15 @@ Hvis du deaktiverer denne policyinnstillingen, kan brukere omadressere sine stø
 Hvis du aktiverer denne policyinnstillingen, kan ikke brukere omadressere sine støttede Plug and Play-enheter til den eksterne datamaskinen. Hvis du ikke konfigurerer denne policyinnstillingen, kan brukere omadressere sine støttede Plug and Play-enheter til den eksterne datamaskinen bare hvis den kjører Windows Server 2012 R2 og tidligere versjoner.
 
 Obs! Du kan deaktivere omadressering av spesifikke typer støttede Plug and Play-enheter ved å bruke policyinnstillingene Datamaskinkonfigurasjon\Administrative maler\System\Enhetsinstallasjon\Begrenset enhetsinstallasjon.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Med denne policyinnstillingen kan du kontrollere omadressering av videoopptaksenheter til den eksterne datamaskinen i en Eksterne skrivebordstjenester-økt. 
+
+Som standard tillater Eksterne skrivebordstjenester omadressering av videoopptaksenheter.
+
+Hvis du aktiverer denne policyinnstillingen, kan ikke brukere omadressere videoopptaksenhetene sine til den eksterne datamaskinen. 
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, kan brukere omadressere videoopptaksenhetene sine til den eksterne datamaskinen. Brukere kan bruke alternativet Mer på fanen Lokale ressurser i Tilkobling til eksternt skrivebord til å velge videoopptaksenhetene de vil omadressere til den eksterne datamaskinen.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Med denne policyinnstillingen kan du begrense antallet skjermer som en bruker kan bruke til å vise en Remote Desktop Services-økt. Begrensning av antallet skjermer for visning av en Remote Desktop Services-økt kan gi raskere tilkobling, spesielt ved langsomme tilkoblinger, og redusere serverbelastningen.
@@ -320,6 +330,7 @@ Obs: Konsolløkten blir også kalt "Økt 0". Du kan få tilgang til konsollen ve
       <string id="TS_GATEWAY_BASIC">Spør etter legitimasjon, bruk protokollen Grunnleggende</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Bruk legitimasjon for lokal pålogging</string>
       <string id="TS_GATEWAY_NTLM">Spør etter legitimasjon, bruk NTLM-protokollen</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Spør etter legitimasjon, bruk protokollen Forhandle</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Angi godkjenningsmetode for ES-gateway</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Spesifiserer godkjenningsmetoden klienter må bruke når de prøver å koble seg til en vertsserver for en ekstern skrivebordsøkt via en ES-gatewayserver. Du kan fremtvinge denne policyinnstillingen eller tillate brukere å overskrive den. Som standard fremtvinges denne policyinnstillingen når du aktiverer den. Når denne policyinnstillingen fremtvinges, kan ikke brukere overstyre innstillingen, selv om de velger alternativet Bruk disse innstillingene for ES-gatewayserver på klienten.
 
@@ -456,12 +467,12 @@ Hvis du aktiverer denne policyinnstillingen, vises ikke Koble fra som et alterna
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, fjernes ikke Koble fra som et alternativ i rullegardinlisten i dialogboksen Avslutt Windows.
 
 Obs: Denne policyinnstillingen påvirker bare dialogboksen Avslutt Windows. Den hindrer ikke brukere fra å bruke andre metoder til å koble seg fra en Remote Desktop Services-økt. Denne policyinnstillingen forhindrer heller ikke frakoblede økter på serveren. Du kan kontrollere hvor lenge en frakoblet økt forblir aktiv på serveren, ved å konfigurere policyinnstillingen Datamaskinkonfigurasjon\Administrative maler\Windows-komponenter\Remote Desktop Services\Vert for ekstern skrivebordsøkt\Tidsbegrensede økter\Angi tidsbegrensning for frakoblede økter.</string>
-      <string id="TS_NoSecurityMenu">Fjern elementet Windows-sikkerhet fra Start-menyen</string>
-      <string id="TS_NoSecurityMenu_Help">Angir om elementet Windows-sikkerhet skal fjernes fra Innstillinger-menyen på Eksternt skrivebord-klienter. Du kan bruke denne innstillingen til å hindre uerfarne brukere fra å logge seg av fra Remote Desktop Services utilsiktet.
+      <string id="TS_NoSecurityMenu">Fjern elementet Windows Sikkerhet fra Start-menyen</string>
+      <string id="TS_NoSecurityMenu_Help">Angir om elementet Windows Sikkerhet skal fjernes fra Innstillinger-menyen på Eksternt skrivebord-klienter. Du kan bruke denne innstillingen til å hindre uerfarne brukere fra å logge seg av fra Eksterne skrivebordstjenester utilsiktet.
 
-Hvis statusen er satt til Aktivert, vises ikke Windows-sikkerhet under Innstillinger på Start-menyen. Resultatet er at brukere må skrive inn en sikkerhetssekvens, for eksempel CTRL+ALT+END, for å åpne dialogboksen Windows-sikkerhet på klientdatamaskinen.
+Hvis statusen er satt til Aktivert, vises ikke Windows Sikkerhet under Innstillinger på Start-menyen. Resultatet er at brukere må skrive inn en sikkerhetssekvens, for eksempel CTRL+ALT+END, for å åpne dialogboksen Windows Sikkerhet på klientdatamaskinen.
 
-Hvis statusen er satt til Deaktivert eller Ikke konfigurert, blir Windows-sikkerhet værende på Innstillinger-menyen.</string>
+Hvis statusen er satt til Deaktivert eller Ikke konfigurert, blir Windows Sikkerhet værende på Innstillinger-menyen.</string>
       <string id="TS_on_the_Local_machine">På den lokale maskinen</string>
       <string id="TS_On_the_Network">På nettverket</string>
       <string id="TS_PASSWORD">Be alltid om passord ved tilkobling</string>
@@ -1008,17 +1019,7 @@ Hvis du deaktiverer denne policyinnstillingen, bruker ikke RemoteApp-programmer 
 
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Konfigurer H.264/AVC-maskinvarekoding for tilkoblinger til eksternt skrivebord</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Denne policyinnstillingen lar deg aktivere H.264/AVC-maskinvarekodestøtte for tilkoblinger til eksternt skrivebord. Hvis du aktiverer maskinvarekoding og det oppstår en feil, vil vi forsøke å bruke programvarekoding. Hvis du deaktiverer eller ikke konfigurerer denne policyen, vil vi alltid bruke programvarekoding.
-        
-Hvis du setter alternativet for koding til "Alltid forsøk", prøver eksternt skrivebord alltid å bruke H.264/AVC-maskinvarekoding når det er tilgjengelig. Vær oppmerksom på at policyen må være angitt på Hyper-V-vertsmaskinen for Windows Server som kjører Hyper-V med RemoteFX vGPU aktivert.
-        
-Hvis du setter alternativet for koding til "Forsøk bare for RemoteFX vGPU-virtuelle maskiner", må du være oppmerksom på at policyen må være angitt på Hyper-V-vertsmaskinen for Windows Server som kjører Hyper-V med RemoteFX vGPU aktivert policyen må settes på vertsmaskinen Hyper-V.
-        
-Hvis du setter alternativet for koding til "Forsøk bare for ikke-RemoteFX vGPU-scenarier", prøver eksternt skrivebord å bruke maskinvarekoding for alle scenarier unntatt RemoteFX vGPU.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Alltid forsøk</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Forsøk bare for RemoteFX vGPU-virtuelle maskiner</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Forsøk bare for scenarier for ikke-RemoteFX vGPU</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Med denne policyinnstillingen kan du aktivere støtte for H.264/AVC-maskinvarekoding for tilkoblinger til eksternt skrivebord. Når du aktiverer maskinvarekoding, prøver vi å bruke programvarekoding hvis det oppstår en feil. Hvis du deaktiverer eller ikke konfigurerer denne policyen, bruker vi alltid programvarekoding.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Prioriter H.264/AVC 444-grafikkmodus for tilkoblinger til eksternt skrivebord</string>
@@ -1169,16 +1170,16 @@ Hvis du aktiverer denne policyinnstillingen, er brukerpålogging blokkert i oppt
 
 Hvis du deaktiverer denne policyinnstillingen eller ikke konfigurerer den, vises startskjermen og apper blir registrert i bakgrunnen.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Bruk standardgrafikkortet i maskinvaren for alle økter med Eksternt skrivebord-tjenester</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Denne policyinnstillingen gjør at systemansvarlige kan endre grafikkgjengivelsen for alle Eksternt skrivebord-økter.
+      <string id="TS_DX_USE_FULL_HWGPU">Bruk standardgrafikkortene i maskinvaren for alle økter med Eksterne skrivebordstjenester</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Denne policyinnstillingen lar systemansvarlige endre grafikkgjengivelse for alle Eksterne skrivebordstjenester-økter.
 
-Hvis du aktiverer denne policyinnstillingen, bruker alle Eksternt skrivebord-økter maskinvarens grafikkgjengivelse i stedet for Microsofts standarddriver for grafikkgjengivelse som standardkort.
+Hvis du aktiverer denne policyinnstillingen, bruker alle Eksterne skrivebordstjenester-økter grafikkgjengivelsen i maskinvaren i stedet for Microsoft Basic Render Driver som standardkort.
 
-Hvis du deaktiverer denne policyinnstillingen, bruker alle Eksternt skrivebord-økter Microsofts standarddriver for grafikkgjengivelse som standardkort.
+Hvis du deaktiverer denne policyinnstillingen, bruker alle Eksterne skrivebordstjenester-økter Microsoft Basic Render Driver som standardkort.
 
-Hvis du ikke konfigurerer denne policyinnstillingen, bruker Eksternt skrivebord-økter på RD Session Host-serveren Microsofts standarddriver for grafikkgjengivelse som standardkort. I alle andre tilfeller bruker Eksternt skrivebord-økter maskinvarens grafikkgjengivelse som standard.
+Hvis du ikke konfigurerer denne policyinnstillingen, bruke Eksterne skrivebordstjenester-økter på vertsserveren RD Microsoft Basic Render Driver som standardkort. I alle andre tilfeller bruker Eksterne skrivebordstjenester-økter grafikk gjengitt i maskinvaren som standard.
 
-Obs! Denne policyinnstillingen påvirker bare grafikkbehandlingsenheten (GPU) som er standard, på en datamaskin hvor mer enn én GPU installert. Alle øvrige GPU-er regnes som sekundære kort, og brukes som gjengivere for maskinvare. GPU-konfigurasjonen for den lokale økten påvirkes ikke av denne policyinnstillingen.
+Obs!  Policyinnstillingen kan fordele belastningen på grafikkprosessorer (GPU) på en datamaskin med flere enn én GPU installert. GPU-konfigurasjonen for lokal økt berøres ikke av denne policyinnstillingen.
 </string>
       
     </stringTable>
@@ -1328,9 +1329,6 @@ Obs! Denne policyinnstillingen påvirker bare grafikkbehandlingsenheten (GPU) so
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-komprimeringsalgoritme:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Foretrekk AVC-maskinvarekoding:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Visuell opplevelse:</dropdownList>

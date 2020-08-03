@@ -155,23 +155,56 @@ TERMSRV/*.humanresources.fabrikam.com - kaikissa kohteessa .humanresources.fabri
 
 Tätä asetusta voidaan käyttää yhdessä Salli tallennettujen tunnistetietojen delegointi -asetuksen kanssa, jos halutaan määrittää poikkeuksiksi tietyt palvelimet, jotka ovat muuten sallittuja, kun Salli tallennettujen tunnistetietojen delegointi -palvelinluettelossa käytetään yleismerkkejä.</string>
       <string id="RestrictedRemoteAdministration">Rajoita tunnistetietojen delegointia etäpalvelimiin</string>
-      <string id="RestrictedRemoteAdministration_Explain">Kun käytetään rajoitettua tilaa, osallistuvat sovellukset eivät paljasta tunnistetietoja etätietokoneille (delegointimenetelmästä huolimatta). Rajoitettu tila saattaa rajoittaa sellaisten resurssien käyttöä, jotka sijaitsevat toisissa palvelimissa tai verkoissa kuin kohdetietokone, koska tunnistetietoja ei delegoida. Remote Credential Guard ei rajoita pääsyä resursseihin ohjaamalla kaikkia pyyntöjä takaisin asiakaslaitteeseen.
+      <string id="RestrictedRemoteAdministration_Explain">Kun käytetään rajoitettua tai Remote Credential Guard -tilaa, osallistuvat sovellukset eivät paljasta sisäänkirjautumisen tai annettuja tunnistetietoja etäisännälle. Rajoitettu tila rajoittaa sellaisten resurssien käyttöä, jotka sijaitsevat toisissa palvelimissa tai verkoissa kuin etäisäntä, koska tunnistetietoja ei delegoida. Remote Credential Guard ei rajoita pääsyä resursseihin, koska se ohjaa kaikki pyynnöt takaisin asiakaslaitteeseen.
 
 Osallistuvat sovellukset:
 etätyöpöytäasiakas
 
-Jos otat tämän käytäntöasetuksen käyttöön, rajoitettu tila tai Remote Credential Guard pakotetaan, eivätkä osallistuvat sovellukset delegoi tunnistetietoja etätietokoneisiin.
+Jos otat tämän käytäntöasetuksen käyttöön, seuraavia asetuksia tuetaan:
+ 
+Rajoita tunnistetietojen delegointia: osallistuvien sovellusten pitää muodostaa yhteys etäisäntiin käyttämällä rajoitettua tai Remote Credential Guard -tilaa.
+ 
+Vaadi Remote Credential Guard: osallistuvien sovellusten pitää muodostaa yhteys etäisäntiin käyttämällä Remote Credential Guard -tilaa.
+ 
+Vaadi Rajoitettu järjestelmänvalvojatila: osallistuvien sovellusten pitää muodostaa yhteys etäisäntiin käyttämällä rajoitettua järjestelmänvalvojatilaa.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, rajoitettua tilaa ja Remote Credential Guardia ei pakoteta, ja osallistuvat sovellukset voivat delegoida tunnistetietoja etätietokoneisiin.
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, rajoitettua tilaa ja Remote Credential Guardia ei pakoteta, ja osallistuvat sovellukset voivat delegoida tunnistetietoja etälaitteisiin.
 
 Huomautus: jos haluat poistaa käytöstä suurimman osan tunnistetietojen delegoinnista, voi olla riittävää estää delegointi Credential Security Support Provider (CredSSP) -tunnisteessa muokkaamalla hallintamalliasetuksia (kohteessa Tietokoneasetukset\Hallintamallit\Järjestelmä\Tunnistetietojen delegointi).
 
 Huomautus: Windows 8.1:ssä ja Windows Server 2012 R2:ssa tämän käytäntöasetuksen ottaminen käyttöön pakottaa rajoitetun tilan valitusta tilasta riippumatta. Nämä versiot eivät tue Remote Credential Guardia.
 </string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
-      <string id="PreferRemoteCredentialGuard">Suosi Remote Credential Guardia</string>
+      <string id="PreferRemoteCredentialGuard">Rajoita tunnistetietojen delegointia</string>
       <string id="RequireRemoteCredentialGuard">Vaadi Remote Credential Guard</string>
       <string id="RequireRestrictedAdmin">Vaadi Rajoitettu järjestelmänvalvojatila</string>
+      <string id="AllowProtectedCreds">Etäisäntä sallii sellaisten tunnistetietojen delegoinnin, joita ei voi viedä</string>
+      <string id="AllowProtectedCreds_Explain">Etäisäntä sallii sellaisten tunnistetietojen delegoinnin, joita ei voi viedä
+
+Tunnistetietojen delegointia käytettäessä laitteet tarjoavat etäisännälle vietävissä olevan version tunnistetiedoista. Tämä altistaa käyttäjät tunkeutujien tekemille tunnistetietojen varkauksille etäisännässä.
+
+Jos tämä käytäntöasetus otetaan käyttöön, isäntä tukee rajoitettua tai Remote Credential Guard -tilaa.
+
+Jos tämä käytäntöasetus poistetaan käytöstä tai sitä ei määritetä, rajoitettua tai Remote Credential Guard -tilaa ei tueta. Käyttäjien pitää aina antaa tunnistetietonsa isännälle.</string>
+      <string id="AllowEncryptionOracle">Salausoraakkelin korjaus</string>
+      <string id="AllowEncryptionOracle_Explain">Salausoraakkelin korjaus
+
+Tämä käytäntöasetus koskee sovelluksia, jotka käyttävät CredSSP-osaa (esimerkiksi Etätyöpöytäyhteys).
+
+Jotkin CredSSP-protokollan versiot ovat alttiita asiakasta vastaan suunnatuille salausoraakkelihyökkäyksille. Tämä käytäntö hallitsee yhteensopivuutta haavoittuvien asiakkaiden ja palvelinten kanssa. Tämän käytännön avulla voit määrittää salausoraakkelihaavoittuvuudelle haluamasi suojaustason.
+
+Jos otat tämän käytäntöasetuksen käyttöön, CredSSP-version tuki valitaan seuraavien vaihtoehtojen perusteella:
+
+Pakota päivitetyt asiakkaat: CredSSP-sovellusta käyttävät asiakassovellukset eivät voi enää palata suojaamattomiin versioihin, ja CredSSP:tä käyttävät palvelut eivät hyväksy korjaamattomia asiakkaita. Huomautus: tätä asetusta ei pidä ottaa käyttöön, ennen kuin kaikki etäisännät tukevat uusinta versiota.
+
+Lievennetty: CredSSP:tä käyttävät asiakassovellukset eivät voi palata suojaamattomaan versioon, mutta CredSSP:tä käyttävät palvelut hyväksyvät korjaamattomat asiakkaat. Alla olevan linkin kautta saat tärkeää tietoa jäljellä olevien korjaamattomien asiakkaiden aiheuttamista riskeistä.
+
+Haavoittuva: CredSSP-ohjelmaa käyttävät asiakassovellukset altistavat etäpalvelimet hyökkäyksille, sillä ne hyväksyvät palaamisen suojaamattomaan versioon ja CredSSP:tä käyttävät palvelut hyväksyvät korjaamattomat asiakkaat.
+
+Lisätietoja haavoittuvuudesta ja suojauksen edellyttämistä ylläpitovaatimuksista on kohdassa https://go.microsoft.com/fwlink/?linkid=866660</string>
+      <string id="AllowEncryptionOracle_Force">Pakota päivitetyt asiakkaat</string>
+      <string id="AllowEncryptionOracle_Secure">Pienennetty</string>
+      <string id="AllowEncryptionOracle_Allow">Haavoittuvainen</string>
     </stringTable>
     
     <presentationTable>
@@ -214,6 +247,12 @@ Huomautus: Windows 8.1:ssä ja Windows Server 2012 R2:ssa tämän käytäntöase
       <presentation id="RestrictedRemoteAdministration">
         <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Käytä seuraavaa rajoitettua tilaa:</dropdownList>
       </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Suojaustaso:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

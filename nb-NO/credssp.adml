@@ -156,23 +156,56 @@ TERMSRV/*.humanresources.fabrikam.com Vert for ekstern skrivebordsøkt kjører p
 
 Denne policyinnstillingen kan brukes sammen med policyinnstillingen "Tillat delegering av lagret legitimasjon" til å definere unntak for bestemte servere som ellers tillates når du bruker jokertegn i serverlisten Tillat delegering av lagret legitimasjon.</string>
       <string id="RestrictedRemoteAdministration">Begrense delegering av legitimasjon til eksterne servere</string>
-      <string id="RestrictedRemoteAdministration_Explain">Når du kjører i modus for begrenset administrasjon, eller hvis enheten bruker ekstern Credential Guard, eksponerer ikke apper som deltar, legitimasjon til eksterne enheter (uavhengig av delegeringsmetoden). Modus for begrenset administrasjon kan begrense tilgangen til ressurser som finnes på andre servere eller nettverk utenfor måldatamaskinen fordi legitimasjonen ikke er delegert. Ekstern Credential Guard begrenser ikke tilgang til ressurser ved å omdirigere alle forespørsler tilbake til klientenheten.
+      <string id="RestrictedRemoteAdministration_Explain">Når du kjører i modus for begrenset administrasjon, eller hvis enheten bruker ekstern Credential Guard-modus, eksponerer ikke apper som deltar, legitimasjon for pålogget eller angitt legitimasjon til en ekstern vert. Begrenset administrasjon begrenser tilgang til ressurser som er plassert på andre servere eller nettverk, fra den eksterne verten fordi legitimasjonen ikke er delegert. Ekstern Credential Guard begrenser ikke tilgang til ressurser fordi den omdirigerer alle forespørsler tilbake til klientenheten.
 
 Deltakende apper:
 Eksternt skrivebord-klient
 
-Hvis du aktiverer denne policyinnstillingen, blir modus for begrenset administrasjon eller ekstern Credential Guard tatt i bruk, og deltakende apper vil ikke delegere legitimasjon til eksterne enheter.
+Hvis du aktiverer denne policyinnstillingen, støttes følgende alternativer:
+ 
+Begrenset legitimasjonsdelegering: Deltakende apper må bruke begrenset administrasjon eller ekstern Credential Guard for å koble til eksterne verter.
+ 
+Krev ekstern Credential Guard: Deltakende apper må bruke ekstern Credential Guard for å koble til eksterne verter.
+ 
+Krev begrenset administrasjon: Deltakende apper må bruke begrenset administrasjon for å koble til eksterne verter.
 
 Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blir ikke modus for begrenset administrasjon og ekstern Credential Guard tatt i bruk, og deltakende apper kan delegere legitimasjon til eksterne enheter.
 
-Obs! Hvis du vil deaktivere de fleste delegeringene av legitimasjon, kan det være tilstrekkelig å hindre delegering i CredSSP (Credential Security Support Provider) ved å endre de midlertidige administrative innstillingene. (Disse finner du under Computer Configuration\Administrative Templates\System\Credentials Delegation).
+Obs!  Hvis du vil deaktivere de fleste delegeringene av legitimasjon, kan det være tilstrekkelig å hindre delegering i CredSSP (Credential Security Support Provider) ved å endre de midlertidige administrative innstillingene. (Disse finner du under Computer Configuration\Administrative Templates\System\Credentials Delegation).
 
-Obs! Hvis du aktiverer denne policyen i Windows 8.1 og Windows Server 2012 R2, blir modus for begrenset administrasjon tatt i bruk, uavhengig av hvilken modus som er valgt. Disse versjonene støtter ikke ekstern Credential Guard.
+Obs!  Hvis du aktiverer denne policyen i Windows 8.1 og Windows Server 2012 R2, blir modus for begrenset administrasjon tatt i bruk, uavhengig av hvilken modus som er valgt. Disse versjonene støtter ikke ekstern Credential Guard.
 </string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
-      <string id="PreferRemoteCredentialGuard">Foretrekk ekstern Credential Guard</string>
+      <string id="PreferRemoteCredentialGuard">Begrens legitimasjonsdelegering</string>
       <string id="RequireRemoteCredentialGuard">Krev ekstern Credential Guard</string>
       <string id="RequireRestrictedAdmin">Krev begrenset administrasjon</string>
+      <string id="AllowProtectedCreds">Ekstern vert tillater delegering av legitimasjoner som ikke kan eksporteres</string>
+      <string id="AllowProtectedCreds_Explain">Ekstern vert tillater delegering av legitimasjon som ikke kan eksporteres
+
+Når du bruker legitimasjonsdelegering, vil enheter gi en eksporterbar versjon av legitimasjonen til den eksterne verten. Dette gjør brukere sårbare for risikoen for legitimasjonstyveri fra angripere på den eksterne verten.
+
+Hvis du aktiverer denne policyinnstillingen, støtter verten modus for begrenset administrasjon eller ekstern Credential Guard-modus.
+
+Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, støttes ikke modus for begrenset administrasjon og ekstern Credential Guard-modus. Brukeren må alltid sende legitimasjonen til verten.</string>
+      <string id="AllowEncryptionOracle">Utbedring av krypteringslekkasjer</string>
+      <string id="AllowEncryptionOracle_Explain">Utbedring av krypteringslekkasjer
+
+Denne policyinnstillingen gjelder for programmer som bruker CredSSP-komponenten (for eksempel Tilkobling til eksternt skrivebord).
+
+Enkelte versjoner av CredSSP-protokollen er sårbare for krypteringslekkasjeangrep mot klienten.  Denne policyen kontrollerer kompatibilitet med sårbare klienter og servere.  Med denne policyen kan du angi ønsket beskyttelsesnivå for sårbarheten for krypteringslekkasjer.
+
+Hvis du aktiverer denne policyinnstillingen, blir CredSSP-versjonsstøtte valgt basert på følgende alternativer:
+
+Fremtving oppdaterte klienter: Klientprogrammer som bruker CredSSP, kan ikke gå tilbake til usikre versjoner, og tjenester som bruker CredSSP, kan ikke godta ikke-oppdaterte klienter. Obs! Denne innstillingen skal ikke distribueres før alle eksterne verter støtter den nyeste versjonen.
+
+Begrenset: Klientprogrammer som bruker CredSSP, kan ikke gå tilbake til usikre versjoner, men tjenester som bruker CredSSP, godtar ikke-oppdaterte klienter. Se koblingen nedenfor for viktig informasjon om risikoen med gjenværende ikke-oppdaterte klienter.
+
+Sårbar: Klientprogrammer som bruker CredSSP, gjør eksterne servere sårbare for angrep ved å støtte usikre versjoner, og tjenester som bruker CredSSP, godtar ikke-oppdaterte klienter.
+
+Hvis du vil ha mer informasjon om sårbarhet og oppdateringskrav for beskyttelse, kan du se https://go.microsoft.com/fwlink/?linkid=866660</string>
+      <string id="AllowEncryptionOracle_Force">Tvinge oppdaterte klienter</string>
+      <string id="AllowEncryptionOracle_Secure">Redusert</string>
+      <string id="AllowEncryptionOracle_Allow">Sårbar</string>
     </stringTable>
     
     <presentationTable>
@@ -215,6 +248,12 @@ Obs! Hvis du aktiverer denne policyen i Windows 8.1 og Windows Server 2012 R2, b
       <presentation id="RestrictedRemoteAdministration">
         <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Bruk følgende begrensede modus:</dropdownList>
       </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Beskyttelsesnivå:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

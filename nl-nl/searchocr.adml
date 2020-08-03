@@ -16,8 +16,14 @@
 
 Als u dit beleid inschakelt en de OCR-taal selecteert, worden bestaande bestanden niet opnieuw geïndexeerd. Deze beleidsinstelling is alleen van toepassing op het indexeren van nieuwe bestanden, tenzij u zelf opdracht geeft bestaande bestanden opnieuw te indexeren.
       </string>
+      <string id="SelectOCRLangsCodePage">OCR-taal selecteren uit een codetabel</string>
+      <string id="ExplainSelectOCRLangsCodePage">Met deze beleidsinstelling kunt u OCR-talen (Optical Character Recognition) selecteren die horen bij een van de ondersteunde codetabellen. Als u deze beleidsinstelling inschakelt, worden de geselecteerde OCR-talen gebruikt bij de OCR-verwerking tijdens het indexeren van TIFF-bestanden. De standaardtaal van het systeem wordt genegeerd, tenzij deze taal ook een geselecteerde OCR-taal is. Als u deze beleidsinstelling uitschakelt of niet configureert, wordt alleen de standaardtaal van het systeem gebruikt.
+
+Alle geselecteerde OCR-talen moeten deel uitmaken van dezelfde codetabel. Als u talen uit verschillende codetabellen selecteert, wordt de selectie van OCR-talen genegeerd en wordt alleen de standaardtaal van het systeem gebruikt.
+
+Als u dit beleid selecteert en OCR-talen selecteert, worden bestaande bestanden niet opnieuw geïndexeerd. Deze beleidsinstelling is alleen van toepassing op het indexeren van nieuwe bestanden, tenzij u zelf opdracht geeft bestaande bestanden opnieuw te indexeren.
+      </string>
       <string id="OCR">OCR</string>
-      <string id="Win7Only">Microsoft Windows 7 of hoger</string>
       <string id="OCREveryPage">Het TIFF-IFilter OCR geforceerd laten uitvoeren voor alle pagina's van een TIFF-document</string>
       <string id="ExplainOCREveryPage">
         
@@ -28,8 +34,12 @@ Als u dit beleid inschakelt en de OCR-taal selecteert, worden bestaande bestande
         Als u deze instelling uitschakelt of niet configureert, optimaliseert het TIFF-IFilter de eigen prestaties door niet-tekstuele inhoud over te slaan tijdens het OCR-proces.
       
       </string>
+      <string id="LangArabic">Arabisch</string>
+      <string id="LangBulgarian">Bulgaars</string>
+      <string id="LangBosnianLatin">Bosnisch (Latijns)</string>
       <string id="LangChineseSimplified">Chinees (Vereenvoudigd)</string>
       <string id="LangChineseTraditional">Chinees (Traditioneel)</string>
+      <string id="LangCroatian">Kroatisch</string>
       <string id="LangCzech">Tsjechisch</string>
       <string id="LangDanish">Deens</string>
       <string id="LangDutch">Nederlands</string>
@@ -50,6 +60,7 @@ Als u dit beleid inschakelt en de OCR-taal selecteert, worden bestaande bestande
       <string id="LangSerbianCyrillic">Servisch (Cyrillisch)</string>
       <string id="LangSerbianLatin">Servisch (Latijn)</string>
       <string id="LangSlovak">Slowaaks</string>
+      <string id="LangSlovenian">Sloveens</string>
       <string id="LangSpanish">Spaans</string>
       <string id="LangSwedish">Zweeds</string>
       <string id="LangTurkish">Turks</string>
@@ -57,6 +68,67 @@ Als u dit beleid inschakelt en de OCR-taal selecteert, worden bestaande bestande
     <presentationTable>
       <presentation id="SelectOCRLangs">
         <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Kies een van de volgende OCR-talen:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>Codetabel voor Baltische talen (1257)</text>
+          <checkBox refId="Estonian" defaultChecked="false">Estisch</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">Lets</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">Litouws</checkBox>
+        <text/>
+        <text>Codetabel voor Midden-Europese talen (1250, Latin-2)</text>
+          <checkBox refId="Albanian" defaultChecked="false">Albanees</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">Kroatisch</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">Tsjechisch</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">Hongaars</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">Pools</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">Roemeens</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">Servisch (Latijns)</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">Slowaaks</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">Sloveens</checkBox>
+        <text/>
+        <text>Codetabel voor Cyrillisch (1251)</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">Bulgaars</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">Belarussisch</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">Macedonisch</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">Russisch</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">Servisch</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">Oekraïens</checkBox>
+        <text/>
+        <text>Codetabel voor West-Europese talen (1252, Latin 1)</text>
+          <checkBox refId="Catalan" defaultChecked="false">Catalaans</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">Deens</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">Nederlands</checkBox> 
+          <checkBox refId="English" defaultChecked="false">Engels</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">Faeröers</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">Fins</checkBox> 
+          <checkBox refId="French" defaultChecked="false">Frans</checkBox> 
+          <checkBox refId="German" defaultChecked="false">Duits</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">IJslands</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">Indonesisch</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">Italiaans</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">Maleis</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">Noors</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">Portugees</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">Spaans</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">Zweeds</checkBox>
+        <text/>
+        <text>Codetabel voor Grieks (1253)</text>
+          <checkBox refId="Greek" defaultChecked="false">Grieks</checkBox>
+        <text/>
+        <text>Codetabel voor Turks (1254)</text>
+          <checkBox refId="Turkish" defaultChecked="false">Turks</checkBox>
+        <text/>
+        <text>Codetabel voor Chinees (vereenvoudigd) (936, GB2312)</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">Chinees (Vereenvoudigd)</checkBox>
+        <text/>
+        <text>Codetabel voor Chinees (traditioneel) (950, Big5)</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">Chinees (Traditioneel)</checkBox>
+        <text/>
+        <text>Codetabel voor Japans (932, Shift-JIS)</text>
+          <checkBox refId="Japanese" defaultChecked="false">Japans</checkBox>
+        <text/>
+        <text>Codetabel voor Koreaans (949)</text>
+          <checkBox refId="Korean" defaultChecked="false">Koreaans</checkBox>
       </presentation>
     </presentationTable>
   </resources>

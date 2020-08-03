@@ -143,6 +143,7 @@ Si no establece esta configuración de directiva, la redirección de unidades cl
       <string id="TS_CLIENT_HELP">Controla la configuración del cliente de conexión a Escritorio remoto</string>
       <string id="TS_CLIENT_LPT">No permitir redirección de puertos LPT</string>
       <string id="TS_CLIENT_PNP">No permitir redirección de dispositivo Plug and Play compatible</string>
+      <string id="TS_CAMERA_REDIRECTION">No permitir el redireccionamiento de la captura de vídeo</string>
       <string id="TS_CLIENT_PRINTER">No permitir la redirección de impresoras de cliente</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Esta configuración de directiva especifica si impedir el uso compartido del contenido del Portapapeles (redirección del Portapapeles) entre un equipo remoto y un equipo cliente durante una sesión de Servicios de Escritorio remoto.
 
@@ -197,6 +198,15 @@ Si deshabilitas esta configuración de directiva, los usuarios podrán redirecci
 Si habilitas esta configuración de directiva, los usuarios no podrán redireccionar sus dispositivos Plug and Play compatibles al equipo remoto. Si no estableces esta configuración de directiva, los usuarios podrán redireccionar sus dispositivos Plug and Play compatibles al equipo remoto únicamente si este ejecuta Windows Server 2012 R2 o una versión anterior.
 
 Nota: Se puede deshabilitar el redireccionamiento de tipos específicos de dispositivos Plug and Play compatibles mediante la configuración de directiva Configuración del equipo\Plantillas administrativas\Sistema\Instalación de dispositivos\Restricciones de instalación de dispositivo.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Esta configuración de directiva permite controlar el redireccionamiento de dispositivos de captura de vídeo al equipo remoto en una sesión de Servicios de Escritorio remoto. 
+
+De manera predeterminada, Servicios de Escritorio remoto admite el redireccionamiento de dispositivos de captura de vídeo.
+
+Si habilitas esta configuración de directiva, los usuarios no podrán redirigir sus dispositivos de captura de vídeo al equipo remoto. 
+
+Si deshabilitas esta configuración de directiva o no la configuras, los usuarios podrán redirigir sus dispositivos de captura de vídeo al equipo remoto. Los usuarios pueden usar la opción Más de la pestaña Recursos locales de Conexión a Escritorio remoto para elegir los dispositivos de captura de vídeo que se redirigirán al equipo remoto.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Esta configuración de directiva le permite limitar el número máximo de monitores que un usuario puede usar para mostrar una sesión de Servicios de Escritorio remoto. La limitación del número de monitores para mostrar una sesión de Servicios de Escritorio remoto puede mejorar el rendimiento de la conexión, en particular con vínculos lentos, y reducir la carga del servidor.
@@ -320,12 +330,13 @@ Nota: la sesión de la consola se conoce también como Sesión 0. Se puede obten
       <string id="TS_GATEWAY_BASIC">Pedir credenciales, usar el protocolo Básico</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Usar credenciales de inicio de sesión local</string>
       <string id="TS_GATEWAY_NTLM">Pedir credenciales, usar el protocolo NTLM</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Pedir credenciales, usar el protocolo Negotiate</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Establecer el método de autenticación de la puerta de enlace de Escritorio remoto</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Especifica el método de autenticación que los clientes deben usar cuando intenten conectarse a un servidor host de sesión de Escritorio remoto a través de un servidor de puerta de enlace de Escritorio remoto. Puede aplicar esta configuración de directiva o permitir que los usuarios la sobrescriban. De forma predeterminada, cuando se habilita esta configuración de directiva, se aplica. Cuando se aplica esta configuración de directiva, los usuarios no la pueden invalidar, incluso si seleccionan la opción "Usar esta configuración de servidor de Puerta de enlace de Escritorio remoto" en el cliente.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Especifica el método de autenticación que los clientes deben usar cuando intenten conectarse a un servidor host de sesión de Escritorio remoto a través de un servidor de puerta de enlace de Escritorio remoto. Puedes aplicar esta configuración de directiva o permitir que los usuarios la sobrescriban. De forma predeterminada, cuando se habilita esta configuración de directiva, se aplica. Cuando se aplica esta configuración de directiva, los usuarios no la pueden invalidar, incluso si seleccionan la opción "Usar esta configuración de servidor de puerta de enlace de Escritorio remoto" en el cliente.
 
-Para permitir a los usuarios que sobrescriban esta configuración de directiva, seleccione la casilla "Permitir que los usuarios cambien esta configuración". Si lo hace, los usuarios podrán especificar un método de autenticación alternativo estableciendo la configuración en el cliente o usando un archivo RDP o un script HTML. Si los usuarios no especifican un método de autenticación alternativo, se usará de forma predeterminada el que usted especifique en esta configuración de directiva.
+Para permitir que los usuarios sobrescriban esta configuración de directiva, selecciona la casilla "Permitir que los usuarios cambien esta configuración". Si lo haces, los usuarios podrán especificar un método de autenticación alternativo estableciendo la configuración en el cliente o usando un archivo RDP o un script HTML. Si los usuarios no especifican un método de autenticación alternativo, se usará de forma predeterminada el que especifiques en esta configuración de directiva.
 
-Si deshabilita o no establece esta configuración de directiva, se usará el método de autenticación especificado por el usuario, en el caso de que se especifique uno. Si no se especifica un método de autenticación, se puede usar el protocolo NTLM habilitado en el cliente o una tarjeta inteligente para la autenticación.</string>
+Si deshabilitas o no estableces esta configuración de directiva, se usará el método de autenticación especificado por el usuario, en el caso de que se especifique uno. Si no se especifica un método de autenticación, se puede usar el protocolo Negotiate habilitado en el cliente o una tarjeta inteligente para la autenticación.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Habilitar conexión a través de puerta de enlace de Escritorio remoto</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Si habilita esta configuración de directiva, cuando Conexión a Escritorio remoto no pueda conectar directamente con un equipo remoto (un servidor host de sesión de Escritorio remoto o un equipo con Escritorio remoto habilitado), los clientes intentarán conectarse al equipo remoto a través de un servidor de puerta de enlace de Escritorio remoto. En este caso, los clientes intentarán conectarse al servidor de puerta de enlace de Escritorio remoto que se especifica en la configuración de directiva "Establecer la dirección del servidor de puerta de enlace de Escritorio remoto".
 
@@ -1008,17 +1019,7 @@ Si deshabilita esta configuración de directiva, los programas RemoteApp que se 
 
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Configurar codificación de hardware H.264/AVC para las Conexiones a Escritorio remoto</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Esta configuración de directiva te permite habilitar la compatibilidad con la codificación de hardware H.264/AVC para las conexiones a Escritorio remoto. Al habilitar la codificación de hardware, si se produce un error, intentaremos usar la codificación de software. Si deshabilitas o no configuras esta directiva, siempre usaremos la codificación de software.
-        
-Si estableces la opción de codificación en "Intentar siempre", el Escritorio remoto siempre intentará usar la codificación de hardware H.264/AVC cuando esté disponible. Sin embargo, ten en cuenta que, en el caso de Windows Server que ejecuta Hyper-V con vGPU de RemoteFX habilitado, la directiva debe establecerse en el PC host de Hyper-V.
-        
-Si estableces la opción de codificación en "Intentar solo para las máquinas virtuales de vGPU de RemoteFX", ten en cuenta que, en el caso de Windows Server que ejecuta Hyper-V con vGPU de RemoteFX habilitado, la directiva debe establecerse en el PC host de Hyper-V.
-        
-Si estableces la opción de codificación en "Intentar solo para escenarios de vGPU que no son de RemoteFX", el Escritorio remoto intenta usar la codificación de hardware para todos los escenarios excepto vGPU de RemoteFX.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Intentar siempre</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Intentar solo para las máquinas virtuales de vGPU de RemoteFX</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Intentar solo para los escenarios de vGPU que no son de RemoteFX</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Esta configuración de directiva te permite habilitar la compatibilidad con la codificación de hardware H.264/AVC para las conexiones a Escritorio remoto. Al habilitar la codificación de hardware, si se produce un error, intentaremos usar la codificación de software. Si deshabilitas o no configuras esta directiva, siempre usaremos la codificación de software.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Establecer prioridades en el modo gráfico H.264/AVC 444 para las conexiones a Escritorio remoto</string>
@@ -1169,16 +1170,16 @@ Si habilita esta configuración de directiva, se bloqueará el inicio de sesión
 
 Si deshabilita o no establece esta configuración de directiva, aparecerá la pantalla Inicio y las aplicaciones se registrarán en segundo plano.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Usar la tarjeta de gráficos predeterminada del hardware para todas las sesiones de Servicios de Escritorio remoto.</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Esta configuración de directiva permite a los administradores del sistema cambiar el procesamiento de gráficos para todas las sesiones de Servicios de Escritorio remoto.
+      <string id="TS_DX_USE_FULL_HWGPU">Usar tarjetas gráficas de hardware para todas las sesiones de Servicios de Escritorio remoto</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Esta configuración de directiva permite a los administradores del sistema cambiar la representación de los gráficos para todas las sesiones de Servicios de Escritorio remoto.
 
-Si habilitas esta configuración de directiva, todas las sesiones de Servicios de Escritorio remoto usarán el procesador gráfico de hardware en lugar del controlador de representación básica de Microsoft como adaptador predeterminado.
+Si habilitas esta configuración de directiva, todas las sesiones de Servicios de Escritorio remoto usarán la tarjeta gráfica de hardware, en lugar del controlador de representación básica de Microsoft como adaptador predeterminado.
 
-Si deshabilitas o no estableces esta configuración de directiva, todas las sesiones de Servicios de Escritorio remoto usarán el controlador de representación básica de Microsoft como adaptador predeterminado.
+Si deshabilitas esta opción de directiva, todas las sesiones de Servicios de Escritorio remoto usarán el controlador de representación básica de Microsoft como adaptador predeterminado.
 
-Si no estableces esta configuración de directiva, las sesiones de Servicios de Escritorio remoto en el servidor de host de sesión de Escritorio remoto usarán el controlador de representación básica de Microsoft como adaptador predeterminado. En todos los demás casos, las sesiones de Servicios de Escritorio remoto usarán el procesador gráfico de hardware de forma predeterminada.
+Si no configuras esta opción de directiva, las sesiones de Servicios de Escritorio remoto del servidor de host de sesión de Escritorio remoto usarán el controlador de representación básica de Microsoft como adaptador predeterminado. En todos los demás casos, las sesiones de Servicios de Escritorio remoto usarán la tarjeta gráfica de hardware de forma predeterminada.
 
-NOTA: Esta configuración de directiva afecta solo a la unidad de procesamiento de gráficos (GPU) predeterminada en un equipo que tiene más de una GPU instalada. Todas las GPU adicionales se consideran adaptadores secundarios y se usan como representadores de hardware. Esta configuración de directiva no afecta a la configuración de la GPU de la sesión local.
+NOTA: La configuración de directiva habilita el equilibrio de carga de las unidades de procesamiento de gráficos (GPU) en un equipo que tenga más de una GPU instalada. Esta configuración de directiva no afecta a la configuración de la GPU de la sesión local.
 </string>
       
     </stringTable>
@@ -1328,9 +1329,6 @@ NOTA: Esta configuración de directiva afecta solo a la unidad de procesamiento 
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">Algoritmo de compresión RDP:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Preferir codificación de hardware AVC:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Experiencia visual:</dropdownList>

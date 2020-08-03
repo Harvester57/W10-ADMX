@@ -5,7 +5,7 @@
   <description>typ hier een beschrijving</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">Minimaal Windows 10 of Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">Minimaal Windows 10 of Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Minimaal Windows 8 of Windows RT</string>
       <string id="TS_SUPPORTED_Windows8_Server">Minimaal Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Minimaal Windows 8 Enterprise of Windows Server 2012</string>
@@ -143,6 +143,7 @@ Als u deze beleidsinstelling niet configureert, is omleiding van clientstations 
       <string id="TS_CLIENT_HELP">Hiermee beheert u de instellingen van de client voor Verbinding met extern bureaublad.</string>
       <string id="TS_CLIENT_LPT">Omleiding naar LPT-poort verbieden</string>
       <string id="TS_CLIENT_PNP">Omleiding naar ondersteunde Plug-and-Play-apparaten niet toestaan</string>
+      <string id="TS_CAMERA_REDIRECTION">Omleiden van video-opname niet toestaan</string>
       <string id="TS_CLIENT_PRINTER">Omleiden van clientprinter niet toestaan</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Deze beleidsinstelling bepaalt of het delen van de klembordinhoud (klembordomleiding) tussen een externe computer en een clientcomputer al dan niet moet worden verhinderd tijdens een sessie met Extern bureaublad-services.
 
@@ -164,9 +165,9 @@ Als u deze beleidsinstelling inschakelt, is de opgegeven kleurdiepte de maximale
 Als u deze beleidsinstelling uitschakelt of niet configureert, is de kleurdiepte van de verbinding niet gedefinieerd in Groepsbeleid.
 
 Opmerking:
-1.	Een kleurdiepte van 24 bits wordt alleen ondersteund op Windows Server 2003 en Windows XP Professional.
-2.	De waarde opgegeven in deze beleidsinstelling wordt niet toegepast op verbindingen van clientcomputers met minimaal Extern bureaublad Protocol 8.0 (computers met minimaal Windows 8 of Windows Server 2012). De kleurdiepte van 32 bits wordt altijd gebruikt voor deze verbindingen.
-3.	Voor verbindingen van clientcomputers met Extern bureaublad Protocol 7.1 of eerdere versies die verbinding maken met computers met minimaal Windows 8 of Windows Server 2016 Technical Preview 3, worden minimaal de volgende waarden voor kleurdiepte gebruikt:
+1. Een kleurdiepte van 24 bits wordt alleen ondersteund op Windows Server 2003 en Windows XP Professional.
+2. De waarde opgegeven in deze beleidsinstelling wordt niet toegepast op verbindingen van clientcomputers met minimaal Extern bureaublad Protocol 8.0 (computers met minimaal Windows 8 of Windows Server 2012). De kleurdiepte van 32 bits wordt altijd gebruikt voor deze verbindingen.
+3. Voor verbindingen van clientcomputers met Extern bureaublad Protocol 7.1 of eerdere versies die verbinding maken met computers met minimaal Windows 8 of Windows Server 2012, wordt de laagste van de volgende waarden gebruikt als kleurdiepte:
 a.	Waarde die is opgegeven bij deze beleidsinstelling
 b.	Maximale kleurdiepte die op de client wordt ondersteund
 c.	Waarde die de client heeft aangevraagd
@@ -197,6 +198,15 @@ Als u deze beleidsinstelling uitschakelt, kunnen gebruikers ondersteunde Plug-an
 Als u deze beleidsinstelling inschakelt, kunnen gebruikers geen ondersteunde Plug-and-Play-apparaten omleiden naar de externe computer. Als u deze beleidsinstelling niet configureert, kunnen gebruikers ondersteunde Plug-and-Play-apparaten alleen omleiden naar de externe computer als hierop Windows Server 2012 R2 en eerdere versies worden uitgevoerd.
 
 Opmerking: u kunt het omleiden van specifieke typen ondersteunde Plug-and-Play-apparaten ook uitschakelen via de beleidsinstellingen Computerconfiguratie\Beheersjablonen\Systeem\Installatie van apparatuur\Beperkingen voor installatie van apparatuur.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Met deze beleidsinstelling beheert u de omleiding van video-opnameapparaten naar een externe computer tijdens een sessie met Extern bureaublad-services. 
+
+Standaard is omleiding van video-opnameapparaten in Extern bureaublad-services toegestaan.
+
+Als u deze beleidsinstelling inschakelt, kunnen gebruikers hun video-opnameapparaten niet omleiden naar de externe computer.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen gebruikers hun video-opnameapparaten omleiden naar de externe computer. Met de optie Meer op het tabblad Lokale bronnen van Verbinding met extern bureaublad kunnen gebruikers selecteren welke video-opnameapparaten worden omgeleid naar de externe computer.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Met deze beleidsinstelling kunt u het aantal beeldschermen beperken dat een gebruiker kan gebruiken voor het weergeven van een sessie met Extern bureaublad-services. Het beperken van het aantal beeldschermen kan de prestaties van een verbinding verbeteren (vooral als er sprake is van langzame verbindingen) en de belasting van de server verminderen.
@@ -320,12 +330,13 @@ Opmerking: de consolesessie wordt ook wel sessie 0 genoemd. Toegang tot de conso
       <string id="TS_GATEWAY_BASIC">Vragen om referenties, basisprotocol gebruiken</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Lokaal aangemelde referenties gebruiken</string>
       <string id="TS_GATEWAY_NTLM">Vragen om referenties, NTLM-protocol gebruiken</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Vragen om referenties, Negotiate-protocol gebruiken</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Verificatiemethode van extern-bureaubladgateway instellen</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Hiermee bepaalt u welke verificatiemethode moet worden gebruikt door clients die proberen via een extern-bureaubladgateway verbinding te maken met een hostserver voor extern-bureaubladsessies. U kunt deze beleidsinstelling afdwingen of u kunt gebruikers toestaan deze beleidsinstelling te overschrijven. Als u deze beleidsinstelling inschakelt, wordt deze standaard afgedwongen. Als deze beleidsinstelling wordt afgedwongen, kunnen gebruikers deze niet negeren, zelfs niet wanneer ze de optie Deze instellingen voor de Extern bureaublad-gatewayserver gebruiken op de client selecteren.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Hiermee bepaalt u welke authenticatiemethode moet worden gebruikt door clients die proberen via een extern-bureaubladgateway verbinding te maken met een hostserver voor extern-bureaubladsessies. U kunt deze beleidsinstelling afdwingen of u kunt gebruikers toestaan deze beleidsinstelling te overschrijven. Als u deze beleidsinstelling inschakelt, wordt deze standaard afgedwongen. Als deze beleidsinstelling wordt afgedwongen, kunnen gebruikers deze niet negeren, zelfs niet wanneer ze de optie Deze instellingen voor de Extern bureaublad-gatewayserver gebruiken op de client selecteren.
 
-Als u gebruikers wilt toestaan om deze beleidsinstelling te overschrijven, schakelt u het desbetreffende selectievakje in. In dat geval kunnen gebruikers een alternatieve verificatiemethode opgeven door instellingen op de client te configureren met behulp van een RDP-bestand, of door een HTML-script te gebruiken. Als gebruikers geen alternatieve verificatiemethode opgeven, wordt standaard de verificatiemethode gebruikt die u in deze beleidsinstelling opgeeft.
+Als u gebruikers wilt toestaan om deze beleidsinstelling te overschrijven, schakelt u het desbetreffende selectievakje in. In dat geval kunnen gebruikers een alternatieve authenticatiemethode opgeven door instellingen op de client te configureren met behulp van een RDP-bestand, of door een HTML-script te gebruiken. Als gebruikers geen alternatieve authenticatiemethode opgeven, wordt standaard de authenticatiemethode gebruikt die u in deze beleidsinstelling opgeeft.
 
-Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de verificatiemethode gebruikt die door de gebruiker is opgegeven. Als er geen verificatiemethode is opgegeven, kan voor verificatie gebruik worden gemaakt van het NTLM-protocol dat op de client is ingeschakeld of van een smartcard.</string>
+Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de authenticatiemethode gebruikt die door de gebruiker is opgegeven. Als er geen authenticatiemethode is opgegeven, kan voor authenticatie gebruik worden gemaakt van het NTLM-protocol dat op de client is ingeschakeld of van een smartcard.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Verbinding via extern-bureaubladgateway inschakelen</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Als u deze beleidsinstelling inschakelt, en Verbinding met extern bureaublad niet rechtstreeks verbinding kan maken met een externe computer (een hostserver voor extern-bureaubladsessies of een computer waarop Extern bureaublad is ingeschakeld), proberen de clients verbinding te maken met de externe computer via een extern-bureaubladgatewayserver. In dit geval proberen de clients een verbinding te maken met de extern-bureaubladgatewayserver die is opgegeven in de beleidsinstelling 'Adres van extern-bureaubladgatewayserver instellen'.
 
@@ -559,17 +570,17 @@ Opmerkingen:
       <string id="TS_SD_Loc">RD Connection Broker-servernaam configureren</string>
       <string id="TS_SD_Loc_Explain">U kunt met deze beleidsinstelling de RD Connection Broker-server opgeven die door de hostserver voor Extern bureaublad-sessies wordt gebruikt voor het traceren en omleiden van gebruikerssessies voor een farm met gelijke taakverdeling voor hostservers voor Extern bureaublad-sessies. Op de opgegeven server moet de service Extern bureaublad Connection Broker worden uitgevoerd. Alle hostservers voor Extern bureaublad-sessies in een farm met gelijke taakverdeling moeten dezelfde RD Connection Broker-server gebruiken.
 
-Als u deze beleidsinstelling inschakelt, moet u de server voor RD Connection Broker-server opgeven met de FQDN (Fully Qualified Domain Name) van de desbetreffende server. In Windows Server 2016 Technical Preview 3 moet u een door puntkomma's gescheiden lijst met FQDN's van alle RD Connection Broker-servers maken voor een setup met hoge beschikbaarheid en meerdere RD Connection Broker-servers.
+Als u deze beleidsinstelling inschakelt, moet u de server voor RD Connection Broker-server opgeven met de FQDN (Fully Qualified Domain Name) van de desbetreffende server. In Windows Server 2012 moet u een door puntkomma's gescheiden lijst met FQDN's van alle RD Connection Broker-servers maken voor een setup met hoge beschikbaarheid en meerdere RD Connection Broker-servers.
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, is de beleidsinstelling niet opgegeven op groepsbeleidsniveau.
 
 Opmerkingen:
 
-     1. Voor Windows Server 2008 wordt deze beleidsinstelling minimaal ondersteund voor Windows Server 2008 Standard.
+ 1. Voor Windows Server 2008 wordt deze beleidsinstelling minimaal ondersteund voor Windows Server 2008 Standard.
 
-     2. Deze beleidsinstelling is niet effectief, tenzij de beleidsinstelling Deelnemen aan RD Connection Broker is ingeschakeld.
+ 2. Deze beleidsinstelling is niet effectief, tenzij de beleidsinstelling Deelnemen aan RD Connection Broker is ingeschakeld.
 
-     3. Voor een actief lidmaatschap van een farm met hostservers voor Extern bureaublad-sessies moeten de computeraccounts voor de afzonderlijke hostservers in de farm lid zijn van één van de volgende groepen op de RD Connection Broker-server: Session Directory Computers, Session Broker Computers of RDS Endpoint Servers.
+ 3. Voor een actief lidmaatschap van een farm met hostservers voor Extern bureaublad-sessies moeten de computeraccounts voor de afzonderlijke hostservers van RD Session Host in de farm lid zijn van een van de volgende lokale groepen op de HD Connection Broker-server: Sessiemapcomputers, Session Broker-computers of RDS-eindpuntservers.
 
 </string>
       <string id="TS_SD_Node">RD Connection Broker</string>
@@ -1006,17 +1017,7 @@ Als u deze beleidsinstelling uitschakelt, maken RemoteApp-programma's die vanuit
 
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Configureer H.264/AVC-hardwarecodering voor verbindingen met Extern bureaublad</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Met deze beleidsinstelling kunt u ondersteuning voor H.264/AVC-hardwarecodering inschakelen voor verbindingen met Extern bureaublad. Wanneer u hardwarecodering inschakelt en er treedt een fout op, wordt geprobeerd softwarecodering te gebruiken. Als u dit beleid uitschakelt of niet configureert, wordt altijd softwarecodering gebruikt.
-        
-Als u de coderingsoptie instelt op Altijd proberen, wordt door Extern bureaublad altijd geprobeerd de H.264/AVC-hardwarecodering te gebruiken en moet u er rekening mee houden dat voor Windows Server waarop Hyper-V wordt uitgevoerd met RemoteFX vGPU ingeschakeld, het beleid moet zijn ingesteld op de Hyper-V-hostmachine.
-        
-Als u de coderingsoptie instelt op Alleen proberen voor RemoteFX vGPU virtuele machines, moet u er rekening mee houden dat voor Windows Server waarop Hyper-V wordt uitgevoerd met RemoteFX vGPU ingeschakeld, het beleid moet zijn ingesteld op de Hyper-V-hostmachine.
-        
-Als u de coderingsoptie instelt op Alleen proberen voor niet-RemoteFX vGPU-scenario's, wordt door Extern bureaublad geprobeerd hardwarecodering te gebruiken voor alle scenario's met uitzondering van RemoteFX vGPU.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Altijd proberen</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Alleen proberen voor RemoteFX vGPU virtuele machines</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Alleen proberen voor niet-RemoteFX vGPU-scenario's</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Met deze beleidsinstelling kunt u ondersteuning voor H.264/AVC-hardwarecodering inschakelen voor verbindingen met Extern bureaublad. Wanneer u hardwarecodering inschakelt en er treedt een fout op, wordt geprobeerd softwarecodering te gebruiken. Als u dit beleid uitschakelt of niet configureert, wordt altijd softwarecodering gebruikt.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Prioriteit van H.264/AVC 444 grafische modus voor verbindingen met Extern bureaublad</string>
@@ -1167,6 +1168,18 @@ Als u deze beleidsinstelling inschakelt, wordt de aanmelding van gebruikers gebl
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, wordt het startscherm weergegeven en worden apps geregistreerd op de achtergrond.</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">Grafische adapters van de hardware gebruiken voor alle sessies van Extern bureaublad-services</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Deze beleidsinstelling stelt systeembeheerders in staat om de grafische rendering voor alle sessies van Extern bureaublad-services te wijzigen.
+
+Als u deze beleidsinstelling inschakelt, wordt voor alle sessies van Extern bureaublad-services als standaardadapter de grafische renderer van de hardware gebruikt in plaats van het Microsoft Basic Render-stuurprogramma.
+
+Als u deze beleidsinstelling uitschakelt, wordt voor alle sessies van Extern bureaublad-services het Microsoft Basic Render-stuurprogramma als standaardadapter gebruikt.
+
+Als u deze beleidsinstelling niet configureert, wordt voor alle sessies van Extern bureaublad-services op de RD Session Host-server het Microsoft Basic Render-stuurprogramma als standaardadapter gebruikt. In alle andere gevallen maken de sessies van Extern bureaublad-services standaard gebruik van de grafische renderer van de hardware.
+
+OPMERKING: de beleidsinstelling schakelt taakverdeling voor GPU's (graphics processing units) in op een computer met meer dan een GPU. De GPU-configuratie van de lokale sessie wordt niet beïnvloed door deze beleidsinstelling.
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">
@@ -1314,9 +1327,6 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, wordt het startsc
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-compressiealgoritme:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Voorkeur voor AVC-hardwarecodering:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Visuele ervaring:</dropdownList>

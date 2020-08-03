@@ -69,15 +69,17 @@ Se desativar ou não configurar esta definição de política, a Pesquisa utiliz
       <string id="SafeSearch">Configurar a definição Pesquisa Segura para a Pesquisa</string>
       <string id="ExplainSafeSearch">Esta definição de política permite controlar a definição Pesquisa Segura utilizada ao efetuar uma consulta na Pesquisa. 
 
-Se ativar esta definição de política, poderá especificar uma de três definições de Pesquisa Segura, que os utilizadores não poderão alterar:
+Se ativar esta definição de política, poderá especificar uma de três definições de Pesquisa Segura que os utilizadores não poderão alterar:
 
-    - Estrita: filtrar texto, imagens e vídeos para adultos nos resultados da pesquisa;
+    -Estrita: filtrar texto, imagens e vídeos para adultos nos resultados da pesquisa;
 
-    - Moderada: filtrar imagens e vídeos para adultos mas não texto nos resultados da pesquisa;
+    -Moderada: filtrar imagens e vídeos para adultos, mas não texto, nos resultados da pesquisa;
 
-    - Desativada: não filtrar conteúdo para adultos nos resultados da pesquisa.
+    -Desativada: não filtrar conteúdo para adultos nos resultados da pesquisa.
 
-Se desativar ou não configurar esta definição de política, os utilizadores poderão especificar a definição Pesquisa Segura.</string>
+Se desativar ou não configurar esta definição de política, os utilizadores podem especificar a definição Pesquisa Segura.
+
+Os utilizadores do Windows 10 devem utilizar Search/DoNotUseWebResults.</string>
       <string id="SharePrivacyAllAndLocation">Informações e localização do utilizador</string>
       <string id="SharePrivacyAll">Apenas informações do utilizador</string>
       <string id="SharePrivacyAnonymous">Informações anónimas</string>
@@ -268,15 +270,30 @@ Se pretender especificar uma lista predefinida inicial de tipos de ficheiros exc
 
 Se desativar ou não configurar esta definição de política, os utilizadores obterão sugestões de pesquisa baseadas nas pesquisas anteriores no painel de pesquisa.</string>
       <string id="AllowCortana">Permitir Cortana</string>
-      <string id="ExplainAllowCortana">Esta definição de política especifica se a Cortana é permitida no dispositivo.
+      <string id="ExplainAllowCortana">Esta definição de política especifica se a Cortana é permitida no dispositivo. 
  
-Se ativar ou não configurar esta definição, a Cortana será permitida no dispositivo. Se desativar esta definição, a Cortana será desligada.
+Se ativar ou não configurar esta definição, a Cortana será permitida no dispositivo. Se desativar esta definição, a Cortana será desligada. 
  
-Com a Cortana desligada, os utilizadores ainda serão capazes de utilizar a funcionalidade de Procurar para localizar coisas no dispositivo e na Internet.</string>
+Com a Cortana desligada, os utilizadores continuam a poder utilizar a funcionalidade de pesquisa para localizar conteúdos no dispositivo.</string>
+      <string id="AllowCortanaAboveLock">Permitir Cortana acima do ecrã de bloqueio</string>
+      <string id="ExplainAllowCortanaAboveLock">Esta definição de política determina se o utilizador pode ou não interagir com a Cortana ao utilizar a voz enquanto o sistema está bloqueado.
+
+Se ativar ou não configurar esta definição, o utilizador poderá interagir com a Cortana ao utilizar a voz enquanto o sistema está bloqueado.
+
+Se desativar esta definição, o sistema tem de estar desbloqueado para que o utilizador possa interagir com a Cortana ao utilizar a voz.</string>
       <string id="AllowSearchToUseLocation">Permitir que a pesquisa e a Cortana utilizem a localização</string>
       <string id="ExplainAllowSearchToUseLocation">Esta definição de política especifica se a pesquisa e a Cortana podem fornecer resultados com deteção de localização.
  
 Se ativada, a pesquisa e a Cortana terão acesso às informações de localização.</string>
+      <string id="AllowCloudSearch">Permitir Pesquisa na Cloud</string>
+      <string id="AllowCortanaInAADPathOOBE">Permitir Página da Cortana em OOBE com uma conta AAD</string>
+      <string id="ExplainAllowCloudSearch">Permitir a pesquisa e que a Cortana pesquise origens na cloud como OneDrive e SharePoint</string>
+      <string id="ExplainCortanaAAD">Permitir a página de opção ativa de participação da cortana durante a configuração inicial do windows</string>
+      <string id="AllowCloudSearchDisabled">Desativar Pesquisa na Cloud</string>
+      <string id="AllowCortanainAADDisabled">Desativar Página da Cortana em AAD</string>
+      <string id="AllowCortanainAADEnabled">Ativar Página da Cortana em AAD</string>
+      <string id="AllowCloudSearchEnabled">Ativar Pesquisa na Cloud</string>
+      <string id="AllowCloudSearchControlledByUser">Utilizador Selecionado</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ Se ativada, a pesquisa e a Cortana terão acesso às informações de localizaç
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Predefinição de Pesquisa Segura</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Definição de Pesquisa na Cloud</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Definição da Cortana em AAD</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

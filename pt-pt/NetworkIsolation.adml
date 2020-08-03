@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">Servidores proxy de Internet para as aplicações</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  Esta definição não se aplica a aplicações de ambiente de trabalho.
 	
@@ -20,7 +19,8 @@ Se desativar ou não configurar esta definição de política, as aplicações u
 
 Exemplo: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
+Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">Servidores proxy de intranet para as aplicações</string>
@@ -36,10 +36,12 @@ Esta definição NÃO deve ser utilizada para configurar proxies de Internet.
 
 Exemplo: [3efe:3022::1000]; 18.0.0.1; 18.0.0.2
 
-Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
-	<!--Define subnet addresses-->	
+Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">Intervalos de rede privada para as aplicações</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">Esta definição não se aplica a aplicações de ambiente de trabalho.
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> Esta definição não se aplica a aplicações de ambiente de trabalho.
 				
 Uma lista separada por vírgula de intervalos de endereços IP existentes na rede empresarial.
 
@@ -53,12 +55,12 @@ Se desativar ou não configurar esta definição de política, o Isolamento de R
 
 Exemplo: 3efe:1092::/96,18.1.1.1/10 
 
-Para mais informações, consulte http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-				
+Para mais informações, consulte http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">As definições de proxy são autoritativas</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">Esta definição não se aplica a aplicações de ambiente de trabalho.
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> Esta definição não se aplica a aplicações de ambiente de trabalho.
 				
 Desativa a deteção automática de proxy do Isolamento de Rede Windows no ambiente empresarial do domínio.
 
@@ -66,11 +68,12 @@ Se ativar esta definição de política, desativa a deteção automática de pro
 
 Se desativar ou não configurar esta definição de política, o Isolamento de Rede Windows tenta detetar automaticamente os endereços de servidor proxy.  
 
-Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-		<!--Subnet definitions are authoritative-->	
+Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">As definições de sub-rede são autoritativas</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">Esta definição não se aplica a aplicações de ambiente de trabalho.
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> Esta definição não se aplica a aplicações de ambiente de trabalho.
 				
 Desativa a deteção automática do Isolamento de Rede Windows dos anfitriões de rede privada no ambiente empresarial do domínio.
 
@@ -78,10 +81,35 @@ Se ativar esta definição de política, desativa a deteção automática do Iso
 
 Se desativar ou não configurar esta definição de política, o Isolamento de Rede Windows tenta detetar automaticamente os anfitriões de rede privada no ambiente empresarial do domínio. 
 				
-Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-	
-	
-     </stringTable>
+Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">Domínios de recursos empresariais alojados na cloud</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> Esta definição não se aplica a aplicações de ambiente de trabalho.
+
+Uma lista de recursos em cloud de domínio separada por pipes. Opcionalmente, cada recurso em cloud também pode estar emparelhado com um servidor proxy interno utilizando uma vírgula final seguida pelo endereço de proxy.
+
+Contém uma lista de domínios de recursos empresariais alojados na cloud. As ligações a estes recursos são consideradas ligações a redes empresariais.
+
+Se um proxy for emparelhado com um recurso em cloud, o tráfego para o recurso em cloud vai ser encaminhado através da rede empresarial, pelo servidor proxy indicado (na Porta 80). Um servidor proxy utilizado para este efeito também deve ser configurado utilizando os servidores proxy de Intranet para a política de aplicações.
+
+Exemplo: [cloudresource]|[cloudresource]|[cloudresource],[proxy]|[cloudresource]|[cloudresource],[proxy]
+
+Para obter mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">Domínios categorizados como pessoais e de trabalho</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> Esta definição não se aplica a aplicações de ambiente de trabalho.
+
+Uma lista de nomes de domínio separados por vírgulas que pode ser utilizada como recurso pessoal ou de trabalho.
+
+Para obter mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@ Para mais informações, consulte: http://go.microsoft.com/fwlink/p/?LinkId=2340
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>Sub-redes privadas  </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>Recursos empresariais em cloud </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>Recursos neutros </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

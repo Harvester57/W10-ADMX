@@ -67,17 +67,19 @@ Si habilita esta configuración de directiva, Search no usará la ubicación act
 
 Si deshabilita o no establece esta configuración de directiva, Search usará la ubicación actual del usuario al ofrecer resultados de búsqueda.</string>
       <string id="SafeSearch">Establecer la configuración de Búsqueda segura en Search</string>
-      <string id="ExplainSafeSearch">Esta configuración de directiva permite controlar la configuración de Búsqueda segura que se usa al realizar una consulta en Search. 
+      <string id="ExplainSafeSearch">Esta configuración de directiva permite controlar la configuración de Búsqueda segura utilizada cuando se realiza una consulta en Buscar. 
 
-Si habilita esta configuración de directiva, puede especificar una de tres posibles configuraciones de Búsqueda segura, que los usuarios no podrán cambiar:
+Si habilitas esta configuración de directiva, puedes especificar una de las tres opciones de configuración de Búsqueda segura, que los usuarios no podrán cambiar:
 
-    -Estricta: filtre para no mostrar texto, imágenes y vídeos para adultos en los resultados de la búsqueda.
+-Estricto: filtra el texto, las imágenes y los vídeos para adultos de los resultados de la búsqueda;
 
-    -Moderado: filtre para no mostrar imágenes y vídeos para adultos en los resultados de la búsqueda, pero sí texto.
+-Moderado: filtra las imágenes y vídeos para adultos, pero no el texto de los resultados de la búsqueda;
 
-    -Desactivado: no filtre para no mostrar contenido adulto en los resultados de la búsqueda.
+-Desactivado: no filtra el contenido para adultos de los resultados de la búsqueda.
 
-Si deshabilita o no establece esta configuración de directiva, los usuarios pueden especificar la configuración de Búsqueda segura.</string>
+Si deshabilitas o no configuras esta opción de configuración de directiva, los usuarios pueden especificar la opción de configuración de Búsqueda segura.
+
+Los usuarios de Windows 10 deben usar Search/DoNotUseWebResults</string>
       <string id="SharePrivacyAllAndLocation">Información y ubicación del usuario</string>
       <string id="SharePrivacyAll">Solo información del usuario</string>
       <string id="SharePrivacyAnonymous">Información anónima</string>
@@ -283,6 +285,15 @@ Si deshabilitas esta configuración, el sistema deberá estar desbloqueado para 
       <string id="ExplainAllowSearchToUseLocation">Esta configuración de directiva especifica si las búsquedas y Cortana pueden proporcionar resultados con reconocimiento de la ubicación.
  
 Si habilitas esta opción, las búsquedas y Cortana podrán acceder a la información de ubicación.</string>
+      <string id="AllowCloudSearch">Permitir búsqueda en la nube</string>
+      <string id="AllowCortanaInAADPathOOBE">Permitir la página de Cortana en OOBE en una cuenta de AAD</string>
+      <string id="ExplainAllowCloudSearch">Permitir que la búsqueda y Cortana realicen búsquedas en orígenes de la nube, como OneDrive y SharePoint</string>
+      <string id="ExplainCortanaAAD">Permitir la página de participación de Cortana durante la configuración rápida de Windows</string>
+      <string id="AllowCloudSearchDisabled">Deshabilitar la búsqueda en la nube</string>
+      <string id="AllowCortanainAADDisabled">Deshabilitar la página de Cortana en AAD</string>
+      <string id="AllowCortanainAADEnabled">Habilitar la página de Cortana en AAD</string>
+      <string id="AllowCloudSearchEnabled">Habilitar la búsqueda en la nube</string>
+      <string id="AllowCloudSearchControlledByUser">Seleccionado por el usuario</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -365,6 +376,12 @@ Si habilitas esta opción, las búsquedas y Cortana podrán acceder a la informa
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Configuración de búsqueda segura predeterminada</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Configuración de búsqueda en la nube</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Cortana en la configuración de AAD</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

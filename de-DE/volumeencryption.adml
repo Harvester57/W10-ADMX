@@ -45,17 +45,15 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, zei
 
 Hinweis: Beim Start kann nur eine der zusätzlichen Authentifizierungsoptionen erforderlich sein, da andernfalls ein Richtlinienfehler auftritt.
 
-Falls Sie BitLocker auf einem Computer ohne TPM verwenden möchten, aktivieren Sie das Kontrollkästchen "BitLocker ohne kompatibles TPM zulassen". In diesem Modus ist für den Start entweder ein Kennwort oder ein USB-Laufwerk erforderlich. Bei Verwendung eines Systemstartschlüssels werden die Schlüsselinformationen, die zum Verschlüsseln des Laufwerks verwendet werden, in Form eines USB-Schlüssels auf dem USB-Laufwerk gespeichert. Wenn der USB-Schlüssel verfügbar gemacht wird, wird der Zugriff auf das Laufwerk authentifiziert, und es kann auf das Laufwerk zugegriffen werden. Wenn der USB-Schlüssel verloren geht, nicht verfügbar ist oder Sie das Kennwort vergessen haben, verwenden Sie eine der BitLocker-Wiederherstellungsoptionen, um auf das Laufwerk zuzugreifen.
+Falls Sie BitLocker auf einem Computer ohne TPM verwenden möchten, aktivieren Sie das Kontrollkästchen "BitLocker ohne kompatibles TPM zulassen". In diesem Modus ist für den Start entweder ein Kennwort oder ein USB-Laufwerk erforderlich. Bei Verwendung eines Systemstartschlüssels werden die Schlüsselinformationen, die zum Verschlüsseln des Laufwerks verwendet werden, auf dem USB-Laufwerk gespeichert, wodurch ein USB-Stick entsteht. Wenn der USB-Stick eingesteckt wird, wird der Zugriff auf das Laufwerk authentifiziert, und es kann auf das Laufwerk zugegriffen werden. Wenn der USB-Stick verloren geht, nicht verfügbar ist oder Sie das Kennwort vergessen haben, verwenden Sie eine der BitLocker-Wiederherstellungsoptionen, um auf das Laufwerk zuzugreifen.
 
-Auf einem Computer mit einem kompatiblen TPM können beim Start vier Authentifizierungsmethoden verwendet werden, um zusätzlichen Schutz für verschlüsselte Daten bereitzustellen. Beim Start des Computers kann entweder nur das TPM für die Authentifizierung erforderlich sein, oder es muss zusätzlich ein USB-Flashlaufwerk mit einem Systemstartschlüssel angeschlossen und eine 4- bis 20-stellige persönliche Identifikationsnummer (PIN) eingegeben werden, oder beide Optionen können erforderlich sein.
+Auf einem Computer mit einem kompatiblen TPM können beim Start vier Authentifizierungsmethoden verwendet werden, um zusätzlichen Schutz für verschlüsselte Daten zu bieten. Beim Start des Computers kann entweder nur das TPM für die Authentifizierung verwendet werden, oder es muss zusätzlich ein USB-Speicherstick mit einem Systemstartschlüssel eingesteckt werden und/oder eine 6- bis 20-stellige PIN (Personal Identification Number) eingegeben werden.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, können Benutzer erweiterte Startoptionen im BitLocker-Setup-Assistenten konfigurieren.
+Wenn Sie die Richtlinieneinstellung aktivieren, können Benutzer erweiterte Startoptionen im BitLocker-Setup-Assistenten konfigurieren.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer auf Computern mit einem TPM nur grundlegende Optionen konfigurieren.
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer auf Computern mit einem TPM nur grundlegende Optionen konfigurieren.
 
-Hinweis: Wenn Sie die Verwendung einer Systemstart-PIN und eines USB-Flashlaufwerks erzwingen möchten, müssen Sie die BitLocker-Einstellungen mithilfe des Befehlszeilentools "manage-bde" und nicht über den Setup-Assistenten der BitLocker-Laufwerkverschlüsselung konfigurieren.
-
-
+Hinweis: Wenn Sie die Verwendung einer Systemstart-PIN und eines USB-Speichersticks erzwingen möchten, müssen Sie die BitLocker-Einstellungen mithilfe des Befehlszeilentools "manage-bde" und nicht über den Setup-Assistenten der BitLocker-Laufwerkverschlüsselung konfigurieren.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Netzwerkentsperrung beim Start zulassen</string>
@@ -291,12 +289,17 @@ Warnung: Wenn Sie ein anderes Profil als das Standard-Plattformvalidierungsprofi
 
 Wichtig: Diese Gruppenrichtlinie gilt nur für Computer mit systemeigener UEFI-Firmwarekonfiguration. Computer mit BIOS- oder UEFI-Firmware, für die ein Kompatibilitätsdienstmodul (Compatibility Service Module, CSM) aktiviert ist, speichern unterschiedliche Werte in den Plattformkonfigurationsregistern (Platform Configuration Register, PCR). Verwenden Sie die Gruppenrichtlinieneinstellung "TPM-Plattformvalidierungsprofil für BIOS-basierte Firmwarekonfigurationen konfigurieren", um das TPM PCR-Profil für Computer mit BIOS-Konfigurationen oder für Computer mit UEFI-Firmware und aktiviertem CSM zu konfigurieren.
 
-Wenn Sie diese Richtlinieneinstellung vor der Aktivierung von BitLocker aktivieren, können Sie die Startkomponenten konfigurieren, die das TPM überprüft, bevor der Zugriff auf das BitLocker-verschlüsselte Betriebssystemlaufwerk entsperrt wird. Ändert sich eine dieser Komponenten, während der BitLocker-Schutz aktiviert ist, gibt das TPM den Verschlüsselungsschlüssel nicht zum Entsperren des Laufwerks frei. Stattdessen wird die BitLocker-Wiederherstellungskonsole angezeigt und es muss entweder das Wiederherstellungskennwort oder der Wiederherstellungsschlüssel angegeben werden, um das Laufwerk freizugeben.
+Wenn Sie diese Richtlinieneinstellung aktivieren, bevor Sie BitLocker einschalten, können Sie die Startkomponenten konfigurieren, die das TPM überprüft, bevor der Zugriff auf das BitLocker-verschlüsselte Betriebssystemlaufwerk entsperrt wird. Ändert sich eine dieser Komponenten, während der BitLocker-Schutz aktiviert ist, gibt das TPM den Verschlüsselungsschlüssel nicht zum Entsperren des Laufwerks frei. Stattdessen wird die BitLocker-Wiederherstellungskonsole angezeigt und es muss entweder das Wiederherstellungskennwort oder der Wiederherstellungsschlüssel angegeben werden, um das Laufwerk zu entsperren.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verwendet BitLocker das Standard-Plattformvalidierungsprofil oder das Plattformvalidierungsprofil, das im Setupskript angegeben wurde. Ein Plattformvalidierungsprofil besteht aus einer Reihe von Plattformkonfigurationsregister-Indizes (Platform Configuration Register, PCR) in einem Bereich von 0 bis 23. Das Standard-Plattformvalidierungsprofil schützt den Verschlüsselungsschlüssel vor Änderungen am ausführbaren Code der Kernsystemfirmware (PCR 0), am erweiterten oder austauschbaren ausführbaren Code (PCR 2), am Start-Manager (PCR 4) und an der BitLocker-Zugriffssteuerung (PCR 11).
+Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verwendet BitLocker das Standard-Plattformvalidierungsprofil für die verfügbare Hardware oder das Plattformvalidierungsprofil, das im Setupskript angegeben wurde. Ein Plattformvalidierungsprofil besteht aus einer Gruppe von Plattformkonfigurationsregister-Indizes (Platform Configuration Register, PCR) im Bereich von 0 bis 23. 
 
-Warnung: Wenn Sie ein anderes Profil als das Standard-Plattformvalidierungsprofil verwenden, wirkt sich dies auf die Sicherheit und Verwaltbarkeit des Computers aus. Die Empfindlichkeit von BitLocker gegenüber Plattformmodifikationen (böswillig oder autorisiert) nimmt zu oder ab. Dies hängt davon an, ob PCRs eingefügt oder ausgeschlossen werden. Genauer gesagt: Wenn Sie diese Richtlinie ohne PCR 7 festlegen, wird die Gruppenrichtlinie "Sicheren Start für Integritätsüberprüfung zulassen" außer Kraft gesetzt. Dadurch wird verhindert, dass BitLocker den sicheren Start für die Integritätsüberprüfung der Plattform oder der Startkonfigurationsdaten (Boot Configuration Data, BCD) verwendet. Wenn diese Richtlinie festgelegt ist, wird beim Firmwareupdate u. U. eine BitLocker-Wiederherstellung durchgeführt. Wenn Sie diese Richtlinie so festlegen, dass PCR 0 einbezogen wird, sollten Sie BitLocker vor dem Installieren von Firmwareupdates anhalten.
-      
+Auf PCs ohne Unterstützung für den sicheren Startzustand (PCR 7) schützt das Standard-Plattformvalidierungsprofil den Verschlüsselungsschlüssel vor Änderungen am ausführbaren Code der Kernsystemfirmware (PCR 0), am erweiterten oder austauschbaren ausführbaren Code (PCR 2), am Start-Manager (PCR 4) und an der BitLocker-Zugriffssteuerung (PCR 11).
+
+Wenn Unterstützung für den sicheren Startzustand (PCR7) verfügbar ist, schützt das Standard-Plattformvalidierungsprofil den Verschlüsselungsschlüssel mithilfe des sicheren Startzustands (PCR 7) und der BitLocker-Zugriffssteuerung (PCR 11). 
+
+Warnung: Wenn Sie ein anderes Profil als das Standard-Plattformvalidierungsprofil verwenden, wirkt sich dies auf die Sicherheit und Verwaltbarkeit des Computers aus. Die Empfindlichkeit von BitLocker gegenüber Plattformmodifikationen (böswillig oder autorisiert) nimmt zu bzw. ab. Dies hängt jeweils davon an, ob PCRs eingefügt bzw. ausgeschlossen werden. Genauer gesagt: Wenn Sie diese Richtlinie ohne PCR 7 festlegen, wird die Gruppenrichtlinie "Sicheren Start für Integritätsüberprüfung zulassen" außer Kraft gesetzt. Dadurch wird verhindert, dass BitLocker den sicheren Start für die Integritätsüberprüfung der Plattform oder der Startkonfigurationsdaten (Boot Configuration Data, BCD) verwendet. Wenn diese Richtlinie festgelegt ist, wird beim Firmwareupdate u.U. eine BitLocker-Wiederherstellung durchgeführt. Wenn Sie diese Richtlinie so festlegen, dass PCR 0 einbezogen wird, sollten Sie BitLocker vor dem Installieren von Firmwareupdates anhalten.
+
+Es wird empfohlen, diese Richtlinie nicht zu konfigurieren, damit Windows das PCR-Profil ausgehend von der auf den einzelnen PCs verfügbaren Hardware auswählt, um eine optimale Sicherheit und Benutzerfreundlichkeit zu erreichen.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">TPM-Plattformvalidierungsprofil für systemeigene UEFI-Firmwarekonfigurationen konfigurieren</string>
@@ -311,6 +314,13 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wer
 
       </string>
       <string id="MorBehavior_Name">Überschreiben des Arbeitsspeichers beim Neustart verhindern</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Mit dieser Richtlinieneinstellung können Sie den direkten Speicherzugriff (Direct Memory Access, DMA) für alle Hot-Plug-PCI-Downstream-Anschlüsse blockieren, bis sich ein Benutzer bei Windows anmeldet. Sobald sich ein Benutzer anmeldet, werden die mit den Hot-Plug-PCI-Anschlüssen verbundenen PCI-Geräte von Windows aufgezählt. Jedes Mal, wenn der Benutzer den Computer sperrt, wird DMA an Hot-Plug-PCI-Anschlüssen ohne untergeordnete Geräte blockiert, bis sich der Benutzer erneut anmeldet. Geräte, die vor dem Entsperren des Computers bereits aufgezählt wurden, sind weiterhin funktionsfähig, bis sie entfernt werden oder das System neu gestartet oder in den Ruhezustand versetzt wird. Die Richtlinieneinstellung wird nur erzwungen, wenn BitLocker oder die Geräteverschlüsselung aktiviert ist.
+
+Hinweis: Einige PCs sind möglicherweise nicht mit dieser Richtlinie kompatibel, wenn die Systemfirmware DMA für neu angeschlossene Thunderbolt-Geräte aktiviert, bevor die neuen Geräte für Windows verfügbar gemacht werden.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Neue DMA-Geräte deaktivieren, wenn dieser Computer gesperrt wird</string>
 
       <string id="FVEOSCategory">Betriebssystemlaufwerke</string>
       <string id="FVEFDVCategory">Festplattenlaufwerke</string>
@@ -373,13 +383,14 @@ Die Einstellung zum Steuern des Startdebuggers (0x16000010) wird immer überprü
 
 
       <string id="MinimumPINLength_Name">Minimale PIN-Länge für Systemstart konfigurieren</string>
-      <string id="MinimumPINLength_Help">Mit dieser Richtlinieneinstellung können Sie eine Mindestlänge für eine TPM-Systemstart-PIN (Trusted Platform Module) konfigurieren. Diese Richtlinieneinstellung wird bei Aktivierung von BitLocker angewendet. Die Systemstart-PIN muss mindestens 4 und darf höchstens 20 Ziffern aufweisen.
+      <string id="MinimumPINLength_Help">
+          Mit dieser Richtlinieneinstellung können Sie eine Mindestlänge für eine TPM-Start-PIN (Trusted Platform Module) konfigurieren. Diese Richtlinieneinstellung wird bei Aktivierung von BitLocker angewendet. Die Start-PIN muss mindestens 4 und darf höchstens 20 Ziffern aufweisen.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, können Sie eine Mindestanzahl von Ziffern für das Festlegen der Systemstart-PIN angeben.
+          Wenn Sie die Richtlinieneinstellung aktivieren, können Sie eine Mindestanzahl von Ziffern für das Festlegen der Start-PIN vorgeben.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer eine Systemstart-PIN mit einer beliebigen Länge von 4 bis 20 Ziffern konfigurieren.
+          Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Benutzer eine Start-PIN mit einer beliebigen Länge von 6 bis 20 Ziffern konfigurieren.
 
-      
+          HINWEIS: Wenn die Mindestlänge der PIN unter 6 Ziffern festgelegt ist und eine PIN geändert wird, versucht Windows, die TPM 2.0-Sperrperiode auf einen Wert über dem Standardwert zu aktualisieren. Falls erfolgreich, setzt Windows die TPM-Sperrperiode nur auf den Standardwert zurück, wenn das TPM zurückgesetzt wird.
 
       </string>
 
@@ -689,6 +700,14 @@ Hinweis: Wenn Sie diese Richtlinieneinstellung nicht aktivieren, sind die Option
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">InstantGo- oder HSTI-kompatible Geräte benötigen keine PIN vor dem Start</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Bei dieser Richtlinieneinstellung benötigen Benutzer auf Geräten, die mit InstantGo oder Microsoft HSTI (Hardware Security Test Interface) kompatibel sind, für die Authentifizierung vor dem Start keine PIN. Hierdurch werden die Option "Start-PIN bei TPM erforderlich" und "Systemstartschlüssel und PIN bei TPM erforderlich" der Richtlinie "Zusätzliche Authentifizierung beim Start anfordern" auf kompatibler Hardware außer Kraft gesetzt.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, haben Benutzer InstantGo- und HSTI-kompatibler Geräte die Möglichkeit, BitLocker ohne Authentifizierung vor dem Start zu aktivieren.
+
+Wenn die Richtlinie nicht aktiviert ist, gelten die Optionen der Richtlinie "Zusätzliche Authentifizierung beim Start anfordern".
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Sicheren Start für Integritätsüberprüfung zulassen</string>
       <string id="AllowSecureBootForIntegrity_Help">Mit dieser Richtlinieneinstellung können Sie konfigurieren, ob der sichere Start als Plattformintegritätsanbieter für BitLocker-Betriebssystemlaufwerke zulässig sein soll.
 
@@ -966,7 +985,7 @@ Hinweis: Nicht alle Zeichen und Sprachen werden im Pre-Boot-Modus unterstützt. 
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Mindestanzahl von Zeichen:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Mindestanzahl von Zeichen:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

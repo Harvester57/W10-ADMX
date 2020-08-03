@@ -16,8 +16,14 @@
 
 このポリシー設定を有効にして OCR 言語を選択した場合、インデックス再作成は開始されません。このポリシー設定が適用されるのは、新しいファイルのインデックスを作成するときだけです (インデックス再作成を手動で開始した場合は適用されます)。
       </string>
+      <string id="SelectOCRLangsCodePage">コード ページから OCR 言語を選んでください</string>
+      <string id="ExplainSelectOCRLangsCodePage">このポリシー設定では、サポートされているコード ページの 1 つに属している OCR (光学式文字認識) 言語の選択を許可します。このポリシー設定を有効にした場合、選択した OCR 言語が TIFF ファイルのインデックス作成中の OCR 処理に使用されます。選択した OCR 言語のなかにない限り、既定のシステム言語は無視されます。このポリシー設定を無効にした場合、または構成しない場合、既定のシステム言語のみが使用されます。
+
+選択された OCR 言語はすべて同じコード ページに属している必要があります。複数のコード ページから言語を選択した場合、選択したすべての OCR 言語が無視され、既定のシステム言語のみが使用されます。
+
+このポリシー設定を有効にして OCR 言語を選択するとインデックスの再作成は開始されません。インデックスの再作成を手動で開始しない限り、このポリシー設定は新しいファイルのインデックス作成にのみ適用されます。
+      </string>
       <string id="OCR">OCR</string>
-      <string id="Win7Only">Microsoft Windows 7 以降</string>
       <string id="OCREveryPage">TIFF IFilter が TIFF ドキュメントのすべてのページを OCR 処理するように強制する</string>
       <string id="ExplainOCREveryPage">
         
@@ -28,8 +34,12 @@
         この設定を無効にするか、または構成しない場合は、TIFF IFilter のパフォーマンスを最適化するためにテキスト以外のコンテンツの OCR 処理がスキップされます。
       
       </string>
+      <string id="LangArabic">アラビア語</string>
+      <string id="LangBulgarian">ブルガリア語</string>
+      <string id="LangBosnianLatin">ボスニア語 (ラテン)</string>
       <string id="LangChineseSimplified">簡体字中国語</string>
       <string id="LangChineseTraditional">繁体字中国語</string>
+      <string id="LangCroatian">クロアチア語</string>
       <string id="LangCzech">チェコ語</string>
       <string id="LangDanish">デンマーク語</string>
       <string id="LangDutch">オランダ語</string>
@@ -50,6 +60,7 @@
       <string id="LangSerbianCyrillic">セルビア語 (キリル)</string>
       <string id="LangSerbianLatin">セルビア語 (ラテン)</string>
       <string id="LangSlovak">スロバキア語</string>
+      <string id="LangSlovenian">スロベニア語</string>
       <string id="LangSpanish">スペイン語</string>
       <string id="LangSwedish">スウェーデン語</string>
       <string id="LangTurkish">トルコ語</string>
@@ -57,6 +68,67 @@
     <presentationTable>
       <presentation id="SelectOCRLangs">
         <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">次のいずれかの OCR 言語を選択してください:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>バルト言語 (1257) コード ページ</text>
+          <checkBox refId="Estonian" defaultChecked="false">エストニア語</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">ラトビア語</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">リトアニア語</checkBox>
+        <text/>
+        <text>中央ヨーロッパ言語 (1250、ラテン 2) コード ページ</text>
+          <checkBox refId="Albanian" defaultChecked="false">アルバニア語</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">クロアチア語</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">チェコ語</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">ハンガリー語</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">ポーランド語</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">ルーマニア語</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">セルビア語 (ラテン)</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">スロバキア語</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">スロベニア語</checkBox>
+        <text/>
+        <text>キリル言語 (1251) コード ページ</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">ブルガリア語</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">ベラルーシ語</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">マケドニア語</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">ロシア語</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">セルビア語</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">ウクライナ語</checkBox>
+        <text/>
+        <text>西ヨーロッパ言語 (1252、ラテン 1) コード ページ</text>
+          <checkBox refId="Catalan" defaultChecked="false">カタルニア語</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">デンマーク語</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">オランダ語</checkBox> 
+          <checkBox refId="English" defaultChecked="false">英語</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">フェロー語</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">フィンランド語</checkBox> 
+          <checkBox refId="French" defaultChecked="false">フランス語</checkBox> 
+          <checkBox refId="German" defaultChecked="false">ドイツ語</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">アイスランド語</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">インドネシア語</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">イタリア語</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">マレー語</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">ノルウェー語</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">ポルトガル語</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">スペイン語</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">スウェーデン語</checkBox>
+        <text/>
+        <text>ギリシャ語 (1253) コード ページ</text>
+          <checkBox refId="Greek" defaultChecked="false">ギリシャ語</checkBox>
+        <text/>
+        <text>トルコ語 (1254) コード ページ</text>
+          <checkBox refId="Turkish" defaultChecked="false">トルコ語</checkBox>
+        <text/>
+        <text>簡体字中国語 (936、GB2312) コード ページ</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">中国語 (簡体字)</checkBox>
+        <text/>
+        <text>繁体字中国語 (950、Big5) コード ページ</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">中国語 (繁体字)</checkBox>
+        <text/>
+        <text>日本語 (932、Shift-JIS) コード ページ</text>
+          <checkBox refId="Japanese" defaultChecked="false">日本語</checkBox>
+        <text/>
+        <text>韓国語 (949) コード ページ</text>
+          <checkBox refId="Korean" defaultChecked="false">韓国語</checkBox>
       </presentation>
     </presentationTable>
   </resources>

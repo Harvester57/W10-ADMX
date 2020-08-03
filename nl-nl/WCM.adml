@@ -48,7 +48,21 @@
 
       Als deze beleidsinstelling niet is geconfigureerd of is uitgeschakeld, wordt energiebeheer ingeschakeld als de machine de verbonden stand-bymodus ingaat.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Windows inschakelen om de verbinding van een computer met een netwerk te verbreken</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Met deze beleidsinstelling wordt bepaald of Windows de verbinding van een computer met een netwerk verbreekt.
+
+      Als deze beleidsinstelling is ingeschakeld of niet is geconfigureerd, verbreekt Windows de verbinding van een computer met een netwerk wanneer wordt bepaald dat de computer niet meer verbonden moet zijn met een netwerk.
+
+      Als deze beleidsinstelling is uitgeschakeld, verbreekt Windows de verbinding van een computer met een netwerk direct wanneer wordt bepaald dat de computer niet meer verbonden moet zijn met een netwerk.
+
+      Wanneer Verbinding verbroken is ingeschakeld:
+      - Wanneer Windows bepaalt dat de computer niet meer verbonden moet zijn met een netwerk, wordt er gewacht op het verkeer op dit netwerk. De bestaande TCP-sessie wordt ononderbroken voortgezet.
+      - Vervolgens wordt het verkeersniveau op het netwerk periodiek gecontroleer. Als het verkeersniveau boven een bepaalde drempelwaarde ligt, worden geen verdere acties ondernomen. De computer blijft verbonden met het netwerk en blijft deze gebruiken. Als de netwerkverbinding bijvoorbeeld momenteel wordt gebruikt om bestanden van internet te downloaden, worden de bestanden nog steeds gedownload via die netwerkverbinding.
+      - Wanneer het netwerkverkeer onder deze drempelwaarde komt, wordt de verbinding van de computer met het netwerk verbroken. Apps die een netwerkverbinding actief houden, zelfs wanneer ze deze niet actief gebruiken (bijvoorbeeld e-mail-apps), raken mogelijk hun verbinding kwijt. Als dit gebeurt, moeten deze apps opnieuw verbinding maken via een ander netwerk.
+
+      Deze beleidsinstelling is afhankelijk van andere instellingen voor groepsbeleid. Als Het aantal gelijktijdige verbindingen met internet of een Windows-domein minimaliseren bijvoorbeeld is uitgeschakeld, wordt de verbinding met netwerken niet verbroken.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

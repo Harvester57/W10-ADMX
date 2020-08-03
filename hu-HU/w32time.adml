@@ -7,82 +7,86 @@
     <stringTable>
       <string id="W32TIME_CONFIG_EXPLAIN">Ez a házirend-beállítás lehetővé teszi a Windows időszolgáltatás (W32time) óraszinkronizálási és általános értékeinek megadását a tartományvezérlők számára, beleértve az írásvédett tartományvezérlőket (RODC) is.
 
-Ha engedélyezi ezt a házirend-beállítást, az alábbi óraszinkronizálási, általános és RODC-paramétereket adhatja meg a szolgáltatás számára.
+Ha engedélyezi ezt a házirend-beállítást, a W32time szolgáltatás az itt megadott beállításokat használja a célgépeken. Egyéb esetben a szolgáltatás a célgépeken a helyileg konfigurált beállítási értékeket használja.
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a Windows időszolgáltatás az alábbi paraméterek alapértelmezett értékeit alkalmazza.
+Az egyedi paraméterekről, a paraméterértékek kombinációiról, valamint a jelölők definícióiról további részleteket talál a következő címen: https://go.microsoft.com/fwlink/?linkid=847809.
 
-Az alábbi értékek közül számos skaláris jellegű, azaz csak egy másik érték viszonylatában rendelkeznek jelentéssel, és nincsenek mértékegységgel definiálva.
+        FrequencyCorrectRate
+Ez a paraméter szabályozza, hogy milyen sebességgel korrigálja a W32time a helyi óra frekvenciáját. A kisebb értékek lassabb korrekciót jelentenek, míg a nagyobb értékek gyakoribb korrekcióval járnak. Alapérték: 4 (skaláris).
 
-Beállítás gyakorisága
-Ez a paraméter szabályozza, hogy milyen sebességgel korrigálja a W32time a helyi óra frekvenciáját. A kisebb értékek lassabb korrekciót jelentenek, míg a nagyobb értékek gyakoribb korrekcióval járnak. A túl kicsi értékek túlkorrekcióhoz és instabilitáshoz vezetnek. A túl nagy értékek lassú szinkronizálást okoznak. Alapérték: 4 (skaláris).
+        HoldPeriod
+Ez a paraméter azt jelzi, hogy hány következetes időmintát kell kapnia az ügyfélszámítógépnek egymás után ahhoz, hogy egymást követő időmintákat lehetséges tüskeként értékeljen. Alapérték: 5 5
 
-Felfüggesztési időszak
-Ez a paraméter azt jelzi, hogy hány potenciálisan pontos időmintát kell kapnia az ügyfélszámítógépnek egymás után ahhoz, hogy egymást követő időmintákat lehetséges tüskékként értékeljen. Ha egy ideig nem kap egyetlen használható időmintát sem, az időügyfél leáll az időminták tüskék szempontjából való kiértékelésével, amint az első potenciálisan helyes időmintát megkapja. Ha beérkezik több időminta (a Felfüggesztési időszak által beállított számú), az időügyfél kiértékeli az egymást követő időmintákat a tüskék szempontjából. Egy időminta akkor számít tüskének, ha az időminta és az ügyfélszámítógép helyi órája közti időkülönbség nagyobb, mint a Nagy fáziseltolás érték. Alapérték: öt időminta.
+        LargePhaseOffset
+Ha egy időminta és az ügyfélszámítógép helyi órája között az eltérés nagyobb, mint a LargePhaseOffset paraméterben megadott érték, azt a rendszer a helyi óra jelentős eltérésének, más szóval tüskének tekinti. Alapérték: 50 000 000 darab 100 nanomásodperc (ns) hosszú egység, ami öt másodperc.
 
-Nagy fáziseltolás
-Ez a paraméter megadja, hogy az időminta és ügyfélszámítógép helyi órája között mekkora időeltérés (fáziseltolás) szükséges ahhoz, hogy az időminta tüskének legyen tekinthető. Azokat az időmintákat, amelyek a Nagy fáziseltolás értéknél nagyobb időeltéréssel rendelkeznek, a rendszer tüskének tekinti. Alapérték: 50 000 000 darab 100 nanomásodperc (ns) hosszú egység, ami öt másodperc.
+        MaxAllowedPhaseOffset
+Ha olyan válasz érkezik, amely ennél a paraméterértéknél nagyobb időeltéréssel rendelkezik, akkor a W32time az ügyfélszámítógép helyi óráját azonnal arra az időre állítja, amelyet az NTP-kiszolgálótól pontos időként kap. Ha az időeltérés kisebb ennél az értéknél, akkor a rendszer fokozatosan korrigálja az ügyfélszámítógép helyi óráját. Alapérték: 300 másodperc.
 
-Maximális engedélyezett fáziseltolás
-Ez a paraméter beállítja, hogy a W32time hogyan korrigálja az órát az időminta és az ügyfélszámítógép helyi órája közötti számított időeltérés alapján. Ha olyan válasz érkezik, amely ennél az értéknél nagyobb időeltéréssel rendelkezik, akkor a W32time az ügyfélszámítógép helyi óráját azonnal arra az időre állítja, amelyet az NTP-kiszolgálótól pontos időként kap. Ha az időeltérés kisebb ennél az értéknél, akkor a rendszer fokozatosan korrigálja az ügyfélszámítógép helyi óráját. Alapérték: 300 másodperc.
+        MaxNegPhaseCorrection
+Ha olyan időminta érkezik, amely múltbeli időpontot jelöl (az ügyfélszámítógép helyi órájához képes), és amelynek az időkülönbsége nagyobb, mint a MaxNegPhaseCorrection értéke, akkor az időmintát elveti a rendszer. Alapérték: 172 800 másodperc.
 
-Maximális negatív fáziskorrekció
-Ez a paraméter beállítja az órakorrekció maximálisan megengedett értékét, amelyet visszafelé irányban végre lehet hajtani. Ha egy olyan időminta érkezik, amely múltbeli időpontot jelöl (az ügyfélszámítógép helyi órájához képes), és amelynek az időkülönbsége nagyobb, mint a Maximális negatív fáziskorrekció értéke, akkor az időmintát elveti a rendszer. Ha ez történik, a Windows időszolgáltatás egy eseményt jegyez fel az Eseménynapló rendszernaplójában. Alapérték: 172 800 másodperc.
+        MaxPosPhaseCorrection
+Ha olyan időminta érkezik, amely jövőbeli időpontot jelöl (az ügyfélszámítógép helyi órájához képest), és amelynek az időkülönbsége nagyobb, mint a MaxPosPhaseCorrection értéke, akkor az időmintát elveti a rendszer. Alapérték: 172 800 másodperc.
 
-Maximális pozitív fáziskorrekció
- Ez a paraméter beállítja az órakorrekció maximálisan megengedett értékét, amelyet előrefelé végre lehet hajtani. Ha olyan időminta érkezik, amely jövőbeli időpontot jelöl (az ügyfélszámítógép helyi órájához képest), és amelynek időkülönbsége nagyobb, mint a Maximális pozitív fáziskorrekció értéke, akkor az időmintát elveti a rendszer. Alapérték: 172 800 másodperc.
+        PhaseCorrectRate
+Ez a paraméter szabályozza, hogy milyen gyorsan korrigálja a W32time az ügyfélszámítógép helyi órájának eltérését, hogy az megfeleljen az NTP-kiszolgálótól kapott, pontosként elfogadott időmintáknak. A kisebb értékek esetében az óra korrekciója lassabb, a nagyobb értékek esetében gyorsabb. Alapérték: 7 (skaláris).
 
-Fáziskorrekció értéke
-Ez a paraméter beállítja, hogy milyen gyorsan korrigálja a W32time az ügyfélszámítógép helyi órájának eltérését, hogy az megfeleljen az NTP-kiszolgálóból pontosként elfogadott időmintáknak. A kisebb értékek esetében az óra korrekciója lassabb, a nagyobb értékek esetén gyorsan. Alapérték: 7 (skaláris).
+        PollAdjustFactor
+Ez a paraméter szabályozza, hogy a W32time milyen gyorsan módosítja a lekérdezési időközt. Amikor a rendszer pontosnak ítéli a válaszokat, a lekérdezési időköz automatikusan hosszabb lesz. Amikor a rendszer pontatlannak ítéli a válaszokat, a lekérdezési időköz automatikusan rövidebb lesz. Alapérték: 5 (skaláris).
 
-Lekérdezés igazítási tényezője
-Ez a paraméter beállítja, hogy a W32time milyen gyorsan módosítja a lekérdezési időközt. Amikor a rendszer a válaszokat pontosnak ítéli, a lekérdezési időköz automatikusan hosszabb lesz. Amikor a rendszer a válaszokat pontatlannak ítéli, a lekérdezési időköz automatikusan rövidebb lesz. Alapérték: 5 (skaláris).
+        SpikeWatchPeriod
+Ez a paraméter beállítja, hogy mennyi ideig kell a LargePhaseOffset paraméter értékénél nagyobb időeltolással rendelkező mintáknak érkeznie, hogy ezeket a rendszer pontosnak fogadja el. A SpikeWatchPeriod és a HoldPeriod paraméter együttes segítségével küszöbölheti ki a rendszer a társaktól kapott időszakos, pontatlan időmintákat. Alapérték: 900 másodperc.
 
-Csúcsidőszak
-Ez a paraméter beállítja, hogy mennyi ideig kell egy időforrásból gyanús időmintáknak érkezni, hogy ezeket a rendszer pontosnak fogadja el. Az időminták akkor számítanak gyanúsnak, ha az időminta és az ügyfélszámítógép helyi órája közötti különbség nagyobb, mint a Nagy fáziseltolás értéke. A Csúcsidőszak és a Felfüggesztési időszak paraméter együttes segítségével szünteti meg a rendszer a társaktól kapott időszakos, pontatlan időmintákat. Alapérték: 900 másodperc.
+        UpdateInterval
+Ez a paraméter azt az időt adja meg, ameddig a W32time a korrekciók között vár az óra fokozatos korrigálásakor. Fokozatos korrigálás végzésekor a szolgáltatás kis mértékben állít az órán, az itt megadott ideig várakozik, majd ellenőrzi, hogy szükséges-e további korrekció, és így tovább, amíg a korrekció véget nem ér. Alapérték: 100 darab 1/100 másodperc hosszú egység, ami 1 másodperc.
 
-Frissítési időköz
-Ez a paraméter azt az időt adja meg, ameddig a W32time a korrekciók között vár az óra fokozatos korrigálásakor. Fokozatos korrigálás végzésekor a szolgáltatás kis mértékben állít az órán, Frissítési időköz ideig várakozik, majd ellenőrzi, hogy szükséges-e további korrekció, és így tovább, amíg a korrekció véget nem ér. Alapérték: 100 darab 1/100 másodperc hosszú egység, ami 1 másodperc.
+        Általános paraméterek:
 
-Általános paraméterek:
+        AnnounceFlags
+Ez a paraméter egy bitmaszk érték, amely az időszolgáltatás rendelkezésre állásának NetLogon szolgáltatáson keresztüli hirdetésének módját szabályozza. Alapérték: 0x0a hexadecimális
 
-Bejelentési jelzők
-Ez a paraméter egy bitmaszk érték, amely az időszolgáltatás rendelkezésre állásának NetLogon szolgáltatáson keresztüli hirdetésének módját szabályozza. Alapérték: 0x0a hexadecimális. A lehetséges értékek az NtpClient\EventLogFlags Subkey dokumentációban tekinthetők meg a Microsoft TechNet Library webhelyén.
+        EventLogFlags
+Ez a paraméter azokat a speciális eseményeket szabályozza, amelyek feljegyezhetők az Eseménynapló rendszernaplójába. Alapérték: 0x02 hexadecimális bitmaszk.
 
-Eseménynapló jelzői
-Ez a paraméter beállítja azokat a speciális eseményeket, amelyek feljegyezhetők az Eseménynapló rendszernaplójába. Alapérték: 0x02 hexadecimális bitmaszk. A lehetséges értékek az NtpClient\EventLogFlags Subkey dokumentációban tekinthetők meg a Microsoft TechNet Library webhelyén.
-
-Helyi óra szórása
+        LocalClockDispersion
 Ez a paraméter a hibák azon maximális értékét jelzi másodpercben, amelyet az NTP-kiszolgáló jelent az időmintát kérő ügyfeleknek. (Csak akkor alkalmazza a rendszer, amikor az NTP-kiszolgáló a helyi CMOS-óra idejét használja.) Alapérték: 10 másodperc.
 
-Lekérdezés legnagyobb időköze
-Ez a paraméter a maximális lekérdezési időközt szabályozza, amely egy társ lekérdezései közötti maximális időtartamot jelenti. Alapérték: 10 2-es alapú logaritmusban, azaz 1024 másodperc. (Ne legyen 15-nél nagyobb.)
+        MaxPollInterval
+Ez a paraméter a maximális lekérdezési időközt szabályozza, amely egy társ lekérdezései közötti maximális időtartamot jelenti. Alapérték: 10 2-es alapú logaritmusban vagy 1024 másodperc. (Ne legyen 15-nél nagyobb.)
 
-Minimális lekérdezési időköz
-Ez a paraméter a minimális lekérdezési időközt szabályozza, amely egy társ lekérdezései közötti minimális időtartamot jelenti. Alapérték: 6 2-es alapú logaritmusban, azaz 64 másodperc.
+        MinPollInterval
+Ez a paraméter a minimális lekérdezési időközt szabályozza, amely egy társ lekérdezései közötti minimális időtartamot jelenti. Alapérték: 6 2-es alapú logaritmusban vagy 64 másodperc.
 
-Biztonságos időszinkronizálási kérések igénylése
+        ClockHoldoverPeriod
+Ez a paraméter azt a maximális időt jelzi másodpercben, ameddig egy rendszeróra meg tudja őrizni a pontosságát anélkül, hogy szinkronizálna egy időforrással. Ha ez az időköz eltelik anélkül, hogy a W32time új mintákat kapna bármelyik bemeneti szolgáltatójától, akkor a W32time kezdeményezi az időforrások újbóli felderítését. Alapérték: 7800 másodperc.
+
+        RequireSecureTimeSyncRequests
 Ez a paraméter szabályozza, hogy a tartományvezérlő válaszol-e a régebbi hitelesítési protokollokat használó időszinkronizálási kérésekre. Engedélyezése esetén (ha értéke 1), a tartományvezérlő nem válaszol az ilyen protokollokat használó kérésekre. Alapérték: logikai 0.
 
-SSL-időadatok használata
-Ez a paraméter adja meg, hogy a W32time másodlagos bemenetként használja-e a gépen zajló SSL-forgalomból számított időadatokat a helyi óra helyesbítéséhez. Alapérték: logikai 1
+        UtilizeSslTimeData
+Ez a paraméter szabályozza, hogy a W32time másodlagos bemenetként használja-e a gépen zajló SSL-forgalomból számított időadatokat a helyi óra helyesbítéséhez. Alapérték: logikai 1
 
-RODC-paraméterek:
+        ClockAdjustmentAuditLimit
+Ez a paraméter határozza meg azt a legkisebb helyióra-állítást, amely a W32time szolgáltatás eseménynaplójában naplózható a célszámítógépen. Alapérték: 800 darab/millió (PPM).
 
-Láncbejegyzés időkorlátja
-Ez a paraméter beállítja azt a maximális időtartamot, ameddig egy bejegyzés a láncolási táblázatban maradhat, mielőtt a bejegyzést a rendszer lejártnak tekintené. A lejárt bejegyzéseket eltávolíthatja a rendszer a következő kérés vagy válasz feldolgozásakor. Alapérték: 16 másodperc.
+        RODC-paraméterek:
 
-Láncbejegyzések maximális száma
-Ez a paraméter beállítja, hogy maximum hány bejegyzés engedélyezett a láncolási táblázatban. Ha a láncolási táblázat megtelt, és nem távolíthatók el lejárt bejegyzések, akkor a bejövő kéréseket eldobja a rendszer. Alapérték: 128 bejegyzés.
+        ChainEntryTimeout
+Ez a paraméter megadja azt a maximális időtartamot, ameddig egy bejegyzés a láncolási táblázatban maradhat, mielőtt a rendszer lejártnak tekintené a bejegyzést. A rendszer eltávolíthatja a lejárt bejegyzéseket a következő kérés vagy válasz feldolgozásakor. Alapérték: 16 másodperc.
 
-Lánc-állomásbejegyzések maximális száma
-Ez a paraméter beállítja, hogy maximum hány bejegyzés engedélyezett egy adott állomásra a láncolási táblázatban. Alapérték: 4 bejegyzés.
+        ChainMaxEntries
+Ez a paraméter szabályozza, hogy maximum hány bejegyzés engedélyezett a láncolási táblázatban. Ha a láncolási táblázat megtelt, és nem távolíthatók el lejárt bejegyzések, akkor a rendszer elveti a bejövő kéréseket. Alapérték: 128 bejegyzés.
 
-Lánc letiltása
-Beállítja, hogy a láncolási mechanizmus le van-e tiltva, vagy nincs. Ha a láncolás le van tiltva (0 beállítás), akkor az RODC tetszőleges tartományvezérlővel szinkronizálhat, de azok az állomások, amelyeknek a jelszava nincs tárolva a gyorsítótárban az RODC-n, nem fognak tudni szinkronizálni az RODC-vel. Alapérték: logikai 0.
+        ChainMaxHostEntries
+Ez a paraméter szabályozza, hogy maximum hány bejegyzés engedélyezett a láncolási táblázatban egy adott állomásra vonatkozóan. Alapérték: 4 bejegyzés.
 
-Lánc naplózási gyakorisága:
-Ez a paraméter beállítja, hogy milyen gyakorisággal jegyzi fel az Eseménynapló a rendszernaplójába a sikeres és sikertelen láncolási kísérleteket jelző eseményt. Alapérték: 30 perc.
-</string>
+        ChainDisable
+Ez a paraméter szabályozza, hogy a láncolási mechanizmus le van-e tiltva. Ha a láncolás le van tiltva (0 beállítás), akkor az RODC tetszőleges tartományvezérlővel szinkronizálhat, de azok az állomások, amelyeknek a jelszava nincs tárolva a gyorsítótárban az RODC-n, nem fognak tudni szinkronizálni az RODC-vel. Alapérték: logikai 0.
+
+        ChainLoggingRate
+Ez a paraméter szabályozza, hogy milyen gyakorisággal jegyzi fel az Eseménynapló a rendszernaplójába a sikeres és sikertelen láncolási kísérleteket jelző eseményt. Alapérték: 30 perc.
+      </string>
 
 <string id="W32TIME_CONFIGURE_NTPCLIENT_EXPLAIN">Ez a házirend-beállítás paramétereket ad meg a Windows NTP-ügyfél szabályozásához.
 
@@ -91,26 +95,25 @@ Ha engedélyezi ezt a házirend-beállítást, az alábbi paramétereket adhatja
 Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a Windows NTP-ügyfél az alábbi paraméterek alapértelmezett értékeit alkalmazza.
 
 NTP-kiszolgáló
-Egy NTP-időforrás DNS-neve vagy IP-címe. Ez az érték „dnsNév,jelzők” formátumban van, ahol a „jelzők” az adott állomás jelzőinek hexadecimális bitmaszkja. További információk a Windows időszolgáltatáshoz kapcsolódó csoportházirend-beállításokat ismertető dokumentumnak az NTP-ügyfél Windows időszolgáltatáshoz kapcsolódó csoportházirend-beállításairól szóló részében találhatók.  Az alapértelmezett érték a „time.windows.com,0x09”. 
+Egy NTP-időforrás DNS-neve vagy IP-címe. Ez az érték „dnsNév,jelzők” formátumban van, ahol a „jelzők” az adott állomás jelzőiből álló hexadecimális bitmaszk. További információ a Windows időszolgáltatáshoz kapcsolódó csoportházirend-beállításokat ismertető dokumentumnak az NTP-ügyfél Windows időszolgáltatáshoz kapcsolódó csoportházirend-beállításairól szóló részében találhatók. Az alapértelmezett érték „time.windows.com,0x09”. 
 
 Típus
-Ez az érték a W32time által használt hitelesítést állítja be. Az alapértelmezett érték az NT5DS.
+Ez az érték szabályozza a W32time által használt hitelesítést. Az alapértelmezett érték NT5DS.
 
 Helyek közötti szinkronizálás jelzői
-Ez a bitmaszkként kifejezett érték állítja be, hogy a W32time hogyan választja ki a saját helyén kívüli időforrásokat. A lehetséges értékek: 0, 1 és 2. A 0 (None) beállítás azt jelenti, hogy az időügyfélnek nem szabad a saját helyén kívül időszinkronizálást megkísérelnie. A beállítás 1 (PdcOnly) értékre állítása azt jelenti, hogy csak az elsődleges tartományvezérlők emulátorműveleteinek mestereként működő számítógépek használhatók szinkronizálási partnerként, amikor az ügyfélnek az időt egy saját helyén kívüli partnerrel kell szinkronizálnia. A 2 (All) beállítás azt jelenti, hogy tetszőleges szinkronizálási partner használható. Ezt az értéket a W32time figyelmen kívül hagyja, ha nem az NT5DS érték van beállítva. Az alapértelmezett érték a decimális 2 (hexadecimális 0x02).
+Ez a bitmaszkként kifejezett érték szabályozza, hogy a W32time hogyan választja ki a saját helyén kívüli időforrásokat. A lehetséges értékek 0, 1 és 2. A beállítás 0 (None) értéke azt jelenti, hogy az időügyfélnek nem szabad megkísérelnie a saját helyén kívüli időszinkronizálást. A beállítás 1 (PdcOnly) értéke azt jelenti, hogy más tartományokban csak az elsődleges tartományvezérlők emulátorműveleteinek mestereként működő számítógépek használhatók szinkronizálási partnerként, ha az ügyfélnek egy saját helyén kívüli partnerrel kell szinkronizálnia az időt. A beállítás 2 (All) értéke azt jelenti, hogy tetszőleges szinkronizálási partner használható. A W32time figyelmen kívül hagyja ezt az értéket, ha nem az NT5DS érték van beállítva. Az alapértelmezett érték a decimális 2 (hexadecimális 0x02).
 
-Távoli gép feloldása - visszalépés percekben
-Ez a percben kifejezett érték állítja be, hogy mennyi ideig vár a W32time, mielőtt újra megpróbálja feloldani a DNS-nevet egy sikertelen próbálkozás után. Az alapértelmezett érték 15 perc.
+Távoli gép feloldása – visszalépés percben
+Ez a percben kifejezett érték szabályozza, hogy mennyi ideig vár a W32time, mielőtt újra megpróbál feloldani egy DNS-nevet egy sikertelen kísérlet után. Az alapértelmezett érték 15 perc.
 
-Távoli gép feloldása - visszalépés időkorlátja
-Ez az érték állítja be, hogy hányszor próbálja meg a W32time feloldani a DNS-nevet, mielőtt újraindítja a felderítési folyamatot. A DNS-név feloldásának minden egyes sikertelen próbálkozásakor a várakozási idő a korábbi érték kétszeresére nő. Az alapértelmezett érték: hét kísérlet.
+Távoli gép feloldása – visszalépés időkorlátja
+Ez az érték szabályozza, hogy hányszor próbál meg a W32time feloldani egy DNS-nevet, mielőtt újraindítja a felderítési folyamatot. Minden egyes sikertelen DNS-névfeloldási kísérlet után a következő kísérletig való várakozási idő a korábbi érték kétszeresére nő. Az alapértelmezett érték hét kísérlet.
 
 Különleges lekérdezési időköz
-Ez a másodpercekben kifejezett NTP-ügyfélérték állítja be, hogy milyen gyakran kérdez le a rendszer egy manuálisan konfigurált időforrást, amikor az időforrás speciális lekérdezési időköz használatára van beállítva. Ha a SpecialInterval jelző engedélyezve van az NTP-kiszolgáló beállításban, az ügyfél a Különleges lekérdezési időköz értékét használja a Minimális lekérdezési időköz és Lekérdezés legnagyobb időköze értékek helyett, hogy meghatározza, milyen gyakran kell lekérdezni az időforrást. Az alapértelmezett érték 3600 másodperc (1 óra).
+Ez a másodpercben kifejezett NTP-ügyfélérték szabályozza, hogy milyen gyakran kérdez le a rendszer egy manuálisan konfigurált időforrást, ha az időforrás speciális lekérdezési időköz használatára van beállítva. Ha engedélyezve van a SpecialInterval jelző az NTP-kiszolgáló beállításában, az ügyfél a Különleges lekérdezési időköz beállított értékét használja a Minimális lekérdezési időköz és a Maximális lekérdezési időköz közé eső változó időköz helyett annak meghatározásához, hogy milyen gyakran kell lekérdezni az időforrást. A Különleges lekérdezési időköznek a [Minimális lekérdezési időköz, Maximális lekérdezési időköz] tartományba kell esnie, egyéb esetben a rendszer a tartomány legközelebbi értékét választja. Alapérték: 1024 másodperc.
 
 Eseménynapló jelzői
-Ez az érték egy bitmaszk, amely azokat az eseményeket szabályozza, amelyek az Eseménynapló rendszernaplójába kerülhetnek be. Ha ezt a 0x1 értékre állítja, akkor a W32time eseményt hoz létre minden alkalommal, amikor időugrást észlel. A 0x2 beállítás esetén a W32time akkor hoz létre eseményeket, amikor időforrás-módosítás történik. Mivel ez egy bitmaszk érték, ezért a 0x3 beállítás (0x1 és 0x2 összege) azt jelenti, hogy a rendszer mind az időugrásokat, mind az időforrás-módosításokat naplózza.
-      
+Ez az érték egy bitmaszk, amely azokat az eseményeket szabályozza, amelyek bekerülhetnek az Eseménynapló rendszernaplójába. Ha 0x1 értékre állítja, akkor a W32time eseményt hoz létre minden alkalommal, amikor időugrást észlel. A 0x2 értékre való beállítás esetén a W32time akkor hoz létre eseményeket, amikor időforrás-módosítás történik. Minthogy ez az érték egy bitmaszk, a 0x3 beállítás (0x1 és 0x2 összege) azt jelenti, hogy a rendszer mind az időugrásokat, mind az időforrás-módosításokat naplózza.
       </string>
       <string id="W32TIME_ENABLE_NTPCLIENT_EXPLAIN">Ez a házirend-beállítás a Windows NTP-ügyfél engedélyezését határozza meg.
 
@@ -161,8 +164,10 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a szám�
         <decimalTextBox refId="W32TIME_LocalClockDispersion" defaultValue="10">Helyi óra szórása</decimalTextBox>
         <decimalTextBox refId="W32TIME_MaxPollInterval" defaultValue="10">Lekérdezés legnagyobb időköze</decimalTextBox>
         <decimalTextBox refId="W32TIME_MinPollInterval" defaultValue="6">Minimális lekérdezési időköz</decimalTextBox>
+        <decimalTextBox refId="W32TIME_ClockHoldoverPeriod" defaultValue="7800">Óra pontosságmegőrzési időköze</decimalTextBox>
         <decimalTextBox refId="W32TIME_RequireSecureTimeSyncRequests" defaultValue="0">Biztonságos időszinkronizálási kérések igénylése</decimalTextBox>
         <decimalTextBox refId="W32TIME_UtilizeSslTimeData" defaultValue="1">SSL-időadatok használata</decimalTextBox>
+        <decimalTextBox refId="W32TIME_ClockAdjustmentAuditLimit" defaultValue="800">ClockAdjustmentAuditLimit</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainEntryTimeout" defaultValue="16">Láncbejegyzés időkorlátja</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainMaxEntries" defaultValue="128">Láncbejegyzések maximális száma</decimalTextBox>
         <decimalTextBox refId="W32TIME_ChainMaxHostEntries" defaultValue="4">Lánc-állomásbejegyzések maximális száma</decimalTextBox>
@@ -178,7 +183,7 @@ Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, akkor a szám�
         <decimalTextBox refId="W32TIME_CrossSiteSyncFlags" defaultValue="2">Helyek közötti szinkronizálás jelzői</decimalTextBox>
         <decimalTextBox refId="W32TIME_ResolvePeerBackoffMinutes" defaultValue="15">Távoli gép feloldása - visszalépés percekben</decimalTextBox>
         <decimalTextBox refId="W32TIME_ResolvePeerBackoffMaxTimes" defaultValue="7">Távoli gép feloldása - visszalépés időkorlátja</decimalTextBox>
-        <decimalTextBox refId="W32TIME_SpecialPollInterval" defaultValue="3600">Különleges lekérdezési időköz</decimalTextBox>
+        <decimalTextBox refId="W32TIME_SpecialPollInterval" defaultValue="1024">Különleges lekérdezési időköz</decimalTextBox>
         <decimalTextBox refId="W32TIME_NtpClientEventLogFlags" defaultValue="0">Eseménynaplózási jelzők</decimalTextBox>
       </presentation>
     </presentationTable>

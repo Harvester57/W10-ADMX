@@ -33,7 +33,7 @@ Note:
       <string id="CplPrinters">Stampanti</string>
       <string id="CplPrinters_Help">Gestisce la configurazione della stampante di rete e delle opzioni di pubblicazione.</string>
       <string id="CustomizedSupportUrl">URL supporto personalizzato nel riquadro sinistro della cartella Stampanti</string>
-      <string id="CustomizedSupportUrl_Help">Per impostazione predefinita, la cartella Stampanti include un collegamento alla pagina Web del supporto tecnico Microsoft denominato "Ulteriori informazioni sulla stampa". Può includere inoltre un collegamento a una pagina Web specificata dal fornitore della stampante attualmente selezionata.
+      <string id="CustomizedSupportUrl_Help">Per impostazione predefinita, la cartella Stampanti include un collegamento alla pagina Web del Supporto tecnico Microsoft denominato "Ulteriori informazioni sulla stampa". Può includere inoltre un collegamento a una pagina Web specificata dal fornitore della stampante attualmente selezionata.
 
           Se si abilita questa impostazione dei criteri, il collegamento predefinito "Ulteriori informazioni sulla stampa" verrà sostituito con un collegamento a una pagina Web personalizzata per la propria azienda.
 
@@ -48,16 +48,21 @@ Note:
 
           Se questa impostazione dei criteri è disabilitata, non verrà visualizzata la pagina di scansione di rete.
 
-          Se questa impostazione dei criteri non è configurata, nell'Installazione guidata stampante verrà visualizzato il numero predefinito di stampanti di ogni tipo:
+           Se questa impostazione dei criteri non è configurata, nell'Installazione guidata stampante verrà visualizzato il numero predefinito di stampanti di ogni tipo:
           Stampanti directory: 20
           Stampanti TCP/IP: 0
           Stampanti servizi Web: 0
           Stampanti Bluetooth: 10
           Stampanti condivise: 0
-          
+
           Per visualizzare le stampanti per servizi Web disponibili nella rete, assicurarsi che l'individuazione della rete sia attivata. Per attivarla, fare clic su "Start", quindi su "Pannello di controllo" e infine su "Rete e Internet". In "Rete e Internet" fare clic su "Centro connessioni di rete e condivisione". In "Centro connessioni di rete e condivisione" fare clic su "Modifica impostazioni di condivisione avanzate". In "Modifica impostazioni di condivisione avanzate" fare clic sulla freccia accanto a "Dominio", quindi su "Attiva individuazione rete" e infine su "Salva modifiche".
 
-          Se non si desidera visualizzare le stampanti di un determinato tipo, abilitare questa impostazione dei criteri e impostare 0 come numero di stampanti da visualizzare.</string>
+          Se non si desidera visualizzare le stampanti di un determinato tipo, abilitare questa impostazione dei criteri e impostare 0 come numero di stampanti da visualizzare.
+
+          In Windows 10 e versioni successive, nella procedura guidata è possibile visualizzare solo le stampanti TCP/IP. Se si abilita questo criterio, sono applicabili sono i limiti per le stampanti TCP/IP. Solo in Windows 10, se questo criterio viene disabilitato o non viene configurato, viene applicato il limite predefinito.
+          
+          In Windows 8 e versioni successive le stampanti Bluetooth non vengono visualizzate, pertanto il relativo limite non si applica a queste versioni di Windows.
+      </string>
       <string id="DomainPrinters">Installazione guidata stampante - pagina di scansione di rete (rete gestita)</string>
       <string id="DownlevelBrowse">Sfoglia la rete per cercare le stampanti</string>
       <string id="DownlevelBrowse_Help">Consente di utilizzare l'Installazione guidata stampante per cercare le stampanti condivise nella rete.
@@ -129,7 +134,7 @@ Nota: applicando questo criterio, i driver in modalità kernel esistenti verrann
           L'impostazione non impedisce agli utenti di eseguire altri programmi per eliminare una stampante.
 
           Se si disabilita o non si configura questa impostazione, gli utenti potranno eliminare le stampanti utilizzando i metodi sopra descritti.</string>
-      <string id="NonDomainDisplayPrinters_Help">Questa impostazione imposta il numero massimo di stampanti (per ogni tipo) visualizzate nell'Installazione guidata stampante di un computer in una rete non gestita, ovvero quando il computer non può raggiungere un controller di dominio, ad esempio un computer portatile aggiunto al dominio in una rete domestica.
+      <string id="NonDomainDisplayPrinters_Help">Questo criterio imposta il numero massimo di stampanti (di ciascun tipo) che vengono visualizzate su un computer tramite Installazione guidata stampante in una rete non gestita (quando il computer non può raggiungere un controller di dominio, ad esempio un computer portatile aggiunto al dominio in una rete domestica).
 
 Se si disabilita questa impostazione, non verrà visualizzata la pagina di scansione di rete.
 
@@ -139,7 +144,11 @@ Stampanti servizi Web: 50
 Stampanti Bluetooth: 10
 Stampanti condivise: 50
 
-Se non si desidera visualizzare un tipo di stampante, abilitare questo criterio e impostare 0 come numero di stampanti da visualizzare.</string>
+Se non si desidera visualizzare un tipo di stampante, abilitare questo criterio e impostare 0 come numero di stampanti da visualizzare.
+
+In Windows 10 e versioni successive, nella procedura guidata è possibile visualizzare solo le stampanti TCP/IP. Se si abilita questo criterio, sono applicabili sono i limiti per le stampanti TCP/IP. Solo in Windows 10, se questo criterio viene disabilitato o non viene configurato, viene applicato il limite predefinito.
+          
+In Windows 8 e versioni successive le stampanti Bluetooth non vengono visualizzate, pertanto il relativo limite non si applica a queste versioni di Windows.</string>
       <string id="NonDomainPrinters">Installazione guidata stampante - pagina di scansione di rete (rete non gestita)</string>
       <string id="PackagePointAndPrintOnly">Utilizza solo pacchetto di selezione e stampa</string>
       <string id="PackagePointAndPrintOnly_Help">Questa impostazione limita i computer client a utilizzare solo il pacchetto di selezione stampa.
@@ -269,11 +278,11 @@ Per impostazione predefinita, nelle SKU Windows Ultimate, Professional e Home il
 
         Se si disabilita o non si configura questa impostazione dei criteri, sarà consentita l'esecuzione di tutte le estensioni di stampanti installate.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Cambia formato di output predefinito MXDW (Microsoft XPS Document Writer) con il formato legacy Microsoft XPS (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">MXDW (Microsoft XPS Document Writer) genera file OpenXPS (*.oxps) per impostazione predefinita in Windows 10, Windows 10 e Windows Server 2016.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">MXDW (Microsoft XPS Document Writer) genera file OpenXPS (*. oxps) per impostazione predefinita in Windows 10, Windows 10 e Windows Server 2019.
 
-          Se si abilita questa impostazione dei criteri, verrà impostato come formato di output MXDW predefinito il formato legacy Microsoft XPS (*.xps).
+          Se abiliti questa impostazione dei criteri di gruppo, il formato di output predefinito MXDW è Microsoft XPS (*.xps) legacy.
 
-          Se si disabilita o non si configura questa impostazione dei criteri, come formato di output MXDW predefinito verrà usato il formato OpenXPS (*.oxps).</string>
+          Se disabiliti o non configuri questa impostazione dei criteri, il formato di output predefinito di MXDW è OpenXPS (*.oxps).</string>
       <string id="SetDefaultPrinterMRUModeOff">Disattiva la gestione della stampante predefinita da parte di Windows</string>
       <string id="SetDefaultPrinterMRUModeOff_Help">Questa preferenza consente di modificare la gestione della stampante predefinita.
 

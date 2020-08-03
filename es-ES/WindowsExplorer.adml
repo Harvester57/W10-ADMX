@@ -267,14 +267,14 @@ Nota: los iconos que representan las unidades especificadas seguirán apareciend
  Además, esta opción no impide que los usuarios usen programas para tener acceso a las unidades de red o locales. Tampoco impide que los usuarios usen el complemento Administración de discos para ver y cambiar las características de las unidades.
 
 Consulte también la opción "Ocultar estas unidades especificadas en Mi PC".</string>
-      <string id="NoWindowsHotKeys">Desactivar las teclas de acceso rápido Windows+X</string>
-      <string id="NoWindowsHotKeys_Help">Desactiva las teclas de acceso rápido Windows+X.
+      <string id="NoWindowsHotKeys">Desactivar las teclas de acceso rápido de la tecla Windows</string>
+      <string id="NoWindowsHotKeys_Help">Desactiva las teclas de acceso rápido de la tecla Windows.
 
-Los teclados con una tecla Windows proporcionan al usuario accesos directos a características comunes de shell. Por ejemplo, al presionar la secuencia de teclado Windows+R, se abre el cuadro de diálogo Ejecutar; al presionar Windows+E, se inicia el Explorador de archivos. Esta opción permite deshabilitar estas teclas de método abreviado Windows+X.
+Los teclados con una tecla Windows proporcionan al usuario accesos directos a características comunes de shell. Por ejemplo, al presionar la secuencia de teclado Windows+R, se abre el cuadro de diálogo Ejecutar; al presionar Windows+E, se inicia el Explorador de archivos. Este ajuste permite deshabilitar estas teclas de acceso rápido de la tecla Windows.
 
-Si habilita esta opción, las teclas Windows+X de método abreviado no estarán disponibles.
+Si habilitas esta configuración, las teclas de acceso rápido de la tecla Windows no estarán disponibles.
 
-Si deshabilita o no configura esta opción, las teclas Windows+X de método abreviado estarán disponibles.</string>
+Si deshabilitas o no configuras este ajuste, las teclas de acceso rápido de la tecla Windows están disponibles.</string>
       <string id="NoWorkgroupContents">Sin "Equipos próximos" en Ubicaciones de red</string>
       <string id="NoWorkgroupContents_Help">Esta configuración de directiva le permite quitar equipos del grupo de trabajo y del dominio del usuario de las listas de recursos de red en el Explorador de archivos y en Ubicaciones de red.
 
@@ -459,21 +459,26 @@ Si habilita esta configuración de directiva, los administradores pueden especif
 Si deshabilita o no define esta configuración de directiva, no se realizan cambios en la ubicación de los archivos de definición de bibliotecas predeterminados.
       
       </string>
-      <string id="EnableSmartScreen">Configurar Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Esta configuración de directiva permite administrar el comportamiento de Windows SmartScreen. Windows SmartScreen ayuda a mantener más seguros los equipos al advertir a los usuarios antes de ejecutar programas no reconocidos descargados desde Internet. Se envía cierta información a Microsoft sobre archivos y programas que se ejecutan en equipos con esta característica habilitada.
+      <string id="EnableSmartScreen">Configurar SmartScreen de Windows Defender</string>
+      <string id="SmartScreen_PreventBypass">Advertir e impedir la omisión</string>
+      <string id="SmartScreen_Warn">Advertir</string>
+      <string id="EnableSmartScreen_Help">Esta directiva te permite activar o desactivar el filtro SmartScreen de Windows Defender. SmartScreen ayuda a proteger los equipos avisando a los usuarios antes de ejecutar programas potencialmente malintencionados de Internet. Esta advertencia se presenta como un cuadro de diálogo intersticial mostrado antes de ejecutar una aplicación que se ha descargado de Internet y que no se reconoce o no se sabe si es malintencionada. No se muestra ningún cuadro de diálogo para aplicaciones que no parecen ser sospechosas.
 
-Si habilitas esta configuración de directiva, se puede controlar el comportamiento de Windows SmartScreen al establecer una de las siguientes opciones:
+Cuando esta características está habilitada, se envía a Microsoft alguna información sobre los archivos y programas que se ejecutan en los equipos.
 
-• Advertir al usuario antes de ejecutar software desconocido descargado
-• Desactivar SmartScreen
+Si habilitas esta directiva, SmartScreen se activará para todos los usuarios. Su comportamiento puede controlarse mediante las siguientes opciones:
 
-Si deshabilitas o no estableces esta configuración de directiva, los administradores del equipo administrarán el comportamiento de Windows SmartScreen mediante la configuración de Windows SmartScreen definida en la opción Seguridad y mantenimiento.
+• Advertir e impedir la omisión
+• Advertir
 
-Opciones:
-• Advertir al usuario antes de ejecutar software desconocido descargado
-• Desactivar SmartScreen
+Si habilitas esta directiva con la opción "Advertir e impedir la omisión", los cuadros de diálogo de SmartScreen no presentarán al usuario la opción de omitir la advertencia y ejecutar la aplicación. SmartScreen seguirá mostrando la advertencia cuando se intente ejecutar de nuevo la aplicación.
 
-</string>
+Si habilitas esta directiva con la opción "Advertir", los cuadros de diálogo de SmartScreen avisarán al usuario de que la aplicación parece sospechosa, pero permitirá al usuario omitir la advertencia y ejecutar la aplicación de todas formas. SmartScreen no avisará al usuario de nuevo sobre esa aplicación si el usuario indica a SmartScreen que ejecute la aplicación.
+
+Si deshabilitas esta directiva, SmartScreen se desactivará para todos los usuarios. No se advertirá a los usuarios si intentan ejecutar aplicaciones sospechosas procedentes de Internet.
+
+Si no configuras esta directiva, SmartScreen se habilitará de forma predeterminada, pero los usuarios podrán cambiar su configuración.
+      </string>
       <string id="ShowLockOption">Mostrar candado en el menú Imagen de usuario</string>
       <string id="ShowLockOption_Help">Muestra u oculta el candado en el menú Imagen de usuario.
 Si habilitas esta configuración de directiva, la opción de candado se mostrará en el menú Imagen de usuario.
@@ -620,6 +625,9 @@ Si la directiva está habilitada, deshabilitada o no está configurada, los usua
         <textBox refId="DefaultLibrariesLocation">
           <label>Ubicación de definiciones de bibliotecas predeterminada</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Elige una de las siguientes opciones:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

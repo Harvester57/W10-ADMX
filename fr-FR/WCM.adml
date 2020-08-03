@@ -48,7 +48,21 @@
 
       Si ce paramètre de stratégie est désactivé ou n’est pas configuré, la gestion de l’alimentation est activée lorsque l’ordinateur passe en mode veille connectée.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Permettre à Windows une déconnexion logicielle d'un ordinateur d'un réseau</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Ce paramètre de stratégie détermine si Windows va procéder à une déconnexion logicielle d'un ordinateur d'un réseau.
+
+      Si ce paramètre de stratégie est activé ou n'est pas configuré, Windows procède à une déconnexion logicielle d'un ordinateur d'un réseau s'il détermine que l'ordinateur ne doit plus être connecté à un réseau.
+
+      Si ce paramètre de stratégie est désactivé, Windows déconnecte immédiatement un ordinateur d'un réseau s'il détermine que l'ordinateur ne doit plus être connecté à un réseau.
+
+      Lorsque la déconnexion logicielle est activée :
+      - Lorsque Windows décide que l'ordinateur ne doit plus être connecté à un réseau, il attend que le trafic s'installe sur ce réseau. La session TCP existante se poursuit sans interruption.
+      - Windows vérifie ensuite périodiquement le niveau de trafic sur le réseau. Si le niveau de trafic est supérieur à un certain seuil, aucune autre mesure n'est prise. L'ordinateur reste connecté au réseau et continue de l'utiliser. Par exemple, si la connexion réseau est actuellement utilisée pour télécharger des fichiers à partir d'Internet, les fichiers continuent à être téléchargés à l'aide de cette connexion réseau.
+      - Si le trafic réseau descend sous ce seuil, l'ordinateur est déconnecté du réseau. Les applications qui maintiennent une connexion réseau active, même lorsqu'elles ne l'utilisent pas activement (par exemple, les applications de messagerie) risquent de perdre leur connexion. Si cela se produit, ces applications doivent rétablir leur connexion sur un autre réseau. 
+
+      Ce paramètre de stratégie dépend d'autres paramètres de stratégie de groupe. Par exemple, si l'option « Minimiser le nombre de connexions simultanées à Internet ou à un domaine Windows » est désactivée, Windows ne se déconnecte d'aucun réseau.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

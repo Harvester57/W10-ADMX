@@ -77,7 +77,9 @@
 
     -關閉: 不要從搜尋結果中篩除成人內容。
 
-如果您停用或未設定這個原則設定，使用者可以指定安全搜尋設定。</string>
+如果您停用或未設定這個原則設定，使用者可以指定安全搜尋設定。
+
+Windows 10 用戶應使用搜尋/勿使用網路搜尋</string>
       <string id="SharePrivacyAllAndLocation">使用者資訊和位置</string>
       <string id="SharePrivacyAll">僅使用者資訊</string>
       <string id="SharePrivacyAnonymous">匿名資訊</string>
@@ -268,15 +270,30 @@ http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
 
 如果您停用或未設定這個原則設定，使用者會在搜尋窗格中看到根據之前的搜尋而做出的搜尋建議。</string>
       <string id="AllowCortana">允許 Cortana</string>
-      <string id="ExplainAllowCortana">這個原則指定是否在裝置上允許 Cortana 。
+      <string id="ExplainAllowCortana">此原則設定指定是否在裝置上允許 Cortana。
  
-如果您啟用或是未設定這個設定，將在裝置上允許 Cortana。如果您停用這個設定，Cortana 將會被關閉。
+若啟用或未設定此設定，將在裝置上允許 Cortana。若停用此設定，Cortana 將會被關閉。
  
-當 Cortana 關閉時，使用者仍可使用裝置和網際網路搜尋。</string>
+當 Cortana 關閉時，使用者仍可使用搜尋來尋找裝置上的內容。</string>
+      <string id="AllowCortanaAboveLock">允許在鎖定畫面上使用 Cortana</string>
+      <string id="ExplainAllowCortanaAboveLock">此原則設定決定使用者是否可以在系統鎖定時使用語音與 Cortana 互動。
+
+若啟用或未設定此原則設定，使用者可以在系統鎖定時使語音與 Cortana 互動。
+
+若停用此設定，使用者必須將系統解除鎖定，才能使用語音與 Cortana 互動。</string>
       <string id="AllowSearchToUseLocation">允許搜尋和 Cortana 使用定位</string>
       <string id="ExplainAllowSearchToUseLocation">這個原則設定指定搜尋和 Cortana 是否可以提供定位感知搜尋和 Cortana 結果。
  
 如果啟用，搜尋和 Cortana 可以存取位置資訊。</string>
+      <string id="AllowCloudSearch">允許雲端搜尋</string>
+      <string id="AllowCortanaInAADPathOOBE">允許在 OOBE 使用 AAD 帳戶顯示 Cortana 頁面</string>
+      <string id="ExplainAllowCloudSearch">允許搜尋，並允許 Cortana 搜尋雲端來源，例如 OneDrive 和 SharePoint</string>
+      <string id="ExplainCortanaAAD">允許 Windows 安裝程式全新體驗期間顯示 Cortana 加入頁面</string>
+      <string id="AllowCloudSearchDisabled">停用雲端搜尋</string>
+      <string id="AllowCortanainAADDisabled">停用 AAD 中的 Cortana 畫面</string>
+      <string id="AllowCortanainAADEnabled">啟用 AAD 中的 Cortana 畫面</string>
+      <string id="AllowCloudSearchEnabled">啟用雲端搜尋</string>
+      <string id="AllowCloudSearchControlledByUser">已選取使用者</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">預設安全搜尋設定</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">雲端搜尋設定</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Cortana AAD 設定</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

@@ -69,7 +69,7 @@
       <string id="SafeSearch">Установка параметра безопасного поиска</string>
       <string id="ExplainSafeSearch">Этот параметр политики позволяет управлять настройками безопасного поиска, используемыми при выполнении поискового запроса. 
 
-Если вы включаете этот параметр политики, то можно указать один из трех уровней фильтрации безопасного поиска, который пользователи не смогут изменять:
+Если вы включаете этот параметр политики, то можно указать один из трех уровней фильтрации безопасного поиска, который пользователи не смогут изменять.
 
     — высокий: отфильтровывать тексты, изображения и видео для взрослых из результатов поиска;
 
@@ -77,7 +77,9 @@
 
     — выключен: не отфильтровывать содержимое для взрослых из результатов поиска.
 
-Если вы отключаете или не настраиваете этот параметр политики, пользователи могут выбирать уровень фильтрации безопасного поиска.</string>
+Если вы отключаете или не настраиваете этот параметр политики, пользователи могут выбирать уровень фильтрации безопасного поиска.
+
+Пользователи Windows 10 должны использовать Search/DoNotUseWebResults</string>
       <string id="SharePrivacyAllAndLocation">Сведения о пользователе и его местоположение</string>
       <string id="SharePrivacyAll">Только сведения о пользователе</string>
       <string id="SharePrivacyAnonymous">Анонимные сведения</string>
@@ -268,15 +270,30 @@ http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
 
 Если этот параметр политики отключен или не настроен, пользователи получат варианты поиска, основанные на предыдущих поисках на панели поиска.</string>
       <string id="AllowCortana">Разрешить использование Кортаны</string>
-      <string id="ExplainAllowCortana">Этот параметр политики указывает, разрешено ли использование Кортаны на устройстве.
+      <string id="ExplainAllowCortana">Этот параметр политики указывает, разрешено ли использование Кортаны на устройстве. 
+ 
+Если этот параметр включен или не настроен, использование Кортаны на устройстве разрешено. Если отключить этот параметр, Кортана будет выключена. 
+ 
+Когда Кортана выключена, пользователи по-прежнему могут использовать возможности поиска на устройстве.</string>
+      <string id="AllowCortanaAboveLock">Разрешить использование Кортаны на экране блокировки</string>
+      <string id="ExplainAllowCortanaAboveLock">Этот параметр политики определяет, сможет ли пользователь взаимодействовать с Кортаной с помощью голоса, когда система заблокирована.
 
-Если этот параметр включен или не настроен, использование Кортаны на устройстве разрешено. Если отключить этот параметр, Кортана будет выключена.
+Если этот параметр политики включен или не настроен, пользователь сможет взаимодействовать с Кортаной с помощью голоса, когда система заблокирована.
 
-Когда Кортана выключена, пользователи по-прежнему могут использовать возможности поиска на устройстве и в Интернете.</string>
+Если этот параметр политики отключен, потребуется разблокировать систему, чтобы пользователь смог взаимодействовать с Кортаной с помощью голоса.</string>
       <string id="AllowSearchToUseLocation">Разрешить средствам поиска и Кортане использовать информацию о местоположении</string>
       <string id="ExplainAllowSearchToUseLocation">Этот параметр политики определяет, могут ли Кортана и средства поиска выполнять поиск и выводить его результаты с учетом местоположения.
 
 Если этот параметр включен, Кортана и средства поиска могут получать доступ к информации о местоположении.</string>
+      <string id="AllowCloudSearch">Разрешить поиск в облаке</string>
+      <string id="AllowCortanaInAADPathOOBE">Разрешить отображать страницу Кортаны при первом запуске для учетной записи AAD</string>
+      <string id="ExplainAllowCloudSearch">Разрешить поиск, в том числе поиск Кортаны, в облачных источниках, таких как OneDrive и SharePoint</string>
+      <string id="ExplainCortanaAAD">Разрешить отображать страницу согласия отправки данных Кортаны во время настройки при первом запуске Windows</string>
+      <string id="AllowCloudSearchDisabled">Отключить поиск в облаке</string>
+      <string id="AllowCortanainAADDisabled">Отключить страницу Кортаны в AAD</string>
+      <string id="AllowCortanainAADEnabled">Включить страницу Кортаны в AAD</string>
+      <string id="AllowCloudSearchEnabled">Включить поиск в облаке</string>
+      <string id="AllowCloudSearchControlledByUser">Выбранный пользователь</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">Настройка безопасного поиска по умолчанию</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">Настройка поиска в облаке</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">Кортана в параметрах AAD</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

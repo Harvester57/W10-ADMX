@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">このポリシー設定では、現在のドメインの場所 (コンピューターが企業ネットワークの内部であるか外部であるか) をクライアントで特定するために使用される企業 Web サイトの HTTPS URL を指定します。この URL の到達可能性によって、クライアントの場所が企業ネットワークの内部であるか外部であるかが示されます。</string>
       <string id="NCSI_PassivePolling">パッシブ ポーリングの指定</string>
       <string id="NCSI_PassivePolling_Help">このポリシー設定では、パッシブ ポーリングの動作を指定します。NCSI では、ネットワーク スタック全体にわたってさまざまな測定値を頻繁な間隔でポーリングし、ネットワーク接続が失われていないことを確認します。 オプションを使用して、パッシブ ポーリングの動作を制御します。</string>
+      <string id="NCSI_GlobalDns">グローバル DNS の指定</string>
+      <string id="NCSI_GlobalDns_Help">このポリシー設定で DNS バインドの動作を指定できます。既定では、NCSI は DNS 参照を現在調査中のインターフェイスに制限します。この設定を有効にした場合、NCSI は任意のインターフェイスでの DNS 参照を許可します。</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>次のチェック ボックスを使用すると、NCSI のパッシブ ポーリング メカニズムを無効にできます。  それによって、ネットワーク接続が静的であるサーバーまたは他のコンピューター上の CPU ワークロードを軽減できます。</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">パッシブ ポーリングを無効にする</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>次のチェックボックスは、NCSI での DNS 参照の実行時にインターフェイス バインドを無効にします。これにより、NCSI は、ローカルホストで実行されている DNS サーバーなどの特殊なネットワーク構成でより適切に動作できます。</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">グローバル DNS を使用する</checkBox>
       </presentation>
     </presentationTable>
   </resources>

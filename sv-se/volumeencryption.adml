@@ -43,19 +43,17 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
 
       <string id="ConfigureAdvancedStartup_Help">Den här principinställningen gör att du kan konfigurera om BitLocker kräver ytterligare autentisering varje gång datorn startas och om du använder BitLocker med eller utan en betrodd plattformsmodul (TPM). Principinställningen tillämpas när du aktiverar BitLocker.
 
-Obs! Enbart ett av de ytterligare alternativen för autentisering kan krävas vid start, annars inträffar ett principfel.
+Obs! Enbart ett av de ytterligare alternativen för autentisering kan krävas vid start, annars uppstår ett principfel.
 
-Om du vill använda BitLocker på en dator utan en TPM väljer du kryssrutan Tillåt BitLocker om kompatibel TPM saknas. I det här läget krävs antingen ett lösenord eller en USB-enhet för att datorn ska starta. Med en startnyckel används nyckelinformationen för att kryptera enheten som lagras på USB-enheten, vilket skapar en USB-nyckel. När USB-nyckeln sätts in autentiseras åtkomsten till enheten och enheten är sedan tillgänglig. Om USB-nyckeln försvinner eller inte är tillgänglig eller om du har glömt lösenordet måste du använda något av återställningsalternativen för BitLocker för att komma åt enheten.
+Om du vill använda BitLocker på en dator utan en TPM markerar du kryssrutan Tillåt BitLocker om kompatibel TPM saknas. I det här läget krävs antingen ett lösenord eller en USB-enhet för att datorn ska starta. Med en startnyckel används nyckelinformationen för att kryptera enheten som lagras på USB-enheten, vilket skapar en USB-nyckel. När USB-nyckeln sätts in autentiseras åtkomsten till enheten och enheten är sedan tillgänglig. Om USB-nyckeln försvinner eller inte är tillgänglig eller om du har glömt lösenordet måste du använda något av återställningsalternativen för BitLocker för att komma åt enheten.
 
-På en dator med kompatibel TPM finns det fyra typer av autentiseringsmetoder som kan användas vid start som ytterligare skydd av krypterade data. När datorn startas kan den bara använda TPM för autentisering eller också krävs att användaren sätter in ett USB-flashminne med en startnyckel, att användaren anger en PIN-kod på mellan 4 och 20 siffror eller båda delarna.
+På en dator med kompatibel TPM finns det fyra typer av autentiseringsmetoder som kan användas vid start som ytterligare skydd av krypterade data. När datorn startas kan den bara använda TPM för autentisering eller också krävs att användaren sätter in ett USB-flashminne med en startnyckel, att användaren anger en PIN-kod på mellan 6 och 20 siffror eller båda delarna.
 
 Om du aktiverar den här principinställningen kan användaren konfigurera avancerade startalternativ i installationsguiden för BitLocker.
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användare enbart konfigurera grundläggande alternativ på datorer med TPM.
 
 Obs! Om du vill kräva att både en start-PIN och ett USB-flashminne används måste du konfigurera BitLocker-inställningar med hjälp av kommandoradsverktyget manage-bde istället för med installationsguiden för BitLocker-diskkryptering.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Tillåt nätverksupplåsning vid start</string>
@@ -287,16 +285,21 @@ Varning! Datorns säkerhet och hanterbarhet påverkas om du ändrar standardvali
 
       <string id="PlatformValidation_BIOS_Name">Konfigurera TPM-plattformens valideringsprofil för BIOS-baserade konfigurationer för inbyggd programvara</string>
 
-      <string id="PlatformValidation_UEFI_Help">Med den här principinställningen kan du ange hur TPM-säkerhetsmaskinvaran (Trusted Platform Module) skyddar krypteringsnyckeln för BitLocker. Den här principinställningen gäller inte om datorn saknar kompatibel TPM-säkerhetsmaskinvara eller om BitLocker redan har aktiverats med TPM-skydd.
+      <string id="PlatformValidation_UEFI_Help">Med den här principinställningen kan du ange hur TPM-säkerhetsmaskinvaran (Trusted Platform Module) skyddar BitLocker-krypteringsnyckeln. Den här principinställningen gäller inte om datorn saknar kompatibel TPM eller om BitLocker redan har aktiverats med TPM-skydd.
 
-Viktigt! Den här grupprincipen gäller bara datorer med en egen konfiguration av den inbyggda UEFI-programvaran. Datorer med BIOS eller inbyggd UEFI-maskinvara och en CS-modul (Compatibility Service) aktiverad lagrar olika värden i konfigurationsregistren för plattformen (PCR). Använd grupprincipinställningen "Konfigurera TPM-plattformens valideringsprofil för BIOS-baserade konfigurationer för inbyggd programvara" för att konfigurera TPM PCR-profilen för datorer med BIOS-konfigurationer eller datorer med inbyggd UEFI-programvara med en aktiverad CSM.
+Viktigt! Den här grupprincipen gäller bara datorer med en egen konfiguration av den inbyggda UEFI-programvaran. Datorer med BIOS eller inbyggd UEFI-programvara och en Compatibility Service Module (CSM) aktiverad lagrar olika värden i konfigurationsregistren för plattformen (PCR) Använd grupprincipinställningen "Konfigurera TPM-plattformens valideringsprofil för BIOS-baserade konfigurationer för inbyggd programvara" för att konfigurera TPM PCR-profilen för datorer med BIOS-konfigurationer eller inbyggd UEFI-programvara och en CSM aktiverad.
 
-Om du aktiverar den här principinställningen innan du aktiverar BitLocker, kan du konfigurera startkomponenterna som ska valideras i TPM innan åtkomsten till den BitLocker-krypterade operativsystemenheten låses upp. Om någon av dessa komponenter ändras när BitLocker-skyddet är aktiverat frigörs inte krypteringsnyckeln i TPM för upplåsning av enheten och datorn visar i stället konsolen för BitLocker-återställning och kräver att antingen återställningslösenordet eller återställningsnyckeln anges för upplåsning av enheten.
+Om du aktiverar den här principinställningen innan du aktiverar BitLocker, kan du konfigurera startkomponenterna som ska valideras i TPM innan åtkomsten till den BitLocker-krypterade operativsystemenheten låses upp. Om någon av dessa komponenter ändras när BitLocker-skyddet är aktiverat frigörs inte krypteringsnyckeln i TPM för upplåsning av enheten, utan datorn visar i stället BitLocker-återställningskonsolen och kräver att antingen återställningslösenordet eller återställningsnyckeln anges för upplåsning av enheten.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen används standardprofilen för plattformsverifiering eller den profil som anges i ett startskript av BitLocker. En plattformsverifieringsprofil består av en uppsättning PCR-index (konfigurationsregister för plattformen) från 0 till 23. Standardprofilen för plattformsverifiering skyddar krypteringsnyckeln mot ändringar i den körbara kärnkoden för den inbyggda maskinvaran (PCR 0), utökad eller modulär kod (PCR 2), starthanteraren (PCR 4) och BitLocker-åtkomstkontrollen (PCR 11).
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen använder BitLocker standardprofilen för plattformsvalidering eller den profil som anges i ett installationsskript. En plattformsvalideringsprofil består av en uppsättning PCR-index (konfigurationsregister för plattformen) från 0 till 23. 
 
-Varning! Datorns säkerhet och hanterbarhet påverkas om du ändrar standardvalideringsprofilen för plattformen. BitLockers känslighet för plattformsändringar (genom skadlig kod eller auktoriserade ändringar) ökas eller minskas beroende på om PCR:erna inkluderas respektive exkluderas. Om den här principen anges men PCR 7 utelämnas åsidosätts grupprincipen Tillåt säker start för integritetsverifiering, vilket hindrar BitLocker från att använda säker start för plattformsintegritet eller Boot Configuration Data-integritetsverifiering (BCD). Om den här principen anges kan det leda till BitLocker-återställning när inbyggd programvara uppdateras. Om du anger att den här principen ska inkludera PCR 0, pausar du BitLocker innan du uppdaterar den inbyggda programvaran.
-      
+På datorer som inte stöder tillståndet för säker start (PCR 7) så skyddar standardprofilen för plattformsvalidering krypteringsnyckeln mot ändringar av den körbara kärnkoden (PCR 0) för systemets inbyggda programvara, den utökade eller modulära koden (PCR 2), starthanteraren (PCR 4) och BitLocker-åtkomstkontrollen (PCR 11).
+
+När tillståndet för säker start (PCR 7) stöds så skyddar standardprofilen för plattformsvalidering krypteringsnyckeln med hjälp av tillståndet för säker start (PCR 7) och BitLocker-åtkomstkontrollen (PCR 11). 
+
+Varning! Datorns säkerhet och hanterbarhet påverkas om du ändrar standardprofilen för plattformsvalidering. BitLockers känslighet för plattformsändringar (genom skadlig kod eller auktoriserade ändringar) ökas eller minskas beroende på om PCR:erna inkluderas respektive exkluderas. Om den här principen anges men PCR 7 utelämnas så åsidosätts grupprincipen "Tillåt säker start för integritetsverifiering", vilket hindrar BitLocker från att använda säker start för integritetsverifiering för plattformen eller Boot Configuration Data (BCD). Om den här principen anges kan det leda till BitLocker-återställning när inbyggd programvara uppdateras. Om du anger att den här principen ska inkludera PCR 0, så ska du pausa BitLocker innan du uppdaterar den inbyggda programvaran.
+
+Du rekommenderas att inte konfigurera den här principen för att låta Windows välja PCR-profil för bästa kombination av säkerhet och användbarhet baserat på den tillgängliga maskinvaran på varje dator.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Konfigurera TPM-plattformens valideringsprofil för interna konfigurationer för inbyggd UEFI-programvara</string>
@@ -311,6 +314,13 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
 
       </string>
       <string id="MorBehavior_Name">Förhindra att minne skrivs över vid omstart</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Med den här principinställningen kan du blockera direkt minnesåtkomst (DMA) för alla Thunderbolt PCI Downstream-portar (som stöder anslutning under körning) tills en användare loggar in i Windows. När en användare loggar in räknar Windows upp PCI-enheterna som är anslutna till Thunderbolt PCI-portar. Varje gång användaren låser datorn blockeras DMA i Thunderbolt PCI-portar utan underenheter tills användaren loggar in igen. Enheter som redan räknats upp medan datorn inte var låst fortsätter fungera tills de kopplas från eller systemet startas om eller går in i viloläge. Den här principinställningen tillämpas endast när BitLocker-kryptering eller enhetskryptering är aktiverat.
+
+Obs! Vissa datorer är eventuellt inte kompatibla med den här principen om systemets inbyggda programvara aktiverar DMA för nyligen anslutna Thunderbolt-enheter innan de nya enheterna exponeras i Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Inaktivera nya DMA-enheter när datorn är låst</string>
 
       <string id="FVEOSCategory">Operativsystemenheter</string>
       <string id="FVEFDVCategory">Fasta dataenheter</string>
@@ -373,26 +383,25 @@ Inställningen som styr avlusningen vid start (0x16000010) verifieras alltid och
 
 
       <string id="MinimumPINLength_Name">Konfigurera minsta PIN-kodslängd för start</string>
-      <string id="MinimumPINLength_Help">Du kan använda den här principinställningen för att konfigurera en minimilängd för start-PIN-koden för en betrodd plattformsmodul (TPM). Principinställningen tillämpas när du aktiverar BitLocker. Start-PIN-koden måste innehålla minst 4 men inte fler än 20 siffror.
+      <string id="MinimumPINLength_Help">
+          Du kan använda den här principinställningen för att konfigurera en minimilängd för start-PIN-koden för en Trusted Platform Module (TPM). Principinställningen tillämpas när du aktiverar BitLocker. Start-PIN-koden måste innehålla minst 4 men inte fler än 20 siffror.
 
-Om du aktiverar den här principinställningen kan du kräva att ett minsta antal siffror används när start-PIN-koden anges.
+          Om du aktiverar den här principinställningen kan du kräva att ett minsta antal siffror ska användas när start-PIN-koden anges.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användarna konfigurera en start-PIN-kod av valfri längd, bestående av mellan 4 och 20 siffror.
+          Om du inaktiverar eller låter bli att konfigurera principinställningen kan användarna konfigurera en start-PIN-kod av valfri längd, bestående av mellan 6 och 20 siffror.
 
-      
+          OBS! Om minimilängden för PIN-koden är mindre än 6 siffror försöker Windows uppdatera TPM 2.0-utelåsningsperioden till ett större värde än standardvärdet när en PIN-kod ändras. Om det lyckas kommer Windows endast att återställa TPM-utelåsningsperioden till standardvärdet om TPM återställs.
 
       </string>
 
       <string id="OSAllowDRA_Name">Tillåt certifikatbaserade dataåterställningsagenter</string>
 
       <string id="FDVDenyWriteAccess_Name">Neka skrivbehörighet till fasta enheter som inte skyddas med BitLocker</string>
-      <string id="FDVDenyWriteAccess_Help">Den här principinställningen avgör om BitLocker-skydd krävs för att fasta dataenheter ska vara skrivbara på en dator. Principinställningen tillämpas när du aktiverar BitLocker.
+      <string id="FDVDenyWriteAccess_Help">Den här principinställningen avgör om BitLocker-skydd krävs för att fasta dataenheter ska vara skrivbara på en dator.
 
-Om du aktiverar den här principinställningen monteras alla fasta dataenheter som inte är BitLocker-skyddade som skrivskyddade. Om enheten skyddas av BitLocker monteras den med skrivbehörighet.
+Om du aktiverar principinställningen monteras alla fasta dataenheter som inte är BitLocker-skyddade som skrivskyddade. Om enheten skyddas av BitLocker monteras den med skrivbehörighet.
 
-Om du inaktiverar eller låter bli att konfigurera den här principinställningen monteras alla fasta dataenheter på datorn med läs- och skrivåtkomst.
-
-      
+Om du inaktiverar eller låter bli att konfigurera principinställningen monteras alla fasta dataenheter på datorn med läs- och skrivbehörighet.
 
       </string>
 
@@ -691,6 +700,14 @@ Observera att om du inte aktiverar den här principinställningen kanske inte al
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Tillåt att användare med InstantGo- eller HSTI-kompatibla enheter kan välja bort förtstarts-PIN.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Den här principinställningen gör att användare med enheter som är kompatibla med InstantGo eller Microsoft Hardware Security Test Interface (HSTI) inte behöver en PIN för förstartsautentisering. Detta åsidosätter alternativen "Kräv start-PIN med TPM" och "Kräv startnyckel och start-PIN med TPM" i principen "Ytterligare autentisering krävs vid start" på kompatibel maskinvara.
+
+Om du aktiverar principinställningen kan användare med InstantGo- och HSTI-kompatibla enheter välja om de vill aktivera BitLocker utan förstartsautentisering.
+
+Om den här principen inte aktiveras tillämpas alternativen för principen "Ytterligare autentisering krävs vid start".
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Tillåt säker start för integritetsverifiering</string>
       <string id="AllowSecureBootForIntegrity_Help">Med den här principinställningen kan du ange huruvida Säker start tillåts vara provider för plattformsintegriteten för operativsystemenheter som skyddas med BitLocker.
 
@@ -968,7 +985,7 @@ Obs! Det är inte alla tecken och språk som stöds i förstartsmiljön. Du bör
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Minsta antal tecken:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Minsta antal tecken:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

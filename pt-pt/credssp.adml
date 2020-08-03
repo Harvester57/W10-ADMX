@@ -156,18 +156,58 @@ TERMSRV/*.humanresources.fabricam.com Anfitrião de Sessões de Ambiente de Trab
 
 Esta definição de política pode ser utilizada em combinação com a definição de política "Permitir delegação de credenciais guardadas" para definir exceções para servidores específicos que, de outro modo, são permitidas quando utiliza carateres universais na lista de servidores "Permitir delegação de credenciais guardadas".</string>
       <string id="RestrictedRemoteAdministration">Limitar delegação de credenciais a servidores remotos</string>
-      <string id="RestrictedRemoteAdministration_Explain">Ao serem executadas em modo restrito, as aplicações participantes não expõem as credenciais aos computadores remotos (independentemente do método de delegação). O modo restrito poderá limitar o acesso a recursos localizados noutros servidores ou redes para lá do computador de destino, uma vez que não ocorre a delegação de credenciais.
+      <string id="RestrictedRemoteAdministration_Explain">Quando em execução no modo de Administração Restrita ou de Credential Guard Remota, as aplicações participantes não expõem credenciais fornecidas ou com sessão iniciada a um anfitrião remoto. O modo de Administração Restrita limita o acesso a recursos localizados noutros servidores ou redes do anfitrião remoto, porque as credenciais não são delegadas. A Credential Guard Remota não limita o acesso aos recursos, uma vez que redireciona todos os pedidos para o dispositivo do cliente.
 
 Aplicações participantes:
 Cliente do Ambiente de Trabalho Remoto
 
-Se ativar esta definição de política, será imposto o modo restrito e as aplicações participantes não delegarão as credenciais a computadores remotos.
+Se ativar esta definição de política, são suportadas as seguintes opções:
+ 
+Restringir a delegação de credenciais: as aplicações participantes têm de recorrer ao modo de Administração Restrita ou Credential Guard Remota para se ligarem a anfitriões remotos.
+ 
+Requerer Credential Guard Remota: as aplicações participantes têm de recorrer ao modo de Credential Guard Remota para se ligarem a anfitriões remotos.
+ 
+Requerer Administração Restrita: as aplicações participantes têm de recorrer ao modo de Administração Restrita para se ligarem a anfitriões remotos.
 
-Se desativar ou não configurar esta definição de política, o modo restrito não será imposto e as aplicações participantes poderão delegar credenciais a computadores remotos.
+Se desativar ou não configurar esta definição de política, os modos de Administração Restrita ou de Credential Guard Remota não são implementados e as aplicações participantes podem delegar credenciais para dispositivos remotos.
 
-Nota: para desativar a maior parte da delegação de credenciais, poderá ser suficiente recusar a delegação no CredSSP (Credential Security Support Provider), modificando as Definições de modelo administrativo (localizadas em Configuração do Computador\Modelos Administrativos\Sistema\Delegação de Credenciais).</string>
+Nota: Para desativar a maioria das delegações de credenciais, pode ser suficiente negar a delegação no CredSSP (Credential Security Support Provider) modificando as definições de Modelos administrativos (localizadas em Configuração do Computador\Modelos Administrativos\Sistema\Delegação de Credenciais).
+
+Nota: No Windows 8.1 e no Windows Server 2012 R2, a ativação desta política implementa o modo de Administração Restrita, independentemente do modo escolhido. Estas versões não suportam a Credential Guard Remota.
+</string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
+      <string id="PreferRemoteCredentialGuard">Restringir a Delegação de Credenciais</string>
+      <string id="RequireRemoteCredentialGuard">Exigir Credential Guard Remota</string>
+      <string id="RequireRestrictedAdmin">Exigir Administração Restrita</string>
+      <string id="AllowProtectedCreds">O anfitrião remoto permite a delegação de credenciais não exportáveis</string>
+      <string id="AllowProtectedCreds_Explain">O anfitrião remoto permite a delegação de credenciais não exportáveis
+
+Ao utilizar a delegação de credenciais, os dispositivos fornecem uma versão exportável de credenciais para o anfitrião remoto. Isto expõe os utilizadores ao risco de roubo de credenciais por parte de atacantes no anfitrião remoto.
+
+Se ativar esta definição de política, o anfitrião suporta o modo de Administração Restrita ou de Credential Guard Remota.
+
+Se desativar ou não configurar esta definição de política, os modos de Administração Restrita e de Credential Guard Remota não são suportados. O utilizador terá sempre de transmitir as suas credenciais ao anfitrião.</string>
+      <string id="AllowEncryptionOracle">Remediação do Oráculo de Encriptação</string>
+      <string id="AllowEncryptionOracle_Explain">Remediação do Oráculo de Encriptação
+
+Esta definição de política aplica-se a aplicações que utilizam o componente CredSSP (por exemplo: Ligação ao Ambiente de Trabalho Remoto).
+
+Algumas versões do protocolo CredSSP estão vulneráveis ao ataque de um oráculo de encriptação contra o cliente. Esta política controla a compatibilidade com clientes e servidores vulneráveis. Esta política permite-lhe definir o nível de proteção pretendido da vulnerabilidade relacionada com oráculos de encriptação.
+
+Se ativar esta definição de política, será selecionado suporte para a versão CredSSP com base nas seguintes opções: 
+
+Forçar Clientes Atualizados: as aplicações cliente que utilizam CredSSP não poderão reverter para as versões sem segurança e os serviços que utilizam CredSSP não aceitarão clientes não corrigidos. Nota: esta definição não deverá ser implementada até todos os anfitriões remotos suportarem a versão mais recente.
+
+Mitigar: as aplicações cliente que utilizam CredSSP não poderão reverter para a versão sem segurança, mas os serviços que utilizam CredSSP aceitarão clientes não corrigidos. Consulte a ligação abaixo para obter informações importantes sobre os riscos de manter clientes não corrigidos.
+
+Tornar Vulnerável: as aplicações cliente que utilizam CredSSP exporão os servidores remotos a ataque suportando a reversão para versões sem segurança e os serviços que utilizam CredSSP aceitarão clientes não corrigidos.
+
+Para obter mais informações sobre os requisitos de vulnerabilidade e serviços de proteção, aceda a https://go.microsoft.com/fwlink/?linkid=866660.</string>
+      <string id="AllowEncryptionOracle_Force">Forçar Clientes Atualizados</string>
+      <string id="AllowEncryptionOracle_Secure">Mitigar</string>
+      <string id="AllowEncryptionOracle_Allow">Tornar Vulnerável</string>
     </stringTable>
+    
     <presentationTable>
       <presentation id="AllowDefaultCredentials">
         <listBox refId="AllowDefaultCredentials_Name">Adicionar servidores à lista:</listBox>
@@ -205,6 +245,15 @@ Nota: para desativar a maior parte da delegação de credenciais, poderá ser su
         <listBox refId="DenySavedCredentials_Name">Adicionar servidores à lista:</listBox>
         <checkBox refId="ConcatenateDefaults_DSC" defaultChecked="true">Concatenar predefinições do SO com entrada acima</checkBox>
       </presentation>
+      <presentation id="RestrictedRemoteAdministration">
+        <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Utilizar o seguinte modo restrito:</dropdownList>
+      </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Nível de Proteção:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

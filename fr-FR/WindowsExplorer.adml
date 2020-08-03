@@ -267,14 +267,14 @@ Remarque : les icônes représentant les lecteurs spécifiés apparaîtront tou
  En outre, ce paramètre n’empêche pas les utilisateurs d’accéder aux lecteurs réseau et locaux par le biais de programmes. Il ne les empêche pas non plus d’utiliser le composant logiciel enfichable Gestion des disques pour afficher et modifier les caractéristiques des lecteurs.
 
 Consultez également le paramètre « Dans Poste de travail, masquer ces lecteurs spécifiés ».</string>
-      <string id="NoWindowsHotKeys">Désactiver les touches de raccourci Windows+X</string>
+      <string id="NoWindowsHotKeys">Désactiver les touches de raccourci Windows</string>
       <string id="NoWindowsHotKeys_Help">Désactive les touches de raccourci Windows+X.
 
-Les claviers disposant d’une touche Windows fournissent aux utilisateurs des raccourcis vers les fonctionnalités d’environnement courantes. Par exemple, si vous appuyez sur la combinaison de touches Windows+R, la boîte de dialogue Exécuter s’ouvre ; si vous appuyez sur la combinaison de touches Windows+E, l’Explorateur de fichiers démarre. L’utilisation de ce paramètre permet de désactiver les touches de raccourci Windows+X.
+Les claviers disposant d’une touche Windows fournissent aux utilisateurs des raccourcis vers les fonctionnalités d’environnement courantes. Par exemple, si vous appuyez sur la combinaison de touches Windows+R, la boîte de dialogue Exécuter s’ouvre ; si vous appuyez sur la combinaison de touches Windows+E, l’Explorateur de fichiers démarre. L’utilisation de ce paramètre permet de désactiver les touches de raccourci Windows.
 
-Si vous activez ce paramètre, les touches de raccourci Windows+X ne seront pas disponibles.
+Si vous activez ce paramètre, les touches de raccourci Windows ne seront pas disponibles.
 
-Si vous désactivez ce paramètre ou si vous ne le configurez pas, les touches de raccourci Windows+X seront disponibles.</string>
+Si vous désactivez ce paramètre ou si vous ne le configurez pas, les touches de raccourci Windows seront disponibles.</string>
       <string id="NoWorkgroupContents">Ne pas afficher « Ordinateurs proches » dans les emplacements réseau</string>
       <string id="NoWorkgroupContents_Help">Ce paramètre de stratégie permet de supprimer les ordinateurs du groupe de travail ou du domaine de l’utilisateur des listes de ressources réseau affichées dans l’Explorateur de fichiers et dans les emplacements réseau.
 
@@ -458,21 +458,26 @@ Si vous activez ce paramètre de stratégie, les administrateurs peuvent spécif
 Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, aucune modification n’est apportée à l’emplacement des fichiers de définition de bibliothèques par défaut.
       
       </string>
-      <string id="EnableSmartScreen">Configurer Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Ce paramètre de stratégie vous permet de gérer le comportement de Windows SmartScreen. Windows SmartScreen aide à renforcer la sécurité des ordinateurs en avertissant les utilisateurs avant d’exécuter des programmes non reconnus téléchargés depuis Internet. Lorsque cette fonctionnalité est activée, des informations sur les fichiers et programmes exécutés sur les ordinateurs sont envoyées à Microsoft.
+      <string id="EnableSmartScreen">Configurer Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">Avertir et empêcher tout contournement</string>
+      <string id="SmartScreen_Warn">Avertir</string>
+      <string id="EnableSmartScreen_Help">Ce paramètre de stratégie vous permet d’activer ou de désactiver Windows Defender SmartScreen. SmartScreen aide à protéger les PC en avertissant les utilisateurs avant qu’ils n’exécutent les programmes potentiellement malveillants téléchargés à partir dֹ’Internet. Cet avertissement se présente sous forme d’une boîte de dialogue interstitielle qui s’affiche avant l’exécution d’une application téléchargée à partir d’Internet, qui n’est pas reconnue ou connue pour être malveillante. Aucune boîte de dialogue n’est affichée pour les applications qui ne semblent pas suspectes.
 
-Si vous activez ce paramètre de stratégie, le comportement de Windows SmartScreen peut être contrôlé en définissant l’une des options suivantes :
+Certaines informations sont envoyées à Microsoft sur les fichiers et programmes exécutés sur les PC avec cette fonctionnalité activée.
 
-• Afficher un avertissement à l’utilisateur avant d’exécuter un logiciel inconnu téléchargé
-• Désactiver SmartScreen
+Si vous activez ce paramètre de stratégie, la fonctionnalité SmartScreen est activée pour tous les utilisateurs. Son comportement peut être contrôlé par les options suivantes :
 
-Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, le comportement de Windows SmartScreen est géré par les administrateurs sur l’ordinateur en utilisant les paramètres Windows SmartScreen sous Sécurité et maintenance.
+• Avertir et empêcher tout contournement
+• Avertir
 
-Options :
-• Afficher un avertissement à l’utilisateur avant d’exécuter un logiciel inconnu téléchargé
-• Désactiver SmartScreen
+Si vous activez ce paramètre de stratégie avec l’option « Avertir et empêcher tout contournement », les boîtes de dialogue de SmartScreen ne présentent pas à l’utilisateur l’option permettant d’ignorer l’avertissement et d’exécuter l’application. SmartScreen continue d’afficher l’avertissement lors des tentatives ultérieures d’exécution de l’application .
 
-</string>
+Si vous activez ce paramètre de stratégie avec l’option « Avertir », les boîtes de dialogue de SmartScreen avertissent l’utilisateur que l’application semble suspecte, mais elles lui permettent d’ignorer l’avertissement et d’exécuter l’application malgré tout. SmartScreen n’envoie plus à l’utilisateur d’avertissements à propos de cette application si l’utilisateur indique à SmartScreen de l’exécuter.
+
+Si vous désactivez ce paramètre de stratégie, la fonctionnalité SmartScreen est désactivée pour tous les utilisateurs. Les utilisateurs ne sont pas avertis s’ils essaient d’exécuter des applications suspectes à partir d’Internet.
+
+Si vous ne configurez pas ce paramètre de stratégie, la fonctionnalité SmartScreen est activée par défaut, mais les utilisateurs peuvent modifier leurs paramètres.
+      </string>
       <string id="ShowLockOption">Afficher verrouiller dans le menu Fenêtre de l’utilisateur </string>
       <string id="ShowLockOption_Help">Affiche ou masque le verrouillage dans le menu Fenêtre de l’utilisateur.
 Si vous activez ce paramètre de stratégie, l’option de verrouillage est affichée dans le menu Fenêtre de l’utilisateur.
@@ -619,6 +624,9 @@ Si la stratégie est activée, désactivée ou n’est pas configurée, les util
         <textBox refId="DefaultLibrariesLocation">
           <label>Emplacement des définitions de bibliothèques par défaut</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Choisissez l’un des paramètres suivants :</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

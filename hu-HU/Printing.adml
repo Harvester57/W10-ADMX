@@ -33,7 +33,7 @@ Megjegyzések:
       <string id="CplPrinters">Nyomtatók</string>
       <string id="CplPrinters_Help">A hálózati nyomtató konfigurációjára és a közzétételre vonatkozó beállításokat kezeli.</string>
       <string id="CustomizedSupportUrl">Egyéni terméktámogatási URL-cím a Nyomtatók mappa bal oldali ablaktáblájában</string>
-      <string id="CustomizedSupportUrl_Help">Alapértelmezés szerint a Nyomtatók mappában megjelenik a Microsoft Terméktámogatás weblapjára mutató „Nyomtatási tanácsok” hivatkozás. A mappa tartalmazhat egy olyan hivatkozást is, amely az aktuális nyomtató gyártójának weblapjára mutat.
+      <string id="CustomizedSupportUrl_Help">Alapértelmezés szerint a Nyomtatók mappában megjelenik a Microsoft Ügyfélszolgálatának weblapjára mutató „Nyomtatási tanácsok” hivatkozás. A mappa tartalmazhat egy olyan hivatkozást is, amely az aktuális nyomtató gyártójának weblapjára mutat.
 
           A beállítás engedélyezésével lecseréli az alapértelmezett „Nyomtatási tanácsok” hivatkozást egy olyan hivatkozással, amely a vállalata igényeinek megfelelően testre szabott weblapra mutat.
 
@@ -44,20 +44,25 @@ Megjegyzések:
           Lásd még: az „Internetes nyomtatás aktiválása” beállítás ebben a beállításmappában és a „Nyomtatók keresése közös webhelyen” beállítás a Felhasználó konfigurációja\Felügyeleti sablonok\Vezérlőpult\Nyomtatók mappában.
 
           A webnézetet a Felhasználó konfigurációja\Felügyeleti sablonok\Windows-összetevők\Windows Intéző mappában található „Klasszikus rendszerhéj bekapcsolása” és „A Mappabeállítások a szalag Nézet fülén található Beállítások gombbal történő megnyitásának tiltása” beállítás, valamint a Felhasználó konfigurációja\Felügyeleti sablonok\Asztal\Active Desktop mappában található „Az Active Desktop engedélyezése” beállítás befolyásolja.</string>
-      <string id="DomainDisplayPrinters_Help">E házirend-beállítás engedélyezésével beállíthatja a nyomtatók maximális számát (típusonként), amelyet a Nyomtató hozzáadása varázsló megjelenít a kezelt hálózathoz csatlakoztatott számítógépeken (amikor a számítógép – például egy tartományhoz csatlakoztatott hordozható számítógép a vállalati hálózatban – nem tudja elérni a tartományvezérlőt.)
+      <string id="DomainDisplayPrinters_Help">E házirend-beállítás engedélyezésével megadhatja azon nyomtatók maximális számát (típusonként), amelyeket a Nyomtató hozzáadása varázsló megjelenít a felügyelt hálózatban működő számítógépeken (amikor a számítógép – például egy tartományhoz csatlakoztatott laptop a vállalati hálózatban – el tudja érni a tartományvezérlőt).
 
-          Ha ez a beállítás le van tiltva, a hálózati keresés oldala nem jelenik meg.
+          Ha ez a házirend-beállítás le van tiltva, a hálózati keresési lap nem jelenik meg.
 
-          Ha nem konfigurálja a beállítást, a Nyomtató hozzáadása varázsló minden típus esetében az alapértelmezett nyomtatószámot jeleníti meg:
-          Könyvtárnyomtató: 20
-          TCP/IP-nyomtató: 0
-          Webszolgáltatásokat használó nyomtató: 0
-          Bluetooth-nyomtató: 10
-          Megosztott nyomtató: 0
+          Ha nem konfigurálja ezt a házirend-beállítást, a Nyomtató hozzáadása varázsló minden típus esetében az alapértelmezett számú nyomtatót jeleníti meg:
+          Címtári nyomtatók: 20
+          TCP/IP-nyomtatók: 0
+          Webszolgáltatásokat használó nyomtatók: 0
+          Bluetooth-nyomtatók: 10
+          Megosztott nyomtatók: 0
 
-          A hálózat webszolgáltatásokat használó nyomtatóit csak akkor tekintheti meg, ha a hálózatfelderítés be van kapcsolva. A hálózatfelderítés bekapcsolásához kattintson a Start menü Vezérlőpult parancsára, majd a „Hálózat és internet” hivatkozásra. A „Hálózat és internet” lapon kattintson a „Hálózati és megosztási központ” hivatkozásra. A „Hálózati és megosztási központ” lapon kattintson a „Speciális megosztási beállítások módosítása” hivatkozásra. A „Speciális megosztási beállítások” lapon kattintson a „Tartomány” elem melletti nyílra, majd a „Hálózatfelderítés bekapcsolása” választógombra, végül a „Módosítások mentése” gombra.
+          A hálózaton elérhető, webszolgáltatásokat használó nyomtatókat csak akkor tekintheti meg, ha be van kapcsolva a hálózatfelderítés. A hálózatfelderítés bekapcsolásához kattintson a „Start” menü „Vezérlőpult” parancsára, majd a „Hálózat és internet” hivatkozásra. A „Hálózat és internet” lapon kattintson a „Hálózati és megosztási központ” hivatkozásra. A „Hálózati és megosztási központ” lapon kattintson a „Speciális megosztási beállítások módosítása” hivatkozásra. A „Speciális megosztási beállítások” lapon kattintson a „Tartomány” elem melletti nyílra, majd a „Hálózatfelderítés bekapcsolása” választógombra, és végül a „Módosítások mentése” gombra.
 
-          Ha bizonyos típusú nyomtatókat nem szeretne megjeleníteni, engedélyezze ezt a házirendet, és állítsa a megjelenítendő nyomtatók számát nullára.</string>
+          Ha bizonyos típusú nyomtatókat nem szeretne megjeleníteni, engedélyezze ezt a házirendet, és állítsa az adott típusú megjelenítendő nyomtatók számát 0-ra.
+
+          Windows 10 és újabb rendszerekben csak TCP/IP-nyomtatók jeleníthetők meg a varázslóban. Ha engedélyezi ezt a házirend-beállítást, csak a TCP/IP-nyomtatókra vonatkozó korlát jut érvényre. Kizárólag Windows 10 rendszerben, ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer az alapértelmezett korlátot alkalmazza.
+          
+          Windows 8 és újabb rendszerekben a Bluetooth-nyomtatók nem jelennek meg, így az ezekre vonatkozó korlát nem jut érvényre a Windows ezen verzióiban.
+      </string>
       <string id="DomainPrinters">Nyomtató hozzáadása varázsló – Hálózati keresés oldal (Kezelt hálózat)</string>
       <string id="DownlevelBrowse">Nyomtatók keresése a hálózatban</string>
       <string id="DownlevelBrowse_Help">Ez a beállítás lehetővé teszi, hogy a felhasználók a Nyomtató hozzáadása varázslóval megosztott nyomtatókat keressenek a hálózatban.
@@ -129,17 +134,21 @@ Megjegyzés: a házirend alkalmazásával a szervizcsomagok telepítése vagy a 
           A beállítás nem akadályozza meg a nyomtatók más programokkal történő törlését.
 
           Ha letiltja vagy nem konfigurálja ezt a házirendet, a felhasználók törölhetnek nyomtatókat a fent ismertetett módszerekkel.</string>
-      <string id="NonDomainDisplayPrinters_Help">E házirend-beállítással megadhatja a nyomtatók maximális számát (típusonként), amelyet a Nyomtató hozzáadása varázsló megjelenít a nem kezelt hálózatban működő számítógépeken (amikor a számítógép – például egy tartományhoz csatlakoztatott hordozható számítógép az otthoni hálózatban – nem tudja elérni a tartományvezérlőt.)
+      <string id="NonDomainDisplayPrinters_Help">Ez a házirend megadja azon nyomtatók maximális számát (típusonként), amelyeket a Nyomtató hozzáadása varázsló megjelenít a nem felügyelt hálózatban működő számítógépeken (amikor a számítógép – például egy tartományhoz csatlakoztatott laptop az otthoni hálózatban – nem tudja elérni a tartományvezérlőt).
 
-Ha ez a beállítás le van tiltva, a hálózati keresés oldala nem jelenik meg.
+Ha ez a beállítás le van tiltva, a hálózati keresési lap nem jelenik meg.
 
-Ha nem konfigurálja a beállítást, a Nyomtató hozzáadása varázsló minden típus esetében az alapértelmezett nyomtatószámot jeleníti meg:
-TCP/IP-nyomtató: 50
-Webszolgáltatásokat használó nyomtató: 50
-Bluetooth-nyomtató: 10
-Megosztott nyomtató: 50
+Ha nem konfigurálja ezt a beállítást, a Nyomtató hozzáadása varázsló minden típus esetében az alapértelmezett számú nyomtatót jeleníti meg:
+TCP/IP-nyomtatók: 50
+Webszolgáltatásokat használó nyomtatók: 50
+Bluetooth-nyomtatók: 10
+Megosztott nyomtatók: 50
 
-Ha bizonyos típusú nyomtatókat nem szeretne megjeleníteni, engedélyezze ezt a házirendet, és állítsa a megjelenítendő nyomtatók számát nullára.</string>
+Ha bizonyos típusú nyomtatókat nem szeretne megjeleníteni, engedélyezze ezt a házirendet, és állítsa az adott típusú megjelenítendő nyomtatók számát 0-ra.
+
+Windows 10 és újabb rendszerekben csak TCP/IP-nyomtatók jeleníthetők meg a varázslóban. Ha engedélyezi ezt a házirend-beállítást, csak a TCP/IP-nyomtatókra vonatkozó korlát jut érvényre. Kizárólag Windows 10 rendszerben, ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a rendszer az alapértelmezett korlátot alkalmazza.
+          
+Windows 8 és újabb rendszerekben a Bluetooth-nyomtatók nem jelennek meg, így az ezekre vonatkozó korlát nem jut érvényre a Windows ezen verzióiban.</string>
       <string id="NonDomainPrinters">Nyomtató hozzáadása varázsló – Hálózati keresés oldal (Nem kezelt hálózat)</string>
       <string id="PackagePointAndPrintOnly">Gyorsnyomtatás csak csomagbarát nyomtatókra</string>
       <string id="PackagePointAndPrintOnly_Help">Ez a házirend csak a csomagbarát nyomtatók esetében engedélyezi gyorsnyomtatás használatát az ügyfélszámítógépek számára.
@@ -269,7 +278,7 @@ Alapértelmezés szerint a Windows Ultimate, Professional és Home termékválto
 
         Ha letiltja vagy nem konfigurálja a házirend-beállítást, minden telepített nyomtatóbővítmény futtatható lesz.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">A Microsoft XPS-dokumentumíró (MXDW) alapértelmezett kimeneti formátuma az örökölt Microsoft XPS formátum (*.xps) legyen</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">A Microsoft XPS-dokumentumíró (MXDW) alapértelmezés szerint OpenXPS-fájlokat (*.oxps) hoz létre a Windows 10, a Windows 10 és a Windows Server 2016 rendszerben.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">A Microsoft XPS-dokumentumíró (MXDW) alapértelmezés szerint OpenXPS-fájlokat (*.oxps) hoz létre a Windows 10 és a Windows Server 2019 rendszerben.
 
           Ha engedélyezi ezt a csoportházirend-beállítást, az alapértelmezett kimeneti MXDW-formátum az örökölt Microsoft XPS (*.xps) lesz.
 

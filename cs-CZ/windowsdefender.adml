@@ -3,9 +3,13 @@
 <description>Sem zadejte popis.</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Windows Defender</string>
+    <string id="AntiSpywareDefender">Antivirová ochrana v programu Windows Defender</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Vyloučení</string>
+    <string id="ExploitGuard">Ochrana Exploit Guard v programu Windows Defender</string>
+    <string id="ExploitGuard_ASR">Omezení prostoru pro útok</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Řízený přístup ke složkám</string>
+    <string id="ExploitGuard_NetworkProtection">Ochrana sítě</string>
     <string id="NetworkRealtimeInspection">Systém kontroly sítě</string>
     <string id="NetworkRealtimeInspection_Exclusions">Vyloučení</string>
     <string id="Quarantine">Karanténa</string>
@@ -17,6 +21,7 @@
     <string id="Spynet">Komunita MAPS</string>
     <string id="Threats">Hrozby</string>
     <string id="ClientInterface">Rozhraní klienta</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Povolit antimalwarové službě spuštění s normální prioritou</string>
     <string id="AllowFastServiceStartup_Explain">Toto nastavení zásad určuje prioritu zavádění antimalwarové služby. Zvýšení priority zavádění umožní rychlejší spuštění služby, ale může mít vliv na výkon.
 
@@ -25,7 +30,18 @@ Pokud toto nastavení povolíte nebo nenakonfigurujete, bude antimalwarová slu�
 Pokud toto nastavení zakážete, bude antimalwarová služba zaváděna jako úloha s nízkou prioritou.</string>
 
     <string id="DisableAutoExclusions">Vypnout automatická vyloučení</string>
-    <string id="DisableAutoExclusions_Explain">Umožňuje správci nastavit, jestli se má vypnout funkce Automatická vyloučení pro serverové skladové jednotky (SKU).</string>
+    <string id="DisableAutoExclusions_Explain">
+        Umožňuje správci určit, jestli se má vypnout funkce Automatická vyloučení pro serverové skladové jednotky (SKU).
+
+        Zakázáno (výchozí):
+        Program Windows Defender vyloučí při kontrole předdefinovaný seznam cest za účelem zlepšení výkonu.
+
+        Povoleno:
+        Program Windows Defender nevyloučí při kontrolách předdefinovaný seznam cest. To může mít při určitých scénářích dopad na výkon počítače.
+
+        Nenakonfigurováno:
+        Stejné jako možnost Zakázáno.
+    </string>
     <string id="DisableAntiSpyware">Vypnout Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Toto nastavení zásad vypne Endpoint Protection.
 
@@ -33,12 +49,12 @@ Pokud toto nastavení zásad povolíte, Endpoint Protection se nespustí a na po
 
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Endpoint Protection bude standardně spuštěný a na počítačích se bude provádět kontrola přítomnosti malwaru a dalšího potenciálně nežádoucího softwaru.
     </string>
-    <string id="DisableAntiSpywareDefender">Vypnout Windows Defender</string>
-    <string id="DisableAntiSpywareDefender_Explain">Toto nastavení zásad vypne program Windows Defender.
+    <string id="DisableAntiSpywareDefender">Vypnout Antivirovou ochranu v programu Windows Defender</string>
+    <string id="DisableAntiSpywareDefender_Explain">Toto nastavení zásad vypne Antivirovou ochranu v programu Windows Defender.
 
-    Pokud toto nastavení zásad povolíte, program Windows Defender se nespustí a na počítačích se nebude provádět kontrola přítomnosti malwaru nebo dalšího potenciálně nežádoucího softwaru.
+ Pokud toto nastavení zásad povolíte, Antivirová ochrana v programu Windows Defender  se nespustí a na počítačích se nebude provádět kontrola přítomnosti malwaru nebo dalšího potenciálně nežádoucího softwaru.
 
-    Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Windows Defender bude standardně spuštěný a na počítačích se bude provádět kontrola přítomnosti malwaru a dalšího potenciálně nežádoucího softwaru.</string>
+ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Antivirová ochrana v programu Windows Defender bude standardně spuštěná a na počítačích se bude provádět kontrola přítomnosti malwaru a dalšího potenciálně nežádoucího softwaru</string>
     <string id="DisableLocalAdminMerge">Konfigurovat sloučení nastavení seznamů provedeného místním správcem</string>
     <string id="DisableLocalAdminMerge_Explain">Toto nastavení zásad určuje, zda má být nastavení složitých seznamů nakonfigurované místním správcem sloučeno s nastavením zásad skupiny či nikoli. Toto nastavení platí pro takové seznamy, jako jsou hrozby a vyloučení.
 
@@ -47,11 +63,11 @@ Pokud toto nastavení povolíte nebo nenakonfigurujete, budou jedinečné polož
 Pokud toto nastavení zakážete, budou ve výsledných platných zásadách použity pouze položky definované v zásadách skupiny. Nastavení zásad skupiny bude mít přednost před nastavením předvoleb nakonfigurovaným místním správcem.</string>
     <string id="DisableRoutinelyTakingAction">Vypnout pravidelné odstraňování problémů</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Toto nastavení zásad umožňuje nakonfigurovat, jestli program Windows Defender automaticky provede akci u všech zjištěných hrozeb. Akce, která se má provést u konkrétní hrozby, je určená kombinací akce definované zásadami, akce definované uživatelem a akce definované signaturou.
+    Toto nastavení zásad umožňuje nakonfigurovat, jestli Antivirová ochrana v programu Windows Defender automaticky provede akci u všech zjištěných hrozeb. Akce, která se má provést u konkrétní hrozby, je určená kombinací akce definované zásadami, akce definované uživatelem a akce definované podpisem.
 
-    Pokud toto nastavení zásad povolíte, Windows Defender nebude u zjištěných hrozeb provádět automaticky žádné akce, ale vyzve uživatele, aby zvolili jednu z akcí, které jsou k dispozici pro jednotlivé hrozby.
+    Pokud toto nastavení zásad povolíte, nebude Antivirová ochrana v programu Windows Defender u zjištěných hrozeb provádět automaticky žádné akce, ale vyzve uživatele, aby zvolili jednu z akcí, které jsou k dispozici pro jednotlivé hrozby.
 
-    Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Windows Defender bude provádět akci automaticky u všech zjištěných hrozeb po uplynutí nenakonfigurovatelné prodlevy v délce přibližně 5 sekund.</string>
+    Pokud toto nastavení zásad vypnete nebo nenakonfigurujete, Antivirová ochrana v programu Windows Defender provede akci automaticky u všech zjištěných hrozeb po uplynutí nenakonfigurovatelné prodlevy v délce přibližně 5 sekund.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Toto nastavení zásad umožňuje nakonfigurovat, jestli Endpoint Protection automaticky provede akci u všech zjištěných hrozeb. Akce, která se má provést u konkrétní hrozby, je určená kombinací akce definované zásadami, akce definované uživatelem a akce definované signaturou.
 
@@ -100,6 +116,21 @@ Pokud toto nastavení zakážete, budou plánované úlohy zahájeny v zadaném 
 Pokud toto nastavení povolíte, zůstane antimalwarová služba stále spuštěna, a to i v případě, že budou vypnuty definice antiviru i antispywaru.
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete a budou vypnuty definice antiviru i antispywaru, bude antimalwarová služba zastavena. Jestliže je u této služby nastaveno automatické spouštění, bude při restartování počítače spuštěna. Po spuštění služby proběhne kontrola, zda jsou zapnuty definice antiviru a antispywaru. Pokud jsou alespoň jedny z těchto definic zapnuty, zůstane služba spuštěná. Jestliže jsou obojí definice vypnuty, bude služba zastavena.</string>
+    <string id="Root_PUAProtection">Konfigurovat detekci potenciálně nechtěných aplikací</string>
+    <string id="Root_PUAProtection_Explain">
+        Povolí nebo zakáže detekci potenciálně nechtěných aplikací. Pokud se začne stahovat potenciálně nežádoucí software nebo pokud se pokusí o instalaci do počítače, můžete se rozhodnout pro blokování, auditování nebo povolení.
+
+        Povoleno:
+        Určete režim v části Možnosti:
+        -Blokovat: Potenciálně nežádoucí software bude zablokován.
+        -Režim auditování: Potenciálně nežádoucí software nebude zablokován, ale pokud by tato funkce v případě nastavení na Blokovat zablokovala přístup, bude událost zaznamenána do protokolu událostí.
+
+        Zakázáno:
+        Potenciálně nežádoucí software nebude zablokován.
+
+        Není nakonfigurováno:
+        Stejné jako Zakázáno.
+    </string>
     <string id="Exclusions_Extensions">Vyloučení přípon</string>
     <string id="Exclusions_Extensions_Explain">Toto nastavení zásad umožňuje zadat seznam typů souborů, které by měly být z plánovaných a vlastních kontrol a kontrol v reálném čase vyloučeny. Typy souborů by měly být přidány v části Možnosti pro toto nastavení. Každou položku je třeba uvést jako dvojici názvu a hodnoty, kde název by měl být řetězec představující příponu typu souboru (například obj nebo lib). Hodnota se nepoužívá a doporučujeme ji nastavit na 0.</string>
     <string id="Exclusions_Paths">Vyloučení cest</string>
@@ -157,13 +188,13 @@ Pokud toto nastavení povolíte nebo nenakonfigurujete, budou oznámení o zápi
 
 Pokud toto nastavení zakážete, budou oznámení o zápisu na neformátovaný svazek vypnuta.</string>
     <string id="DisableRealtimeMonitoring">Vypnout ochranu v reálném čase</string>
-    <string id="DisableRealtimeMonitoringDefender_Explain">Toto nastavení zásad vypne výzvy ochrany v reálném čase při zjištění známého malwaru.
+    <string id="DisableRealtimeMonitoringDefender_Explain">Toto nastavení zásad vypne výzvy ochrany v reálném čase při zjištění známého malwaru.
 
-    Program Windows Defender zobrazuje upozornění, pokud se malware nebo potenciálně nežádoucí software na vašem počítači pokusí sám nainstalovat nebo spustit.
+    Antivirová ochrana v programu Windows Defender zobrazuje upozornění, pokud se malware nebo potenciálně nežádoucí software na vašem počítači pokusí sám nainstalovat nebo spustit.
 
-    Pokud toto nastavení zásad povolíte, nezobrazí program Windows Defender uživatelům výzvu k provedení konkrétních akcí v souvislosti s detekcí malwaru.
+    Pokud toto nastavení zásad povolíte, nezobrazí Antivirová ochrana v programu Windows Defender uživatelům výzvu k provedení konkrétních akcí v souvislosti s detekcí malwaru.
 
-    Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, zobrazí program Windows Defender uživatelům výzvu k provedení konkrétních akcí v souvislosti s detekcí malwaru.</string>
+    Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, zobrazí Antivirová ochrana v programu Windows Defender uživatelům výzvu k provedení konkrétních akcí v souvislosti s detekcí malwaru.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Toto nastavení zásad vypne výzvy ochrany v reálném čase při zjištění známého malwaru.
 
@@ -289,13 +320,21 @@ Pokud toto nastavení zakážete, události programu Watson se nebudou odesílat
     <string id="Reporting_WppTracingComponents_Explain">Tato zásada konfiguruje komponenty preprocesoru trasování softwaru systému Windows (Trasování softwaru WPP).</string>
     <string id="Reporting_WppTracingLevel">Konfigurovat úroveň trasování WPP</string>
     <string id="Reporting_WppTracingLevel_Explain">Tato zásada umožňuje konfigurovat úrovně trasování preprocesoru trasování softwaru systému Windows (Trasování softwaru WPP). 
+    Úrovně trasování jsou definovány takto:
+    1 – Chyba
+    2 – Upozornění
+    3 – Informace
+    4 – Ladění</string>
+    <string id="Reporting_DisableEnhancedNotifications">Vypnout rozšířená oznámení</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Nastavením této zásady můžete určit, jestli se mají na klientech zobrazovat rozšířená oznámení Antivirové ochrany v programu Windows Defender.
+      
+      Pokud toto nastavení vypnete nebo nenakonfigurujete, rozšířená oznámení Antivirové ochrany v programu Windows Defender se budou na klientech zobrazovat.
+      
+      Pokud toto nastavení povolíte, rozšířená oznámení antivirového programu Windows Defender se na klientech zobrazovat nebudou.
+    </string>
 
-Úrovně trasování jsou definovány takto:
-1 – Chyba
-2 – Upozornění
-3 – Informace
-4 – Ladění</string>
-    <string id="Scan_AllowPause">Povolit uživatelům pozastavit kontrolu</string>
+      <string id="Scan_AllowPause">Povolit uživatelům pozastavit kontrolu</string>
     <string id="Scan_AllowPause_Explain">Toto nastavení zásad umožňuje určit, zda mohou koncoví uživatelé pozastavit probíhající kontrolu.
 
 Pokud toto nastavení povolíte nebo nenakonfigurujete, bude k ikoně v oznamovací oblasti na hlavním panelu přidána nová místní nabídka, která uživateli umožní pozastavit kontrolu.
@@ -496,6 +535,14 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, bude plánovaná kontro
     Pokud toto nastavení povolíte, dojde k vynucené kontrole po zadaném počtu po sobě jdoucích vynechaných naplánovaných kontrol.
 
     Pokud toto nastavení zakážete nebo nenakonfigurujete, dojde k vynucené kontrole po vynechání 2 naplánovaných kontrol po sobě.</string>
+    <string id="Scan_LowCpuPriority">Konfigurovat nízkou priority naplánovaných kontrol pro CPU</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Nastavením této zásady můžete povolit nebo zakázat nízkou prioritu naplánovaných kontrol pro CPU.
+
+        Pokud toto nastavení povolíte, použije se během naplánovaných kontrol nízká priorita u CPU.
+
+        Pokud toto nastavení zakážete nebo nenakonfigurujete, nedojde u naplánovaných kontrol ke změně priority u CPU.
+    </string>
     <string id="SignatureUpdate_ASSignatureDue">Definovat počet dní před tím, než budou definice spywaru považovány za zastaralé</string>
     <string id="SignatureUpdate_ASSignatureDue_Explain">Toto nastavení zásad umožňuje definovat počet dní, který musí uplynout, než budou definice spywaru považovány za zastaralé. Pokud jsou definice určeny jako zastaralé, může tento stav vyvolat několik dalších akcí včetně návratu zpět na alternativní zdroj aktualizací nebo zobrazení ikony upozornění v uživatelském rozhraní. Výchozí nastavená hodnota je 14 dní.
 
@@ -701,10 +748,10 @@ Platné hodnoty nápravné akce jsou:
       Pokud toto nastavení povolíte, nebudou se v uživatelském rozhraní AM UI zobrazovat oznámení o restartování.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Potlačit všechna oznámení</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Nastavením této zásady můžete určit, jestli se mají na klientech zobrazovat oznámení Windows Defenderu:
-      Pokud toto nastavení zakážete nebo nenakonfigurujete, na klientech se budou oznámení Windows Defenderu zobrazovat.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Nastavením této zásady můžete určit, jestli se mají na klientech zobrazovat oznámení Antivirové ochrany v programu Windows Defender.
+      Pokud toto nastavení vypnete nebo nenakonfigurujete, na klientech se budou oznámení Antivirové ochrany v programu Windows Defender zobrazovat.
 
-      Pokud toto nastavení povolíte, oznámení Windows Defenderu se na klientech zobrazovat nebudou.
+      Pokud toto nastavení povolíte, oznámení Antivirové ochrany v programu Windows Defender se na klientech zobrazovat nebudou.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Zobrazit klientům další text, když je potřeba provést akci</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Toto nastavení zásady umožňuje konfigurovat, zda se má klientům zobrazit další text, když je třeba, aby provedli akci. Zobrazený text je vlastní řetězec definovaný správcem. Jedná se například o telefonní číslo linky podpory společnosti. V rozhraní klienta se zobrazí maximálně 1 024 znaků. Delší řetězce budou před zobrazením zkráceny.
@@ -712,6 +759,202 @@ Platné hodnoty nápravné akce jsou:
 Pokud toto nastavení povolíte, bude zobrazen další zadaný text.
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete, žádný další text zobrazen nebude.</string>
+    <string id="MpCloudBlockLevel">Vybrat úroveň ochrany cloudu</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Toto nastavení zásad určuje, jak intenzivně bude Antivirová ochrana v programu Windows Defender blokovat a kontrolovat podezřelé soubory.
+
+      Pokud je toto nastavení zapnuté, bude Antivirová ochrana v programu Windows Defender při identifikaci podezřelých souborů pro blokování a kontrolu agresivnější. Pokud je vypnuté, bude méně agresivní a k blokování a kontrolám bude docházet méně často.
+      
+      Další informace o konkrétních podporovaných hodnotách najdete na webu s dokumentací o Antivirové ochraně v programu Windows Defender.
+
+      Poznámka: Aby tato funkce fungovala, musí být povoleno nastavení Připojit se ke komunitě Microsoft MAPS.
+
+      Možnosti jsou:
+      (0x0) Výchozí úroveň blokování v programu Windows Defender
+      (0x2) Vysoká úroveň blokování – intenzivní blokování neznámých souborů při současné optimalizaci výkonu klientského počítače (vyšší pravděpodobnost falešně pozitivních výsledků)
+      (0x4) Velmi vysoká úroveň blokování – intenzivní blokování neznámých souborů a použití dalších ochranných opatření (může mít dopad na výkon klientského počítače)
+      (0x6) Úroveň blokování s nulovou tolerancí – blokování všech neznámých spustitelných souborů
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Výchozí úroveň blokování Antivirové ochrany v programu Windows Defender</string>
+    <string id="MpCloudBlockLevel_High_Level">Vysoká úroveň blokování</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Velmi vysoká úroveň blokování</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Úroveň blokování s nulovou tolerancí</string>
+    <string id="MpBafsExtendedTimeout">Konfigurovat prodlouženou kontrolu cloudu</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Tato funkce dovoluje Antivirové ochraně v programu Windows Defender zablokovat podezřelý soubor až na 60 sekund a zkontrolovat ho v cloudu, aby se ujistil, že je bezpečný.
+      
+      Typický časový limit kontroly cloudu je 10 sekund. Pro povolení funkce prodloužené kontroly cloudu zadejte prodloužený čas v sekundách. Lze zadat až 50 sekund navíc.
+
+      Pokud je například požadovaný limit 60 sekund, zadejte v tomto nastavení 50 sekund, čímž povolíte funkci prodloužené kontroly cloudu a zvýšíte celkový čas na 60 sekund.
+
+      Poznámka: Tato funkce závisí na třech dalších nastaveních MAPS – Je nutné povolit nastavení „Konfigurovat funkci Blokovat při prvním zobrazení“, „Připojit se ke komunitě Microsoft MAPS“ a „Posílat vzorky souborů, pokud se vyžaduje další analýza“.
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Zabránit uživatelům a aplikacím v přístupu na nebezpečné weby</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Povolením nebo zakázáním Ochrany Exploit Guard v programu Windows Defender v síti určíte, jestli se má zaměstnancům bránit, aby pomocí jakékoli aplikace přistupovali do nebezpečných domén, které můžou sloužit jako hostitelé pro phishingové podvody, podvodné weby a další škodlivý obsah na internetu.
+
+        Povoleno:
+        V části Možnosti určete režim:
+        - Blokovat: Uživatelé a aplikace nebudou mít přístup k nebezpečným doménám.
+        - Režim auditování: Uživatelé a aplikace se budou moct připojit k nebezpečným doménám. Pokud by ale tato funkce při nastaveném režimu Blokovat přístup zablokovala, objeví se záznam příslušné události v protokolech událostí.
+
+        Zakázáno:
+        Pro uživatele a aplikace se nebude připojení k nebezpečným doménám blokovat.
+
+        Nenakonfigurováno:
+        Stejné jako možnost Zakázáno.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Vyloučit soubory a cesty z pravidel Omezení prostoru pro útok</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Umožňuje vyloučit soubory a cesty z pravidel Attack Surface Reduction (ASR).
+
+        Povoleno:
+        V části Možnosti určete složky, soubory nebo prostředky, které mají být vyloučeny z pravidel Attack Surface Reduction.
+        Každé pravidlo zadejte na nový řádek jako párovou specifikaci název-hodnota:
+        - Sloupec s názvem: Zadejte cestu ke složce nebo plně kvalifikovaný název prostředku. Například zadání „C:\Windows“ vyloučí všechny soubory v tomto adresáři. Zadání „C:\Windows\App.exe“ vyloučí jen tento konkrétní soubor v této konkrétní složce.
+        - Sloupec s hodnotou: U všech položek zadejte „0“.
+
+        Zakázáno:
+        Nepoužijí se žádná vyloučení z pravidel Attack Surface Reduction.
+
+        Nenakonfigurováno:
+        Stejné jako možnost Zakázáno.
+
+        Pravidla Attack Surface Reduction můžete konfigurovat v zásadách skupiny pro konfiguraci pravidel Attack Surface Reduction.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Konfigurovat pravidla Omezení prostoru pro útok</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Nastavte stav pro každé pravidlo Attack Surface Reduction (ASR).
+
+        Pokud povolíte toto nastavení, můžete v části Možnosti nastavit každé pravidlo následujícím způsobem:
+        - Blokovat: Pravidlo bude použito.
+        - Režim auditování: Pokud by pravidlo za normálních okolností vygenerovalo událost, bude tato událost zaznamenána (i když se pravidlo ve skutečnosti nepoužije).
+        - Vypnuto: Pravidlo nebude použito.
+
+        Povoleno:
+        V části Možnosti tohoto nastavení určete stav každého pravidla Attack Surface Reduction.
+        Každé pravidlo zadejte na nový řádek jako párovou specifikaci název-hodnota:
+        - Sloupec s názvem: Zadejte platné ID pravidla Attack Surface Reduction.
+        - Sloupec s hodnotou: Zadejte ID stavu pro odpovídající stav, který chcete určit pro přidružené pravidlo.
+
+        Ve sloupci s hodnotou jsou povolena následující ID stavu:
+    - 1 (blokování)
+    - 0 (vypnuto)
+    - 2 (audit)
+    
+    Příklad:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Zakázáno:
+        Nebudou nakonfigurována žádná pravidla Attack Surface Reduction.
+
+        Nenakonfigurováno:
+        Stejné jako možnost Zakázáno.
+
+        Složky, soubory a prostředky můžete vyloučit v zásadách skupiny v nastavení Vyloučit soubory a cesty z pravidel Attack Surface Reduction.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Konfigurovat řízený přístup ke složkám</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Povolí nebo zakáže řízený přístup ke složkám pro nedůvěryhodné aplikace. Pokud chcete, můžete blokovat, auditovat nebo povolit pokusy nedůvěryhodných aplikací k těmto akcím:
+    - Změny nebo odstraňování souborů v chráněných složkách, například ve složce Dokumenty
+    - Zápis do sektorů disku
+
+    Můžete se také rozhodnout jenom blokovat nebo auditovat zápisy do sektorů disku a zároveň mít povolené změny nebo odstraňování souborů v chráněných složkách.
+
+    Antivirová ochrana v programu Windows Defender automaticky určuje, které aplikace jsou důvěryhodné. Další důvěryhodné aplikace můžete přidat v nastavení zásad skupiny Konfigurovat povolené aplikace.
+    Výchozí systémové složky jsou chráněné automaticky, ale můžete přidat složky v nastavení zásad skupiny Konfigurovat chráněné složky.
+
+    Blokovat:
+    Budou se blokovat následující možnosti:
+    - Pokusy nedůvěryhodných aplikací změnit nebo odstranit soubory v chráněných složkách
+    - Pokusy nedůvěryhodných aplikací zapisovat do sektorů disku
+    Do protokolu událostí Windows se tato blokování zaznamenají v části Protokoly aplikací a služeb &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operační &gt; ID 1123.
+
+
+    Zakázáno:
+    Následující možnosti nebudou blokované a budou se moct spouštět:
+    - Pokusy nedůvěryhodných aplikací změnit nebo odstranit soubory v chráněných složkách
+    - Pokusy nedůvěryhodných aplikací zapisovat do sektorů disku
+    Tyto pokusy se nebudou zaznamenávat do protokolu událostí Windows.
+
+
+    Režim auditování:
+    Následující možnosti nebudou blokované a budou se moct spouštět:
+    - Pokusy nedůvěryhodných aplikací změnit nebo odstranit soubory v chráněných složkách
+    - Pokusy nedůvěryhodných aplikací zapisovat do sektorů disku
+    Do protokolu událostí Windows se tato blokování zaznamenají v části Protokoly aplikací a služeb &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operační &gt; ID 1124.
+
+
+    Blokovat jenom změnu disku:
+    Budou se blokovat následující možnosti:
+    - Pokusy nedůvěryhodných aplikací zapisovat do sektorů disku
+    Do protokolu událostí Windows se tyto pokusy zaznamenají v části Protokoly aplikací a služeb &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operační &gt; ID 1123.
+
+    Následující možnosti nebudou blokované a budou se moct spouštět:
+    - Pokusy nedůvěryhodných aplikací změnit nebo odstranit soubory v chráněných složkách
+    Tyto pokusy se nebudou zaznamenávat do protokolu událostí Windows.
+
+
+    Auditovat jenom změnu disku:
+    Následující možnosti nebudou blokované a budou se moct spouštět:
+    - Pokusy nedůvěryhodných aplikací zapisovat do sektorů disku
+    - Pokusy nedůvěryhodných aplikací změnit nebo odstranit soubory v chráněných složkách
+    Do protokolu událostí Windows se zapíší jenom pokusy o zápis do chráněných sektorů disku (v části Protokoly aplikací a služeb &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operační &gt; ID 1124).
+    Pokusy o změnu nebo odstranění souborů v chráněných složkách se nezaznamenají.
+
+    Nenakonfigurováno:
+    Stejné jako možnost Zakázáno.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Zakázat (výchozí)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Blokovat</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Režim auditování</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Blokovat jenom změnu disku</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Auditovat jenom změnu disku</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Konfigurovat povolené aplikace</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Přidejte další aplikace, které může Řízený přístup ke složkám považovat za důvěryhodné.
+
+        Tyto aplikace můžou upravovat a odstraňovat soubory ve složkách s řízeným přístupem ke složkám.
+
+        Antivirová ochrana v programu Windows Defender automaticky určuje, které aplikace jsou důvěryhodné. Konfigurací tohoto nastavení můžete přidat další aplikace.
+
+        Povoleno:
+        V části Možnosti určete další povolené aplikace.
+
+        Zakázáno:
+        Do seznamu důvěryhodných aplikací nebudou přidány žádné další aplikace.
+
+        Nenakonfigurováno:
+        Stejné jako možnost Zakázáno.
+
+        Řízený přístup ke složkám můžete povolit v zásadách skupiny v nastavení Konfigurovat řízený přístup ke složkám.
+
+        Výchozí systémové složky jsou chráněny automaticky, můžete ale přidat další složky v zásadách skupiny v nastavení Konfigurovat chráněné složky.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Nakonfigurovat chráněné složky</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Určete další složky, které mají být chráněny funkcí Řízený přístup ke složkám.
+
+        Soubory v těchto složkách nemůžou být upravovány ani odstraněny nedůvěryhodnými aplikacemi.
+
+        Výchozí systémové složky jsou chráněny automaticky. Konfigurací tohoto nastavení můžete přidat další složky.
+        Seznam výchozích systémových složek, které jsou chráněny, najdete v Zabezpečení Windows.
+
+        Povoleno:
+        V části Možnosti určete další složky, které mají být chráněny.
+
+        Zakázáno:
+        Nebudou chráněny žádné další složky.
+
+        Nenakonfigurováno:
+        Stejné jako možnost Zakázáno.
+
+        Řízený přístup ke složkám můžete povolit v zásadách skupiny v nastavení Konfigurovat řízený přístup ke složkám
+
+        Antivirová ochrana v programu Windows Defender automaticky určuje, které aplikace jsou důvěryhodné. Další důvěryhodné aplikace můžete přidat v zásadách skupiny v nastavení Konfigurovat povolené aplikace.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -852,6 +1095,33 @@ Pokud toto nastavení zakážete nebo nenakonfigurujete, žádný další text z
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Zadat interval pro oznámení o vypršení platnosti</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Vybrat úroveň blokování cloudu</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Zadejte prodlouženou dobu kontroly cloudu v sekundách</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Konfigurovat funkci Ochrana mých složek</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Vyloučení z pravidel Omezení prostoru pro útok (ASR):</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Nastavte stav pro každé pravidlo Omezení prostoru pro útok (ASR):</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Zadejte aplikace, které mají být důvěryhodné:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Zadejte složky, které mají být chráněny:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

@@ -67,9 +67,9 @@
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 검색에서 검색 결과를 제공할 때 사용자의 현재 위치를 사용합니다.</string>
       <string id="SafeSearch">Set the SafeSearch setting for Search(검색에 안전 검색 설정 지정)</string>
-      <string id="ExplainSafeSearch">이 정책 설정을 사용하면 검색에서 쿼리를 수행할 때 사용되는 안전 검색 설정을 제어할 수 있습니다. 
+      <string id="ExplainSafeSearch">이 정책 설정을 사용하면 검색에서 쿼리를 수행할 때 사용되는 유해 정보 차단 설정을 제어할 수 있습니다. 
 
-이 정책 설정을 사용하면 세 개의 안전 검색 설정 중 하나를 지정할 수 있으며, 사용자는 이 설정을 변경할 수 없습니다.
+I이 정책 설정을 사용하면 세 개의 유해 정보 차단 설정 중 하나를 지정할 수 있으며, 사용자는 이 설정을 변경할 수 없습니다.
 
     -엄격: 검색 결과에서 성인용 텍스트, 이미지 및 동영상을 필터링합니다.
 
@@ -77,7 +77,9 @@
 
     -해제: 검색 결과에서 성인용 콘텐츠를 필터링하지 않습니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 안전 검색 설정을 지정할 수 있습니다.</string>
+이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 유해 정보 차단 설정을 지정할 수 있습니다
+
+Windows 10 사용자는 Search/DoNotUseWebResults를 사용해야 합니다.</string>
       <string id="SharePrivacyAllAndLocation">User info and location(사용자 정보 및 위치)</string>
       <string id="SharePrivacyAll">User info only(사용자 정보만)</string>
       <string id="SharePrivacyAnonymous">Anonymous info(익명 정보)</string>
@@ -283,6 +285,15 @@ Cortana가 꺼져도 사용자는 검색 기능을 사용하여 디바이스에�
       <string id="ExplainAllowSearchToUseLocation">이 정책 설정은 검색과 Cortana에서 위치 인식 검색 및 Cortana 결과를 제공할 수 있는지 여부를 지정합니다.
  
 이 설정을 사용하는 경우 검색 및 Cortana가 위치 정보에 액세스할 수 있습니다.</string>
+      <string id="AllowCloudSearch">클라우드 검색 허용</string>
+      <string id="AllowCortanaInAADPathOOBE">AAD 계정에서 OOBE의 Cortana 페이지 허용</string>
+      <string id="ExplainAllowCloudSearch">검색을 허용하고 Cortana가 OneDrive 및 SharePoint 같은 클라우드 소스를 검색하도록 허용</string>
+      <string id="ExplainCortanaAAD">Windows 설치 프로그램 OOBE(첫 실행 경험) 중에 Cortana 옵트인 페이지 허용</string>
+      <string id="AllowCloudSearchDisabled">클라우드 검색 사용 중지</string>
+      <string id="AllowCortanainAADDisabled">AAD에서 Cortana 페이지 사용 중지</string>
+      <string id="AllowCortanainAADEnabled">AAD에서 Cortana 페이지 사용</string>
+      <string id="AllowCloudSearchEnabled">클라우드 검색 사용</string>
+      <string id="AllowCloudSearchControlledByUser">사용자가 선택함</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -365,6 +376,12 @@ Cortana가 꺼져도 사용자는 검색 기능을 사용하여 디바이스에�
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">기본 안전 검색 설정</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">클라우드 검색 설정</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">AAD 설정의 Cortana</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

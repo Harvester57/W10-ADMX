@@ -1,224 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  (c) 2006 Microsoft Corporation  -->
 <policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
-  <displayName>enter display name here</displayName>
-  <description>enter description here</description>
+  <displayName>在此輸入顯示名稱</displayName>
+  <description>在此輸入描述</description>
   <resources>
     <stringTable>
-      <string id="AppPrivacy">App Privacy</string>
-      <string id="UserInControl">User is in control</string>
-      <string id="ForceAllow">Force Allow</string>
-      <string id="ForceDeny">Force Deny</string>
-      <string id="LetAppsAccessCalendar_Name">Let Windows apps access the calendar</string>
-      <string id="LetAppsAccessCalendar_Explain">This policy setting specifies whether Windows apps can access the calendar.
+      <string id="AppPrivacy">App 隱私權</string>
+      <string id="UserInControl">由使用者控制</string>
+      <string id="ForceAllow">強制允許</string>
+      <string id="ForceDeny">強制拒絕</string>
+      <string id="LetAppsAccessAccountInfo_Name">讓 Windows App 存取帳戶資訊</string>
+      <string id="LetAppsAccessAccountInfo_Explain">此原則設定可指定 Windows App 是否能存取帳戶資訊。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the calendar by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the calendar and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取帳戶資訊。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the calendar and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取帳戶資訊，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the calendar by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取帳戶資訊，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取帳戶資訊。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessCallHistory_Name">Let Windows apps access call history</string>
-      <string id="LetAppsAccessCallHistory_Explain">This policy setting specifies whether Windows apps can access call history.
+      <string id="LetAppsAccessCalendar_Name">讓 Windows App 存取行事曆</string>
+      <string id="LetAppsAccessCalendar_Explain">此原則設定可指定 Windows App 是否能存取行事曆。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access call history by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the call history and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取行事曆。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the call history and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取行事曆，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the call history by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取行事曆，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取行事曆。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessCamera_Name">Let Windows apps access the camera</string>
-      <string id="LetAppsAccessCamera_Explain">This policy setting specifies whether Windows apps can access the camera.
+      <string id="LetAppsAccessCallHistory_Name">讓 Windows App 存取通訊記錄</string>
+      <string id="LetAppsAccessCallHistory_Explain">此原則設定可指定 Windows App 是否能存取通訊記錄。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the camera by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the camera and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取通訊記錄。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the camera and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取通訊記錄，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the camera by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取通訊記錄，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取通訊記錄。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessContacts_Name">Let Windows apps access contacts</string>
-      <string id="LetAppsAccessContacts_Explain">This policy setting specifies whether Windows apps can access contacts.
+      <string id="LetAppsAccessCamera_Name">讓 Windows App 存取相機</string>
+      <string id="LetAppsAccessCamera_Explain">此原則設定可指定 Windows App 是否能存取相機。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access contacts by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access contacts and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取相機。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access contacts and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取相機，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access contacts by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取相機，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取相機。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessEmail_Name">Let Windows apps access email</string>
-      <string id="LetAppsAccessEmail_Explain">This policy setting specifies whether Windows apps can access email.
+      <string id="LetAppsAccessContacts_Name">讓 Windows App 存取連絡人</string>
+      <string id="LetAppsAccessContacts_Explain">此原則設定可指定 Windows App 是否能存取連絡人。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access email by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access email and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取連絡人。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access email and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取連絡人，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access email by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取連絡人，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取連絡人。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessLocation_Name">Let Windows apps access location</string>
-      <string id="LetAppsAccessLocation_Explain">This policy setting specifies whether Windows apps can access location.
+      <string id="LetAppsAccessEmail_Name">讓 Windows App 存取電子郵件</string>
+      <string id="LetAppsAccessEmail_Explain">此原則設定可指定 Windows App 是否能存取電子郵件。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access location by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access location and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取電子郵件。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access location and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取電子郵件，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access location by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取電子郵件，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取電子郵件。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessMessaging_Name">Let Windows apps access messaging</string>
-      <string id="LetAppsAccessMessaging_Explain">This policy setting specifies whether Windows apps can read or send messages (text or MMS).
+      <string id="LetAppsAccessLocation_Name">讓 Windows App 存取位置</string>
+      <string id="LetAppsAccessLocation_Explain">此原則設定可指定 Windows App 是否能存取位置。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can read or send messages by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps can read or send messages and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取位置。
 
-If you choose the "Force Deny" option, Windows apps cannot read or send messages and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取位置，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can read or send messages by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取位置，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取位置。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessMicrophone_Name">Let Windows apps access the microphone</string>
-      <string id="LetAppsAccessMicrophone_Explain">This policy setting specifies whether Windows apps can access the microphone.
+      <string id="LetAppsAccessMessaging_Name">讓 Windows App 存取訊息中心</string>
+      <string id="LetAppsAccessMessaging_Explain">此原則設定可指定 Windows App 是否能讀取或傳送訊息 (文字或簡訊)。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access the microphone by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access the microphone and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能讀取或傳送訊息。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access the microphone and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 讀取或傳送訊息，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access the microphone by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 讀取或傳送訊息，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能讀取或傳送訊息。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessMotion_Name">Let Windows apps access motion</string>
-      <string id="LetAppsAccessMotion_Explain">This policy setting specifies whether Windows apps can access motion data.
+      <string id="LetAppsAccessMicrophone_Name">讓 Windows App 存取麥克風</string>
+      <string id="LetAppsAccessMicrophone_Explain">此原則設定可指定 Windows App 是否能存取麥克風。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access motion data by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access motion data and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取麥克風。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access motion data and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取麥克風，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access motion data by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取麥克風，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取麥克風。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessRadios_Name">Let Windows apps control radios</string>
-      <string id="LetAppsAccessRadios_Explain">This policy setting specifies whether Windows apps have access to control radios.
+      <string id="LetAppsAccessMotion_Name">讓 Windows App 存取動作資料</string>
+      <string id="LetAppsAccessMotion_Explain">此原則設定可指定 Windows App 是否能存取動作資料。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps have access to control radios by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps will have access to control radios and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取動作資料。
 
-If you choose the "Force Deny" option, Windows apps will not have access to control radios and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取動作資料，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps have access to control radios by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取動作資料，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取動作資料。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessAccountInfo_Name">Let Windows apps access account information</string>
-      <string id="LetAppsAccessAccountInfo_Explain">This policy setting specifies whether Windows apps can access account information.
+      <string id="LetAppsAccessNotifications_Name">讓 Windows App 存取通知</string>
+      <string id="LetAppsAccessNotifications_Explain">此原則設定可指定 Windows App 是否能存取通知。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access account information by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access account information and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取通知。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access account information and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取通知，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access account information by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取通知，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取通知。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsSyncWithDevices_Name">Let Windows apps sync with devices</string>
-      <string id="LetAppsSyncWithDevices_Explain">This policy setting specifies whether Windows apps can sync with devices.
+      <string id="LetAppsAccessPhone_Name">讓 Windows App 撥打電話</string>
+      <string id="LetAppsAccessPhone_Explain">此原則設定可指定 Windows App 是否能撥打電話。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can sync with devices by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或為個別 App 指定設定，方式是指定「套件系列名稱」。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to sync with devices and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以在裝置上使用 [設定] &gt; [隱私權] 來決定 Windows App 是否能撥打電話。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to sync with devices and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統將允許 Windows App 撥打電話，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can sync with devices by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統將不會允許 Windows App 撥打電話，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以在裝置上使用 [設定] &gt; [隱私權] 來決定 Windows App 是否能撥打電話。
+
+在裝置上套用此群組原則物件時，若某個 App 已開啟，員工必須重新啟動該 App 或裝置，系統才能將原則變更套用到該 App。
       </string>
-      <string id="LetAppsAccessTrustedDevices_Name">Let Windows apps access trusted devices</string>
-      <string id="LetAppsAccessTrustedDevices_Explain">This policy setting specifies whether Windows apps can access trusted devices.
+      <string id="LetAppsAccessRadios_Name">讓 Windows App 控制無線通訊功能</string>
+      <string id="LetAppsAccessRadios_Explain">此原則設定可指定 Windows App 是否能控制無線通訊功能。
 
-If you choose the "User is in control" option, employees in your organization can decide whether Windows apps can access trusted devices by using Settings &gt; Privacy on the device.
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
 
-If you choose the "Force Allow" option, Windows apps are allowed to access trusted devices and employees in your organization cannot change it.
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能控制無線通訊功能。
 
-If you choose the "Force Deny" option, Windows apps are not allowed to access trusted devices and employees in your organization cannot change it.
+若選擇 [強制允許] 選項，系統會允許 Windows App 控制無線通訊功能，且您組織中的員工無法變更它。
 
-If you disable or do not configure this policy setting, employees in your organization can decide whether Windows apps can access trusted devices by using Settings &gt; Privacy on the device.
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 控制無線通訊功能，且您組織中的員工無法變更它。
 
-If an app is open when this Group Policy object is applied on a device, employees must restart the app or device for the policy changes to be applied to the app.
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能控制無線通訊功能。
 
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
+      </string>
+      <string id="LetAppsSyncWithDevices_Name">讓 Windows 應用程式與未配對的裝置通訊</string>
+      <string id="LetAppsSyncWithDevices_Explain">此原則設定可指定 Windows 應用程式是否能與未配對的無線裝置通訊。
+
+您可以為所有應用程式指定預設設定，或透過指定「套件系列名稱」為個別應用程式指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別應用程式設定會覆寫預設設定。
+
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows 應用程式是否能與未配對的無線裝置通訊。
+
+若選擇 [強制允許] 選項，系統會允許 Windows 應用程式與未配對的無線裝置通訊，且您組織中的員工無法變更它。
+
+若選擇 [強制拒絕] 選項，系統不會允許 Windows 應用程式與未配對的無線裝置通訊，且您組織中的員工無法變更它。
+
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows 應用程式是否能與未配對的無線裝置通訊。
+
+當在裝置上套用此「群組原則」物件時，若某個應用程式是開啟的，員工必須重新啟動應用程式或裝置，系統才能將原則變更套用到該應用程式。
+      </string>
+      <string id="LetAppsAccessTasks_Name">讓 Windows App 存取工作</string>
+      <string id="LetAppsAccessTasks_Explain">此原則設定可指定 Windows App 是否能存取工作。
+
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
+
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取工作。
+
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取工作，且您組織中的員工無法變更它。
+
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取工作，且您組織中的員工無法變更它。
+
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取工作。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
+      </string>
+      <string id="LetAppsAccessTrustedDevices_Name">讓 Windows App 存取信任的裝置</string>
+      <string id="LetAppsAccessTrustedDevices_Explain">此原則設定可指定 Windows App 是否能存取信任的裝置。
+
+您可以為所有 App 指定預設設定，或透過指定「套件系列名稱」為個別 App 指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別 App 設定會覆寫預設設定。
+
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取信任的裝置。
+
+若選擇 [強制允許] 選項，系統會允許 Windows App 存取信任的裝置，且您組織中的員工無法變更它。
+
+若選擇 [強制拒絕] 選項，系統不會允許 Windows App 存取信任的裝置，且您組織中的員工無法變更它。
+
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能存取信任的裝置。
+
+當在裝置上套用此「群組原則」物件時，若某個 App 是開啟的，員工必須重新啟動 App 或裝置，系統才能將原則變更套用到該 App。
+      </string>
+      <string id="LetAppsRunInBackground_Name">讓 Windows App 在背景執行</string>
+      <string id="LetAppsRunInBackground_Explain">此原則設定指定 Windows App 是否能在背景執行。
+
+您可以為所有 App 指定預設設定，或透過「套件系列名稱」指定個別 App 設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得 App 的「套件系列名稱」。個別 App 設定會覆寫預設設定。
+
+若選擇 [由使用者控制] 選項，您組織中的使用者可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能在背景執行。
+
+若選擇 [強制允許] 選項，系統將允許 Windows App 在背景執行，且您組織中的員工無法變更它。
+
+若選擇 [強制拒絕] 選項，系統將不會允許 Windows App 在背景執行，且您組織中的員工無法變更它。
+
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows App 是否能在背景執行。
+
+當您在裝置上套用此群組原則物件時，若某個 App 已開啟，員工必須重新啟動 App 或裝置，原則變更才能套用到該 App。
+      </string>
+      <string id="LetAppsGetDiagnosticInfo_Name">讓 Windows 應用程式存取其他應用程式的診斷資訊</string>
+      <string id="LetAppsGetDiagnosticInfo_Explain">此原則設定可指定 Windows 應用程式是否能取得其他 Windows 應用程式的診斷資訊 (包括使用者名稱)。
+
+您可以為所有應用程式指定預設設定，或透過指定「套件系列名稱」為個別應用程式指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得應用程式的「套件系列名稱」。個別應用程式設定會覆寫預設設定。
+
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows 應用程式是否能取得其他應用程式的診斷資訊。
+
+若選擇 [強制允許] 選項，系統會允許 Windows 應用程式取得其他應用程式的診斷資訊，且您組織中的員工無法加以變更。
+
+若選擇 [強制拒絕] 選項，系統不會允許 Windows 應用程式取得其他應用程式的診斷資訊，且您組織中的員工無法加以變更。
+
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows 應用程式是否能取得其他應用程式的診斷資訊。
+
+當在裝置上套用此「群組原則」物件時，若某個應用程式是開啟的，員工必須重新啟動應用程式或裝置，系統才能將原則變更套用到該應用程式。
+      </string>
+      <string id="LetAppsAccessGazeInput_Name">讓 Windows 應用程式存取眼球追蹤器裝置</string>
+      <string id="LetAppsAccessGazeInput_Explain">這個原則設定可指定 Windows 應用程式能否存取眼球追蹤器。
+
+您可以為所有應用程式指定預設設定，或透過指定「套件系列名稱」為個別應用程式指定設定。您可以使用 Get-AppPackage Windows PowerShell Cmdlet 來取得「套件系列名稱」。個別應用程式設定會覆寫預設設定。
+
+若選擇 [由使用者控制] 選項，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows 應用程式能否存取眼球追蹤器。
+
+若選擇 [強制允許] 選項，系統會允許 Windows 應用程式存取眼球追蹤器，且您組織中的員工無法變更它。
+
+若選擇 [強制拒絕] 選項，系統不會允許 Windows 應用程式存取眼球追蹤器，且您組織中的員工無法變更它。
+
+若停用或未設定此原則設定，您組織中的員工可以使用裝置上的 [設定] &gt; [隱私權] 來決定 Windows 應用程式能否存取眼球追蹤器。
+
+當在裝置上套用此「群組原則」物件時，若某個應用程式是開啟的，員工必須重新啟動應用程式或裝置，系統才能將原則變更套用到該應用程式。
       </string>
     </stringTable>
     <presentationTable>
       <presentation id="LetAppsAccessCalendar">
-        <dropdownList refId="LetAppsAccessCalendar_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCalendar_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCalendar_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessPhone">
+        <dropdownList refId="LetAppsAccessPhone_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessPhone_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessPhone_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessPhone_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessCallHistory">
-        <dropdownList refId="LetAppsAccessCallHistory_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCallHistory_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCallHistory_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessCamera">
-        <dropdownList refId="LetAppsAccessCamera_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessCamera_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCamera_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCamera_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessCamera_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessContacts">
-        <dropdownList refId="LetAppsAccessContacts_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessContacts_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessContacts_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessContacts_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessContacts_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessEmail">
-        <dropdownList refId="LetAppsAccessEmail_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessEmail_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessEmail_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessEmail_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessEmail_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessLocation">
-        <dropdownList refId="LetAppsAccessLocation_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessLocation_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessLocation_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessLocation_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessLocation_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMessaging">
-        <dropdownList refId="LetAppsAccessMessaging_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMessaging_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMessaging_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMicrophone">
-        <dropdownList refId="LetAppsAccessMicrophone_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMicrophone_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMicrophone_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessMotion">
-        <dropdownList refId="LetAppsAccessMotion_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessMotion_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMotion_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMotion_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessMotion_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessNotifications">
+        <dropdownList refId="LetAppsAccessNotifications_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessNotifications_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessRadios">
-        <dropdownList refId="LetAppsAccessRadios_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessRadios_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessRadios_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessRadios_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessRadios_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessAccountInfo">
-        <dropdownList refId="LetAppsAccessAccountInfo_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessAccountInfo_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessAccountInfo_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsSyncWithDevices">
-        <dropdownList refId="LetAppsSyncWithDevices_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsSyncWithDevices_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsSyncWithDevices_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessTasks">
+        <dropdownList refId="LetAppsAccessTasks_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessTasks_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessTasks_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessTasks_ForceDenyTheseApps_List"/>
       </presentation>
       <presentation id="LetAppsAccessTrustedDevices">
-        <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">Select a setting:</dropdownList>
+        <dropdownList refId="LetAppsAccessTrustedDevices_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessTrustedDevices_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsRunInBackground">
+        <dropdownList refId="LetAppsRunInBackground_Enum" noSort="true" defaultItem="0">所有 App 的預設值:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsRunInBackground_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsRunInBackground_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsRunInBackground_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsGetDiagnosticInfo">
+        <dropdownList refId="LetAppsGetDiagnosticInfo_Enum" noSort="true" defaultItem="0">所有應用程式的預設:</dropdownList>
+        <text>讓使用者控制這些特定應用程式 (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsGetDiagnosticInfo_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定應用程式 (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsGetDiagnosticInfo_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定應用程式 (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsGetDiagnosticInfo_ForceDenyTheseApps_List"/>
+      </presentation>
+      <presentation id="LetAppsAccessGazeInput">
+        <dropdownList refId="LetAppsAccessGazeInput_Enum" noSort="true" defaultItem="0">所有應用程式的預設:</dropdownList>
+        <text>讓使用者控制這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessGazeInput_UserInControlOfTheseApps_List"/>
+        <text>強制允許這些特定應用程式 (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessGazeInput_ForceAllowTheseApps_List"/>
+        <text>強制拒絕這些特定 App (使用套件系列名稱):</text>
+        <multiTextBox refId="LetAppsAccessGazeInput_ForceDenyTheseApps_List"/>
       </presentation>
     </presentationTable>
   </resources>

@@ -12,6 +12,32 @@
       <string id="FontMitigation_Off">Não bloquear fontes não confiáveis</string>
       <string id="FontMitigation_Audit">Registrar eventos sem bloquear fontes não confiáveis</string>
 
+	  <string id="ProcessMitigationOptions_List">Opções de mitigação de processo</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        Esse recurso de segurança fornece um meio para substituir as configurações de MitigationOptions de processos individuais. Isso pode ser usado para impor uma série de políticas de segurança específicas para aplicativos. O nome do aplicativo é especificado como o nome do Valor, incluindo a extensão. O Valor é especificado como um campo de bit com uma série de sinalizadores em posições específicas. Os bits podem ser definidos como 0 (a configuração é modo forçado desativado), 1 (a configuração é modo forçado ativado) ou ? (a configuração mantém o valor existente anterior à avaliação do GPO). Os locais de bits reconhecidos são:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        Habilita a prevenção da execução de dados (DEP) para o processo filho
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        Habilita a emulação de conversão DEP-ATL para o processo filho. A emulação de conversão DEP-ATL faz com que o Sistema intercepte falhas de NX oriundas da camada de conversão da ATL (Active Template Library).
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Permite que o manipulador de exceção estruturado substitua a proteção (SEHOP) para o processo filho. SEHOP bloqueia explorações que usam a técnica de substituição do manipulador de exceção estruturada (SEH).
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        A política ASLR (Address Space Layout Randomization) forçosamente troca a base das imagens que não são compatíveis com a base dinâmica agindo como se ocorresse uma colisão de base de imagem no tempo de carregamento. Se realocações forem necessárias, as imagens que não tenham uma seção de realocação de base não serão carregadas.
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        A política aleatória ascendente, que inclui as opções de randomização de pilha, faz com que um local aleatório seja usado como o endereço do usuário mais baixo.
+
+        Por exemplo, para habilitar PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE e PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, desabilite PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, e para deixar todas as outras opções em seus valores padrão, especifique um valor de:
+        ???????????????0???????1???????1
+
+        Sinalizadores de configuração não especificados aqui para qualquer valor diferente de ? resultam em um comportamento indefinido.
+</string>
+
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Habilitar sincronização do controlador de domínio AD/DFS durante atualização da política</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">A habilitação dessa configuração faz com que o Cliente da Política de Grupo se conecte ao mesmo controlador de domínio para compartilhamentos DFS que o que está sendo usado para o Active Directory.
 
@@ -24,21 +50,60 @@
 
 
 </string>
+      <string id="EnableCDP">Continuar experiências neste dispositivo</string>
+      <string id="EnableCDP_Help">
+Essa configuração de política determina se o dispositivo Windows tem permissão para participar de experiências entre dispositivos (experiências contínuas).
+
+Se você habilitar essa configuração de política, o dispositivo Windows poderá ser descoberto por outros dispositivos Windows que pertencem ao mesmo usuário e podem participar de experiências entre dispositivos.
+
+Se você desabilitar essa configuração de política, o dispositivo Windows não poderá ser descoberto por outros dispositivos e não poderá participar de experiências entre dispositivos.
+
+Se você não definir essa configuração de política, o comportamento padrão dependerá da edição do Windows. As alterações dessa política entram em vigor na reinicialização.
+      </string>
+      <string id="EnableMMX">Vinculação de telefone-computador neste dispositivo</string>
+      <string id="EnableMMX_Help">
+Essa política permite que os administradores desativem a capacidade de Vincular um Telefone a um PC para continuar a ler, enviar e receber emails e outras tarefas que exigem a vinculação entre telefone e computador.
+
+Se você habilitar essa configuração de política, o dispositivo Windows poderá se registrar na funcionalidade de vinculação telefone-computador e participar de experiências de Continuar no PC.
+
+Se você desabilitar essa configuração de política, o dispositivo Windows não poderá ser vinculado a Telefones, será removido da lista de dispositivos dos Telefones vinculados e não poderá participar das experiências de Continuar no PC.
+
+Se você não configurar essa política, o comportamento padrão dependerá da edição do Windows. As alterações dessa política serão efetivadas após a reinicialização.
+      </string>
+      <string id="EnableAppUriHandlers">Configurar a criação de link da Web para aplicativo com manipuladores de URI de aplicativo</string>
+      <string id="EnableAppUriHandlers_Help">
+Essa configuração de política determina se o Windows dá suporte à criação de link da Web para aplicativo com manipuladores de URI de aplicativo.
+
+Habilitar essa configuração de política habilita a criação de link da Web para aplicativo, para que os aplicativos possam ser iniciados com um URI http(s).
+
+Desabilitar esta política desabilita a criação de link da Web para aplicativo, e os URIs http(s) serão abertos no navegador padrão, em vez de iniciar o aplicativo associado.
+
+Se você não definir essa configuração de política, o comportamento padrão dependerá da edição do Windows. As alterações nessa política entram em vigor na reinicialização.
+      </string>
+      <string id="Fonts">Fontes</string>
+      <string id="EnableFontProviders">Habilitar Provedores de Fontes</string>
+      <string id="EnableFontProviders_Help">
+        Essa configuração de política determina se o Windows tem permissão para baixar fontes e dados do catálogo de fontes de um provedor de fontes online.
+
+        Se você habilitar essa configuração de política, o Windows consultará periodicamente um provedor de fontes online para determinar se um novo catálogo de fontes está disponível. O Windows também pode baixar dados de fonte, se necessário, para formatar ou renderizar texto.
+
+        Se você desabilitar essa configuração de política, o Windows não se conectará a um provedor de fontes online e somente enumerará fontes instaladas localmente.
+
+        Se você não configurar essa política, o comportamento padrão dependerá da edição do Windows. As alterações dessa política serão efetivadas após a reinicialização.
+      </string>
       <string id="EnableLogonOptimization">Configurar o armazenamento em cache da Política de Grupo</string>
       <string id="EnableLogonOptimization_Help">
-        
-        Essa configuração de política permite que você configure o comportamento do armazenamento em cache da Política de Grupo.
-        
-        Se você habilitar ou não definir essa configuração de política, a Política de Grupo armazenará em cache as informações de política após cada sessão de processamento em segundo plano. Esse cache salva os GPOs aplicáveis e as configurações contidas neles. Quando uma Política de Grupo é executada no modo em primeiro plano e síncrono, ela consulta esse cache que, por sua vez, permite uma execução mais rápida da política. Quando o cache é lido, a Política de Grupo tenta contatar um controlador de domínio de logon para determinar a velocidade do link. Quando a Política de Grupo é executada no modo em segundo plano ou no modo em primeiro plano e assíncrono, ela continua a baixar a última versão das informações da política e usa uma estimativa de largura de banda para determinar os limites de link lento. (Consulte a configuração de política “Configurar Detecção de Link Lento de Política de Grupo” para definir o comportamento em primeiro plano assíncrono.)
-        
-        O valor de link lento, que é definido nessa configuração de política, determina o tempo que a Política de Grupo deverá esperar por uma resposta do controlador de domínio, antes de relatar a velocidade do link como lenta. O padrão é 500 milissegundos.
-        
-        O valor de tempo limite, que é definido nessa configuração de política, determina o tempo que a Política de Grupo deverá esperar por uma resposta do controlador de domínio, antes de determinar que não há conectividade de rede. Isso interrompe o processo atual da Política de Grupo. A Política de Grupo será executada em segundo plano na próxima vez que uma conexão for estabelecida com o controlador de domínio. A configuração de um valor muito alto poderá resultar em longas esperas para o usuário, na reinicialização ou no logon. O padrão é 5000 milissegundos.
-        
-        Se desabilitar essa configuração de política, o cliente da Política de Grupo não armazenará em cache os GPOs ou as configurações que eles contiverem. Quando uma Política de Grupo é executada de maneira síncrona, ela baixa a última versão da política, da rede, e usa estimativas de largura de banda para determinar os limites de link lento. (Consulte a configuração de política “Configurar Detecção de Link Lento de Política de Grupo” para definir o comportamento em primeiro plano assíncrono.)
-      
+        Essa configuração de política permite que você configure o comportamento de armazenamento em cache da Política de Grupo.
+
+        Se você habilitar ou não configurar essa política, a Política de Grupo armazenará em cache informações da política após cada sessão de processamento em segundo plano. Esse cache salva GPOs aplicáveis e as configurações contidas neles. Quando a Política de Grupo é executada em primeiro plano síncrono, ela faz referência a esse cache, o que a permite ser executada mais rapidamente. Quando o cache é lido, a Política de Grupo tenta entrar em contato com um controlador de domínio de logon para determinar a velocidade de conexão. Quando a Política de Grupo é executada em segundo plano ou em primeiro plano assíncrono, ela continua a baixar a versão mais recente das informações da política e usa uma estimativa de largura de banda para determinar os limites de conexão lenta. (Consulte a configuração de política "Configurar Detecção de Conexão Lenta da Política de Grupo" para configurar o comportamento assíncrono em primeiro plano.)
+
+        O valor de conexão lenta definido nessa configuração de política determina por quanto tempo a Política de Grupo aguardará uma resposta do controlador de domínio antes de relatar a velocidade de conexão como lenta. O padrão é de 500 milissegundos.
+
+        O valor de tempo limite definido nessa configuração de política determina por quanto tempo a Política de Grupo aguardará uma resposta do controlador de domínio antes de determinar que não há conectividade de rede. Isso interrompe o processamento atual da Política de Grupo. A Política de Grupo será executada em segundo plano na próxima vez que uma conexão com um controlador de domínio for estabelecida. Definir esse valor muito alto pode resultar em esperas mais longas para o usuário na inicialização ou logon. O padrão é de 5000 milissegundos.
+
+        Se você desabilitar essa configuração de política, o cliente da Política de Grupo não armazenará em cache os GPOs aplicáveis ou as configurações contidas nos GPOs. Quando a Política de Grupo é executada de forma síncrona, ela baixa a versão mais recente da política da rede e usa estimativas de largura de banda para determinar os limites de conexão lenta. (Consulte a configuração de política "Configurar Detecção de Conexão Lenta da Política de Grupo" para configurar o comportamento assíncrono em primeiro plano.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Habilitar cache de política de grupo para servidores</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -49,54 +114,48 @@
         Se você desabilitar ou não definir essa configuração de política, o cliente da Política de Grupo não armazenará em cache os GPOs aplicáveis ou as configurações contidas neles. Quando uma Política de Grupo é executada de maneira síncrona, ela baixa a última versão da política, da rede e usa estimativas de largura de banda para determinar os limites de link lento. (Consulte a configuração de política “Configurar Detecção de Link Lento de Política de Grupo” para definir o comportamento em primeiro plano assíncrono.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Configurar atraso de script de logon</string>
       <string id="LogonScriptDelay_Help">
-        
         Digite “0” para desabilitar Atraso de Script de Logon.
-        
+
         Essa configuração de política permite configurar o tempo que o cliente da Política de Grupo deve esperar, após o logon, para executar scripts.
-        
+
         Por padrão, o cliente da Política de Grupo espera cinco minutos antes de executar os scripts de logon. Isso ajuda a criar um ambiente responsivo de área de trabalho evitando a contenção do disco.
-        
+
         Se habilitar essa configuração de política, a Política de Grupo esperará o período especificado antes de executar os scripts de logon.
-        
+
         Se desabilitar essa configuração de política, a Política de Grupo executará os scripts imediatamente após o logon.
-        
+
         Se você não definir essa configuração de política, a Política de Grupo esperará cinco minutos para executar os scripts de logon.
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Configurar conexões de acesso direto como uma conexão de rede rápida</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Essa configuração de política permite ao administrador definir a conexão de acesso direto para que seja considerada uma conexão de rede rápida, com a finalidade de aplicar e atualizar a Política de Grupo. 
- 
-Quando a Política de Grupo detecta a velocidade da largura de banda de uma conexão de acesso direto, a detecção pode às vezes não fornecer as informações de velocidade da largura de banda. Se a Política de Grupo detectar a velocidade da largura de banda, ela seguirá as regras normais de avaliação se a conexão de acesso direto é uma conexão de rede rápida ou lenta. Se nenhuma velocidade de largura de banda for detectada, a Política de Grupo usará como padrão a conexão de rede lenta. Essa configuração de política permite ao administrador substituir o padrão da conexão de rede lenta pelo padrão de usar a conexão de rede rápida caso nenhuma velocidade de largura de banda da rede seja determinada.
- 
-Observação: quando a Política de Grupo detecta uma conexão de rede lenta, ela apenas processa as extensões do lado do cliente configuradas para processamento por um link lento (conexão de rede lenta).  
- 
-Se você habilitar essa política, quando a Política de Grupo não puder determinar a velocidade da largura de banda pelo Acesso Direto, ela avaliará a conexão de rede como um link rápido e processará todas as extensões do lado do cliente.
- 
-Se você desabilitar ou não definir essa configuração, a Política de Grupo avaliará a conexão de rede como um link lento e processará somente as extensões do lado do cliente configuradas para processamento por um link lento.
-          
-      
-          
+      <string id="SlowLinkDefaultForDirectAccess_Help">Essa configuração de política permite ao administrador definir a conexão de Acesso Direto para que seja considerada uma conexão de rede rápida, com a finalidade de aplicar e atualizar a Política de Grupo.
+
+Quando a Política de Grupo detecta a velocidade da largura de banda de uma conexão de Acesso Direto, a detecção pode às vezes não fornecer as informações de velocidade da largura de banda. Se a Política de Grupo detectar a velocidade da largura de banda, ela seguirá as regras normais de avaliação se a conexão de Acesso Direto for uma conexão de rede rápida ou lenta. Se nenhuma velocidade de largura de banda for detectada, a Política de Grupo usará como padrão a conexão de rede lenta. Essa configuração de política permite ao administrador substituir o padrão da conexão de rede lenta pelo padrão de usar a conexão de rede rápida caso nenhuma velocidade de largura de banda da rede seja determinada.
+
+Observação: quando a Política de Grupo detecta uma conexão de rede lenta, ela apenas processa as extensões do lado do cliente configuradas para processamento por uma conexão lenta (conexão de rede lenta).
+
+Se você habilitar essa política, quando a Política de Grupo não puder determinar a velocidade da largura de banda pelo Acesso Direto, ela avaliará a conexão de rede como uma conexão rápida e processará todas as extensões do lado do cliente.
+
+Se você desabilitar ou não definir essa configuração, a Política de Grupo avaliará a conexão de rede como uma conexão lenta e processará somente as extensões do lado do cliente configuradas para processamento por uma conexão lenta.
+
       </string>
      <string id="SlowlinkDefaultToAsync">Altere o processamento da Política de Grupo para execução assíncrona quando uma conexão de rede lenta é detectada.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Essa política direciona o processo da Política de Grupo para ignorar o processamento de qualquer extensão do lado do cliente que exija processamento síncrono (ou seja, quando os computadores devem aguardar a rede ser totalmente iniciada durante a inicialização do computador e o logon do usuário) quando uma conexão lenta de rede é detectada.  
- 
+      <string id="SlowlinkDefaultToAsync_Help">Essa política direciona o processo da Política de Grupo para ignorar o processamento de qualquer extensão do lado do cliente que exija processamento síncrono (ou seja, quando os computadores devem aguardar a rede ser totalmente iniciada durante a inicialização do computador e o logon do usuário) quando uma conexão lenta de rede é detectada.
+
 Se você habilitar essa configuração de política, quando uma conexão de rede lenta for detectada, o processamento da Política de Grupo sempre será executado de maneira assíncrona.
-Os computadores clientes não aguardam a rede ser totalmente iniciada durante a inicialização e o logon. Os usuários existentes serão conectados usando as credenciais armazenadas em cache, 
-o que resulta em menor tempo de logon. A Política de Grupo será aplicada em segundo plano depois que a rede ficar disponível.   
+Os computadores clientes não aguardam a rede ser totalmente iniciada durante a inicialização e o logon. Os usuários existentes serão conectados usando as credenciais armazenadas em cache,
+o que resulta em menor tempo de logon. A Política de Grupo será aplicada em segundo plano depois que a rede ficar disponível.
 Como esta é uma atualização em segundo plano, observe que as extensões que exigem processamento síncrono, como a extensão de preferência Instalação de Software, Redirecionamento de Pasta
 e Mapas de Unidades, não serão aplicadas.
- 
+
 Observação: há duas condições que fazem com que a Política de Grupo seja processada de forma síncrona, mesmo quando essa configuração de política está habilitada:
 1 - Na primeira inicialização do computador, após o ingresso do computador cliente no domínio.
-2 - Se a configuração de política "Sempre esperar pela rede ao iniciar o computador e fazer logon" estiver habilitada.
- 
-Se você desabilitar ou não definir essa configuração de política, a detecção de uma conexão de rede lenta não afetará se o processamento da Política de Grupo será síncrono ou assíncrono.
+2 - Se a configuração de política " Sempre esperar pela rede ao iniciar o computador e fazer logon" estiver habilitada.
 
-      
+Se você desabilitar ou não definir essa configuração de política, a detecção de uma conexão de rede lenta não afetará se o processamento da Política de Grupo será síncrono ou assíncrono.
 
       </string>
       <string id="DisableLGPOProcessing">Desativar processamento de Objetos de Políticas de Grupo Locais</string>
@@ -117,7 +176,7 @@ Observação: no caso de computadores que ingressaram em domínios, é altamente
 Se você habilitar essa configuração de política, a Política de Grupo usará esse tempo de espera máximo configurado administrativamente e substituirá qualquer tempo de espera padrão ou calculado pelo sistema.
 
 Se você desabilitar ou não definir esta configuração de política, a Política de Grupo usará o tempo de espera padrão de 30 segundos em computadores que executam o sistema operacional Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Permitir política de usuário entre florestas e perfis móveis de usuários</string>
@@ -491,6 +550,12 @@ Se você desabilitar ou não definir esta configuração de política, a Políti
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">Opções de Mitigação</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">Opções de mitigação de processo</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">O Serviço de Cache de Fontes do Windows deve ter permissão para baixar fontes e dados de catálogos de fontes de provedores de fontes online.</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">Valor de link lento:[campo de número] milissegundos</decimalTextBox>

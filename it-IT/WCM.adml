@@ -48,7 +48,21 @@
 
       Se si disabilita o non si configura questa impostazione dei criteri, il risparmio energia verrà abilitato quando il computer entra in modalità di standby connesso.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Consenti a Windows di effettuare la disconnessione del software di un computer da una rete</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Questa impostazione dei criteri determina se Windows disconnette automaticamente il software di un computer da una rete.
+
+      Se questa impostazione dei criteri è abilitata o non configurata, Windows disconnette automaticamente un computer da una rete quando determina che il computer non deve più essere connesso a una rete.
+
+      Se questa impostazione dei criteri è disabilitata, Windows disconnette immediatamente un computer da una rete quando determina che il computer non deve più essere connesso a una rete.
+
+      Quando la disconnessione del software è abilitata:
+      - Quando Windows decide che il computer non deve più essere connesso a una rete, attende che il traffico si stabilizzi su quella rete. La sessione TCP esistente continuerà senza interruzioni.
+      - Windows controlla quindi periodicamente il livello del traffico sulla rete. Se il livello di traffico supera una certa soglia, non viene intrapresa alcuna ulteriore azione. Il computer rimane connesso alla rete e continua a utilizzarla. Ad esempio, se la connessione di rete è attualmente in uso per scaricare file da Internet, i file continueranno a essere scaricati utilizzando quella connessione di rete.
+      - Quando il traffico di rete scende al di sotto di questa soglia, il computer verrà disconnesso dalla rete. Le app che mantengono attiva una connessione di rete anche quando non la utilizzano attivamente (ad esempio, le app di posta elettronica) potrebbero perdere la connessione. Se ciò accade, queste app dovrebbero ristabilire la connessione su una rete diversa. 
+
+      Questa impostazione dei criteri dipende da altre impostazioni dei criteri di gruppo. Ad esempio, se "Riduci al minimo il numero di connessioni simultanee a Internet o a un dominio Windows" è disabilitato, Windows non si disconnetterà da alcuna rete.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

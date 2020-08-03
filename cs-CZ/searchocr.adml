@@ -16,8 +16,14 @@
 
 Pokud povolíte tuto zásadu a vyberete jazyky OCR, nespustí se znovu indexování. Nastavení této zásady se vztahuje jenom na indexování nových souborů ( pokud se opakované indexování nespustí ručně).
       </string>
+      <string id="SelectOCRLangsCodePage">Vybrat jazyk OCR ze znakové stránky</string>
+      <string id="ExplainSelectOCRLangsCodePage">Nastavení této zásady umožňuje vybrat jazyky optického rozpoznávání znaků (OCR), které patří k některé z podporovaných znakových stránek. Pokud nastavení této zásady povolíte, budou se vybrané jazyky OCR používat při zpracování OCR během indexování souborů TIFF. Pokud nebude mezi vybranými jazyky OCR, bude se výchozí systémový jazyk ignorovat. Pokud nastavení této zásady zakážete nebo nenakonfigurujete, použije se jenom výchozí systémový jazyk.
+
+Všechny vybrané jazyky OCR musí patřit ke stejné znakové stránce. Pokud vyberete jazyky z víc než jedné znakové stránky, celý výběr jazyků OCR se bude ignorovat a bude se používat jenom výchozí systémový jazyk.
+
+Pokud tuto zásadu povolíte a vyberete jazyky OCR, nespustí se znovu indexování. Nastavení této zásady se vztahuje jenom na indexování nových souborů (pokud opakované indexování nespustíte ručně).
+      </string>
       <string id="OCR">OCR</string>
-      <string id="Win7Only">Systém Microsoft Windows 7 nebo novější</string>
       <string id="OCREveryPage">Vynutit TIFF IFilter k provedení optického rozpoznávání znaků (OCR) pro každou stránku v dokumentu TIFF</string>
       <string id="ExplainOCREveryPage">
         
@@ -28,8 +34,12 @@ Pokud povolíte tuto zásadu a vyberete jazyky OCR, nespustí se znovu indexová
         Jestliže toto nastavení zakážete nebo nenakonfigurujete, bude TIFF IFilter optimalizovat svůj výkon přeskočením netextového obsahu během zpracování OCR.
       
       </string>
+      <string id="LangArabic">arabština</string>
+      <string id="LangBulgarian">bulharština</string>
+      <string id="LangBosnianLatin">bosenština (latinka)</string>
       <string id="LangChineseSimplified">Čínština (zjednodušená)</string>
       <string id="LangChineseTraditional">Čínština (tradiční)</string>
+      <string id="LangCroatian">chorvatština</string>
       <string id="LangCzech">Čeština</string>
       <string id="LangDanish">Dánština</string>
       <string id="LangDutch">Holandština</string>
@@ -50,6 +60,7 @@ Pokud povolíte tuto zásadu a vyberete jazyky OCR, nespustí se znovu indexová
       <string id="LangSerbianCyrillic">Srbština (cyrilice)</string>
       <string id="LangSerbianLatin">Srbština (latinka)</string>
       <string id="LangSlovak">Slovenština</string>
+      <string id="LangSlovenian">slovinština</string>
       <string id="LangSpanish">Španělština</string>
       <string id="LangSwedish">Švédština</string>
       <string id="LangTurkish">Turečtina</string>
@@ -57,6 +68,72 @@ Pokud povolíte tuto zásadu a vyberete jazyky OCR, nespustí se znovu indexová
     <presentationTable>
       <presentation id="SelectOCRLangs">
         <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Zvolte jeden z následujících jazyků OCR:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>Znaková stránka pro pobaltské jazyky (1257)</text>
+          <checkBox refId="Estonian" defaultChecked="false">estonština</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">lotyština</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">litevština</checkBox>
+        <text/>
+        <text>Znaková stránka pro středoevropské jazyky (1250, Latin 2)</text>
+          <checkBox refId="Albanian" defaultChecked="false">albánština</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">chorvatština</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">čeština</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">maďarština</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">polština</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">rumunština</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">srbština (latinka)</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">slovenština</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">slovinština</checkBox>
+        <text/>
+        <text>Znaková stránka pro jazyky používající cyrilici (1251)</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">bulharština</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">běloruština</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">Makedonština (Makedonie – BRJ)</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">ruština</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">srbština</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">ukrajinština</checkBox>
+        <text/>
+        <text>Znaková stránka pro západoevropské jazyky (1252, Latin 1)</text>
+          <checkBox refId="Catalan" defaultChecked="false">katalánština</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">dánština</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">holandština</checkBox> 
+          <checkBox refId="English" defaultChecked="false">angličtina</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">faerština</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">finština</checkBox> 
+          <checkBox refId="French" defaultChecked="false">francouzština</checkBox> 
+          <checkBox refId="German" defaultChecked="false">němčina</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">islandština</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">indonéština</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">italština</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">malajština</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">norština</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">portugalština</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">španělština</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">švédština</checkBox>
+        <text/>
+        <text>Znaková stránka pro řečtinu (1253)</text>
+          <checkBox refId="Greek" defaultChecked="false">řečtina</checkBox>
+        <text/>
+        <text>Znaková stránka pro turečtinu (1254)</text>
+          <checkBox refId="Turkish" defaultChecked="false">turečtina</checkBox>
+        <text/>
+        <text>Znaková stránka pro zjednodušenou čínštinu (936, GB2312)</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">čínština (zjednodušená)</checkBox>
+        <text/>
+        <text>Znaková stránka pro tradiční čínštinu (950, Big5)</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">čínština (tradiční)
+
+
+
+
+	</checkBox>
+        <text/>
+        <text>Znaková stránka pro japonštinu (932, Shift-JIS)</text>
+          <checkBox refId="Japanese" defaultChecked="false">japonština</checkBox>
+        <text/>
+        <text>Znaková stránka pro korejštinu (949)</text>
+          <checkBox refId="Korean" defaultChecked="false">korejština</checkBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -16,7 +16,9 @@ Nota: per Windows Vista, Windows Server 2008 e versioni precedenti di Windows, �
 
 Se le impostazioni "Nascondi elementi specificati del Pannello di controllo" e "Mostra solo elementi specificati del Pannello di controllo" vengono entrambe abilitate, l'impostazione "Mostra solo elementi specificati del Pannello di controllo" verrà ignorata.
 
-Nota: non è possibile utilizzare questa impostazione per nascondere l'elemento Schermo del Pannello di controllo nel menu di scelta rapida Desktop. Per nascondere l'elemento Schermo del Pannello di controllo ed evitare che gli utenti modifichino le impostazioni dello schermo del computer, utilizzare l'impostazione "Disabilita Pannello di controllo Schermo".</string>
+Nota: non è possibile utilizzare questa impostazione per nascondere l'elemento Schermo del Pannello di controllo nel menu di scelta rapida Desktop. Per nascondere l'elemento Schermo del Pannello di controllo ed evitare che gli utenti modifichino le impostazioni dello schermo del computer, utilizzare l'impostazione "Disabilita Pannello di controllo Schermo".Note:
+
+per nascondere le pagine nell'app Impostazioni di sistema, utilizzare l'impostazione "Visibilità della pagina delle impostazioni" in Configurazione computer.</string>
       <string id="ForceClassicControlPanel">Apri sempre tutti gli elementi del Pannello di controllo all'apertura del Pannello di controllo</string>
       <string id="ForceClassicControlPanel_Help">Questa impostazione dei criteri controlla la visualizzazione predefinita del Pannello di controllo, ovvero per categoria o per icone. 
 
@@ -51,7 +53,27 @@ Nota: in Windows Vista, Windows Server 2008 e versioni precedenti di Windows è 
 
 Se le impostazioni "Nascondi elementi specificati del Pannello di controllo" e "Mostra solo elementi specificati del Pannello di controllo" vengono entrambe abilitate, l'impostazione "Mostra solo elementi specificati del Pannello di controllo" verrà ignorata.
 
-Nota: non è possibile utilizzare questa impostazione per nascondere l'elemento Schermo del Pannello di controllo nel menu di scelta rapida Desktop. Per nascondere l'elemento Schermo del Pannello di controllo ed evitare che gli utenti modifichino le impostazioni dello schermo del computer, utilizzare l'impostazione "Disabilita Pannello di controllo Schermo".</string>
+Nota: non è possibile utilizzare questa impostazione per nascondere l'elemento Schermo del Pannello di controllo nel menu di scelta rapida Desktop. Per nascondere l'elemento Schermo del Pannello di controllo ed evitare che gli utenti modifichino le impostazioni dello schermo del computer, utilizzare l'impostazione "Disabilita Pannello di controllo Schermo".
+
+Nota: per nascondere le pagine nell'app Impostazioni di sistema, utilizzare l'impostazione "Visibilità della pagina delle impostazioni" in Configurazione computer.</string>
+      <string id="SettingsPageVisibility">Visibilità della pagina delle impostazioni</string>
+      <string id="SettingsPageVisibility_Help">Specifica l'elenco di pagine da mostrare o nascondere nell'app Impostazioni di sistema.
+
+Questo criterio consente a un amministratore di bloccare una determinata serie di pagine dell'app Impostazioni di sistema. Le pagine bloccate non saranno visibili nell'app, e se tutte le pagine di una categoria vengono bloccate, anche la categoria sarà nascosta. Lo spostamento diretto a una pagina bloccata tramite URI, il menu contestuale in Esplora risorse o altri mezzi causeranno la visualizzazione delle impostazioni.
+
+Il criterio presenta due modalità: può specificare un elenco di pagine di impostazioni da visualizzare o un elenco di pagine da nascondere. Per specificare un elenco di pagine da mostrare, la stringa del criterio deve iniziare per "showonly:" (senza virgolette), mentre per specificare un elenco di pagine da nascondere, deve iniziare per "hide:". Se una pagina in un elenco showonly sarebbe normalmente nascosta per altre ragioni (ad esempio un dispositivo hardware mancante), questo criterio non ne forzerà la visualizzazione. La stringa del criterio deve inoltre contenere un elenco delimitato da punti e virgole di identificatori delle pagine di impostazioni. L'identificatore di una pagina di impostazioni è l'URI pubblicato per quella pagina meno la parte di protocollo "ms-settings:".
+
+Ad esempio: per specificare che è necessario visualizzare solo le pagine Informazioni su e Bluetooth (i cui URI sono, rispettivamente ms-settings:about e ms-settings:bluetooth) e che tutte le altre pagine devono essere nascoste:
+
+showonly:about;bluetooth
+
+Esempio: per specificare che è necessario nascondere solo la pagina Bluetooth (il cui URI è ms-settings:bluetooth):
+
+hide:bluetooth</string>
+      <string id="AllowOnlineTips">Consenti suggerimenti online</string>
+      <string id="AllowOnlineTips_Help">Abilita o disabilita il recupero della guida e dei suggerimenti online per l'app Impostazioni.
+
+Se disabilitato, l'app Impostazioni non contatterà i servizi per contenuti Microsoft per recuperare suggerimenti e contenuti della guida.</string>
     </stringTable>
     <presentationTable>
       <presentation id="DisallowCpls">
@@ -59,6 +81,16 @@ Nota: non è possibile utilizzare questa impostazione per nascondere l'elemento 
       </presentation>
       <presentation id="RestrictCpls">
         <listBox refId="RestrictCplsList">Elenco degli elementi del Pannello di controllo consentiti</listBox>
+      </presentation>
+      <presentation id="SettingsPageVisibility">
+        <textBox refId="SettingsPageVisibilityBox">
+          <label>Visibilità della pagina delle impostazioni:</label>
+        </textBox>
+      </presentation>
+      <presentation id="AllowOnlineTips">
+        <checkBox refId="CheckBox_AllowOnlineTips">
+          Consenti a Impostazioni di recuperare i suggerimenti online.
+        </checkBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">应用的 Internet 代理服务器</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  此设置不适用于桌面应用。
 	
@@ -20,7 +19,8 @@ Internet 代理服务器 IP 地址的列表，以分号分隔。这些地址可�
 
 例如: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
+有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">应用的 Intranet 代理服务器</string>
@@ -36,10 +36,12 @@ Intranet 代理服务器 IP 地址的列表，以分号分隔。这些地址可�
 
 例如: [3efe:3022::1000]; 18.0.0.1; 18.0.0.2
 
-有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
-	<!--Define subnet addresses-->	
+有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">应用的专用网络地址范围</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">此设置不适用于桌面应用。
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> 此设置不适用于桌面应用。
 				
 企业网络中 IP 地址范围的列表，以逗号分隔。
 
@@ -53,12 +55,12 @@ Windows 网络隔离尝试自动发现专用网络主机。默认情况下，使
 
 例如: 3efe:1092::/96,18.1.1.1/10 
 
-有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-				
+有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">代理定义权威</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">此设置不适用于桌面应用。
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> 此设置不适用于桌面应用。
 				
 在域企业环境中关闭 Windows 网络隔离的自动发现代理功能。
 
@@ -66,11 +68,12 @@ Windows 网络隔离尝试自动发现专用网络主机。默认情况下，使
 
 如果禁用或未配置此策略设置，则 Windows 网络隔离尝试自动发现代理服务器地址。 
 
-有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-		<!--Subnet definitions are authoritative-->	
+有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">子网定义权威</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">此设置不适用于桌面应用。
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> 此设置不适用于桌面应用。
 				
 在域企业环境中关闭 Windows 网络隔离的自动发现专用网络主机功能。
 
@@ -78,10 +81,35 @@ Windows 网络隔离尝试自动发现专用网络主机。默认情况下，使
 
 如果禁用或未配置此策略设置，则 Windows 网络隔离尝试自动发现域企业环境中的专用网络主机。
 				
-有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-	
-	
-     </stringTable>
+有关更多详细信息，请参见: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">托管在云中的企业资源域</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> 此设置不适用于桌面应用。
+
+以竖线分隔的域云资源列表。也可以选择使用尾部逗号后跟代理地址的形式，将每个云资源与内部代理服务器配对。
+
+包含托管在云中的企业资源域的列表。与这些资源的连接被视为与企业网络的连接。
+
+如果代理已与云资源配对，则到云资源的流量将通过指定的代理服务器(在端口 80 上)经企业网络进行路由。用于此目的的代理服务器还必须使用 Intranet 代理服务器针对应用策略进行配置。
+
+示例: [cloudresource]|[cloudresource]|[cloudresource],[proxy]|[cloudresource]|[cloudresource],[proxy]|
+
+有关详细信息，请参阅: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">按工作和个人分类的域</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> 此设置不适用于桌面应用。
+
+以逗号分隔的域名列表，这些域名可用作工作或个人资源。
+
+有关详细信息，请参阅: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@ Windows 网络隔离尝试自动发现专用网络主机。默认情况下，使
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>专用子网  </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>企业云资源 </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>中性资源 </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

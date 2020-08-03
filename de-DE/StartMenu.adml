@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Mindestens Windows Server 2008 R2 oder Windows 7. Wird für Windows 10 oder höher nicht unterstützt.</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 und Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Liste kürzlich verwendeter Programm für neue Benutzer löschen</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Wenn Sie diese Richtlinieneinstellung aktivieren, ist die Liste der zuletzt ausgeführten Programme im Startmenü für jeden neuen Benutzer leer.
 
@@ -150,8 +151,8 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, können Benutz
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, behält das System die Benachrichtigungen bei. Beim Anmelden eines Benutzers werden die Kacheln dann wie beim Abmelden des Benutzers angezeigt, einschließlich des Verlaufs früherer Benachrichtigungen für die einzelnen Kacheln.
 
 Diese Richtlinieneinstellung verhindert nicht, dass neue Benachrichtigungen angezeigt werden. Weitere Informationen über das Verhindern der Anzeige neuer Benachrichtigungen finden Sie unter "Anwendungsbenachrichtigungen deaktivieren".</string>
-      <string id="StartPinAppsWhenInstalled">Anheften der App an die Startseite bei Installation</string>
-      <string id="StartPinAppsWhenInstalled_Help">Mit dieser Richtlinieneinstellung können Apps standardmäßig an die Startseite angeheftet werden, wenn die entsprechende App-ID in der Liste vorhanden ist.</string>
+      <string id="StartPinAppsWhenInstalled">Anheften der App an „Start“ bei der Installation</string>
+      <string id="StartPinAppsWhenInstalled_Help">Mit dieser Richtlinieneinstellung können Apps standardmäßig an „Start“ angeheftet werden, wenn die entsprechende App-ID in der Liste vorhanden ist.</string>
 
       <string id="LockedStartLayout">Startlayout</string>
       <string id="LockedStartLayout_Help">Gibt das Startlayout für Benutzer an.
@@ -163,13 +164,19 @@ Nachdem die XML-Datei generiert und in den gewünschten Dateipfad verschoben wur
 
 Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird das Layout der Startseite nicht geändert und kann von den Benutzern angepasst werden.</string>
       <string id="NoClose">Befehle "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand" entfernen und Zugriff darauf verweigern</string>
-      <string id="NoClose_Help">Mit dieser Richtlinieneinstellung wird verhindert, dass Benutzer die folgenden Befehle im Startmenü oder auf dem Bildschirm "Windows Sicherheit" ausführen: "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand". Diese Richtlinieneinstellung verhindert nicht, dass Benutzer andere Windows-basierte Programme ausführen, die diese Funktionen verwenden.
+      <string id="NoClose_Help">Mit dieser Richtlinieneinstellung wird verhindert, dass Benutzer die folgenden Befehle im Startmenü oder auf dem Bildschirm "Windows-Sicherheit" ausführen: "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand". Diese Richtlinieneinstellung verhindert nicht, dass Benutzer andere Windows-basierte Programme ausführen, die diese Funktionen verwenden.
 
 Wenn Sie diese Richtlinieneinstellung aktivieren, werden der Netzschalter und die Befehle "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand" aus dem Startmenü entfernt. Der Netzschalter wird auch vom Bildschirm "Windows-Sicherheit" entfernt, der angezeigt wird, wenn Sie STRG+ALT-ENTF drücken.
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, sind der Netzschalter und die Befehle "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand" im Startmenü verfügbar. Der Netzschalter ist auch auf dem Bildschirm "Windows-Sicherheit" verfügbar.
 
 Hinweis: Drittanbieterprogramme, die als Microsoft Windows Vista-, Windows XP SP2-, Windows XP SP1-, Windows XP- oder Windows 2000 Professional-kompatible Programme zertifiziert sind, müssen diese Richtlinieneinstellung unterstützen.</string>
+      <string id="HidePowerOptions">Befehle "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand" entfernen und Zugriff darauf verweigern</string>
+      <string id="HidePowerOptions_Help">Diese Richtlinieneinstellung verhindert, dass Benutzer die folgenden Befehle auf dem Windows-Sicherheitsbildschirm, auf dem Anmeldebildschirm und im Startmenü ausführen: "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand". Mit dieser Richtlinieneinstellung wird nicht verhindert, dass Benutzer Windows-basierte Programme verwenden, die diese Funktionen ausführen können.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, werden die Befehle "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand" aus dem Startmenü entfernt. Außerdem wird das Netzschaltersymbol aus dem Windows-Sicherheitsbildschirm entfernt, der durch Drücken von STRG+ALT+ENTF aufgerufen wird, sowie aus dem Anmeldebildschirm.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, sind das Netzschaltersymbol und die Befehle "Herunterfahren", "Neu starten", "Energie sparen" und "Ruhezustand" im Startmenü verfügbar. Das Netzschaltersymbol auf dem Windows-Sicherheitsbildschirm und dem Anmeldebildschirm ist ebenfalls verfügbar.</string>
       <string id="NoCommonGroups">Standardprogrammgruppen aus dem Startmenü entfernen</string>
       <string id="NoCommonGroups_Help">Entfernt Elemente im Profil "Alle Benutzer" aus dem Menü "Programme" im Startmenü.
 
@@ -222,12 +229,22 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wer
 Weitere Informationen finden Sie auch unter den Richtlinieneinstellungen "Liste häufig verwendeter Programme aus dem Menü 'Start' entfernen" und "Persönlich angepasste Menüs deaktivieren".
 
 Mit dieser Richtlinieneinstellung werden Benutzer nicht daran gehindert, Programme an das Startmenü oder die Taskleiste anzuheften. Weitere Informationen finden Sie unter den Richtlinieneinstellungen "Liste angehefteter Programme aus dem Menü 'Start' entfernen" und "Anheften von Programmen an die Taskleiste nicht zulassen".</string>
+
       <string id="NoMoreProgramsList">Liste "Alle Programme" aus dem Startmenü entfernen</string>
-      <string id="NoMoreProgramsList_Help">Mit dieser Richtlinieneinstellung können Sie die Liste "Alle Programme" aus dem Startmenü entfernen.
+      <string id="NoMoreProgramsList_Help">Wenn Sie diese Einstellung aktivieren, wird entweder das Startmenü reduziert, oder die Liste "Alle Apps" wird aus dem Startmenü entfernt.
 
-Wenn Sie diese Richtlinieneinstellung aktivieren, wird das Element "Alle Programme" aus dem einfachen Startmenü entfernt.  Auf dem Startbildschirm wird zwar die Ansicht "Alle Apps" angezeigt, es sind jedoch nur Elemente enthalten, die an das Startmenü angeheftet sind.
+Wenn Sie "Reduzieren" auswählen, wird die App-Liste nicht neben den angehefteten Kacheln unter "Start" angezeigt. Unter "Start" wird dann die Schaltfläche "Alle Apps" angezeigt, damit die Liste "Alle Apps" geöffnet werden kann. Dieses Verhalten ist identisch mit dem, wenn die Option "App-Liste in Startmenü anzeigen" in den Einstellungen deaktiviert ist.
 
-Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, verbleibt das Element "Alle Programme" im einfachen Startmenü.</string>
+Wenn Sie "Reduzieren und Einstellung deaktivieren" auswählen, geschieht dasselbe wie bei der Option "Reduzieren", und "App-Liste im Startmenü anzeigen" wird in den Einstellungen deaktiviert, damit die Option von Benutzern nicht aktiviert werden kann.
+
+Wenn Sie "Entfernen und Einstellung deaktivieren" auswählen, wird die Liste "Alle Apps" aus dem Startmenü entfernt, und "App-Liste im Startmenü anzeigen" wird in den Einstellungen deaktiviert, damit die Option von Benutzern nicht aktiviert werden kann. Wählen Sie diese Option aus, falls Kompatibilität mit früheren Versionen von Windows erforderlich ist.
+
+Wenn Sie die Einstellung deaktivieren oder nicht konfigurieren, wird die Liste "Alle Apps" standardmäßig angezeigt, und der Benutzer kann "App-Liste in Startmenü anzeigen" in den Einstellungen ändern.</string>
+      <string id="APPLIST_NONE">Keine</string>
+      <string id="APPLIST_COLLAPSE">Reduzieren</string>
+      <string id="APPLIST_COLLAPSESETTING">Reduzieren und Einstellung deaktivieren</string>
+      <string id="APPLIST_REMOVESETTING">Entfernen und Einstellung deaktivieren</string>    
+
       <string id="NoNetAndDialupConnect">Menüeintrag "Netzwerkverbindungen" aus dem Startmenü entfernen</string>
       <string id="NoNetAndDialupConnect_Help">Diese Richtlinieneinstellung ermöglicht Ihnen das Entfernen des Eintrags "Netzwerkverbindungen" aus dem Startmenü.
 
@@ -515,6 +532,18 @@ Wenn Sie diese Richtlinieneinstellung nicht konfigurieren, können die Benutzer 
 Wenn Sie diese Richtlinieneinstellung aktivieren, wird im Startmenü kein Link zum Ordner "Downloads" angezeigt.
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, ist der Link "Downloads" im Startmenü verfügbar.</string>
+      <string id="NoStartMenuExplorerPlace">Link "Datei-Explorer" aus Umgebungsleiste im Startmenü entfernen</string>
+      <string id="NoStartMenuExplorerPlace_Help">Mit dieser Richtlinieneinstellung können Sie den Link "Datei-Explorer" aus der Umgebungsleiste im Startmenü entfernen.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, wird in der Liste der Orte im Startmenü kein Datei-Explorer angezeigt.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, kann der Datei-Explorer in der Liste der Orte im Startmenü angezeigt werden.</string>
+      <string id="NoStartMenuSettingsPlace">Link "Einstellungen" aus Umgebungsleiste im Startmenü entfernen</string>
+      <string id="NoStartMenuSettingsPlace_Help">Mit dieser Richtlinieneinstellung können Sie den Link "Einstellungen" aus der Umgebungsleiste im Startmenü entfernen.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, werden in der Liste der Orte im Startmenü keine Einstellungen angezeigt.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, können Einstellungen in der Liste der Orte im Startmenü angezeigt werden.</string>
       <string id="NoStartMenuRecordedTV">Link "TV-Aufzeichnungen" aus dem Startmenü entfernen</string>
       <string id="NoStartMenuRecordedTV_Help">Mit dieser Richtlinieneinstellung können Sie den Link "TV-Aufzeichnungen" aus dem Startmenü entfernen.
 
@@ -575,8 +604,23 @@ Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wir
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wählt Windows die Größe automatisch nach dem Hardwareformfaktor aus, und die Benutzer sind in der Lage, die Größe von "Start" in den Einstelllungen zu ändern.</string>
       <string id="ForceLauncherSize_Collapsed">Startmenü</string>
       <string id="ForceLauncherSize_Expanded">"Start" im Vollbildmodus</string>
+      <string id="HidePeopleBar_DisplayName">Kontakteleiste von der Taskleiste entfernen</string>
+      <string id="HidePeopleBar_ExplainText">Mit dieser Richtlinie werden die Kontakteleiste von der Taskleiste entfernt und die Oberfläche "Meine Kontakte" deaktiviert.
+
+Wenn Sie die Richtlinie aktivieren, werden das Kontakte-Symbol von der Taskleiste und die Umschaltfläche "Einstellungen" von der Seite mit Taskleisteneinstellungen entfernt, und die Benutzer können keine Kontakte an die Taskleiste anheften.</string>
+      <string id="HideRecentlyAddedApps">Liste "Zuletzt hinzugefügt" aus Startmenü entfernen</string>
+      <string id="HideRecentlyAddedApps_Help">Mit dieser Richtlinie können Sie verhindern, dass im Startmenü eine Liste der zuletzt installierten Anwendungen angezeigt wird.
+
+Wenn Sie die Richtlinie aktivieren, wird die Liste "Zuletzt hinzugefügt" nicht mehr im Startmenü angezeigt. Außerdem wird die entsprechende Einstellung unter "Einstellungen" deaktiviert.</string>
+      <string id="DisableContextMenusInStart">Kontextmenüs im Startmenü deaktivieren</string>
+      <string id="DisableContextMenusInStart_Help">Diese Richtlinie verhindert, dass Benutzer Kontextmenüs im Startmenü öffnen können.
+
+Wenn Sie die Richtlinie aktivieren, werden Aufrufe der Kontextmenüs innerhalb des Startmenüs ignoriert.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Wählen Sie eine der folgenden Aktionen aus.</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Wählen Sie eine der folgenden Aktionen</dropdownList>
       </presentation>

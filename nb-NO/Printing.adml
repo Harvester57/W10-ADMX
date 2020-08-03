@@ -33,7 +33,7 @@ Obs!
       <string id="CplPrinters">Skrivere</string>
       <string id="CplPrinters_Help">Administrerer nettverksskriverkonfigurasjon og publiseringsalternativer.</string>
       <string id="CustomizedSupportUrl">Egendefinert URL-adresse for kundestøtte i venstre rute av mappen Skrivere</string>
-      <string id="CustomizedSupportUrl_Help">Som standard inneholder mappen Skrivere en kobling til Microsoft-websiden for kundestøtte Få hjelp med utskrift. Den kan også inneholde en kobling til websider som støttes av leverandøren av den gjeldende valgte skriveren.
+      <string id="CustomizedSupportUrl_Help">Som standard inneholder mappen Skrivere en kobling til websiden Microsoft Kundestøtte Få hjelp med utskrift. Den kan også inneholde en kobling til websider som støttes av leverandøren av den gjeldende valgte skriveren.
 
           Hvis du aktiverer denne policyinnstillingen, erstattes standardkoblingen Få hjelp med utskrift med koblingen til en webside som er tilpasset organisasjonen din.
 
@@ -46,18 +46,23 @@ Obs!
           Webvisningen berøres av innstillingene Aktiver standardskall og Ikke tillat at Mappealternativer åpnes fra Alternativer-knappen i kategorien Vis på båndet i Brukerkonfigurasjon\Administrative maler\Windows-komponenter\Windows Utforsker og innstillingen Aktiver Active Desktop i Brukerkonfigurasjon\Administrative maler\Skrivebord\Aktivt skrivebord.</string>
       <string id="DomainDisplayPrinters_Help">Hvis du aktiverer denne policyinnstillingen, angis maksimalt antall skrivere (av hver type) som veiviseren for skriver skal vise på en datamaskin på et administrert nettverk (når datamaskinen kan nå en domenekontroller, for eksempel en domenetilknyttet bærbar maskin på et firmanettverk.)
 
-          Hvis denne policyinnstillingen er deaktivert, vises ikke søkesiden for nettverk.
+          Hvis denne policyinnstillingen deaktiveres, vises ikke søkesiden for nettverk.
 
-          Hvis denne policyinnstillingen ikke er konfigurert, viser veiviseren for skriver det følgende standardantallet skrivere av hver type:
+          Hvis denne policyinnstillingen ikke konfigureres, viser veiviseren for skrivere standardantallet skrivere av hver type:
           Katalogskrivere: 20
           TCP/IP-skrivere: 0
-          Webtjenesteskrivere: 0
+          Nettjenesteskrivere: 0
           Bluetooth-skrivere: 10
           Delte skrivere: 0
 
           Hvis du vil vise tilgjengelige webtjenesteskrivere på nettverket, kontrollerer du at nettverksgjenkjenning er aktivert. Hvis du vil aktivere nettverksgjenkjenning, klikker du Start, Kontrollpanel og deretter Nettverk og Internett. Klikk Nettverks- og delingssenter på siden Nettverk og Internett. Klikk Endre innstillinger for avansert deling på siden Nettverks- og delingssenter. Klikk pilen ved siden av Domene på siden Innstillinger for avansert deling, og klikk deretter Aktiver nettverksgjenkjenning og Lagre endringer.
 
-          Hvis du ikke vil vise en viss type skrivere, aktiverer du denne policyen og angir 0 i innstillingen for antallet skrivere som skal vises.</string>
+          Hvis du vil ikke vise skrivere av en bestemt type, aktiverer du denne policyen og angir antallet skrivere som skal vises, til 0.
+
+          I Windows 10 og senere kan bare TCP/IP-skrivere vises i veiviseren. Hvis du aktiverer denne policyinnstillingen, gjelder bare grensene for TCP/IP-skrivere. Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen i Windows 10, brukes standardgrensen.
+          
+          I Windows 8 og senere vises ikke Bluetooth-skrivere, og grensen for dem gjelder derfor ikke for disse versjonene av Windows.
+      </string>
       <string id="DomainPrinters">Veiviser for skriver – søkeside for nettverk (administrert nettverk)</string>
       <string id="DownlevelBrowse">Søk på nettverket etter skrivere</string>
       <string id="DownlevelBrowse_Help">Lar brukere bruke veiviseren for skriver til å søke etter delte skrivere på nettverket.
@@ -129,17 +134,21 @@ Obs!  Hvis du aktiverer denne policyen, deaktiveres eksisterende kjernemodusdriv
           Denne policyen hindrer ikke brukere fra å kjøre andre programmer for å slette en skriver.
 
           Hvis denne policyen er deaktivert eller ikke konfigurert, kan brukere slette skrivere ved bruk av metodene som er beskrevet ovenfor.</string>
-      <string id="NonDomainDisplayPrinters_Help">Denne policyen angir maksimalt antall skrivere (av hver type) som veiviseren for skriver skal vise på en datamaskin på et uadministrert nettverk (når datamaskinen ikke kan nå en domenekontroller, for eksempel en domenetilknyttet bærbar maskin på et hjemmenettverk.)
+      <string id="NonDomainDisplayPrinters_Help">Denne policyen angir maksimalt antall skrivere (av hver type) som veiviseren for skrivere viser på en datamaskin på et uadministrert nettverk (når datamaskinen ikke kan nå en domenekontroller, f.eks. en domenetilknyttet bærbar datamaskin på et hjemmenettverk.)
 
-Hvis denne innstillingen er deaktivert, vises ikke søkesiden for nettverk.
+Hvis denne innstillingen deaktiveres, vises ikke søkesiden for nettverk.
 
-Hvis denne innstillingen ikke er konfigurert, viser veiviseren for skriver følgende standard antall skrivere av hver type:
+Hvis denne innstillingen ikke konfigureres, viser veiviseren for skrivere standardantallet skrivere av hver type:
 TCP/IP-skrivere: 50
-Webtjenesteskrivere: 50
+Nettjenesteskrivere: 50
 Bluetooth-skrivere: 10
 Delte skrivere: 50
 
-Hvis du ikke vil vise skrivere av en bestemt type, aktiverer du denne policyen og angir antall skrivere som skal vises, til 0.</string>
+Hvis du vil ikke vise skrivere av en bestemt type, aktiverer du denne policyen og angir antallet skrivere som skal vises, til 0.
+
+I Windows 10 og senere kan bare TCP/IP-skrivere vises i veiviseren. Hvis du aktiverer denne policyinnstillingen, gjelder bare grensene for TCP/IP-skrivere. Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen i Windows 10, brukes standardgrensen.
+          
+I Windows 8 og senere vises ikke Bluetooth-skrivere, og grensen for dem gjelder derfor ikke for disse versjonene av Windows.</string>
       <string id="NonDomainPrinters">Veiviser for skriver – søkeside for nettverk (uadministrert nettverk)</string>
       <string id="PackagePointAndPrintOnly">Bare bruk pakkepek og skriv ut</string>
       <string id="PackagePointAndPrintOnly_Help">Denne policyen begrenser klientdatamaskiner til å bruke bare pakkepek og skriv ut.
@@ -269,11 +278,11 @@ Som standard vil lagerenheter på Windows Ultimate, Professional og Home fortset
 
         Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, tillates det at alle installerte skriverutvidelser kjører.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">Endre standard utdataformat for Microsoft XPS-dokumentskriver (MXDW) til det eldre formatet Microsoft XPS (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Microsoft XPS-dokumentskriver (MXDW) genererer OpenXPS-filer (*.oxps) som standard i Windows 10, Windows RT 10 og Windows Server 2016.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Microsoft XPS-dokumentskriver (MXDW) genererer OpenXPS-filer (OXPS) som standard i Windows 10 og Windows Server 2019.
 
-          Hvis du aktiverer denne gruppepolicyinnstillingen, er det eldre formatet Microsoft XPS (*.xps) standard MXDW-utdataformat.
+          Hvis du aktiverer denne gruppepolicyinnstillingen, blir det eldre formatet Microsoft XPS (XPS) standard MXDW-utdataformat.
 
-          Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, er OpenXPS (*.oxps) standard MXDW-utdataformat.</string>
+          Hvis du deaktiverer eller ikke konfigurerer denne policyinnstillingen, blir OpenXPS (OXPS) standard MXDW-utdataformat.</string>
       <string id="SetDefaultPrinterMRUModeOff">Deaktiver administrasjon av standardskriver i Windows</string>
       <string id="SetDefaultPrinterMRUModeOff_Help">Med denne innstillingen kan du endre administrasjon av standardskriver.
 

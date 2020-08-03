@@ -3,9 +3,13 @@
 <description>introduza a descrição aqui</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Antivírus do Windows Defender</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Exclusões</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Redução de Superfície de Ataque</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Acesso Controlado a Pastas</string>
+    <string id="ExploitGuard_NetworkProtection">Proteção da Rede</string>
     <string id="NetworkRealtimeInspection">Sistema de Inspeção de Rede</string>
     <string id="NetworkRealtimeInspection_Exclusions">Exclusões</string>
     <string id="Quarantine">Quarentena</string>
@@ -17,6 +21,7 @@
     <string id="Spynet">MAPS</string>
     <string id="Threats">Ameaças</string>
     <string id="ClientInterface">Interface de Cliente</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Permitir o arranque do serviço antimalware com prioridade normal</string>
     <string id="AllowFastServiceStartup_Explain">Esta definição de política controla a prioridade de carga do serviço antimalware. O aumento da prioridade de carga permite um arranque mais rápido do serviço, mas poderá afetar o desempenho.
 
@@ -25,7 +30,18 @@ Se ativar ou não configurar esta definição, o serviço antimalware será carr
 Se desativar esta definição, o serviço antimalware será carregado como uma tarefa de baixa prioridade.</string>
 
     <string id="DisableAutoExclusions">Desativar Exclusões Automáticas</string>
-    <string id="DisableAutoExclusions_Explain">Permite que um administrador especifique se a funcionalidade das Exclusões Automáticas para SKU do Servidor deve ser desativada.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Permite que um administrador especifique se a funcionalidade das Exclusões Automáticas para SKUs do Servidor deve ser desativada.
+
+        Desativado (Predefinição):
+        O Windows Defender excluirá da análise a lista predefinida de caminhos, para melhorar o desempenho.
+
+        Ativado:
+        O Windows Defender não excluirá das análises a lista predefinida de caminhos. Isto pode ter impacto no desempenho da máquina em alguns cenários.
+
+        Não configurado:
+        O mesmo que Desativado.
+    </string>
     <string id="DisableAntiSpyware">Desativar o Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Esta definição de política desativa o Endpoint Protection.
 
@@ -33,12 +49,12 @@ Se desativar esta definição, o serviço antimalware será carregado como uma t
 
     Se desativar ou não configurar esta definição de política, por predefinição, o Endpoint Protection será executado e será verificada a existência de software maligno e outro software potencialmente indesejável nos computadores.
     </string>
-    <string id="DisableAntiSpywareDefender">Desativar o Endpoint Protection</string>
-    <string id="DisableAntiSpywareDefender_Explain">Esta definição de política desativa o Endpoint Protection.
+    <string id="DisableAntiSpywareDefender">Desativar o Antivírus do Windows Defender</string>
+    <string id="DisableAntiSpywareDefender_Explain">Esta definição de política desativa o Antivírus do Windows Defender.
 
-    Se ativar esta definição de política, o Endpoint Protection não será executado e não será verificada a existência de software maligno ou outro software potencialmente indesejável nos computadores.
+    Se ativar esta definição de política, o Antivírus do Windows Defender não é executado e não é verificada a existência de software maligno ou outro software potencialmente indesejável nos computadores.
 
-    Se desativar ou não configurar esta definição de política, por predefinição, o Endpoint Protection será executado e será verificada a existência de software maligno e outro software potencialmente indesejável nos computadores.</string>
+    Se desativar ou não configurar esta definição de política, por predefinição, o Antivírus do Windows Defender é executado e é verificada a existência de software maligno e outro software potencialmente indesejável nos computadores.</string>
     <string id="DisableLocalAdminMerge">Configurar comportamento de intercalação de listas do administrador local</string>
     <string id="DisableLocalAdminMerge_Explain">Esta definição de política controla se as definições de listas complexas configuradas por um administrador local são ou não intercaladas com as definições da Política de Grupo. Esta definição é aplicável a listas tais como ameaças e exclusões.
 
@@ -47,33 +63,47 @@ Se ativar ou não configurar esta definição, os itens exclusivos definidos na 
 Se desativar esta definição, os itens definidos pela Política de Grupo serão utilizados na política efetivamente resultante. As definições da Política de Grupo prevalecem sobre as definições de preferências configuradas pelo administrador local.</string>
     <string id="DisableRoutinelyTakingAction">Desativar a remediação de rotina</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Esta definição da política permite-lhe configurar se o Endpoint Protection toma automaticamente medidas contra todas as ameaças detetadas. A medida a tomar contra uma determinada ameaça é determinada pela combinação da medida definida pela política, da medida definida pelo utilizador e da medida definida pela assinatura.
+    Esta definição da política permite-lhe configurar se o Antivírus do Windows Defender toma automaticamente medidas contra todas as ameaças detetadas. A medida a tomar contra uma determinada ameaça é determinada pela combinação da medida definida pela política, da medida definida pelo utilizador e da medida definida pela assinatura.
 
-    Se ativar esta definição da política, o Endpoint Protection não toma automaticamente medidas contra as ameaças detetadas, mas solicita aos utilizadores que optem entre as ações disponíveis para cada ameaça.
+    Se ativar esta definição da política, o Antivírus do Windows Defender não toma automaticamente medidas contra as ameaças detetadas, mas solicita aos utilizadores que optem entre as medidas disponíveis para cada ameaça.
 
-    Se desativar ou não configurar esta definição da política, o Endpoint Protection toma automaticamente medidas contra todas as ameaças detetadas, após um atraso não-configurável de aproximadamente cinco segundos.</string>
+    Se desativar ou não configurar esta definição da política, o Antivírus do Windows Defender toma automaticamente medidas contra todas as ameaças detetadas, após um atraso não-configurável de aproximadamente cinco segundos.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Esta definição de política permite configurar se o Endpoint Protection deve efetuar automaticamente ações em relação a todas as ameaças detetadas. A ação a efetuar relativamente a determinada ameaça será determinada pela combinação da ação definida pela política, da ação definida pelo utilizador e da ação definida pela assinatura.
 
         Se ativar esta definição de política, o Endpoint Protection não efetuará automaticamente ações em relação a ameaças detetadas, mas pedirá aos utilizadores que escolham de entre as ações disponíveis para cada ameaça.
 
         Se desativar ou não configurar esta definição de política, o Endpoint Protection efetuará automaticamente ações em relação a todas as ameaças detetadas após um atraso não configurável de aproximadamente dez minutos.
-    </string>
+    </string>      
     <string id="ProxyBypass">Definir endereços para ignorar servidor proxy</string>
     <string id="ProxyBypass_Explain">Se definida, esta política impedirá o programa antimalware de utilizar o servidor proxy configurado ao comunicar com os endereços IP especificados. O valor do endereço deverá ser introduzido como um URL válido.
 
 Se ativar esta definição, o servidor proxy será ignorado para os endereços especificados.
 
 Se desativar ou não configurar esta definição, o servidor proxy não será ignorado para os endereços especificados.</string>
+    <string id="ProxyPacUrl">Definir configuração automática do proxy (.pac) para ligar à rede</string>
+    <string id="ProxyPacUrl_Explain">Esta definição de política define o URL de um ficheiro de proxy .pac que deve ser utilizado quando o cliente tenta ligar à rede para atualizações de definição e relatórios MAPS. Se a configuração automática do proxy falhar ou se não houver nenhuma configuração automática do proxy especificada, o cliente utilizará as opções alternativas de contingência (por ordem):
+      1. Servidor proxy (se especificado)
+      2. URL de proxy .pac (se especificado)
+      3. Nenhum
+      4. Configurações de proxy do Internet Explorer
+      5. Deteção automática
+
+      Caso ative esta definição, a definição do proxy será definida para utilizar o ficheiro de proxy .pac especificado de acordo com a ordem especificada acima.
+
+      Caso desative ou não configure esta definição, o proxy irá ignorar este passo de contingência de acordo com a ordem especificada acima.</string>
     <string id="ProxyServer">Definir o servidor proxy para ligação à rede</string>
-    <string id="ProxyServer_Explain">Esta definição de política permite configurar o proxy nomeado a utilizar quando o cliente tenta ligar à rede para atualizar definições e efetuar relatórios MAPS. Se o proxy nomeado falhar ou se não tiver sido especificado nenhum proxy, serão utilizadas as seguintes definições (por esta ordem):
-1. Definições de proxy do Internet Explorer
-2. Deteção automática
-3. Nenhum
+    <string id="ProxyServer_Explain">Esta definição de política permite configurar o proxy nomeado que deve ser utilizado quando o cliente tenta ligar à rede para receber atualizações de definição e relatórios MAPS. Se o proxy nomeado falhar ou se não houver nenhum proxy especificado, o cliente utilizará as opções alternativas de contingência (por ordem):
+      1. Servidor Proxy (se especificado)
+      2. URL de proxy .pac (se especificado)
+      3. Nenhum
+      4. Definições de proxy do Internet Explorer
+      5. Deteção automática
 
-Se ativar esta definição, o proxy será definido para o URL especificado.
+      Caso ative esta definição, o proxy será definido como o URL especificado de acordo com a ordem especificada acima. O URL deve ser precedido por http:// ou https://.
 
-Se desativar ou não configurar esta definição, o proxy será configurado de acordo com a ordem especificada acima.</string>
+      Caso desative ou não configure esta definição, o proxy irá ignorar este passo de contingência de acordo com a ordem especificada acima.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Aleatorizar horário das tarefas agendadas</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Esta definição de política permite ativar ou desativar a aleatoriedade da hora de início da análise agendada e a hora de início da atualização de definições agendada. Esta definição é utilizada para distribuir o impacto da análise nos recursos. Pode ser utilizada por exemplo em máquinas virtuais do convidado que partilhem um anfitrião, para impedir múltiplas máquinas virtuais do convidado de efetuarem simultaneamente uma operação que exija uma utilização intensiva do disco.
 
@@ -86,6 +116,21 @@ Se desativar esta definição, as tarefas agendadas serão iniciadas no horário
 Se ativar esta definição, o serviço antimalware continuará em execução, mesmo que as definições de antivírus e antispyware sejam desativadas.
 
 Se desativar ou não configurar esta definição, o serviço antimalware será parado quando as definições de antivírus e antispyware forem desativadas. Se o computador for reiniciado, o serviço será iniciado se o Arranque automático estiver configurado. Após o serviço ser iniciado, será verificado se as definições de antivírus e antispyware se encontram ativas. Se pelo menos uma das definições estiver ativa, o serviço continuará em execução. Se estiverem ambas desativadas, o serviço será parado.</string>
+    <string id="Root_PUAProtection">Configurar deteção de aplicações potencialmente indesejáveis</string>
+    <string id="Root_PUAProtection_Explain">
+        Ativar ou desativar a deteção de aplicações potencialmente indesejáveis. Pode optar por bloquear, auditar ou permitir o software potencialmente indesejável quando este está a ser transferido ou tenta instalar-se no seu computador.
+
+        Ativado:
+        Especifique o modo na secção de Opções:
+        Bloquear: O software potencialmente indesejável é bloqueado.
+        Modo de Auditoria: O software potencialmente indesejável não é bloqueado, no entanto, se esta funcionalidade tivesse bloqueado o acesso caso estivesse definida para Bloquear, existiria um registo do evento nos registos de eventos.
+
+        Desativado:
+        O software potencialmente indesejável não é bloqueado.
+
+        Não configurado:
+        O mesmo que Desativado.
+    </string>
     <string id="Exclusions_Extensions">Exclusões de Extensões</string>
     <string id="Exclusions_Extensions_Explain">Esta definição de política permite especificar uma lista de tipos de ficheiros a excluir de análises agendadas, personalizadas e em tempo real. Os tipos de ficheiros para esta definição deverão ser adicionados nas Opções. Cada entrada deverá ser listada como um par nome-valor, em que o nome deverá ser uma representação de cadeia da extensão de tipo de ficheiro (tal como "obj" ou "lib"). O valor não é utilizado, sendo recomendado defini-lo como 0.</string>
     <string id="Exclusions_Paths">Exclusões de Caminhos</string>
@@ -104,20 +149,6 @@ Se desativar esta definição, o reconhecimento de protocolos será desativado.<
 Se ativar ou não configurar esta definição, o abandono de definições será ativado.
 
 Se desativar esta definição, o abandono de definições será desativado.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definir velocidade de registo dos eventos de deteção</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Esta definição de política limita a velocidade a que são registados os eventos de deteção para proteção da rede contra exploits de vulnerabilidades conhecidas. O registo será limitado a uma frequência máxima de um evento no intervalo definido. O valor do intervalo é definido em minutos. O intervalo predefinido é de 60 minutos.
-
-Se ativar esta definição, os eventos de deteção não serão registados se existirem vários relatórios semelhantes (por GUID de definição) no número de minutos especificado.
-
-Se desativar ou não configurar esta definição, os eventos de deteção serão registados à velocidade predefinida.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Exclusões de intervalos de endereços IP</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Se definida, esta política impedirá que a proteção da rede contra exploits de vulnerabilidades conhecidas inspecione os endereços IP especificados. Os endereços IP para esta definição deverão ser adicionados nas Opções. Cada entrada deverá ser listada como um par nome-valor, em que o nome deverá ser uma representação de cadeia de um intervalo de endereços IP. Por exemplo, um intervalo poderá ser definido como: 157.1.45.123-60.1.1.1. O valor não é utilizado, sendo recomendado defini-lo como 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Exclusões de números de portas</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Esta definição de política define uma lista de números de porta TCP para as quais a inspeção de tráfego de rede será desativada. Os números de porta para esta definição deverão ser adicionados nas Opções. Cada entrada deverá ser listada como um par nome-valor, em que o nome deverá ser uma representação de cadeia de um número de porta TCP. Por exemplo, um intervalo poderá ser definido como: 8080. O valor não é utilizado, sendo recomendado defini-lo como 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Exclusões de processos para tráfego de saída</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Esta definição de política define os processos para os quais o tráfego de rede de saída não será inspecionado.  Os nomes de processo para esta definição deverão ser adicionados nas Opções. Cada entrada deverá ser listada como um par nome-valor, em que o nome deverá ser uma representação de cadeia de um caminho e nome de processo. Por exemplo, um processo poderá ser definido como:  "C:\Windows\System32\App.exe" . O valor não é utilizado, sendo recomendado defini-lo como 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Exclusões de ID de Ameaças</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Esta definição de política define as ameaças que serão excluídas da deteção durante a inspeção do tráfego de rede. As ameaças para esta definição deverão ser adicionadas nas Opções. Cada entrada deverá ser listada como um par nome-valor, em que o nome deverá ser uma representação de cadeia de um ID de Ameaça. Por exemplo, um ID de Ameaça poderá ser definido como: 2925110632. O valor não é utilizado, sendo recomendado defini-lo como 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Especificar conjuntos adicionais de definições para a inspeção de tráfego de rede</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Esta definição de política define os conjuntos adicionais de definições a ativar para a inspeção de tráfego de rede. Os GUIDs dos conjuntos de definições para esta definição deverão ser adicionados nas Opções. Cada entrada deverá ser listada como um par nome-valor, em que o nome deverá ser uma representação de cadeia de um GUID de conjunto de definições. Por exemplo, o GUID do conjunto de definições para ativar definições de teste é definido como: “{b54b6ac9-a737-498e-9120-6616ad3bf590}”. O valor não é utilizado, sendo recomendado defini-lo como 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Configurar ignorar definição local para a remoção de itens da pasta Quarentena</string>
@@ -138,18 +169,6 @@ Se desativar ou não configurar esta definição, os itens serão indefinidament
 Se ativar ou não configurar esta definição, a monitorização de comportamento será ativada.
 
 Se desativar esta definição, a monitorização de comportamento será desativada.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Ativar o Controlo de Proteção de Informações</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Esta definição de política permite configurar o Controlo de Proteção de Informações (IPC).
-
-Se ativar esta definição, o IPC será ativado.
-
-Se desativar ou não configurar esta definição, o IPC será desativado.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Ativar proteção de rede contra exploits de vulnerabilidades conhecidas</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Esta definição de política permite configurar a proteção de rede contra exploits de vulnerabilidades conhecidas.
-
-Se ativar ou não configurar esta definição, a proteção de rede será ativada.
-
-Se desativar esta definição, a proteção de rede será desativada.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Analisar todos os anexos e ficheiros transferidos</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Esta definição de política permite configurar a análise de todos os anexos e ficheiros transferidos.
 
@@ -171,11 +190,11 @@ Se desativar esta definição, as notificações de escrita de volumes não proc
     <string id="DisableRealtimeMonitoring">Desativar a proteção em tempo real</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">Esta definição de política desativa os avisos de proteção em tempo real para deteção de software maligno conhecido.
 
-    O Windows Defender alerta o utilizador quando software maligno ou software potencialmente indesejável tenta a instalação ou execução no computador.
+    O Antivírus do Windows Defender alerta o utilizador quando software maligno ou software potencialmente indesejável tenta a própria instalação ou execução no computador.
 
-    Se ativar esta definição de política, o Windows Defender não pedirá aos utilizadores que efetuem ações em relação a deteções de software maligno.
+    Se ativar esta definição de política, o Antivírus do Windows Defender não pede aos utilizadores que tomem medidas em relação a deteções de software maligno.
 
-    Se desativar ou não configurar esta definição de política, o Windows Defender pedirá aos utilizadores que efetuem ações em relação a deteções de software maligno.</string>
+    Se desativar ou não configurar esta definição de política, o Antivírus do Windows Defender pede aos utilizadores que tomem medidas em relação a deteções de software maligno.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Esta definição de política desativa os avisos de proteção em tempo real para deteção de software maligno conhecido.
 
@@ -205,12 +224,6 @@ Se ativar esta definição, a definição da preferência local terá prioridade
 Se desativar ou não configurar esta definição, a Política de Grupo terá prioridade sobre a definição da preferência local.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Configurar ignorar definição local para monitorização da atividade de programas e ficheiros no computador</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Esta definição de política configura ignorar a definição local para configuração da monitorização da atividade de programas e ficheiros no computador. A definição só pode ser configurada pela Política de Grupo.
-
-Se ativar esta definição, a definição da preferência local terá prioridade sobre a Política de Grupo.
-
-Se desativar ou não configurar esta definição, a Política de Grupo terá prioridade sobre a definição da preferência local.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Configurar ignorar definição local para desativar Sistema de Prevenção de Intrusões</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Esta definição de política configura ignorar a definição local para configuração da proteção da rede contra exploits de vulnerabilidades conhecidas. A definição só pode ser configurada pela Política de Grupo.
 
 Se ativar esta definição, a definição da preferência local terá prioridade sobre a Política de Grupo.
 
@@ -307,13 +320,21 @@ Se desativar esta definição, os eventos do Watson não serão enviados.</strin
     <string id="Reporting_WppTracingComponents_Explain">Esta política configura os componentes de pré-processador de rastreio de software do Windows (Rastreio de Software WPP).</string>
     <string id="Reporting_WppTracingLevel">Configurar nível de rastreio WPP</string>
     <string id="Reporting_WppTracingLevel_Explain">Esta política permite configurar os níveis de rastreio do pré-processador de rastreio de software do Windows (Rastreio de Software WPP). 
+    Os níveis de rastreio são definidos como:
+    1 - Erro
+    2 - Aviso
+    3 - Informação
+    4 - Depuração</string>
+    <string id="Reporting_DisableEnhancedNotifications">Desligar as notificações avançadas</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Utilize esta definição de política para especificar se pretende que as notificações avançadas do Antivírus do Windows Defender sejam apresentadas nos clientes.
+      
+      Se desativar ou não configurar esta definição, as notificações avançadas do Antivírus do Windows Defender são apresentadas nos clientes.
+      
+      Se ativar esta definição, as notificações avançadas do Antivírus do Windows Defender não são apresentadas nos clientes.
+    </string>
 
-Os níveis de rastreio são definidos como:
-1 - Erro
-2 - Aviso
-3 - Informação
-4 - Depuração</string>
-    <string id="Scan_AllowPause">Permitir que os utilizadores coloquem a análise em pausa</string>
+      <string id="Scan_AllowPause">Permitir que os utilizadores coloquem a análise em pausa</string>
     <string id="Scan_AllowPause_Explain">Esta definição de política permite gerir se os utilizadores finais poderão ou não colocar em pausa uma análise em curso.
 
 Se ativar ou não configurar esta definição, será acrescentado um novo menu de contexto ao ícone do tabuleiro de tarefas para permitir ao utilizador colocar uma análise em pausa.
@@ -514,6 +535,14 @@ Se desativar ou não configurar esta definição, será executada uma análise a
     Se ativar esta definição, irá ocorrer uma análise de atualização após o número especificado de análises agendadas falhadas consecutivas.
 
     Se desativar ou não configurar esta definição, irá ocorrer uma análise de atualização após 2 análises agendadas falhadas consecutivas.</string>
+    <string id="Scan_LowCpuPriority">Configurar prioridade de CPU baixa para análises agendadas</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Esta definição de política permite-lhe ativar ou desativar a prioridade de CPU baixa em análises agendadas.
+
+        Se ativar esta definição, será utilizada uma prioridade de CPU baixa durante análises agendadas.
+
+        Se desativar ou não configurar esta definição, não serão realizadas alterações à prioridade da CPU durante análises agendadas.
+    </string>
     <string id="SignatureUpdate_ASSignatureDue">Definir o número de dias até que as definições de spyware sejam consideradas desatualizadas</string>
     <string id="SignatureUpdate_ASSignatureDue_Explain">Esta definição de política permite definir o número de dias que terão de passar até que as definições de spyware sejam consideradas desatualizadas. Se as definições forem consideradas desatualizadas, este estado poderá acionar diversas ações adicionais, incluindo reverter para uma origem de atualização alternativa ou apresentar um ícone de aviso na interface do utilizador. Por predefinição, este valor é definido como 14 dias.
 
@@ -633,6 +662,16 @@ Se desativar ou não configurar esta definição, as procuras de atualizações 
 Se ativar esta definição, serão procuradas novas definições após o arranque do serviço.
 
 Se desativar ou não configurar esta definição, não ocorrerá uma procura de novas definições após o arranque do serviço.</string>
+    <string id="DisableBlockAtFirstSeen">Configurar a funcionalidade 'Bloquear na Primeira Ocorrência'</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Esta funcionalidade garante que o dispositivo faz a verificação em tempo real com o Serviço de Proteção Ativa Microsoft (MAPS) antes de permitir que se executem ou aceda a determinados conteúdos. Caso esta funcionalidade esteja desativada, a verificação não ocorrerá, o que diminuirá o estado de proteção do dispositivo.
+	Ativado – a definição Bloquear na Primeira Ocorrência está ligada.
+	Desativado – a definição Bloquear na Primeira Ocorrência está desligada.
+	
+	Esta funcionalidade requer que estas definições de Política de Grupo sejam definidas da seguinte forma:
+	MAPS -&gt; "Aderir ao Microsoft MAPS" tem de estar ativado ou a funcionalidade "Bloquear na Primeira Ocorrência" não funcionará.
+	MAPS -&gt; "Enviar amostras de ficheiros quando for necessária uma análise adicional" deve estar definido como 1 (Enviar amostras seguras) ou 3 (Enviar todas as amostras). Definir como 0 (Perguntar sempre) diminuirá o estado de proteção do dispositivo. Definir como 2 (Nunca enviar) significa que a funcionalidade "Bloquear na Primeira Ocorrência" não funcionará.
+	Proteção em Tempo Real -&gt; A política "Analisar todos os anexos e ficheiros transferidos" deve ser ativada ou a funcionalidade "Bloquear na Primeira Ocorrência" não funcionará.
+	Proteção em Tempo Real -&gt; Não ative a política "Desativar a proteção em tempo real" ou a funcionalidade "Bloquear na Primeira Ocorrência" não funcionará.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Configurar ignorar definição local dos relatórios do Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Esta definição de política configura ignorar a definição local para configuração da adesão ao Microsoft MAPS. A definição só pode ser configurada pela Política de Grupo.
 
@@ -641,13 +680,13 @@ Se ativar esta definição, a definição da preferência local terá prioridade
 Se desativar ou não configurar esta definição, a Política de Grupo terá prioridade sobre a definição da preferência local.</string>
     <string id="SubmitSamplesConsent">Enviar amostras de ficheiros quando for necessária uma análise adicional</string>
     <string id="SubmitSamplesConsent_Explain">
-        Esta definição da política configura o comportamento da submissão de amostras quando a opção ativa por participar na telemetria de MAPS está ativa.
+        Esta definição da política configura o comportamento da submissão de amostras quando se opta ativamente por participar na Telemetria de MAPS.
 
         As opções possíveis são:
         (0x0) Perguntar sempre
         (0x1) Enviar automaticamente amostras seguras
         (0x2) Nunca enviar
-        (0x2) Enviar automaticamente todas as amostras
+        (0x3) Enviar automaticamente todas as amostras
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Perguntar sempre</string>
@@ -656,22 +695,24 @@ Se desativar ou não configurar esta definição, a Política de Grupo terá pri
     <string id="SubmitSamplesConsent_Send_All">Enviar todas as amostras</string>
 
     <string id="SpynetReporting">Aderir ao Microsoft MAPS</string>
-    <string id="SpynetReporting_Explain">Esta definição de política permite aderir ao Microsoft MAPS. O Microsoft MAPS é a comunidade online que o ajuda a escolher a forma de responder a ameaças potenciais. A comunidade também ajuda a travar a disseminação de novas infeções de software malicioso.
+    <string id="SpynetReporting_Explain">Esta definição de política permite-lhe aderir ao Microsoft MAPS. O Microsoft MAPS é a comunidade online que o ajuda a escolher a forma de responder a possíveis ameaças. A comunidade também ajuda a travar a disseminação de novas infeções de software malicioso.
 
-Pode optar por enviar informações básicas ou adicionais acerca de software detetado. As informações adicionais ajudam a Microsoft a criar novas definições e a ajudar a proteger o seu computador. Estas informações podem incluir, por exemplo, a localização dos itens detetados no seu computador, caso tenha sido removido software nocivo. As informações serão recolhidas e enviadas automaticamente. Em alguns casos, poderão ser inadvertidamente enviadas informações pessoais para a Microsoft. Contudo, a Microsoft não utilizará essas informações para o identificar ou contactar.
+    Pode optar por enviar informações básicas ou adicionais acerca de software detetado. As informações adicionais ajudam a Microsoft a criar novas definições e a ajudar a proteger o seu computador. Estas informações podem incluir, por exemplo, a localização dos itens detetados no seu computador, caso tenha sido removido software nocivo. As informações serão recolhidas e enviadas automaticamente. Em alguns casos, poderão ser inadvertidamente enviadas informações pessoais para a Microsoft. Contudo, a Microsoft não utilizará essas informações para o identificar ou contactar.
 
-As opções possíveis são:
-(0x0) Desativado (predefinição)
-(0x1) Adesão básica
-(0x2) Adesão avançada
+    As opções possíveis são:
+    (0x0) Desativado (predefinição)
+    (0x1) Adesão básica
+    (0x2) Adesão avançada
 
-A adesão básica enviará informações básicas para a Microsoft sobre o software detetado, incluindo a respetiva proveniência, as ações que o utilizador aplicou ou aplicadas automaticamente e se tais ações tiveram ou não êxito.
+    A adesão básica enviará informações básicas para a Microsoft sobre o software detetado, incluindo a respetiva proveniência, as ações que o utilizador aplicou ou que são aplicadas automaticamente e se tais ações tiveram êxito.
 
-Para além de informações básicas, a adesão avançada envia mais informações para a Microsoft sobre software malicioso, spyware e software potencialmente indesejável, incluindo a localização do mesmo, os nomes dos ficheiros, o modo de funcionamento do software e o impacto que teve no computador.
+    Para além de informações básicas, a adesão avançada envia mais informações para a Microsoft sobre software malicioso, spyware e software potencialmente indesejável, incluindo a localização do mesmo, os nomes dos ficheiros, o modo de funcionamento do software e o impacto que teve no computador.
 
-Se ativar esta definição, aderirá ao Microsoft MAPS com o tipo de adesão especificado.
+    Se ativar esta definição, irá aderir ao Microsoft MAPS com o tipo de adesão especificado.
 
-Se desativar ou não configurar esta definição, não aderirá ao Microsoft MAPS.</string>
+    Se desativar ou não configurar esta definição, não irá aderir ao Microsoft MAPS.
+  
+    No Windows 10, a Adesão básica já não está disponível, pelo que definir o valor como 1 ou 2 inscreve o dispositivo na adesão avançada.</string>
     <string id="SpynetReporting_Disabled">Desativado</string>
     <string id="SpynetReporting_Basic">MAPS Básico</string>
     <string id="SpynetReporting_Advanced">MAPS Avançado</string>
@@ -706,28 +747,225 @@ Os valores válidos para as ações de remediação são:
 
       Se ativar esta definição, a UI da AM não apresentará notificações de reinício.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Apresentar notificações aos clientes quando for necessário executar ações</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Esta definição de política permite configurar se serão ou não apresentadas notificações aos clientes quando for necessário executar as seguintes ações:
-Executar uma análise completa
-Transferir as mais recentes definições de vírus e spyware 
-Transferir o Standalone System Sweeper
+    <string id="UX_Configuration_Notification_Suppress">Suprimir todas as notificações</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Utilize esta definição de política para especificar se pretende que as notificações do Antivírus do Windows Defender sejam apresentadas nos clientes.
+      Se desativar ou não configurar esta definição, as notificações do Antivírus do Windows Defender são apresentadas nos clientes.
 
-
-Se ativar ou não configurar esta definição, serão apresentadas notificações aos clientes quando for necessário executar as ações especificadas.
-
-Se desativar esta definição, não serão apresentadas notificações aos clientes quando for necessário executar as ações especificadas.</string>
+      Se ativar esta definição, as notificações do Antivírus do Windows Defender não são apresentadas nos clientes.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Apresentar texto adicional aos clientes quando for necessário executar uma ação</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Esta definição de política permite configurar se será ou não apresentado texto adicional aos clientes quando for necessário executar uma ação. O texto apresentado consiste numa cadeia personalizada definida pelo administrador. Por exemplo, o número de telefone de contacto do suporte técnico da empresa. A interface do cliente apresentará um máximo de 1024 carateres. As cadeias com um comprimento superior serão truncadas antes da apresentação.
 
 Se ativar esta definição, será apresentado o texto adicional especificado.
 
 Se desativar ou não configurar esta definição, não será apresentado qualquer texto adicional.</string>
+    <string id="MpCloudBlockLevel">Selecionar o nível de proteção da cloud</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Esta definição de política determina a agressividade do Antivírus do Windows Defender ao bloquear e analisar ficheiros suspeitos.
+
+      Se esta definição estiver ativada, o Antivírus do Windows Defender é mais agressivo quando identificar ficheiros suspeitos para bloquear e analisar; caso contrário, é menos agressivo e, como tal, bloqueia e analisa com menor frequência. 
+      
+      Para obter mais informações sobre os valores específicos que são suportados, consulte o site de documentação do Antivírus do Windows Defender.
+
+      Nota: Esta funcionalidade requer que a definição "Aderir ao Microsoft MAPS" esteja ativada para funcionar.
+
+      As opções possíveis são:
+      (0x0) Nível de bloqueio predefinido do Windows Defender
+      (0x2) Alto nível de bloqueio - bloqueia ficheiros desconhecidos de forma agressiva, ao mesmo tempo que otimiza o desempenho do cliente (maior possibilidade de falsos positivos)
+      (0x4) +Alto nível de bloqueio – bloqueia ficheiros desconhecidos de forma agressiva e aplica medidas de proteção adicionais (pode ter impacto no desempenho do cliente)
+      (0x6) Nível de bloqueio de tolerância zero – bloqueia todos os executáveis desconhecidos
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Nível de bloqueio predefinido do Antivírus do Windows Defender</string>
+    <string id="MpCloudBlockLevel_High_Level">Alto nível de bloqueio</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">+Alto nível de bloqueio</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nível de bloqueio de tolerância zero</string>
+    <string id="MpBafsExtendedTimeout">Configurar verificação de cloud alargada</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Esta funcionalidade permite que o Antivírus do Windows Defender bloqueie um ficheiro suspeito durante até 60 segundos e o analise na cloud para se certificar de que é seguro.
+      
+      O tempo limite de verificação típico na cloud é de 10 segundos. Para ativar a funcionalidade de verificação de cloud alargada, especifique o acréscimo de tempo em segundos, até 50 segundos adicionais.
+
+      Por exemplo, se o tempo limite pretendido for 60 segundos, especifique 50 segundos nesta definição, o que ativa a funcionalidade de verificação de cloud alargada e aumenta o tempo total para 60 segundos.
+
+      Nota: Esta funcionalidade depende da ativação de três outras definições MAPS: "Configurar a funcionalidade 'Bloquear na Primeira Ocorrência'"; "Aderir ao Microsoft MAPS"; e "Enviar amostras de ficheiros quando for necessária uma análise adicional".
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Impedir que utilizadores e aplicações acedam a sites perigosos</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Ative ou desative a proteção de rede Windows Defender Exploit Guard para impedir que os colaboradores utilizem qualquer aplicação para aceder a domínios perigosos que possam alojar esquemas de phishing, sites que alojem exploits, e outros conteúdos maliciosos na Internet.
+
+    Ativado:
+    Especifique o modo na secção Opções:
+    -Bloquear: Os utilizadores e as aplicações não poderão aceder a domínios perigosos
+    -Modo de Auditoria: Os utilizadores e as aplicações podem estabelecer ligação a domínios perigosos; no entanto, se esta funcionalidade tivesse bloqueado o acesso no caso de estar definida para Bloquear, seria apresentado um registo do evento nos registos de eventos
+
+    Desativado:
+    Os utilizadores e as aplicações não serão bloqueados de tal modo que não possam estabelecer ligação a domínios perigosos.
+
+    Não configurado:
+    O mesmo que Desativado.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Excluir ficheiros e caminhos de Regras de Attack Surface Reduction</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Exclua ficheiros e caminhos de regras de Attack Surface Reduction (ASR).
+
+    Ativado:
+    Especifique as pastas ou ficheiros e recursos que devem ser excluídos das regras de ASR na secção Opções.
+    Introduza cada regra numa linha nova como um par nome-valor:
+    - Coluna do nome: introduza um caminho de uma pasta ou um nome de recurso completamente qualificado. Por exemplo, ""C:\Windows"" excluirá todos os ficheiros nesse diretório. ""C:\Windows\App.exe"" excluirá apenas esse ficheiro específico nessa pasta específica
+    - Coluna do valor: introduza ""0"" para cada item
+
+    Desativado:
+    Não serão aplicadas exclusões às regras de ASR.
+
+    Não configurado:
+    O mesmo que Desativado.
+
+    Pode configurar regras de ASR na definição de GP para Configurar regras de Attack Surface Reduction.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Configurar regras de Redução de Superfície de Ataque</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Defina o estado para cada regra de Attack Surface Reduction (ASR).
+
+    Depois de ativar esta definição, pode definir cada regra para o seguinte estado na secção Opções:
+    - Bloquear: a regra será aplicada
+    - Modo de Auditoria: se, normalmente, a regra originasse um evento, este seria registado (apesar de a regra não ser realmente aplicada)
+    - Desligado: a regra não será aplicada
+
+    Ativado:
+    Especifique o estado para cada regra de ASR na secção Opções para esta definição.
+    Introduza cada regra numa linha nova como um par nome-valor:
+    - Coluna do nome: introduza um ID de regra de ASR válido
+    - Coluna do valor: introduza o ID de estado relativo ao estado que pretende especificar para a regra associada
+
+    Os IDs de estado que se seguem são permitidos na coluna do valor:
+    - 1 (Bloquear)
+    - 0 (Desligado)
+    - 2 (Auditoria)
+    
+    Exemplo:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Desativado:
+    Não serão configuradas regras de ASR.
+
+    Não configurado:
+    O mesmo que Desativado.
+
+    Pode excluir pastas ou ficheiros e recursos na definição de GP ""Excluir pastas e caminhos das Regras do Attack Surface Reduction"".
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Configurar Acesso controlado a pastas</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Ative ou desative o acesso controlado a pastas para aplicações não fidedignas. Pode optar por bloquear, efetuar auditoria ou permitir tentativas de aplicações não fidedignas para:
+    - Modificar ou eliminar ficheiros em pastas protegidas, como a pasta Documentos
+    - Escrever em setores do disco
+
+    Também pode optar por bloquear ou efetuar auditoria apenas a escrita em setores do disco, mantendo a permissão para modificação ou eliminação de ficheiros em pastas protegidas.
+
+    O Antivírus do Windows Defender determina automaticamente que aplicações podem ser consideradas fidedignas. Pode adicionar aplicações fidedignas na definição de GP para Configurar aplicações permitidas.
+    As pastas predefinidas do sistema são protegidas automaticamente, mas pode adicionar pastas na definição de GP de configuração de pastas protegidas.
+
+    Bloquear:
+    O seguinte será bloqueado:
+    - Tentativas de aplicações não fidedignas para modificar ou eliminar ficheiros em pastas protegidas
+    - Tentativas de aplicações não fidedignas para escrever em setores do disco
+    O registo de eventos do Windows registará estes bloqueios nos Registos de Serviços e Aplicações &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123.
+
+
+    Desativado:
+    O seguinte não será bloqueado e a respetiva execução será autorizada:
+    - Tentativas de aplicações não fidedignas para modificar ou eliminar ficheiros em pastas protegidas
+    - Tentativas de aplicações não fidedignas para escrever em setores do disco
+    Estas tentativas não serão registadas no registo de eventos do Windows.
+
+
+    Modo de Auditoria:
+    O seguinte não será bloqueado e a respetiva execução será autorizada:
+    - Tentativas de aplicações não fidedignas para modificar ou eliminar ficheiros em pastas protegidas
+    - Tentativas de aplicações não fidedignas para escrever em setores do disco
+    O registo de eventos do Windows registará estes bloqueios nos Registos de Serviços e Aplicações &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124.
+
+
+    Bloquear apenas modificação do disco:
+    O seguinte será bloqueado:
+    - Tentativas de aplicações não fidedignas para escrever em setores do disco
+    O registo de eventos do Windows registará estes bloqueios nos Registos de Serviços e Aplicações &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123.
+
+    O seguinte não será bloqueado e a respetiva execução será autorizada:
+    - Tentativas de aplicações não fidedignas para modificar ou eliminar ficheiros em pastas protegidas
+    Estas tentativas não serão registadas no registo de eventos do Windows.
+
+
+    Apenas efetuar auditoria a modificações do disco:
+    O seguinte não será bloqueado e a respetiva execução será autorizada:
+    - Tentativas de aplicações não fidedignas para escrever em setores do disco
+    - Tentativas de aplicações não fidedignas para modificar ou eliminar ficheiros em pastas protegidas
+    Apenas as tentativas para escrever em setores de disco protegidos serão registadas no registo de eventos do Windows (em Registos de Serviços e Aplicações &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124).
+    Tentativas de modificar ou eliminar ficheiros em pastas protegidas não serão registadas.
+
+    Não configurado:
+    O mesmo que Desativado.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Desativar (Predefinição)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Bloquear</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Modo de Auditoria</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Bloquear apenas modificação do disco</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Apenas efetuar auditoria a modificações do disco</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Configurar aplicações permitidas</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Adicione aplicações que devam ser consideradas "fidedignas" pelo acesso controlado a pastas.
+
+    Estas aplicações podem modificar ou eliminar ficheiros em pastas com acesso controlado.
+
+    O Antivírus do Windows Defender determina automaticamente que aplicações devem ser consideradas fidedignas. Pode configurar esta definição para adicionar aplicações.
+
+    Ativado:
+    Especifique aplicações permitidas adicionais na secção Opções.
+
+    Desativado:
+    Não serão adicionadas aplicações à lista fidedigna.
+
+    Não configurado:
+    O mesmo que Desativado.
+
+    Pode ativar o acesso controlado a pastas na definição de GP para Configurar acesso controlado a pastas.
+
+    As pastas predefinidas do sistema são protegidas automaticamente, mas pode adicionar pastas na definição de GP de configuração de pastas protegidas.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Configurar pastas protegidas</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Especifique pastas adicionais que devam ser protegidas pela funcionalidade de Acesso controlado a pastas.
+
+    Os ficheiros nestas pastas não podem ser modificados nem eliminados por aplicações não fidedignas.
+
+    As pastas predefinidas do sistema são protegidas automaticamente. Pode configurar esta definição para adicionar pastas adicionais.
+    A lista de pastas predefinidas do sistema que estão protegidas é apresentada na Segurança do Windows.
+
+    Ativado:
+    Especifique pastas adicionais que devam ser protegidas na secção Opções.
+
+    Desativado:
+    Não serão protegidas pastas adicionais.
+
+    Não configurado:
+    O mesmo que Desativado.
+
+    Pode ativar o acesso controlado a pastas na definição de GP para Configurar o acesso controlado a pastas.
+
+    O Antivírus do Windows Defender determina automaticamente que aplicações podem ser consideradas fidedignas. Pode adicionar aplicações fidedignas na definição de GP para Configurar aplicações permitidas.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
     <textBox refId="ProxyBypass">
         <label>Definir endereços para ignorar servidor proxy</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definir configuração automática do proxy (.pac) para ligar à rede</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +980,6 @@ Se desativar ou não configurar esta definição, não será apresentado qualque
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Exclusões de Processos</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definir velocidade de registo dos eventos de deteção</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Exclusões de intervalos de endereços IP</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Exclusões de números de portas</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Exclusões de processos para tráfego de saída</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Exclusões de ID de Ameaças</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Especificar conjuntos adicionais de definições para a inspeção de tráfego de rede</listBox>
@@ -872,6 +1095,33 @@ Se desativar ou não configurar esta definição, não será apresentado qualque
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Especificar o intervalo para as notificações de expiração</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Selecionar o nível de bloqueio da cloud</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Especificar o tempo de verificação da cloud alargado em segundos</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Configurar a funcionalidade de proteção das minhas pastas</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Exclusões das regras ASR:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Defina o estado de cada regra ASR:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Introduza as aplicações que devem ser consideradas fidedignas:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Introduza as pastas que devem ser protegidas:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

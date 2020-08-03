@@ -47,15 +47,13 @@ Nota: è possibile richiedere all'avvio una sola opzione di autenticazione aggiu
 
 Se si desidera utilizzare BitLocker in un computer privo di TPM, selezionare la casella di controllo "Consenti BitLocker senza un TPM compatibile". In questa modalità è necessaria una password o un'unità USB per l'avvio. Se si utilizza una chiave di avvio, le informazioni sulla chiave utilizzate per crittografare l'unità saranno archiviate nell'unità USB, creando così una chiave USB. Quando si inserirà la chiave USB, l'accesso all'unità verrà autenticato e l'unità sarà accessibile. In caso di smarrimento o indisponibilità della chiave USB o se si dimentica la password, per accedere all'unità sarà necessario utilizzare una delle opzioni di ripristino di BitLocker.
 
-Per fornire protezione aggiuntiva ai dati crittografati in un computer dotato di un TPM compatibile, è possibile utilizzare all'avvio quattro tipi di autenticazione differenti. All'avvio del computer, è possibile utilizzare solo il TPM per l'autenticazione o richiedere anche l'inserimento di un'unità flash USB contenente una chiave di avvio, l'immissione di un PIN costituito da un minimo di 4 e un massimo di 20 cifre o entrambi i metodi.
+Per fornire protezione aggiuntiva ai dati crittografati in un computer dotato di un TPM compatibile, è possibile utilizzare all'avvio quattro tipi di autenticazione differenti. All'avvio del computer, è possibile utilizzare solo il TPM per l'autenticazione o richiedere anche l'inserimento di un'unità flash USB contenente una chiave di avvio, l'immissione di un PIN costituito da un minimo di 6 e un massimo di 20 cifre o entrambi i metodi.
 
 Se si abilita questa impostazione dei criteri, gli utenti potranno configurare opzioni di avvio avanzate nella configurazione guidata BitLocker.
 
 Se si disabilita o non si configura questa impostazione dei criteri, gli utenti potranno configurare solo le opzioni di base nei computer dotati di un TPM.
 
 Nota: se si desidera imporre l'utilizzo di un PIN e di un'unità flash USB all'avvio, è necessario configurare le impostazioni di BitLocker mediante lo strumento da riga di comando manage-bde anziché tramite la configurazione guidata Crittografia unità BitLocker.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Consenti sblocco rete all'avvio</string>
@@ -291,12 +289,17 @@ Avviso: la modifica del profilo di convalida predefinito della piattaforma influ
 
 Importante: questa impostazione dei Criteri di gruppo si applica solo ai computer con una configurazione del firmware UEFI nativo. Nei computer con configurazioni del firmware basate su BIOS o UEFI con un modulo CSM (Compatibility Service Module) abilitato vengono archiviati valori diversi nei registri PCR. Utilizzare l'impostazione dei Criteri di gruppo "Configurazione profilo di convalida della piattaforma TPM per configurazioni del firmware basate su BIOS" per configurare il profilo PCR TPM per i computer con configurazioni del firmware basate su BIOS o UEFI con un modulo CSM abilitato.
 
-Se si abilita questa impostazione dei criteri prima dell'abilitazione di BitLocker, sarà possibile configurare i componenti di avvio che saranno convalidati dal TPM prima di sbloccare l'accesso all'unità del sistema operativo crittografata con BitLocker. Se uno o più di tali componenti vengono modificati mentre la protezione BitLocker è attiva, il TPM non rilascia la chiave di crittografia per sbloccare l'unità e il computer visualizza invece la console Ripristino BitLocker e richiede l'immissione della password o della chiave di ripristino per sbloccare l'unità.
+Se si abilita questa impostazione dei criteri prima dell'abilitazione di BitLocker, sarà possibile configurare i componenti di avvio che saranno convalidati dal TPM prima di sbloccare l'accesso all'unità del sistema operativo crittografata con BitLocker. Se uno o più di tali componenti vengono modificati mentre la protezione BitLocker è attiva, il TPM non rilascia la chiave di crittografia per sbloccare l'unità e il computer visualizza invece la console di ripristino di BitLocker e richiede l'immissione della password o della chiave di ripristino per sbloccare l'unità.
 
-Se si disabilita o non si configura questa impostazione dei criteri, BitLocker utilizzerà il profilo di convalida predefinito della piattaforma oppure il profilo specificato dallo script di configurazione. Un profilo di convalida della piattaforma è costituito da un set di indici di registri PCR (Platform Configuration Register) nell'intervallo compreso tra 0 e 23. Il profilo di convalida della piattaforma predefinito protegge la chiave di crittografia dalle modifiche al codice eseguibile del firmware del sistema principale (PCR 0), al codice eseguibile esteso o modulare (PCR 2), a Boot Manager (PCR 4) e al controllo di accesso BitLocker (PCR 11).
+Se si disabilita o non si configura questa impostazione dei criteri, BitLocker utilizzerà il profilo di convalida predefinito della piattaforma per l'hardware disponibile oppure il profilo specificato dallo script di configurazione. Un profilo di convalida della piattaforma è costituito da un set di indici di registri PCR (Platform Configuration Register) nell'intervallo compreso tra 0 e 23. 
 
-Avviso: la modifica del profilo di convalida predefinito della piattaforma influisce sulla sicurezza e la gestibilità del computer. La sensibilità di BitLocker alle modifiche apportate alla piattaforma (autorizzate o dovute ad attacchi di utenti malintenzionati) aumenta o si riduce a seconda rispettivamente dell'inclusione o dell'esclusione di registri PCR. Nello specifico, se si configura questa impostazione dei criteri omettendo PCR 7, l'impostazione di Criteri di gruppo "Consenti avvio protetto per la convalida dell'integrità" verrà sovrascritta, impedendo a BitLocker di utilizzare l'avvio protetto per la convalida dell'integrità della piattaforma o dei dati della configurazione di avvio (BCD). L'impostazione di questa impostazione dei criteri potrebbe comportare il ripristino di BitLocker in caso di aggiornamento del firmware. Se si impostano questi criteri per l'inclusione di PCR 0, sospendere BitLocker prima di applicare gli aggiornamenti del firmware.
-      
+Sui PC senza il supporto Stato avvio protetto (PCR 7), il profilo di convalida della piattaforma predefinito protegge la chiave di crittografia dalle modifiche al codice eseguibile del firmware del sistema principale (PCR 0), al codice eseguibile esteso o modulare (PCR 2), a Boot Manager (PCR 4) e al controllo di accesso BitLocker (PCR 11).
+
+Quando il supporto Stato avvio protetto (PCR7) è disponibile, il profilo di convalida della piattaforma predefinito protegge la chiave di crittografia usando Stato avvio protetto (PCR 7) e il controllo di accesso BitLocker (PCR 11). 
+
+Avviso: la modifica del profilo di convalida predefinito della piattaforma influisce sulla sicurezza e la gestibilità del computer. La sensibilità di BitLocker alle modifiche apportate alla piattaforma (autorizzate o dovute ad attacchi di utenti malintenzionati) aumenta o si riduce a seconda rispettivamente dell'inclusione o dell'esclusione di registri PCR. Nello specifico, se si configura questa impostazione dei criteri omettendo PCR 7, l'impostazione di Criteri di gruppo "Consenti avvio protetto per la convalida dell'integrità" verrà sovrascritta, impedendo a BitLocker di utilizzare l'avvio protetto per la convalida dell'integrità della piattaforma o dei dati configurazione di avvio (BCD). L'impostazione di questa impostazione dei criteri potrebbe comportare il ripristino di BitLocker in caso di aggiornamento del firmware. Se si impostano questi criteri per l'inclusione di PCR 0, sospendere BitLocker prima di applicare gli aggiornamenti del firmware.
+
+Si consiglia di non configurare questo criterio per consentire a Windows di selezionare il profilo PCR per la migliore combinazione di sicurezza e usabilità in base all'hardware disponibile in ogni PC.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configurazione profilo di convalida della piattaforma TPM per configurazioni del firmware UEFI nativo</string>
@@ -311,6 +314,13 @@ Se si disabilita o non si configura questa impostazione dei criteri, i segreti B
 
       </string>
       <string id="MorBehavior_Name">Non sovrascrivere la memoria al riavvio</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Questa impostazione dei criteri consente di bloccare DMA (Direct Memory Access) per tutte le porte downstream PCI collegabili " hot" Thunderbolt finché l'utente non accede a Windows. Una volta eseguito l'accesso, Windows enumererà i dispositivi PCI connessi alle porte PCI Thunderbolt host. Ogni volta che l'utente blocca il computer, DMA sarà bloccato sulle porte PCI Thunderbolt con collegamento "hot" senza alcun dispositivo figlio, finché l'utente non accede di nuovo. I dispositivi già enumerati al momento dello sblocco del computer continueranno a funzionare fino a quando non saranno scollegati o finché il sistema non verrà riavviato o messo in stato di ibernazione. Questa impostazione dei criteri viene forzata solo quando è abilitato BitLocker o la crittografia del dispositivo.
+
+Nota: alcuni PC potrebbero non essere compatibili con questi criteri se il firmware del sistema abilita DMA per i nuovi dispositivi Thunderbolt collegati prima di esporre i nuovi dispositivi a Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Disabilita nuovi dispositivi DMA quando il computer è bloccato</string>
 
       <string id="FVEOSCategory">Unità del sistema operativo</string>
       <string id="FVEFDVCategory">Unità dati fisse</string>
@@ -373,13 +383,14 @@ L'impostazione che controlla il debugger di avvio (0x16000010) verrà sempre con
 
 
       <string id="MinimumPINLength_Name">Configura lunghezza minima PIN per l'avvio</string>
-      <string id="MinimumPINLength_Help">Questa impostazione dei criteri consente di configurare la lunghezza minima per il PIN di avvio di un TPM (Trusted Platform Module). Questa impostazione dei criteri viene applicata quando si abilita BitLocker. Il PIN di avvio deve contenere almeno 4 e non più di 20 cifre.
+      <string id="MinimumPINLength_Help">
+          Questa impostazione dei criteri consente di configurare la lunghezza minima per il PIN di avvio di un TPM (Trusted Platform Module). Questa impostazione dei criteri viene applicata quando si abilita BitLocker. Il PIN di avvio deve contenere almeno 4 e non più di 20 cifre.
 
-Se si abilita questa impostazione dei criteri, sarà possibile richiedere un numero minimo di cifre da utilizzare per l'impostazione del PIN di avvio.
+          Se abiliti questa impostazione dei criteri, puoi richiedere un numero minimo di cifre da utilizzare per l'impostazione del PIN di avvio.
 
-Se si disabilita o non si configura questa impostazione dei criteri, gli utenti potranno configurare un PIN di avvio di qualsiasi lunghezza compresa tra 4 e 20 cifre.
+          Se disabiliti o non configuri questa impostazione dei criteri, gli utenti potranno configurare un PIN di avvio di qualsiasi lunghezza compresa tra 6 e 20 cifre.
 
-      
+          NOTA: se la lunghezza minima del PIN è impostata su meno di 6 cifre, Windows tenta di aggiornare il periodo di blocco del TPM 2.0 su un valore superiore a quello predefinito quando un PIN viene cambiato. Se l'operazione ha esito positivo, Windows reimposta il periodo di blocco del TPM nuovamente sul valore predefinito quando il TPM viene reimpostato.
 
       </string>
 
@@ -689,6 +700,14 @@ Si noti che se non si abilita questa impostazione dei criteri, le opzioni per l'
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Consenti a dispositivi conformi a InstantGo o HSTI di escludere la richiesta di PIN prima dell'avvio.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Questa impostazione dei criteri consente agli utenti su dispositivi conformi con InstantGo o Microsoft Hardware Security Test Interface (HSTI) di non avere un PIN per l'autenticazione prima dell'avvio. Questa opzione sostituisce le opzioni "Richiedi PIN di avvio con il TPM" e "Richiedi chiave e PIN di avvio con il TPM" del criterio "Richiedi autenticazione aggiuntiva all'avvio" su hardware conforme.
+
+Se si abilita questa impostazione dei criteri, gli utenti su dispositivi conformi a InstantGo e HSTI potranno scegliere di attivare BitLocker senza autenticazione prima dell'avvio.
+
+Se questo criterio non è abilitato, verranno applicate le opzioni del criterio "Richiedi autenticazione aggiuntiva all'avvio".
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Consenti avvio protetto per la convalida dell'integrità</string>
       <string id="AllowSecureBootForIntegrity_Help">Questa impostazione dei criteri consente di specificare se consentire l'avvio protetto come provider di integrità della piattaforma per le unità del sistema operativo BitLocker.
 
@@ -966,7 +985,7 @@ Nota: non tutti i caratteri e le lingue sono supportati prima dell'avvio. È con
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Numero minimo caratteri:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Numero minimo caratteri:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

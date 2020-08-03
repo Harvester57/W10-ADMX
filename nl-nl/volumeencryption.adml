@@ -47,15 +47,13 @@ Opmerking: er kan maar één van de extra verificatiemethoden verplicht worden g
 
 Als u BitLocker wilt gebruiken op een computer zonder een TPM, schakelt u het selectievakje BitLocker zonder compatibele TPM-hardware toestaan in. In deze module is een wachtwoord of een USB-drive vereist voor opstarten. Bij gebruik van een opstartsleutel worden de sleutelgegevens gebruikt voor het versleutelen van het station die op het USB-station, waarbij een USB-sleutel wordt gecreëerd. Wanneer de USB-sleutel wordt geplaatst, wordt de toegang tot het station geverifieerd en is het station toegankelijk. Als de USB-sleutel wordt verloren of niet beschikbaar is, of als u het wachtwoord heeft vergeten, moet u een van de herstelopties voor BitLocker gebruiken voor toegang tot het station.
 
-Op een computer met een compatibele TPM (Trusted Platform Module) kunnen bij het opstarten vier verificatiemethoden worden gebruikt om extra beveiliging voor versleutelde gegevens te bieden. Tijdens het opstarten van de computer kan alleen de TPM worden gebruikt voor verificatie, maar het kan ook nodig zijn een USB-flashstation met een opstartsleutel te plaatsen, een opstartpincode van minimaal 4 en maximaal 20 cijfers in te voeren, of beide.
+Op een computer met een compatibele TPM (Trusted Platform Module) kunnen bij het opstarten vier verificatiemethoden worden gebruikt om extra beveiliging voor versleutelde gegevens te bieden. Tijdens het opstarten van de computer kan alleen de TPM worden gebruikt voor verificatie, maar het kan ook nodig zijn een USB-flashstation met een opstartsleutel te plaatsen, een opstartpincode van minimaal 6 en maximaal 20 cijfers in te voeren, of beide.
 
 Als u deze beleidsinstelling inschakelt, kunnen gebruikers geavanceerde opstartopties configureren in de wizard Setup van BitLocker.
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen gebruikers alleen basisinstellingen configureren op computers met een TPM.
 
-Opmerking: als u wilt dat gebruikers een opstartpincode en een USB-flashstation gebruiken, moet u de instellingen van BitLocker configureren via het opdrachtregelprogramma manage-bde in plaats van de wizard Setup.
-
-
+Opmerking: als u wilt dat gebruikers een opstartpincode en een USB-flashstation gebruiken, moet u de instellingen van BitLocker configureren via het opdrachtregelprogramma manage-bde in plaats van de wizard Installatie van BitLocker-stationsversleuteling.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Ontgrendeling van netwerk bij opstarten toestaan</string>
@@ -287,14 +285,19 @@ Waarschuwing: als u een ander profiel voor platformvalidatie gebruikt dan het st
 
       <string id="PlatformValidation_UEFI_Help">Met deze beleidsinstelling kunt u aangeven hoe de versleutelingssleutel van BitLocker wordt beveiligd door de TPM-beveiligingshardware (Trusted Platform Module) van de computer. Deze beleidsinstelling is niet van toepassing als de computer geen compatibele TPM heeft of als BitLocker al is ingeschakeld met TPM-beveiliging.
 
-Belangrijk: dit groepsbeleid is alleen van toepassing op computers met een systeemeigen configuratie van UEFI firmware. Computers met BIOS- of UEFI-firmware met een ingeschakelde Compatibility Service Module (CSM) bewaren andere waarden in de Platform Configuration Registers (PCR's). Gebruik de groepsbeleidinstelling "Validatieprofiel configureren voor TPM platform voor op BIOS gebaseerde firmware configuraties" om het TPM PCR-profiel te configureren voor computers met BIOS-configuraties of computers met UEFI firmware met een ingeschakelde CSM.
+Belangrijk: dit groepsbeleid geldt alleen voor computers met een systeemeigen UEFI-firmwareconfiguratie. Computers met BIOS- of UEFI-firmware met een ingeschakelde Compatibility Service Module (CSM) bewaren andere waarden in de Platform Configuration Registers (PCR's). Gebruik de groepsbeleidsinstelling "Validatieprofiel configureren voor TPM-platform voor op BIOS gebaseerde firmwareconfiguraties" om het TPM PCR-profiel te configureren voor computers met een BIOS-configuratie of computers met UEFI-firmware met een ingeschakelde CSM.
 
-Als u deze beleidsinstelling inschakelt voordat BitLocker wordt ingeschakeld, kunt u de opstartonderdelen configureren die door de TPM worden gevalideerd voordat er toegang wordt verleend tot het door BitLocker versleutelde systeemstation. Als zich wijzigingen voordoen in een of meer van deze onderdelen terwijl de BitLocker-beveiliging van kracht is, wordt de versleutelingssleutel voor het ontgrendelen van het station niet vrijgegeven en wordt de herstelconsole van BitLocker weergegeven en moet het herstelwachtwoord of de herstelsleutel worden ingevoerd om toegang te krijgen tot het station.
+Als u deze beleidsinstelling inschakelt voordat BitLocker wordt ingeschakeld, kunt u de opstartonderdelen configureren die door de TPM worden gevalideerd voordat er toegang wordt verleend tot het door BitLocker versleutelde systeemstation. Als zich wijzigingen voordoen in een of meer van deze onderdelen terwijl de BitLocker-beveiliging van kracht is, wordt de versleutelingssleutel voor het ontgrendelen van het station niet vrijgegeven door de TPM en wordt de herstelconsole van BitLocker weergegeven en moet het herstelwachtwoord of de hersleutel worden ingevoerd om toegang te krijgen tot het station.
 
-Als u deze beleidsinstelling uitschakelt of niet configureert, gebruikt BitLocker het standaardprofiel voor platformvalidatie of het profiel voor platformvalidatie dat is opgegeven in het installatiescript. Een validatieprofiel voor een platform bestaat uit een set Platform Configuration Register (PCR) indices van 0 tot23. Het standaardplatform voor het validatieprofiel beveiligt de versleutelingssleutel tegen wijzigingen aan uitvoerbare code voor de firmware van het kernsysteem (PCR 0), verlengde of pluggable uitvoerbare code (PCR 2), Boot Manager (PCR 4), en de toegangscode voor BitLocker (PCR 11).
+Als u deze beleidsinstelling uitschakelt of niet configureert, gebruikt BitLocker het voor de beschikbare hardware of het profiel voor platformvalidatie dat is opgegeven in het installatiescript. Een profiel voor platformvalidatie bestaat uit een set PCR-indexen (Platform Configuration Register) van 0 tot 23.
+
+Op pc's die Status beveiligd opstarten (PCR 7) niet ondersteunen, beveiligt het standaardprofiel voor platformvalidatie de versleutelingssleutel tegen wijzigingen aan uitvoerbare code voor de firmware van het kernsysteem (PCR 0), uitgebreide of pluggable uitvoerbare code (PCR 2), Boot Manager (PCR 4) en de toegangscode voor BitLocker (PCR 11).
+
+Wanneer Status beveiligd opstarten (PCR7) wordt ondersteund, beveiligt het standaardprofiel voor platformvalidatie de versleutelingssleutel met behulp van Status beveiligd opstarten (PCR 7) en de toegangscode voor BitLocker (PCR 11).
 
 Waarschuwing: als u een ander profiel voor platformvalidatie gebruikt dan het standaardprofiel, heeft dit gevolgen voor de beveiliging en het beheer van de computer. De gevoeligheid van BitLocker ten aanzien van platformaanpassingen (onbevoegd of bevoegd) neemt af of toe, afhankelijk van het uitsluiten of opnemen (respectievelijk) van de PCR's. Met name als de instelling van dit beleid met PCR 7 wordt weggelaten, wordt het groepsbeleid "Beveiligd opstarten voor integriteitsvalidatie toestaan" genegeerd, zodat wordt voorkomen dat BitLocker Beveiligd opstarten voor de integriteitsvalidatie van platform- en opstartconfiguratiegegevens (Boot Configuration Data, BCD) gebruikt. Het instellen van dit beleid kan leiden tot herstel door BitLocker wanneer de firmware wordt bijgewerkt. Als u dit beleid instelt om PCR 0 op te nemen, onderbreekt u BitLocker voordat u firmware-updates toepast.
-      
+
+ Aanbevolen wordt om dit beleid niet te configureren, zodat Windows op basis van de beschikbare hardware op elke pc zelf het PCR-profiel kan selecteren dat voor de optimale combinatie van veiligheid en bruikbaarheid zorgt.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configureer validatieprofiel voor TPM platform voor systeemeigen UEFI configuraties van firmware</string>
@@ -309,6 +312,13 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, worden BitLocker-
 
       </string>
       <string id="MorBehavior_Name">Voorkomen dat het geheugen wordt overschreven bij opnieuw opstarten</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Met deze beleidsinstelling kunt u directe geheugentoegang (DMA, Direct Memory Access) blokkeren voor alle Thunderbolt PCI-hotplugpoorten (downstream) totdat een gebruiker zich bij Windows aanmeldt. Wanneer een gebruiker zich aanmeldt, worden de aangesloten PCI-apparaten op de Thunderbolt PCI-poorten van de host geïnventariseerd. Bij iedere vergrendeling van de computer wordt DMA geblokkeerd op Thunderbolt PCI-hotplugpoorten zonder onderliggende apparaten, totdat de gebruiker zich opnieuw aanmeldt. Apparaten die al waren geïnventariseerd terwijl de computer werd ontgrendeld blijven werken totdat deze worden verwijderd of het systeem opnieuw wordt opgestart of in sluimerstand wordt gezet. Deze beleidsinstelling wordt alleen afgedwongen als BitLocker of apparaatversleuteling is ingeschakeld.
+
+Opmerking: Sommige pc's zijn mogelijk niet compatibel met dit beleid als directe geheugentoegang door de systeemfirmware wordt ingeschakeld voor nieuw aangesloten Thunderbolt-apparaten voordat deze beschikbaar worden gesteld in Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Nieuwe DMA-apparaten uitschakelen wanneer deze computer is vergrendeld</string>
 
       <string id="FVEOSCategory">Systeemstations</string>
       <string id="FVEFDVCategory">Harde schijven</string>
@@ -371,26 +381,25 @@ De instelling die debugging bij opstarten controleert (0x16000010) wordt altijd 
 
 
       <string id="MinimumPINLength_Name">Minimale lengte opstartpincode configureren</string>
-      <string id="MinimumPINLength_Help">Met deze beleidsinstelling kunt u een minimumlengte configureren voor een TPM-opstartpincode (Trusted Platform Module). Deze beleidsinstelling wordt toegepast wanneer u BitLocker inschakelt. De opstartpincode moet uit minimaal 4 cijfers en maximaal 20 cijfers bestaan.
+      <string id="MinimumPINLength_Help">
+          Met deze beleidsinstelling kunt u een minimumlengte configureren voor een TPM-opstartpincode (Trusted Platform Module). Deze beleidsinstelling wordt toegepast wanneer u BitLocker inschakelt. De opstartpincode moet uit minimaal 4 cijfers en maximaal 20 cijfers bestaan.
 
-Als u deze beleidsinstelling inschakelt, kunt u opgeven dat er een minimaal aantal cijfers moet worden gebruikt bij het instellen van de opstartpincode.
+          Als u deze beleidsinstelling inschakelt, kunt u opgeven dat er een minimaal aantal cijfers moet worden gebruikt bij het instellen van de opstartpincode.
 
-Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen gebruikers een opstartpincode configureren met een lengte tussen 4 en 20 cijfers.
+          Als u deze beleidsinstelling uitschakelt of niet configureert, kunnen gebruikers een opstartpincode configureren met een lengte tussen 6 en 20 cijfers.
 
-      
+          OPMERKING: als de minimumpincodelengte op minder dan 6 cijfers wordt ingesteld, wordt geprobeerd om de TPM 2.0-vergrendelingsperiode hoger in te stellen dan de standaardwaarde wanneer een pincode wordt gewijzigd. Als dit slaagt, wordt de TPM-vergrendelingsperiode teruggezet op de standaardwaarde als de TPM opnieuw wordt ingesteld.
 
       </string>
 
       <string id="OSAllowDRA_Name">Op certificaten gebaseerde gegevensherstelagenten toestaan</string>
 
       <string id="FDVDenyWriteAccess_Name">Schrijftoegang weigeren tot harde schijven die niet zijn beveiligd met BitLocker</string>
-      <string id="FDVDenyWriteAccess_Help">Met deze beleidsinstelling bepaalt u of harde schijven moeten zijn beveiligd met BitLocker om gegevens weg te kunnen schrijven naar de schijven. Deze beleidsinstelling wordt toegepast wanneer u BitLocker inschakelt.
+      <string id="FDVDenyWriteAccess_Help">Met deze beleidsinstelling bepaalt u of harde schijven moeten zijn beveiligd met BitLocker om gegevens weg te kunnen schrijven naar de schijven.
 
 Als u deze beleidsinstelling inschakelt, worden alle harde schijven zonder BitLocker-beveiliging gekoppeld als alleen-lezen. Als een schijf is beveiligd met BitLocker, wordt deze gekoppeld met lees- en schrijftoegang.
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, worden alle harde schijven in de computer gekoppeld met lees- en schrijftoegang.
-
-      
 
       </string>
 
@@ -689,6 +698,14 @@ Als u deze optie niet inschakelt, zijn opties uit het beleid "Extra verificatie 
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Met InstantGo of HSTI compatibele apparaten toestaan geen pincode te gebruiken vóór opstarten.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Met deze beleidsinstelling kunnen gebruikers opgeven dat ze geen pincode willen gebruiken voor authenticatie voorafgaand aan het opstarten. Deze instelling geldt voor apparaten die compatibel zijn met InstantGo of Microsoft Hardware Security Test Interface (HSTI). Hiermee negeert u de opties "Opstartpincode met TPM vereisen" en "Opstartsleutel en pincode vereisen met TPM" van het beleid "Extra authenticatie vereisen bij opstarten " voor compatibele hardware.
+
+Als u deze beleidsinstelling inschakelt, kunnen gebruikers op met InstantGo of HSTI compatibele apparaten kiezen of ze BitLocker willen inschakelen zonder authenticatie vóór het opstarten.
+
+Als u dit beleid niet inschakelt, zijn de opties van het beleid "Extra authenticatie vereisen bij opstarten " van toepassing.
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Beveiligd opstarten voor integriteitsvalidatie toestaan</string>
       <string id="AllowSecureBootForIntegrity_Help">Met deze beleidsinstelling kunt u bepalen of het Beveiligd opstarten is toegestaan als platform voor de integriteitsprovider van stations van BitLocker-besturingssystemen.
 
@@ -966,7 +983,7 @@ Opmerking: Niet alle tekens en talen worden ondersteund voorafgaand aan het opst
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Minimum aantal tekens:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Minimum aantal tekens:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

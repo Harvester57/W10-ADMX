@@ -78,6 +78,22 @@ Als u deze beleidsinstelling inschakelt, vragen domeincontrollers om samengestel
 Als u deze beleidsinstelling uitschakelt of niet configureert, retourneren domeincontrollers servicetickets met samengestelde authenticatie wanneer de client een aanvraag voor samengestelde authenticatie verzendt, ongeacht de accountconfiguratie.
 
 </string>
+      <string id="PKINITFreshness">KDC-ondersteuning voor PKInit-nieuwheidsextensie</string>
+      <string id="PKINITFreshness_explain">Ondersteuning voor de PKInit-nieuwheidextensie vereist het Windows Server 2016-functionaliteitsniveau van domein (DFL). Als het domein van de domeincontroller niet het niveau Windows Server 2016 DFL of hoger heeft, wordt dit beleid niet toegepast.
+
+Met deze beleidsinstelling kunt u een domeincontroller (DC) zo configureren dat de PKInit-nieuwheidsextensie wordt ondersteund.
+
+Als u deze beleidsinstelling inschakelt, worden de volgende opties ondersteund:
+
+Ondersteund: PKInit-nieuwheidsextensie wordt op aanvraag ondersteund. Kerberos-clients met een juiste verificatie met de PKInit-nieuwheidsextensie krijgen de nieuwe openbare sleutelidentiteit SID.
+
+Vereist: PKInit-nieuwheidsextensie is vereist voor een geslaagde verificatie. Bij Kerberos-clients die de PKInit-nieuwheidsextensie niet ondersteunen, mislukt de verificatie met openbare sleutelreferenties altijd.
+
+Als u deze beleidsinstelling uitschakelt of niet configureert, biedt de domeincontroller de PKInit-nieuwheidsextensie nooit aan en worden geldige verificatieaanvragen nooit geaccepteerd zonder te controleren op nieuwheid. Gebruikers ontvangen nooit de nieuwe openbaresleutelidentiteit SID.
+</string>
+      <string id="NoPKINITFreshness">Uitgeschakeld</string>
+      <string id="SupportPKINITFreshness">Ondersteund</string>
+      <string id="RequirePKINITFreshness">Vereist</string>
     </stringTable>
     <presentationTable>
       <presentation id="emitlili">
@@ -102,6 +118,9 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, retourneren domei
       </presentation>
       <presentation id="TicketSizeThreshold">
               <decimalTextBox refId="TicketSizeThreshold" defaultValue="12000" spinStep="1000">Drempelwaarde van ticket</decimalTextBox>
+      </presentation>
+      <presentation id="PKINITFreshness">
+        <dropdownList refId="PKINITFreshness_Levels" noSort="true" defaultItem="1">Opties voor PKInit-nieuwheidsextensie:</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

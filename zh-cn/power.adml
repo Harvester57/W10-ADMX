@@ -14,6 +14,7 @@
       <string id="ACStandbyTimeOut">指定系统睡眠超时(接通电源)</string>
       <string id="ACStandbyWithHiberfileEnable">关闭混合睡眠(接通电源)</string>
       <string id="ACSystemLidAction">选择盖子开关操作(接通电源)</string>
+      <string id="ACConnectivityInStandby">允许在连接待机期间进行网络连接(接通电源)</string>
       <string id="BatteryDischargeAction0Explain">此策略设置指定电池容量达到电池电量严重短缺通知级别时 Windows 执行的操作。
 
 如果启用此策略设置，请选择以下操作之一:
@@ -82,6 +83,7 @@
       <string id="DCStandbyTimeOut">指定系统睡眠超时(使用电池)</string>
       <string id="DCStandbyWithHiberfileEnable">关闭混合睡眠(使用电池)</string>
       <string id="DCSystemLidAction">选择盖子开关操作(使用电池)</string>
+      <string id="DCConnectivityInStandby">允许在连接待机期间进行网络连接(使用电池)</string>
       <string id="DiskACPowerDownTimeOut">关闭硬盘(接通电源)</string>
       <string id="DiskDCPowerDownTimeOut">关闭硬盘(使用电池)</string>
       <string id="DiskPowerDownTimeOutExplain">此策略设置指定在 Windows 关闭硬盘之前保持非活动状态的时间。
@@ -203,11 +205,11 @@
 如果用户已将计算机配置为在锁定时于锁屏界面上放映幻灯片，那么可避免显示屏关闭。 策略设置“阻止启用锁屏界面幻灯片放映”可用于禁用幻灯片放映功能。</string>
       <string id="AllowStandbyStatesAC">睡眠时允许待机状态(S1-S3)(接通电源)</string>
       <string id="AllowStandbyStatesDC">睡眠时允许待机状态(S1-S3)(使用电池)</string>
-      <string id="AllowStandbyStatesExplain">此策略设置管理 Windows 在将计算机置于睡眠状态时是否允许使用待机状态。
+      <string id="AllowStandbyStatesExplain">此策略设置管理在将计算机置于睡眠状态时是否允许 Windows 使用待机状态。
 
-如果启用此策略设置，则 Windows 使用待机状态以将计算机置于睡眠状态。
+如果启用或未配置此策略设置，则 Windows 可以使用待机状态将计算机置于睡眠状态。
 
-如果禁用或未配置此策略设置，则计算机可进入的睡眠状态仅为休眠。</string>
+如果禁用此策略设置，则不允许待机状态(S1-S3)。</string>
 
       <string id="AllowSystemSleepWithRemoteFilesOpenAC">允许打开网络文件时自动睡眠(接通电源)</string>
       <string id="AllowSystemSleepWithRemoteFilesOpenDC">允许打开网络文件时自动睡眠(使用电池)</string>
@@ -270,6 +272,30 @@ Windows 仅降低与计算机集成的主显示器的亮度。
 
 如果禁用或未配置此策略设置，则用户可以查看和更改此设置。</string>
     
+      <string id="EnergySaverSettingsCat">节能模式设置</string>
+      <string id="EsBattThresholdAC">节能模式电池阈值(接通电源)</string>
+      <string id="EsBattThresholdDC">节能模式电池阈值(使用电池)</string>
+      <string id="EsBattThresholdExplain">此策略设置允许你指定电池电量处于何种水平时启用节能模式。
+
+如果启用此策略设置，必须提供一个表示电池电量的百分比值。在电池电量降到(或低于)指定水平时，将自动启用节能模式。
+
+如果禁用或未配置此策略设置，用户可控制此设置。</string>
+
+      <string id="ConnectivityInStandbyExplain">此策略设置允许你在新型支持待机的系统中控制待机时的网络连接状态。
+
+如果启用此策略设置，则将在待机时维持网络连接。
+
+如果禁用此策略设置，则在待机时不保证网络连接。目前这种连接限制仅适用于 WLAN 网络，并可随时更改。
+
+如果未配置此策略设置，则用户可控制此设置。</string>
+
+      <string id="PowerThrottlingSettingsCat">电源节流设置</string>
+      <string id="PowerThrottlingTurnOff">关闭电源节流</string>
+      <string id="PowerThrottlingTurnOffExplain">使用此策略设置，可以关闭电源节流。
+
+如果启用此策略设置，则将关闭电源节流。
+
+如果禁用或未配置此策略设置，则用户控制此设置。</string>
     </stringTable>
     <presentationTable>
       <presentation id="ACHibernateTimeOut_1">
@@ -419,6 +445,9 @@ Windows 仅降低与计算机集成的主显示器的亮度。
       </presentation>
       <presentation id="ReserveBatteryNotificationLevel">
         <decimalTextBox refId="EnterReserveBatteryNotificationLevel">保留电池电量通知级别(百分比):</decimalTextBox>
+      </presentation>
+      <presentation id="EsBattThreshold">
+        <decimalTextBox refId="EnterEsBattThreshold">节能模式电池阈值(%):</decimalTextBox>
       </presentation>
     </presentationTable>
   </resources>

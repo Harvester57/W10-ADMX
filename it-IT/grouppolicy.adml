@@ -11,16 +11,16 @@
       <string id="FontMitigation_On">Blocca i tipi di carattere non attendibili e registra gli eventi</string>
       <string id="FontMitigation_Off">Non bloccare i tipi di carattere non attendibili</string>
       <string id="FontMitigation_Audit">Registra gli eventi senza bloccare i tipi di carattere non attendibili</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Opzioni di mitigazione processo</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Questa funzionalità di sicurezza offre un sistema per sostituire le singole impostazioni MitigationOptions dei processi. Può essere usata per applicare numerosi criteri di sicurezza specifici alle applicazioni. Il nome dell'applicazione è specificato come nome del valore, inclusa l'estensione. Il valore è specificato come un campo bit con una serie di flag in posizioni particolari. I bit possono essere impostati su 0 (l'impostazione è forzata come disattivata), 1 (l'impostazione è forzata come attivata) o ? (l'impostazione mantiene il proprio valore esistente prima della valutazione del GPO). Le posizioni dei bit riconosciute sono:
+        Questa funzionalità di sicurezza offre un sistema per sostituire le singole impostazioni MitigationOptions dei processi. Può essere usata per applicare numerosi criteri di sicurezza specifici alle applicazioni. Il nome dell'applicazione è specificato come nome del valore, inclusa l'estensione. Il valore è specificato come un campo bit con una serie di contrassegni in posizioni particolari. I bit possono essere impostati su 0 (l'impostazione è forzata come disattivata), 1 (l'impostazione è forzata come attivata) o ? (l'impostazione mantiene il proprio valore esistente prima della valutazione del GPO). Le posizioni dei bit riconosciute sono:
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
-        Abilita Protezione esecuzione programmi per il processo figlio
+        Abilita la Protezione esecuzione programmi (DEP) per il processo figlio
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Abilita l'emulazione thunk DEP-ATL per il processo figlio. L'emulazione thunk DEP-ATL consente al sistema di intercettare gli errori NX originati dal livello thunk ATL (Active Template Library). 
+        Abilita l'emulazione thunk DEP-ATL per il processo figlio. L'emulazione thunk DEP-ATL consente al sistema di intercettare gli errori NX originati dal livello thunk ATL (Active Template Library).
 
         PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
         Abilita SEHOP (Structured Exception Handler Overwrite Protection) per il processo figlio. SEHOP blocca gli exploit che usano la tecnica di sovrascrittura SEH (Structured Exception Handler).
@@ -35,7 +35,7 @@
         Ad esempio, per abilitare PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE e PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, disabilita PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF e per mantenere i valori predefiniti di tutte le altre opzioni specifica un valore:
         ???????????????0???????1???????1
 
-        L'impostazione dei flag non specificati qui su qualsiasi valore diverso da ? determina un comportamento indefinito.	  
+        L'impostazione dei contrassegni non specificati qui su qualsiasi valore diverso da ? determina un comportamento indefinito.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Abilita sincronizzazione controller di dominio AD/DFS durante l'aggiornamento dei criteri</string>
@@ -50,42 +50,60 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Continua esperienze in questo dispositivo</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Questa impostazione dei criteri determina se il dispositivo Windows può partecipare a esperienze tra i dispositivi (continuare le esperienze).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Se abiliti questa impostazione, il dispositivo Windows è individuabile da altri dispositivi Windows che appartengono allo stesso utente e può partecipare a esperienze tra i dispositivi.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Se disabiliti l'impostazione, il dispositivo Windows non è individuabile da altri dispositivi e non può partecipare a esperienze tra i dispositivi.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Se non configuri questa impostazione, il comportamento predefinito dipende dall'edizione di Windows. Le modifiche apportate a questi criteri hanno effetto al riavvio.
+      </string>
+      <string id="EnableMMX">Collegamento telefono-PC su questo dispositivo</string>
+      <string id="EnableMMX_Help">
+Questi criteri consentono agli amministratori IT di disattivare la possibilità di collegare un telefono cellulare a un PC per continuare a leggere, inviare tramite e-mail e altre attività che richiedono il collegamento tra telefono e PC.
+
+Se abiliti questa impostazione dei criteri, il dispositivo Windows potrà essere registrato per la funzionalità di collegamento telefono-PC e di partecipare alle esperienze Continua su PC.
+
+Se disabiliti questa impostazione dei criteri, il dispositivo Windows non può essere collegato ai telefoni, verrà rimosso dall'elenco dei dispositivi di qualsiasi telefono collegato e non potrà partecipare alle esperienze Continua su PC.
+
+Se questa impostazione dei criteri non viene configurata, il comportamento predefinito dipende dall'edizione di Windows. Le modifiche apportate a questi criteri diventano effettive dopo il riavvio.
+      </string>
+      <string id="EnableAppUriHandlers">Configura il collegamento da Web ad app con gestori URI app</string>
+      <string id="EnableAppUriHandlers_Help">
+Questa impostazione dei criteri determina se Windows supporta il collegamento da Web ad app con gestori URI app.
+
+L'attivazione di questa impostazione dei criteri abilita il collegamento da Web ad app in modo da poter avviare le app con URI http(s).
+
+La disattivazione di questo criterio disabilita il collegamento da Web ad app e gli URI http(s) saranno aperti nel browser predefinito anziché avviare l'app associata.
+
+Se non configuri questa impostazione dei criteri, il comportamento predefinito dipenderà dall'edizione di Windows. Le modifiche apportate a questi criteri hanno effetto al riavvio.
       </string>
       <string id="Fonts">Tipi di carattere</string>
       <string id="EnableFontProviders">Abilita provider di tipi di carattere</string>
       <string id="EnableFontProviders_Help">
         Questa impostazione dei criteri determina se Windows può scaricare i tipi di carattere e i dati del catalogo dei tipi di carattere da un provider di tipi di carattere online.
-        
-        Se si abilita questa impostazione dei criteri, Windows interroga periodicamente un provider di tipi di carattere online per determinare se è disponibile un nuovo catalogo di tipi di carattere. Windows può anche scaricare dati sui tipi di carattere se necessario per la formattazione o il rendering del testo.
-        
-        Se si disabilita questa impostazione dei criteri, Windows non si connette a un provider di tipi di carattere online ed enumera solo i tipi di carattere installati in locale.
-      
-        Se non si configura questa impostazione dei criteri, il comportamento predefinito dipende dall'edizione di Windows. Le modifiche di questo criterio hanno effetto dopo il riavvio del sistema.
+
+        Se abiliti questa impostazione dei criteri, Windows interroga periodicamente un provider di tipi di carattere online per determinare se è disponibile un nuovo catalogo di tipi di carattere. Windows può anche scaricare dati sui tipi di carattere se necessario per la formattazione o il rendering del testo.
+
+        Se disabiliti questa impostazione dei criteri, Windows non si connette a un provider di tipi di carattere online ed enumera solo i tipi di carattere installati in locale.
+
+        Se questa impostazione dei criteri non viene configurata, il comportamento predefinito dipende dall'edizione di Windows. Le modifiche apportate a questi criteri diventano effettive dopo il riavvio.
       </string>
       <string id="EnableLogonOptimization">Configura memorizzazione nella cache per Criteri di gruppo</string>
       <string id="EnableLogonOptimization_Help">
-        
         Questa impostazione dei criteri consente di configurare la funzionalità di memorizzazione nella cache per Criteri di gruppo.
-        
-        Se si abilita o non si configura questa impostazione dei criteri, Criteri di gruppo memorizza nella cache le informazioni sui criteri dopo ogni sessione di elaborazione in background. In questa cache vengono salvati gli oggetti Criteri di gruppo applicabili e le impostazioni in essi contenute. Quando Criteri di gruppo viene eseguito in modalità in primo piano sincrona, fa riferimento a questa cache e ciò consente un'esecuzione più rapida. Quando la cache viene letta, Criteri di gruppo tenta di contattare un controller di dominio di accesso per stabilire la velocità del collegamento. Quando Criteri di gruppo viene eseguito in modalità in background o in modalità in primo piano asincrona, continua a scaricare la versione più aggiornata delle informazioni sui criteri e utilizza un valore stimato della larghezza di banda per stabilire le soglie per i collegamenti lenti. (Vedere l'impostazione dei criteri "Configura rilevamento collegamento lento Criteri di gruppo" per configurare il funzionamento in primo piano asincrono.)
-        
+
+        Se abiliti o non configuri questa impostazione dei criteri, Criteri di gruppo memorizza nella cache le informazioni sui criteri dopo ogni sessione di elaborazione in background. In questa cache vengono salvati gli oggetti Criteri di gruppo applicabili e le impostazioni in essi contenute. Quando Criteri di gruppo viene eseguito in modalità in primo piano sincrona, fa riferimento a questa cache e ciò consente un'esecuzione più rapida. Quando la cache viene letta, Criteri di gruppo tenta di contattare un controller di dominio di accesso per stabilire la velocità del collegamento. Quando Criteri di gruppo viene eseguito in modalità in background o in modalità in primo piano asincrona, continua a scaricare la versione più aggiornata delle informazioni sui criteri e utilizza un valore stimato della larghezza di banda per stabilire le soglie per i collegamenti lenti (vedi l'impostazione dei criteri "Configura rilevamento collegamento lento Criteri di gruppo" per configurare il funzionamento in primo piano asincrono).
+
         Il valore di collegamento lento specificato in questa impostazione dei criteri determina l'intervallo di tempo di attesa di una risposta dal controller di dominio prima che la velocità del collegamento venga segnalata come lenta. Il valore predefinito è 500 millisecondi.
-        
-        Il valore di timeout specificato in questa impostazione dei criteri determina l'intervallo di tempo di attesa di una risposta dal controller di dominio prima che venga stabilita l'assenza di connettività di rete. L'elaborazione in corso di Criteri di gruppo viene interrotta. L'esecuzione di Criteri di gruppo avverrà in background in occasione della successiva attivazione di una connessione a un controller di dominio. L'impostazione di un valore troppo alto potrebbe comportare attese più lunghe per l'utente in fase di avvio o di accesso. Il valore predefinito è 5000 millisecondi.
-        
-        Se si disabilita questa impostazione dei criteri, il client Criteri di gruppo non memorizzerà nella cache gli oggetti Criteri di gruppo applicabili o le impostazioni contenute negli oggetti Criteri di gruppo. Quando Criteri di gruppo viene eseguito in modalità sincrona, scarica la versione più recente dei criteri dalla rete e utilizza valori stimati di larghezza di banda per stabilire le soglie per i collegamenti lenti. (Vedere l'impostazione dei criteri "Configura rilevamento collegamento lento Criteri di gruppo" per configurare il funzionamento in primo piano asincrono.)
-      
+
+        Il valore di timeout specificato in questa impostazione dei criteri determina l'intervallo di tempo di attesa di una risposta dal controller di dominio prima che venga stabilita l'assenza di connettività di rete. L'elaborazione in corso di Criteri di gruppo viene arrestata. L'esecuzione di Criteri di gruppo avverrà in background in occasione della successiva attivazione di una connessione a un controller di dominio. L'impostazione di un valore troppo alto potrebbe comportare attese più lunghe per l'utente in fase di avvio o di accesso. Il valore predefinito è 5000 millisecondi.
+
+        Se disabiliti questa impostazione dei criteri, il client Criteri di gruppo non memorizzerà nella cache gli oggetti Criteri di gruppo applicabili o le impostazioni contenute negli oggetti Criteri di gruppo. Quando Criteri di gruppo viene eseguito in modalità sincrona, scarica la versione più recente dei criteri dalla rete e utilizza valori stimati di larghezza di banda per stabilire le soglie per i collegamenti lenti (vedi l'impostazione dei criteri "Configura rilevamento collegamento lento Criteri di gruppo" per configurare il funzionamento in primo piano asincrono).
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Abilita memorizzazione nella cache di Criteri di gruppo per i server</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,52 +114,48 @@ If you do not configure this policy setting, the default behavior depends on the
         Se si disabilita o non si configura questa impostazione dei criteri, il client di Criteri di gruppo non memorizzerà nella cache gli oggetti Criteri di gruppo applicabili o le impostazioni contenute in tali oggetti. Quando Criteri di gruppo viene eseguito in modalità sincrona, scarica la versione più recente del criterio dalla rete e utilizza valori stimati di larghezza di banda per stabilire le soglie per i collegamenti lenti. (Vedere l'impostazione dei criteri "Configura rilevamento collegamento lento Criteri di gruppo" per configurare il funzionamento in primo piano asincrono.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Configura ritardo script di accesso</string>
       <string id="LogonScriptDelay_Help">
-        
-        Immettere "0" per disabilitare il ritardo per gli script di accesso.
-        
+        Immetti "0" per disabilitare il ritardo per gli script di accesso.
+
         Questa impostazione dei criteri consente di configurare l'attesa del client Criteri di gruppo dopo l'accesso, prima dell'esecuzione degli script.
-        
+
         Per impostazione predefinita, il client Criteri di gruppo attende cinque minuti prima di eseguire gli script di accesso. In questo modo è possibile creare un ambiente desktop con tempi di risposta adeguati evitando conflitti per il disco.
-        
-        Se si abilita questa impostazione dei criteri, Criteri di gruppo aspetterà il periodo di tempo specificato prima di eseguire gli script di accesso.
-        
-        Se si disabilita questa impostazione dei criteri, gli script verranno eseguiti immediatamente da Criteri di gruppo dopo l'accesso.
-        
-        Se non si configura questa impostazione dei criteri, Criteri di gruppo attenderà cinque minuti prima di eseguire gli script di accesso.
-      
+
+        Se abiliti questa impostazione dei criteri, Criteri di gruppo aspetterà il periodo di tempo specificato prima di eseguire gli script di accesso.
+
+        Se disabiliti questa impostazione dei criteri, gli script verranno eseguiti immediatamente da Criteri di gruppo dopo l'accesso.
+
+        Se non configuri questa impostazione dei criteri, Criteri di gruppo attenderà cinque minuti prima di eseguire gli script di accesso.
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Configura connessioni Direct Access come connessione di rete veloce</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Questa impostazione dei criteri consente a un amministratore di definire la connessione Direct Access in modo che venga considerata una connessione di rete veloce per l'applicazione e l'aggiornamento di Criteri di gruppo. 
- 
+      <string id="SlowLinkDefaultForDirectAccess_Help">Questa impostazione dei criteri consente a un amministratore di definire la connessione Direct Access in modo che venga considerata una connessione di rete veloce per l'applicazione e l'aggiornamento di Criteri di gruppo.
+
 Quando in Criteri di gruppo viene rilevata la velocità della larghezza di banda di una connessione Direct Access, è possibile che il rilevamento non restituisca tali informazioni. Se in Criteri di gruppo viene rilevata una velocità della larghezza di banda, verranno seguite le regole normali per valutare se la connessione Direct Access è una connessione di rete veloce o lenta. Se non viene rilevata la velocità della larghezza di banda, per impostazione in Criteri di gruppo verrà utilizzata una connessione di rete lenta. Questa impostazione dei criteri consente all'amministratore di scegliere se ignorare l'impostazione predefinita con connessione di rete lenta e di utilizzare una connessione di rete veloce nel caso in cui non venga determinata la velocità della larghezza di banda della rete.
- 
-Nota: quando in Criteri di gruppo viene rilevata una connessione di rete lenta, verranno elaborate solo quelle estensioni del lato client configurate per l'elaborazione tramite un collegamento lento (connessione di rete lenta).  
- 
-Se si abilita questo criterio, quando in Criteri di gruppo non è possibile determinare la velocità della larghezza di banda tramite Direct Access, la connessione di rete verrà considerata come collegamento veloce e tutte le estensioni del lato client verranno elaborate.
- 
-Se si disabilita o non si configura questa impostazione, la connessione di rete verrà considerata come collegamento lento e verranno elaborate solo quelle estensioni del lato client configurate per l'elaborazione tramite un collegamento lento.
-          
-      
-          
+
+Nota: quando in Criteri di gruppo viene rilevata una connessione di rete lenta, verranno elaborate solo quelle estensioni del lato client configurate per l'elaborazione tramite un collegamento lento (connessione di rete lenta).
+
+Se abiliti questo criterio, quando in Criteri di gruppo non è possibile determinare la velocità della larghezza di banda tramite Direct Access, la connessione di rete verrà considerata come collegamento veloce e tutte le estensioni del lato client verranno elaborate.
+
+Se disabiliti o non configuri questa impostazione, la connessione di rete verrà considerata come collegamento lento e verranno elaborate solo quelle estensioni del lato client configurate per l'elaborazione tramite un collegamento lento.
+
       </string>
      <string id="SlowlinkDefaultToAsync">Modifica l'elaborazione di Criteri di gruppo attivandone l'esecuzione in modo asincrono quando viene rilevata una connessione di rete lenta</string>
-      <string id="SlowlinkDefaultToAsync_Help">Questo criterio indica a Criteri di gruppo di ignorare l'elaborazione di eventuali estensioni del lato client che richiedono l'elaborazione sincrona (ovvero, se i computer attendono la completa inizializzazione della rete durante l'avvio del computer e l'accesso utente) quando viene rilevata una connessione di rete lenta.  
- 
-Se si abilita questa impostazione dei criteri, quando viene rilevata una connessione di rete lenta, Criteri di gruppo verrà eseguito sempre in modo asincrono.
-I computer client non attenderanno il completamento dell'inizializzazione della rete all'avvio e all'accesso. Gli utenti esistenti si connetteranno utilizzando le credenziali memorizzate nella cache, con tempi di accesso più brevi. Criteri di gruppo verrà applicato in background quando la rete risulterà disponibile.   
-Poiché si tratta di un aggiornamento in background, le estensioni che richiedono l'elaborazione sincrona, quali l'estensione della preferenza Installazione software, Reindirizzamento cartelle e Mapping unità non verrà applicata.
- 
+      <string id="SlowlinkDefaultToAsync_Help">Questo criterio indica a Criteri di gruppo di ignorare l'elaborazione di eventuali estensioni del lato client che richiedono l'elaborazione sincrona (ovvero, se i computer attendono la completa inizializzazione della rete durante l'avvio del computer e l'accesso utente) quando viene rilevata una connessione di rete lenta.
+
+Se abiliti questa impostazione dei criteri, quando viene rilevata una connessione di rete lenta, Criteri di gruppo verrà eseguito sempre in modo asincrono.
+I computer client non attenderanno il completamento dell'inizializzazione della rete all'avvio e all'accesso. Gli utenti esistenti si connetteranno utilizzando le credenziali memorizzate nella cache,
+con tempi di accesso più brevi. Criteri di gruppo verrà applicato in background quando la rete risulterà disponibile.
+Poiché si tratta di un aggiornamento in background, le estensioni che richiedono l'elaborazione sincrona, quali l'estensione della preferenza Installazione software, Reindirizzamento cartelle
+e Mapping unità non verrà applicata.
+
 Nota: anche se questa impostazione dei criteri è abilitata, Criteri di gruppo verrà elaborato in modo sincrono nelle due condizioni seguenti:
 1 - Al primo riavvio del computer client dopo l'accesso al dominio.
 2 - Se è abilitata l'impostazione dei criteri "Attendi sempre disponibilità rete all'avvio e all'accesso".
- 
-Se si disabilita o non si configura questa impostazione dei criteri, il rilevamento di una connessione di rete lenta non influirà sulla modalità di elaborazione sincrona o asincrona di Criteri di rete.
 
-      
+Se disabiliti o non configuri questa impostazione dei criteri, il rilevamento di una connessione di rete lenta non influirà sulla modalità di elaborazione sincrona o asincrona di Criteri di rete.
 
       </string>
       <string id="DisableLGPOProcessing">Disattiva elaborazione oggetti Criteri di gruppo locali</string>
@@ -162,7 +176,7 @@ Nota: per i computer aggiunti a un dominio, è consigliabile configurare questa 
 Se si abilita questa impostazione dei criteri, verrà utilizzato il tempo di attesa massimo configurato dall'amministratore che sostituirà qualsiasi tempo di attesa predefinito o calcolato dal computer.
 
 Se si disabilita o non si configura questa impostazione dei criteri, nei computer che eseguono il sistema operativo Windows Vista verrà utilizzato il tempo di attesa predefinito di 30 secondi. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Consenti profili utente mobili e criterio utente tra foreste</string>

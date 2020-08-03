@@ -12,12 +12,12 @@
       <string id="ClassicShell">Aktivera klassiskt gränssnitt</string>
       <string id="ClassicShell_Help">Administratörer kan använda den här inställningen för återställning av en viss Windows Shell-funktion till en klassisk shell-funktion.
 
-Om du aktiverar den här inställningen kan inte användare konfigurera datorn så att objekt öppnas med en klickning (till exempel i Mus på Kontrollpanelen). Detta innebär att användarens gränssnitt ser ut och fungerar som det gör i Windows NT 4.0, och användare kan inte återställa de nya funktionerna. 
+Om du aktiverar den här inställningen kan inte användare konfigurera systemet så att objekt öppnas med en klickning (t.ex. i Mus på Kontrollpanelen). Detta innebär att användarens gränssnitt ser ut och fungerar som det gör i Windows NT 4.0, och användare kan inte återställa de nya funktionerna.
 Om den här principen aktiveras inaktiveras även förhandsgranskningsrutan och möjligheten att ange mappalternativen för att visa mapparna i klassiskt läge i Utforskaren. Dessutom kan användarna inte ändra dessa alternativ.
 
 Om du inaktiverar eller inte konfigurerar den här principen tillämpas Utforskarens normala beteende på användaren.
 
-Om du aktiverar den här principen visas inte länken Visa fler resultat/sök överallt när användaren utför en sökning i sökrutan på Start-menyn. Den här inställningen gäller även före inställningen "Aktivera Active Desktop". Om båda inställningarna är aktiverade inaktiveras Active Desktop.
+Obs! Om du aktiverar den här principen i tidigare operativsystem än Windows Vista inaktiveras även Active Desktop- och webbvyn. Den här inställningen gäller även före inställningen Aktivera Active Desktop. Om båda inställningarna är aktiverade inaktiveras Active Desktop.
 
 Se även inställningen Inaktivera Active Desktop i Användarkonfiguration\Administrativa mallar\Skrivbord\Active Desktop och inställningen Tillåt inte Mappalternativ att öppnas från knappen Alternativ på fliken Visa i menyfliksområdet i Användarkonfiguration\Administrativa mallar\Windows-komponenter\Utforskaren.</string>
       <string id="Comdlg">Dialogrutan Öppna fil (Common Dialog)</string>
@@ -170,7 +170,7 @@ Om du vill se hur dialogrutan ser ut, kan du köra Wordpad och klicka på "Öppn
 
 Obs! I Windows Vista gäller den här inställningen endast program där Windows XP-dialogrutor används. Inställningen gäller inte för det nya Windows Vista-formatet för dialogrutor. Det är ett krav att tredjepartsprogram som certifierats för Windows 2000 eller senare efterföljer denna inställning.</string>
       <string id="NoFolderOptions">Tillåt inte Mappalternativ att öppnas från knappen Alternativ på fliken Visa i menyfliksområdet</string>
-      <string id="NoFolderOptions_Help">Med den här principinställningen kan du hindra användarna från att öppna Mappalternativ via fliken Visa i menyfliksområdet i Utforskaren. 
+      <string id="NoFolderOptions_Help">Med den här principinställningen kan du hindra användarna från att öppna Mappalternativ via fliken Visa i menyfliksområdet i Utforskaren.
 
 Med Mappalternativ kan användarna ändra hur filer och mappar öppnas, vad som visas i navigeringsrutan och andra avancerade inställningar.
 
@@ -267,14 +267,14 @@ Obs! De ikoner som representerar enheterna visas fortfarande i Den här datorn, 
  Den här inställningen förhindrar inte att användare använder program för att nå lokala enheter och nätverksenheter. Den förhindrar heller inte att snapin-modulen Diskhantering används för att visa och ändra enheternas egenskaper.
 
 Se även inställningen "Dölj dessa enheter i Den här datorn".</string>
-      <string id="NoWindowsHotKeys">Inaktivera snabbtangenter av typen Windows+X</string>
-      <string id="NoWindowsHotKeys_Help">Inaktivera snabbtangenter av typen Windows+X.
+      <string id="NoWindowsHotKeys">Inaktivera Windows-tangentgenvägar</string>
+      <string id="NoWindowsHotKeys_Help">Inaktivera Windows-tangentgenvägar.
 
-Tangentbord med Windows-tangenter kan användas för att snabbt starta vanliga funktioner. Om användaren till exempel trycker på Windows+R visas dialogrutan Kör, och om användaren trycker på Windows+E visas Utforskaren. Den här inställningen gör det möjligt att inaktivera dessa genvägar.
+Tangentbord med en Windows-tangent kan användas för att snabbt starta vanliga funktioner. Om användaren till exempel trycker på Windows+R visas dialogrutan Kör, och om användaren trycker på Windows+E visas Utforskaren. Den här inställningen gör det möjligt att inaktivera dessa Windows-tangentgenvägar.
 
-Om den här inställningen aktiveras fungerar inte längre snabbtangenter av typen Windows+X.
+Om den här inställningen aktiveras fungerar inte längre Windows-tangentgenvägarna.
 
-Om inställningen inaktiveras eller inte konfigureras, fungerar snabbtangenterna.</string>
+Om inställningen inaktiveras eller inte konfigureras fungerar Windows-tangentgenvägarna.</string>
       <string id="NoWorkgroupContents">Visa inte Närliggande datorer i Nätverksplatser</string>
       <string id="NoWorkgroupContents_Help">Med den här principinställningen kan du ta bort alla datorer i användarens arbetsgrupp och domän från listan över nätverksresurser i Utforskaren och Nätverksplatser.
 
@@ -290,15 +290,15 @@ Om du vill ta bort nätverksdatorer från listan över nätverksresurser kan du 
       <string id="PlacesBar">Objekt som visas i fältet Platser</string>
       <string id="PlacesBar_Help">Konfigurerar listan med objekt som visas i fältet Platser i dialogrutan Öppna. Om du aktiverar den här inställningen kan du ange mellan ett och fem objekt som ska visas i fältet.
 
-De objekt du kan ha i fältet Platser är:
+Objekt du kan ha i fältet Platser:
 
-1) Genvägar till lokala mapp – (t.ex. C:\Windows)
+1) Genvägar till lokala mappar – (t.ex. C:\Windows)
 
-2) Genvägar till fjärrmappar – (\\server\resurs)
+2) Genvägar till fjärrmappar – (\\server\share)
 
-3) FTP-mappar 
+3) FTP-mappar
 
-4) Webbmappar 
+4) Webbmappar
 
 5) Vanliga gränssnittsmappar.
 
@@ -354,11 +354,11 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen visas u
       <string id="CheckSameSourceAndTargetForFRAndDFS_DisplayName">Verifiera att gamla och nya mål för mappomdirigering pekar på samma resurs innan omdirigering</string>
       <string id="CheckSameSourceAndTargetForFRAndDFS_ExplainText">Du kan använda den här principinställningen för att förhindra dataförlust när du ändrar målet för mappomdirigering och både de nya och gamla målen pekar på samma nätverksresurs men med olika nätverkssökvägar.
 
-Om du aktiverar den här principinställningen skapar mappomdirigeringen en temporär fil på den gamla platsen för att verifiera att nya och gamla platser pekar på samma nätverksresurs. Om både nya och gamla platser pekar på samma resurs uppdateras målsökvägen men filer kopieras inte och tas inte bort.  Den temporära filen tas bort.
- 
+Om du aktiverar den här principinställningen skapar mappomdirigeringen en temporär fil på den gamla platsen för att verifiera att nya och gamla platser pekar på samma nätverksresurs. Om både nya och gamla platser pekar på samma resurs uppdateras målsökvägen men filer kopieras inte och tas inte bort. Den temporära filen tas bort.
+
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen skapar inte mappomdirigeringen någon temporär fil och fungerar som om både nya och gamla platser pekar på olika platser när nätverkssökvägarna skiljer sig.
 
-Obs! Om sökvägarna pekar på olika nätverksresurser behövs inte den här principinställningen.  Om sökvägarna pekar på samma nätverksresurs tas alla data i de omdirigerade mapparna bort om inte den här principinställning aktiveras.</string>
+Obs! Om sökvägarna pekar på olika nätverksresurser behövs inte den här principinställningen. Om sökvägarna pekar på samma nätverksresurs tas alla data i de omdirigerade mapparna bort om inte den här principinställning aktiveras.</string>
 
       <string id="DisableIndexedLibraryExperience_DisplayName">Inaktivera Windows-biblioteksfunktioner som baseras på indexerade fildata</string>
       <string id="DisableIndexedLibraryExperience_ExplainText">Med den här principinställningen kan du stänga av de Windows-biblioteksfunktioner som kräver indexerade filmetadata för att fungera.  Om du aktiverar den här principen inaktiveras vissa Windows-biblioteksfunktioner för att hantera inkluderade mappar som har omdirigerats till nätverksplatser som inte är indexerade.
@@ -392,11 +392,9 @@ Detta inaktiverar åtkomst till användardefinierade egenskaper och egenskaper l
       </string>
       <string id="NoStrCmpLogical_DisplayName">Inaktivera numerisk sortering i Utforskaren</string>
       <string id="NoStrCmpLogical_ExplainText">
-
-Du kan använda den här principinställningen för att sortera filnamn i bokstavsordning (på samma sätt som i Windows 2000 och tidigare versioner) i stället för numeriskt. 
+Du kan använda den här principinställningen för att sortera filnamn i bokstavsordning (på samma sätt som i Windows 2000 och tidigare versioner) i stället för numeriskt.
 Om du aktiverar den här principinställningen sorterar Utforskaren filnamn efter varje siffra i ett filnamn (t.ex. 111 &lt; 22 &lt; 3).
-Om du inaktiverar eller inte konfigurerar den här principinställningen sorterar Utforskaren filnamn i stigande ordning (t.ex. 3 &lt; 22 &lt; 111).
-      
+Om du inaktiverar eller inte konfigurerar den här principinställningen sorterar Utforskaren filnamn i stigande nummerordning (t.ex. 3 &lt; 22 &lt; 111).
       </string>
       <string id="IZ_OpenSearchQuery">Tillåt OpenSearch-frågor i Utforskaren</string>
       <string id="IZ_Explain_OpenSearchQuery">
@@ -460,35 +458,35 @@ Om du aktiverar den här principinställningen kan administratörer ange en sök
 Om du inaktiverar eller inte konfigurerar den här principinställningen ändras inte platsen för standardfilerna för biblioteksdefinitioner.
       
       </string>
-      <string id="EnableSmartScreen">Konfigurera Windows SmartScreen (Configure Windows SmartScreen)</string>
-      <string id="SmartScreen_Off">Inaktivera SmartScreen (Turn off SmartScreen)</string>
-      <string id="SmartScreen_Prompt">Varna användaren innan okänd hämtad programvara körs (Give user a warning before running downloaded unknown software)</string>
-      <string id="SmartScreen_RequireAdmin">Kräv administratörs godkännande innan okänd hämtad programvara körs (Require approval from an administrator before running downloaded unknown software)</string>
-      <string id="EnableSmartScreen_Help">Med den här principinställningen kan du ändra funktionen för Windows SmartScreen. Windows SmartScreen är ett sätt att skydda datorerna genom att användaren får en varning innan okända program som laddas ned från Internet körs. Viss information om filerna och programmen som körs på datorerna skickas till Microsoft om denna funktion har aktiverats.
+      <string id="EnableSmartScreen">Konfigurera Windows Defender SmartScreen</string>
+      <string id="SmartScreen_PreventBypass">Varna och hindra körning</string>
+      <string id="SmartScreen_Warn">Varna</string>
+      <string id="EnableSmartScreen_Help">Med den här principen kan du välja om Windows Defender SmartScreen ska vara på eller av. SmartScreen hjälper till att skydda datorn genom att visa en varning för användarna innan de kör potentiellt skadliga program som laddats ned från Internet. Varningen visas i en dialogruta innan en okänd eller skadlig app som laddats ned från Internet körs. Ingen dialogruta visas för appar som inte verkar misstänkta.
 
-Om du aktiverar den här principinställningen kan du välja hur Windows SmartScreen fungerar genom att ange ett av följande alternativ:
+Viss information om filerna och apparna som körs på datorerna skickas till Microsoft om denna funktion är aktiverad.
 
-• Kräv administratörs godkännande innan okänd hämtad programvara körs
-• Varna användaren innan okänd hämtad programvara körs
-• Inaktivera SmartScreen
+Om du aktiverar den här principen aktiveras SmartScreen för alla användare. Du kan ställa in följande alternativ:
 
-Om du inaktiverar eller låter bli att konfigurera principinställningen hanteras funktionen hos Windows SmartScreen av datoradministratörerna eller genom Windows SmartScreen-inställningar i Säkerhet och underhåll.
+• Varna och hindra körning
+• Varna
 
-Alternativ:
-• Kräv administratörs godkännande innan okänd hämtad programvara körs
-• Varna användaren innan okänd hämtad programvara körs
-• Inaktivera SmartScreen
+Om du aktiverar principen med alternativet Varna och hindra körning tillhandahåller SmartScreens dialogrutor inget alternativ som gör att användaren kan ignorera varningen och köra appen ändå. SmartScreen fortsätter visa varningen i alla efterföljande försök att köra appen.
 
-</string>
+Om du aktiverar principen med alternativet Varna visar SmartScreen dialogrutor som varnar användaren om att appen verkar misstänkt, men användaren tillåts ignorera varningen och köra appen ändå. SmartScreen kommer inte att varna användaren om appen igen om användaren valt att köra den.
+
+Om du inaktiverar principen inaktiveras SmartScreen för alla användare. Inga varningar visas då för användarna om de försöker köra misstänkta appar från Internet.
+
+Om du låter bli att konfigurera principen aktiveras SmartScreen som standard, men användarna har möjlighet att ändra sina inställningar.
+      </string>
       <string id="ShowLockOption">Visa lås på Användarpanel-menyn (Show lock in the user tile menu)</string>
-      <string id="ShowLockOption_Help">Visar eller döljer låset på Användarpanel-menyn. 
+      <string id="ShowLockOption_Help">Visar eller döljer låset på Användarpanel-menyn.
 Om du aktiverar den här principinställningen visas låsalternativet på Användarpanel-menyn.
 
 Om du inaktiverar den här principinställningen visas låsalternativet aldrig på Användarpanel-menyn.
 
 Om du inte konfigurerar den här principinställningen kan användarna välja om de vill att låset ska visas i Energialternativ på Kontrollpanelen.</string>
       <string id="ShowSleepOption">Visa Strömsparläge på Energialternativ-menyn (Show sleep in the power options menu)</string>
-      <string id="ShowSleepOption_Help">Visar eller döljer strömsparläget på Energialternativ-menyn. 
+      <string id="ShowSleepOption_Help">Visar eller döljer strömsparläget på Energialternativ-menyn.
 
 Om du aktiverar den här principinställningen visas alternativet Strömsparläge på Energialternativ-menyn (om datorns maskinvara stöder det).
 
@@ -496,7 +494,7 @@ Om du inaktiverar den här principinställningen visas alternativet Strömsparl�
 
 Om du inte konfigurerar den här principinställningen kan användarna välja om de vill att Strömsparläge ska visas i Energialternativ på Kontrollpanelen.</string>
       <string id="ShowHibernateOption">Visa Viloläge på Energialternativ-menyn (Show hibernate in the power options menu)</string>
-      <string id="ShowHibernateOption_Help">Visar eller döljer viloläget på Energialternativ-menyn. 
+      <string id="ShowHibernateOption_Help">Visar eller döljer viloläget på Energialternativ-menyn.
 
 Om du aktiverar den här principinställningen visas alternativet Viloläge på Energialternativ-menyn (om datorns maskinvara stöder det).
 
@@ -522,18 +520,18 @@ Om du inaktiverar eller inte konfigurerar den här principinställningen går de
 
 Obs! Datorerna kan utsättas för säkerhetsrisker om fjärrsökvägar tillåts till ikoner för filgenvägar.</string>
       <string id="DefaultAssociationsConfiguration">Ange en konfigurationsfil för standardprogramassociationer (Set a default associations configuration file)</string>
-      <string id="DefaultAssociationsConfiguration_Help">Den här principinställningen innehåller sökvägen till en fil (som t.ex. antingen lagras lokalt eller på en plats i nätverket) som innehåller standardprogramassociationer för filtyper och protokoll. Filen går att skapa med verktyget DISM. 
+      <string id="DefaultAssociationsConfiguration_Help">Den här principinställningen innehåller sökvägen till en fil (som t.ex. antingen lagras lokalt eller på en plats i nätverket) som innehåller standardprogramassociationer för filtyper och protokoll. Filen går att skapa med verktyget DISM.
 
 Exempel:
-Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt 
+Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
 
 Mer information finns i dokumentationen om DISM på TechNet.
 
-Om den här grupprincipen aktiveras och klientdatorn hör till en domän behandlas filen och standardassociationer tillämpas vid nästa inloggning. 
+Om den här grupprincipen aktiveras och klientdatorn hör till en domän behandlas filen och standardassociationer tillämpas vid nästa inloggning.
 
-Om grupprincipen inte är konfigurerad, inaktiverad eller klientdatorn inte hör till en domän tillämpas inga standardassociationer vid nästa inloggning. 
+Om grupprincipen inte är konfigurerad, inaktiverad eller klientdatorn inte hör till en domän tillämpas inga standardassociationer vid nästa inloggning.
 
-Oavsett om principen är aktiverad, inaktiverad eller inte konfigurerad kan användarna åsidosätta standardassociationerna för filtyper och protokoll.</string>
+Om principen är aktiverad, inaktiverad eller inte konfigurerad kan användarna åsidosätta standardassociationerna för filtyper och protokoll.</string>
     </stringTable>
     <presentationTable>
       <presentation id="MaxRecentDocs">
@@ -567,7 +565,7 @@ Oavsett om principen är aktiverad, inaktiverad eller inte konfigurerad kan anv�
         </textBox>
         <textBox refId="OpenSearch4">
           <label>Plats-URL 5</label>
-        </textBox>      
+        </textBox>
         <textBox refId="OpenSearchLabel4">
           <label>Platsnamn 5</label>
         </textBox>
@@ -588,7 +586,7 @@ Oavsett om principen är aktiverad, inaktiverad eller inte konfigurerad kan anv�
         </textBox>
         <textBox refId="Library4">
           <label>Plats 5</label>
-        </textBox>      
+        </textBox>
       </presentation>
       <presentation id="NoDrives">
         <dropdownList refId="NoDrivesDropdown" noSort="true" defaultItem="5">Välj en av följande kombinationer</dropdownList>
@@ -628,13 +626,13 @@ Oavsett om principen är aktiverad, inaktiverad eller inte konfigurerad kan anv�
         </textBox>
       </presentation>
       <presentation id="EnableSmartScreen">
-        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Välj en av de följande inställningarna</dropdownList>
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Välj en av följande inställningar:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">
           <label>Konfigurationsfil för standardprogramassociationer (Default Associations Configuration File)</label>
 	      <defaultValue>c:\windows\system32\defaultassociations.xml</defaultValue>
-        </textBox>	    
+        </textBox>
       </presentation>
       <presentation id="ExplorerRibbonStartsMinimized">
         <dropdownList refId="ExplorerRibbonStartsMinimizedDropdown" noSort="true" defaultItem="0">Välj en av de följande inställningarna</dropdownList>

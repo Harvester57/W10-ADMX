@@ -47,15 +47,13 @@ Huomautus: Vain yksi lisätodennusvaihtoehdoista voidaan vaatia käynnistyksen a
 
 Jos haluat käyttää BitLockeria tietokoneessa, jossa ei ole TPM-turvapiiriä, valitse Salli BitLocker ilman yhteensopivaa TPM-turvapiiriä -valintaruutu. Käynnistykseen vaaditaan tässä tilassa joko salasana tai USB-asema. Kun käytetään käynnistysavainta, aseman salaukseen käytetyt avaintiedot tallennetaan USB-asemaan luomalla USB-avain. Kun USB-avain asetetaan tietokoneeseen, aseman käyttö todennetaan ja asemaa voidaan käyttää. Jos USB-avain katoaa tai se ei ole käytettävissä tai jos olet unohtanut salasanan, aseman käyttämiseen tarvitaan jokin BitLocker-palautusasetuksista.
 
-Kun tietokoneessa on yhteensopiva TPM-turvapiiri, salattujen tietojen suojausta voi tehostaa neljällä todennusmenetelmätyypillä käynnistyksen yhteydessä. Kun tietokone käynnistyy, se voi käyttää ainoastaan TPM-turvapiiriä todennukseen, tai se voi vaatia käynnistysavaimen sisältävän USB-muistitikun asettamisen, 4 - 20 -numeroisen PIN-tunnuksen antamisen tai molemmat.
+Kun tietokoneessa on yhteensopiva TPM-turvapiiri, salattujen tietojen suojausta voi tehostaa neljällä erityyppisellä todennustavalla käynnistyksen yhteydessä. Kun tietokone käynnistyy, se voi käyttää ainoastaan TPM-turvapiiriä todennukseen, tai se voi vaatia käynnistysavaimen sisältävän USB-muistitikun asettamisen, 6 - 20 -numeroisen PIN-tunnuksen antamisen tai molemmat.
 
 Jos otat tämän käytäntöasetuksen käyttöön, käyttäjät pystyvät määrittämään käynnistyksen lisäasetuksia ohjatussa BitLockerin asennuksessa.
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjät pystyvät määrittämään ainoastaan perusasetukset tietokoneissa, joissa on TPM-turvapiiri.
 
 Huomautus: Jos haluat vaatia PIN-käynnistystunnuksen ja USB-muistitikun käyttämisen, sinun on määritettävä BitLocker-asetukset Manage-bde-komentorivityökalun avulla ohjatun BitLocker-asemansalauksen asennuksen sijaan.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Salli verkon lukituksen poistaminen käynnistyksen yhteydessä</string>
@@ -289,14 +287,19 @@ Varoitus: Ympäristön oletusvahvistusprofiilin muuttaminen vaikuttaa tietokonee
 
       <string id="PlatformValidation_UEFI_Help">Tämän käytäntöasetuksen avulla voit määrittää, miten tietokoneen TPM (Trusted Platform Module) -suojauslaitteisto suojaa BitLocker-salausavaimen. Tämä käytäntöasetus ei ole voimassa, jos tietokoneessa ei ole yhteensopivaa TPM-suojauslaitteistoa tai jos BitLocker ja TPM-suojaus on jo otettu käyttöön.
 
-Tärkeää: tämä ryhmäkäytäntö koskee vain tietokoneita, joissa on oma UEFI-laiteohjelmistomääritys. Tietokoneet, joissa on BIOS tai UEFI-laiteohjelmisto, jossa CSM (Compatibility Service Module) -moduuli on otettu käyttöön, tallentavat arvot käyttöjärjestelmän määritysrekistereihin (PCR). Käytä Määritä TPM-käyttöympäristön vahvistusprofiili BIOS-pohjaisille laiteohjelmistomäärityksille -ryhmäkäytäntöasetusta, kun määrität TPM-ympäristön PCR-profiilin tietokoneille, jotka käyttävät BIOS-määrityksiä, tai tietokoneille, jotka käyttävät UEFI-laiteohjelmistoa, jossa CSM on otettu käyttöön.
+Tärkeää: Tämä ryhmäkäytäntö koskee vain tietokoneita, joissa on oma UEFI-laiteohjelmistomääritys. Tietokoneet, joissa on BIOS tai UEFI-laiteohjelmisto, jossa CSM (Compatibility Service Module) -moduuli on otettu käyttöön, tallentavat arvot käyttöjärjestelmän määritysrekistereihin (PCR). Käytä Määritä TPM-käyttöympäristön vahvistusprofiili BIOS-pohjaisille laiteohjelmistomäärityksille -ryhmäkäytäntöasetusta, kun määrität TPM-ympäristön PCR-profiilin tietokoneille, jotka käyttävät BIOS-määrityksiä, tai tietokoneille, jotka käyttävät UEFI-laiteohjelmistoa, jossa CSM on otettu käyttöön.
 
 Jos otat tämän käytäntöasetuksen käyttöön ennen BitLockerin ottamista käyttöön, voit määrittää käynnistysosat, jotka TPM tarkistaa, ennen kuin se poistaa BitLocker-salatun käyttöjärjestelmäaseman käytön lukituksen. Jos jokin näistä komponenteista muuttuu BitLocker-suojauksen ollessa käytössä, TPM ei vapauta salausavainta aseman lukituksen poistamista varten, ja tietokone näyttää sen sijaan BitLocker-palautuskonsolin ja vaatii, että aseman lukituksen poistamista varten annetaan palautussalasana tai palautusavain.
 
-Jos tämä käytäntöasetus poistetaan käytöstä tai sitä ei määritetä, BitLocker käyttää ympäristön oletusvahvistusprofiilia tai asennuskomentosarjan määrittämää ympäristön vahvistusprofiilia. Ympäristön vahvistusprofiili muodostuu joukosta PCR (Platform Configuration Register) -indeksejä välillä 0–23. Ympäristön oletusvahvistusprofiili suojaa salausavaimen seuraavien kohteiden muutoksilta: ydinjärjestelmän laiteohjelmiston suoritettava koodi (PCR 0), laajennettu tai erillinen suoritettava koodi (PCR 2), käynnistyksen hallintaohjelma (PCR 4) ja BitLocker-käytönvalvonta (PCR 11).
+Jos tämä käytäntöasetus poistetaan käytöstä tai sitä ei määritetä, BitLocker käyttää ympäristön oletusvahvistusprofiilia tai asennuskomentosarjan määrittämää ympäristön vahvistusprofiilia. Ympäristön vahvistusprofiili muodostuu joukosta PCR (Platform Configuration Register) -indeksejä välillä 0–23. 
+
+Tietokoneissa, joissa ei ole käytettävissä turvallisen käynnistystilan (PCR 7) tukea, ympäristön oletusvahvistusprofiili suojaa salausavaimen seuraavien kohteiden muutoksilta: ydinjärjestelmän laiteohjelmiston suoritettava koodi (PCR 0), laajennettu tai erillinen suoritettava koodi (PCR 2), käynnistyksen hallintaohjelma (PCR 4) ja BitLocker-käytönvalvonta (PCR 11).
+
+Kun turvallisen käynnistystilan (PCR7) tuki on käytettävissä, ympäristön oletusvahvistusprofiili suojaa salausavaimen käyttämällä turvallista käynnistystilaa (PCR 7) ja BitLocker-käytönvalvontaa (PCR 11). 
 
 Varoitus: Ympäristön oletusvahvistusprofiilin muuttaminen vaikuttaa tietokoneen suojaukseen ja hallittavuuteen. BitLockerin herkkyys havaita ympäristön muokkaaminen (luvaton tai valtuutettu) tehostuu tai heikkenee PCR-indeksien lisäämisen tai pois jättämisen myötä. Huomaa, että jos tämä käytäntö määritetään ilman PCR 7 -asetusta, se ohittaa Salli turvallinen käynnistys eheyden vahvistamiselle -ryhmäkäytännön, mikä estää BitLockeria käyttämästä ympäristön turvallisen käynnistyksen eheyden vahvistamista tai käynnistyksessä käytettävien määritystietojen eheyden vahvistamista. Tämän asetuksen määrittämisestä voi seurata BitLockerin palautus, kun laiteohjelmisto päivitetään. Jos määrität tämän käytännön sisältämään PCR 0:n, keskeytä BitLocker-suojaus ennen laiteohjelmistopäivitysten asentamista.
-      
+
+Tämän käytäntöasetuksen määrittämistä ei suositella, jotta Windows voi valita parhaan suojaus- ja käytettävyysyhdistelmän PCR-profiilille kussakin tietokoneessa käytettävissä olevan laitteiston perusteella.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Määritä TPM-käyttöympäristön vahvistusprofiili omille UEFI-laiteohjelmistomäärityksille</string>
@@ -311,6 +314,13 @@ Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, Bi
 
       </string>
       <string id="MorBehavior_Name">Estä muistin korvaus uudelleenkäynnistyksen yhteydessä</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Tämän käytäntöasetuksen avulla voit estää kaikkien käytön aikana vaihtamista tukevien Thunderbolt PCI Downstream -porttien suoran muistin käytön (DMA) siihen asti, kunnes käyttäjä kirjautuu Windowsiin. Kun käyttäjä kirjautuu sisään, Windows luetteloi Thunderbolt PCI -isäntäportteihin kytketyt PCI-laitteet. Aina kun käyttäjä lukitsee laitteen, DMA estetään seuraavaan kirjautumiskertaan asti käytön aikana vaihtamista tukevissa Thunderbolt PCI -porteissa, joissa ei ole alilaitteita. Laitteet, jotka olivat jo luetteloituja laitteen lukituksen poistohetkellä, toimivat edelleen, kunnes ne kytketään irti tai kunnes järjestelmä käynnistetään uudelleen tai siirretään horrostilaan. Tämä käytäntöasetus on käytössä vain, kun BitLocker-salaus tai laitesalaus on otettu käyttöön.
+
+Huomautus: Jotkin tietokoneet eivät ehkä ole yhteensopivia tämän käytännön kanssa, jos järjestelmän laiteohjelmisto ottaa DMA-ominaisuuden käyttöön juuri liitetyissä Thunderbolt-laitteissa ennen uusien laitteiden asettamista Windowsin käyttöön.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Poista uudet DMA-laitteet käytöstä, kun tämä tietokone on lukittuna</string>
 
       <string id="FVEOSCategory">Käyttöjärjestelmäasemat</string>
       <string id="FVEFDVCategory">Kiinteät data-asemat</string>
@@ -373,13 +383,14 @@ Tämä asetus, joka määrittää käynnistyksen virheenkorjauksen (0x16000010),
 
 
       <string id="MinimumPINLength_Name">Määritä PIN-käynnistystunnuksen vähimmäispituus</string>
-      <string id="MinimumPINLength_Help">Tämän käytäntöasetuksen avulla voit määrittää TPM (Trusted Platform Module) -turvapiirin PIN-käynnistystunnuksen vähimmäispituuden. Tätä käytäntöasetusta käytetään, kun otat BitLockerin käyttöön. PIN-käynnistystunnuksen vähimmäispituuden on oltava 4 numeroa ja enimmäispituus voi olla 20 numeroa.
+      <string id="MinimumPINLength_Help">
+          Tämän käytäntöasetuksen avulla voit määrittää TPM (Trusted Platform Module) -turvapiirin PIN-käynnistystunnuksen vähimmäispituuden. Tätä käytäntöasetusta käytetään, kun otat BitLockerin käyttöön. PIN-käynnistystunnuksen vähimmäispituuden on oltava 4 numeroa, ja enimmäispituus voi olla 20 numeroa.
 
-Jos otat tämän käytäntöasetuksen käyttöön, voit määrittää PIN-käynnistystunnuksen asettamisessa käytettävien numeroiden vähimmäismäärän.
+          Jos otat tämän käytäntöasetuksen käyttöön, voit määrittää PIN-käynnistystunnuksen asettamisessa käytettävien numeroiden vähimmäismäärän.
 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjät voivat määrittää PIN-käynnistystunnuksen pituudeksi 4 - 20 numeroa.
+          Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käyttäjät voivat määrittää PIN-käynnistystunnuksen pituudeksi 6 - 20 numeroa.
 
-      
+          HUOMAUTUS: Jos PIN-käynnistystunnuksen vähimmäispituus on määritetty alle 6 merkkiin, Windows yrittää päivittää TPM 2.0:n lukitusjaksoa oletusarvoa pidemmäksi, kun PIN vaihdetaan. Jos jakson muuttaminen onnistuu, Windows palauttaa TPM-lukitusjakson oletuspituiseksi vain siinä tapauksessa, että TPM nollataan.
 
       </string>
 
@@ -684,6 +695,14 @@ Huomaa, että jos tätä käytäntöasetusta ei oteta käyttöön, Vaadi lisäto
 - Määritä salasanojen käyttö käyttöjärjestelmäasemille.
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Salli InstantGo- tai HSTI-yhteensopivien laitteiden poistaa käytöstä esikäynnistyksen PIN-tunnus.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Tämä käytäntöasetus mahdollistaa sen, että käyttäjät voivat poistaa käytöstä InstantGo- tai HSTI-yhteensopivista laitteista PIN-tunnuksen esikäynnistyksen todentamisen aikana. Tämä ohittaa yhteensopivan laitteen Vaadi lisätodennus käynnistyksen aikana -käytännön Edellytä PIN-käynnistystunnusta TPM-turvapiirin kanssa- ja Vaadi käynnistysavain ja PIN-tunnus TPM-turvapiirin kanssa -asetukset.
+
+Jos otat tämän käytäntöasetuksen käyttöön, InstantGo- ja HSTI-yhteensopivien laitteiden käyttäjät voivat ottaa käyttöön BitLockerin ilman esikäynnistyksen todentamista.
+
+Jos käytäntöä ei ole otettu käyttöön, Vaadi lisätodennus käynnistyksen aikana -käytännön asetukset ovat voimassa.
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Salli turvallinen käynnistys eheyden vahvistamiselle</string>
       <string id="AllowSecureBootForIntegrity_Help">Tämän käytäntöasetuksen avulla voit määrittää, sallitaanko turvallisen käynnistyksen vahvistaa BitLockerin käyttöjärjestelmäasemien eheys.
 
@@ -961,7 +980,7 @@ Huomautus: Kaikkia merkkejä ja kieliä ei tueta käynnistystä edeltävässä v
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Merkkejä vähintään:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Merkkejä vähintään:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

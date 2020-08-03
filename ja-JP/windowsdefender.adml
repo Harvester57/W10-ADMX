@@ -3,9 +3,13 @@
 <description>説明をここに入力する</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Windows Defender ウイルス対策</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">除外</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Attack Surface Reduction</string>
+    <string id="ExploitGuard_ControlledFolderAccess">フォルダー アクセスの制御</string>
+    <string id="ExploitGuard_NetworkProtection">ネットワーク保護</string>
     <string id="NetworkRealtimeInspection">ネットワーク検査システム</string>
     <string id="NetworkRealtimeInspection_Exclusions">除外</string>
     <string id="Quarantine">検疫</string>
@@ -17,6 +21,7 @@
     <string id="Spynet">MAPS</string>
     <string id="Threats">脅威</string>
     <string id="ClientInterface">クライアント インターフェイス</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">マルウェア対策サービスが通常の優先順位でスタートアップすることを許可する</string>
     <string id="AllowFastServiceStartup_Explain">このポリシー設定は、マルウェア対策サービスの読み込みの優先順位を制御します。読み込みの優先順位が高くなると、サービスはより速くスタートアップできますが、パフォーマンスに影響する可能性があります。
 
@@ -25,7 +30,18 @@
 この設定を無効にした場合、マルウェア対策サービスは低い優先順位のタスクとして読み込まれます。</string>
 
     <string id="DisableAutoExclusions">自動除外を無効にする</string>
-    <string id="DisableAutoExclusions_Explain">Server SKU の自動除外機能を無効にするかどうかを管理者が指定できるようにします。</string>
+    <string id="DisableAutoExclusions_Explain">
+        Server SKU に対して自動除外機能をオフにする必要があるかどうかを管理者が指定できます。
+
+        無効 (既定値):
+        Windows Defender は、パフォーマンスを向上させるため、事前に定義されたパスのリストをスキャン対象から除外します。
+
+        有効:
+        Windows Defenderは、事前に定義されたパスのリストをスキャン対象から除外しません。これにより、特定の状況でマシンのパフォーマンスに影響する可能性があります。
+
+        未構成:
+        無効と同じです。
+    </string>
     <string id="DisableAntiSpyware">Endpoint Protection をオフにする</string>
     <string id="DisableAntiSpyware_Explain">このポリシー設定は、Endpoint Protection を無効にします。
 
@@ -33,12 +49,12 @@
 
 このポリシー設定を無効にした場合、または構成しなかった場合、既定で Endpoint Protection が実行され、マルウェアなどの悪影響を与える可能性のあるソフトウェアに対するスキャンがコンピューター上で実行されます。
     </string>
-    <string id="DisableAntiSpywareDefender">Endpoint Protection を無効にする</string>
-    <string id="DisableAntiSpywareDefender_Explain">このポリシー設定は、Endpoint Protection を無効にします。
+    <string id="DisableAntiSpywareDefender">Windows Defender ウイルス対策を無効にします</string>
+    <string id="DisableAntiSpywareDefender_Explain">このポリシー設定は、Windows Defender ウイルス対策を無効にします。
 
-    このポリシー設定を有効にした場合、Endpoint Protection は実行されず、マルウェアなどの悪影響を与える可能性のあるソフトウェアに対するスキャンがコンピューター上で実行されなくなります。
+    このポリシー設定を有効にした場合、Windows Defender ウイルス対策は実行されず、マルウェアなどの悪影響を与える可能性のあるソフトウェアに対するスキャンがコンピューター上で実行されなくなります。
 
-    このポリシー設定を無効にした場合、または構成しなかった場合、既定で Endpoint Protection が実行され、マルウェアなどの悪影響を与える可能性のあるソフトウェアに対するスキャンがコンピューター上で実行されます。</string>
+    このポリシー設定を無効にした場合、または構成しなかった場合、既定で Windows Defender ウイルス対策が実行され、マルウェアなどの悪影響を与える可能性のあるソフトウェアに対するスキャンがコンピューター上で実行されます。</string>
     <string id="DisableLocalAdminMerge">一覧に関するローカル管理者の統合動作を構成する</string>
     <string id="DisableLocalAdminMerge_Explain">このポリシー設定は、ローカル管理者によって構成された複雑な一覧の設定をグループ ポリシー設定を使用して統合するかどうかを制御します。この設定は、脅威や除外などの一覧に適用されます。
 
@@ -47,11 +63,11 @@
 この設定を無効にすると、作成される有効なポリシーではグループ ポリシーで定義された項目だけが使用されます。グループ ポリシー設定が、ローカル管理者によって構成された基本設定よりも優先されます。</string>
     <string id="DisableRoutinelyTakingAction">定期的な修復を無効にする</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    このポリシー設定を使用すると、検出されたすべての脅威に対する自動の操作を Endpoint Protection で実行するかどうかを設定できます。特定の脅威に対して実行される操作は、ポリシー定義の操作、ユーザー定義の操作、および署名定義の操作の組み合わせで決定されます。
+    このポリシー設定を使用すると、検出されたすべての脅威に対する自動の操作を Windows Defender ウイルス対策で実行するかどうかを設定できます。特定の脅威に対して実行される操作は、ポリシー定義の操作、ユーザー定義の操作、および署名定義の操作の組み合わせで決定されます。
 
-    このポリシー設定を有効にした場合は、Endpoint Protection は、検出された脅威に対する自動の操作を実行しなくなります。ただし、ユーザーは、それぞれの脅威に対して実行可能な操作を選択するように要求されます。
+    このポリシー設定を有効にした場合は、Windows Defender ウイルス対策は、検出された脅威に対する自動の操作を実行しなくなります。ただし、ユーザーは、それぞれの脅威に対して実行可能な操作を選択するように要求されます。
 
-    このポリシー設定を無効にするか、または構成しない場合、Endpoint Protection は、検出されたすべての脅威に対する自動の操作を、約 5 秒 (設定不可) 遅れで行います。</string>
+    このポリシー設定を無効にするか、または構成しない場合、Windows Defender ウイルス対策は、検出されたすべての脅威に対する自動の操作を、約 5 秒 (設定不可) 遅れで行います。</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         このポリシー設定を使用すると、検出されたすべての脅威に対する自動の操作を Endpoint Protection で実行するかどうかを設定できます。特定の脅威に対して実行される操作は、ポリシー定義の操作、ユーザー定義の操作、および署名定義の操作の組み合わせで決定されます。
 
@@ -100,6 +116,21 @@
 この設定を有効にした場合、ウイルス対策およびスパイウェア対策の定義が両方とも無効になっていても、マルウェア対策サービスは実行したままの状態になります。
 
 この設定を無効にした場合、または構成しなかった場合、ウイルス対策およびスパイウェア対策の定義が両方とも無効になっていると、マルウェア対策サービスは停止します。コンピューターを再起動した場合、このサービスのスタートアップが [自動] に設定されていれば、サービスが開始されます。サービスが開始された後に、ウイルス対策およびスパイウェア対策の定義が有効かどうかがチェックされます。少なくともどちらかの定義が有効であれば、サービスは実行したままになります。両方の定義が無効の場合、サービスは停止します。</string>
+    <string id="Root_PUAProtection">望ましくない可能性のあるアプリケーションの検出を構成する</string>
+    <string id="Root_PUAProtection_Explain">
+        望ましくない可能性のあるアプリケーションの検出を有効または無効にします。望ましくない可能性のあるソフトウェアがダウンロードされているか、コンピューターにそれ自身をインストールしようとしているときに、ブロック、監査、または許可することを選択できます。
+
+        有効:
+        [オプション] セクションでモードを指定します。
+        -ブロック:  望ましくない可能性のあるソフトウェアがブロックされます。
+        -監査モード: 望ましくない可能性のあるソフトウェアはブロックされませんが、この機能が [ブロック] に設定されていればアクセスをブロックされるイベントのレコードはイベント ログに記録されます。
+
+        無効:
+        望ましくない可能性のあるソフトウェアはブロックされません。
+
+        未構成:
+        無効と同じです。
+    </string>
     <string id="Exclusions_Extensions">拡張子の除外</string>
     <string id="Exclusions_Extensions_Explain">このポリシー設定を使用すると、スケジュールされたスキャン、カスタム スキャン、およびリアルタイム スキャンから除外するファイルの種類の一覧を指定できます。ファイルの種類は、この設定の [オプション] の下に追加してください。各項目は、名前と値のペアとして一覧に追加します。この名前は、ファイルの種類の拡張子を表す文字列 ("obj" や "lib" など) です。このペアの値は使用されないため、0 に設定することをお勧めします。</string>
     <string id="Exclusions_Paths">パスの除外</string>
@@ -159,11 +190,11 @@
     <string id="DisableRealtimeMonitoring">リアルタイム保護を無効にする</string>
     <string id="DisableRealtimeMonitoringDefender_Explain">このポリシー設定は、既知のマルウェアを検出するリアルタイム保護プロンプトを無効にします。
 
-    マルウェアや望ましくない可能性のあるソフトウェアがコンピューターでインストールまたは実行されようとすると、Endpoint Protection から警告が送られます。
+    マルウェアや望ましくない可能性のあるソフトウェアがコンピューターでインストールまたは実行されようとすると、Windows Defender ウイルス対策から警告が送られます。
 
-    このポリシー設定を有効にすると、Endpoint Protection は、マルウェアの検出に対する操作の実行を要求しなくなります。
+    このポリシー設定を有効にすると、Windows Defender ウイルス対策は、マルウェアの検出に対する操作の実行を要求しなくなります。
 
-    このポリシー設定を無効にするか、または構成しない場合、Endpoint Protection は、マルウェアの検出に対する操作の実行を要求します。</string>
+    このポリシー設定を無効にするか、または構成しない場合、Windows Defender ウイルス対策は、マルウェアの検出に対する操作の実行を要求します。</string>
     <string id="DisableRealtimeMonitoring_Explain">
     このポリシー設定は、既知のマルウェアを検出するリアルタイム保護プロンプトを無効にします。
 
@@ -289,13 +320,21 @@
     <string id="Reporting_WppTracingComponents_Explain">このポリシーでは、Windows ソフトウェア トレース プリプロセッサ (WPP ソフトウェア トレース) コンポーネントを構成します。</string>
     <string id="Reporting_WppTracingLevel">WPP トレース レベルを構成する</string>
     <string id="Reporting_WppTracingLevel_Explain">このポリシーを使用すると、Windows ソフトウェア トレース プリプロセッサ (WPP ソフトウェア トレース) のトレース レベルを構成できます。
+    トレース レベルの定義は次のとおりです。
+    1 - エラー
+    2 - 警告
+    3 - 情報
+    4 - デバッグ</string>
+    <string id="Reporting_DisableEnhancedNotifications">拡張通知をオフにする</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      このポリシー設定では、Windows Defender ウイルス対策の拡張通知をクライアントに表示するかどうかを指定します。
+      
+      この設定を無効にした場合、または構成しなかった場合、Windows Defender ウイルス対策の拡張通知がクライアントに表示されます。
+      
+      この設定を有効にした場合、Windows Defender ウイルス対策の拡張通知はクライアントに表示されません。
+    </string>
 
-トレース レベルの定義は次のとおりです。
-1 - エラー
-2 - 警告
-3 - 情報
-4 - デバッグ</string>
-    <string id="Scan_AllowPause">スキャンの一時停止をユーザーに許可する</string>
+      <string id="Scan_AllowPause">スキャンの一時停止をユーザーに許可する</string>
     <string id="Scan_AllowPause_Explain">このポリシー設定を使用すると、進行中のスキャンをエンド ユーザーが一時停止できるかどうかを管理できます。
 
 この設定を有効にした場合、または構成しなかった場合、タスク トレイ アイコンに新しいコンテキスト メニューが追加され、ユーザーがスキャンを一時停止できるようになります。
@@ -496,6 +535,14 @@
     この設定を有効にすると、キャッチアップ スキャンは、指定の回数連続してスケジュールされたスキャンを実行しなかった後で実行されます。
 
     この設定を無効にした場合、または構成しなかった場合、キャッチアップ スキャンは、2 回続けてスケジュールされたスキャンを実行しなかった場合に実行されます。</string>
+    <string id="Scan_LowCpuPriority">スケジュールされたスキャンの低い CPU 優先度を構成する</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        このポリシー設定を使用すると、スケジュールされたスキャンの低い CPU 優先度を有効または無効にできます。
+
+この設定を有効にすると、スケジュールされたスキャン時に CPU の優先度が低くなります。
+
+この設定を無効にするか、未構成にした場合、スケジュールされたスキャンの CPU の優先度は変更されません。
+    </string>
     <string id="SignatureUpdate_ASSignatureDue">スパイウェア定義が有効期限切れと見なされるまでの経過日数を定義する</string>
     <string id="SignatureUpdate_ASSignatureDue_Explain">このポリシー設定を使用すると、スパイウェア定義が有効期限切れと見なされるまでに経過する必要のある日数を定義できます。定義が有効期限切れであると判断されると、この状態により、いくつかの追加動作がトリガーされる場合があります。たとえば、定義の更新元から新たに定義を取得したり、ユーザー インターフェイスに警告アイコンが表示されたりします。既定では、この値が 14 日に設定されます。
 
@@ -701,10 +748,10 @@
       この設定を有効にした場合は、AM UI は再起動の通知を表示しません。
     </string>
     <string id="UX_Configuration_Notification_Suppress">すべての通知を非表示にする</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">このポリシー設定では、Windows Defender の通知をクライアントに表示するかどうかを指定します。
-      この設定を無効にした場合、または構成しなかった場合、Windows Defender の通知がクライアントに表示されます。
+    <string id="UX_Configuration_Notification_Suppress_Explain">このポリシー設定では、Windows Defender ウイルス対策の通知をクライアントに表示するかどうかを指定します。
+      この設定を無効にした場合、または構成しなかった場合、Windows Defender ウイルス対策の通知がクライアントに表示されます。
 
-      この設定を有効にした場合、Windows Defender の通知はクライアントに表示されません。
+      この設定を有効にした場合、Windows Defender ウイルス対策の通知はクライアントに表示されません。
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">操作を実行する必要があるときにクライアントに追加のテキストを表示する</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">このポリシー設定を使用すると、クライアントが操作を実行する必要がある場合に、追加のテキストを表示するかどうかを構成できます。表示されるテキストは、管理者が定義したカスタムの文字列です。たとえば、会社のヘルプ デスクを呼び出すための電話番号などです。クライアント インターフェイスには、最大で 1,024 文字まで表示できます。これよりも長い文字列は切り捨てられてから表示されます。
@@ -712,6 +759,202 @@
 この設定を有効にした場合、指定した追加のテキストが表示されます。
 
 この設定を無効にした場合、または構成しなかった場合、追加のテキストは表示されません。</string>
+    <string id="MpCloudBlockLevel">クラウドの保護レベルを選択します</string>
+    <string id="MpCloudBlockLevel_Explain">
+      このポリシー設定は、Windows Defender ウイルス対策がどの程度積極的に不審なファイルをブロックし、スキャンするかを決定します。
+
+      この設定が有効の場合は、Windows Defender ウイルス対策はより積極的に不審なファイルをブロックしてスキャンし、設定が無効の場合は、あまり積極的ではない、つまり少ない頻度でブロックしスキャンします。
+
+      サポートされている特定の値の詳細については、Windows Defender ウイルス対策のドキュメント サイトを参照してください。
+
+      注: この機能を使用するには、"Microsoft MAPS に参加する" 設定が有効になっている必要があります。
+
+      選択できるオプションは次のとおりです。
+      (0x0) Windows Defender の既定ブロック レベル
+      (0x2) 高い ブロック レベル - クライアントのパフォーマンスを最適化しながら未知ファイルを積極的にブロックします。（誤検出の可能性が高くなります）
+      (0x4) 高い+ブロック レベル - 積極的に未知ファイルをブロックし、追加の保護手段を適用します。（クライアントのパフォーマンスに影響を与える可能性があります）
+      (0x6) ゼロ トレランス ブロック レベル - すべての未知の実行可能ファイルをブロックします。
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">既定の Windows Defender ウイルス対策ブロック レベル</string>
+    <string id="MpCloudBlockLevel_High_Level">高いブロック レベル</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">高い+ ブロック レベル</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">ゼロ トレランス ブロック レベル</string>
+    <string id="MpBafsExtendedTimeout">拡張クラウド チェックを構成します</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      この機能を使用すると、Windows Defender ウイルス対策で不審なファイルを最大 60 秒間ブロックし、そのファイルをクラウド上でスキャンして、安全を確保することができます。
+      
+      クラウド チェックの通常のタイムアウトは 10 秒間です。クラウド チェックの拡張機能を有効にするには、延長時間を秒数で指定します (追加できる秒数は最大 50 秒です)。
+
+      たとえば、希望のタイムアウトが 60 秒である場合、この設定で 50 秒と指定すると、クラウド チェックの拡張機能が有効になり、合計時間が 60 秒になります。
+
+      注意: この機能は、他の 3 つの MAPS 設定 ("'事前ブロック' 機能を構成する"、"Microsoft MAPS に参加する"、"詳細な分析が必要な場合はファイルのサンプルを送信する") に依存しているため、それらの設定をすべて有効にする必要があります。
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">ユーザーとアプリが危険な Web サイトにアクセスするのを防ぎます</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Windows Defender Exploit Guard ネットワーク保護を有効または無効にすることで、従業員がアプリケーションを使用して、フィッシング詐欺、不正利用ホスト サイト、およびインターネット上の他の悪意のあるコンテンツをホストする可能性のある危険なドメインにアクセスしないようにします。
+
+    有効:
+    [オプション] セクションでモードを指定します。
+    -ブロック: ユーザーとアプリケーションは危険なドメインにアクセスできません
+    -監査モード: ユーザーとアプリケーションは危険なドメインに接続できますが、ブロック設定ならアクセスをブロックされるようなドメインに接続した場合には、イベント ログにそのイベントの記録が書き込まれます。
+
+    無効:
+    ユーザーとアプリケーションは危険なドメインへの接続をブロックされません。
+
+    未構成:
+    無効と同じです。
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Attack Surface Reduction 規則からファイルとパスを除外します。</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Attack Surface Reduction (ASR) 規則からファイルとパスを除外します。
+
+    有効:
+    [オプション] セクションで、ASR 規則から除外するフォルダーまたはファイルとリソースを指定します。
+    規則ごとに行を変えて、規則を名前と値のペアとして入力します。
+    - 名前列: フォルダー パスまたは完全修飾リソース名を入力します。たとえば、""C:\Windows"" は、そのディレクトリ内のすべてのファイルを除外します。""C:\Windows\App.exe"" はその特定のフォルダー内の特定のファイルのみを除外します。
+    - 値の列: 各項目に ""0"" を入力します。
+
+    無効:
+    ASR 規則に除外は適用されません。
+
+    未構成:
+    無効と同じです。
+
+    [Attack Surface Reduction 規則の構成] の GP 設定で ASR 規則を構成できます。
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Attack Surface Reduction 規則の構成</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    各 Attack Surface Reduction (ASR) 規則に状態を設定します。
+
+    この設定を有効にした後、[オプション] セクションで各規則を次のように設定できます。
+    - ブロック: 規則が適用されます
+    - 監査モード: 規則が通常ならイベントを発生させるように設定されている場合、記録を残します (しかし規則は実際には適用されません)
+    - オフ: 規則は適用されません
+
+    有効:
+    この設定の [オプション] セクションで、各 ASR 規則の状態を指定します。
+    規則ごとに行を変えて、規則を名前と値のペアとして入力します。
+    - 名前列: 有効な ASR 規則 ID を入力します
+    - 値列: その規則について、指定したい状態に対応する状態 ID を入力します
+
+    値列には、次の状態 ID が許可されています。
+    - 1 (ブロック)
+    - 0 (オフ)
+    - 2 (監査)
+    
+    例:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    無効:
+    ASR 規則は構成されません。
+
+    未構成:
+    無効と同じです。
+
+    ""Attack Surface Reduction 規則からファイルとパスを除外する"" の GP 設定でフォルダーまたはファイルを除外できます。
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">フォルダー アクセスの制御を構成する</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    信頼されていないアプリケーションに対するフォルダー アクセスの制御を有効または無効にします。信頼されていないアプリケーションによる次の操作をブロックするか、監査するか、許可するかを選択できます。
+    - ドキュメント フォルダーなどの保護されているフォルダー内のファイルの変更または削除
+    - ディスク セクターへの書き込み
+
+    ディスク セクターへの書き込みだけをブロックまたは監査し、保護されているフォルダー内のファイルの変更または削除を許可することもできます。
+
+    Windows Defender ウイルス対策は、信頼できるアプリケーションを自動的に判断します。許可されているアプリケーションを構成する GP 設定で、信頼されているアプリケーションを追加できます。
+    既定のシステム フォルダーは自動的に保護されますが、保護されているフォルダーを構成する GP 設定でフォルダーを追加できます。
+
+    ブロック:
+    次の操作がブロックされます。
+    - 信頼されていないアプリケーションによる、保護されているフォルダー内のファイルを変更または削除する試み
+    - 信頼されていないアプリケーションによる、ディスク セクターへの書き込みの試み
+    Windows イベント ログは、これらのブロックを [アプリケーションとサービス ログ] &gt; [Microsoft] &gt; [Windows] &gt; [Windows Defender] &gt; [使用可能] &gt; [ID 1123] に記録します。
+
+
+    無効:
+    次の操作はブロックされず、実行が許可されます。
+    - 信頼されていないアプリケーションによる、保護されているフォルダー内のファイルを変更または削除する試み
+    - 信頼されていないアプリケーションによる、ディスク セクターへの書き込みの試み
+    これらの試みは Windows イベント ログに記録されません。
+
+
+    監査モード:
+    次の操作はブロックされず、実行が許可されます。
+    - 信頼されていないアプリケーションによる、保護されているフォルダー内のファイルを変更または削除する試み
+    - 信頼されていないアプリケーションによる、ディスク セクターへの書き込みの試み
+    Windows イベント ログは、これらの試みを [アプリケーションとサービス ログ] &gt; [Microsoft] &gt; [Windows] &gt; [Windows Defender] &gt; [使用可能] &gt; [ID 1124] に記録します。
+
+
+    ディスクの変更のみをブロック:
+    次の操作がブロックされます。
+    - 信頼されていないアプリケーションによる、ディスク セクターへの書き込みの試み
+    Windows イベント ログは、これらの試みを [アプリケーションとサービス ログ] &gt; [Microsoft] &gt; [Windows] &gt; [Windows Defender] &gt; [使用可能] &gt; [ID 1123] に記録します。
+
+    次の操作はブロックされず、実行が許可されます。
+    - 信頼されていないアプリケーションによる、保護されているフォルダー内のファイルを変更または削除する試み
+    これらの試みは Windows イベント ログに記録されません。
+
+
+    ディスクの変更のみを監査:
+    次の操作はブロックされず、実行が許可されます。
+    - 信頼されていないアプリケーションによる、ディスク セクターへの書き込みの試み
+    - 信頼されていないアプリケーションによる、保護されているフォルダー内のファイルを変更または削除する試み
+    保護されているディスク セクターへの書き込みの試みのみが、Windows イベント ログ ([アプリケーションとサービス ログ] &gt; [Microsoft] &gt; [Windows] &gt; [Windows Defender] &gt; [使用可能] &gt; [ID 1124]) に記録されます。
+    保護されているフォルダー内のファイルを変更または削除する試みは、記録されません。
+
+    未構成:
+    [無効] と同じです。
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">無効 (既定)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">ブロック</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">監査モード</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">ディスクの変更のみをブロック</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">ディスクの変更のみを監査</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">許可されているアプリケーションを構成します</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    フォルダー アクセスの制御によって "信頼されている" と見なされるアプリケーションを追加します。
+
+これらのアプリケーションは、フォルダー アクセスの制御が有効なフォルダー内のファイルを変更または削除することを許可されます。
+
+    Windows Defender ウイルス対策は、どのアプリケーションが信頼されているかを自動的に判断します。他のアプリケーションを追加するためにこの設定を構成することもできます。
+
+    有効:
+    [オプション] セクションで、許可されたアプリケーションを追加で指定します。
+
+    無効:
+    信頼されているアプリケーションのリストにアプリケーションは追加されません。
+
+    未構成:
+    無効と同じです。
+
+    フォルダー アクセスの制御を構成する GP 設定で、フォルダー アクセスの制御を有効にできます。
+
+    既定のシステム フォルダーは自動的に保護されますが、保護されているフォルダーを構成する GP 設定でフォルダーを追加できます。
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">保護するフォルダーを構成する</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    フォルダー アクセスの制御機能によって保護する対象のフォルダーを追加で指定します。
+
+    これらのフォルダー内のファイルは、信頼されていないアプリケーションによって変更または削除することはできません。
+
+    既定のシステム フォルダーは自動的に保護されます。この設定を構成して他のフォルダーを追加できます。
+    保護されている既定のシステム フォルダーの一覧は、Windows セキュリティに表示されます。
+
+    有効:
+    [オプション] セクションで、保護するフォルダーを追加で指定します。
+
+    無効:
+    追加のフォルダーは保護されません。
+
+    未構成:
+    無効と同じです。
+
+    フォルダー アクセスの制御は、[フォルダー アクセスの制御を構成する] GP 設定で有効にすることができます。
+
+    Windows Defender ウイルス対策は、信頼できるアプリケーションを自動的に判断します。[許可されているアプリケーションを構成します] GP 設定で、信頼されるアプリケーションを追加できます。
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -852,6 +1095,33 @@
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">期限切れ通知の間隔を指定する</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">クラウド ブロック レベルを選択します</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">拡張クラウド チェック時間を秒数で指定します</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">フォルダー保護機能を構成する</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">ASR 規則からの除外:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">各 ASR 規則の状態を設定します。</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">信頼されたアプリケーションを入力してください:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">保護するフォルダーを入力してください:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

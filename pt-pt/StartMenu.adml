@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Pelo menos, Windows Server 2008 R2 ou Windows 7. Não suportado no Windows 10 ou posterior</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 e Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Limpar a lista de programas recentes para novos utilizadores</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Se ativar esta definição de política, a lista de programas recentes do menu iniciar estará vazia para cada novo utilizador.
 
@@ -170,6 +171,12 @@ Se ativar esta definição de política, o botão de Energia e os comandos Encer
 Se desativar ou não configurar esta definição de política, o botão de Energia e os comandos Encerrar, Reiniciar, Suspender e Hibernar estarão disponíveis no menu Iniciar. O botão de Energia no ecrã Segurança do Windows também estará disponível.
 
 Nota: Os programas de terceiros certificados como sendo compatíveis com o Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP ou Windows 2000 Professional têm de suportar esta definição de política.</string>
+      <string id="HidePowerOptions">Remover e impedir o acesso aos comandos Encerrar, Reiniciar, Suspender e Hibernar</string>
+      <string id="HidePowerOptions_Help">Esta definição de política impede que os utilizadores executem os seguintes comandos a partir do ecrã de segurança do Windows, do ecrã de início de sessão e do menu Iniciar: Encerrar, Reiniciar, Suspender e Hibernar. Esta definição de política não impede que os utilizadores executem programas baseados no Windows que executam estas funções.
+
+Se ativar esta definição de política, os comandos encerrar, reiniciar, suspender e hibernar são removidos do menu Iniciar. O botão para Ligar/desligar também é removido do ecrã de Segurança do Windows, que é apresentado quando premir CTRL+ALT+DELETE, e do ecrã de início de sessão.
+
+Se desativar ou não configurar esta definição de política, o botão para Ligar/desligar e os comandos Encerrar, Reiniciar, Suspender e Hibernar ficam disponíveis no menu Iniciar. O botão para Ligar/desligar nos ecrãs de Segurança do Windows e de início de sessão também fica disponível.</string>
       <string id="NoCommonGroups">Remover grupos de programas comuns do menu Iniciar</string>
       <string id="NoCommonGroups_Help">Remover itens no perfil Todos os Utilizadores do menu Programas no menu Iniciar.
 
@@ -222,12 +229,22 @@ Se desativar ou não configurar esta definição de política, o sistema control
 Consulte também as seguintes definições de política relacionadas: "Remover lista de programas utilizados frequentemente do Menu Iniciar" e "Desativar os menus personalizados".
 
 Esta definição de política não impede que os utilizadores afixem programas no Menu Iniciar ou na Barra de Tarefas. Consulte as definições de política "Remover lista de programas afixados do Menu Iniciar" e "Não permitir a afixação de programas na Barra de Tarefas".</string>
+
       <string id="NoMoreProgramsList">Remover lista de Todos os Programas do menu Iniciar</string>
-      <string id="NoMoreProgramsList_Help">Esta definição de política permite-lhe remover a lista Todos os Programas do menu Iniciar.
+      <string id="NoMoreProgramsList_Help">Se ativar esta definição, o Menu Iniciar fecha ou remove a lista de todas as aplicações do menu Iniciar.
 
-Se ativar esta definição de política, o item "Todos os Programas" é removido do menu Iniciar simples.  O Ecrã Iniciar passa a mostrar a vista Todas as Aplicações, mas apenas com os itens afixados em Iniciar.
+Ao selecionar "Fechar", a lista de aplicações não é apresentada ao lado dos mosaicos afixados em Iniciar. É apresentado um botão "Todas as aplicações" em Iniciar para abrir a lista de todas as aplicações. Isto é equivalente a definir "Mostrar lista de aplicações em Iniciar", em Definições, para Desativado.
 
-Se desativar ou não configurar esta definição de política, o item "Todos os Programas" permanece disponível no menu Iniciar simples.</string>
+A opção "Fechar e desativar definição" tem o mesmo efeito que a opção de fechar e desativa a opção "Mostrar lista de aplicações no menu Iniciar", em Definições, pelo que os utilizadores não a podem alterar para Ativado.
+
+Ao selecionar "Remover e desativar definição", a lista de todas as aplicações é removida de Iniciar e a opção "Mostrar lista de aplicações no menu Iniciar" é desativada em Definições, pelo que os utilizadores não a podem alterar para Ativado. Selecione esta opção para fins de compatibilidade com versões anteriores do Windows.
+
+Se desativar ou não configurar esta definição, a lista de todas as aplicações é visível por predefinição e o utilizador pode alterar a opção "Mostrar lista de aplicações em Iniciar", em Definições.</string>
+      <string id="APPLIST_NONE">Nenhuma</string>
+      <string id="APPLIST_COLLAPSE">Fechar</string>
+      <string id="APPLIST_COLLAPSESETTING">Fechar e desativar definição</string>
+      <string id="APPLIST_REMOVESETTING">Remover e desativar definição</string>    
+
       <string id="NoNetAndDialupConnect">Remover Ligações de Rede do Menu Iniciar</string>
       <string id="NoNetAndDialupConnect_Help">Esta definição de política permite-lhe remover Ligações de Rede do menu Iniciar.
 
@@ -289,17 +306,17 @@ Se desativar ou não configurar esta definição de política, por predefiniçã
 
 Nota: esta definição de política só se aplica a ficheiros de destino em partições NTFS. As partições FAT não dispõem desta função de pesquisa e controlo por ID.
 
-Consulte também as definições de política "Não rastrear atalhos da Shell durante a itinerância" e "Não utilizar o método baseado no rastreio ao resolver atalhos de shell".</string>
+Consulte também as definições de política "Não monitorizar atalhos da Shell durante a itinerância" e "Não utilizar o método baseado no rastreio ao resolver atalhos de shell".</string>
       <string id="NoResolveTrack">Não utilizar o método baseado no rastreio ao resolver atalhos de shell</string>
       <string id="NoResolveTrack_Help">Esta definição de política impede que o sistema utilize as funcionalidades de controlo NTFS para resolver um atalho.
 
 Se ativar esta definição de política, o sistema não tenta localizar o ficheiro utilizando o respetivo ID de ficheiro. Ignora este passo e inicia uma pesquisa abrangente na unidade especificada no caminho de destino.
 
-Se desativar ou não configurar esta definição de política, por predefinição, o sistema não encontra o ficheiro de destino para um atalho (.lnk), mas procura em todos os caminhos associados ao atalho. Se o ficheiro de destino estiver localizado numa partição NTFS, o sistema utilizará o ID do ficheiro de destino para localizar um caminho. Se o caminho resultante não estiver correto, o sistema efetua uma pesquisa abrangente na unidade de destino para tentar localizar o ficheiro.
+Se desativar ou não configurar esta definição de política, por predefinição, quando o sistema não encontrar o ficheiro de destino para um atalho (.lnk), procura em todos os caminhos associados ao atalho. Se o ficheiro de destino estiver localizado numa partição NTFS, o sistema utilizará o ID do ficheiro de destino para localizar um caminho. Se o caminho resultante não estiver correto, o sistema efetua uma pesquisa abrangente na unidade de destino para tentar localizar o ficheiro.
 
 Nota: esta definição de política só se aplica a ficheiros de destino em partições NTFS. As partições FAT não dispõem desta função de pesquisa e controlo por ID.
 
-Consulte também as definições de política "Não rastrear atalhos da Shell durante a itinerância" e "Não utilizar o método baseado em procuras ao resolver atalhos de shell".</string>
+Consulte também as definições de política "Não monitorizar atalhos da Shell durante a itinerância" e "Não utilizar o método baseado em procuras ao resolver atalhos de shell".</string>
       <string id="NoRun">Remover o menu Executar do menu Iniciar</string>
       <string id="NoRun_Help">Permite-lhe remover o comando Executar do menu Iniciar, do Internet Explorer e do Gestor de Tarefas.
 
@@ -515,6 +532,18 @@ Se não configurar esta definição de política, os utilizadores poderão ativa
 Se ativar esta definição de política, o menu Iniciar não mostra uma ligação para a pasta Transferências.
 
 Se desativar ou não configurar esta definição de política, a ligação Transferências fica disponível no menu Iniciar.</string>
+      <string id="NoStartMenuExplorerPlace">Remover ligação do Explorador de Ficheiros da barra Locais do Menu Iniciar</string>
+      <string id="NoStartMenuExplorerPlace_Help">Esta definição de política permite-lhe remover a ligação do Explorador de Ficheiros da barra Locais do Menu Iniciar.
+
+Se ativar esta definição de política, o Explorador de Ficheiros não será apresentado na lista Locais do Menu Iniciar.
+
+Se desativar ou não configurar esta definição de política, o Explorador de Ficheiros pode ser apresentado na lista Locais do Menu Iniciar.</string>
+      <string id="NoStartMenuSettingsPlace">Remover ligação Definições da barra Locais do Menu Iniciar</string>
+      <string id="NoStartMenuSettingsPlace_Help">Esta definição de política permite-lhe remover a ligação Definições da barra Locais do Menu Iniciar.
+
+Se ativar esta definição de política, as Definições não serão apresentadas na lista Locais do Menu Iniciar.
+
+Se desativar ou não configurar esta definição de política, as Definições podem ser apresentadas na lista Locais do Menu Iniciar.</string>
       <string id="NoStartMenuRecordedTV">Remover ligação TV Gravada do Menu Iniciar</string>
       <string id="NoStartMenuRecordedTV_Help">Esta definição de política permite-lhe remover a ligação TV Gravada do menu Iniciar.
 
@@ -575,8 +604,23 @@ Se desativar ou não configurar esta definição de política, o ecrã inicial s
 Se desativar ou não configurar esta definição de política, o Windows irá selecionar automaticamente o tamanho com base no fator de forma do hardware e os utilizadores poderão alterar o tamanho de Iniciar em Definições.</string>
       <string id="ForceLauncherSize_Collapsed">Menu Iniciar</string>
       <string id="ForceLauncherSize_Expanded">Iniciar em ecrã inteiro</string>
+      <string id="HidePeopleBar_DisplayName">Remover a Barra Pessoas da barra de tarefas</string>
+      <string id="HidePeopleBar_ExplainText">Esta política permite-lhe remover a Barra Pessoas da barra de tarefas e desativa a experiência Os Meus Contactos.
+
+Se ativar esta política, o ícone de pessoas é removido da barra de tarefas, o seletor de definições correspondente é removido da página de definições da barra de tarefas e os utilizadores não conseguem afixar pessoas à barra de tarefas.</string>
+      <string id="HideRecentlyAddedApps">Remover lista "Adicionados recentemente" do Menu Iniciar</string>
+      <string id="HideRecentlyAddedApps_Help">Esta política permite-lhe impedir que o Menu Iniciar apresente uma lista de aplicações instaladas recentemente.
+
+Se ativar esta política, o Menu Iniciar já não apresentará a lista "Adicionados recentemente". A definição correspondente também será desativada em Definições.</string>
+      <string id="DisableContextMenusInStart">Desativar os menus de contexto no Menu Iniciar</string>
+      <string id="DisableContextMenusInStart_Help">Esta política permite-lhe impedir que os utilizadores possam abrir menus de contexto no Menu Iniciar.
+
+Se ativar esta política, as invocações de menus de contexto dentro do Menu Iniciar serão ignoradas.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Escolher uma das seguintes ações</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Escolher uma das seguintes ações</dropdownList>
       </presentation>

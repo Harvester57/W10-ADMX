@@ -16,8 +16,14 @@
 
 Uudelleenindeksointia ei aloiteta, kun otat tämän käytännön käyttöön ja valitset OCR-tekstintunnistuksen kielen. Tämä käytäntöasetus koskee ainoastaan uusien tiedostojen indeksointia, ellei uudelleenindeksointia aloiteta manuaalisesti.
       </string>
+      <string id="SelectOCRLangsCodePage">Valitse OCR-tekstintunnistuksen kieli koodisivulta</string>
+      <string id="ExplainSelectOCRLangsCodePage">Tämän käytäntöasetuksen avulla voit valita OCR-tekstintunnistuksen (Optical Character Recognition, optinen merkkien tunnistus) kielet, jotka kuuluvat yhteen tuetuista koodisivuista. Jos otat tämän käytäntöasetuksen käyttöön, valittuja OCR-kieliä käytetään OCR-tekstintunnistuksen käsittelyssä TIFF-tiedostojen indeksoinnin aikana. Järjestelmän oletuskieli ohitetaan, jos se ei ole yksi valituista OCR-kielistä. Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, käytetään ainoastaan järjestelmän oletuskieltä.
+
+Kaikkien valittujen OCR-kielien täytyy kuulua samaan koodisivuun. Jos valitset kieliä useammasta kuin yhdestä koodisivusta, koko OCR-kielivalinta ohitetaan ja ainoastaan järjestelmän oletuskieltä käytetään.
+
+Uudelleenindeksointia ei aloiteta, kun otat tämän käytännön käyttöön ja valitset OCR-kielet. Tämä käytäntöasetus koskee ainoastaan uusien tiedostojen indeksointia, ellei uudelleenindeksointia aloiteta manuaalisesti.
+      </string>
       <string id="OCR">OCR</string>
-      <string id="Win7Only">Microsoft Windows 7 tai uudempi versio</string>
       <string id="OCREveryPage">Pakota TIFF IFilter tekemään OCR-tekstintunnistus TIFF-tiedoston jokaiselle sivulle</string>
       <string id="ExplainOCREveryPage">
         
@@ -28,8 +34,12 @@ Uudelleenindeksointia ei aloiteta, kun otat tämän käytännön käyttöön ja 
         Jos poistat tämän asetuksen käytöstä tai et määritä sitä, TIFF IFilter optimoi suorituskykynsä ohittamalla muun kuin tekstisisällön OCR-tunnistusprosessin aikana.
       
       </string>
+      <string id="LangArabic">arabia</string>
+      <string id="LangBulgarian">bulgaria</string>
+      <string id="LangBosnianLatin">bosnia (latinalainen)</string>
       <string id="LangChineseSimplified">kiina (yksinkertaistettu)</string>
       <string id="LangChineseTraditional">kiina (perinteinen)</string>
+      <string id="LangCroatian">kroatia</string>
       <string id="LangCzech">tšekki</string>
       <string id="LangDanish">tanska</string>
       <string id="LangDutch">hollanti</string>
@@ -50,6 +60,7 @@ Uudelleenindeksointia ei aloiteta, kun otat tämän käytännön käyttöön ja 
       <string id="LangSerbianCyrillic">serbia (kyrillinen)</string>
       <string id="LangSerbianLatin">serbia (latinalainen)</string>
       <string id="LangSlovak">slovakki</string>
+      <string id="LangSlovenian">sloveeni</string>
       <string id="LangSpanish">espanja</string>
       <string id="LangSwedish">ruotsi</string>
       <string id="LangTurkish">turkki</string>
@@ -57,6 +68,67 @@ Uudelleenindeksointia ei aloiteta, kun otat tämän käytännön käyttöön ja 
     <presentationTable>
       <presentation id="SelectOCRLangs">
         <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Valitse jokin seuraavista OCR-tekstintunnistuskielistä:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>Balttilainen (1257) koodisivu</text>
+          <checkBox refId="Estonian" defaultChecked="false">viro</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">latvia</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">liettua</checkBox>
+        <text/>
+        <text>Keskieurooppalainen (1250, latinalainen 2) koodisivu</text>
+          <checkBox refId="Albanian" defaultChecked="false">albania</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">kroatia</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">tšekki</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">unkari</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">puola</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">romania</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">serbia, latinalainen</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">slovakki</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">sloveeni</checkBox>
+        <text/>
+        <text>Kyrillinen (1251) koodisivu</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">bulgaria</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">valkovenäjä</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">makedonia (EJT Makedonia)</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">venäjä</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">serbia</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">ukraina</checkBox>
+        <text/>
+        <text>Länsieurooppalainen (1252, latinalainen 1) koodisivu</text>
+          <checkBox refId="Catalan" defaultChecked="false">katalaani</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">tanska</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">hollanti</checkBox> 
+          <checkBox refId="English" defaultChecked="false">englanti</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">fääri</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">suomi</checkBox> 
+          <checkBox refId="French" defaultChecked="false">ranska</checkBox> 
+          <checkBox refId="German" defaultChecked="false">saksa</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">islanti</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">indonesia</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">italia</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">malaiji</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">norja</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">portugali</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">espanja</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">ruotsi</checkBox>
+        <text/>
+        <text>Kreikkalainen (1253) koodisivu</text>
+          <checkBox refId="Greek" defaultChecked="false">kreikka</checkBox>
+        <text/>
+        <text>Turkkilainen (1254) koodisivu</text>
+          <checkBox refId="Turkish" defaultChecked="false">turkki</checkBox>
+        <text/>
+        <text>Yksinkertaistettu kiinalainen (936, GB2312) koodisivu</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">kiina (yksinkertaistettu)</checkBox>
+        <text/>
+        <text>Perinteinen kiinalainen (950, Big5) koodisivu</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">kiina (perinteinen)</checkBox>
+        <text/>
+        <text>Japanilainen (932, Shift-JIS) koodisivu</text>
+          <checkBox refId="Japanese" defaultChecked="false">japani</checkBox>
+        <text/>
+        <text>Korealainen (949) koodisivu</text>
+          <checkBox refId="Korean" defaultChecked="false">korea</checkBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Se requiere al menos Windows Server 2008 R2 o Windows 7. No es compatible con Windows 10 o versiones posteriores</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 y Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Borrar lista de programas recientes para nuevos usuarios</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Si habilita esta configuración de directiva, se borrará la lista de programas recientes del menú Inicio para un nuevo usuario.
 
@@ -130,7 +131,7 @@ Si habilita esta opción, el área de notificación del sistema se expande para 
 Si la deshabilita, el área de notificación del sistema siempre contraerá las notificaciones.
 
 Si no la configura, el usuario puede elegir si desea contraer las notificaciones.</string>
-      <string id="NoBalloonTip">Quitar globos de sugerencias de los elementos del menú Inicio</string>
+      <string id="NoBalloonTip">Quitar globos de recomendaciones de los elementos del menú Inicio</string>
       <string id="NoBalloonTip_Help">Oculta el texto emergente del menú Inicio y del área de notificación.
 
 Si mantiene el cursor sobre un elemento del menú Inicio o del área de notificación, el sistema muestra texto emergente con información adicional sobre el objeto.
@@ -170,6 +171,12 @@ Si se habilita esta configuración de directiva, el botón de inicio/apagado y l
 Si se deshabilita o no se configura esta configuración de directiva, el botón de inicio/apagado y los comandos Apagar, Reiniciar, Suspender e Hibernar estarán disponibles en el menú Inicio. El botón de inicio/apagado también estará disponible en la pantalla de Seguridad de Windows.
 
 Nota: los programas de terceros certificados como compatibles con Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP o Windows 2000 Professional, deben admitir esta configuración de directiva.</string>
+      <string id="HidePowerOptions">Quitar y evitar el acceso a los comandos Apagar, Reiniciar, Suspender e Hibernar.</string>
+      <string id="HidePowerOptions_Help">Esta configuración de directiva impide a los usuarios ejecutar los siguientes comandos desde la pantalla Seguridad, la pantalla de inicio de sesión y el menú Inicio de Windows: Apagar, Reiniciar, Suspender e Hibernar. Esta configuración de directiva no impide que los usuarios ejecuten programas basados en Windows que realizan estas funciones.
+
+Si habilitas esta configuración de directiva, los comandos Apagar, Reiniciar, Suspender e Hibernar se quitarán del menú Inicio. También se quitará el botón de inicio/apagado de la pantalla Seguridad de Windows, que aparece cuando se presionan las teclas CTRL + ALT + SUPR, y de la pantalla de inicio de sesión.
+
+Si deshabilitas o no estableces esta configuración de directiva, el botón de inicio/apagado y los comandos Apagar, Reiniciar, Suspender e Hibernar estarán disponibles en el menú Inicio. El botón de inicio/apagado de las pantallas de inicio de sesión y Seguridad de Windows también estará disponible.</string>
       <string id="NoCommonGroups">Quitar grupos de programas comunes del menú Inicio</string>
       <string id="NoCommonGroups_Help">Quita elementos del perfil All Users del menú Programas del menú Inicio.
 
@@ -222,12 +229,22 @@ Si deshabilita o no establece esta configuración de directiva, el sistema reali
 Consulte también estas configuraciones de directiva relacionadas: "Quitar del menú Inicio la lista de programas de uso frecuente" y "Desactivar menús personalizados".
 
 Esta configuración de directiva no impide que los usuarios anclen programas al menú Inicio o a la barra de tareas. Consulte las configuraciones de directiva "Quitar del menú Inicio la lista de programas agregados" y "No permitir el anclado de programas a la barra de tareas".</string>
+
       <string id="NoMoreProgramsList">Quitar del menú Inicio la lista Todos los programas</string>
-      <string id="NoMoreProgramsList_Help">Esta configuración de directiva le permite quitar la lista Todos los programas del menú Inicio.
+      <string id="NoMoreProgramsList_Help">Si habilitas esta configuración, el menú Inicio se contraerá o eliminará la lista de las aplicaciones del menú Inicio.
 
-Si habilita esta configuración de directiva, el elemento "Todos los programas" se quitará del menú Inicio sencillo.  La pantalla Inicio mostrará la vista Todas las aplicaciones, pero solo contendrá los elementos que estén anclados a Inicio.
+Si seleccionas "Contraer" no se mostrará la lista de aplicaciones al lado de los iconos anclados en Inicio. El botón "Todas las aplicaciones" se mostrará en el Inicio al abrir toda la lista de aplicaciones. Esta acción lo equivale a desactivar la configuración "Mostrar lista de aplicaciones en el menú Inicio".
 
-Si deshabilita o no establece esta configuración de directiva, el elemento "Todos los programas" permanecerá en el menú Inicio sencillo.</string>
+Seleccionar "Contraer y deshabilitar la configuración" realizará la misma acción que contraer y deshabilitará la opción "Mostrar lista de aplicaciones en el menú Inicio" en la configuración, para que los usuarios no puedan activarla.
+
+Si seleccionas "Eliminar y deshabilitar configuración" eliminará la lista de todas las aplicaciones del Inicio y desactivará la opción "Mostrar lista de aplicaciones en el menú Inicio" en la configuración y los usuarios no podrán activarla. Selecciona esta opción para que sea compatible con versiones anteriores de Windows.
+
+Si deshabilitas o no configuras esto, la lista de todas las aplicaciones será visible de manera predeterminada y el usuario podrá cambiar la opción "Mostrar lista de aplicaciones en el menú Inicio" en la configuración.</string>
+      <string id="APPLIST_NONE">Ninguno</string>
+      <string id="APPLIST_COLLAPSE">Contraer</string>
+      <string id="APPLIST_COLLAPSESETTING">Contraer y deshabilitar configuración</string>
+      <string id="APPLIST_REMOVESETTING">Eliminar y deshabilitar configuración</string>    
+
       <string id="NoNetAndDialupConnect">Quitar Conexiones de red del menú Inicio</string>
       <string id="NoNetAndDialupConnect_Help">Esta configuración de directiva le permite quitar Conexiones de red del menú Inicio.
 
@@ -515,6 +532,18 @@ Si no se configura esta opción de directiva, los usuarios podrán activar o des
 Si habilita esta configuración de directiva, el menú Inicio no mostrará un vínculo a la carpeta Descargas.
 
 Si deshabilita o no establece esta configuración de directiva, el vínculo Descargas estará disponible en el menú Inicio.</string>
+      <string id="NoStartMenuExplorerPlace">Quitar el vínculo del explorador de archivos de la barra de lugares del menú Inicio</string>
+      <string id="NoStartMenuExplorerPlace_Help">Esta configuración de directiva te permite quitar el vínculo del explorador de archivos de la barra de lugares del menú Inicio.
+
+Si habilitas esta configuración de directiva, el explorador de archivos no aparecerá en la lista de lugares del menú Inicio.
+
+Si deshabilitas o no estableces esta configuración de directiva, el explorador de archivos puede mostrarse en la lista de lugares del menú Inicio.</string>
+      <string id="NoStartMenuSettingsPlace">Quitar vínculo de configuración de la barra de lugares del menú Inicio</string>
+      <string id="NoStartMenuSettingsPlace_Help">Esta configuración de directiva te permite quitar el vínculo de configuración de la barra de lugares del menú Inicio.
+
+Si habilitas esta configuración de directiva, la configuración no aparecerá en la lista de lugares del menú Inicio.
+
+Si deshabilitas o no estableces esta configuración de directiva, la configuración puede mostrarse en la lista de lugares del menú Inicio.</string>
       <string id="NoStartMenuRecordedTV">Quitar del menú Inicio el vínculo TV grabada</string>
       <string id="NoStartMenuRecordedTV_Help">Esta configuración de directiva le permite quitar el vínculo TV grabada del menú Inicio.
 
@@ -575,8 +604,23 @@ Si deshabilita o no establece esta configuración de directiva, la pantalla Inic
 Si deshabilitas o no estableces esta configuración de directiva, Windows seleccionará automáticamente el tamaño en función del factor de forma de hardware y los usuarios podrán cambiar el tamaño de Inicio en la Configuración.</string>
       <string id="ForceLauncherSize_Collapsed">Menú Inicio</string>
       <string id="ForceLauncherSize_Expanded">Pantalla de Inicio completa</string>
+      <string id="HidePeopleBar_DisplayName">Quitar la barra de personas de la barra de tareas</string>
+      <string id="HidePeopleBar_ExplainText">Esta directiva te permite quitar la barra de contactos de la barra de tareas y deshabilita la experiencia Mis allegados.
+
+Si habilitas esta directiva se quitará el icono de contactos de la barra de tareas, la alternancia de configuración correspondiente se quitará de la página de configuración de la barra de tareas y los usuarios no podrán anclar contactos a la barra de tareas.</string>
+      <string id="HideRecentlyAddedApps">Quitar la lista "Agregadas recientemente" del menú Inicio</string>
+      <string id="HideRecentlyAddedApps_Help">Esta directiva le permite impedir que el menú Inicio muestre una lista de aplicaciones instaladas recientemente.
+
+Si habilita esta directiva, el menú Inicio no mostrará la lista "Agregadas recientemente".  También se deshabilitará la opción de configuración correspondiente en Configuración.</string>
+      <string id="DisableContextMenusInStart">Deshabilitar los menús contextuales en el menú Inicio</string>
+      <string id="DisableContextMenusInStart_Help">Esta directiva le permite impedir que los usuarios puedan abrir menús contextuales en el menú Inicio.
+
+Si habilita esta directiva, se omitirán invocaciones de menús contextuales en el menú Inicio.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Elige una de las siguientes acciones</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Elija una de las siguientes acciones</dropdownList>
       </presentation>

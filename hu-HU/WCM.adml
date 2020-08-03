@@ -48,7 +48,21 @@
 
       Ha ez a házirend-beállítás nincs konfigurálva vagy le van tiltva, akkor az energiagazdálkodás engedélyezett, amikor a számítógép csatlakoztatott készenléti módba lép.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Annak engedélyezése, hogy a Windows ideiglenes leválassza a számítógépet a hálózatról</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Ez a házirend-beállítás meghatározza, hogy a Windows ideiglenesen leválasztja-e a számítógépet a hálózatról.
+
+Ha a házirend-beállítás engedélyezve van, vagy nincs konfigurálva, a Windows ideiglenesen leválasztja a számítógépet a hálózatról, ha azt állapítja meg, hogy a számítógépnek már nem kell csatlakoznia a hálózathoz.
+
+      Ha a házirend-beállítás le van tiltva, a Windows azonnal leválasztja a számítógépet a hálózatról, ha azt állapítja meg, hogy a számítógépnek már nem kell csatlakoznia a hálózathoz.
+
+      Ha az ideiglenes kapcsolatbontás engedélyezve van:
+      – Ha a Windows azt állapítja meg, hogy a számítógépnek már nem kell csatlakoznia a hálózathoz, megvárja, hogy a forgalom rendeződjön az adott hálózaton. A meglévő TCP-munkamenet továbbra is zavartalanul folytatódik.
+      – A Windows ezután rendszeres időközönként ellenőrzi a hálózat forgalmi szintjét. Ha a forgalmi szint meghalad egy bizonyos küszöbértéket, nincs szükség további műveletre. A számítógép továbbra is csatlakozik a hálózathoz és tovább használja azt. Ha például a hálózati kapcsolatot aktuálisan fájlok internetről való letöltésére használják, a fájlok továbbra is letöltődnek az adott hálózati kapcsolat használatával.
+      – Ha a hálózati forgalom ezen küszöbérték alá esik, a számítógép le lesz választva a hálózatról. Azok az alkalmazások, amelyek akkor is bekapcsolva tartják a hálózati kapcsolatot, amikor nem használják aktívan (például a levelezési alkalmazások), elveszíthetik a kapcsolatot. Ilyen esetben az alkalmazásoknak újból kapcsolatot kell létesíteniük egy másik hálózaton keresztül. 
+
+      Ez a házirend-beállítás a többi csoportházirend-beállítástól függ. Ha például „Az internettel vagy Windows-tartománnyal való egyidejű kapcsolatok számának minimalizálása” beállítás le van tiltva, akkor a Windows egyik hálózattal sem szakítja meg a kapcsolatot.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

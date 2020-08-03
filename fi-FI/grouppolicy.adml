@@ -11,19 +11,19 @@
       <string id="FontMitigation_On">Estä fontit, joihin ei luoteta, ja kirjaa tapahtumat</string>
       <string id="FontMitigation_Off">Älä estä fontteja, joihin ei luoteta</string>
       <string id="FontMitigation_Audit">Kirjaa tapahtumat estämättä fontteja, joihin ei luoteta</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Prosessin lievennysasetukset</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Tämän suojausominaisuuden avulla voi korvata yksittäisiä MitigationOptions-prosessiasetuksia. Näin voidaan pakottaa sovelluksille ominaisia suojauskäytäntöjä. Arvon nimeksi määritetään sovelluksen nimi (mukaan lukien tiedostotunniste). Arvo määritetään bittikenttänä, jossa on sarja merkintöjä tietyissä sijainneissa. Bitin arvo voi olla joko 0 (asetus on pakotettu pois), 1 (asetus on pakotettu päälle), tai ? (asetus säilyttää olemassa olevan arvon ennen ryhmäkäytäntöobjektin arviointia). Tunnistetut bittien sijainnit ovat:
+        Tämän suojausominaisuuden avulla voi korvata yksittäisiä MitigationOptions-prosessiasetuksia. Näin voidaan pakottaa sovelluksille ominaisia suojauskäytäntöjä. Arvon nimeksi määritetään sovelluksen nimi (mukaan lukien tiedostotunniste). Arvo määritetään bittikenttänä, jossa on sarja merkintöjä tietyissä sijainneissa. Bitin arvo voi olla joko 0 (asetus on pakotettu pois), 1 (asetus on pakotettu käyttöön) tai ? (asetus säilyttää olemassa olevan arvon ennen ryhmäkäytäntöobjektin arviointia). Tunnistetut bittien sijainnit ovat seuraavat:
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
-        Ottaa käyttöön tietojen suorittamisen estämisen aliprosessille.
+        Ottaa käyttöön tietojen suorittamisen estämisen aliprosessille
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Ottaa käyttöön DEP-ATL-välitysosaemulaation aliprosessille. DEP-ATL-välitysosaemulaation ansiosta järjestelmä sieppaa NX-virheet, jotka ovat peräisin ATL (Active Template Library) -alirutiinitasolta. 
+        Ottaa käyttöön DEP-ATL-välitysosaemulaation aliprosessille. DEP-ATL-välitysosaemulaation ansiosta järjestelmä sieppaa NX-virheet, jotka ovat peräisin ATL (Active Template Library) -alirutiinitasolta.
 
         PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
-        Ottaa käyttöön strukturoidun poikkeuskäsittelijän korvaussuojauksen(SEHOP) aliprosessille. SEHOP estää heikkoutta hyödyntävät ohjelmat, jotka käyttävät strukturoidun poikkeuskäsittelijän (SEH) korvaustekniikkaa.
+        Ottaa käyttöön strukturoidun poikkeuskäsittelijän korvaussuojauksen (SEHOP) aliprosessille. SEHOP estää heikkoutta hyödyntävät ohjelmat, jotka käyttävät strukturoidun poikkeuskäsittelijän (SEH) korvaustekniikkaa.
 
         PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
         ASLR (Address Space Layout Randomization) -käytäntö määrittää uudelleen kuvat, jotka eivät ole yhteensopivia dynaamisen kannan kanssa toimimalla aivan kuin latauksen aikana olisi ilmennyt kuvakannan ristiriita. Jos sijaintia pitää siirtää, sellaisia kuvia ei ladata, joilla ei ole kannan uudelleensijoitusosaa.
@@ -32,10 +32,10 @@
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
         Alhaalta ylös -satunnaistamiskäytäntö, joka sisältää pinosatunnaistamisasetuksia, johtaa siihen, että alimpana käyttäjäosoitteena käytetään satunnaista sijaintia.
 
-        Jos esimerkiksi haluat ottaa käyttöön PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE:n ja PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON:n, poista käytöstä PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF ja jätä muut asetukset oletusarvoihinsa. Määritä arvo:
+        Jos esimerkiksi haluat ottaa käyttöön PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE:n ja PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON:n, poista käytöstä PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF ja jätä muut asetukset oletusarvoihinsa. Määritä seuraava arvo:
         ???????????????0???????1???????1
 
-        Asetustunnukset, joita ei ole määritetty tässä muille kuin ?-arvolle käyttäytyvät määrittämättömästi.	  
+        Asetustunnukset, joita ei ole määritetty tässä muille kuin ?-arvolle, käyttäytyvät määrittämättömästi.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Ota käyttöön AD/DFS-toimialueen ohjauskoneen synkronointi käytännön päivityksen aikana</string>
@@ -50,42 +50,60 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Jatka kokemuksia tässä laitteessa</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Tämä käytäntöasetus määrittää, voiko Windows-laite osallistua laitteiden välisiin kokemuksiin (jatkaa kokemuksia).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Jos otat tämän käytäntöasetuksen käyttöön, muut samalle käyttäjälle kuuluvat Windows-laitteet löytävät Windows-laitteen ja voivat osallistua laitteiden välisiin kokemuksiin.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Jos poistat tämän käytäntöasetuksen käytöstä, muut laitteet eivät löydä Windows-laitetta eivätkä voi osallistua laitteiden välisiin kokemuksiin.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Jos et määritä tätä käytäntöasetusta, oletustoiminta määräytyy Windows-version mukaan. Tähän käytäntöön tehdyt muutokset tulevat voimaan uudelleenkäynnistyksen yhteydessä.
+      </string>
+      <string id="EnableMMX">Puhelin-tietokone-linkitys tässä laitteessa</string>
+      <string id="EnableMMX_Help">
+Tämän käytännön avulla IT-järjestelmänvalvojat pystyvät poistamaan puhelimen ja tietokoneen linkitysmahdollisuuden käytöstä. Kun laitteet ovat linkitettyinä, käyttäjä pystyy keskeytyksettä jatkamaan lukemista, sähköpostin käyttöä ja muita puhelimen ja tietokoneen välistä linkitystä vaativia tehtäviä.
+
+Jos otat tämän käytäntöasetuksen käyttöön, Windows-laite pystyy rekisteröitymään puhelin-tietokone-linkitystoimintoon ja hyödyntämään Jatka tietokoneessa -sovelluksen toimintoja.
+
+Jos poistat tämän käytäntöasetuksen käytöstä, Windows-laitteen linkitys puhelimiin ei ole sallittua, laitteen tiedot poistuvat linkitettyjen puhelimien laiteluetteloista eikä laitteella pysty hyödyntämään Jatka tietokoneessa -sovelluksen toimintoja.
+
+Jos et määritä tätä käytäntöasetusta, oletusarvoinen toiminta määräytyy Windows-version mukaan. Tämän käytännön muutokset tulevat voimaan uudelleenkäynnistyksen yhteydessä.
+      </string>
+      <string id="EnableAppUriHandlers">Määritä verkosta sovellukseen -linkitys sovelluksen URI-käsittelijöihin</string>
+      <string id="EnableAppUriHandlers_Help">
+Tämä käytäntö määrittää, tukeeko Windows verkosta sovellukseen -linkitystä sovelluksen URI-käsittelijöihin.
+
+Jos tämä käytäntöasetus otetaan käyttöön, verkosta sovellukseen -linkitys otetaan käyttöön, jolloin sovellukset voidaan käynnistää http(s)-URI-osoitteella.
+
+Jos tämä käytäntö poistetaan käytöstä, verkosta sovellukseen -linkitys poistetaan käytöstä, ja http(s)-URI-osoitteet avataan osoitteeseen liittyvän sovelluksen avaamisen sijaan oletusselaimessa.
+
+Jos et määritä tätä käytäntöasetusta, oletustoiminta vaihtelee Windows-version mukaan. Tämän käytännön muutokset astuvat voimaan uudelleenkäynnistyksen yhteydessä.
       </string>
       <string id="Fonts">Fontit</string>
       <string id="EnableFontProviders">Ota fonttipalvelut käyttöön</string>
       <string id="EnableFontProviders_Help">
         Tämä käytäntöasetus määrittää, voiko Windows ladata fontteja ja fonttiluettelotietoja verkkofonttipalveluista.
-        
+
         Jos otat tämän käytäntöasetuksen käyttöön, Windows kyselee säännöllisesti verkkofonttipalvelusta, onko uutta fonttiluetteloa saatavilla. Windows voi myös ladata fonttitietoja, jos niitä tarvitaan tekstin muotoilemiseen tai hahmontamiseen.
-        
+
         Jos poistat tämän käytäntöasetuksen käytöstä, Windows ei muodosta yhteyttä verkkofonttipalveluun vaan luetteloi vain paikallisesti asennetut fontit.
-      
+
         Jos et määritä tätä käytäntöasetusta, oletuskäytäntö määräytyy Windows-version mukaan. Käytännön muutokset tulevat voimaan uudelleenkäynnistyksen yhteydessä.
       </string>
       <string id="EnableLogonOptimization">Määritä ryhmäkäytäntöjen tallentaminen välimuistiin</string>
       <string id="EnableLogonOptimization_Help">
-        
-        Tämän käytäntöasetuksen avulla voit määrittää ryhmäkäytäntöjen tallentamisen välimuistiin.
-        
-        Jos otat tämän käytäntöasetuksen käyttöön tai et määritä sitä, ryhmäkäytäntö tallentaa käytäntötiedot välimuistiin jokaisen taustakäsittelyistunnon jälkeen. Välimuistiin tallennetaan sovellettavat ryhmäkäytäntöobjektit ja niiden sisältämät asetukset. Kun ryhmäkäytäntö suoritetaan synkronisesti edustalla, se viittaa tähän välimuistiin, mikä mahdollistaa ryhmäkäytännön suorittamisen nopeammin. Kun välimuisti luetaan, ryhmäkäytäntö yrittää muodostaa yhteyden kirjautumistoimialueen ohjauskoneeseen linkkinopeuden määrittämistä varten. Kun ryhmäkäytäntö suoritetaan taustalla tai asynkronisesti edustalla, se jatkaa käytäntötietojen uusimman version lataamista ja määrittää kaistanleveysarvion perusteella hitaan yhteyden raja-arvot. (Lisätietoja asynkronisen edustakäsittelyn määrittämisestä on Määritä hidas yhteys ryhmäkäytäntöasetuksia käytettäessä -ryhmäkäytännössä.)
-        
+        Tämän käytäntöasetuksen avulla voit määrittää ryhmäkäytännön välimuistiin tallentamisen toiminnan.
+
+        Jos otat tämän käytäntöasetuksen käyttöön, ryhmäkäytäntö tallentaa käytäntötiedot välimuistiin jokaisen taustakäsittelyistunnon jälkeen. Välimuistiin tallennetaan sovellettavat ryhmäkäytäntöobjektit ja niiden sisältämät asetukset. Kun ryhmäkäytäntö suoritetaan synkronisesti edustalla, se viittaa tähän välimuistiin, mikä mahdollistaa ryhmäkäytännön suorittamisen nopeammin. Kun välimuisti luetaan, ryhmäkäytäntö yrittää muodostaa yhteyden kirjautumistoimialueen ohjauskoneeseen linkkinopeuden määrittämistä varten. Kun ryhmäkäytäntö suoritetaan taustalla tai asynkronisesti edustalla, se jatkaa käytäntötietojen uusimman version lataamista ja määrittää kaistanleveysarvion perusteella hitaan yhteyden raja-arvot. (Lisätietoja asynkronisen edustakäsittelyn määrittämisestä on Määritä hidas yhteys ryhmäkäytäntöasetuksia käytettäessä -käytäntöasetuksessa.)
+
         Tässä käytäntöasetuksessa määritettävä hitaan yhteyden raja-arvo määrittää, kuinka kauan ryhmäkäytäntö odottaa vastausta toimialueen ohjauskoneelta ennen kuin se raportoi hitaasta linkkinopeudesta. Oletusarvo on 500 millisekuntia.
-        
+
         Tässä käytäntöasetuksessa määritettävä aikakatkaisuarvo määrittää, kuinka kauan ryhmäkäytäntö odottaa vastausta toimialueen ohjauskoneelta ennen kuin se toteaa, ettei verkkoyhteyttä ole. Nykyisen ryhmäkäytännön käsittely pysäytetään. Ryhmäkäytäntö suoritetaan taustalla seuraavan kerran, kun toimialueen ohjauskoneeseen muodostetaan yhteys. Jos arvo määritetään liian korkeaksi, käyttäjä saattaa joutua odottamaan pidempään tietokonetta käynnistettäessä tai kirjauduttaessa. Oletusarvo on 5 000 millisekuntia.
-        
-        Jos poistat tämän käytäntöasetuksen käytöstä, ryhmäkäytäntöasiakas ei tallenna välimuistiin sovellettavia ryhmäkäytäntöobjekteja tai niiden sisältämiä asetuksia. Kun ryhmäkäytäntö suoritetaan asynkronisesti, se lataa verkosta käytännön uusimman version ja määrittää kaistanleveysarvion perusteella hitaan linkin raja-arvot. (Lisätietoja asynkronisen edustakäsittelyn määrittämisestä on Määritä hidas yhteys ryhmäkäytäntöasetuksia käytettäessä -ryhmäkäytännössä.)
-      
+
+        Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ryhmäkäytäntöasiakas ei tallenna välimuistiin sovellettavia ryhmäkäytäntöobjekteja tai niiden sisältämiä asetuksia. Kun ryhmäkäytäntö suoritetaan asynkronisesti, se lataa verkosta käytännön uusimman version ja määrittää kaistanleveysarvion perusteella hitaan linkin raja-arvot. (Lisätietoja asynkronisen edustakäsittelyn määrittämisestä on Määritä hidas yhteys ryhmäkäytäntöasetuksia käytettäessä -käytäntöasetuksessa.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Ota käyttöön ryhmäkäytännön välimuistiin tallentaminen Server-koneissa</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,52 +114,48 @@ If you do not configure this policy setting, the default behavior depends on the
         Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ryhmäkäytäntöasiakas ei tallenna välimuistiin sovellettavia ryhmäkäytäntöobjekteja tai niiden sisältämiä asetuksia. Kun ryhmäkäytäntö suoritetaan asynkronisesti, se lataa verkosta käytännön uusimman version ja määrittää kaistanleveysarvion perusteella hitaan linkin raja-arvot. (Lisätietoja asynkronisen edustakäsittelyn määrittämisestä on Määritä hidas yhteys ryhmäkäytäntöasetuksia käytettäessä -ryhmäkäytännössä.)
       
       </string>
-      
+
       <string id="LogonScriptDelay">Määritä kirjautumiskomentosarjan viive</string>
       <string id="LogonScriptDelay_Help">
-        
         Kirjoita 0, jos haluat poistaa kirjautumiskomentosarjan viiveen käytöstä.
-        
+
         Tämän käytäntöasetuksen avulla voit määrittää, kuinka kauan ryhmäkäytäntöasiakas odottaa kirjautumisen jälkeen ennen komentosarjojen suorittamista.
-        
+
         Oletusarvon mukaan ryhmäkäytäntöasiakas odottaa viisi minuuttia ennen kirjautumiskomentosarjojen suorittamista. Siten saadaan luotua hyvin reagoiva työpöytäympäristö ja ehkäistyä levyristiriidat.
-        
+
         Jos otat tämän käytäntöasetuksen käyttöön, ryhmäkäytäntö odottaa määritetyn ajan ennen kirjautumiskomentosarjojen suorittamista.
-        
+
         Jos poistat tämän käytäntöasetuksen käytöstä, ryhmäkäytäntö suorittaa komentosarjat välittömästi kirjautumisen jälkeen.
-        
+
         Jos et määritä tätä käytäntöasetusta, ryhmäkäytäntö odottaa viisi minuuttia ennen kirjautumiskomentosarjojen suorittamista.
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Määritä Direct Access -yhteydet nopeaksi verkkoyhteydeksi</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Tämän käytäntöasetuksen avulla järjestelmänvalvoja voi määrittää Direct Access -yhteyden nopeaksi verkkoyhteydeksi, jota käytetään ryhmäkäytännön käyttämiseen ja päivittämiseen. 
- 
+      <string id="SlowLinkDefaultForDirectAccess_Help">Tämän käytäntöasetuksen avulla järjestelmänvalvoja voi määrittää Direct Access -yhteyden nopeaksi verkkoyhteydeksi, jota käytetään ryhmäkäytännön käyttämiseen ja päivittämiseen.
+
 Kun ryhmäkäytäntö havaitsee Direct Access -yhteyden kaistanleveyden, kaistanleveyden nopeustietojen tunnistus saattaa joskus epäonnistua. Jos ryhmäkäytäntö havaitsee kaistanleveyden nopeuden, ryhmäkäytäntö noudattaa normaaleja sääntöjä arvioidessaan Direct Access -yhteyden hitaaksi tai nopeaksi verkkoyhteydeksi. Jos kaistanleveyttä ei tunnisteta, ryhmäkäytäntö arvioi verkkoyhteyden oletusarvon mukaan hitaaksi. Tämän käytäntöasetuksen avulla järjestelmänvalvoja voi määrittää, että oletusarvoisesti käytetään hitaan yhteyden asemesta nopeaa yhteyttä, jos verkon kaistanleveyden nopeutta ei tunnisteta.
- 
-Huomautus: kun ryhmäkäytäntö havaitsee hitaan verkkoyhteyden, se käsittelee vain ne asiakaspuolen laajennukset, jotka on määritetty käsiteltäviksi hitaan linkin yhteydessä (hidas verkkoyhteys).  
- 
+
+Huomautus: kun ryhmäkäytäntö havaitsee hitaan verkkoyhteyden, se käsittelee vain ne asiakaspuolen laajennukset, jotka on määritetty käsiteltäviksi hitaan linkin yhteydessä (hidas verkkoyhteys).
+
 Jos otat tämän käytännön käyttöön, kun ryhmäkäytäntö ei tunnista Direct Access -kaistanleveyden nopeutta, ryhmäkäytäntö arvioi verkkoyhteyden nopeaksi ja käsittelee kaikki asiakaspuolen laajennukset.
- 
+
 Jos poistat tämän asetuksen käytöstä tai et määritä sitä, ryhmäkäytäntö arvioi verkkoyhteyden hitaaksi ja käsittelee vain ne asiakaspuolen laajennukset, jotka on määritetty käsiteltäviksi hitaan linkin yhteydessä.
-          
-      
-          
+
       </string>
      <string id="SlowlinkDefaultToAsync">Muuta ryhmäkäytäntö suorittamaan käsittely asynkronisesti, kun hidas verkkoyhteys havaitaan.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Tämä käytäntö ohjaa ryhmäkäytännön ohittamaan synkronista käsittelyä (tietokoneet odottavat, kunnes verkko on alustettu täysin tietokonetta käynnistettäessä ja käyttäjän kirjautuessa sisään) edellyttävien asiakaspuolten laajennusten käsittelyn, kun hidas verkkoyhteys havaitaan.  
- 
-Jos otat tämän käytäntöasetuksen käyttöön, kun hidas verkkoyhteys havaitaan, ryhmäkäytäntö suorittaa käsittelyn aina asynkronisesti.
-Asiakastietokoneet eivät odota verkon täyttä alustumista tietokonetta käynnistettäessä ja käyttäjän kirjautuessa sisään. Nykyisten käyttäjien kirjautumiseen käytetään välimuistiin tallennettuja tunnistetietoja, mikä nopeuttaa kirjautumista sisään. Ryhmäkäytäntö otetaan käyttöön taustalla sen jälkeen, kun verkko on käytettävissä.   
-Huomaa, että koska kyseessä on taustapäivitys, asynkronista käsittelyä edellyttäviä laajennuksia, kuten ohjelmistoasennusta, kansion uudelleenohjausta tai asemamäärityksiä, ei toteuteta.
- 
-Huomautus: kahdessa tapauksessa ryhmäkäytäntö käsitellään kuitenkin synkronisesti, vaikka tämä käytäntöasetus olisikin otettu käyttöön:
-1 – Ensimmäisen tietokoneen käynnistyksen yhteydessä sen jälkeen, kun asiakastietokone on liitetty toimialueeseen.
-2 – Jos Odota aina verkkoa käynnistyksessä ja kirjautumisessa -käytäntöasetus on otettu käyttöön.
- 
-Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, hitaan verkkoyhteyden havaitseminen ei vaikuta siihen, suorittaako ryhmäkäytäntö käsittelyn synkronisesti vai asynkronisesti.
+      <string id="SlowlinkDefaultToAsync_Help">Tämä käytäntö ohjaa ryhmäkäytännön ohittamaan synkronista käsittelyä (tietokoneet odottavat, kunnes verkko on alustettu täysin tietokonetta käynnistettäessä ja käyttäjän kirjautuessa sisään) edellyttävien asiakaspuolten laajennusten käsittelyn, kun hidas verkkoyhteys havaitaan.
 
-      
+Jos otat tämän käytäntöasetuksen käyttöön, kun hidas verkkoyhteys havaitaan, ryhmäkäytäntö suorittaa käsittelyn aina asynkronisesti.
+Asiakastietokoneet eivät odota verkon täyttä alustumista tietokonetta käynnistettäessä ja käyttäjän kirjautuessa sisään. Nykyisten käyttäjien kirjautumiseen käytetään välimuistiin tallennettuja valtuustietoja,
+mikä nopeuttaa kirjautumista sisään. Ryhmäkäytäntö otetaan käyttöön taustalla sen jälkeen, kun verkko on käytettävissä.
+Huomaa, että koska kyseessä on taustapäivitys, asynkronista käsittelyä edellyttäviä laajennuksia, kuten ohjelmistoasennusta, kansioiden uudelleenohjausta
+tai asemamäärityksiä, ei toteuteta.
+
+Huomautus: kahdessa tapauksessa ryhmäkäytäntö käsitellään kuitenkin synkronisesti, vaikka tämä käytäntöasetus olisikin otettu käyttöön:
+1 - Ensimmäisen tietokoneen käynnistyksen yhteydessä sen jälkeen, kun asiakastietokone on liitetty toimialueeseen.
+2 - Jos Odota aina verkkoa käynnistyksessä ja kirjautumisessa -käytäntöasetus on otettu käyttöön.
+
+Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, hitaan verkkoyhteyden havaitseminen ei vaikuta siihen, suorittaako ryhmäkäytäntö käsittelyn synkronisesti vai asynkronisesti.
 
       </string>
       <string id="DisableLGPOProcessing">Poista paikallisten ryhmäkäytäntöobjektien käsittely käytöstä</string>
@@ -162,7 +176,7 @@ Huomautus: Microsoft suosittelee, että määrität tämän asetuksen toimialuee
 Jos otat tämän käytäntöasetuksen käyttöön, ryhmäkäytäntö käyttää tätä järjestelmänvalvojan määrittämää enimmäisodotusaikaa ja ohittaa mahdolliset oletusarvon mukaiset tai järjestelmän laskemat odotusajat.
 
 Jos poistat tämän käytäntöasetuksen käytöstä tai et määritä sitä, ryhmäkäytäntö käyttää oletusodotusaikaa 30 sekuntia Windows Vista -tietokoneissa. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Salli toimialuepuuryhmien väliset käyttäjäkäytännöt ja palvelimessa sijaitsevat käyttäjäprofiilit</string>

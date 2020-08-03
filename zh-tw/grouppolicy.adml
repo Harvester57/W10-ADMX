@@ -12,6 +12,32 @@
       <string id="FontMitigation_Off">不封鎖未受信任的字型</string>
       <string id="FontMitigation_Audit">記錄事件，而不封鎖未受信任的字型</string>
 
+	  <string id="ProcessMitigationOptions_List">處理程序安全防護選項</string>
+      <string id="ProcessMitigationOptions_List_Help">
+        此安全性功能提供覆寫個別處理程序 MitigationOptions 設定的方式。這可以用來加強一些應用程式特定安全性原則。應用程式名稱是以 [值] 名稱的方式指定，包含副檔名。[值] 是以位元欄位的方式指定，包含特定位置中的一系列旗標。位元可設定為 0 (強制關閉設定)、1 (強制開啟設定) 或 ? (設定在 GPO 評估前保留其現有值)。可辨識的位元位置包括:
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
+        針對子處理程序啟用資料執行防止 (DEP)
+
+        PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
+        針對子處理程序啟用 DEP-ATL Thunk 模擬。DEP-ATL Thunk 模擬會造成系統攔截來自 Active Template Library (ATL) Thunk 層的 NX 錯誤。
+
+        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        針對子處理程序啟用結構化例外狀況處理常式覆寫保護 (SEHOP)。SEHOP 會封鎖使用結構化例外狀況處理常式 (SEH) 覆寫技術的惡意探索。
+
+        PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
+        強制的位址空間配置隨機載入 (ASLR) 原則會透過似乎於載入時發生映像基底衝突的方式，強制重訂不相容於動態基底之映像的基底。若需要重新配置，將不會載入不具備基底重新配置區段的映像。
+
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
+        PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
+        由下而上的隨機載入原則 (包含堆疊隨機載入選項) 會造成使用隨機位置做為最低使用者位址。
+
+        例如，若要啟用 PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE 與 PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON，請停用 PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF，並將所有其他選項保留為其預設值，指定下列值：
+        ???????????????0???????1???????1
+
+        將此處未指定的旗標設定為 ? 以外的任何值會導致未定義的行為。
+</string>
+
       <string id="ResetDfsClientInfoDuringRefreshPolicy">啟用原則重新整理期間的 AD/DFS 網域控制站同步</string>
       <string id="ResetDfsClientInfoDuringRefreshPolicy_Help">啟用這個設定會讓群組原則用戶端連線到 DFS 共用的網域控制站，這個網域控制站與 Active Directory 使用的網域控制站相同。
 
@@ -24,21 +50,60 @@
 
 
 </string>
+      <string id="EnableCDP">在此裝置上繼續體驗</string>
+      <string id="EnableCDP_Help">
+此原則設定決定是否允許 Windows 裝置參與跨裝置體驗 (繼續體驗)。
+
+若啟用此原則設定，此 Windows 裝置將可由屬於相同使用者的其他 Windows 裝置探索，而且可以參與跨裝置體驗。
+
+若停用此原則設定，此 Windows 裝置將無法由其他裝置探索，而且無法參與跨裝置體驗。
+
+若未設定此原則設定，預設行為取決於 Windows 版本。對此原則所做的變更將在重新開機之後生效。
+      </string>
+      <string id="EnableMMX">此裝置上連結手機與電腦</string>
+      <string id="EnableMMX_Help">
+這個原則讓 IT 系統管理員可以關閉連結手機與電腦功能，以繼續閱讀、寄送電子郵件及其他需要手機與電腦連結的工作。
+
+若啟用此原則設定，Windows 裝置將能夠在「連結手機與電腦」功能中註冊，並參與「在電腦端繼續」體驗。
+
+若停用此原則設定，則 Windows 裝置不得連結到手機，而會將其自身從任何已連結手機的裝置清單中移除，並且無法參與「在電腦端繼續」體驗。
+
+若未設定此原則設定，預設行為取決於 Windows 版本。對此原則所做的變更將在重新開機之後生效。
+      </string>
+      <string id="EnableAppUriHandlers">設定透過 App URI 處理常式進行 Web 對 App 連結</string>
+      <string id="EnableAppUriHandlers_Help">
+此原則設定決定 Windows 是否支援透過 App URI 處理常式進行 Web 對 App 連結。
+
+啟用此原則設定將會啟用 Web 對 App 連結，使應用程式可透過 http(s) URI 啟動。
+
+停用此原則將會停用 Web 對 App 連結，以致將由預設瀏覽器開啟 http(s) URI 而不會啟動相關聯的應用程式。
+
+若未設定此原則設定，預設行為取決於 Windows 版本。對此原則所做的變更將在重新開機之後生效。
+      </string>
+      <string id="Fonts">字型</string>
+      <string id="EnableFontProviders">啟用字型提供者</string>
+      <string id="EnableFontProviders_Help">
+        此原則設定決定 Windows 是否能從線上字型提供者下載字型與字型類別目錄資料。
+
+        若啟用此原則設定，Windows 會定期查詢線上字型提供者以判斷是否有新的字型類別目錄可用。Windows 可能也會視需要下載字型資料以設定文字格式或轉譯文字。
+
+        若停用此原則設定，Windows 不會連線到線上字型提供者，而只會列舉本機安裝的字型。
+
+        若未設定此原則設定，預設行為取決於 Windows 版本。對此原則所做的變更將在重新開機之後生效。
+      </string>
       <string id="EnableLogonOptimization">設定群組原則快取</string>
       <string id="EnableLogonOptimization_Help">
-        
         這個原則設定可讓您設定群組原則快取行為。
-        
-        如果您啟用或未設定這個原則設定，則每個背景處理工作階段之後，群組原則將會快取原則資訊。這個快取會儲存適用的 GPO 及其中包含的設定。當群組原則在同步前景模式下執行時，它會參照這個快取以便執行地更快。讀取快取時，群組原則會嘗試連線登入網域控制站來決定連結速度。當群組原則在背景模式或非同步前景模式下執行時，它會持續下載最新版的原則資訊，並使用頻寬預估來決定低速連結閾值。(請參閱 [設定群組原則低速連結偵測] 原則設定，設定非同步前景行為)。
-        
+
+        如果您啟用或未設定這個原則設定，則每個背景處理工作階段之後，群組原則將會快取原則資訊。這個快取會儲存適用的 GPO 及其中包含的設定。當群組原則在同步前景模式下執行時，它會參照這個快取以便執行地更快。讀取快取時，群組原則會嘗試連線登入網域控制站來決定連結速度。當群組原則在背景模式或非同步前景模式下執行時，它會持續下載最新版的原則資訊，並使用頻寬預估來決定低速連結閾值。(請參閱「設定群組原則低速連結偵測」原則設定，設定非同步前景行為)。
+
         這個原則設定中定義的低速連結值可決定群組原則將等候網域控制站回應多長時間，才將連結速度報告為低速。預設值為 500 毫秒。
-        
+
         這個原則設定中定義的逾時值可決定群組原則將等候網域控制站回應多長時間，才決定沒有網路連線能力。這會停止目前的群組原則處理。下次建立與網域控制站的連線時，群組原則將會在背景執行。將這個值設得太高，會讓使用者在開機或登入時等候太久時間。預設值為 5000 毫秒。
-        
-        如果您停用這個原則設定，群組原則用戶端將不會快取適用的 GPO 或 GPO 內包含的設定。當群組原則同步執行時，它會從網路下載最新版的原則，並使用頻寬預估來決定低速連結閾值。(請參閱 [設定群組原則低速連結偵測] 原則設定，設定非同步前景行為)。
-      
+
+        如果您停用這個原則設定，群組原則用戶端將不會快取適用的 GPO 或 GPO 內包含的設定。當群組原則同步執行時，它會從網路下載最新版的原則，並使用頻寬預估來決定低速連結閾值。(請參閱「設定群組原則低速連結偵測」原則設定，設定非同步前景行為)。
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">啟用伺服器的群組原則快取</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -49,54 +114,48 @@
         如果您停用或未設定這個原則設定，群組原則用戶端將不會快取適用的 GPO 或 GPO 內包含的設定。當群組原則同步執行時，它會從網路下載最新版的原則，並使用頻寬預估來決定低速連結閾值。(請參閱 [設定群組原則低速連結偵測] 原則設定，設定非同步前景行為)。
       
       </string>
-      
+
       <string id="LogonScriptDelay">設定登入指令碼延遲</string>
       <string id="LogonScriptDelay_Help">
-        
-        輸入 “0” 來停用登入指令碼延遲。
-        
+        輸入 "0" 來停用登入指令碼延遲。
+
         這個原則設定可讓您設定登入後群組原則用戶端要等候多長時間才執行指令碼。
-        
+
         根據預設，群組原則用戶端會等候五分鐘才執行登入指令碼。這種方式有助於防止磁碟爭用以建立有回應的桌面環境。
-        
+
         如果您啟用這個原則設定，群組原則將等候一段指定的時間，然後才執行登入指令碼。
-        
+
         如果您停用這個原則設定，群組原則將在登入後立即執行指令碼。
-        
+
         如果您未設定這個原則設定，群組原則將等候五分鐘，然後才執行登入指令碼。
-      
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">將直接存取連線設定成快速網路連線</string>
       <string id="SlowLinkDefaultForDirectAccess_Help">這個原則設定可讓系統管理員定義直接存取連線，將其視為快速網路連線，以便套用和更新群組原則。
- 
+
 群組原則偵測直接存取連線的頻寬速度時，這個偵測有時候無法提供有關頻寬速度的任何資訊。如果群組原則偵測到頻寬速度，群組原則將會遵循一般規則，評估直接存取連線是否為快速或低速的網路連線。如果沒有偵測到頻寬速度，群組原則將預設它是低速網路連線。這個原則設定可讓系統管理員選擇是否覆寫低速網路連線的預設值，而不是在無法判定網路頻寬速度的情況下預設使用快速網路連線。
- 
-注意: 當群組原則偵測到低速網路連線時，群組原則將只會處理設定在低速連結 (低速網路連線) 上處理的用戶端延伸。 
- 
+
+注意: 當群組原則偵測到低速網路連線時，群組原則將只會處理設定在低速連結 (低速網路連線) 上處理的用戶端延伸。
+
 如果您啟用這個原則，當群組原則無法判定直接存取上的頻寬速度時，群組原則會將網路連線評估為快速連結，並處理所有用戶端延伸。
- 
+
 如果您停用或未設定這個設定，群組原則會將網路連線評估為低速連結，而只處理設定在低速連結上處理的用戶端延伸。
-          
-      
-          
+
       </string>
      <string id="SlowlinkDefaultToAsync">變更群組原則處理，在偵測到低速網路連線時非同步執行。</string>
-      <string id="SlowlinkDefaultToAsync_Help">在偵測到低速網路連線時，這個原則會指示群組原則處理，跳過需要同步處理的任何用戶端延伸處理 (也就是說，電腦啟動和使用者登入期間，電腦是否等候網路完全初始化)。 
- 
+      <string id="SlowlinkDefaultToAsync_Help">在偵測到低速網路連線時，這個原則會指示群組原則處理，跳過需要同步處理的任何用戶端延伸處理 (也就是說，電腦啟動和使用者登入期間，電腦是否等候網路完全初始化)。
+
 如果您啟用這個原則設定，則偵測到低速網路連線時，群組原則處理永遠會以非同步方式執行。
 用戶端電腦在啟動和登入時不會等候網路完全初始化。現有使用者會使用快取的認證來登入，
-這樣可以縮短登入時間。在網路可用之後，群組原則會於背景套用。  
+這樣可以縮短登入時間。在網路可用之後，群組原則會於背景套用。
 請注意，因為這是背景更新，所以不會套用像是軟體安裝、資料夾重新導向
 及磁碟機對應喜好設定延伸等需要同步處理的延伸。
- 
+
 注意: 即使啟用這個原則設定，仍有兩個情況會導致群組原則進行同步處理:
 1 - 用戶端電腦加入網域之後首次啟動電腦。
-2 - 如果已啟用 [永遠在電腦啟動及登入時等待網路啟動] 原則設定。
- 
-如果您停用或未設定這個原則設定，偵測到低速網路連線對群組原則是否同步或非同步處理並沒有影響。
+2 - 如果已啟用「永遠在電腦啟動及登入時等待網路啟動」原則設定。
 
-      
+如果您停用或未設定這個原則設定，偵測到低速網路連線對群組原則是否同步或非同步處理並沒有影響。
 
       </string>
       <string id="DisableLGPOProcessing">關閉本機群組原則物件處理</string>
@@ -117,7 +176,7 @@
 如果您啟用這個原則設定，群組原則會使用這個由系統管理員設定的最長等待時間，並覆寫任何預設或系統計算的等待時間。
 
 如果您停用或未設定這個原則設定，群組原則會在執行 Windows Vista 作業系統的電腦上使用預設的等候時間 (30 秒)。
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">允許交互樹系使用者原則和漫遊使用者設定檔</string>
@@ -491,6 +550,12 @@ RSoP 記錄已套用到用戶端電腦的原則群組設定資訊。這些資訊
     <presentationTable>
       <presentation id="Font_List">
         <dropdownList refId="FontMitigation_DL" defaultItem="0" noSort="true">緩和選項</dropdownList>
+      </presentation>
+      <presentation id="ProcessMitigationOptions_List">
+        <listBox refId="ProcessMitigationOptionsList">處理程序安全防護選項</listBox>
+      </presentation>
+      <presentation id="FontProvidersPolicy">
+        <dropdownList refId="FontProvidersOption" noSort="true" defaultItem="0">必須允許「Windows 字型快取服務」從線上提供者下載字型與字型類別目錄資料。</dropdownList>
       </presentation>
       <presentation id="SyncModeThreshold">
         <decimalTextBox refId="SyncModeSlowLinkThreshold1" defaultValue="500">低速連結值:[數字欄位] 毫秒</decimalTextBox>

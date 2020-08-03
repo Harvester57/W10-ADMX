@@ -49,7 +49,21 @@
 
       Om du inaktiverar eller inte konfigurerar den här principinställningen aktiveras energisparfunktionerna när datorn försätts i anslutet vänteläge.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Låt Windows göra en mjuk frånkoppling av en dator från ett nätverk</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Med den här principinställningen bestämmer du om Windows gör en mjuk frånkoppling av en dator från ett nätverk.
+
+      Om principinställningen är aktiverad eller inte konfigurerad gör Windows en mjuk frånkoppling av en dator från ett nätverk om den fastställer att datorn inte längre bör vara ansluten till nätverket.
+
+      Om principinställningen är inaktiverad kopplar Windows från en dator från ett nätverk omedelbart om den fastställer att datorn inte längre bör vara ansluten till nätverket.
+
+      När mjuk frånkoppling är aktiverat:
+      - När Windows fastställer att datorn inte längre bör vara ansluten till ett nätverk väntar den på att trafiken i det nätverket ska lägga sig. Den befintliga TCP-sessionen fortsätter oavbrutet.
+      - Windows kontrollerar sedan trafiknivån i nätverket med jämna mellanrum. Om trafiknivån är över en viss tröskel vidtas ingen åtgärd. Datorn förblir ansluten till nätverket och fortsätter använda det. Om till exempel nätverksanslutningen används för att ladda ned filer från Internet fortsätter filerna att laddas ned via den nätverksanslutningen.
+      - När trafiken sjunker under tröskeln så kopplar Windows från datorn från nätverket. Appar som håller en nätverksanslutning aktiv även om de inte aktivt använder den (t.ex. e-postappar) kan tappa sin anslutning. Om det händer bör de apparna återansluta via ett annat nätverk. 
+
+      Den här principinställningen är beroende av andra grupprincipinställningar. Om till exempel Minimera antalet samtidiga anslutningar till Internet eller en Windows-domän är inaktiverad kopplar Windows inte från några nätverk.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

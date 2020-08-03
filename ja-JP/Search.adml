@@ -71,13 +71,15 @@
 
 このポリシー設定を有効にした場合、次の 3 つのセーフサーチ設定のうち 1 つを指定できます。ユーザーはこの設定を変更できなくなります。
 
-    - 厳密: 検索結果から成人向けのテキスト、画像、およびビデオを除外します。
+    -厳密: 検索結果から成人向けのテキスト、画像、およびビデオを除外します。
 
-    - 中程度: 検索結果から成人向けの画像とビデオは除外しますが、テキストは除外しません。
+    -中程度: 検索結果から成人向けの画像とビデオは除外しますが、テキストは除外しません。
 
-    - オフ: 検索結果からアダルト コンテンツを除外しません。
+    -オフ: 検索結果からアダルト コンテンツを除外しません。
 
-このポリシー設定を無効にした場合、または構成しなかった場合、ユーザーがセーフサーチ設定を指定できます。</string>
+このポリシー設定を無効にした場合、または構成しなかった場合、ユーザーがセーフサーチ設定を指定できます。
+
+Windows 10 ユーザーは Search/DoNotUseWebResults を使用する必要があります。</string>
       <string id="SharePrivacyAllAndLocation">ユーザー情報と位置情報</string>
       <string id="SharePrivacyAll">ユーザー情報のみ</string>
       <string id="SharePrivacyAnonymous">匿名情報</string>
@@ -283,6 +285,15 @@ Cortana が無効になっている場合でも、ユーザーは検索機能を
       <string id="ExplainAllowSearchToUseLocation">このポリシー設定を使用して、検索と Cortana が位置情報を使用した検索結果を表示できるかどうかを指定します。
  
 このポリシー設定を有効にした場合、検索と Cortana が位置情報にアクセスできます。</string>
+      <string id="AllowCloudSearch">クラウド検索を許可する</string>
+      <string id="AllowCortanaInAADPathOOBE">AAD アカウントでの OOBE に Cortana ページを許可する</string>
+      <string id="ExplainAllowCloudSearch">検索と Cortana による、OneDrive や SharePoint のようなクラウド ソースの検索を許可します</string>
+      <string id="ExplainCortanaAAD">既定の Windows セットアップ時に Cortana オプトイン ページを許可する</string>
+      <string id="AllowCloudSearchDisabled">クラウド検索を無効にする</string>
+      <string id="AllowCortanainAADDisabled">AAD で Cortana ページを無効にする</string>
+      <string id="AllowCortanainAADEnabled">AAD で Cortana ページを有効にする</string>
+      <string id="AllowCloudSearchEnabled">クラウド検索を有効にする</string>
+      <string id="AllowCloudSearchControlledByUser">ユーザーによる選択</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -365,6 +376,12 @@ Cortana が無効になっている場合でも、ユーザーは検索機能を
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">既定のセーフサーチ設定</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">クラウド検索の設定</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">AAD 設定での Cortana</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

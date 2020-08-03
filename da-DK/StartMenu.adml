@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">Som minimum Windows Server 2008 R2 eller Windows 7. Er ikke understøttet på Windows 10 eller senere</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 og Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">Ryd listen over senest anvendte programmer for nye brugere</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">Hvis du aktiverer denne politikindstilling, bliver listen over senest anvendte programmer tom for hver ny bruger.
 
@@ -170,6 +171,12 @@ Hvis du aktiverer denne politikindstilling, fjernes knappen Strømstyring og kom
 Hvis du deaktiverer denne politikindstilling eller undlader at konfigurere den, vil knappen Strømstyring og kommandoerne Luk computeren, Genstart, Dvale og Standby være tilgængelige i menuen Start. Knappen Strømstyring i skærmen Windows Sikkerhed er også tilgængelig.
 
 Bemærk! Tredjepartsprogrammer, som er certificeret som kompatible med Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP eller Windows 2000 Professional, skal understøtte denne politikindstilling.</string>
+      <string id="HidePowerOptions">Fjern og nægt adgang til kommandoerne Luk computeren, Genstart, Slumre og Dvale</string>
+      <string id="HidePowerOptions_Help">Denne politikindstilling forhindrer brugerne i at udføre følgende kommandoer fra Windows-sikkerhedsskærmen, logonskærmen og menuen Start: Luk computeren, Genstart, Slumre og Dvale. Politikindstilling forhindrer ikke brugerne i at køre Windows-baserede programmer, der udfører disse funktioner.
+
+Hvis du aktiverer politikindstillingen, fjernes kommandoerne Luk, Genstart, Slumre og Dvale fra menuen Start. Tænd/sluk-knappen fjernes også fra Windows-sikkerhedsskærmen, som vises, når du trykker på CTRL+ALT+DELETE, og fra logonskærmen.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vil Tænd/sluk-knappen og kommandoerne Luk computeren, Genstart, Slumre og Dvale være tilgængelige i menuen Start. Tænd/sluk-knappen på Windows-sikkerheds- og logonskærmene er også tilgængelig.</string>
       <string id="NoCommonGroups">Fjern almindelige programgrupper fra menuen Start</string>
       <string id="NoCommonGroups_Help">Fjerner elementer i profilen Alle brugere fra menuen Programmer i menuen Start.
 
@@ -222,12 +229,22 @@ Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, spor
 Se også disse relaterede politikindstillinger: "Fjern listen over ofte anvendte programmer fra menuen Start" og "Slå personlige menuer fra".
 
 Denne politikindstilling forhindrer ikke, at brugere kan fastgøre programmer til menuen Start eller proceslinjen. Se politikindstillingerne "Fjern liste over faste programmer fra menuen Start" og "Tillad ikke, at programmer fastgøres til proceslinjen".</string>
+
       <string id="NoMoreProgramsList">Fjern listen Alle programmer fra menuen Start</string>
-      <string id="NoMoreProgramsList_Help">Du kan bruge politikindstillingen til at fjerne listen Alle programmer fra menuen Start.
+      <string id="NoMoreProgramsList_Help">Hvis du aktiverer denne indstilling, vil startmenuen enten skjule eller fjerne listen Alle apps i menuen Start.
 
-Hvis du aktiverer denne politikindstilling, fjernes elementet "Alle programmer" fra den enkle version af menuen Start.  Startskærmen viser Alle apps, men den vil kun indeholde de elementer, der er fastgjort til start.
+Hvis du vælger "Skjul", bliver applisten ikke vist ud for de fastgjorte felter i Start. Knappen "Alle apps" vises på Start, så listen med alle apps kan åbnes. Dette er svarer til at deaktivere "Vis applisten i menuen Start" under Indstillinger.
 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, forbliver elementet "Alle programmer" i den enkle version af menuen Start.</string>
+Hvis du vælger "Skjul og deaktiver indstilling", sker der det samme som med indstillingen Skjul, og desuden deaktiveres "Vis applisten i menuen Start" under Indstillinger, så brugerne ikke kan aktivere funktionen.
+
+Hvis du vælger "Fjern og deaktiver indstilling", fjernes listen Alle apps fra Start, og "Vis applisten i menuen Start" deaktiveres under indstillinger, så brugerne ikke kan aktivere funktionen. Vælg denne indstilling for at bevare kompatibiliteten med tidligere versioner af Windows.
+
+Hvis du deaktiverer eller undlader at konfigurere denne indstilling, vil listen Alle apps som standard være synlig, og brugerne kan ændre "Vis applisten i menuen Start" under Indstillinger.</string>
+      <string id="APPLIST_NONE">Ingen</string>
+      <string id="APPLIST_COLLAPSE">Skjul</string>
+      <string id="APPLIST_COLLAPSESETTING">Skjul og deaktiver indstilling</string>
+      <string id="APPLIST_REMOVESETTING">Fjern og deaktiver indstilling</string>    
+
       <string id="NoNetAndDialupConnect">Fjern Netværksforbindelser fra menuen Start</string>
       <string id="NoNetAndDialupConnect_Help">Du kan bruge denne politikindstilling til at fjerne Netværksforbindelser fra menuen Start.
 
@@ -515,6 +532,18 @@ Hvis du undlader at konfigurere denne politikindstilling, kan brugere slå værk
 Hvis du aktiverer denne politikindstilling, viser menuen Start ikke et link til mappen Overførsler.
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, er linket Overførsler tilgængeligt i menuen Start.</string>
+      <string id="NoStartMenuExplorerPlace">Fjern linket Stifinder fra linjen Steder på menuen Start</string>
+      <string id="NoStartMenuExplorerPlace_Help">Denne politikindstilling giver dig mulighed at fjerne linket Stifinder fra linjen Steder på menuen Start.
+
+Hvis du aktiverer denne politikindstilling, vises Stifinder ikke på listen Steder på menuen Start.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan Stifinder vises på listen Steder på menuen Start.</string>
+      <string id="NoStartMenuSettingsPlace">Fjern linket Indstillinger fra linjen Steder på menuen Start</string>
+      <string id="NoStartMenuSettingsPlace_Help">Denne politikindstilling giver dig mulighed at fjerne linket Indstillinger fra linjen Steder på menuen Start.
+
+Hvis du aktiverer denne politikindstilling, vises Indstillinger ikke på listen Steder på menuen Start.
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan indstillinger vises på listen Steder på menuen Start.</string>
       <string id="NoStartMenuRecordedTV">Fjern linket Optaget tv fra menuen Start</string>
       <string id="NoStartMenuRecordedTV_Help">Du kan bruge politikindstillingen til at fjerne linket Optaget tv fra menuen Start.
 
@@ -575,8 +604,23 @@ Hvis du slår denne politikindstilling fra eller undlader at konfigurere den, vi
 Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, vælger Windows automatisk størrelsen baseret på hardwarens formfaktor, og brugerne vil kunne ændre størrelsen på Start under Indstillinger.</string>
       <string id="ForceLauncherSize_Collapsed">Menuen Start</string>
       <string id="ForceLauncherSize_Expanded">Start i fuld skærm</string>
+      <string id="HidePeopleBar_DisplayName">Fjern værktøjslinjen Personer fra proceslinjen</string>
+      <string id="HidePeopleBar_ExplainText">Med denne politik kan du fjerne værktøjslinjen Personer fra proceslinjen og dermed deaktivere funktionen Mine kontakter.
+
+Hvis du aktiverer denne politik, bliver ikonet Personer fjernet fra proceslinjen, den tilsvarende indstillingsknap fjernes fra siden med indstillinger for proceslinjen, og brugerne vil ikke kunne fastgøre personer til proceslinjen.</string>
+      <string id="HideRecentlyAddedApps">Fjern listen "Senest tilføjede" fra menuen Start</string>
+      <string id="HideRecentlyAddedApps_Help">Med denne politik kan du undgå, at menuen Start viser en liste over senest installerede programmer.
+
+Hvis du aktiverer denne politik, vises listen "Senest tilføjede" ikke længere på menuen Start. Den tilsvarende indstilling deaktiveres også i Indstillinger.</string>
+      <string id="DisableContextMenusInStart">Deaktiver genvejsmenuer i menuen Start</string>
+      <string id="DisableContextMenusInStart_Help">Med denne politikindstilling kan du forhindre brugere i at kunne åbne genvejsmenuer i menuen Start.
+
+Hvis du aktiverer denne politik, ignoreres start af genvejsmenuer i menuen Start.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">Vælg en af følgende handlinger</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">Vælg en af følgende handlinger</dropdownList>
       </presentation>

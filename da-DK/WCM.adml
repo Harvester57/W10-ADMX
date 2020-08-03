@@ -48,7 +48,21 @@
 
       Hvis denne politikindstilling ikke er konfigureret, eller den er deaktiveret, aktiveres strømstyring, når computeren går i tilsluttet standbytilstand.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Gør det muligt for Windows at foretage en blød afbrydelse af forbindelsen til en computer fra et netværk</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Denne politikindstilling bestemmer, om Windows foretager en blød afbrydelse af forbindelsen mellem en computer og et netværk.
+
+      Hvis indstillingen er aktiveret eller ikke er konfigureret, foretages en blød afbrydelse af forbindelsen mellem en computer og et netværk, når Windows afgør, at computeren ikke længere skal have forbindelse til et netværk.
+
+      Hvis politikindstillingen er deaktiveret, afbrydes forbindelsen mellem en computer og et netværk straks, når Windows afgør, at computeren ikke længere skal have forbindelse til netværket.
+
+      Når blød afbrydelse er aktiveret:
+      - Når Windows afgør, at computeren ikke længere skal have forbindelse til et netværk, afventes, at trafikken falder til ro på dette netværk. Den eksisterende TCP-session fortsætter uden afbrydelse.
+      - Derefter kontrollerer Windows trafikniveauet på netværket med jævne mellemrum. Hvis trafikniveauet er over en bestemt tærskel, udføres der ingen yderligere handling. Computeren bevarer forbindelsen til netværket og fortsætter med at bruge det. Hvis netværksforbindelsen for eksempel i øjeblikket bruges til at downloade filer fra internettet, vil filerne fortsat blive downloadet ved hjælp af denne netværksforbindelse.
+      - Når netværkstrafikken falder til under denne tærskelværdi, afbrydes computerens forbindelse til netværket. Apps, der bevarer en netværksforbindelse aktiv, også selvom de ikke bruger den aktivt (for eksempel mailapps) risikerer at miste forbindelsen. Hvis dette sker, skal disse apps genoprette deres forbindelse via et andet netværk. 
+
+      Politikindstillingen, afhænger af andre indstillinger for gruppepolitik. Hvis "Minimer antallet af samtidige forbindelser til internettet eller et Windows-domæne" for eksempel er deaktiveret, vil Windows ikke afbryde forbindelsen til noget netværk.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

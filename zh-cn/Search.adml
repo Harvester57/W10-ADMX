@@ -69,15 +69,17 @@
       <string id="SafeSearch">为“搜索”设置安全搜索设置</string>
       <string id="ExplainSafeSearch">通过此策略设置，可以控制在“搜索”中执行查询时使用的安全搜索设置。
 
-如果启用此策略设置，则可以指定以下三个安全搜索设置之一，用户无法更改这些设置：
+如果启用此策略设置，则可以指定以下三个安全搜索设置之一，用户无法更改这些设置:
 
-    -严格：从搜索结果中过滤掉成人文字、图像以及视频；
+    -Windows 更新: 从搜索结果中过滤掉成人文字、图像以及视频；
 
     -适中：从搜索结果中过滤成人图像和视频，但不过滤文字；
 
     -关闭：不从搜索结果中过滤成人内容。
 
-如果禁用或未配置此策略设置，则用户可以指定安全搜索设置。</string>
+如果禁用或未配置此策略设置，则用户可以指定安全搜索设置。
+
+Windows 10 用户应使用 Search/DoNotUseWebResults</string>
       <string id="SharePrivacyAllAndLocation">用户信息和位置</string>
       <string id="SharePrivacyAll">仅用户信息</string>
       <string id="SharePrivacyAnonymous">匿名信息</string>
@@ -272,11 +274,26 @@ http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
  
 如果你启用此设置或不配置此设置，Cortana 就可以在设备上使用。如果你禁用此设置，Cortana 就会关闭。
  
-在关闭 Cortana 后，用户仍可以使用搜索来查找设备和 Internet 上的内容。</string>
+在关闭 Cortana 后，用户仍可以使用搜索来查找设备上的内容。</string>
+      <string id="AllowCortanaAboveLock">允许在锁屏界面上方使用 Cortana</string>
+      <string id="ExplainAllowCortanaAboveLock">此策略设置决定在系统锁定时用户是否可以使用语音与 Cortana 交互。
+
+如果启用或未配置此设置，则在系统锁定时用户可以使用语音与 Cortana 交互。
+
+如果禁用此设置，则需先解除系统锁定，然后用户才能使用语音与 Cortana 交互。</string>
       <string id="AllowSearchToUseLocation">允许搜索和 Cortana 使用位置</string>
       <string id="ExplainAllowSearchToUseLocation">此策略设置指定是否允许搜索和 Cortana 提供位置感知搜索和 Cortana 结果。
  
 如果启用此选项，则搜索和 Cortana 可以访问位置信息。</string>
+      <string id="AllowCloudSearch">允许云搜索</string>
+      <string id="AllowCortanaInAADPathOOBE">在 AAD 帐户的 OOBE 中允许使用 Cortana 页面</string>
+      <string id="ExplainAllowCloudSearch">允许搜索且允许 Cortana 搜索 OneDrive 和 SharePoint 等云资源</string>
+      <string id="ExplainCortanaAAD">在 Windows 安装程序全新体验过程中允许使用 Cortana 选择加入页面</string>
+      <string id="AllowCloudSearchDisabled">禁止云搜索</string>
+      <string id="AllowCortanainAADDisabled">在 AAD 中禁用 Cortana 页面</string>
+      <string id="AllowCortanainAADEnabled">在 AAD 中启用 Cortana 页面</string>
+      <string id="AllowCloudSearchEnabled">允许云搜索</string>
+      <string id="AllowCloudSearchControlledByUser">所选用户</string>
     </stringTable>
     <presentationTable>
       <presentation id="RichAttachmentPreviews">
@@ -359,6 +376,12 @@ http://sitename/_layouts/XXXX/searchresults.aspx?SearchString=$w
       </presentation>
       <presentation id="SafeSearch">
         <dropdownList refId="SafeSearch_Dropdown" noSort="true" defaultItem="1">默认安全搜索设置</dropdownList>
+      </presentation>
+      <presentation id="AllowCloudSearch">
+        <dropdownList refId="AllowCloudSearch_Dropdown" noSort="true" defaultItem="2">云搜索设置</dropdownList>
+      </presentation>
+      <presentation id="AllowCortanaAAD">
+        <dropdownList refId="AllowCortanaAAD_Dropdown" noSort="true" defaultItem="0">AAD 设置中的 Cortana</dropdownList>
       </presentation>
     </presentationTable>
   </resources>

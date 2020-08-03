@@ -506,11 +506,11 @@ Poznámka: Pokud je doplněk uveden v nastavení zásad Seznam doplňků, nemoho
 Pokud toto nastavení povolíte, bude se aplikace Internet Explorer po chybě chovat stejně jako v systému Windows XP Professional Service Pack 1 a dřívějším, konkrétně dojde k vyvolání okna služby Zasílání zpráv o chybách systému Windows. Všechna ostatní nastavení zásad pro službu Zasílání zpráv o chybách systému Windows zůstávají v platnosti.
 
 Pokud toto nastavení zakážete nebo nenakonfigurujete, bude funkce zjišťování chyb pro správu doplňků plně funkční.</string>
-      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Nastavení této zásady umožňuje určit, zda budou uživatelé moci povolit nebo zakázat doplňky pomocí Správce doplňků.
+      <string id="IE_ExplainAddonManagement_RestrictExtensionManagement">Nastavení této zásady umožňuje určit, jestli budou uživatelé moct povolit nebo zakázat doplňky pomocí Správce doplňků.
 
-Pokud toto nastavení povolíte, nebudou uživatelé moci pomocí Správce doplňků povolit ani zakázat jednotlivé doplňky. Výjimkou budou pouze doplňky, které byly přidány do nastavení zásad Seznam doplňků tak, aby je mohli uživatelé spravovat. V takovém případě budou moci uživatelé nadále spravovat tyto doplňky pomocí Správce doplňků.
+Pokud toto nastavení povolíte, nebudou moct uživatelé povolit ani zakázat jednotlivé doplňky pomocí Správce doplňků.
 
-Pokud toto nastavení zakážete nebo nenakonfigurujete, příslušné ovládací prvky Správce doplňků budou uživatelům přístupné.</string>
+Pokud toto nastavení zakážete nebo nenakonfigurujete, příslušné ovládací prvky ve Správci doplňků budou pro uživatele přístupné.</string>
       <string id="IE_ExplainAddSearchProvider">Nastavení této zásady umožňuje přidat specifický seznam poskytovatelů vyhledávání do výchozího seznamu poskytovatelů vyhledávání uživatele. Za normálních okolností je možné poskytovatele přidávat z panelů nástrojů od jiných výrobců nebo při instalaci. Uživatel také může poskytovatele vyhledávání přidat z webu poskytovatele.
 
 Pokud toto nastavení povolíte, uživatel může přidávat a odebírat poskytovatele vyhledávání, ale pouze ze sady poskytovatelů uvedených v seznamu klíčů zásad pro poskytovatele vyhledávání (v klíči HKCU nebo HKLM\Software\policies\Microsoft\Internet Explorer\SearchScopes). Poznámka: Tento seznam lze vytvořit ze souboru vlastní šablony pro správu. Informace o vytváření souboru vlastní šablony pro správu naleznete v dokumentaci k aplikaci Internet Explorer v části týkající se poskytovatelů vyhledávání.
@@ -2886,6 +2886,34 @@ Pokud toto nastavení zásad povolíte, webové servery v zóně s vyšším ome
 Pokud toto nastavení zásad zakážete, potencionálně nebezpečné přesměrování nebude povoleno. Tato bezpečnostní funkce aplikace Internet Explorer bude pro tuto zónu povolena podle nastavení Ochrana před zvýšením úrovně zóny.
 
 Pokud toto nastavení zásad nenakonfigurujete, před provedením potencionálně nebezpečného přesměrování bude zobrazeno upozornění.</string>
+      <string id="IZ_PolicyAllowVBScript">Povolit spuštění jazyka VBScript v aplikaci Internet Explorer</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultDisable">Toto nastavení zásad umožňuje nastavit, zda lze na stránkách z dané zóny v aplikaci Internet Explorer spouštět jazyk VBScript.
+
+Pokud v rozevíracím seznamu vyberete možnost Povolit, jazyk VBScript bude možné spouštět bez uživatelského zásahu.
+
+Pokud vyberete možnost Dotázat se, budou uživatelé dotázáni, zda chtějí povolit spuštění jazyka VBScript.
+
+Pokud vyberete možnost Zakázat, nebude spouštění jazyka VBScript povoleno.
+
+Pokud toto nastavení zásad nenakonfigurujete či zakážete, bude spuštění jazyka VBScript zabráněno.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultEnable">Toto nastavení zásad umožňuje nastavit, zda lze na stránkách z dané zóny v aplikaci Internet Explorer spouštět jazyk VBScript.
+
+Pokud v rozevíracím seznamu vyberete možnost Povolit, jazyk VBScript bude možné spouštět bez uživatelského zásahu.
+
+Pokud vyberete možnost Dotázat se, budou uživatelé dotázáni, zda chtějí povolit spuštění jazyka VBScript.
+
+Pokud vyberete možnost Zakázat, nebude spouštění jazyka VBScript povoleno.
+
+Pokud toto nastavení zásad nenakonfigurujete či zakážete, jazyk VBScript se bude spouštět bez uživatelského zásahu.</string>
+      <string id="IZ_PolicyAllowVBScript_ExplainDefaultPrompt">Toto nastavení zásad umožňuje nastavit, zda lze na stránkách z dané zóny v aplikaci Internet Explorer spouštět jazyk VBScript.
+
+Pokud v rozevíracím seznamu vyberete možnost Povolit, bude jazyk VBScript možné spouštět bez uživatelského zásahu.
+
+Pokud vyberete možnost Dotázat se, budou uživatelé dotázáni, zda chtějí povolit spuštění jazyka VBScript.
+
+Pokud vyberete možnost Zakázat, nebude spouštění jazyka VBScript povoleno.
+
+Pokud toto nastavení zásad nenakonfigurujete či zakážete, budou uživatelé dotázáni, zda chtějí povolit spuštění jazyka VBScript.</string>
       <string id="IZ_ProxyByPass">Intranetové servery: Všechny servery nepoužívající proxy server.</string>
       <string id="IZ_RestrictedSitesZone">Zóna Servery s omezeným přístupem</string>
       <string id="IZ_RestrictedSitesZoneLockdown">Uzamčená zóna Servery s omezeným přístupem</string>
@@ -3088,13 +3116,21 @@ Pokud toto nastavení zásad zakážete, inteligentní rozklad obrázků bude za
 
 Pokud toto nastavení zásad nenakonfigurujete, může uživatel inteligentní rozklad obrázků zapnout nebo vypnout.</string>
       <string id="SmoothScrolling">Vypnout plynulé posouvání</string>
-      <string id="SmoothScrolling_Explain">Toto nastavení zásad určuje, zda bude plynulé posouvání použito k zobrazení obsahu předdefinovanou rychlostí.
+      <string id="SmoothScrolling_Explain">Toto nastavení zásad určuje, jestli se plynulé posouvání použije k zobrazení obsahu předdefinovanou rychlostí.
 
-Pokud toto nastavení zásad povolíte, plynulé posouvání bude vypnuto. Uživatel nemůže plynulé posouvání zapnout.
+Pokud toto nastavení zásad povolíte, plynulé posouvání se vypne. Uživatel nemůže plynulé posouvání zapnout.
 
-Pokud toto nastavení zásad zakážete, plynulé posouvání bude zapnuto. Uživatel nemůže plynulé posouvání vypnout.
+Pokud toto nastavení zásad zakážete, plynulé posouvání se zapne. Uživatel nemůže plynulé posouvání vypnout.
 
-Pokud toto nastavení zásad nenakonfigurujete, může uživatel plynulé posouvání zapnout nebo vypnout .</string>
+Pokud toto nastavení zásad nenakonfigurujete, uživatel může skrýt nebo zobrazit tlačítko pro otevření Microsoft Edge z Internet Exploreru.</string>
+      <string id="HideNewEdgeButton">Skrýt tlačítko (vedle tlačítka Nová karta), které otevírá Microsoft Edge</string>
+      <string id="HideNewEdgeButton_Explain">Toto nastavení zásad vám umožňuje spravovat, zda uživatelé vidí tlačítko (vedle tlačítka Nová karta), které otevírá Microsoft Edge.
+
+Pokud toto nastavení zásad povolíte, tlačítko pro otevření Microsoft Edge z Internet Exploreru bude skryto.
+
+Pokud toto nastavení zásad zakážete, tlačítko pro otevření Microsoft Edge z Internet Exploreru bude zobrazeno.
+
+Pokud toto nastavení zásad nenakonfigurujete, tlačítko pro otevření Microsoft Edge z Internet Exploreru nastaví uživatel.</string>
       <string id="SpecificSearchProvider">Omezit poskytovatele vyhledávání na zadaný seznam</string>
       <string id="SQM_DisableCEIP">Zabránit účasti na programu Zlepšování softwaru a služeb na základě zkušeností uživatelů</string>
       <string id="SUPPORTED_IE4ONLY">Pouze aplikace Internet Explorer 4.0</string>
@@ -3128,6 +3164,8 @@ Pokud toto nastavení zásad nenakonfigurujete, může uživatel plynulé posouv
       <string id="SUPPORTED_IE11WIN8">Minimálně Internet Explorer 11.0 ve Windows 8.1</string>
       <string id="SUPPORTED_IE11WIN8ONLY">Jenom Internet Explorer 11.0 ve Windows 8.1</string>
       <string id="SUPPORTED_IE11WIN10">Minimálně Internet Explorer 11.0 ve Windows 10</string>
+      <string id="SUPPORTED_IE11WIN10_1607">Minimálně Internet Explorer 11.0 ve Windows 10, verze 1607 nebo novější</string>
+      <string id="SUPPORTED_IE11WIN10_1703">Minimálně Internet Explorer 11.0 ve Windows 10, verze 1703 nebo novější</string>
       <string id="SUPPORTED_IE11">Alespoň aplikace Internet Explorer 11.0</string>
       <string id="SUPPORTED_IE7_NONVISTA">Alespoň aplikace Internet Explorer 7.0 Není podporováno v systému Windows Vista.</string>
       <string id="SUPPORTED_IE7VISTA">Alespoň aplikace Internet Explorer 7.0 v systému Windows Vista</string>
@@ -3269,7 +3307,7 @@ Pokud toto nastavení zásad nenakonfigurujete, podporu datových identifikátor
       <string id="DBHDisableDeleteDownloadHistory">Zabránit odstranění historie stahování</string>
       <string id="DBHDisableDeleteTIF">Zabránit odstranění dočasných souborů Internetu</string>
       <string id="DBHDisableDeleteInPrivateDataV8">Zabránit odstranění dat funkce Filtrování InPrivate</string>
-      <string id="DBHDisableDeleteInPrivateDataV9">Zabránit odstranění dat funkcí Filrování ActiveX, Ochrana před sledováním a Do Not Track (Nesledovat)</string>
+      <string id="DBHDisableDeleteInPrivateDataV9">Zabránit odstranění dat funkcí Filtrování ActiveX, Ochrana před sledováním a Nesledovat</string>
       <string id="DBHDisableKeepFavorites">Zabránit odstranění dat oblíbených webů</string>
       <string id="DBHDisableDeleteOnExit">Povolit odstranění historie procházení při ukončení</string>
       <string id="DeleteBrowsingHistory">Odstranit historii procházení</string>
@@ -3330,15 +3368,15 @@ Pokud toto nastavení zásad nenakonfigurujete, uživatel může zvolit, zda maj
 Nastavení této zásady zabrání uživatelům odstranit data funkcí Filtrování ActiveX a Ochrana před sledováním, mezi která patří seznam webů, u kterých uživatel tyto funkce zakázal. Data funkce Ochrana před sledováním se navíc shromažďují i v případě, že uživatelé zapnou individuální seznam této funkce, který blokuje položky třetích stran v době, kdy uživatel prochází weby.
 
 Internet Explorer 11 a novější:
-Nastavení této zásady zabrání uživatelům odstranit data funkcí Filtrování ActiveX a Ochrana před sledováním a výjimky funkce Do Not Track uložené pro navštívené weby. 
+Nastavení této zásady zabrání uživatelům odstranit data funkcí Filtrování ActiveX a Ochrana před sledováním a výjimky funkce Nesledovat uložené pro navštívené weby. 
 
 Tato funkce je k dispozici v dialogovém okně Odstranit historii procházení.
 
-Pokud toto nastavení povolíte, data funkcí Filtrování ActiveX, Ochrana před sledováním a Do Not Track se po kliknutí na tlačítko Odstranit zachovají.
+Pokud toto nastavení povolíte, data funkcí Filtrování ActiveX, Ochrana před sledováním a Nesledovat se po kliknutí na tlačítko Odstranit zachovají.
 
-Pokud toto nastavení zakážete, data funkce Filtrování ActiveX, Ochrana před sledováním a Do Not Track se po kliknutí na tlačítko Odstranit odstraní.
+Pokud toto nastavení zakážete, data funkce Filtrování ActiveX, Ochrana před sledováním a Nesledovat se po kliknutí na tlačítko Odstranit odstraní.
 
-Pokud toto nastavení nenakonfigurujete, můžou uživatelé zapnutím nebo vypnutím této funkce určit, jestli se data funkce Filtrování ActiveX, Ochrana před sledováním a Do Not Track po kliknutí na tlačítko Odstranit odstraní.</string>
+Pokud toto nastavení nenakonfigurujete, můžou uživatelé zapnutím nebo vypnutím této funkce určit, jestli se data funkce Filtrování ActiveX, Ochrana před sledováním a Nesledovat po kliknutí na tlačítko Odstranit odstraní.</string>
       <string id="IE_ExplainDBHDisableKeepFavorites">Toto nastavení zásad zabraňuje uživateli v odstranění dat oblíbených webů. Tato funkce je k dispozici v dialogovém okně Odstranit historii procházení.
 
 Pokud toto nastavení zásad povolíte, data oblíbených webů budou po kliknutí na tlačítko Odstranit zachována.
@@ -3419,7 +3457,7 @@ Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, uživatel může
       <string id="NoPrinting">Vypnout nabídku Tisk</string>
       <string id="Advanced_DisableFlipAhead">Vypnout přecházení o stránku vpřed pomocí funkce predikce stránek</string>
       <string id="Advanced_DisablePrefetchPrerender">Vypnout načítání webů a obsahu na pozadí pro optimální výkon</string>
-      <string id="Advanced_AlwaysSendDoNotTrack">Vždy odesílat hlavičku DNT (Do Not Track)</string>
+      <string id="Advanced_AlwaysSendDoNotTrack">Vždy odesílat hlavičku Nesledovat</string>
       <string id="Content_ShowContentAdvisor">Zobrazit Poradce při hodnocení obsahu v dialogu Možnosti Internetu</string>
       <string id="Advanced_ExplainEnableCaretBrowsing">Toto nastavení zásad umožňuje zapnout nebo vypnout funkci Procházení pomocí kurzoru. Procházení pomocí kurzoru umožňuje uživatelům procházet webovou stránku tak, že kurzor přesouvají pomocí klávesnice. Procházení pomocí kurzoru podporuje funkčnost standardního textového editoru, jako je výběr textu s použitím klávesy Shift a kopírování výběru do schránky. Toto nastavení zásad je užitečné zejména pro uživatele, kteří nepoužívají myš.
 
@@ -3517,17 +3555,24 @@ Pokud toto nastavení zásad povolíte, aplikace Internet Explorer nebude načí
 Pokud toto nastavení zásad zakážete, aplikace Internet Explorer bude preemptivně načítat weby a obsah na pozadí.
 
 Pokud toto nastavení zásad nenakonfigurujete, uživatelé budou moci toto chování zapnout nebo vypnout pomocí nastavení aplikace Internet Explorer. Tato funkce je ve výchozím nastavení zapnutá.</string>
-      <string id="Advanced_ExplainAlwaysSendDoNotTrack">Nastavení této zásady umožňuje nakonfigurovat, jak aplikace Internet Explorer odesílá hlavičku DNT (Do Not Track).
+      <string id="Advanced_ExplainAlwaysSendDoNotTrack">Nastavení této zásady umožňuje nakonfigurovat, jak aplikace Internet Explorer odesílá hlavičku Nesledovat.
 
-Pokud toto nastavení povolíte, odešle aplikace Internet Explorer hlavičku DNT: 1 u všech žádostí protokolu HTTP a HTTPS. Hlavička DNT: 1 serverům signalizuje, že nemají uživatele sledovat.
+Pokud toto nastavení povolíte, odešle aplikace Internet Explorer hlavičku Nesledovat: 1 u všech žádostí protokolu HTTP a HTTPS. Hlavička Nesledovat: 1 serverům signalizuje, že nemají uživatele sledovat.
 
 Aplikace Internet Explorer 9 a 10:
-Pokud toto nastavení zakážete, bude aplikace Internet Explorer odesílat hlavičku DNT (Do Not Track) pouze v případě, že bude povolen seznam funkce Ochrana před sledováním nebo bude použit režim Procházení InPrivate.
+Pokud toto nastavení zakážete, bude aplikace Internet Explorer odesílat hlavičku Nesledovat pouze v případě, že bude povolen seznam funkce Ochrana před sledováním nebo bude použit režim Procházení InPrivate.
 
 Aplikace Internet Explorer 11 a novější:
-Pokud toto nastavení zakážete, bude aplikace Internet Explorer odesílat hlavičku DNT pouze při použití režimu Procházení InPrivate.
+Pokud toto nastavení zakážete, bude aplikace Internet Explorer odesílat hlavičku Nesledovat pouze při použití režimu Procházení InPrivate.
 
-Pokud toto nastavení nenakonfigurujete, mohou uživatelé vybrat možnost Vždy odesílat hlavičku DNT (Do Not Track) v nastavení aplikace Internet Explorer. Výběrem této možnosti aplikace Internet Explorer odešle hlavičku DNT:1 se všemi požadavky HTTP a HTTPS, pokud uživatel neudělí konkrétnímu webu výjimku. Internet Explorer odešle hlavičku DNT:0 do všech webů, kterým byla výjimka udělena. Ve výchozím nastavení je tato možnost zapnuta.</string>
+Pokud toto nastavení nenakonfigurujete, mohou uživatelé vybrat možnost Vždy odesílat hlavičku Nesledovat v nastavení aplikace Internet Explorer. Výběrem této možnosti aplikace Internet Explorer odešle hlavičku Nesledovat:1 se všemi požadavky HTTP a HTTPS, pokud uživatel neudělí konkrétnímu webu výjimku. Internet Explorer odešle hlavičku Nesledovat:0 do všech webů, kterým byla výjimka udělena. Ve výchozím nastavení je tato možnost zapnuta.</string>
+      <string id="Content_ExplainShowContentAdvisor">Toto nastavení zásad zobrazuje nastavení Poradce při hodnocení obsahu na kartě Obsah v dialogovém okně Možnosti Internetu.
+
+Pokud toto nastavení zásad povolíte, Internet Explorer zobrazí na kartě Obsah v dialogovém okně Možnosti Internetu nastavení Poradce při hodnocení obsahu. Uživatelé mohou nastavení Poradce při hodnocení obsahu změnit.
+
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, Internet Explorer na kartě Obsah v dialogovém okně Možnosti Internetu nastavení Poradce při hodnocení obsahu nezobrazí.
+
+Poznámka: Tato zásada není podporována počínaje systémem Windows 10 verze 1607.</string>
       <string id="Protocols_None">Nepoužívat žádné zabezpečené protokoly</string>
       <string id="Protocols_SSL2">Používat pouze protokol SSL 2,0</string>
       <string id="Protocols_SSL3">Používat pouze protokol SSL 3.0</string>
@@ -3565,6 +3610,7 @@ Pokud toto nastavení nenakonfigurujete, mohou uživatelé vybrat možnost Vždy
       <string id="NewTab_AboutBlank">about:blank</string>
       <string id="NewTab_AboutTabs">Nová záložka</string>
       <string id="NewTab_Homepage">Domovská stránka</string>
+      <string id="NewTab_AboutNewsFeed">Nová stránka záložky s novinkami</string>
       <string id="NewTabAction">Určit výchozí chování nové záložky</string>
       <string id="SecondaryHomePages">Zakázat změnu nastavení sekundární domovské stránky</string>
       <string id="SetCommandLabels">Přizpůsobit popisky příkazů</string>
@@ -3605,11 +3651,11 @@ Pokud toto nastavení zásad povolíte, tlačítka Zastavit a Aktualizovat budou
 Pokud toto nastavení zásad zakážete, tlačítka Zastavit a Aktualizovat budou umístěna vedle panelu Adresa a uživatel je nebude moci přesunout.
 
 Pokud toto nastavení zásad nenakonfigurujete, tlačítka Zastavit a Aktualizovat budou ve výchozím nastavení umístěna vedle panelu Adresa a uživatel je bude moci přesunout.</string>
-      <string id="IE_ExplainNewTabAction">Toto nastavení zásad umožňuje určit, co se zobrazí, když uživatel otevře novou záložku.
+      <string id="IE_ExplainNewTabAction">Toto nastavení zásad umožňuje určit, co se zobrazí, když uživatel otevře novou kartu.
 
-Pokud toto nastavení zásad povolíte, můžete zvolit, jaká stránka se zobrazí, když uživatel otevře novou záložku: prázdná stránka (about:blank), první domovská stránka nebo nová stránka záložky.
+Pokud toto nastavení zásad povolíte, můžete zvolit, která stránka se zobrazí, když uživatel otevře novou kartu: prázdná stránka (about:blank), první domovská stránka, stránka nové karty nebo stránka nové karty s novinkami.
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, uživatel si bude moci vybrat předvolbu pro toto chování. Výchozí nastavení je nová stránka záložky.</string>
+Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, bude si uživatel moci vybrat vlastní předvolbu tohoto chování.</string>
       <string id="IE_ExplainSecondaryHomePages">Sekundární domovské stránky jsou výchozí webové stránky, které aplikace Internet Explorer při spuštění prohlížeče načte navíc k domovské stránce na samostatných záložkách. Toto nastavení zásad umožňuje nastavit výchozí sekundární domovské stránky.
 
 Pokud toto nastavení povolíte, můžete určit, které výchozí domovské stránky se mají načítat jako sekundární domovské stránky. Uživatel nebude moci nastavit vlastní výchozí sekundární stránky.
@@ -4013,7 +4059,9 @@ Pokud toto nastavení zásad povolíte, dojde k zapnutí automatického upgradu 
 
 Pokud toto nastavení zásad zakážete, dojde k vypnutí automatického upgradu aplikace Internet Explorer.
 
-Pokud toto nastavení zásad nenakonfigurujete, uživatelé mohou automatické aktualizace zapnout nebo vypnout v dialogovém okně O aplikaci Internet Explorer.</string>
+Pokud toto nastavení zásad nenakonfigurujete, uživatelé mohou automatické aktualizace zapnout nebo vypnout v dialogovém okně O aplikaci Internet Explorer.
+
+Poznámka: V systému Windows 10 verze 1703 a novější již tyto zásady neplatí.</string>
       <string id="TurnOffFormatDetectionPhone">Vypnout rozpoznávání telefonních čísel</string>
       <string id="TurnOffFormatDetectionPhone_Explain">Nastavení této zásady určuje, zda jsou telefonní čísla rozpoznávána a změněna na hypertextové odkazy, pomocí nichž lze volat výchozí telefonní aplikaci v systému.
 
@@ -4503,6 +4551,15 @@ Další informace najdete v článku Out-of-date ActiveX control blocking (Bloko
       <presentation id="IZ_PolicyZoneElevationURLaction_5">
         <dropdownList refId="IZ_Partname2101" noSort="true" defaultItem="2">Webové servery ve více omezené zóně obsahu mohou přejít do této zóny.</dropdownList>
       </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_1">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="0">Povolit spuštění jazyka VBScript v aplikaci Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_2">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="1">Povolit spuštění jazyka VBScript v aplikaci Internet Explorer</dropdownList>
+      </presentation>
+      <presentation id="IZ_PolicyAllowVBScript_3">
+        <dropdownList refId="IZ_Partname140C" noSort="true" defaultItem="2">Povolit spuštění jazyka VBScript v aplikaci Internet Explorer</dropdownList>
+      </presentation>
       <presentation id="IZ_Zonemaps_1">
         <listBox refId="IZ_ZonemapPrompt">Sem zadejte přiřazení zón.</listBox>
       </presentation>
@@ -4662,7 +4719,7 @@ Další informace najdete v článku Out-of-date ActiveX control blocking (Bloko
         <dropdownList refId="Advanced_EnableSSL3FallbackOptions" noSort="true" defaultItem="0">Povolit nezabezpečené náhradní řešení pro:</dropdownList>
       </presentation>
       <presentation id="NewTabAction_1">
-        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="2">Chování nové záložky</dropdownList>
+        <dropdownList refId="NewTabActionOptions" noSort="true" defaultItem="0">Chování nové záložky</dropdownList>
       </presentation>
       <presentation id="SecondaryHomePages">
         <listBox refId="SecondaryHomePagesList">Sekundární domovské stránky</listBox>

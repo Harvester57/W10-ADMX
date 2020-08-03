@@ -3,9 +3,13 @@
 <description>ange beskrivning här</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Windows Defender Antivirus</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Undantag</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Minskning av attackytan</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Reglerad mappåtkomst</string>
+    <string id="ExploitGuard_NetworkProtection">Nätverksskydd</string>
     <string id="NetworkRealtimeInspection">Kontrollsystem för nätverk</string>
     <string id="NetworkRealtimeInspection_Exclusions">Undantag</string>
     <string id="Quarantine">Karantän</string>
@@ -17,6 +21,7 @@
     <string id="Spynet">MAPS</string>
     <string id="Threats">Hot</string>
     <string id="ClientInterface">Klientgränssnitt</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Tillåt att tjänsten för program mot skadlig kod startar med normal prioritet</string>
     <string id="AllowFastServiceStartup_Explain">Den här principinställningen styr inläsningsprioriteten för tjänsten för program mot skadlig kod. Om inläsningsprioriteten ökas startar tjänsten snabbare, men prestanda kan påverkas.
 
@@ -25,7 +30,18 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen läses 
 Om du inaktiverar den här inställningen läses tjänsten för program mot skadlig kod in som en aktivitet med låg prioritet.</string>
 
     <string id="DisableAutoExclusions">Inaktivera automatiska undantag</string>
-    <string id="DisableAutoExclusions_Explain">Tillåter att en administratör kan ange om automatiska undantag för server-SKU:er ska inaktiveras.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Tillåter att en administratör kan ange om automatiska undantag för server-SKU:er ska inaktiveras.
+
+        Inaktiverad (standard):
+        Windows Defender undantar den fördefinierade listan med sökvägar från att genomsökas för att förbättra prestanda.
+
+        Aktiverad:
+        Windows Defender undantar inte den fördefinierade listan med sökvägar från att genomsökas. Detta kan påverka datorns prestanda i vissa scenarier.
+
+        Inte konfigurerad:
+        Samma som Inaktiverad.
+    </string>
     <string id="DisableAntiSpyware">Inaktivera Endpoint Protection</string>
     <string id="DisableAntiSpyware_Explain">Med den här principinställningen inaktiveras Endpoint Protection.
 
@@ -33,12 +49,12 @@ Om du aktiverar den här principinställningen körs inte Endpoint Protection oc
 
 Om du inaktiverar eller inte konfigurerar den här principinställningen körs Endpoint Protection som standard och datorn genomsöks efter skadlig kod och annan oönskad programvara.
     </string>
-    <string id="DisableAntiSpywareDefender">Inaktivera Endpoint Protection</string>
-    <string id="DisableAntiSpywareDefender_Explain">Med den här principinställningen inaktiveras Endpoint Protection.
+    <string id="DisableAntiSpywareDefender">Inaktivera Windows Defender Antivirus</string>
+    <string id="DisableAntiSpywareDefender_Explain">Med den här principinställningen inaktiveras Windows Defender Antivirus.
 
-    Om du aktiverar den här principinställningen körs inte Endpoint Protection och datorn genomsöks inte efter skadlig kod eller annan potentiellt skadlig programvara.
+    Om du aktiverar principinställningen körs inte Windows Defender Antivirus och datorn genomsöks inte efter skadlig kod eller annan potentiellt skadlig programvara.
 
-    Om du inaktiverar eller inte konfigurerar den här principinställningen körs Endpoint Protection som standard och datorn genomsöks efter skadlig kod och annan potentiellt skadlig programvara.</string>
+    Om du inaktiverar eller låter bli att konfigurera principinställningen körs Windows Defender Antivirus som standard och datorn genomsöks efter skadlig kod och annan potentiellt skadlig programvara.</string>
     <string id="DisableLocalAdminMerge">Konfigurera lokal administratörs sammanslagningsbeteende för listor</string>
     <string id="DisableLocalAdminMerge_Explain">Den här principinställningen styr om komplexa listinställningar som har konfigurerats av en lokal administratör ska slås samman med grupprincipinställningar. Inställningen gäller till exempel listor med hot och undantag.
 
@@ -47,33 +63,47 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen kommer 
 Om du inaktiverar den här inställningen används bara objekt som har definierats i grupprincipen i den resulterande gällande principen. Grupprincipinställningarna åsidosätter prioritetsinställningarna som har konfigurerats av den lokala administratören.</string>
     <string id="DisableRoutinelyTakingAction">Inaktivera rutinreparation</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Med den här principinställningen kan du ange om Endpoint Protection ska vidta åtgärder automatiskt för alla identifierade hot. Den åtgärd som vidtas för ett specifikt hot bestäms av en kombination av den principdefinierade åtgärden, den användardefinierade åtgärden och den signaturdefinierade åtgärden.
+    Med den här principinställningen kan du ange om Windows Defender Antivirus ska vidta åtgärder automatiskt för alla identifierade hot. Den åtgärd som vidtas för ett specifikt hot bestäms av en kombination av den principdefinierade åtgärden, den användardefinierade åtgärden och den signaturdefinierade åtgärden.
 
-    Om du aktiverar den här principinställningen vidtar Endpoint Protection inte automatiskt någon åtgärd för identifierade hot, men uppmanar användarna att välja bland de tillgängliga åtgärderna för respektive hot.
+    Om du aktiverar principinställningen vidtar Windows Defender Antivirus inte automatiskt någon åtgärd för identifierade hot, men uppmanar användarna att välja bland de tillgängliga åtgärderna för respektive hot.
 
-    Om du inaktiverar eller inte konfigurerar principinställningen vidtar Endpoint Protection automatiskt åtgärder för alla identifierade hot efter en fördröjning på cirka fem sekunder (denna fördröjning kan inte ändras).</string>
+    Om du inaktiverar eller låter bli att konfigurera principinställningen vidtar Windows Defender Antivirus automatiskt åtgärder för alla identifierade hot efter en fördröjning på cirka fem sekunder (denna fördröjning kan inte ändras).</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Med den här principinställningen kan du ange om Endpoint Protection ska vidta åtgärder automatiskt för alla identifierade hot. Den åtgärd som vidtas för ett specifikt hot bestäms av en kombination av den principdefinierade åtgärden, den användardefinierade åtgärden och den signaturdefinierade åtgärden.
 
         Om du aktiverar den här principinställningen vidtar Endpoint Protection inte automatiskt någon åtgärd för identifierade hot, men uppmanar användarna att välja bland de tillgängliga åtgärderna för respektive hot.
 
         Om du inaktiverar eller inte konfigurerar principinställningen vidtar Endpoint Protection automatiskt åtgärder för alla identifierade hot efter en fördröjning på cirka fem sekunder (denna fördröjning kan inte ändras).
-    </string>
+    </string>      
     <string id="ProxyBypass">Definiera adresser som ska kringgå proxyservern</string>
     <string id="ProxyBypass_Explain">Om den här principen definieras förhindrar den att program mot skadlig kod använder den konfigurerade proxyservern vid kommunikation med de angivna IP-adresserna. Adressvärdet ska anges som en giltig URL.
 
 Om du aktiverar den här inställningen kringgås proxyservern för de angivna adresserna.
 
 Om du inaktiverar eller låter bli att konfigurera den här inställningen kringgås inte proxyservern för de angivna adresserna.</string>
+    <string id="ProxyPacUrl">Definiera PAC-fil (automatisk konfiguration av proxy) för att ansluta till nätverket</string>
+    <string id="ProxyPacUrl_Explain">Med den här principinställningen definierar du URL:en för en PAC-fil (automatisk konfiguration av proxy) som ska användas när klienten försöker ansluta till nätverket för definitionsuppdateringar och MAPS-rapportering. Om den automatiska konfigurationen av proxyn (PAC) misslyckas eller om ingen PAC har angetts använder klienten följande alternativ (i ordning):
+      1. Proxyserver (om angiven)
+      2. PAC-URL (om angiven)
+      3. Ingen
+      4. Proxyinställningar för Internet Explorer
+      5. Identifiera automatiskt
+
+      Om du aktiverar den här inställningen används angiven PAC för proxyn enligt ordningen ovan.
+
+      Om du inaktiverar eller låter bli att konfigurera den här inställningen hoppar proxyn över det här steget.</string>
     <string id="ProxyServer">Konfigurera proxyserver för anslutning till nätverket</string>
-    <string id="ProxyServer_Explain">Med den här principinställningen kan du konfigurera den namngivna proxy som ska användas när klienten försöker ansluta till nätverket för definitionsuppdateringar och MAPS-rapportering. Om den namngivna proxyn misslyckas eller om ingen proxy har angetts används följande inställningar (i nummerordning):
-1. Proxyinställningar för Internet Explorer
-2. Identifiera automatiskt
-3. Ingen
+    <string id="ProxyServer_Explain">Med den här principinställningen kan du konfigurera den namngivna proxy som ska användas när klienten försöker ansluta till nätverket för definitionsuppdateringar och MAPS-rapportering. Om den namngivna proxyn misslyckas eller om ingen proxy har angetts används följande alternativ (i ordning):
+      1. Proxyserver (om angiven)
+      2. PAC-URL (om angiven)
+      3. Ingen
+      4. Proxyinställningar för Internet Explorer
+      5. Identifiera automatiskt
 
-Om du aktiverar den här inställningen anges den angivna URL:en för proxyn.
+      Om du aktiverar den här inställningen används den angivna URL:en för proxyn enligt ordningen ovan. URL:en ska inledas med http:// eller https://.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen ställs proxyn in i den ordning som anges ovan.</string>
+      Om du inaktiverar eller låter bli att konfigurera den här inställningen hoppar proxyn över det här steget.
+    </string>
     <string id="RandomizeScheduleTaskTimes">Slumpgenerera tider för schemalagda aktiviteter</string>
     <string id="RandomizeScheduleTaskTimes_Explain">Med den här principinställningen kan du aktivera och inaktivera slumpgenerering av starttiden för den schemalagda sökningen och starttiden för den schemalagda definitionsuppdateringen. Den här inställningen används för att fördela sökningens inverkan på resurserna. Den kan till exempel användas i virtuella gästdatorer som delar värd för att förhindra att flera virtuella gästdatorer samtidigt genomför diskkrävande åtgärder.
 
@@ -86,6 +116,21 @@ Om du inaktiverar inställningen startar schemalagda aktiviteter på den angivna
 Om du aktiverar den här inställningen fortsätter tjänsten för program mot skadlig kod att köras även om definitioner för både antivirus- och antispionprogram inaktiveras.
 
 Om du inaktiverar eller låter bli att konfigurera den här inställningen stoppas tjänsten för program mot skadlig kod när definitioner för både antivirus- och antispionprogram inaktiveras. Om datorn startas om startas tjänsten om ifall den är inställd för automatisk start. När tjänsten har startats görs en kontroll för att se om definitionerna för antivirus- och antispionprogram har aktiverats. Om minst en har aktiverats fortsätter tjänsten att köras. Om båda har inaktiverats stoppas tjänsten.</string>
+    <string id="Root_PUAProtection">Konfigurera identifiering av potentiellt oönskade program</string>
+    <string id="Root_PUAProtection_Explain">
+        Aktivera eller inaktivera identifiering av potentiellt oönskade program. Du kan välja att blockera, granska eller tillåta potentiellt oönskad programvara som laddas ned eller försöker installera sig själv på datorn.
+
+        Aktiverad:
+        Ange ett läge i avsnittet Alternativ:
+        -Blockera: Potentiellt oönskad programvara blockeras.
+        -Granska: Potentiellt oönskad programvara blockeras inte, men en händelse loggas i händelseloggarna om programvaran skulle ha blockerats med läget Blockera.
+
+        Inaktiverad:
+        Potentiellt oönskad programvara blockeras inte.
+
+        inte konfigurerad:
+        Samma som Inaktiverad.
+    </string>
     <string id="Exclusions_Extensions">Undantag för tillägg</string>
     <string id="Exclusions_Extensions_Explain">Du kan använda den här principinställningen för att ange en lista med filtyper som ska undantas från schemalagd och anpassad genomsökning samt genomsökning i realtid. Filtyper ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av filnamnstillägget (exempelvis "obj" eller "lib"). Värdet används inte och du rekommenderas att ange det som 0.</string>
     <string id="Exclusions_Paths">Undantag för sökvägar</string>
@@ -104,20 +149,6 @@ Om du inaktiverar den här inställningen inaktiveras protokolligenkänning.</st
 Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras tillbakadragning av definitioner.
 
 Om du inaktiverar den här inställningen inaktiveras tillbakadragning av definitioner.</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">Definiera hur ofta identifieringshändelser loggas</string>
-    <string id="Nis_Consumers_IPS_ThrottleDetectionEventsRate_Explain">Den här principinställningen begränsar hur ofta identifieringshändelser för nätverksskydd mot kända säkerhetsrisker loggas. Loggningen begränsas till inte oftare än en händelse per det definierade intervallet. Intervallvärdet definieras i minuter. Standardintervallet är 60 minuter.
-
-Om du aktiverar den här inställningen loggas identifieringshändelser inte om det finns fler än en liknande rapport (per definitions-GUID) under det angivna antalet minuter.
-
-Om du inaktiverar eller låter bli att konfigurera den här inställningen loggas identifieringshändelser med standardfrekvensen.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">Undantag för IP-adressintervall</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range_Explain">Den här principen förhindrar, om den definieras, att nätverksskydd mot kända säkerhetsrisker inspekterar de angivna IP-adresserna. IP-adresser ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett IP-adressintervall. Ett intervall kan till exempel definieras som: 157.1.45.123-60.1.1.1. Värdet används inte och du rekommenderas att ange det som 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">Undantag för portnummer</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number_Explain">Den här principinställningen definierar en lista med TCP-portnummer som inspektion av nätverkstrafik inaktiveras för. Portnummer ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett TCP-portnummer. Ett intervall kan till exempel definieras som: 8080. Värdet används inte och du rekommenderas att ange det som 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">Processundantag för utgående trafik</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name_Explain">Den här principinställningen definierar processer vars utgående nätverkstrafik inte inspekteras.  Processnamn ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av sökväg och namn för en process. En process kan till exempel definieras som: "C:\Windows\System32\App.exe". Värdet används inte och du rekommenderas att ange det som 0.</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">Undantag för hot-ID</string>
-    <string id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id_Explain">Den här principinställningen definierar hot som ska undantas från identifiering vid inspektion av nätverkstrafiken. Hot ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett hot-ID. Ett hot-ID kan till exempel definieras som: 2925110632. Värdet används inte och du rekommenderas att ange det som 0.</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">Ange ytterligare definitionsuppsättningar för inspektion av nätverkstrafik</string>
     <string id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid_Explain">Den här principinställningen definierar ytterligare definitionsuppsättningar som ska aktiveras för inspektion av nätverkstrafiken. GUID:er för definitionsuppsättningar ska läggas till under Alternativ för den här inställningen. Varje post måste listas som ett par med namn och värde, där namnet ska vara en strängrepresentation av ett definitionsuppsättnings-GUID. Exempelvis definieras definitionsuppsättnings-GUID för att aktivera testdefinitioner som: ”{b54b6ac9-a737-498e-9120-6616ad3bf590}”. Värdet används inte och du rekommenderas att ange det som 0.</string>
     <string id="Quarantine_LocalSettingOverridePurgeItemsAfterDelay">Konfigurera lokal åsidosättningsinställning för borttagning av objekt från mappen Karantän</string>
@@ -138,18 +169,6 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen behå
 Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras beteendeövervakning.
 
 Om du inaktiverar den här inställningen inaktiveras beteendeövervakningen.</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl">Aktivera IPC (Information Protection Control)</string>
-    <string id="RealtimeProtection_DisableInformationProtectionControl_Explain">Med den här principinställningen kan du konfigurera IPC (Information Protection Control).
-
-Om du aktiverar den här inställningen aktiveras IPC.
-
-Om du inaktiverar eller låter bli att konfigurera den här inställningen inaktiveras IPC.</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem">Aktivera nätverksskydd mot kända säkerhetsrisker</string>
-    <string id="RealtimeProtection_DisableIntrusionPreventionSystem_Explain">Med den här principinställningen kan du konfigurera nätverksskydd mot kända säkerhetsrisker.
-
-Om du aktiverar eller låter bli att konfigurera den här inställningen aktiveras nätverksskyddet.
-
-Om du inaktiverar den här principinställningen inaktiveras nätverksskyddet.</string>
     <string id="RealtimeProtection_DisableIOAVProtection">Genomsök alla nedladdade filer och bilagor</string>
     <string id="RealtimeProtection_DisableIOAVProtection_Explain">Med den här principinställningen kan du konfigurera genomsökning för alla nedladdade filer och bilagor.
 
@@ -169,13 +188,13 @@ Om du aktiverar eller låter bli att konfigurera den här inställningen aktiver
 
 Om du inaktiverar den här inställningen inaktiveras meddelanden om raw-skrivning.</string>
     <string id="DisableRealtimeMonitoring">Inaktivera realtidsskydd</string>
-    <string id="DisableRealtimeMonitoringDefender_Explain">Med den här principinställningen inaktiveras realtidsmeddelandena om känd skadlig kod som identifieras.
+    <string id="DisableRealtimeMonitoringDefender_Explain">Med den här principinställningen inaktiveras realtidsuppmaningarna om att åtgärda känd skadlig kod som identifieras.
 
-    Endpoint Protection varnar när skadlig kod eller annan potentiellt skadlig programvara försöker installeras eller köras automatiskt på datorn.
+    Windows Defender Antivirus varnar när skadlig kod eller annan potentiellt skadlig programvara försöker installeras eller köras automatiskt på datorn.
 
-Om du aktiverar den här principinställningen uppmanar inte Endpoint Protection användarna att vidta åtgärder när skadlig kod identifieras.
+    Om du aktiverar principinställningen uppmanar inte Windows Defender Antivirus användarna att vidta åtgärder när skadlig kod identifieras.
 
-    Om du inaktiverar eller låter bli att konfigurera den här principinställningen uppmanar Endpoint Protection användarna att vidta åtgärder när skadlig kod identifieras.</string>
+    Om du inaktiverar eller låter bli att konfigurera principinställningen uppmanar Windows Defender Antivirus användarna att vidta åtgärder när skadlig kod identifieras.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Med den här principinställningen inaktiveras realtidsmeddelandena om känd skadlig kod som identifieras.
 
@@ -205,12 +224,6 @@ Om du aktiverar den här inställningen får den lokala inställningen högre pr
 Om du inaktiverar eller låter bli att konfigurera den här inställningen får grupprincipen högre prioritet än den lokala inställningen.</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection">Konfigurera lokal åsidosättningsinställning för övervakning av fil- och programaktivitet på datorn</string>
     <string id="RealtimeProtection_LocalSettingOverrideDisableOnAccessProtection_Explain">Den här principinställningen konfigurerar en lokal åsidosättning för övervakning av fil- och programaktivitet på datorn. Inställningen kan bara göras av grupprincip.
-
-Om du aktiverar den här inställningen får den lokala inställningen högre prioritet än grupprincipen.
-
-Om du inaktiverar eller låter bli att konfigurera den här inställningen får grupprincipen högre prioritet än den lokala inställningen.</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem">Konfigurera lokal åsidosättningsinställning för att inaktivera Intrusion Prevention System</string>
-    <string id="RealtimeProtection_LocalSettingOverrideDisableIntrusionPreventionSystem_Explain">Den här principinställningen konfigurerar en lokal åsidosättning för konfigurationen av nätverksskydd mot kända säkerhetsrisker. Inställningen kan bara göras av grupprincip.
 
 Om du aktiverar den här inställningen får den lokala inställningen högre prioritet än grupprincipen.
 
@@ -307,13 +320,21 @@ Om du inaktiverar den här inställningen skickas Watson-händelser inte.</strin
     <string id="Reporting_WppTracingComponents_Explain">Den här principen konfigurerar WPP-komponenterna (Windows software trace preprocessor).</string>
     <string id="Reporting_WppTracingLevel">Konfigurera WPP-spårningsnivå</string>
     <string id="Reporting_WppTracingLevel_Explain">Med den här principen konfigurerar du spårningsnivåer för WPP (Windows software trace preprocessor). 
+    Spårningsnivåerna definieras som:
+    1 - Fel
+    2 - Varning
+    3 - Info
+    4 - Felsökning</string>
+    <string id="Reporting_DisableEnhancedNotifications">Inaktivera utökade meddelanden</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Använd den här principinställningen om du vill att utökade Windows Defender Antivirus-meddelanden ska visas på klienter.
+      
+      Om du inaktiverar eller låter bli att konfigurera inställningen visas utökade Windows Defender Antivirus-meddelanden på klienter.
+      
+      Om du aktiverar inställningen visas inte utökade Windows Defender Antivirus-meddelanden på klienter.
+    </string>
 
-Spårningsnivåerna definieras som:
-1 - Fel
-2 - Varning
-3 - Info
-4 - Felsök</string>
-    <string id="Scan_AllowPause">Tillåt att användarna pausar genomsökningen</string>
+      <string id="Scan_AllowPause">Tillåt att användarna pausar genomsökningen</string>
     <string id="Scan_AllowPause_Explain">Med den här principinställningen kan du styra om slutanvändare kan pausa en pågående genomsökning.
 
 Om du aktiverar eller låter bli att konfigurera den här inställningen läggs en ny snabbmeny till i aktivitetsfältsikonen där användaren kan pausa genomsökningen.
@@ -514,6 +535,14 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen körs
     Om du aktiverar den här inställningen görs en komma ifatt-sökning när angivet antal på varandra följande schemalagda genomsökningar missas.
 
     Om du inaktiverar eller låter bli att konfigurera den här inställningen görs en komma ifatt-sökning efter 2 på varandra följande missade schemalagda genomsökningar.</string>
+    <string id="Scan_LowCpuPriority">Konfigurera låg CPU-prioritet för schemalagda sökningar</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Med den här principinställningen kan du aktivera eller inaktivera låg CPU-prioritet för schemalagda sökningar.
+
+        Om du aktiverar inställningen används låg CPU-prioritet vid schemalagda sökningar.
+
+        Om du inaktiverar eller låter bli att konfigurera inställningen görs ingen ändring av CPU-prioriteten för schemalagda sökningar.
+    </string>
     <string id="SignatureUpdate_ASSignatureDue">Definiera antalet dagar innan spionprogramsdefinitioner anses vara inaktuella</string>
     <string id="SignatureUpdate_ASSignatureDue_Explain">Med den här principinställningen kan du definiera antalet dagar som måste passera innan spionprogramsdefinitioner anses vara inaktuella. Om definitionerna anses vara inaktuella kan det här läget utlösa flera ytterligare åtgärder, till exempel att återgå till en alternativ uppdateringskälla eller att visa en varningsikon i användargränssnittet. Som standard anges värdet till 14 dagar.
 
@@ -633,6 +662,16 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen sker 
 Om du aktiverar inställningen görs en sökning efter nya definitioner efter att tjänsten har startats.
 
 Om du inaktiverar eller låter bli att konfigurera den här inställningen görs ingen sökning efter nya definitioner när tjänsten har startats.</string>
+    <string id="DisableBlockAtFirstSeen">Konfigurera funktionen Blockera när det först påträffas</string>
+    <string id="DisableBlockAtFirstSeen_Explain">Den här funktionen säkerställer att enheten gör en kontroll i realtid med Microsoft Active Protection Service (MAPS) innan visst innehåll tillåts köras eller användas. Om den här funktionen är inaktiverad görs ingen kontroll vilket innebär att enheten får en lägre skyddsstatus.
+	Aktiverad – Funktionen Blockera när det först påträffas är aktiverad.
+	Inaktiverad – Funktionen Blockera när det först påträffas är inaktiverad.
+	
+	För den här funktionen krävs att dessa grupprincipinställningar anges enligt följande:
+	MAPS -&gt; ”Gå med i Microsoft MAPS” måste vara aktiverad annars fungerar inte Blockera när det först påträffas.
+	MAPS -&gt; ”Skicka filprover när vidare analys krävs” ska ha värdet 1 (Skicka säkra prover) eller 3 (Skicka alla prover). Om du anger värdet till 0 (Fråga alltid) får enheten en lägre skyddsstatus. Om du anger värdet 2 (Skicka aldrig) fungerar inte Blockera när det först påträffas.
+	Realtidsskydd -&gt; Principen ”Genomsök alla nedladdade filer och bilagor” måste vara aktiverad annars fungerar inte Blockera när det först påträffas.
+	Realtidsskydd -&gt; Principen ”Inaktivera realtidsskydd” får inte vara aktiverad annars fungerar inte Blockera när det först påträffas.</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting">Konfigurera lokal åsidosättningsinställning för rapportering till Microsoft MAPS</string>
     <string id="Spynet_LocalSettingOverrideSpynetReporting_Explain">Med den här principinställningen konfigureras en lokal åsidosättning för konfigurationen att gå med i Microsoft MAPS. Inställningen kan bara göras av grupprincip.
 
@@ -647,7 +686,7 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen får 
         (0x0) Fråga alltid
         (0x1) Skicka säkra prover automatiskt
         (0x2) Skicka aldrig
-        (0x2) Skicka alla prover automatiskt
+        (0x3) Skicka alla prover automatiskt
     </string>
 
     <string id="SubmitSamplesConsent_Always_Prompt">Fråga alltid</string>
@@ -658,20 +697,22 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen får 
     <string id="SpynetReporting">Gå med i Microsoft MAPS</string>
     <string id="SpynetReporting_Explain">Med den här principinställningen kan du bli medlem i Microsoft MAPS. Microsoft MAPS är en nätgrupp där du kan få hjälp med att hantera potentiella hot. Gruppen hjälper även till med att stoppa spridningen av nya skadliga programvaror.
 
-Du kan välja att skicka grundläggande eller ytterligare information om identifierade program. Ytterligare information hjälper Microsoft att skapa nya definitioner och dig att skydda din dator. Uppgifterna kan omfatta sådant som var de identifierade objekten fanns på datorn om något skadligt program togs bort. Informationen samlas in och skickas automatiskt. I vissa fall kan personlig information oavsiktligt skickas till Microsoft. Microsoft använder dock inte dessa uppgifter för att identifiera eller kontakta dig.
+    Du kan välja att skicka grundläggande eller ytterligare information om identifierade program. Ytterligare information hjälper Microsoft att skapa nya definitioner och dig att skydda din dator. Uppgifterna kan omfatta sådant som var de identifierade objekten fanns på datorn om något skadligt program togs bort. Informationen samlas in och skickas automatiskt. I vissa fall kan personlig information oavsiktligt skickas till Microsoft. Microsoft använder dock inte dessa uppgifter för att identifiera eller kontakta dig.
 
-Möjliga alternativ är:
-(0x0) Inaktiverat (standard)
-(0x1) Grundläggande medlemskap
-(0x2) Avancerat medlemskap 
+    Möjliga alternativ är:
+    (0x0) Inaktiverat (standard)
+    (0x1) Grundläggande medlemskap
+    (0x2) Avancerat medlemskap
 
-Grundläggande medlemskap skickar grundläggande uppgifter om programmen som identifieras till Microsoft, bland annat om varifrån programmet kom, de åtgärder du vidtar eller som vidtas automatiskt och huruvida åtgärderna lyckades.
+    Grundläggande medlemskap skickar grundläggande uppgifter om programmen som identifieras till Microsoft, bland annat om varifrån programmet kom, de åtgärder du vidtar eller som vidtas automatiskt och huruvida åtgärderna lyckades.
 
-Avancerat medlemskap skickar utöver grundläggande uppgifter mer information till Microsoft om skadlig kod, spionprogram och potentiellt oönskade program, bland annat var programmet finns, filnamn, hur programmet fungerar och hur det har påverkat din dator.
+    Avancerat medlemskap skickar utöver grundläggande uppgifter mer information till Microsoft om skadlig kod, spionprogram och potentiellt oönskade program, bland annat var programmet finns, filnamn, hur programmet fungerar och hur det har påverkat din dator.
 
-Om du aktiverar den här inställningen går du med i Microsoft MAPS med det angivna medlemskapet.
+    Om du aktiverar den här inställningen går du med i Microsoft MAPS med det angivna medlemskapet.
 
-Om du inaktiverar eller låter bli att konfigurera den här inställningen går du inte med i Microsoft MAPS.</string>
+    Om du inaktiverar eller låter bli att konfigurera den här inställningen går du inte med i Microsoft MAPS.
+  
+    I Windows 10 är Grundläggande medlemskap inte längre tillgängligt. Det innebär att om du anger värdet till 1 eller 2 registreras enheten med Avancerat medlemskap.</string>
     <string id="SpynetReporting_Disabled">Inaktiverad</string>
     <string id="SpynetReporting_Basic">Grundläggande MAPS</string>
     <string id="SpynetReporting_Advanced">Avancerat MAPS</string>
@@ -706,28 +747,225 @@ Giltiga värden för reparationsåtgärder är:
 
       Om du aktiverar den här inställningen visas inte omstartsmeddelanden.
     </string>
-    <string id="UX_Configuration_Notification_Suppress">Visa meddelanden för klienter när de måste vidta åtgärder</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Med den här principinställningen kan du konfigurera om meddelanden ska visas för klienter när de måste vidta de angivna åtgärderna:
-Kör en fullständig genomsökning
-Ladda ned de senaste virus- och spionprogramsdefinitionerna
-Ladda ned Standalone System Sweeper
+    <string id="UX_Configuration_Notification_Suppress">Visa inga meddelanden</string>
+    <string id="UX_Configuration_Notification_Suppress_Explain">Använd den här principinställningen om du vill att Windows Defender Antivirus-meddelanden ska visas på klienter.
+      Om du inaktiverar eller låter bli att konfigurera inställningen visas Windows Defender Antivirus-meddelanden på klienter.
 
-
-Om du aktiverar eller låter bli att konfigurera den här inställningen visas meddelanden för klienter när de måste vidta de angivna åtgärderna.
-
-Om du inaktiverar den här inställningen visas inte meddelanden för klienter när de måste vidta de angivna åtgärderna.</string>
+      Om du aktiverar inställningen visas inte Windows Defender Antivirus-meddelanden på klienter.
+    </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Visa ytterligare text för klienter när de måste vidta en åtgärd</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Med den här principinställningen kan du konfigurera om ytterligare text ska visas för klienter när de måste vidta en åtgärd. Texten som visas är en anpassad administratörsdefinierad sträng. Exempelvis telefonnumret till företagets supportavdelning. Klientgränssnittet visar maximalt 1 024 tecken. Längre strängar trunkeras före visning.
 
 Om du aktiverar den här inställningen visas den ytterligare text som har angetts.
 
 Om du inaktiverar eller låter bli att konfigurera den här inställningen visas ingen ytterligare text.</string>
+    <string id="MpCloudBlockLevel">Välj molnskyddsnivå</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Den här principinställningen bestämmer hur aggressivt Windows Defender Antivirus blockerar och söker igenom misstänkta filer.
+
+      Om den här inställningen är på är Windows Defender Antivirus mer aggressiv med att blockera och söka igenom misstänkta filer. Om den är av är Windows Defender Antivirus inte lika aggressiv och blockerar och söker därför inte igenom misstänkta filer lika ofta. 
+      
+      Mer information om vilka värden som stöds finns på dokumentationswebbplatsen för Windows Defender Antivirus.
+
+      Obs! För att den här inställningen ska fungera måste inställningen "Gå med i Microsoft MAPS" aktiveras.
+
+      Möjliga alternativ är:
+      (0x0) Standardblockeringsnivå i Windows Defender
+      (0x2) Hög blockeringsnivå – blockerar aggressivt okända filer samtidigt som prestanda optimeras (större risk för falsk positiv identifiering)
+      (0x4) Hög+ blockeringsnivå – blockerar aggressivt okända filer och vidtar ytterligare säkerhetsåtgärder (kan påverka prestanda)
+      (0x6) Nolltolerans – blockerar alla okända körbara filer
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Standardblockeringsnivå i Windows Defender Antivirus</string>
+    <string id="MpCloudBlockLevel_High_Level">Hög blockeringsnivå</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Hög+ blockeringsnivå</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Nolltolerans</string>
+    <string id="MpBafsExtendedTimeout">Konfigurera extra molnkontroll</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Den här funktionen gör att Windows Defender Antivirus kan blockera en misstänkt fil i upp till 60 sekunder och söka igenom den i molnet för att försäkra sig om att den är säker att använda.
+      
+      Standardtiden för en kontroll i molnet är 10 sekunder. Om du vill aktivera funktionen för extra molnkontroll anger du ytterligare tid i sekunder för kontrollen (upp till 50 sekunder).
+
+      Ange till exempel 50 sekunder i den här inställningen om du vill att tiden för kontrollen ska vara i 60 sekunder. Då aktiveras funktionen för extra molnkontroll och den sammanlagda kontrolltiden blir 60 sekunder.
+
+      Obs! För att den här funktionen ska fungera måste följande tre MAPS-inställningar aktiveras: "Konfigurera funktionen Blockera när det först påträffas", "Gå med i Microsoft MAPS" och "Skicka filprover när vidare analys krävs".
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Hindra användare och appar från att gå till farliga webbplatser</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Aktivera eller inaktivera Windows Defender Exploit Guard-nätverksskyddet för att hindra användare och program från att ansluta till farliga domäner som kan hysa nätfiskekod, webbplatser som utnyttjar sårbarheter och annat skadligt innehåll på Internet.
+
+    Aktiverad:
+    Ange ett läge i avsnittet Alternativ:
+    - Blockera: Användare och program kan inte ansluta till farliga domäner.
+    - Granska: Användare och program kan ansluta till farliga domäner, men en händelse loggas i händelseloggarna om anslutningen skulle ha blockerats med läget Blockera.
+
+    Inaktiverad:
+    Användare och program hindras inte från att ansluta till farliga domäner.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Undanta filer och sökvägar från regler för minskning av attackytan (ASR-regler)</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Undanta filer och sökvägar från regler för minskning av attackytan (ASR-regler).
+
+    Aktiverad:
+    Ange mappar eller filer och resurser som ska undantas från ASR-regler i avsnittet Alternativ.
+    Ange varje regel på en ny rad i form av ett namn/värde-par:
+    - Kolumnen Namn: Ange en mappsökväg eller ett fullständigt resursnamn. Exempel: ""C:\Windows"" undantar alla filer i den mappen. ""C:\Windows\App.exe"" undantar endast den specifika filen i den angivna mappen.
+    - Kolumnen Värde: Ange ""0"" för alla poster.
+
+    Inaktiverad:
+    Inga undantag tillämpas i ASR-reglerna.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+
+    Du kan konfigurera ASR-regler i grupprincipinställningen Konfigurera regler för minskning av attackytan.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Konfigurera regler för minskning av attackytan</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Ange tillståndet för varje regel för minskning av attackytan (ASR-regel).
+
+    När du aktiverar den här inställningen kan du sätta varje regel till följande lägen i avsnittet Alternativ:
+    - Blockera: Regeln tillämpas.
+    - Granska: Regeln tillämpas inte, men en händelse loggas i de fall då regeln skulle ha tillämpats med läget Blockera.
+    - Av: Regeln tillämpas inte.
+
+    Aktiverad:
+    Ange tillståndet för varje ASR-regel under avsnittet Alternativ för den här inställningen.
+    Ange varje regel på en ny rad i form av ett namn/värde-par:
+    - Kolumnen Namn: Ange ett giltigt ID för ASR-regeln.
+    - Kolumnen Värde: Ange status-ID:t som relaterar till tillståndet du vill specificera för den associerade regeln.
+
+    Följande status-ID:n kan användas i kolumnen Värde:
+    - 1 (Blockera)
+    - 0 (Av)
+    - 2 (Granska)
+    
+    Exempel:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Inaktiverad:
+    Inga ASR-regler konfigureras.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+
+    Du kan undanta mappar eller filer i grupprincipen Undanta filer och sökvägar från regler för minskning av attackytan (ASR-regler).
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Konfigurera reglerad mappåtkomst</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Aktivera eller inaktivera reglerad mappåtkomst för icke betrodda program. Du kan välja att blockera, granska eller tillåta följande för icke betrodda program:
+    - Ändra eller ta bort filer i skyddade mappar, t.ex. mappen Dokument
+    - Skriva till disksektorer
+
+    Du kan också välja att endast blockera eller granska skrivningar till disksektorer, och tillåta att filer i skyddade mappar ändras eller tas bort.
+
+    Windows Defender Antivirus fastställer automatiskt vilka program som är betrodda. Du kan lägga till ytterligare betrodda program i grupprincipinställningen Konfigurera tillåtna program.
+    Standardsystemmappar skyddas automatiskt, men du kan lägga till ytterligare mappar i grupprincipinställningen Konfigurera skyddade mappar.
+
+    Blockera:
+    Följande blockeras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Alla försök som blockeras loggas av Windows-händelseloggen under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123.
+
+
+    Inaktiverad:
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Dessa försök loggas inte av Windows-händelseloggen.
+
+
+    Granska:
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Dessa försök loggas av Windows-händelseloggen under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124.
+
+
+    Blockera endast diskändringar:
+    Följande blockeras:
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    Dessa försök loggas av Windows-händelseloggen under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123.
+
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    Dessa försök loggas inte av Windows-händelseloggen.
+
+
+    Granska endast diskändringar:
+    Följande blockeras inte och tillåts köras:
+    - Alla försök av icke betrodda program att skriva till disksektorer
+    - Alla försök av icke betrodda program att ändra eller ta bort filer i skyddade mappar
+    Endast försök att skriva till skyddade disksektorer loggas av Windows-händelseloggen (under Program- och tjänstloggar &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124).
+    Försök att ändra eller ta bort filer i skyddade mappar loggas inte.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Inaktivera (standard)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Blockera</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Granska</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Blockera endast diskändringar</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Granska endast diskändringar</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Konfigurera tillåtna program</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Lägg till ytterligare program som ska betraktas som betrodda av reglerad mappåtkomst.
+
+    De här programmen tillåts ändra eller ta bort filer i mappar som skyddas av reglerad mappåtkomst.
+
+    Windows Defender Antivirus fastställer automatiskt vilka program som är betrodda. Du kan lägga till ytterligare betrodda program i den här inställningen.
+
+    Aktiverad: 
+    Ange ytterligare program som du vill tillåta i avsnittet Alternativ.
+
+    Inaktiverad:
+    Inga ytterligare program läggs till i listan över betrodda program.
+
+    Inte konfigurerad:
+    Samma som Inaktiverad.
+
+    Du kan aktivera reglerad mappåtkomst i grupprincipinställningen Konfigurera reglerad mappåtkomst.
+
+    Standardsystemmappar skyddas automatiskt, men du kan lägga till ytterligare mappar i grupprincipinställningen Konfigurera skyddade mappar.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Konfigurera skyddade mappar</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Ange ytterligare mappar som ska skyddas av funktionen Reglerad mappåtkomst.
+
+    Program som inte är betrodda kan inte ändra eller ta bort filer i de här mapparna.
+
+    Standardsystemmappar skyddas automatiskt. Du kan lägga till ytterligare mappar i den här inställningen. 
+    Listan över standardsystemmappar som skyddas kan ses i Windows-säkerhet.
+
+    Aktiverad:
+    Ange ytterligare mappar som ska skyddas i sektionen Alternativ.
+
+    Inaktiverad:
+    ytterligare mappar skyddas.
+
+    Inte konfigurerad:
+    Samma som inaktiverad.
+
+    Du kan aktivera reglerad mappåtkomst i grupprincipinställningen Konfigurera reglerad mappåtkomst.
+
+    Windows Defender Antivirus fastställer automatiskt vilka program som är betrodda. Du kan lägga till ytterligare betrodda program i grupprincipinställningen Konfigurera tillåtna program.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
     <textBox refId="ProxyBypass">
         <label>Definiera adresser som ska kringgå proxyservern</label>
     </textBox>
+    </presentation>
+    <presentation id="ProxyPacUrl">
+      <textBox refId="ProxyPacUrl">
+        <label>Definiera PAC-fil (automatisk konfiguration av proxy) för att ansluta till nätverket</label>
+      </textBox>
     </presentation>
     <presentation id="ProxyServer">
     <textBox refId="ProxyServer">
@@ -742,21 +980,6 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen visas
     </presentation>
     <presentation id="Exclusions_Processes">
     <listBox refId="Exclusions_ProcessesList">Undantag för processer</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_ThrottleDetectionEventsRate">
-    <decimalTextBox refId="Nis_Consumers_IPS_ThrottleDetectionEventsRate" defaultValue="60">Definiera hur ofta identifieringshändelser loggas</decimalTextBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_Range">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ip_Ranges_Ip_RangeList">Undantag för IP-adressintervall</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Ports_Port_Number">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Ports_Port_NumberList">Undantag för portnummer</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_Name">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Processes_executable_Path_and_NameList">Processundantag för utgående trafik</listBox>
-    </presentation>
-    <presentation id="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_Id">
-    <listBox refId="Nis_Consumers_IPS_Exclusions_Threat_Ids_Threat_IdList">Undantag för hot-ID</listBox>
     </presentation>
     <presentation id="Nis_Consumers_IPS_sku_differentiation_Signature_Set_Guid">
     <listBox refId="Nis_Consumers_IPS_sku_differentiation_Signature_Set_GuidList">Ange ytterligare definitionsuppsättningar för inspektion av nätverkstrafik</listBox>
@@ -872,6 +1095,33 @@ Om du inaktiverar eller låter bli att konfigurera den här inställningen visas
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Ange intervall för förfallomeddelanden</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Välj molnblockeringsnivå</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Ange tiden i sekunder för den extra molnkontrollen</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Konfigurera funktionen för att skydda dina mappar</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Undantag från ASR-regler:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Ange tillstånd för varje ASR-regel:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Ange programmen som ska anses vara betrodda:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Ange mapparna som ska skyddas:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

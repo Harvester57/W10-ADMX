@@ -155,23 +155,54 @@ TERMSRV/*.humanresources.fabrikam.com: Remotedesktopsitzungs-Host, der auf allen
 
 Diese Richtlinieneinstellung kann zusammen mit "Delegierung von gespeicherten Anmeldeinformationen zulassen" verwendet werden, um Ausnahmen für bestimmte Server festzulegen, die bei der Verwendung von Platzhaltern in der Serverliste von "Delegierung von gespeicherten Anmeldeinformationen zulassen" ansonsten zugelassen wären.</string>
       <string id="RestrictedRemoteAdministration">Delegierung von Anmeldeinformationen an Remoteserver einschränken</string>
-      <string id="RestrictedRemoteAdministration_Explain">Bei der Ausführung im eingeschränkten Verwaltungsmodus, oder wenn das Gerät Remote Credential Guard verwendet, machen teilnehmende Apps Anmeldeinformationen (unabhängig von der Delegierungsmethode) nicht für Remotegeräte verfügbar. Im eingeschränkten Verwaltungsmodus kann der Zugriff nicht nur auf den Zielcomputer, sondern auch auf Ressourcen auf anderen Servern oder in anderen Netzwerken beschränkt sein, da die Anmeldeinformationen nicht delegiert werden. Remote Credential Guard beschränkt nicht den Zugriff auf Ressourcen, indem alle Anforderungen an das Clientgerät umgeleitet werden.
+      <string id="RestrictedRemoteAdministration_Explain">Bei der Ausführung im eingeschränkten Verwaltungsmodus oder Remote Credential Guard-Modus machen teilnehmende Apps keine Anmeldeinformationen von angemeldeten Benutzern bzw. angegebene Anmeldeinformationen für einen Remotehost verfügbar. Durch die eingeschränkte Verwaltung wird der Zugriff auf Ressourcen auf anderen Servern oder in anderen Netzwerken vom Remotehost aus beschränkt, da die Anmeldeinformationen nicht delegiert werden. Durch Remote Credential Guard wird der Zugriff auf Ressourcen nicht beschränkt, da alle Anforderungen wieder an das Clientgerät umgeleitet werden.
 
 Teilnehmende Apps:
 Remotedesktopclient
 
-Wenn Sie die Richtlinieneinstellung aktivieren, wird der eingeschränkte Verwaltungsmodus oder Remote Credential Guard erzwungen, und Anmeldeinformationen werden von teilnehmenden Apps nicht an Remotegeräte delegiert.
+Wenn Sie die Richtlinieneinstellung aktivieren, werden die folgenden Optionen unterstützt:
+ 
+Delegierung von Anmeldeinformationen einschränken: Teilnehmende Anwendungen müssen die eingeschränkte Verwaltung oder Remote Credential Guard verwenden, um eine Verbindung mit Remotehosts herzustellen.
+ 
+Remote Credential Guard anfordern: Teilnehmende Anwendungen müssen für Verbindungen mit Remotehosts Remote Credential Guard verwenden.
+ 
+Eingeschränkte Verwaltung anfordern: Teilnehmende Anwendungen müssen für Verbindungen mit Remotehosts die eingeschränkte Verwaltung verwenden.
 
-Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden der eingeschränkte Verwaltungsmodus und Remote Credential Guard nicht erzwungen, und teilnehmende Apps können Anmeldeinformationen an Remotegeräte delegieren.
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden der eingeschränkte Verwaltungsmodus und Remote Credential Guard-Modus nicht erzwungen, und teilnehmende Apps können Anmeldeinformationen an Remotegeräte delegieren.
 
-Hinweis: Zum Deaktivieren der Delegierung von Anmeldeinformationen reicht es möglicherweise aus, die Delegierung in CredSSP (Credential Security Support Provider) zu verweigern. Ändern Sie dazu die Einstellungen in der administrativen Vorlage (unter "Computerkonfiguration\Administrative Vorlagen\System\Delegierung von Anmeldeinformationen").
+Hinweis: Um die Delegierung von Anmeldeinformationen größtenteils zu deaktivieren, reicht es möglicherweise aus, die Delegierung in CredSSP (Credential Security Support Provider) zu verweigern. Ändern Sie dazu die Einstellungen in der administrativen Vorlage (unter "Computerkonfiguration\Administrative Vorlagen\System\Delegierung von Anmeldeinformationen").
 
 Hinweis: Unter Windows 8.1 und Windows Server 2012 R2 wird durch das Aktivieren der Richtlinie der eingeschränkte Verwaltungsmodus (unabhängig vom ausgewählten Modus) erzwungen. Remote Credential Guard wird von diesen Versionen nicht unterstützt.
 </string>
       <string id="SUPPORTED_VISTA">Windows Vista</string>
-      <string id="PreferRemoteCredentialGuard">Remote Credential Guard bevorzugen</string>
+      <string id="PreferRemoteCredentialGuard">Delegierung von Anmeldeinformationen einschränken</string>
       <string id="RequireRemoteCredentialGuard">Remote Credential Guard anfordern</string>
       <string id="RequireRestrictedAdmin">Eingeschränkte Verwaltung anfordern</string>
+      <string id="AllowProtectedCreds">Remotehost ermöglicht die Delegierung nicht exportierbarer Anmeldeinformationen</string>
+      <string id="AllowProtectedCreds_Explain">Remotehost ermöglicht die Delegierung nicht exportierbarer Anmeldeinformationen
+
+Bei Verwendung der Delegierung von Anmeldeinformationen stellen Geräte eine exportierbare Version der Anmeldeinformationen für den Remotehost bereit. Dadurch laufen Benutzer Gefahr, dass ihre Anmeldeinformationen von Angreifern auf dem Remotehost gestohlen werden.
+
+Wenn Sie die Richtlinieneinstellung aktivieren, unterstützt der Host den eingeschränkte Verwaltungsmodus oder Remote Credential Guard-Modus.
+
+Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden der eingeschränkte Verwaltungsmodus und Remote Credential Guard-Modus nicht unterstützt, und der Benutzer muss seine Anmeldeinformationen immer an den Host übergeben.</string>
+      <string id="AllowEncryptionOracle">Encryption Oracle-Abwehr</string>
+      <string id="AllowEncryptionOracle_Explain">Encryption Oracle-Abwehr
+
+Diese Richtlinieneinstellung gilt für Anwendungen, welche die CredSSP-Komponente verwenden (z. B. Remotedesktopverbindung).
+
+Einige Versionen des CredSSP-Protokolls sind anfällig für einen Orakelangriff gegen die Verschlüsselung des Clients. Diese Richtlinie regelt die Kompatibilität mit anfälligen Clients und Servern. Mit dieser Richtlinie können Sie das gewünschte Schutzniveau gegen einen Angriff mit einem Verschlüsselungsorakel festlegen.
+
+Force Updated Clients: Clientanwendungen, die CredSSP verwenden, können nicht auf die unsicheren Versionen und Dienste zurückgreifen, wenn CredSSP keine ungepatchten Clients akzeptiert. Hinweis: Diese Einstellung sollte erst bereitgestellt werden, wenn alle Remotehosts die neueste Version unterstützen.
+
+Mitigated: Clientanwendungen, die CredSSP verwenden, können nicht auf die unsichere Version zurückgreifen, aber Dienste, die CredSSP verwenden, akzeptieren ungepatchte Clients. Unter dem nachstehenden Link finden Sie wichtige Informationen über das Risiko, das von ungepatchten Clients ausgeht.
+
+Vulnerable: Clientanwendungen, die CredSSP verwenden, setzen die Remoteserver Angriffen aus, indem sie den Rückgriff auf die unsicheren Versionen unterstützen, und Dienste, die CredSSP verwenden, akzeptieren ungepatchte Clients.
+
+Weitere Informationen zu Sicherheitsanfälligkeiten und erforderliche Schutzmaßnahmen finden Sie unter https://go.microsoft.com/fwlink/?linkid=866660.</string>
+      <string id="AllowEncryptionOracle_Force">Force Updated Clients</string>
+      <string id="AllowEncryptionOracle_Secure">Mitigated</string>
+      <string id="AllowEncryptionOracle_Allow">Vulnerable</string>
     </stringTable>
     
     <presentationTable>
@@ -214,6 +245,12 @@ Hinweis: Unter Windows 8.1 und Windows Server 2012 R2 wird durch das Aktivieren 
       <presentation id="RestrictedRemoteAdministration">
         <dropdownList refId="RestrictedRemoteAdministrationDrop" defaultItem="0">Verwenden Sie den folgenden eingeschränkten Modus:</dropdownList>
       </presentation>
+      <presentation id="AllowProtectedCreds">
+      </presentation>
+      <presentation id="AllowEncryptionOracle">
+        <dropdownList refId="AllowEncryptionOracleDrop" defaultItem="1">Schutzebene:</dropdownList>
+      </presentation>
     </presentationTable>
+    
   </resources>
 </policyDefinitionResources>

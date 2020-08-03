@@ -3,9 +3,13 @@
 <description>Beschreibung hier eingeben</description>
 <resources>
     <stringTable>
-    <string id="AntiSpywareDefender">Endpoint Protection</string>
+    <string id="AntiSpywareDefender">Windows Defender Antivirus</string>
     <string id="AntiSpyware">Endpoint Protection</string>
     <string id="Exclusions">Ausschlüsse</string>
+    <string id="ExploitGuard">Windows Defender Exploit Guard</string>
+    <string id="ExploitGuard_ASR">Verringerung der Angriffsfläche</string>
+    <string id="ExploitGuard_ControlledFolderAccess">Überwachter Ordnerzugriff</string>
+    <string id="ExploitGuard_NetworkProtection">Netzwerkschutz</string>
     <string id="NetworkRealtimeInspection">Netzwerkinspektionssystem</string>
     <string id="NetworkRealtimeInspection_Exclusions">Ausschlüsse</string>
     <string id="Quarantine">Quarantäne</string>
@@ -17,6 +21,7 @@
     <string id="Spynet">MAPS</string>
     <string id="Threats">Bedrohungen</string>
     <string id="ClientInterface">Clientschnittstelle</string>
+    <string id="MpEngine">MpEngine</string>
     <string id="AllowFastServiceStartup">Start des AntiMalware-Diensts mit normaler Priorität gestatten</string>
     <string id="AllowFastServiceStartup_Explain">Diese Richtlinieneinstellung steuert die Ladepriorität für den AntiMalware-Dienst. Die Erhöhung der Ladepriorität ermöglicht einen schnelleren Start des Diensts, kann sich jedoch nachteilig auf die Leistung auswirken.
 
@@ -25,7 +30,18 @@ Wenn Sie diese Einstellung aktivieren oder nicht konfigurieren, wird der AntiMal
 Wenn Sie diese Einstellung deaktivieren, wird der AntiMalware-Dienst als Aufgabe mit niedriger Priorität geladen.</string>
 
     <string id="DisableAutoExclusions">Automatische Ausschlüsse deaktivieren</string>
-    <string id="DisableAutoExclusions_Explain">Ermöglicht es einem Administrator anzugeben, ob die Funktion für automatische Ausschlüsse für Server-SKUs deaktiviert werden soll.</string>
+    <string id="DisableAutoExclusions_Explain">
+        Ermöglicht einem Administrator, anzugeben, ob das Feature "Automatische Ausschlüsse" für Server-SKUs deaktiviert werden soll.
+
+        Deaktiviert (Standard):
+        Windows Defender schließt eine vordefinierte Pfadliste aus der Überprüfung aus, um die Leistung zu verbessern.
+
+        Aktiviert:
+        Windows Defender schließt keine vordefinierte Pfadliste aus Überprüfungen aus. Dies kann sich in einigen Szenarien auf die Leistung des Computers auswirken.
+
+        Nicht konfiguriert:
+        Identisch mit "Deaktiviert".
+    </string>
     <string id="DisableAntiSpyware">Endpoint Protection deaktivieren</string>
     <string id="DisableAntiSpyware_Explain">Durch diese Richtlinieneinstellung wird Endpoint Protection deaktiviert.
 
@@ -33,12 +49,12 @@ Wenn Sie diese Richtlinieneinstellung aktivieren, wird Endpoint Protection nicht
 
 Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird Endpoint Protection standardmäßig ausgeführt. Die Computer werden auf schädliche Software und andere möglicherweise unerwünschte Software überprüft.
     </string>
-    <string id="DisableAntiSpywareDefender">Endpoint Protection deaktivieren</string>
-    <string id="DisableAntiSpywareDefender_Explain">Durch diese Richtlinieneinstellung wird Endpoint Protection deaktiviert.
+    <string id="DisableAntiSpywareDefender">Windows Defender Antivirus deaktivieren</string>
+    <string id="DisableAntiSpywareDefender_Explain">Durch diese Richtlinieneinstellung wird Windows Defender Antivirus deaktiviert.
 
-    Wenn Sie diese Richtlinieneinstellung aktivieren, wird Endpoint Protection nicht ausgeführt. Die Computer werden nicht auf schädliche oder andere möglicherweise unerwünschte Software überprüft.
+    Wenn Sie diese Richtlinieneinstellung aktivieren, wird Windows Defender Antivirus nicht ausgeführt. Die Computer werden nicht auf Schadsoftware oder andere möglicherweise unerwünschte Software überprüft.
 
-    Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird Endpoint Protection standardmäßig ausgeführt. Die Computer werden auf schädliche und andere möglicherweise unerwünschte Software überprüft.</string>
+    Wenn Sie diese Richtlinieneinstellung deaktivieren oder nicht konfigurieren, wird Windows Defender Antivirus standardmäßig ausgeführt. Die Computer werden auf Schadsoftware und andere möglicherweise unerwünschte Software überprüft.</string>
     <string id="DisableLocalAdminMerge">Konfigurieren des Zusammenführungsverhaltens von lokalen Administratoren für Listen</string>
     <string id="DisableLocalAdminMerge_Explain">Mit dieser Richtlinieneinstellung wird gesteuert, ob komplexe Listeneinstellungen, die von einem lokalen Administrator konfiguriert werden, mit Gruppenrichtlinieneinstellungen zusammengeführt werden. Diese Einstellung gilt für Listen wie Bedrohungen und Ausschlüsse.
 
@@ -47,11 +63,11 @@ Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, werden eindeutige
 Wenn diese Einstellung deaktiviert wird, werden nur von der Gruppenrichtlinie definierte Elemente in der effektiven Richtlinie verwendet. Vom lokalen Administrator konfigurierte Einstellungen werden von den Gruppenrichtlinieneinstellungen außer Kraft gesetzt.</string>
     <string id="DisableRoutinelyTakingAction">Regelmäßige Wartung deaktivieren</string>
     <string id="DisableRoutinelyTakingActionDefender_Explain">
-    Mit dieser Richtlinieneinstellung können Sie konfigurieren, ob Endpoint Protection automatisch eine Aktion für alle erkannten Bedrohungen ausführt. Die Aktion, die für eine bestimmte Bedrohung ergriffen wird, hängt von der Kombination aus richtliniendefinierter Aktion, benutzerdefinierter Aktion und signaturdefinierter Aktion ab.
+    Mit dieser Richtlinieneinstellung können Sie konfigurieren, ob Windows Defender Antivirus bei allen erkannten Bedrohungen automatisch Maßnahmen ergreift. Die Maßnahme, die für eine bestimmte Bedrohung ergriffen wird, hängt von der Kombination aus richtliniendefinierter Maßnahme, benutzerdefinierter Maßnahme und signaturdefinierter Maßnahme ab.
 
-    Wenn Sie die Richtlinieneinstellung aktivieren, führt Endpoint Protection keine automatische Aktion für die erkannten Bedrohungen aus, fordert die Benutzer jedoch auf, aus den für die Bedrohung jeweils verfügbaren Aktionen auszuwählen.
+    Wenn Sie die Richtlinieneinstellung aktivieren, ergreift Windows Defender Antivirus bei erkannten Bedrohungen nicht automatische eine Maßnahme, fordert die Benutzer jedoch auf, aus den für die Bedrohung verfügbaren Maßnahmen auszuwählen.
 
-    Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, führt Endpoint Protection nach einer nicht konfigurierbaren Verzögerung von ca. fünf Sekunden automatisch Aktionen für alle erkannten Bedrohungen aus.</string>
+    Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, ergreift Windows Defender Antivirus nach einer nicht konfigurierbaren Verzögerung von ca. fünf Sekunden für alle erkannten Bedrohungen automatisch eine Maßnahme.</string>
     <string id="DisableRoutinelyTakingAction_Explain">
         Mit dieser Richtlinieneinstellung können Sie konfigurieren, ob Endpoint Protection automatisch eine Aktion für alle erkannten Bedrohungen ausführt. Die Aktion, die für eine bestimmte Bedrohung ergriffen wird, hängt von der Kombination aus richtliniendefinierter Aktion, benutzerdefinierter Aktion und signaturdefinierter Aktion ab.
 
@@ -100,6 +116,21 @@ Wird diese Einstellung deaktiviert, beginnen geplante Aufgaben zur angegebenen S
 Wenn diese Einstellung aktiviert ist, wird der AntiMalware-Dienst stets weiterhin ausgeführt, auch wenn sowohl Antiviren- als auch Antispywaredefinitionen deaktiviert werden.
 
 Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, wird der AntiMalware-Dienst beendet, wenn sowohl Antiviren- als auch Antispywaredefinitionen deaktiviert werden. Beim Neustart des Computers wird der Dienst gestartet, wenn er auf "Automatisch starten" festgelegt wird. Nach dem Start des Diensts wird überprüft, ob Antiviren- und Antispywaredefinitionen aktiviert sind. Wenn mindestens eine Definition aktiviert ist, wird der Dienst weiterhin ausgeführt. Wenn beide Definitionen deaktiviert werden, wird der Dienst beendet.</string>
+    <string id="Root_PUAProtection">Konfigurieren der Erkennung für potenziell unerwünschte Anwendungen</string>
+    <string id="Root_PUAProtection_Explain">
+        Aktivieren oder deaktivieren Sie die Erkennung potenziell unerwünschter Anwendungen. Sie können auswählen, ob potenziell unerwünschte Software, die heruntergeladen wird oder versucht, sich auf Ihrem Computer zu installieren, blockiert, überwacht oder zugelassen werden soll.
+
+        Aktiviert:
+        Geben Sie im Optionsabschnitt den Modus an:
+        -Blockieren: Potenziell unerwünschte Software wird blockiert.
+        -Überwachungsmodus: Potenziell unerwünschte Software wird nicht blockiert. Hätte das Feature den Zugriff bei Auswahl von "Blockieren" jedoch blockiert, ist ein entsprechender Ereigniseintrag in den Ereignisprotokollen enthalten.
+
+        Deaktiviert:
+        Potenziell unerwünschte Software wird nicht blockiert.
+
+        Nicht konfiguriert:
+        Wie bei "Deaktiviert".
+    </string>
     <string id="Exclusions_Extensions">Erweiterungsausschlüsse</string>
     <string id="Exclusions_Extensions_Explain">Diese Richtlinieneinstellung ermöglicht die Angabe einer Liste von Dateitypen, die aus geplanten, benutzerdefinierten und in Echtzeit stattfindenden Scanvorgängen ausgeschlossen werden sollen. Dateitypen sollten unter den Optionen für diese Einstellung hinzugefügt werden. Jeder Eintrag muss als Name/Wert-Paar aufgeführt werden, wobei der Name eine Zeichenfolgendarstellung der Dateityperweiterung sein sollte (zum Beispiel "obj" oder "lib"). Der Wert wird nicht verwendet und sollte auf 0 festgelegt werden.</string>
     <string id="Exclusions_Paths">Pfadausschlüsse</string>
@@ -157,13 +188,13 @@ Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, werden rohe Schre
 
 Wenn diese Einstellung deaktiviert wird, werden rohe Schreibbenachrichtigungen deaktiviert.</string>
     <string id="DisableRealtimeMonitoring">Deaktivieren von Echtzeitschutz</string>
-    <string id="DisableRealtimeMonitoringDefender_Explain">Mithilfe dieser Richtlinieneinstellung werden Echtzeitschutz-Aufforderungen für die Erkennung bekannter schädlicher Software deaktiviert.
+    <string id="DisableRealtimeMonitoringDefender_Explain">Mit dieser Richtlinieneinstellung werden Echtzeitschutz-Aufforderungen für die Erkennung bekannter Schadsoftware deaktiviert.
 
-    Sie werden von Endpoint Protection gewarnt, wenn schädliche oder möglicherweise unerwünschte Software auf Ihrem Computer ausgeführt oder installiert wird.
+    Sie werden von Windows Defender Antivirus gewarnt, wenn Schadsoftware oder möglicherweise unerwünschte Software auf Ihrem Computer ausgeführt oder installiert wird.
 
-    Wenn Sie die Richtlinieneinstellung aktivieren, fordert Endpoint Protection die Benutzer bei der Erkennung schädlicher Software nicht auf, Maßnahmen zu ergreifen.
+    Wenn Sie die Richtlinieneinstellung aktivieren, fordert Windows Defender Antivirus Benutzer bei der Erkennung von Schadsoftware nicht auf, Maßnahmen zu ergreifen.
 
-    Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden Benutzer von Endpoint Protection aufgefordert, bei der Erkennung schädlicher Software Maßnahmen zu ergreifen.</string>
+    Wenn Sie die Richtlinieneinstellung deaktivieren oder nicht konfigurieren, werden Benutzer von Windows Defender Antivirus aufgefordert, bei der Erkennung von Schadsoftware Maßnahmen zu ergreifen.</string>
     <string id="DisableRealtimeMonitoring_Explain">
     Mithilfe dieser Richtlinieneinstellung werden Aufforderungen des Echtzeitschutzes für die Erkennung bekannter schädlicher Software deaktiviert.
 
@@ -288,14 +319,22 @@ Wenn diese Einstellung deaktiviert wird, werden keine Watson-Ereignisse gesendet
     <string id="Reporting_WppTracingComponents">Konfigurieren von Windows-Präprozessorkomponenten für Softwareverfolgung</string>
     <string id="Reporting_WppTracingComponents_Explain">Mit dieser Richtlinie werden Windows-Präprozessorkomponenten für Softwareverfolgung (WPP-Softwareverfolgung) konfiguriert.</string>
     <string id="Reporting_WppTracingLevel">Konfigurieren der WPP-Verfolgungsebene</string>
-    <string id="Reporting_WppTracingLevel_Explain">Mit dieser Richtlinie werden Verfolgungsebenen für Windows-Präprozessor-Softwareverfolgung (WPP-Softwareverfolgung) konfiguriert. 
+    <string id="Reporting_WppTracingLevel_Explain">Mit dieser Richtlinie werden Ablaufverfolgungsebenen für die Windows-Präprozessor-Softwareverfolgung (WPP-Softwareverfolgung) konfiguriert. 
+    Ablaufverfolgungsebenen werden folgendermaßen konfiguriert:
+    1 – Fehler
+    2 – Warnung
+    3 – Informationen
+    4 – Debuggen</string>
+    <string id="Reporting_DisableEnhancedNotifications">Erweiterte Benachrichtigungen deaktivieren</string>
+    <string id="Reporting_DisableEnhancedNotifications_Explain">
+      Mit dieser Richtlinieneinstellung können Sie angeben, ob erweiterte Windows Defender Antivirus-Benachrichtigungen auf Clients angezeigt werden sollen.
+      
+      Wenn Sie die Einstellung deaktivieren oder nicht konfigurieren, werden erweiterte Windows Defender Antivirus-Benachrichtigungen auf Clients angezeigt.
+      
+      Wenn Sie die Einstellung aktivieren, werden keine erweiterten Windows Defender Antivirus-Benachrichtigungen auf Clients angezeigt.
+    </string>
 
-Verfolgungsebenen werden folgendermaßen definiert:
-1 – Fehler
-2 – Warnung
-3 – Informationen
-4 – Debuggen</string>
-    <string id="Scan_AllowPause">Benutzern das Anhalten von Scans gestatten</string>
+      <string id="Scan_AllowPause">Benutzern das Anhalten von Scans gestatten</string>
     <string id="Scan_AllowPause_Explain">Mit dieser Richtlinieneinstellung wird verwaltet, ob Endbenutzer einen laufenden Scanvorgang anhalten können.
 
 Wenn diese Einstellung aktiviert oder nicht konfiguriert wird, wird dem Aufgabenleistensymbol ein neues Kontextmenü hinzugefügt, um dem Benutzer das Anhalten eines Scanvorgangs zu gestatten.
@@ -496,6 +535,14 @@ Wenn diese Einstellung deaktiviert oder nicht konfiguriert wird, wird zu einer S
     Wenn Sie die Einstellung aktivieren, wird nach der angegebenen Anzahl aufeinander folgender, ausgelassener, geplanter Scans ein Nachholscan ausgeführt.
 
     Wenn Sie die Einstellung deaktivieren oder nicht konfigurieren, wird nach zwei aufeinander folgenden, ausgelassenen, geplanten Scans ein Nachholscan ausgeführt.</string>
+    <string id="Scan_LowCpuPriority">Niedrige CPU-Priorität für geplante Scans konfigurieren</string>
+    <string id="Scan_LowCpuPriority_Explain">
+        Mit dieser Richtlinieneinstellung können Sie die niedrige CPU-Priorität für geplante Scans aktivieren oder deaktivieren.
+
+        Wenn Sie diese Einstellung aktivieren, wird bei geplanten Scans die niedrige CPU-Priorität verwendet.
+
+        Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, werden für geplante Scans keine Änderungen an der CPU-Priorität vorgenommen.
+    </string>
     <string id="SignatureUpdate_ASSignatureDue">Definieren der Anzahl der Tage, bevor Spywaredefinitionen als veraltet eingestuft werden</string>
     <string id="SignatureUpdate_ASSignatureDue_Explain">Mit dieser Richtlinieneinstellung kann die Anzahl der Tage angegeben werden, die vergehen müssen, bevor Spywaredefinitionen als veraltet eingestuft werden. Wenn Definitionen als veraltet eingestuft werden, können durch diesen Zustand mehrere zusätzliche Aktionen ausgelöst werden, einschließlich eines Fallbacks auf eine alternative Updatequelle oder der Anzeige eines Warnsymbols auf der Benutzeroberfläche. Standardmäßig wird der Wert auf 14 Tage festgelegt.
 
@@ -701,10 +748,10 @@ Gültige Werte für Wartungsaktionen:
       Wenn Sie die Einstellung aktivieren, werden auf der AM-Benutzeroberfläche keine Neustartbenachrichtigungen angezeigt.
     </string>
     <string id="UX_Configuration_Notification_Suppress">Alle Benachrichtigungen unterdrücken</string>
-    <string id="UX_Configuration_Notification_Suppress_Explain">Mit dieser Richtlinieneinstellung können Sie angeben, ob Windows Defender-Benachrichtigungen auf Clients angezeigt werden sollen.
-      Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, werden Windows Defender-Benachrichtigungen auf Clients angezeigt.
+    <string id="UX_Configuration_Notification_Suppress_Explain">Mit dieser Richtlinieneinstellung können Sie angeben, ob Windows Defender Antivirus-Benachrichtigungen auf Clients angezeigt werden sollen.
+      Wenn Sie die Einstellung deaktivieren oder nicht konfigurieren, werden Windows Defender Antivirus-Benachrichtigungen auf Clients angezeigt.
 
-      Wenn Sie diese Einstellung aktivieren, werden keine Windows Defender-Benachrichtigungen auf Clients angezeigt.
+      Wenn Sie die Einstellung aktivieren, werden keine Windows Defender Antivirus-Benachrichtigungen auf Clients angezeigt.
     </string>
     <string id="UX_Configuration_CustomDefaultActionToastString">Anzeigen von zusätzlichem Text für Clients, wenn eine Aktion ausgeführt werden muss</string>
     <string id="UX_Configuration_CustomDefaultActionToastString_Explain">Mit dieser Richtlinieneinstellung können Sie konfigurieren, ob zusätzlicher Text für Clients angezeigt wird, wenn eine Aktion ausgeführt werden muss Der angezeigte Test ist eine vom Administrator benutzerdefinierte Zeichenfolge. Beispielsweise kann es sich dabei um die Helpdesk-Telefonnummer des Unternehmens handeln. Die Clientschnittstelle zeigt höchstens 1024 Zeichen an. Längere Zeichenfolgen werden vor dem Anzeigen gekürzt.
@@ -712,6 +759,202 @@ Gültige Werte für Wartungsaktionen:
 Wenn Sie diese Einstellung aktivieren, wird der angegebene zusätzliche Text angezeigt.
 
 Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird kein zusätzlicher Text angezeigt.</string>
+    <string id="MpCloudBlockLevel">Cloudschutzebene auswählen</string>
+    <string id="MpCloudBlockLevel_Explain">
+      Diese Richtlinieneinstellung legt fest, wie aggressiv verdächtige Dateien von Windows Defender Antivirus blockiert und überprüft werden.
+
+      Wenn die Einstellung aktiviert ist, geht Windows Defender Antivirus bei der Erkennung verdächtiger Dateien, die blockiert und überprüft werden müssen, aggressiver vor. Andernfalls ist das Verhalten weniger aggressiv, sodass Dateien seltener blockiert und überprüft werden. 
+      
+      Weitere Informationen zu unterstützten Werten finden Sie auf der Website mit der Dokumentation zu Windows Defender Antivirus.
+
+      Hinweis: Damit dieses Feature unterstützt wird, muss die Einstellung für den Beitritt zu Microsoft MAPS aktiviert sein.
+
+      Mögliche Optionen:
+      (0x0) Standardmäßige Windows Defender-Blockierungsstufe
+      (0x2) Hohe Blockierungsstufe – unbekannte Dateien bei gleichzeitiger Optimierung der Clientleistung aggressiv blockieren (höhere Wahrscheinlichkeit falsch positiver Ergebnisse)
+      (0x4) Extrahohe Blockierungsstufe – unbekannte Dateien aggressiv blockieren und zusätzliche Schutzmaßnahmen anwenden (kann sich auf die Clientleistung auswirken)
+      (0x6) Blockierungsstufe mit Null-Toleranz – alle unbekannten ausführbaren Dateien blockieren
+    </string>
+    <string id="MpCloudBlockLevel_Default_Level">Standardmäßige Windows Defender Antivirus-Blockierungsstufe</string>
+    <string id="MpCloudBlockLevel_High_Level">Hohe Blockierungsstufe</string>
+    <string id="MpCloudBlockLevel_High_Plus_Level">Extrahohe Blockierungsstufe</string>
+    <string id="MpCloudBlockLevel_Zero_Tolerance_Level">Blockierungsstufe mit Null-Toleranz</string>
+    <string id="MpBafsExtendedTimeout">Erweiterte Cloudüberprüfung konfigurieren</string>
+    <string id="MpBafsExtendedTimeout_Explain">
+      Mit diesem Feature kann eine verdächtige Datei von Windows Defender Antivirus bis zu 60 Sekunden blockiert und in der Cloud auf ihre Sicherheit überprüft werden.
+      
+      Das typische Zeitlimit für die Cloudüberprüfung liegt bei 10 Sekunden. Um das Feature für die erweiterte Cloudüberprüfung zu aktivieren, geben Sie die Verlängerung in Sekunden ein (zusätzlich maximal 50 Sekunden).
+
+      Wenn das gewünschte Zeitlimit beispielsweise 60 Sekunden beträgt, geben Sie für diese Einstellung 50 Sekunden an. Dadurch wird das Feature für die erweiterte Cloudüberprüfung aktiviert, und die Gesamtzeit erhöht sich auf 60 Sekunden.
+
+      Hinweis: Dieses Feature ist von drei weiteren MAPS-Einstellungen abhängig, die alle aktiviert sein müssen: "Feature 'Bei erster Anzeige blockieren' konfigurieren", "Microsoft MAPS beitreten" und "Dateibeispiele senden, wenn eine weitere Analyse erforderlich ist".
+    </string>
+    <string id="ExploitGuard_EnableNetworkProtection">Benutzer- und App-Zugriff auf gefährliche Websites verhindern</string>
+    <string id="ExploitGuard_EnableNetworkProtection_Explain">
+    Aktivieren oder deaktivieren Sie den Windows Defender Exploit Guard-Netzwerkschutz, um Mitarbeiter daran zu hindern, über Anwendungen auf gefährliche Domänen zuzugreifen, von denen Internetgefahren wie Onlinephishing, Exploit-Angriffe oder andere schädliche Inhalte ausgehen können.
+
+    Aktiviert:
+    Geben Sie den Modus im Abschnitt "Optionen" an:
+    – Blockieren: Benutzer und Anwendungen können nicht auf gefährliche Domänen zugreifen.
+    – Überwachungsmodus: Benutzer und Anwendungen können eine Verbindung mit gefährlichen Domänen herstellen. Hätte das Feature den Zugriff bei Auswahl von "Blockieren" jedoch blockiert, wäre ein entsprechender Ereigniseintrag in den Ereignisprotokollen enthalten.
+
+    Deaktiviert:
+    Benutzer und Anwendungen werden nicht daran gehindert, eine Verbindung mit gefährlichen Domänen herzustellen.
+
+    Nicht konfiguriert:
+    Identisch mit "Deaktiviert".
+    </string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions">Dateien und Pfade aus Regeln zur Verringerung der Angriffsfläche ausschließen</string>
+    <string id="ExploitGuard_ASR_ASROnlyExclusions_Explain">
+    Schließen Sie Dateien und Pfade aus Regeln zur Verringerung der Angriffsfläche (Attack Surface Reduction, ASR) aus.
+
+    Aktiviert:
+    Geben Sie die Ordner oder Dateien und Ressourcen, die aus ASR-Regeln ausgeschlossen werden sollen, im Abschnitt "Optionen" an.
+    Geben Sie jede Regel als Name/Wert-Paar in eine neue Zeile ein:
+    – Namensspalte: Geben Sie einen Ordnerpfad oder einen vollqualifizierten Ressourcennamen ein. Durch "C:\Windows" werden z. B. alle Dateien des betreffenden Verzeichnisses ausgeschlossen. Durch "C:\Windows\App.exe" wird nur die genannte Datei in dem genannten Ordner ausgeschlossen.
+    – Wertespalte: Geben Sie "0" für jedes Element ein.
+
+    Deaktiviert:
+    Es werden keine Ausschlüsse auf ASR-Regeln angewendet.
+
+    Nicht konfiguriert:
+    Identisch mit "Deaktiviert".
+
+    Sie können ASR-Regeln in der Gruppenrichtlinieneinstellung unter "Regeln zur Verringerung der Angriffsfläche konfigurieren" festlegen.
+    </string>
+    <string id="ExploitGuard_ASR_Rules">Regeln zur Verringerung der Angriffsfläche konfigurieren</string>
+    <string id="ExploitGuard_ASR_Rules_Explain">
+    Legen Sie den Zustand der einzelnen Regeln zur Verringerung der Angriffsfläche (Attack Surface Reduction, ASR) fest.
+
+    Nach dem Aktivieren dieser Einstellung können Sie die einzelnen Regeln im Abschnitt "Optionen" wie folgt festlegen:
+    – Blockieren: Die Regel wird angewendet.
+    – Überwachungsmodus: Wenn die Regel normalerweise ein Ereignis auslösen würde, wird sie aufgezeichnet (obwohl die Regel tatsächlich nicht angewendet wird).
+    – Aus: Die Regel wird nicht angewendet.
+
+    Aktiviert:
+    Geben Sie den Zustand der einzelnen ASR-Regeln im Abschnitt "Optionen" für diese Einstellung an.
+    Geben Sie jede Regel als Name/Wert-Paar in eine neue Zeile ein:
+    – Namensspalte: Geben Sie eine gültige ID für die ASR-Regel ein.
+    – Wertespalte: Geben Sie die Status-ID ein, die sich auf den Zustand bezieht, den Sie für die zugeordnete Regel angeben möchten.
+
+    Die folgenden Status-IDs sind in der Wertespalte zulässig:
+    – 1 (Blockieren)
+    – 0 (Aus)
+    – 2 (Überwachen)
+    
+    Beispiel:
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            0
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            1
+    xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx            2
+
+    Deaktiviert:
+    Es werden keine ASR-Regeln konfiguriert.
+
+    Nicht konfiguriert:
+    Identisch mit "Deaktiviert".
+
+    Sie können Ordner oder Dateien in der Gruppenrichtlinieneinstellung "Dateien und Pfade aus Regeln zur Verringerung der Angriffsfläche ausschließen" ausschließen.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">Überwachten Ordnerzugriff konfigurieren</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Explain">
+    Aktiviert oder deaktiviert den überwachten Ordnerzugriff für nicht vertrauenswürdige Anwendungen. Folgende Versuche nicht vertrauenswürdiger Apps können blockiert, überwacht oder zugelassen werden:
+    – Dateien in geschützten Ordnern, wie dem Dokumentordner, ändern oder löschen
+    – Auf Datenträgersektoren schreiben
+
+    Sie können auch nur Schreibvorgänge auf Datenträgersektoren blockieren oder überwachen, das Ändern oder Löschen von Dateien in geschützten Ordnern aber weiterhin zulassen.
+
+    Windows Defender Antivirus bestimmt automatisch, welche Anwendungen vertrauenswürdig sind. In der GP-Einstellung "Zulässige Anwendungen konfigurieren" können Sie zusätzliche vertrauenswürdige Anwendungen hinzufügen.
+    Standardsystemordner werden automatisch geschützt, in der GP-Einstellung "Geschützte Ordner konfigurieren" können Sie jedoch Ordner hinzufügen.
+
+    Blockieren:
+    Folgende Versuche nicht vertrauenswürdiger Apps werden blockiert:
+    – Dateien in geschützten Ordnern ändern oder löschen
+    – Auf Datenträgersektoren schreiben
+    Die blockierten Aktionen werden vom Windows-Ereignisprotokoll unter "Anwendungs- und Dienstprotokolle &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123" aufgezeichnet.
+
+
+    Deaktiviert:
+    Folgende Versuche nicht vertrauenswürdiger Apps werden nicht blockiert und dürfen ausgeführt werden:
+    – Dateien in geschützten Ordnern ändern oder löschen
+    – Auf Datenträgersektoren schreiben
+    Diese Versuche werden nicht im Windows-Ereignisprotokoll aufgezeichnet.
+
+
+    Überwachungsmodus:
+    Folgende Versuche nicht vertrauenswürdiger Apps werden nicht blockiert und dürfen ausgeführt werden:
+    – Dateien in geschützten Ordnern ändern oder löschen
+    – Auf Datenträgersektoren schreiben
+    Diese Versuche werden vom Windows-Ereignisprotokoll unter "Anwendungs- und Dienstprotokolle &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124" aufgezeichnet.
+
+
+    Nur Datenträgeränderungen blockieren:
+    Folgende Versuche nicht vertrauenswürdiger Apps werden blockiert:
+    – Auf Datenträgersektoren schreiben
+    Diese Versuche werden vom Windows-Ereignisprotokoll unter "Anwendungs- und Dienstprotokolle &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1123" aufgezeichnet.
+
+    Folgende Versuche nicht vertrauenswürdiger Apps werden nicht blockiert und dürfen ausgeführt werden:
+    – Dateien in geschützten Ordnern ändern oder löschen
+    Diese Versuche werden nicht im Windows-Ereignisprotokoll aufgezeichnet.
+
+
+    Nur Datenträgeränderungen überwachen:
+    Folgende Versuche nicht vertrauenswürdiger Apps werden nicht blockiert und dürfen ausgeführt werden:
+    – Auf Datenträgersektoren schreiben
+    – Dateien in geschützten Ordnern ändern oder löschen
+    Nur Schreibversuche auf geschützten Datenträgersektoren werden im Windows-Ereignisprotokoll (unter "Anwendungs- und Dienstprotokolle &gt; Microsoft &gt; Windows &gt; Windows Defender &gt; Operational &gt; ID 1124") aufgezeichnet.
+    Versuche, Dateien in geschützten Ordnern zu ändern oder zu löschen, werden nicht aufgezeichnet.
+
+    Nicht konfiguriert:
+    Identisch mit "Deaktiviert".
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Disable">Deaktivieren (Standard)</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Block">Blockieren</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_Audit">Überwachungsmodus</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_BlockDiskModifications">Nur Datenträgeränderungen blockieren</string>
+    <string id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess_AuditDiskModifications">Nur Datenträgeränderungen überwachen</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications">Zulässige Anwendungen konfigurieren</string>
+    <string id="ExploitGuard_ControlledFolderAccess_AllowedApplications_Explain">
+    Fügen Sie zusätzliche Anwendungen hinzu, die vom überwachten Ordnerzugriff als "vertrauenswürdig" eingestuft werden sollen.
+
+    Diese Anwendungen können Dateien in Ordnern mit überwachtem Ordnerzugriff ändern oder löschen.
+
+    Windows Defender Antivirus ermittelt automatisch, welche Anwendungen vertrauenswürdig sind. Sie können diese Einstellung so konfigurieren, dass zusätzliche Anwendungen hinzugefügt werden.
+
+    Aktiviert:
+    Geben Sie zusätzliche zulässige Anwendungen im Abschnitt "Optionen" an.
+
+    Deaktiviert:
+    Der Liste vertrauenswürdiger Anwendungen werden keine zusätzlichen Anwendungen hinzugefügt.
+
+    Nicht konfiguriert:
+    Identisch mit "Deaktiviert".
+
+    Sie können den überwachten Orderzugriff in der Gruppenrichtlinieneinstellung "Überwachten Ordnerzugriff konfigurieren" aktivieren.
+
+    Standardsystemordner werden automatisch überwacht, Sie können außerdem weitere Ordner in der Gruppenrichtlinieneinstellung "Geschützte Ordner konfigurieren" hinzufügen.
+    </string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Geschützte Ordner konfigurieren</string>
+    <string id="ExploitGuard_ControlledFolderAccess_ProtectedFolders_Explain">
+    Geben Sie zusätzliche Ordner an, die vom Feature für geschützten Ordnerzugriff überwacht werden sollen.
+
+    Dateien in diesen Ordnern können von nicht vertrauenswürdigen Anwendungen weder geändert noch gelöscht werden.
+
+    Standardsystemordner sind automatisch geschützt. Sie können diese Einstellung für das Hinzufügen zusätzlicher Ordner konfigurieren.
+    Die Liste der geschützten Standardsystemordner wird in Windows-Sicherheit angezeigt.
+
+    Aktiviert:
+    Geben Sie zusätzliche Ordner, die geschützt werden sollen, im Abschnitt "Optionen" an.
+
+    Deaktiviert:
+    Es werden keine zusätzlichen Ordner geschützt.
+
+    Nicht konfiguriert:
+    Identisch mit "Deaktiviert".
+
+    Sie können den überwachten Ordnerzugriff in der Gruppenrichtlinieneinstellung "Überwachten Ordnerzugriff konfigurieren" aktivieren.
+
+    Windows Defender Antivirus ermittelt automatisch, welche Anwendungen vertrauenswürdig sind. Sie können zusätzliche vertrauenswürdige Anwendungen in der Gruppenrichtlinieneinstellung "Zulässige Anwendungen konfigurieren" hinzufügen.
+    </string>
     </stringTable>
     <presentationTable>
     <presentation id="ProxyBypass">
@@ -852,6 +1095,33 @@ Wenn Sie diese Einstellung deaktivieren oder nicht konfigurieren, wird kein zus�
     <presentation id="SignatureUpdate_ExpiryNotificationIntervalDays">
         <decimalTextBox refId="SignatureUpdate_ExpiryNotificationIntervalDays">Intervall für die Ablaufbenachrichtigung angeben</decimalTextBox>
     </presentation>
-    </presentationTable>
+    <presentation id="MpCloudBlockLevel">
+     <dropdownList refId="MpCloudBlockLevel" noSort="true" defaultItem="0">Cloud-Blockierungsstufe auswählen</dropdownList>
+    </presentation>
+    <presentation id="MpBafsExtendedTimeout">
+     <decimalTextBox refId="MpBafsExtendedTimeout" defaultValue="0">Verlängerung für die erweiterte Cloudüberprüfung in Sekunden:</decimalTextBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess">
+        <dropdownList refId="ExploitGuard_ControlledFolderAccess_EnableControlledFolderAccess" noSort="true" defaultItem="0">Feature zum Überwachen eigener Ordner konfigurieren</dropdownList>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_ASROnlyExclusions">
+        <listBox refId="ExploitGuard_ASR_ASROnlyExclusions">Ausschlüsse von ASR-Regeln:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ASR_Rules">
+        <listBox refId="ExploitGuard_ASR_Rules">Zustand für jede ASR-Regel festlegen:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_AllowedApplications">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_AllowedApplications">Geben Sie die Anwendungen ein, denen vertraut werden soll:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_ControlledFolderAccess_ProtectedFolders">
+        <listBox refId="ExploitGuard_ControlledFolderAccess_ProtectedFolders">Geben Sie die Ordner ein, die überwacht werden sollen:</listBox>
+    </presentation>
+    <presentation id="ExploitGuard_EnableNetworkProtection">
+        <dropdownList refId="ExploitGuard_EnableNetworkProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+    <presentation id="Root_PUAProtection">
+        <dropdownList refId="Root_PUAProtection" noSort="true" defaultItem="0"></dropdownList>
+    </presentation>
+   </presentationTable>
 </resources>
 </policyDefinitionResources>

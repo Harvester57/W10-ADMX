@@ -28,14 +28,13 @@ BitLocker 恢复信息包括恢复密码和一些唯一的标识符数据。还�
 
 注意: 此策略仅适用于运行 Windows Server 2008 或 Windows Vista 的计算机。
 
-在含有兼容的受信任平台模块(TPM)的计算机上，启动时可以使用两种身份验证方法，以便为加密数据提供附加保护。当计算机启动时，它会要求用户插入包含启动密钥的 U 盘。另外还会要求用户输入一个 4 到 20 位数的启动个人标识号(PIN)。
+在带有兼容的受信任平台模块(TPM)的计算机上，启动时可以使用两种身份验证方法，以便为加密数据提供附加保护。当计算机启动时，它会要求用户插入包含启动密钥的 U 盘，另外还会要求用户输入一个 4 到 20 位数的启动个人标识号(PIN)。
 
 在没有兼容的 TPM 的计算机上，需要一个包含启动密钥的 U 盘。如果没有 TPM，则 BitLocker 加密数据只能受此 U 盘上的密钥资料保护。
 
-如果启用此策略设置，则该向导将显示允许用户为 BitLocker 配置高级启动选项的页面。可以为含有 TPM 和没有 TPM 的计算机进一步配置设置选项。
+如果启用此策略设置，则该向导将显示允许用户为 BitLocker 配置高级启动选项的页面。可以为带有 TPM 和没有 TPM 的计算机进一步配置设置选项。
 
-如果禁用或未配置此策略设置，则 BitLocker 安装向导将显示用户可用来在含有 TPM 的计算机上启用 BitLocker 的基本步骤。在此基本向导中，无法配置任何其他启动密钥或启动 PIN。
-
+如果禁用或未配置此策略设置，则 BitLocker 安装向导将显示用户可用来在带有 TPM 的计算机上启用 BitLocker 的基本步骤。在此基本向导中，无法配置任何其他启动密钥或启动 PIN。
 </string>
 
       <string id="ConfigureStartupUsage_Name">启动时需要附加身份验证(Windows Server 2008 和 Windows Vista)</string>
@@ -47,15 +46,13 @@ BitLocker 恢复信息包括恢复密码和一些唯一的标识符数据。还�
 
 如果要在没有 TPM 的计算机上使用 BitLocker，则应选中“没有兼容的 TPM 时允许 BitLocker”复选框。在此模式下，需要密码或 USB 驱动器才能启动。使用启动密钥时，用于加密驱动器的密钥信息存储在 USB 驱动器中，以创建 USB 密钥。当插入 USB 密钥时，对该驱动器的访问将通过身份验证，驱动器处于可访问状态。如果 USB 密钥丢失或不可用，或者忘记了密码，则需要使用其中一个 BitLocker 恢复选项才能访问该驱动器。
 
-在含有兼容的 TPM 的计算机上，启动时可使用四种身份验证方法，以便为加密数据提供附加保护。计算机启动时，可只使用 TPM 进行身份验证，也可同时要求插入包含启动密钥和/或 4 到 20 位数个人标识号(PIN)的 U 盘。
+在含有兼容的 TPM 的计算机上，启动时可使用四种身份验证方法，以便为加密数据提供附加保护。计算机启动时，可只使用 TPM 进行身份验证，也可同时要求插入包含启动密钥和/或 6 到 20 位数个人标识号(PIN)的 U 盘。
 
 如果启用此策略设置，则用户可在 BitLocker 安装向导中配置高级启动选项。
 
 如果禁用或未配置此策略设置，则用户在含有 TPM 的计算机上只能配置基本选项。
 
 注意: 如果希望要求使用启动 PIN 和 U 盘，则必须使用命令行工具 manage-bde 而不是 BitLocker 驱动器加密安装向导来配置 BitLocker 设置。
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">允许启动时网络解锁</string>
@@ -287,16 +284,21 @@ BitLocker 恢复信息包括恢复密码和一些唯一的标识符数据。还�
 
       <string id="PlatformValidation_BIOS_Name">为基于 BIOS 的固件配置配置 TPM 平台验证配置文件</string>
 
-      <string id="PlatformValidation_UEFI_Help">使用此策略设置，可以配置计算机的受信任平台模块(TPM)安全硬件如何保护 BitLocker 加密密钥。如果计算机没有兼容的 TPM 或者 BitLocker 已在 TPM 保护方式下打开，则此策略设置不适用。
+      <string id="PlatformValidation_UEFI_Help">使用此策略设置，可以配置计算机的受信任的平台模块(TPM)安全硬件如何保护 BitLocker 加密密钥。如果计算机没有兼容的 TPM 或者 BitLocker 已在 TPM 保护方式下打开，则此策略设置不适用。
 
-重要信息: 此组策略仅适用于采用本地 UEFI 固件配置的计算机。具有启用了兼容性服务模块(CSM)的 BIOS 或 UEFI 固件的计算机会将不同的值存储在平台配置注册表(PCR)中。使用“为基于 BIOS 的固件配置配置 TPM 平台验证配置文件”组策略设置可为使用 BIOS 配置的计算机或具有启用了 CSM 的 UEFI 固件的计算机配置 TPM PCR 配置文件。
+重要信息: 此组策略仅适用于采用本地 UEFI 固件配置的计算机。具备启用兼容性服务模块(CSM)的 BIOS 或 UEFI 固件的计算机会将不同的值存储在平台配置注册表(PCR)中。使用“为基于 BIOS 的固件配置配置 TPM 平台验证配置文件”组策略设置可为使用 BIOS 配置的计算机或具备启用 CSM 的 UEFI 固件的计算机配置 TPM PCR 配置文件。
 
-如果在打开 BitLocker 之前启用此策略设置，则可以配置在对 BitLocker 加密操作系统驱动器的访问解除锁定之前 TPM 将验证的启动组件。如果在 BitLocker 保护起作用时更改了其中任何组件，则 TPM 将不会发放用于解除驱动器锁定的加密密钥，而计算机将显示 BitLocker 恢复控制台，并要求提供恢复密码或恢复密钥来解除驱动器锁定。
+如果在打开 BitLocker 之前启用此策略设置，则可以配置 TPM 在对 BitLocker 加密操作系统驱动器的访问解除锁定之前进行验证的引导组件。如果在 BitLocker 保护起作用时更改了其中任何组件，则 TPM 将不会发放用于解除驱动器锁定的加密密钥，而计算机将显示 BitLocker 恢复控制台，并要求提供恢复密码或恢复密钥来解除驱动器锁定。
 
-如果禁用或未配置此策略设置，则 BitLocker 将使用默认平台验证配置文件或由安装脚本指定的平台验证配置文件。平台验证配置文件由一组从 0 到 23 的平台配置注册表(PCR)索引组成。默认平台验证配置文件根据对核心系统固件可执行代码(PCR 0)、扩展或可插入可执行代码(PCR 2)、启动管理器(PCR 4)、以及 BitLocker 访问控制(PCR 11)的更改来保护加密密钥。
+如果禁用或未配置此策略设置，则 BitLocker 将使用可用硬件的默认平台验证配置文件或由安装脚本指定的平台验证配置文件。平台验证配置文件由一组从 0 到 23 的平台配置注册表(PCR)索引组成。
 
-警告: 更改默认平台验证配置文件会影响计算机的安全性和可管理性。BitLocker 对平台修改(恶意或授权)的灵敏度会增加或减小，具体取决于包含还是排除(分别)PCR。具体而言，在设置此策略时省略 PCR 7 将覆盖“允许对完整性验证使用安全引导”组策略，将导致 BitLocker 无法将安全引导用于平台或引导配置数据(BCD)完整性验证。设置此策略可能会导致在更新固件时恢复 BitLocker。如果将此策略设置为包括 PCR 0，则在应用固件更新之前将挂起 BitLocker。
-      
+在缺少安全引导状态(PCR 7)支持的电脑上，默认平台验证配置文件根据对核心系统固件可执行代码(PCR 0)、扩展或可插入可执行代码(PCR 2)、引导管理器(PCR 4)以及 BitLocker 访问控制(PCR 11)的更改来保护加密密钥。
+
+当安全引导状态(PCR7)支持可用时，默认平台验证配置文件使用安全引导状态(PCR 7)和 BitLocker 访问控制(PCR 11)来保护加密密钥。
+
+警告: 更改默认平台验证配置文件会影响计算机的安全性和可管理性。BitLocker 对平台修改(恶意或授权)的灵敏度会增加或减小，具体取决于(分别)包含还是排除 PCR。具体而言，在设置此策略时省略 PCR 7 将覆盖“允许对完整性验证使用安全引导”组策略，这将阻止 BitLocker 将安全引导用于平台或引导配置数据(BCD)完整性验证。设置此策略可能会导致在更新固件时恢复 BitLocker。如果将此策略设置为包括 PCR 0，将在应用固件更新之前挂起 BitLocker。
+
+建议不配置此策略，以允许 Windows 根据每台电脑上的可用硬件选择 PCR 配置，从而获得最佳的安全性和可用性。
       </string>
 
       <string id="PlatformValidation_UEFI_Name">为本地 UEFI 固件配置配置 TPM 平台验证配置文件</string>
@@ -311,6 +313,13 @@ BitLocker 恢复信息包括恢复密码和一些唯一的标识符数据。还�
 
       </string>
       <string id="MorBehavior_Name">禁止在重新启动时覆盖内存</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">此策略设置允许你在用户登录 Windows 前阻止所有 Thunderbolt 热插拔 PCI 下游端口的直接内存存取(DMA)。用户登录后，Windows 会枚举连接到主机 Thunderbolt PCI 端口的 PCI 设备。用户每次锁定计算机，系统都将阻止无子设备的热插拔 Thunderbolt PCI 端口进行 DMA，直到用户再次登录。计算机解锁时已枚举的设备将继续工作，直到拔出设备或系统重新启动或休眠。只在启用 BitLocker 或设备加密时才执行此策略设置。
+
+注意: 如果系统固件在新设备登录到 Windows 之前为新连接的 Thunderbolt 设备启用 DMA, 则这些电脑可能与此策略不兼容。
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">此计算机锁定时禁用新的 DMA 设备</string>
 
       <string id="FVEOSCategory">操作系统驱动器</string>
       <string id="FVEFDVCategory">固定数据驱动器</string>
@@ -373,26 +382,25 @@ BitLocker 恢复信息包括恢复密码和一些唯一的标识符数据。还�
 
 
       <string id="MinimumPINLength_Name">为启动配置最小的 PIN 长度</string>
-      <string id="MinimumPINLength_Help">使用此策略设置可以为受信任平台模块(TPM)的启动 PIN 配置最小长度。此策略设置将在打开 BitLocker 时应用。启动 PIN 的最小长度必须是 4 位数，最大长度可达 20 位数。
+      <string id="MinimumPINLength_Help">
+          使用此策略设置可以为受信任平台模块(TPM)的启动 PIN 配置最小长度。此策略设置将在打开 BitLocker 时应用。启动 PIN 的最小长度必须是 4 位数，最大长度可达 20 位数。
 
-如果启用此策略设置，则可要求在设置启动 PIN 时使用最少的位数。
+          如果启用此策略设置，则可要求在设置启动 PIN 时使用最少的位数。
 
-如果禁用或未配置此策略设置，则用户可以配置 4 到 20 位数之间任意长度的启动 PIN。
+          如果禁用或未配置此策略设置，则用户可以配置 6 到 20 位数之间任意长度的启动 PIN。
 
-      
+          注意: 如果最小 PIN 长度设置为少于 6 位数，则在更改 PIN 时，Windows 会尝试将 TPM 2.0 锁定期限更新为大于默认值。如果成功，则 Windows 仅将 TPM 锁定期限重置回默认值(如果重置 TPM)。
 
       </string>
 
       <string id="OSAllowDRA_Name">允许基于证书的数据恢复代理</string>
 
       <string id="FDVDenyWriteAccess_Name">拒绝对不受 BitLocker 保护的固定驱动器的写访问</string>
-      <string id="FDVDenyWriteAccess_Help">此策略设置决定是否需要 BitLocker 保护才能使计算机上的固定数据驱动器可写。此策略设置将在打开 BitLocker 时应用。
+      <string id="FDVDenyWriteAccess_Help">此策略设置决定了是否需要启用 BitLocker 保护才能使计算机上的固定数据驱动器可写。
 
-如果启用此策略设置，则所有不受 BitLocker 保护的固定数据驱动器都安装成只读驱动器。受 BitLocker 保护的驱动器将安装成可读写驱动器。
+如果启用此策略设置，则所有不受 BitLocker 保护的固定数据驱动器都将安装成只读驱动器。受 BitLocker 保护的驱动器将安装成可读写驱动器。
 
 如果禁用或未配置此策略设置，则计算机上的所有固定数据驱动器都将安装成可读写驱动器。
-
-      
 
       </string>
 
@@ -691,6 +699,14 @@ Windows 触摸键盘(如平板电脑使用的键盘)不可用于预启动环境�
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">允许与 InstantGo 或 HSTI 兼容的设备选择不使用预启动 PIN。</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">此策略设置允许与 InstantGo 或 Microsoft 硬件安全测试接口 (HSTI)兼容的设备上的用户不必具有用于预启动身份验证的 PIN。此设置将覆盖兼容硬件上“启动时需要附加身份验证”策略的“有 TPM 时需要启动 PIN”和“有 TPM 时需要启动密钥和 PIN”选项。
+
+如果启用此策略设置，则 InstantGo 和 HSTI 兼容设备上的用户将可以选择无需预启动身份验证即可启用 BitLocker。
+
+如果未启用此策略，则“启动时需要附加身份验证”策略的选项适用。
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">允许对完整性验证使用安全引导</string>
       <string id="AllowSecureBootForIntegrity_Help">使用此策略设置，可以配置是否允许将安全引导作为 BitLocker 操作系统驱动器的平台完整性提供程序。
 
@@ -968,7 +984,7 @@ Windows 触摸键盘(如平板电脑使用的键盘)不可用于预启动环境�
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">最小字符数:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">最小字符数:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

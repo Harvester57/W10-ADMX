@@ -143,6 +143,7 @@ Hvis du ikke konfigurerer denne politikindstilling, er omdirigering af klientdre
       <string id="TS_CLIENT_HELP">Kontrollerer klientindstillingerne til Forbindelse til fjernskrivebord</string>
       <string id="TS_CLIENT_LPT">Tillad ikke omdirigering af LPT-port</string>
       <string id="TS_CLIENT_PNP">Tillad ikke understøttet omdirigering af Plug and Play-enhed</string>
+      <string id="TS_CAMERA_REDIRECTION">Tillad ikke omdirigering af videooptagelse</string>
       <string id="TS_CLIENT_PRINTER">Tillad ikke omdirigering af klientprinter</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Denne politikindstilling angiver, om deling af indholdet i Udklipsholder (omdirigering af Udklipsholder) mellem en fjerncomputer og en klientcomputer skal forhindres under en session med Fjernskrivebord-tjenester.
 
@@ -197,6 +198,15 @@ Hvis du deaktiverer denne politikindstilling, kan brugeren omdirigere deres Plug
 Hvis du aktiverer denne politikindstilling, kan brugere ikke omdirigere deres understøttede Plug and Play-enheder til fjerncomputeren. Hvis du ikke konfigurerer denne politikindstilling, kan brugerne kun omdirigere deres understøttede Plug and Play-enhed til fjerncomputeren, hvis den kører Windows Server 2012 R2 og tidligere versioner. 
 
 Bemærk! Du kan deaktivere omdirigering af bestemte typer understøttede Plug and Play-enheder ved at bruge politikindstillinger for Computerkonfiguration\Administrative skabeloner\System\Installation af enhed\Begrænsninger for installation af enhed.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Med denne politikindstilling kan du styre omdirigering af enheder til videooptagelse til fjerncomputeren i en session med Fjernskrivebord-tjenester. 
+
+Fjernskrivebord-tjenester tillader som standard omdirigering af enheder til videooptagelse.
+
+Hvis du aktiverer denne politikindstilling, kan brugere ikke omdirigere deres enheder til videooptagelse til fjerncomputeren. 
+
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, kan brugere omdirigere deres enheder til videooptagelse til fjerncomputeren. Brugere kan bruge indstillingen Mere under fanen Lokale ressourcer i Forbindelse til Fjernskrivebord for at vælge, hvilke enheder til videooptagelse, der skal omdirigeres til den eksterne computer.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Med denne politikindstilling kan du begrænse antallet af skærme, som en bruger kan bruge til at vise en session med Fjernskrivebord-tjenester. Ved at begrænse antallet af skærme, som viser en session med Fjernskrivebord-tjenester, kan du forbedre forbindelsen, særligt for langsomme forbindelser, og reducere serverbelastningen.
@@ -320,12 +330,13 @@ Bemærk! Konsolsessionen kaldes også Session 0. Der kan opnås konsoladgang ved
       <string id="TS_GATEWAY_BASIC">Bed om legitimationsoplysninger, og brug Basic-protokollen</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Brug legitimationsoplysninger for brugere, der er logget på lokalt</string>
       <string id="TS_GATEWAY_NTLM">Bed om legitimationsoplysninger, og brug NTLM-protokollen</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Bed om legitimationsoplysninger, og brug Negotiate-protokollen</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Angiv godkendelsesmetoden for RD Gateway</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Angiver den godkendelsesmetode, klienter skal bruge, når de forsøger at oprette forbindelse til en fjerskrivebordssessions værtsserver via en RD Gateway-server. Du kan gennemtvinge denne politikindstilling, eller du kan give brugere tilladelse til at tilsidesætte denne politikindstilling. Når du aktiverer denne politikindstilling, gennemtvinges den som standard. Når politikindstillingen gennemtvinges, kan brugerne ikke tilsidesætte denne indstilling, selv om de vælger indstillingen "Brug disse indstillinger for RD Gateway-serveren" på klienten.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Angiver den godkendelsesmetode, klienter skal bruge, når de forsøger at oprette forbindelse til en fjerskrivebordssessions værtsserver via en RD Gateway-server. Du kan gennemtvinge denne politikindstilling, eller du kan give brugere tilladelse til at tilsidesætte politikindstillingen. Når du aktiverer denne politikindstilling, gennemtvinges den som standard. Når politikindstillingen gennemtvinges, kan brugerne ikke tilsidesætte denne indstilling, selvom de vælger indstillingen "Brug disse indstillinger for RD Gateway-serveren" på klienten.
 
 Du kan give brugere tilladelse til at tilsidesætte denne politikindstilling ved at markere afkrydsningsfeltet "Tillad, at brugere ændrer denne indstilling". Når du gør det, kan brugere angive en alternativ godkendelsesmetode ved at konfigurere indstillinger på klienten eller ved hjælp af en RDP-fil eller et HTML-script. Hvis brugere ikke angiver en alternativ godkendelsesmetode, bruges som standard den godkendelsesmetode, du angiver i denne politikindstilling.
 
-Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, bruges den godkendelsesmetode, der er angivet af brugeren, hvis der er angivet én. Hvis der ikke er angivet en godkendelsesmetode, kan den NTLM-protokol, der er aktiveret på klienten, eller et chipkort bruges til godkendelse.</string>
+Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, bruges den godkendelsesmetode, der er angivet af brugeren, hvis der er angivet én. Hvis der ikke er angivet en godkendelsesmetode, kan den Negotiate-protokol, der er aktiveret på klienten, eller et chipkort bruges til godkendelse.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Aktiver forbindelse via RD Gateway</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Hvis du aktiverer denne politikindstilling, når Forbindelse til Fjernskrivebord ikke kan oprette forbindelse direkte en fjerncomputer (en fjernskrivebordssessions værtsserver eller computer med Fjernskrivebord aktiveret), forsøger klienterne at oprette forbindelse til fjerncomputeren via en RD Gateway-server. Når dette sker, forsøger klienterne at oprette forbindelse til den RD Gateway-server, der er angivet i politikindstillingen "Angiv adresse på RD Gateway-server".
 
@@ -1008,17 +1019,7 @@ Hvis du deaktiverer denne politikindstilling, bruger RemoteApp-programmer, som u
 
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Konfigurer H.264/AVC-hardwarekodning til forbindelser til Fjernskrivebord</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Med denne indstilling kan du aktivere understøttelse af H.264/AVC-hardwarekodning til forbindelser til Fjernskrivebord. Hvis der opstår en fejl, når du har aktiveret hardwarekodning, forsøger vi at bruge softwarekodning. Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, bruger vi altid softwarekodning.
-        
-Hvis du angiver kodningsindstillingen til "Forsøg altid", forsøger Fjernskrivebord altid at bruge H.264/AVC-hardwarekodning, når den er tilgængelig. Vær opmærksom på, at politikken skal angives på Hyper-V-værtsmaskinen, hvis RemoteFX vGPU er aktiveret for den Windows Server, der kører Hyper-V.
-        
-Hvis du angiver kodningsindstillingen til "Forsøg kun for virtuelle RemoteFX vGPU-maskiner", skal du være opmærksom på, at politikken skal angives på Hyper-V-værtsmaskinen, hvis RemoteFX vGPU er aktiveret for den Windows Server, der kører Hyper-V.
-        
-Hvis du angiver kodningsindstillingen til "Forsøg kun for scenarier uden RemoteFX vGPU", forsøger Fjernskrivebord at bruge hardwarekodning i alle scenarier undtagen RemoteFX vGPU.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Forsøg altid</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Forsøg kun for virtuelle RemoteFX vGPU-maskiner</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Forsøg kun for scenarier uden RemoteFX vGPU</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Med denne politikindstilling kan du aktivere understøttelse af H. 264/AVC-hardwarekodning for forbindelser til Fjernskrivebord. Når du aktiverer hardwarekodning, vil vi forsøge at bruge softwarekodning, hvis der opstår en fejl. Hvis du deaktiverer eller ikke konfigurerer denne politik, vil vi altid bruge softwarekodning.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Prioriter H.264/AVC 444-grafiktilstanden for forbindelser til Fjernskrivebord</string>
@@ -1169,16 +1170,16 @@ Hvis du aktiverer denne politikindstilling, blokeres der for brugerlogon i op ti
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, vises startskærmen, og de forskellige apps registreres i baggrunden.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Brug den hardwarebaserede standardgrafikadapter til alle sessioner med Fjernskrivebord-tjenester</string>
+      <string id="TS_DX_USE_FULL_HWGPU">Brug hardwarebaserede grafikadaptere til alle sessioner med Fjernskrivebord-tjenester</string>
       <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Denne politikindstilling gør det muligt for administratorer at ændre den grafiske gengivelse for alle sessioner med Fjernskrivebord-tjenester.
 
 Hvis du aktiverer denne politikindstilling, bruger alle sessioner med Fjernskrivebord-tjenester den hardwarebaserede grafiske gengivelse i stedet for Microsoft Basic-gengivelsesdriveren som standardadapter.
 
 Hvis du deaktiverer denne politikindstilling, bruger alle sessioner med Fjernskrivebord-tjenester Microsoft Basic-gengivelsesdriveren som standardadapter.
 
-Hvis du undlader at konfigurere denne politikindstilling, bruger sessioner med Fjernskrivebord-tjenester på værtsserveren for sessionen Microsoft Basic-gengivelsesdriveren standardadapter. I alle andre tilfælde bruger sessioner med Fjernskrivebord-tjenester hardwarebaseret gengivelse som standard.
+Hvis du undlader at konfigurere denne politikindstilling, bruger sessioner med Fjernskrivebord-tjenester på værtsserveren for sessionen Microsoft Basic-gengivelsesdriveren som standardadapter. I alle andre tilfælde bruger sessioner med Fjernskrivebord-tjenester hardwarebaseret gengivelse som standard.
 
-Bemærk! Politikindstillingen påvirker kun standard-GPU'en (grafikprocessor) på en computer, hvor der er installeret mere end én GPU. Alle yderligere GPU'er betragtes som sekundære adaptere og bruges som hardwarebaseret gengivelse. GPU-konfigurationen af den lokale session påvirkes ikke af denne politikindstilling.
+Bemærk! Politikindstillingen muliggør justering af belastning af GPU'er (grafikprocessorer) på en computer, hvor der er installeret mere end én GPU. GPU-konfigurationen af den lokale session påvirkes ikke af denne politikindstilling.
 </string>
       
     </stringTable>
@@ -1328,9 +1329,6 @@ Bemærk! Politikindstillingen påvirker kun standard-GPU'en (grafikprocessor) p�
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-komprimeringsalgoritme:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Foretræk AVC-hardwarekodning:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Visuel oplevelse:</dropdownList>

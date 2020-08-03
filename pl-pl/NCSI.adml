@@ -18,6 +18,8 @@
       <string id="NCSI_DomainLocationDeterminationUrl_Help">To ustawienie zasad umożliwia określenie adresu URL protokołu HTTPS firmowej witryny sieci Web, którego klienci używają do wyznaczania bieżącej lokalizacji względem domeny (sprawdzenia, czy komputer znajduje się wewnątrz, czy na zewnątrz sieci firmowej). Osiągnięcie docelowego adresu URL oznacza, że lokalizacja klienta znajduje się wewnątrz sieci firmowej. W przeciwnym przypadku znajduje się on poza tą siecią.</string>
       <string id="NCSI_PassivePolling">Określ sondowanie pasywne</string>
       <string id="NCSI_PassivePolling_Help">To ustawienie zasad umożliwia określenie zachowania polegającego na sondowaniu pasywnym. Funkcja NCSI sonduje różne miary w obrębie stosu sieciowego z dużą częstotliwością w celu określenia, czy łączność sieciowa została utracona.  Ta opcja umożliwia sterowanie zachowaniem sondowania pasywnego.</string>
+      <string id="NCSI_GlobalDns">Określ globalny DNS</string>
+      <string id="NCSI_GlobalDns_Help">Ustawienia zasad pozwalają użytkownikowi określić sposób łączenia DNS. Domyślnie NCSI ograniczy pętle zwrotne DNS do obecnie badanego interfejsu. Wybierając to ustawienie, NCSI umożliwi generowanie pętli zwrotnych DNS w dowolnym interfejsie.</string>
     </stringTable>
     <presentationTable>
       <presentation id="NCSI_CorpWebProbeUrl">
@@ -72,6 +74,10 @@
       <presentation id="NCSI_PassivePolling">
         <text>Następujące pole wyboru wyłącza mechanizm sondowania pasywnego funkcji NCSI.   W ten sposób można zmniejszyć obciążenie procesora na serwerach lub innych komputerach ze statyczną łącznością sieciową.</text>
         <checkBox refId="NCSI_DisablePassivePolling_Checkbox">Wyłącz sondowanie pasywne</checkBox>  
+      </presentation>
+      <presentation id="NCSI_GlobalDns">
+        <text>Następujące pole wyboru uniemożliwia łączenie interfejsu w trakcie generowania pętli zwrotnych DNS w NCSI. Ułatwi to pracę NCSI z niestandardowymi konfiguracjami sieci, takimi jak serwer DNS wykorzystujący lokalny host.</text>
+        <checkBox refId="NCSI_UseGlobalDns_Checkbox">Użyj globalnego DNS</checkBox>
       </presentation>
     </presentationTable>
   </resources>

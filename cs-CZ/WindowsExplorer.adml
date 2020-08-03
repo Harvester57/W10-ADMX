@@ -267,14 +267,14 @@ Poznámka: Ikony představující určené jednotky jsou v okně Tento počíta�
  Toto nastavení také nezabraňuje uživatelům v získání přístupu k těmto jednotkám nebo jejich obsahu pomocí programů. Také jim nebrání zobrazit a měnit vlastnosti jednotky modulem snap-in Správa disků.
 
 Viz také nastavení Skrýt tyto jednotky v okně Tento počítač.</string>
-      <string id="NoWindowsHotKeys">Vypnout klávesové zkratky Windows+X</string>
-      <string id="NoWindowsHotKeys_Help">Vypne klávesové zkratky Windows+X.
+      <string id="NoWindowsHotKeys">Vypnout klávesové zkratky klávesy Windows</string>
+      <string id="NoWindowsHotKeys_Help">Vypne klávesové zkratky klávesy Windows.
 
-Klávesnice s klávesou systému Windows poskytují uživatelům klávesové zkratky pro běžné funkce prostředí. Stisknutím kombinace kláves Windows+R například otevřete dialogové okno Spustit a stisknutím kombinace kláves Windows+E spustíte Průzkumníka souborů. Pomocí tohoto nastavení můžete klávesové zkratky typu Windows+X zakázat.
+Klávesnice s klávesou Windows poskytují uživatelům klávesové zkratky pro často používané funkce. Stisknutím kombinace kláves Windows+R například otevřete dialogové okno Spustit a stisknutím kombinace kláves Windows+E spustíte Průzkumníka souborů. Pomocí tohoto nastavení můžete klávesové zkratky klávesy Windows zakázat.
 
-Pokud toto nastavení povolíte, nebudou klávesové zkratky Windows+X k dispozici.
+Pokud toto nastavení povolíte, nebudou klávesové zkratky klávesy Windows k dispozici.
 
-Pokud toto nastavení zakážete nebo nenakonfigurujete, klávesové zkratky Windows+X budou k dispozici.</string>
+Pokud toto nastavení zakážete nebo nenakonfigurujete, klávesové zkratky klávesy Windows budou k dispozici.</string>
       <string id="NoWorkgroupContents">Zakázat položku Okolní počítače ve složce Umístění v síti.</string>
       <string id="NoWorkgroupContents_Help">Toto nastavení zásad umožňuje odebrat počítače v pracovní skupině a doméně uživatele ze seznamu síťových prostředků v Průzkumníkovi souborů a ve složce Síťová umístění.
 
@@ -458,21 +458,26 @@ Pokud toto nastavení zásad povolíte, budou správci moci určit cestu pro ukl
 Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, nebudou provedeny žádné změny umístění výchozích souborů definic knihoven.
       
       </string>
-      <string id="EnableSmartScreen">Konfigurovat filtr Windows SmartScreen</string>
-      <string id="EnableSmartScreen_Help">Toto nastavení zásad umožňuje řídit chování filtru Windows SmartScreen. Filtr Windows SmartScreen pomáhá zajistit větší bezpečnost počítače tím, že uživatele upozorní před spouštěním neznámých programů stažených z internetu. Pokud je tato funkce povolená, budou se Microsoftu posílat některé informace o souborech a programech spouštěných v počítači.
+      <string id="EnableSmartScreen">Konfigurovat filtr SmartScreen v programu Windows Defender</string>
+      <string id="SmartScreen_PreventBypass">Upozornit a zabránit použití alternativních metod komunikace</string>
+      <string id="SmartScreen_Warn">Upozornit</string>
+      <string id="EnableSmartScreen_Help"> Tato zásada umožňuje zapnout nebo vypnout filtr SmartScreen v programu Windows Defender. Filtr SmartScreen pomáhá chránit počítače upozorněním uživatelů před spuštěním potenciálně škodlivých programů stažených z internetu. Toto varování se zobrazuje jako vsunutý dialog před spuštěním aplikace, která byla stažena z internetu a je nerozpoznaná nebo známa jako škodlivá. U aplikací, které se nezdají být podezřelé, se žádný dialog nezobrazuje.
 
-Pokud toto nastavení zásad povolíte, můžete chování filtru Windows SmartScreen řídit nastavením jedné z těchto možností:
+Z počítačů, na kterých je tato funkce povolena, se odesílají Microsoftu některé informace o spouštěných souborech a programech.
 
-• Zobrazit uživateli výstrahu před spuštěním staženého neznámého softwaru
-• Vypnout filtr SmartScreen
+Pokud tyto zásady povolíte, SmartScreen se zapne pro všechny uživatele. Jeho chování lze ovládat pomocí následujících možností:
 
-Pokud toto nastavení zásad zakážete nebo nenakonfigurujete, chování filtru Windows SmartScreen řídí správci počítače pomocí nastavení filtru Windows SmartScreen v ovládacím panelu Zabezpečení a údržba.
+• Upozornit a zabránit použití alternativních metod komunikace
+• Upozornit
 
-Možnosti:
-• Zobrazit uživateli výstrahu před spuštěním staženého neznámého softwaru
-• Vypnout filtr SmartScreen
+Pokud tyto zásady s možností „Upozornit a zabránit použití alternativních metod komunikace“ povolíte, filtr SmartScreen nezobrazí uživateli možnost ignorovat upozornění a spustit aplikaci. Filtr SmartScreen bude zobrazovat upozornění i při následujících pokusech o spuštění aplikace.
 
-</string>
+Pokud tyto zásady povolíte s možností „Upozornit“, dialogy filtru SmartScreen budou upozorňovat uživatele na aplikace, které se jeví jako podezřelé, ale přesto dají uživateli možnost ignorovat upozornění a spustit aplikaci. Filtr SmartScreen nebude uživatele znovu upozorňovat na aplikaci, pokud dá uživatel filtru SmartScreen příkaz k jejímu spuštění.
+
+Pokud tyto zásady vypnete, filtr SmartScreen bude pro všechny uživatele vypnut. Uživatelé nebudou varováni, když se pokusí spustit podezřelé aplikace z internetu.
+
+Pokud tyto zásady nenakonfigurujete, filtr SmartScreen bude ve výchozím nastavení zapnut, ale uživatelé budou moci své nastavení změnit.
+      </string>
       <string id="ShowLockOption">Zobrazit v nabídce panelu uživatele možnost zámku</string>
       <string id="ShowLockOption_Help">Zobrazí nebo skryje zámek v nabídce panelu uživatele. 
 Pokud toto nastavení zásad povolíte, bude v nabídce panelu uživatele zobrazená možnost zámku.
@@ -619,6 +624,9 @@ Pokud je toto nastavení zásad povolené, zakázané nebo není nakonfigurovan�
         <textBox refId="DefaultLibrariesLocation">
           <label>Umístění definice výchozích knihoven</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Vyberte jedno z následujících nastavení:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

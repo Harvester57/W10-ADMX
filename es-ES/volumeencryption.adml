@@ -41,21 +41,19 @@ Si deshabilita o no establece esta configuración de directiva, el asistente par
       <string id="ConfigureStartupUsage_Name">Requerir autenticación adicional al iniciar (Windows Server 2008 y Windows Vista)</string>
       <string id="ConfigureAdvancedStartup_Name">Requerir autenticación adicional al iniciar</string>
 
-      <string id="ConfigureAdvancedStartup_Help">Esta configuración de directiva le permite configurar si BitLocker requiere autenticación adicional cada vez que se inicia el equipo y si se usa BitLocker con un Módulo de plataforma segura (TPM). Esta configuración de directiva se aplica al activar BitLocker.
+      <string id="ConfigureAdvancedStartup_Help">Esta configuración de directiva te permite configurar si BitLocker requiere autenticación adicional cada vez que se inicia el equipo y si se usa BitLocker con un Módulo de plataforma segura (TPM). Esta configuración de directiva se aplica al activar BitLocker.
 
 Nota: al iniciar, solo se puede solicitar una de las opciones de autenticación adicional; de lo contrario, se produce un error de directiva.
 
-Si desea usar BitLocker en un equipo sin un TPM, seleccione la casilla "Permitir BitLocker sin un TPM compatible". En este modo, se requiere o bien contraseña o una unidad USB para iniciar. Cuando se usa una clave de inicio, la información de clave usada para cifrar la unidad se almacena en la unidad USB, creando una clave USB. Cuando se inserta la clave USB se autentica el acceso a la unidad, que queda accesible. Si la clave USB no está accesible o se pierde, o si usted olvida la contraseña, será necesario usar una de las opciones de recuperación de BitLocker para tener acceso a la unidad.
+Si deseas usar BitLocker en un equipo sin un TPM, activa la casilla "Permitir BitLocker sin un TPM compatible". En este modo, se requiere o bien contraseña o una unidad USB para iniciar. Cuando se usa una clave de inicio, la información de clave usada para cifrar la unidad se almacena en la unidad USB, creando una clave USB. Cuando se inserta la clave USB se autentica el acceso a la unidad, que queda accesible. Si la clave USB no está accesible o se pierde, o si olvidas la contraseña, será necesario usar una de las opciones de recuperación de BitLocker para tener acceso a la unidad.
 
-En un equipo con un TPM compatible, se pueden usar cuatro métodos de autenticación al iniciar para ofrecer protección adicional a los datos cifrados. Cuando el equipo se inicia, puede usar solo el TPM para la autenticación, o solicitar también la inserción de una unidad flash USB que contenga una clave de inicio, que se especifique un número de identificación personal (PIN) de entre 4 y 20 dígitos, o ambos procedimientos.
+En un equipo con un TPM compatible, se pueden usar cuatro métodos de autenticación al iniciar para ofrecer protección adicional a los datos cifrados. Cuando el equipo se inicia, puedes usar solo el TPM para la autenticación, o solicitar también la inserción de una unidad flash USB que contenga una clave de inicio, que se especifique un número de identificación personal (PIN) de entre 6 y 20 dígitos o ambos procedimientos.
 
-Si habilita esta configuración de directiva, los usuarios podrán configurar opciones de inicio avanzadas en el asistente para la configuración de BitLocker.
+Si habilitas esta configuración de directiva, los usuarios podrán configurar opciones de inicio avanzadas en el asistente para la configuración de BitLocker.
 
-Si deshabilita o no define esta configuración de directiva, los usuarios podrán configurar solo opciones básicas en equipos con un TPM.
+Si deshabilitas o no estableces esta configuración de directiva, los usuarios podrán configurar solo opciones básicas en equipos con un TPM.
 
-Nota: si desea requerir el uso de un PIN de inicio y una unidad flash USB, debe configurar las opciones de BitLocker mediante la herramienta de la línea de comandos manage-bde en lugar de mediante el asistente para la configuración del Cifrado de unidad BitLocker.
-
-
+Nota: si deseas requerir el uso de un PIN de inicio y una unidad flash USB, debes configurar las opciones de BitLocker mediante la herramienta de la línea de comandos manage-bde en lugar de mediante el asistente para la configuración del Cifrado de unidad BitLocker.
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">Permitir desbloqueo de la red al iniciar</string>
@@ -287,16 +285,21 @@ Advertencia: el cambio del perfil de validación de plataforma predeterminado af
 
       <string id="PlatformValidation_BIOS_Name">Configurar el perfil de validación de plataforma del TPM para configuraciones de firmware basado en BIOS</string>
 
-      <string id="PlatformValidation_UEFI_Help">Esta configuración de directiva le permite configurar el modo en que el hardware de seguridad del Módulo de plataforma segura (TPM) del equipo protege la clave de cifrado de BitLocker. Esta configuración de directiva no se aplica si el equipo no tiene un TPM compatible o si BitLocker ya se activó con protección de TPM.
+      <string id="PlatformValidation_UEFI_Help">Esta configuración de directiva permite configurar el modo en que el hardware de seguridad del Módulo de plataforma segura (TPM) del equipo protege la clave de cifrado de BitLocker. Esta configuración de directiva no se aplica si el equipo no tiene ningún TPM compatible o si BitLocker ya se ha activado con la protección de TPM.
 
-Importante: esta directiva de grupo solo se aplica a equipos con configuración de firmware UEFI nativo. Los equipos con firmware BIOS o UEFI con un módulo de servicio de compatibilidad (CSM) habilitado almacenan diferentes valores en los Registros de configuración de plataforma (PCR). Use la configuración de directiva de grupo "Configurar el perfil de validación de plataforma del TPM para configuraciones de firmware basado en BIOS" para configurar el perfil de PCR del TPM para equipos con configuraciones BIOS o equipos con firmware UEFI con CSM habilitado.
+Importante: Esta directiva de grupo solo se aplica a los equipos con una configuración de firmware nativa de UEFI. Los equipos con firmware BIOS o UEFI con un módulo de servicio de compatibilidad (CSM) habilitado almacenan valores diferentes en los registros de configuración de la plataforma (PCR). Usa la configuración de directiva de grupo "Configurar el perfil de validación de plataforma del TPM para configuraciones de firmware basado en BIOS" para configurar el perfil de PCR del TPM para equipos con configuraciones BIOS o equipos con firmware UEFI con CSM habilitado.
 
-Si habilita esta configuración de directiva antes de activar BitLocker, puede configurar los componentes de arranque que el TPM validará antes de desbloquear el acceso a la unidad del sistema operativo cifrada con BitLocker. Si alguno de esos componentes cambia mientras la protección de BitLocker está activa, el TPM no proporcionará la clave de cifrado para desbloquear la unidad, y el equipo mostrará, en lugar de ello, la consola de recuperación de BitLocker y solicitará que se suministre la contraseña de recuperación o la clave de recuperación para desbloquear la unidad.
+Si habilitas esta configuración de directiva antes de activar BitLocker, puedes configurar los componentes de arranque que el TPM validará antes de desbloquear el acceso a la unidad del sistema operativo cifrada con BitLocker. Si alguno de esos componentes cambia mientras la protección de BitLocker está activa, el TPM no proporcionará la clave de cifrado para desbloquear la unidad, y el equipo mostrará, en lugar de ello, la consola de recuperación de BitLocker y solicitará que se suministre la contraseña de recuperación o la clave de recuperación para desbloquear la unidad.
 
-Si deshabilita o no establece esta configuración de directiva, BitLocker usa el perfil de validación de plataforma predeterminado o el perfil de validación de plataforma que especifique el script de configuración. Un perfil de validación de plataforma consiste en un conjunto de índices de Registro de configuración de la plataforma (PCR) que van de 0 a 23. El perfil de validación de plataforma predeterminado protege la clave de cifrado contra cambios en el código ejecutable del firmware del sistema principal (PCR 0), el código ejecutable extendido o acoplable (PCR 2), el administrador de arranque (PCR 4) y el control de acceso a BitLocker (PCR 11).
+Si deshabilitas o no estableces esta configuración de directiva, BitLocker usa el perfil de validación de plataforma predeterminado para el hardware disponible o el perfil de validación de plataforma que especifique el script de configuración. Un perfil de validación de plataforma consiste en un conjunto de índices del registro de configuración de la plataforma (PCR) que van de 0 a 23. 
 
-Advertencia: el cambio del perfil de validación de plataforma predeterminado afecta a la seguridad y capacidad de administración de su equipo. La sensibilidad de BitLocker a las modificaciones de la plataforma (malintencionadas o no autorizadas) aumenta o disminuye en función de la inclusión o exclusión (respectivamente) de los PCR. Específicamente, configurar esta directiva con omisión de PCR 7 invalidará la directiva de grupo "Permitir Arranque seguro para comprobar integridad", lo que impedirá que BitLocker use Arranque seguro para comprobar la validación de la plataforma o la integridad de los datos de configuración de arranque (BCD). Si esta directiva se establece, puede producirse una recuperación de BitLocker cuando el firmware se actualice. Si establece esta directiva de forma que incluya PCR 0, suspenda BitLocker antes de actualizar el firmware.
-      
+En el caso de los equipos que no admiten el estado de arranque seguro (PCR 7), el perfil de validación de la plataforma predeterminado protege la clave de cifrado de los cambios en el código ejecutable de firmware del sistema principal (PCR 0), el código ejecutable extendido o acoplable (PCR 2), el administrador de arranque (PCR 4) y el control de acceso a BitLocker (PCR 11).
+
+Cuando la compatibilidad con el estado de arranque seguro (PCR7) está disponible, el perfil de validación de la plataforma predeterminado protege la clave de cifrado mediante el estado de arranque seguro (PCR 7) y el control de acceso de BitLocker (PCR 11). 
+
+Advertencia: El cambio del perfil de validación de plataforma predeterminado afecta a la seguridad y capacidad de administración de tu equipo. La sensibilidad de BitLocker a las modificaciones de la plataforma (malintencionadas o no autorizadas) aumenta o disminuye en función de la inclusión o exclusión (respectivamente) de los PCR. Específicamente, configurar esta directiva con omisión de PCR 7 invalidará la directiva de grupo "Permitir Arranque seguro para comprobar integridad", lo que impedirá que BitLocker use el arranque seguro para comprobar la validación de la plataforma o la integridad de los datos de la configuración de arranque (BCD). Si esta directiva se establece, puede producirse una recuperación de BitLocker cuando el firmware se actualice. Si estableces esta directiva de forma que incluya PCR 0, suspende BitLocker antes de actualizar el firmware.
+
+Te recomendamos que no configures esta directiva para permitir que Windows seleccione el perfil PCR a fin de obtener la mejor combinación de seguridad y facilidad de uso según el hardware disponible en cada equipo.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configurar el perfil de validación de plataforma del TPM para configuraciones de firmware UEFI nativo</string>
@@ -311,6 +314,13 @@ Si deshabilita o no define esta configuración de directiva, los secretos de Bit
 
       </string>
       <string id="MorBehavior_Name">Impedir la sobrescritura de memoria al reiniciar</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Esta configuración de directiva permite bloquear el acceso directo a memoria (DMA) para todos los puertos de bajada PCI Thunderbolt conectables en funcionamiento hasta que un usuario inicie sesión en Windows. Cuando un usuario inicie sesión, Windows enumerará los dispositivos PCI conectados a los puertos PCI Thunderbolt host. Cada vez que el usuario bloquee la máquina, DMA se bloqueará en los puertos PCI Thunderbolt de conexión en caliente sin dispositivos secundarios hasta que el usuario vuelva a iniciar sesión. Los dispositivos que ya estaban enumerados cuando la máquina se desbloqueó continuarán funcionando hasta que se desconecten, o el sistema se reinicie o hiberne. Esta configuración de directiva solo se aplica cuando se habilita BitLocker o el cifrado de dispositivos.
+
+Nota: es posible que algunos equipos no sean compatibles con esta directiva si el firmware del sistema habilita DMA para dispositivos Thunderbolt recién conectados antes de exponer los nuevos dispositivos a Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Deshabilitar nuevos dispositivos DMA cuando este equipo está bloqueado</string>
 
       <string id="FVEOSCategory">Unidades del sistema operativo</string>
       <string id="FVEFDVCategory">Unidades de datos fijas</string>
@@ -373,13 +383,14 @@ El valor que controla la depuración del arranque (0x16000010) siempre se compru
 
 
       <string id="MinimumPINLength_Name">Configurar longitud mínima de PIN para el inicio</string>
-      <string id="MinimumPINLength_Help">Esta configuración de directiva le permite configurar una longitud mínima para un PIN de inicio del Módulo de plataforma segura (TPM). Esta configuración de directiva se aplica al activar BitLocker. El PIN de inicio debe tener una longitud mínima de 4 dígitos y una longitud máxima de 20 dígitos.
+      <string id="MinimumPINLength_Help">
+          Esta configuración de directiva te permite configurar una longitud mínima para un PIN de inicio del Módulo de plataforma segura (TPM). Esta configuración de directiva se aplica al activar BitLocker. El PIN de inicio debe tener una longitud mínima de 4 dígitos y puede tener una longitud máxima de 20 dígitos.
 
-Si habilita esta configuración de directiva, puede requerir que se use un número mínimo de dígitos al establecer el PIN de inicio.
+Si habilitas esta configuración de directiva, puedes requerir que se use un número mínimo de dígitos al establecer el PIN de inicio.
 
-Si deshabilita o no define esta configuración de directiva, los usuarios podrán configurar un PIN de inicio de cualquier longitud entre 4 y 20 dígitos.
+Si deshabilitas o no estableces esta configuración de directiva, los usuarios podrán configurar un PIN de inicio de cualquier longitud entre 6 y 20 dígitos.
 
-      
+          NOTA: Si se establece una longitud mínima del PIN de menos de 6 dígitos, Windows intentará actualizar el periodo de bloqueo del TPM 2.0 para que sea más largo que el predeterminado al cambiar el PIN. Si se realiza correctamente, Windows solo restablecerá el periodo de bloqueo del TPM al predeterminado si se restablece el TPM.
 
       </string>
 
@@ -689,6 +700,14 @@ Tenga en cuenta que si no habilita esta configuración de directiva, las opcione
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Permite que los dispositivos compatibles con InstantGo o HSTI dejen de usar el PIN de prearranque.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Esta configuración de directiva permite que los usuarios de dispositivos que son compatibles con InstantGo o Microsoft Hardware Security Test Interface (HSTI) no usen ningún PIN para la autenticación de prearranque. Esto invalida las opciones "Requerir PIN de inicio con TPM" y "Requerir clave y PIN de inicio con TPM" de la directiva "Requerir autenticación adicional al iniciar" en el hardware compatible.
+
+Si habilitas esta configuración de directiva, los usuarios de los dispositivos compatibles con InstantGo y HSTI tendrán la opción de activar BitLocker sin autenticación de prearranque.
+
+Si esta directiva no está habilitada, se aplicarán las opciones de la directiva "Requerir autenticación adicional al iniciar".
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Permitir Arranque seguro para comprobación de integridad</string>
       <string id="AllowSecureBootForIntegrity_Help">Esta configuración de directiva le permite configurar si se permitirá el Arranque seguro como proveedor de integridad de la plataforma para unidades de sistema operativo con BitLocker.
 
@@ -966,7 +985,7 @@ Nota: No todos los caracteres e idiomas se muestran correctamente en la pantalla
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Mínimo de caracteres:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Mínimo de caracteres:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

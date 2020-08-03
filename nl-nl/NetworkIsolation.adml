@@ -8,7 +8,6 @@
 		
 
 <!--Define server addresses that proxy to the Internet -->	
-
 	<string id="WF_NetIsolation_Domain_Proxies">Internetproxyservers voor apps</string>  
 	<string id="WF_NetIsolation_Domain_Proxies_Help">  Deze instelling is niet van toepassing op bureaublad-apps.
 	
@@ -20,7 +19,8 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, worden in apps de
 
 Voorbeeld: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
+Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string> 
+
 
 <!--Define server addresses that proxy to a private network (intranet) -->	
 	<string id="WF_NetIsolation_Intranet_Proxies">Intranetproxyservers voor apps</string>
@@ -36,10 +36,12 @@ Deze instelling mag NIET gebruikt worden om Internetproxy's te configureren.
 
 Voorbeeld: [3efe:3022::1000];18.0.0.1;18.0.0.2 
 
-Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043</string> 
-	<!--Define subnet addresses-->	
+Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define subnet addresses-->	
 	<string id="WF_NetIsolation_PrivateSubnet">Bereik van particuliere netwerken voor apps</string>
-		      	<string id="WF_NetIsolation_PrivateSubnet_Help">Deze instelling is niet van toepassing op bureaublad-apps.
+	<string id="WF_NetIsolation_PrivateSubnet_Help"> Deze instelling is niet van toepassing op bureaublad-apps.
 				
 Een door komma's gescheiden lijst met IP-adresbereiken in uw bedrijfsnetwerk. 
 
@@ -53,12 +55,12 @@ Als u deze beleidsinstelling uitschakelt of niet configureert, probeert Windows 
 
 Voorbeeld: 3efe:1092::/96,18.1.1.1/10 
 
-Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-				
+Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
 <!--Proxy definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Proxy">Definities van proxy's worden dwingend opgelegd</string>
-		      	<string id="WF_NetIsolation_Authoritative_Proxy_Help">Deze instelling is niet van toepassing op bureaublad-apps.
+	<string id="WF_NetIsolation_Authoritative_Proxy_Help"> Deze instelling is niet van toepassing op bureaublad-apps.
 				
 Hiermee wordt de automatische proxydetectie met Windows-netwerkisolatie in de bedrijfsomgeving van het domein uitgeschakeld.
 
@@ -66,11 +68,12 @@ Als u deze beleidsinstelling inschakelt, wordt automatische proxydetectie met Wi
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, probeert Windows netwerkisolatie automatisch de adressen van uw proxyserver op te sporen.  
 
-Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-				
-		<!--Subnet definitions are authoritative-->	
+Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Subnet definitions are authoritative-->	
 	<string id="WF_NetIsolation_Authoritative_Subnet">Definities van subnetten worden dwingend opgelegd.</string>
-		      	<string id="WF_NetIsolation_Authoritative_Subnet_Help">Deze instelling is niet van toepassing op bureaublad-apps.
+	<string id="WF_NetIsolation_Authoritative_Subnet_Help"> Deze instelling is niet van toepassing op bureaublad-apps.
 				
 Hiermee wordt de automatische detectie van hosts voor particuliere netwerken met Windows-netwerkisolatie in de bedrijfsomgeving van het domein uitgeschakeld.
 
@@ -78,10 +81,35 @@ Als u deze beleidsinstelling inschakelt, schakelt deze het automatisch opsporen 
 
 Als u deze beleidsinstelling uitschakelt of niet configureert, probeert Windows netwerkisolatie automatisch de hosts van uw particuliere netwerk in de bedrijfsomgeving van het domein op te sporen. 
 				
-Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043</string>
-	
-	
-     </stringTable>
+Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+
+<!--Define cloud resources-->
+  <string id="WF_NetIsolation_EnterpriseCloudResources">Enterprise-resourcedomeinen gehost in the cloud</string>
+  <string id="WF_NetIsolation_EnterpriseCloudResources_Help"> Deze instelling is niet van toepassing op bureaublad-apps.
+
+Een lijst met door sluistekens gescheiden waarden van cloudresources van het domein. Elke cloudresource kan ook optioneel worden gekoppeld aan een interne proxyserver door een komma achteraan te plaatsen, gevolgd door het proxyadres.
+
+Bevat een lijst met resourcedomeinen van de onderneming die in de cloud worden gehost. Een verbinding met deze resources wordt beschouwd als een verbinding met het ondernemingsnetwerk.
+
+Als een proxy aan een cloudresource is gekoppeld, wordt het verkeer naar de cloudresources door het ondernemingsnetwerk geleid via de opgegeven proxyserver (op Poort 80). Een proxyserver die voor dit doel wordt gebruikt, moet ook worden geconfigureerd met behulp van de proxyservers voor appsbeleid op het intranet.
+
+Voorbeeld: [cloudresource]|[cloudresource]|[cloudresource],[proxy]|[cloudresource]|[cloudresource],[proxy]|
+
+Voor meer informatie raadpleegt u: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+<!--Define neutral resources-->
+    <string id="WF_NetIsolation_NeutralResources">Domeinen gecategoriseerd als zowel werk als privé</string>
+    <string id="WF_NetIsolation_NeutralResources_Help"> Deze instelling is niet van toepassing op bureaublad-apps.
+
+Een lijst met door komma's gescheiden waarden van domeinnamen die kan worden gebruikt bij werk of persoonlijk gebruik.
+
+Voor meer informatie raadpleegt u: http://go.microsoft.com/fwlink/p/?LinkId=234043 </string>
+
+
+    </stringTable>
  
  <!--Start of Presentation Table-->	
  
@@ -99,22 +127,31 @@ Zie voor meer informatie: http://go.microsoft.com/fwlink/p/?LinkId=234043</strin
         </textBox>
       </presentation>
 
-
 	<presentation id="WF_NetIsolation_PrivateSubnet">
         <textBox refId="WF_NetIsolation_PrivateSubnetBox">
           <label>Particuliere subnetten  </label>
         </textBox>
       </presentation>
-	
-		<presentation id="WF_NetIsolation_Authoritative_Proxies">
-   
+
+  <presentation id="WF_NetIsolation_Authoritative_Proxies">
       </presentation>
 	
 	<presentation id="WF_NetIsolation_Authoritative_Subnets">
-   
       </presentation>
 
-     </presentationTable>
+   <presentation id="WF_NetIsolation_EnterpriseCloudResources">
+     <textBox refId="WF_NetIsolation_EnterpriseCloudResourcesBox">
+       <label>Enterprise Cloud-resources </label>
+     </textBox>
+   </presentation>
+
+   <presentation id="WF_NetIsolation_NeutralResources">
+     <textBox refId="WF_NetIsolation_NeutralResourcesBox">
+       <label>Neutrale bronnen </label>
+     </textBox>
+   </presentation>
+
+ </presentationTable>
 
   </resources>
 </policyDefinitionResources>

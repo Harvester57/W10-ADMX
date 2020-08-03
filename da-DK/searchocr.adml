@@ -16,8 +16,14 @@
 
 Reindeksering initieres ikke, når du aktiverer denne politik og vælger sprog for optisk tegngenkendelse. Denne politikindstilling gælder kun indekseringen af nye filer, medmindre reindeksering initieres manuelt.      
       </string>
+      <string id="SelectOCRLangsCodePage">Vælg OCR-sprog fra en kodeside</string>
+      <string id="ExplainSelectOCRLangsCodePage">Denne politikindstilling gør det muligt at vælge sprog for OCR (optisk tegngenkendelse), der tilhører en af de understøttede kodesider. Hvis du aktiverer denne politikindstilling, bruges de valgte OCR-sprog under indeksering af TIFF-filer. Systemets standardsprog ignoreres, medmindre det er et af de valgte OCR-sprog. Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, er det kun systemets standardsprog, der benyttes.
+
+Alle de valgte OCR-sprog skal tilhøre samme kodeside. Hvis du vælger sprog fra mere end én kodeside, ignoreres alle de valgte OCR-sprog, og det er kun systemets standardsprog, der benyttes.
+
+Reindeksering startes ikke, når du aktiverer denne politik og vælger OCR-sprog. Denne politikindstilling gælder kun indekseringen af nye filer, medmindre reindeksering startes manuelt.
+      </string>
       <string id="OCR">Optisk tegngenkendelse</string>
-      <string id="Win7Only">Microsoft Windows 7 eller nyere</string>
       <string id="OCREveryPage">Tving TIFF IFilter til at udføre optisk tegngenkendelse for hver side i et TIFF-dokument</string>
       <string id="ExplainOCREveryPage">
         
@@ -28,8 +34,12 @@ Reindeksering initieres ikke, når du aktiverer denne politik og vælger sprog f
         Hvis du deaktiverer eller undlader at konfigurere denne indstilling, optimerer TIFF IFilter ydeevnen ved at springe indhold uden tekst over under den optiske tegngenkendelsesproces.
       
       </string>
+      <string id="LangArabic">Arabisk</string>
+      <string id="LangBulgarian">Bulgarsk</string>
+      <string id="LangBosnianLatin">Bosnisk (latinsk)</string>
       <string id="LangChineseSimplified">Kinesisk (forenklet)</string>
       <string id="LangChineseTraditional">Kinesisk (traditionelt)</string>
+      <string id="LangCroatian">Kroatisk</string>
       <string id="LangCzech">Tjekkisk</string>
       <string id="LangDanish">Dansk</string>
       <string id="LangDutch">Nederlandsk</string>
@@ -50,6 +60,7 @@ Reindeksering initieres ikke, når du aktiverer denne politik og vælger sprog f
       <string id="LangSerbianCyrillic">Serbisk (kyrillisk)</string>
       <string id="LangSerbianLatin">Serbisk (latin)</string>
       <string id="LangSlovak">Slovakisk</string>
+      <string id="LangSlovenian">Slovensk</string>
       <string id="LangSpanish">Spansk</string>
       <string id="LangSwedish">Svensk</string>
       <string id="LangTurkish">Tyrkisk</string>
@@ -57,6 +68,67 @@ Reindeksering initieres ikke, når du aktiverer denne politik og vælger sprog f
     <presentationTable>
       <presentation id="SelectOCRLangs">
         <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Vælg et af følgende OCR-sprog:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>Baltisk kodeside (1257)</text>
+          <checkBox refId="Estonian" defaultChecked="false">Estisk</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">Lettisk</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">Litauisk</checkBox>
+        <text/>
+        <text>Centraleuropæisk kodeside (1250, latin 2)</text>
+          <checkBox refId="Albanian" defaultChecked="false">Albansk</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">Kroatisk</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">Tjekkisk</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">Ungarsk</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">Polsk</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">Rumænsk</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">Serbisk latin</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">Slovakisk</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">Slovensk</checkBox>
+        <text/>
+        <text>Kyrillisk kodeside (1251)</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">Bulgarsk</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">Hviderussisk</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">Makedonsk (den tidligere jugoslaviske republik Makedonien)</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">Russisk</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">Serbisk</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">Ukrainsk</checkBox>
+        <text/>
+        <text>Vesteuropæisk kodeside (1252, latin 1)</text>
+          <checkBox refId="Catalan" defaultChecked="false">Catalansk</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">Dansk</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">Nederlandsk</checkBox> 
+          <checkBox refId="English" defaultChecked="false">Engelsk</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">Færøsk</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">Finsk</checkBox> 
+          <checkBox refId="French" defaultChecked="false">Fransk</checkBox> 
+          <checkBox refId="German" defaultChecked="false">Tysk</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">Islandsk</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">Indonesisk</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">Italiensk</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">Malaysisk</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">Norsk</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">Portugisisk</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">Spansk</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">Svensk</checkBox>
+        <text/>
+        <text>Græsk kodeside (1253)</text>
+          <checkBox refId="Greek" defaultChecked="false">Græsk</checkBox>
+        <text/>
+        <text>Tyrkisk kodeside (1254)</text>
+          <checkBox refId="Turkish" defaultChecked="false">Tyrkisk</checkBox>
+        <text/>
+        <text>Kinesisk (forenklet) kodeside (936, GB2312)</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">Kinesisk (forenklet)</checkBox>
+        <text/>
+        <text>Kinesisk (traditionelt) kodeside (950, Big5)</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">Kinesisk (traditionelt)</checkBox>
+        <text/>
+        <text>Japansk kodeside (932, Shift-JIS)</text>
+          <checkBox refId="Japanese" defaultChecked="false">Japansk</checkBox>
+        <text/>
+        <text>Koreansk kodeside (949)</text>
+          <checkBox refId="Korean" defaultChecked="false">Koreansk</checkBox>
       </presentation>
     </presentationTable>
   </resources>

@@ -267,14 +267,14 @@ Windows クライアントがワークグループにいる場合は、エクス
  また、この設定を有効にしてもユーザーはローカル ドライブやネットワーク ドライブへアクセスするプログラムを使用できます。また、ユーザーはディスクの管理スナップインを使ってドライブの構成を参照したり変更したりできます。
 
 また、[指定したドライブを [マイ コンピューター] 内で非表示にする] 設定も参照してください。</string>
-      <string id="NoWindowsHotKeys">Windows+X ホットキーをオフにする</string>
-      <string id="NoWindowsHotKeys_Help">Windows + X ホットキーをオフにします。
+      <string id="NoWindowsHotKeys">Windows キー ホットキーをオフにする</string>
+      <string id="NoWindowsHotKeys_Help">Windows キー ホットキーをオフにします。
 
-Windows キーがあるキーボードによりユーザーに共通シェルの機能へのショートカットが提供されます。たとえば、キーボードの Windows + R キーを押すと [ファイル名を指定して実行] ダイアログ ボックスが開いて、Windows + E キーを押すとエクスプローラーが起動されます。この設定を使って、これらの Windows + X ショートカット キーを無効にできます。
+Windows キーがあるキーボードによりユーザーに共通シェルの機能へのショートカットが提供されます。たとえば、キーボードの Windows + R キーを押すと [ファイル名を指定して実行] ダイアログ ボックスが開いて、Windows + E キーを押すとエクスプローラーが起動されます。この設定を使って、これらの Windows キー ホットキーを無効にできます。
 
-この設定を有効にした場合、Windows + X ショートカット キーを利用できません。
+この設定を有効にした場合、Windows キー ホットキーを利用できません。
 
-この設定を無効にするか、または構成しない場合は、Windows + X ショートカット キーを利用できます。</string>
+この設定を無効にするか、または構成しない場合は、Windows キー ホットキーを利用できます。</string>
       <string id="NoWorkgroupContents">[ネットワークの場所] に [近くのコンピューター] を表示しない</string>
       <string id="NoWorkgroupContents_Help">このポリシー設定では、エクスプローラーと [ネットワークの場所] のネットワーク リソースの一覧からユーザーのワークグループとドメインのコンピューターを削除できます。
 
@@ -458,21 +458,26 @@ IID_IPropertySetStorage の IShellFolder::BindToObject の動作を変更して�
 このポリシー設定を無効にした場合、または構成しなかった場合、既定のライブラリ定義ファイルの場所は変更されません。
       
       </string>
-      <string id="EnableSmartScreen">Windows SmartScreen の構成</string>
-      <string id="EnableSmartScreen_Help">このポリシー設定を使用すると、Windows SmartScreen の動作を管理できます。Windows SmartScreen は、インターネットからダウンロードした認識されていないプログラムを実行する前にユーザーに警告することで、PC の安全性を高めることができます。この機能が有効になっている PC 上で実行されたファイルとプログラムに関する情報の一部は Microsoft に送信されます。
+      <string id="EnableSmartScreen">Windows Defender SmartScreen を構成します</string>
+      <string id="SmartScreen_PreventBypass">警告してバイパスを回避</string>
+      <string id="SmartScreen_Warn">警告</string>
+      <string id="EnableSmartScreen_Help">このポリシーを使用すると、Windows Defender SmartScreen を有効または無効にできます。SmartScreenは、インターネットからダウンロードされた悪意のある可能性のあるプログラムを実行する前にユーザーに警告することで、PC の保護に役立ちます。認識できないアプリまたは悪意があるとわかっているアプリがインターネットからダウンロードされ実行される前に、この警告がスポット ダイアログとして表示されます。不審であると見なされていないアプリの場合、ダイアログは表示されません。
 
-このポリシー設定を有効にした場合、Windows SmartScreen の動作は、次のいずれかのオプションを設定することで制御できます。
+この機能を有効にした PC で実行されたファイルおよびプログラムについて、Microsoft に情報が送信されます。
 
-• ダウンロードした不明なソフトウェアを実行する前にユーザーに警告する
-• SmartScreen を無効にする
+このポリシーを有効にすると、すべてのユーザーに対して SmartScreen がオンになります。その動作は、次のオプションを使用して制御できます:
 
-このポリシー設定を無効にした場合、または構成しなかった場合、Windows SmartScreen の動作は、PC の管理者が [セキュリティとメンテナンス] の Windows SmartScreen 設定を使用して管理します。
+• 警告してバイパスを回避
+• 警告
 
-オプション:
-• ダウンロードした不明なソフトウェアを実行する前にユーザーに警告する
-• SmartScreen を無効にする
+[警告してバイパスを回避] オプションを指定してこのポリシーを有効にした場合、SmartScreen のダイアログでは、警告を無視してアプリを実行するオプションがユーザーに提示されません。その後アプリを実行しようとすると、引き続き SmartScreen から警告が表示されます
 
-</string>
+[警告] オプションを指定してこのポリシーを有効にした場合、SmartScreen のダイアログで、アプリが不審だと思われるという警告がユーザーに提示されますが、ユーザーは警告を無視してすぐにアプリを実行することもできます。ユーザーがアプリの実行を SmartScreen に指定した場合、そのアプリについては SmartScreen から再度ユーザーに警告されることはありません。
+
+このポリシーを無効にすると、すべてのユーザーに対して SmartScreen が無効になります。ユーザーがインターネットから不審なアプリを実行しようとしても、警告は表示されません。
+
+このポリシーを構成しなかった場合、既定では SmartScreen が有効になりますが、ユーザーは独自に設定を変更できます。
+      </string>
       <string id="ShowLockOption">ユーザー タイル メニューにロックを表示する</string>
       <string id="ShowLockOption_Help">ユーザー タイル メニューのロックの表示と非表示を切り替えます。
 このポリシー設定を有効にした場合、[ユーザー タイル] メニューにロック オプションが表示されます。
@@ -619,6 +624,9 @@ Dism.exe /Online /Export-DefaultAppAssociations:C:\AppAssoc.txt
         <textBox refId="DefaultLibrariesLocation">
           <label>既定のライブラリ定義の場所</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">次のいずれかの設定を選択してください。</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

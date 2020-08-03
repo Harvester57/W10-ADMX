@@ -48,7 +48,21 @@
 
       Jos tätä käytäntöä ei määritetä tai se on poistettu käytöstä, virranhallinta on käytössä koneen siirtyessä yhteykselliseen valmiustilaan.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Anna Windowsin katkaista tietokoneen yhteys verkkoon</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Tämä käytäntö määrittää, katkaiseeko Windows tietokoneen yhteyden verkkoon.
+
+      Jos tämä käytäntöasetus on otettu käyttöön tai sitä ei ole määritetty, Windows katkaisee tietokoneen yhteyden verkkoon, kun se määrittää, että tietokoneen ei enää pitäisi olla yhteydessä verkkoon.
+
+      Jos tämä käytäntöasetus poistetaan käytöstä, Windows katkaisee tietokoneen yhteyden verkkoon heti, kun se määrittää, että tietokoneen ei enää pitäisi olla yhteydessä verkkoon.
+
+      Kun yhteyden katkaisu on käytössä:
+      - Kun Windows määrittää, että tietokoneen ei enää pitäisi olla yhteydessä verkkoon, se odottaa, että tietoliikenne hiljenee kyseisessä verkossa. Nykyistä TCP-istuntoa jatketaan keskeytyksettä.
+      - Windows tarkistaa tämän jälkeen ajoittain tietoliikenteen tason. Jos tietoliikenteen taso on tietyn tason yläpuolella, lisätoimenpiteisiin ei ryhdytä. Tietokone pysyy yhdistettynä verkkoon ja jatkaa sen käyttöä. Jos verkkoyhteys on esimerkiksi sillä hetkellä käytössä tiedostojen lataamiseksi Internetistä, tiedostojen lataamista jatketaan kyseisen verkkoyhteyden kautta.
+      - Kun tietoliikenne laskee tämän kynnysarvon alle, tietokoneen yhteys verkkoon katkaistaan. Sovellukset, jotka pitävät verkkoyhteyden käytössä myös silloin, kun ne eivät aktiivisesti käytä sitä (esimerkiksi sähköpostiohjelmat), saattavat menettää yhteytensä. Tällöin näiden sovellusten pitäisi muodostaa yhteytensä uudelleen toisen verkon kautta. 
+
+      Tämä käytäntöasetus riippuu muista ryhmäkäytäntöasetuksista. Jos esimerkiksi Rajoita Internetiin tai Windows-toimialueelle muodostettujen samanaikaisten yhteyksien määrä yhteen -asetus poistetaan käytöstä, Windows ei katkaise yhteyttä mihinkään verkkoon.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

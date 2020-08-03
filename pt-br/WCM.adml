@@ -48,7 +48,21 @@
 
       Se esta configuração de política não for definida ou estiver desabilitada, o gerenciamento de energia será habilitado quando o computador entrar no modo de espera conectado.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Habilitar o Windows a desconectar temporariamente um computador de uma rede</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Essa configuração de política determina se o Windows desconectará um computador a partir de uma rede.
+
+Se essa configuração de política estiver habilitada ou não configurada, o Windows desconectará um computador de uma rede quando ele determinar que o computador não deve mais ser conectado a uma rede.
+
+Se essa configuração de política estiver desabilitada, o Windows desconectará um computador de uma rede imediatamente quando determinar que o computador não deve mais ser conectado a uma rede.
+
+Quando a desconexão soft está habilitada:
+      -Quando o Windows decide que o computador não deve mais ser conectado a uma rede, ele espera que o tráfego se estabeleça nessa rede. A sessão TCP existente continuará ininterrupta.
+      - O Windows, em seguida, verifica o nível de tráfego na rede periodicamente. Se o nível de tráfego estiver acima de um determinado limite, nenhuma outra ação será tomada. O computador permanece conectado à rede e continua a usá-lo. Por exemplo, se a conexão de rede estiver sendo usada no momento para baixar arquivos da Internet, os arquivos continuarão sendo baixados usando essa conexão de rede.
+      -Quando o tráfego de rede cair abaixo deste limite, o computador será desconectado da rede. Os apps que mantêm uma conexão de rede ativa mesmo quando não o estão usando ativamente (por exemplo, apps do email) puderam perder sua conexão. Se isso acontecer, esses aplicativos devem restabelecer sua conexão em uma rede diferente. 
+
+      Essa configuração de política depende de outras configurações de política de grupo. Por exemplo, se ' minimizar o número de conexões simultâneas com a Internet ou um domínio do Windows ' estiver desabilitado, o Windows não se desconectará de nenhuma rede.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

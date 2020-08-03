@@ -48,7 +48,21 @@
 
       Wenn diese Richtlinieneinstellung nicht konfiguriert oder deaktiviert wird, erfolgt eine Aktivierung der Energieverwaltung, sobald der Computer in den verbundenen Standbymodus wechselt.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Zulassen, dass Windows einen Computer ordnungsgemäß vom Netzwerk trennt</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Diese Richtlinieneinstellung bestimmt, ob Windows einen Computer ordnungsgemäß von einem Netzwerk trennt.
+
+      Wenn die Richtlinieneinstellung aktiviert oder nicht konfiguriert ist, wird ein Computer ordnungsgemäß von einem Netzwerk getrennt, wenn Windows entscheidet, dass für den Computer keine Netzwerkverbindung mehr erforderlich ist.
+
+      Wenn die Richtlinieneinstellung deaktiviert ist, wird ein Computer sofort von einem Netzwerk getrennt, wenn Windows entscheidet, dass für den Computer keine Netzwerkverbindung mehr erforderlich ist.
+
+      Das ordnungsgemäße Trennen ist aktiviert:
+      – Wenn Windows entscheidet, dass für den Computer keine Netzwerkverbindung mehr erforderlich ist, wird gewartet, bis der Datenverkehr im betreffenden Netzwerk eingestellt ist. Die vorhandene TCP-Sitzung bleibt ohne Unterbrechung erhalten.
+      – Anschließend wird das Datenverkehrsaufkommen im Netzwerk von Windows regelmäßig überprüft. Wenn das Aufkommen über einem bestimmten Schwellenwert liegt, wird nichts weiter unternommen. Der Computer bleibt verbunden und nutzt das Netzwerk weiterhin. Beispiel: Wenn die Netzwerkverbindung derzeit zum Herunterladen von Dateien aus dem Internet verwendet wird, werden die Dateien weiter über diese Netzwerkverbindung heruntergeladen.
+      – Wenn der Netzwerkdatenverkehr unter diesen Schwellenwert fällt, wird der Computer vom Netzwerk getrennt. Bei Apps, die eine Netzwerkverbindung selbst dann aktiv halten, wenn sie die Verbindung nicht aktiv nutzen (beispielsweise E-Mail-Apps), wird die Verbindung möglicherweise unterbrochen. In diesem Fall müssen die Apps eine neue Verbindung über ein anderes Netzwerk herstellen. 
+
+      Diese Richtlinieneinstellung hängt von anderen Gruppenrichtlinieneinstellungen ab. Wenn "Anzahl gleichzeitiger Verbindungen mit dem Internet oder einer Windows-Domäne minimieren" beispielsweise deaktiviert ist, werden von Windows keine Netzwerkverbindungen getrennt.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

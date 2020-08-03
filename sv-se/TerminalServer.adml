@@ -5,7 +5,7 @@
   <description>ange beskrivning här</description>
   <resources>
     <stringTable>
-      <string id="TS_SUPPORTED_Windows10">Minst Windows 10 eller Windows Server 2016 Technical Preview 4</string>
+      <string id="TS_SUPPORTED_Windows10">Minst Windows 10 eller Windows Server 2016</string>
       <string id="TS_SUPPORTED_Windows8_or_ARM">Minst Windows 8 eller Windows RT</string>
       <string id="TS_SUPPORTED_Windows8_Server">Minst Windows Server 2012</string>
       <string id="TS_SUPPORTED_Windows8_Enterprise_AND_Server"> Minst Windows 8 Enterprise eller Windows Server 2012</string>
@@ -143,6 +143,7 @@ Om du inte konfigurerar den här principinställningen är omdirigering av klien
       <string id="TS_CLIENT_HELP">Kontrollerar klientinställningar för anslutning till fjärrskrivbord</string>
       <string id="TS_CLIENT_LPT">Tillåt inte omdirigering av LPT-portar</string>
       <string id="TS_CLIENT_PNP">Tillåt inte stöd för omdirigering av Plug and Play-enhet</string>
+      <string id="TS_CAMERA_REDIRECTION">Tillåt inte omdirigering av videoinspelning</string>
       <string id="TS_CLIENT_PRINTER">Tillåt inte omdirigering av klientskrivare</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Den här principinställningen bestämmer om innehållet i Urklipp (omdirigering av Urklipp) kan delas mellan en fjärrdator och en klientdator under en fjärrskrivbordstjänstsession eller inte.
 
@@ -197,6 +198,15 @@ Om du inaktiverar principinställningen kan användare omdirigera Plug and Play-
 Om du aktiverar den här principinställningen kan användarna inte omdirigera Plug and Play-enheter som stöds till fjärrdatorn. Om du låter bli att konfigurera principinställningen kan användarna omdirigera de Plug and Play-enheter som stöds till fjärrdatorn endast om den kör Windows Server 2012 R2 eller tidigare.
 
 Obs! Du kan inaktivera omdirigering av vissa typer av Plug and Play-enheter som stöds genom att använda principinställningarna i Datorkonfiguration\Administrativa mallar\System\Enhetsinstallation\Begränsningar vid enhetsinstallation.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Med den här principinställningen kan du styra omdirigeringen av videoinspelningsenheter till fjärrdatorn i en session med Fjärrskrivbordstjänster. 
+
+Som standard tillåter Fjärrskrivbordstjänster omdirigering av videoinspelningsenheter.
+
+Om du aktiverar den här principinställningen kan användarna inte omdirigera sina videoinspelningsenheter till fjärrdatorn. 
+
+Om du inaktiverar eller låter bli att konfigurera den här principinställningen kan användarna omdirigera sina videoinspelningsenheter till fjärrdatorn. Användarna kan välja videoinspelningsenheter som de vill omdirigera till fjärrdatorn via alternativet Mer på fliken Lokala resurser i Anslutning till fjärrskrivbord.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Den här principinställningen gör att du kan begränsa antalet bildskärmar som en användare kan använda för att visa en session med Fjärrskrivbordstjänster. En begränsning av antalet bildskärmar som används för att visa en session med Fjärrskrivbordstjänster kan förbättra anslutningens prestanda, särskilt för långsamma förbindelser och belastningen på servern minskar.
@@ -320,12 +330,13 @@ Obs! Konsolsessionen kallas även Session 0. Åtkomst till konsolen kan åstadko
       <string id="TS_GATEWAY_BASIC">Fråga om autentiseringsuppgifter, använd basprotokoll</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Använd autentiseringsuppgifter för lokal inloggning</string>
       <string id="TS_GATEWAY_NTLM">Fråga om autentiseringsuppgifter, använd NTLM-protokoll</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Fråga om autentiseringsuppgifter, använd Negotiate-protokollet</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Ange autentiseringsmetod för fjärrskrivbordsgateway</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Anger vilken autentiseringsmetod klienterna måste använda när de försöker ansluta till en värdserver för fjärrskrivbordssession via en server för fjärrskrivbordsgateway. Du kan ange att den här principinställningen alltid ska gälla eller tillåta att användarna åsidosätter den. När du aktiverar den här principinställningen tillämpas den som standard. När den här principinställningen används kan inte användare åsidosätta inställningen även om de väljer alternativet Använd dessa serverinställningar för fjärrskrivbordsgateway på klienten.
 
 Om du vill tillåta att användarna åsidosätter principinställningen markerar du kryssrutan Tillåt användare att ändra den här inställningen. Om du gör det kan användarna ange en annan autentiseringsmetod genom att konfigurera inställningar på klienten eller via en RDP-fil eller ett HTML-skript. Om användarna inte anger någon annan autentiseringsmetod används som standard den autentiseringsmetod som du anger i den här principinställningen.
 
-Om du inaktiverar den här principinställningen eller låter bli att konfigurera den används den eventuella autentiseringsmetod som anges av användaren. Om ingen autentiseringsmetod anges kan NTLM-protokollet som är aktiverat på klienten eller ett smartkortet användas för autentisering.</string>
+Om du inaktiverar den här principinställningen eller låter bli att konfigurera den används den eventuella autentiseringsmetod som anges av användaren. Om ingen autentiseringsmetod anges kan Negotiate-protokollet som är aktiverat på klienten eller ett smartkortet användas för autentisering.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Aktivera anslutning via fjärrskrivbordsgateway</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Om du aktiverar den här principinställningen kan inte Anslutning till fjärrskrivbord ansluta direkt till en fjärrdator (en värdserver för fjärrskrivbordssession eller en dator med Fjärrskrivbord aktiverat), och klienterna försöker ansluta till fjärrdatorn via en RD Gateway-server. Klienter försöker ansluta till den server för fjärrskrivbordsgateway som har angetts i principinställningen Ange adress till server för fjärrskrivbordsgateway.
 
@@ -1008,17 +1019,7 @@ Om du inaktiverar den här principinställningen använder RemoteApp-program som
 
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Konfigurera H.264/AVC-maskinvarukodning för anslutningar till fjärrskrivbord</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Med den här principinställningen kan du aktivera stöd för H.264/AVC-maskinvarukodning för anslutningar till fjärrskrivbord. Om ett fel inträffar när du har aktiverat maskinvarukodning används programvarukodning i stället om det går. Om du inaktiverar eller låter bli att konfigurera den här principinställningen används alltid programvarukodning.
-
-Om du väljer ”Försök alltid” för det här kodningsalternativet kommer Fjärrskrivbord alltid att försöka använda H.264/AVC-maskinvarukodning om det är tillgängligt. Om du använder Windows Server med Hyper-V och RemoteFX vGPU aktiverat måste principen anges på Hyper-V-värddatorn.
-        
-Om du väljer ”Försök endast för RemoteFX vGPU-baserade virtuella datorer” för det här kodningsalternativet och du använder Windows Server med Hyper-V och RemoteFX vGPU aktiverat måste principen anges på Hyper-V-värddatorn.
-        
-Om du väljer ”Försök endast i scenarier utan RemoteFX vGPU” för det här kodningsalternativet försöker Fjärrskrivbord använda maskinvarukodning i alla scenarier utom för RemoteFX vGPU.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Försök alltid</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Försök endast för RemoteFX vGPU-baserade virtuella datorer</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Försök endast i scenarier utan RemoteFX vGPU</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Med den här principinställningen kan du aktivera stöd för H.264/AVC-maskinvarukodning för anslutningar till fjärrskrivbord. Om ett fel inträffar när du har aktiverat maskinvarukodning används programvarukodning i stället om det går. Om du inaktiverar eller låter bli att konfigurera den här principen används alltid programvarukodning.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Prioritera H.264/AVC 444-grafikläge för anslutningar till fjärrskrivbord</string>
@@ -1169,6 +1170,18 @@ Om du aktiverar den här principinställningen hindras användaren från att log
 
 Om du inaktiverar eller låter bli att konfigurera den här principinställningen visas startskärmen och apparna registreras i bakgrunden.</string>
 
+      <string id="TS_DX_USE_FULL_HWGPU">Använd maskinvarans grafikkort för alla sessioner i Fjärrskrivbordstjänster</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Med den här principinställningen kan systemadministratörer ändra grafikrenderingen för alla sessioner i Fjärrskrivbordstjänster.
+
+Om du aktiverar den här principinställningen används maskinvarugrafikrenderaren som standard för alla sessioner i Fjärrskrivbordstjänster i stället för Microsofts grundläggande renderingsdrivrutin.
+
+Om du inaktiverar den här principinställningen används Microsofts grundläggande renderingsdrivrutin som standard för alla sessioner i Fjärrskrivbordstjänster.
+
+Om du inte konfigurerar den här principinställningen används Microsofts grundläggande renderingsdrivrutin som standard för alla sessioner i Fjärrskrivbordstjänster på värdservern för fjärrskrivbordssessioner. I alla andra fall används maskinvarugrafikrenderaren som standard för alla sessioner i Fjärrskrivbordstjänster.
+
+OBS! Principinställningen aktiverar belastningsutjämning av GPU på en dator som har mer än en GPU. GPU-konfigurationen i den lokala sessionen påverkas inte av den här principinställningen.
+</string>
+      
     </stringTable>
     <presentationTable>
       <presentation id="TS_COLORDEPTH">
@@ -1316,9 +1329,6 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">RDP-komprimeringsalgoritm:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Prioritera AVC-maskinvarukodning:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Visuell upplevelse:</dropdownList>

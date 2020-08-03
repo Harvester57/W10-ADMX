@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">적어도 Windows Server 2008 R2 또는 Windows 7이어야 합니다. Windows 10 이상에서는 지원되지 않습니다.</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 및 Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">새 사용자의 최신 프로그램 목록 지우기</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">이 정책 설정을 사용하면 새 사용자에 대한 시작 메뉴의 최근 프로그램 목록이 비어 있습니다.
 
@@ -170,6 +171,12 @@ XML 파일이 생성되고 원하는 파일 경로로 이동된 후 XML 파일�
 이 정책 설정을 사용하지 않거나 구성하지 않으면 시작 메뉴에서 전원 단추, 시스템 종료, 다시 시작, 절전 모드 및 최대 절전 모드 명령을 사용할 수 있습니다. Windows 보안 화면의 전원 단추도 사용할 수 있습니다.
 
 참고: Microsoft Windows Vista, Windows XP SP2, Windows XP SP1, Windows XP 또는 Windows 2000 Professional과 호환되는 것으로 인증된 타사 프로그램은 이 정책 설정을 지원해야 합니다.</string>
+      <string id="HidePowerOptions">시스템 종료, 다시 시작, 절전 모드 및 최대 절전 모드 명령 제거 및 액세스 방지</string>
+      <string id="HidePowerOptions_Help">사용자가 Windows 보안 화면, 로그온 화면, 시작 메뉴에서 시스템 종료, 다시 시작, 절전 모드, 최대 절전 모드 명령을 수행할 수 없습니다. 사용자가 이러한 기능을 수행하는 Windows 기반 프로그램을 실행할 수 있습니다.
+
+이 정책 설정을 사용하면 시작 메뉴에서 시스템 종료, 다시 시작, 절전 모드, 최대 절전 모드 명령이 제거됩니다. CTRL+ALT+DELETE를 누르면 나타나는 Windows 보안 화면에서도 전원 단추가 제거됩니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 시작 메뉴에서 전원 단추, 시스템 종료, 다시 시작, 절전 모드, 최대 절전 모드 명령을 사용할 수 있습니다. Windows 보안 화면과 로그온 화면의 전원 단추도 사용할 수 있습니다.</string>
       <string id="NoCommonGroups">시작 메뉴에서 공용 프로그램 그룹 제거</string>
       <string id="NoCommonGroups_Help">시작 메뉴의 프로그램 메뉴에서 모든 사용자 프로필의 항목을 제거합니다.
 
@@ -222,12 +229,22 @@ XML 파일이 생성되고 원하는 파일 경로로 이동된 후 XML 파일�
 관련 정책 설정인 "시작 메뉴에서 자주 사용하는 프로그램 목록 제거" 및 "즐겨쓰는 메뉴 사용 안 함" 설정을 참조하십시오.
 
 이 정책 설정을 사용해도 사용자가 시작 메뉴나 작업 표시줄에 프로그램을 고정할 수는 있습니다. "시작 메뉴에서 고정된 프로그램 목록 제거" 및 "작업 표시줄에 프로그램 고정을 허용하지 않음" 정책 설정을 참조하십시오.</string>
+
       <string id="NoMoreProgramsList">시작 메뉴에서 모든 프로그램 항목 제거</string>
-      <string id="NoMoreProgramsList_Help">이 정책 설정을 통해 시작 메뉴에서 모든 프로그램 목록을 제거할 수 있습니다.
+      <string id="NoMoreProgramsList_Help">이 설정을 사용하면 시작 메뉴가 축소되거나 시작 메뉴의 모든 앱 목록이 제거됩니다.
 
-이 정책 설정을 사용하면 일반 시작 메뉴에서 "모든 프로그램" 항목이 제거됩니다.  시작 화면에는 앱 모두 보기가 표시되지만 시작 메뉴에 고정된 항목만 포함됩니다.
+"축소"를 선택하면 시작 메뉴에 고정된 타일 옆의 앱 목록이 표시되지 않습니다. "모든 앱" 단추가 시작 메뉴에 표시되어 모든 앱 목록을 열 수 있습니다. 이것은 설정에서 "시작 메뉴에서 앱 목록 표시"를 끄는 것과 동일합니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 일반 시작 메뉴에 "모든 프로그램" 항목이 유지됩니다.</string>
+"축소 및 설정 사용 안 함"을 선택하면 축소 옵션을 선택하는 것과 동일하며, 설정에서 "시작 메뉴에서 앱 목록 표시"를 사용 안 함으로 설정하여 사용자가 이 기능을 켤 수 없습니다.
+
+"제거 및 설정 사용 안 함"을 선택하면 시작 메뉴의 모든 앱 목록이 제거되며, 설정에서 "시작 메뉴에서 앱 목록 표시"를 사용 안 함으로 설정하여 사용자가 이 기능을 켤 수 없습니다. 이전 버전의 Windows와 호환성을 유지하기 위해 이 옵션을 선택하세요.
+
+이 설정을 사용하지 않거나 구성하지 않으면 기본값으로 모든 앱 목록이 표시되며, 설정에서 "시작 메뉴에서 앱 목록 표시" 기능을 변경할 수 있습니다.</string>
+      <string id="APPLIST_NONE">없음</string>
+      <string id="APPLIST_COLLAPSE">축소</string>
+      <string id="APPLIST_COLLAPSESETTING">축소 및 설정 사용 안 함</string>
+      <string id="APPLIST_REMOVESETTING">제거 및 설정 사용 안 함</string>    
+
       <string id="NoNetAndDialupConnect">시작 메뉴에서 네트워크 연결 제거</string>
       <string id="NoNetAndDialupConnect_Help">이 정책 설정을 통해 시작 메뉴에서 네트워크 연결을 제거할 수 있습니다.
 
@@ -289,7 +306,7 @@ Windows XP 및 Windows Vista의 '시작 메뉴 사용자 지정' 대화 상자�
 
 참고: 이 정책 설정은 NTFS 파티션에 있는 대상 파일에만 적용됩니다. FAT 파티션에는 이 ID를 추적하고 검색하는 기능이 없습니다.
 
-"로밍 중 셸 바로 가기 추적하지 않음" 및 "셸 바로 가기를 확인할 때 추적 기반 방법 사용 안 함" 정책 설정을 참조하십시오.</string>
+"로밍 중 셸 바로 가기 추적 안 함" 및 "셸 바로 가기를 확인할 때 추적 기반 방법 사용 안 함" 정책 설정을 참조하십시오.</string>
       <string id="NoResolveTrack">셸 바로 가기를 확인할 때 추적 기반 방법 사용 안 함</string>
       <string id="NoResolveTrack_Help">이 정책 설정은 시스템에서 바로 가기를 확인하기 위해 NTFS 추적 기능을 사용할 수 없게 합니다.
 
@@ -299,7 +316,7 @@ Windows XP 및 Windows Vista의 '시작 메뉴 사용자 지정' 대화 상자�
 
 참고: 이 정책 설정은 NTFS 파티션에 있는 대상 파일에만 적용됩니다. FAT 파티션에는 이 ID를 추적하고 검색하는 기능이 없습니다.
 
-"로밍 중 셸 바로 가기 추적하지 않음" 및 "셸 바로 가기를 확인할 때 검색 기반 방법 사용 안 함" 정책 설정을 참조하십시오.</string>
+"로밍 중 셸 바로 가기 추적 안 함" 및 "셸 바로 가기를 확인할 때 검색 기반 방법 사용 안 함" 정책 설정을 참조하십시오.</string>
       <string id="NoRun">시작 메뉴에서 실행 메뉴 제거</string>
       <string id="NoRun_Help">시작 메뉴, Internet Explorer, 및 작업 관리자에서 실행 명령을 제거할 수 있게 해줍니다.
 
@@ -515,6 +532,18 @@ Windows 업데이트는 Windows의 온라인 확장 기능으로 사용자의 �
 이 정책 설정을 사용하면 시작 메뉴에 다운로드 폴더의 링크가 표시되지 않습니다.
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 시작 메뉴에서 다운로드 링크를 사용할 수 있습니다.</string>
+      <string id="NoStartMenuExplorerPlace">시작 메뉴 바로 가기 모음에서 파일 탐색기 링크 제거</string>
+      <string id="NoStartMenuExplorerPlace_Help">이 정책 설정을 통해 시작 메뉴 바로 가기 모음에서 파일 탐색기 링크를 제거할 수 있습니다.
+
+이 정책 설정을 사용하면 시작 메뉴 바로 가기 목록에 파일 탐색기가 표시되지 않습니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 시작 메뉴 바로 가기 모음에 파일 탐색기가 표시될 수 있습니다.</string>
+      <string id="NoStartMenuSettingsPlace">시작 메뉴 바로 가기 모음에서 설정 링크 제거</string>
+      <string id="NoStartMenuSettingsPlace_Help">이 정책 설정을 통해 시작 메뉴 바로 가기 모음에서 설정 링크를 제거할 수 있습니다.
+
+이 정책 설정을 사용하면 시작 메뉴 바로 가기 목록에 설정이 표시되지 않습니다.
+
+이 정책 설정을 사용하지 않거나 구성하지 않으면 시작 메뉴 바로 가기 모음에 설정이 표시될 수 있습니다.</string>
       <string id="NoStartMenuRecordedTV">시작 메뉴에서 녹화된 TV 링크 제거</string>
       <string id="NoStartMenuRecordedTV_Help">이 정책 설정을 통해 시작 메뉴에서 녹화된 TV 링크를 제거할 수 있습니다.
 
@@ -575,8 +604,23 @@ Windows 업데이트는 Windows의 온라인 확장 기능으로 사용자의 �
 이 정책 설정을 사용하지 않거나 구성하지 않으면 Windows에서 하드웨어 폼 팩터에 따라 자동으로 크기를 선택하고 사용자가 설정에서 시작의 크기를 변경할 수 있습니다.</string>
       <string id="ForceLauncherSize_Collapsed">시작 메뉴</string>
       <string id="ForceLauncherSize_Expanded">전체 화면 시작</string>
+      <string id="HidePeopleBar_DisplayName">작업 표시줄에서 피플 표시줄 제거</string>
+      <string id="HidePeopleBar_ExplainText">이 정책을 통해 작업 표시줄에서 피플 표시줄을 제거하고 내 피플 환경을 비활성화할 수 있습니다.
+
+이 정책을 활성화하면 작업 표시줄에서 피플 아이콘이 제거되고 해당 설정 토글이 작업 표시줄 설정 페이지에서 삭제되며 사용자는 작업 표시줄에 피플을 고정할 수 없게 됩니다.</string>
+      <string id="HideRecentlyAddedApps">시작 메뉴에서 "최근에 추가됨" 목록 제거</string>
+      <string id="HideRecentlyAddedApps_Help">이 정책을 사용하면 시작 메뉴에 최근에 설치한 응용 프로그램 목록을 표시할 수 없습니다.
+
+이 정책을 사용하면 시작 메뉴 "최근에 추가됨" 목록이 더 이상 표시되지 않습니다.  해당 설정은 설정에서도 사용 중지됩니다.</string>
+      <string id="DisableContextMenusInStart">시작 메뉴에서 상황에 맞는 메뉴 사용 중지</string>
+      <string id="DisableContextMenusInStart_Help">이 정책을 사용하면 사용자가 시작 메뉴에서 상황에 맞는 메뉴를 열 수 없습니다.
+
+이 정책을 사용하면 시작 메뉴 내에서 상황에 맞는 메뉴 호출이 무시됩니다.</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">다음 작업 중 하나 선택</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">다음 작업 중 하나 선택</dropdownList>
       </presentation>

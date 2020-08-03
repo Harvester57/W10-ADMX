@@ -33,13 +33,15 @@ Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas,
 Si vous activez ce paramètre de stratégie, les applications du Windows Store qui nécessitent normalement un compte Microsoft pour la connexion autorisent les utilisateurs à se connecter avec un compte d’entreprise.
 
 Si vous désactivez ce paramètre de stratégie ou si vous ne le configurez pas, les utilisateurs doivent se connecter avec un compte Microsoft.</string>
-      <string id="AppxRuntimeBlockHostedAppAccessWinRT">Bloquer le lancement des applications du Windows Store avec accès à l'API d'exécution Windows à partir du contenu hébergé.</string>
+      <string id="AppxRuntimeBlockHostedAppAccessWinRT">Bloquer le lancement des applications Windows universelles avec accès à l'API Windows Runtime à partir du contenu hébergé.</string>
       <string id="AppxRuntimeBlockHostedAppAccessWinRTExplanation">
-        Ce paramètre de stratégie détermine si les applications du Windows Store avec accès direct à l'API d'exécution Windows à partir du contenu Web peuvent être lancées.
+        Ce paramètre de stratégie contrôle si les applications Windows universelles avec accès des API d'exécution Windows directement à partir du contenu web peuvent être lancées.
 
-Si vous activez ce paramètre de stratégie, les applications du Windows Store avec accès direct à l'API d'exécution Windows à partir du contenu Web ne peuvent pas être lancées ; les applications du Windows Store sans accès à l'API d'exécution Windows de contenu web ne sont pas affectées.
+        Si vous activez ce paramètre de stratégie, les applications Windows universelles qui déclarent l'accès des API d'exécution Windows dans la section ApplicationContentUriRules du manifeste ne peuvent pas être lancées ; les applications Windows universelles qui n'ont pas déclaré l'accès des API d'exécution Windows dans le manifeste ne sont pas concernées.
 
-Si vous désactivez ou ne configurez pas ce paramètre de stratégie, toutes les applications du Windows Store peuvent être lancées.
+        Si vous désactivez ou ne configurez pas ce paramètre de stratégie, toutes les applications Windows universelles peuvent être lancées.
+
+        Cette stratégie ne doit pas être activée, sauf si elle est recommandée par Microsoft en tant que réponse de sécurité, car elle peut générer de graves problèmes de compatibilité des applications.
       </string>
     </stringTable>
     <presentationTable>

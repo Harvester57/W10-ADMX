@@ -26,7 +26,7 @@ BitLocker 복구 정보에는 복구 암호와 일부 고유한 식별 데이터
 
       <string id="ConfigureStartupUsage_Help">이 정책 설정으로 컴퓨터가 시작할 때마다 필요한 추가 인증 방법을 BitLocker 드라이브 암호화 설정 마법사에서 설정할 수 있는지 여부를 제어할 수 있습니다. 이 정책 설정은 BitLocker를 사용할 경우에 적용됩니다.
 
-참고: 이 정책은 Windows Server 2008 또는 Windows Vista를 실행하는 컴퓨터에만 적용됩니다.
+참고:  이 정책은 Windows Server 2008 또는 Windows Vista를 실행하는 컴퓨터에만 적용됩니다.
 
 호환되는 TPM(신뢰할 수 있는 플랫폼 모듈)이 있는 컴퓨터에서는 시작 시 두 가지 인증 방법을 사용하여 암호화된 데이터에 대한 추가 보호 기능을 제공할 수 있습니다. 컴퓨터 시작 시 시작 키를 포함하는 USB 플래시 드라이브를 넣도록 사용자에게 요구할 수 있습니다. 또한 4-20자리의 시작 PIN(개인 식별 번호)을 입력하도록 사용자에게 요구할 수도 있습니다.
 
@@ -35,7 +35,6 @@ BitLocker 복구 정보에는 복구 암호와 일부 고유한 식별 데이터
 이 정책 설정을 사용하면 사용자가 BitLocker에 대한 고급 시작 옵션을 구성할 수 있는 페이지가 마법사에 표시됩니다. TPM이 있거나 없는 컴퓨터에 대한 설정 옵션을 보다 구체적으로 구성할 수 있습니다.
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 BitLocker 설치 마법사에 사용자가 TPM이 있는 컴퓨터에서 BitLocker를 사용할 수 있도록 하는 기본 단계가 표시됩니다. 이 기본 마법사에서는 시작 키나 시작 PIN을 추가적으로 구성할 수 없습니다.
-
 </string>
 
       <string id="ConfigureStartupUsage_Name">시작 시 추가 인증 요구(Windows Server 2008 및 Windows Vista)</string>
@@ -47,15 +46,13 @@ BitLocker 복구 정보에는 복구 암호와 일부 고유한 식별 데이터
 
 TPM이 없는 컴퓨터에서 BitLocker를 사용하려면 "호환되는 TPM 없이 BitLocker 허용" 확인란을 선택합니다. 이 모드에서는 시작 시 암호나 USB 드라이브가 필요합니다. 시작 키를 사용하는 경우 드라이브를 암호화하는 데 사용되는 키 정보가 USB 드라이브에 저장되어 USB 키를 만듭니다. USB 키를 넣으면 드라이브에 대한 액세스가 인증되고 드라이브를 액세스할 수 있게 됩니다. USB 키를 분실했거나 사용할 수 없는 경우 또는 암호를 잊은 경우에는 BitLocker 복구 옵션 중 하나를 사용하여 드라이브에 액세스해야 합니다.
 
-호환되는 TPM이 있는 컴퓨터에서는 시작 시 네 가지 유형의 인증 방법을 사용하여 암호화된 데이터에 대한 보호를 강화할 수 있습니다. 컴퓨터를 시작할 때 인증에 TPM만 사용하거나, 시작 키 또는 4-20자리의 PIN(개인 식별 번호) 또는 둘 다 들어 있는 USB 플래시 드라이브를 넣도록 요구할 수 있습니다.
+호환되는 TPM이 있는 컴퓨터에서는 시작 시 네 가지 유형의 인증 방법을 사용하여 암호화된 데이터에 대한 보호를 강화할 수 있습니다. 컴퓨터를 시작할 때 인증에 TPM만 사용하거나, 시작 키 또는 6-20자리의 PIN(개인 식별 번호) 또는 둘 다 들어 있는 USB 플래시 드라이브를 넣도록 요구할 수 있습니다.
 
 이 정책 설정을 사용하면 사용자가 BitLocker 설치 마법사에서 고급 시작 옵션을 구성할 수 있습니다.
 
 이 정책 설정을 사용하지 않거나 구성하지 않으면 TPM이 있는 컴퓨터에서 사용자가 기본 옵션만 구성할 수 있습니다.
 
 참고: 시작 PIN 및 USB 플래시 드라이브를 사용하도록 하려면 BitLocker 드라이브 암호화 설정 마법사 대신 명령줄 도구인 manage-bde를 사용하여 BitLocker 설정을 구성해야 합니다.
-
-
 
 </string>
       <string id="AllowNetworkUnlockAtStartup_Name">시작 시 네트워크 잠금 해제 허용</string>
@@ -289,14 +286,19 @@ BitLocker를 사용하도록 설정하기 전에 이 정책 설정을 사용하�
 
       <string id="PlatformValidation_UEFI_Help">이 정책 설정으로 컴퓨터의 TPM(신뢰할 수 있는 플랫폼 모듈) 보안 하드웨어로 BitLocker 암호화 키의 보안을 유지하는 방법을 구성할 수 있습니다. 컴퓨터에 호환되는 TPM이 없거나 이미 BitLocker가 TPM 보호 기능과 함께 설정된 경우에는 이 정책 설정이 적용되지 않습니다.
 
-중요: 이 그룹 정책은 기본 UEFI 펌웨어 구성을 사용하는 컴퓨터에만 적용됩니다. CSM(호환성 서비스 모듈)을 지원하는 UEFI 펌웨어 또는 BIOS를 사용하는 컴퓨터는 다양한 값을 PCR(플랫폼 구성 레지스터)에 저장합니다. "BIOS 기반 펌웨어 구성에 대한 TPM 플랫폼 유효성 검사 프로필 구성" 그룹 정책 설정을 사용하여 CSM을 지원하는 UEFI 펌웨어를 사용하는 컴퓨터나 BIOS 구성을 사용하는 컴퓨터에 대한 TPM PCR 프로필을 구성할 수 있습니다.
+중요:이 그룹 정책은 기본 UEFI 펌웨어 구성을 사용하는 컴퓨터에만 적용됩니다. CSM(호환성 서비스 모듈)을 지원하는 UEFI 펌웨어 또는 BIOS를 사용하는 컴퓨터는 PCR(플랫폼 구성 레지스터)에 다른 값을 저장 합니다. "BIOS 기반 펌웨어 구성에 대한 TPM 플랫폼 유효성 검사 프로필 구성" 그룹 정책 설정을 사용하여 BIOS 구성을 사용하는 컴퓨터나 CSM을 지원하는 UEFI 펌웨어를 사용하는 컴퓨터에 대한 TPM PCR 프로필을 구성할 수 있습니다.
 
 BitLocker를 사용하도록 설정하기 전에 이 정책 설정을 사용하면 BitLocker로 암호화된 운영 체제 드라이브에 대한 액세스를 잠금 해제하기 전에 TPM에서 검사할 부팅 구성 요소를 구성할 수 있습니다. BitLocker 보호가 적용되는 동안 이러한 구성 요소가 변경될 경우 TPM은 암호화 키를 해제하여 드라이브의 잠금을 해제하지 않으며, 대신 컴퓨터에서 BitLocker 복구 콘솔을 표시하고 드라이브의 잠금을 해제하려면 복구 암호나 복구 키를 입력하라고 요구합니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 BitLocker에서 기본 플랫폼 유효성 검사 프로필이나 설치 스크립트에 지정된 플랫폼 유효성 검사 프로필을 사용합니다. 플랫폼 유효성 검사 프로필은 0에서 23까지의 PCR(플랫폼 구성 레지스터) 인덱스 세트로 구성됩니다. 기본 플랫폼 유효성 검사 프로필은 암호화 키가 핵심 시스템 펌웨어 실행 코드(PCR 0), 확장 또는 연결 가능 실행 코드(PCR 2), 부트 관리자(PCR 4) 및 BitLocker 액세스 제어(PCR 11)를 변경하지 못하도록 보호합니다.
+이 정책 설정을 사용하지 않거나 구성하지 않으면 BitLocker에서 기본 플랫폼 유효성 검사 프로필이나 설치 스크립트에 지정된 플랫폼 유효성 검사 프로필을 사용합니다. 플랫폼 유효성 검사 프로필은 0에서 23까지의 PCR(플랫폼 구성 레지스터) 인덱스 세트로 구성됩니다. 
+
+보안 부트 상태(PCR 7) 지원이 없는 PC에서 기본 플랫폼 유효성 검사 프로필은 암호화 키가 핵심 시스템 펌웨어 실행 코드(PCR 0), 확장 또는 연결 가능 실행 코드(PCR 2), 부트 관리자(PCR 4) 및 BitLocker 액세스 제어(PCR 11)를 변경하지 못하도록 보호합니다.
+
+보안 부트 상태(PCR 7) 지원을 사용할 수 있는 경우 기본 플랫폼 유효성 검사 프로필은 보안 부트 상태(PCR 7) 및 BitLocker 액세스 제어(PCR 11)를 사용하여 암호화 키를 보호합니다. 
 
 경고: 기본 플랫폼 유효성 검사 프로필을 변경하면 컴퓨터의 보안과 관리 효율에 영향을 줍니다. 악의적이거나 허가된 플랫폼 수정에 대한 BitLocker의 민감도는 PCR의 포함 여부에 따라 증가하거나 감소합니다. 특히 PCR 7을 생략한 상태로 이 정책을 설정하면 "무결성 확인 시 보안 부팅 허용" 그룹 정책이 다시 정의되어 BitLocker에서 플랫폼 또는 BCD(부팅 구성 데이터) 무결성 확인 시 보안 부팅을 사용할 수 없습니다. 이 정책을 설정하면 펌웨어를 업데이트할 때 BitLocker 복구가 발생할 수 있습니다. PCR 0을 포함하도록 이 정책을 설정하면 펌웨어 업데이트를 적용하기 전에 BitLocker를 일시 중단하십시오.
-      
+
+각 PC의 사용 가능한 하드웨어를 기반으로 보안 및 유용성의 조합이 최상인 PCR 프로필을 Windows에서 선택할 수 있게 하려면 이 정책을 구성하지 않는 것이 좋습니다.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">기본 UEFI 펌웨어 구성에 대한 TPM 플랫폼 유효성 검사 프로필 구성</string>
@@ -311,6 +313,13 @@ BitLocker를 사용하도록 설정하기 전에 이 정책 설정을 사용하�
 
       </string>
       <string id="MorBehavior_Name">다시 시작할 때 메모리 덮어쓰기 방지</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">이 정책 설정을 사용하면 사용자가 Windows에 로그인할 때까지 모든 Thunderbolt 핫 플러그형 PCI 다운스트림 포트에 대한 DMA(직접 메모리 액세스)를 차단할 수 있습니다. 사용자가 로그인하면 Windows가 호스트 Thunderbolt PCI 포트에 연결된 PCI 장치를 열거합니다. 사용자가 컴퓨터를 잠그면 사용자가 다시 로그인할 때까지 하위 장치 없는 핫 플러그 Thunderbolt PCI 포트에 대한 DMA가 차단됩니다. 잠금이 해제되었을 때 이미 나열된 장치는 분리되거나 시스템이 재부팅되거나 최대 절전 모드로 전환될 때까지 계속 작동합니다. 이 정책 설정은 BitLocker나 장치 암호화를 사용하는 경우에만 적용됩니다.
+
+참고: 새 장치를 Windows에 노출하기 전에 시스템 펌웨어에서 새로 연결된 Thunderbolt 장치에 대해 DMA를 사용하도록 설정한 경우 일부 PC는 이 정책과 호환되지 않을 수 있습니다.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">이 컴퓨터가 잠긴 경우 새 DMA 장치 사용 중지</string>
 
       <string id="FVEOSCategory">운영 체제 드라이브</string>
       <string id="FVEFDVCategory">고정 데이터 드라이브</string>
@@ -373,13 +382,14 @@ BitLocker로 보호되는 드라이브가 BitLocker를 사용하는 다른 컴�
 
 
       <string id="MinimumPINLength_Name">시작 PIN의 최소 길이 구성</string>
-      <string id="MinimumPINLength_Help">이 정책 설정으로 TPM(신뢰할 수 있는 플랫폼 모듈) 시작 PIN에 대한 최소 길이를 구성할 수 있습니다. 이 정책 설정은 BitLocker를 사용하는 경우에 적용됩니다. 시작 PIN의 최소 길이는 4자리이고 최대 길이는 20자리여야 합니다.
+      <string id="MinimumPINLength_Help">
+          이 정책 설정으로 TPM(신뢰할 수 있는 플랫폼 모듈) 시작 PIN에 대한 최소 길이를 구성할 수 있습니다. 이 정책 설정은 BitLocker를 사용하는 경우에 적용됩니다. 시작 PIN의 최소 길이는 4자리이고 최대 길이는 20자리여야 합니다.
 
-이 정책 설정을 사용하면 시작 PIN을 설정할 때 사용될 최소 자릿수를 지정할 수 있습니다.
+          이 정책 설정을 사용하면 시작 PIN을 설정할 때 사용될 최소 자릿수를 지정할 수 있습니다.
 
-이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 4-20자리 사이에서 시작 PIN을 구성할 수 있습니다.
+          이 정책 설정을 사용하지 않거나 구성하지 않으면 사용자가 6-20자리 사이에서 시작 PIN을 구성할 수 있습니다.
 
-      
+          참고 : PIN 최소 길이가 6자리 미만으로 설정된 경우 PIN 변경 시 Windows는 TPM 2.0 잠금 기간을 기본값보다 큰 값으로 업데이트를 시도합니다. TPM을 다시 설정하면 Windows는 TPM 잠금 기간을 기본값으로 다시 설정합니다.
 
       </string>
 
@@ -689,6 +699,14 @@ PIN 또는 암호 등 추가 정보를 입력해야만 BitLocker를 사용할 �
       
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">InstantGo 또는 HSTI와 호환되는 장치에서 사전 부팅 PIN을 사용하지 않도록 허용합니다.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">이 설정은 InstantGo 또는 Microsoft HSTI(Hardware Security Test Interface)와 호환되는 장치를 사용하는 사용자가 사전 부팅 인증용 PIN을 가지고 있지 않아도 되도록 허용합니다. 이 설정은 호환되는 하드웨어의 "시작 시 추가 인증 요구" 정책의 "TPM과 함께 시작 PIN 요구" 및 "TPM과 함께 시작 키 및 PIN 요구" 옵션을 재정의합니다.
+
+이 설정을 사용하면, InstantGo 및 HSTI 호환 장치의 사용자가 사전 부팅 인증 없이 BitLocker를 켤 수 있습니다.
+
+이 정책이 사용 중이지 않으면 "시작 시 추가 인증 요구" 정책 옵션이 적용됩니다.
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">무결성 확인 시 보안 부팅 허용</string>
       <string id="AllowSecureBootForIntegrity_Help">이 정책 설정을 사용하면 보안 부팅이 BitLocker 운영 체제 드라이브의 플랫폼 무결성 공급자로 허용되는지 여부를 구성할 수 있습니다.
 
@@ -966,7 +984,7 @@ PIN 또는 암호 등 추가 정보를 입력해야만 BitLocker를 사용할 �
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">최소 문자:</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">최소 문자:</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

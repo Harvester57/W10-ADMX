@@ -143,6 +143,7 @@ Se non si configura questa impostazione dei criteri, il reindirizzamento delle u
       <string id="TS_CLIENT_HELP">Controlla le impostazioni del client di Connessione desktop remoto</string>
       <string id="TS_CLIENT_LPT">Non consentire il reindirizzamento della porta LPT</string>
       <string id="TS_CLIENT_PNP">Non consentire il reindirizzamento dei dispositivi Plug and Play supportati</string>
+      <string id="TS_CAMERA_REDIRECTION">Non consentire reindirizzamento dell'acquisizione video</string>
       <string id="TS_CLIENT_PRINTER">Non consentire il reindirizzamento della stampante client</string>
       <string id="TS_CLIPBOARDMAP_EXPLAIN">Questa impostazione dei criteri specifica se impedire la condivisione del contenuto degli Appunti (reindirizzamento degli Appunti) tra un computer remoto e un computer client durante una sessione di Servizi Desktop remoto.
 
@@ -197,6 +198,15 @@ Se si disabilita questa impostazione dei criteri, gli utenti potranno reindirizz
 Se si abilita questa impostazione dei criteri, gli utenti non potranno reindirizzare i dispositivi Plug and Play supportati al computer remoto. Se non si configura questa impostazione dei criteri, gli utenti potranno reindirizzare i dispositivi Plug and Play supportati al computer remoto, solo se esegue Windows Server 2012 R2 e versioni precedenti.
 
 Nota: è possibile disabilitare il reindirizzamento di tipi specifici di dispositivi Plug and Play supportati utilizzando l'impostazione dei criteri Configurazione computer\Modelli amministrativi\Sistema\Installazione dispositivi\Restrizioni installazione dispositivi.
+
+</string>
+      <string id="TS_CAMERA_REDIRECTION_EXPLAIN">Questa impostazione di criteri ti consente di controllare il reindirizzamento dei dispositivi di acquisizione video al computer remoto in una sessione di Servizi Desktop remoto. 
+
+Per impostazione predefinita, Servizi Desktop remoto consente il reindirizzamento dei dispositivi di acquisizione video.
+
+Se abiliti questa impostazione di criteri, gli utenti non potranno reindirizzare i dispositivi di acquisizione video al computer remoto. 
+
+Se disabiliti o non configuri questa impostazione di criteri, gli utenti possono reindirizzare i dispositivi di acquisizione video al computer remoto. È possibile utilizzare l'opzione Altro nella scheda Risorse locali di Connessione Desktop remoto per scegliere i dispositivi di acquisizione video per il reindirizzamento al computer remoto.
 
 </string>
       <string id="TS_MAXMONITOR_EXPLAIN">Questa impostazione consente di limitare il numero dei monitor utilizzabili da un utente per visualizzare una sessione di Servizi Desktop remoto. In questo modo è possibile ottenere un miglioramento delle prestazioni della connessione, soprattutto in presenza di collegamenti lenti, e ridurre il carico del server.
@@ -320,12 +330,13 @@ Nota: la sessione della console è anche denominata Sessione 0. È possibile ott
       <string id="TS_GATEWAY_BASIC">Richiedi credenziali, usa protocollo di base</string>
       <string id="TS_GATEWAY_LOGGED_ON_CREDS">Usa credenziali dell'utente connesso localmente</string>
       <string id="TS_GATEWAY_NTLM">Richiedi credenziali, usa protocollo NTLM</string>
+      <string id="TS_GATEWAY_NEGOTIATE">Richiedi credenziali, usa il protocollo Negotiate</string>
       <string id="TS_GATEWAY_POLICY_AUTH_METHOD">Imposta il metodo di autenticazione del Gateway Desktop remoto</string>
-      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Specifica il metodo di autenticazione che i client devono utilizzare durante i tentativi di connessione a un server host sessione Desktop remoto tramite un server Gateway Desktop remoto. È possibile imporre questa impostazione oppure consentire agli utenti di sovrascriverla. Per impostazione predefinita, questa impostazione viene imposta quando è abilitata. Quando l'impostazione viene imposta, gli utenti non possono sovrascriverla, anche se selezionano l'opzione "Usa le impostazioni del server Gateway Desktop remoto seguenti" nel client.
+      <string id="TS_GATEWAY_POLICY_AUTH_METHOD_HELP">Specifica il metodo di autenticazione che i client devono utilizzare durante i tentativi di connessione a un server della sessione Desktop remoto tramite un server Gateway Desktop remoto. È possibile imporre questa impostazione di criterio oppure consentire agli utenti di sovrascriverla. Per impostazione predefinita, questa impostazione viene imposta quando è abilitata. Quando l'impostazione viene imposta, gli utenti non possono sovrascriverla, anche se selezionano l'opzione "Usa le impostazioni del server Gateway Desktop remoto seguenti" nel client.
 
 Per consentire agli utenti di sovrascrivere questa impostazione, selezionare la casella di controllo "Consenti agli utenti di modificare questa impostazione". In questo modo, gli utenti potranno specificare un metodo di autenticazione alternativo configurando le impostazioni nel client oppure utilizzando un file RDP o uno script HTML. Se gli utenti non specificano un metodo di autenticazione alternativo, per impostazione predefinita verrà utilizzato il metodo di autenticazione specificato in questa impostazione.
 
-Se si disabilita o non si configura questa impostazione, verrà utilizzato il metodo di autenticazione specificato dall'utente, se indicato. Se non è specificato alcun metodo di autenticazione, sarà possibile utilizzare il protocollo NTLM abilitato nel client oppure una smart card.</string>
+Se si disabilita o non si configura questa impostazione, verrà utilizzato il metodo di autenticazione specificato dall'utente, se indicato. Se non è specificato alcun metodo di autenticazione, sarà possibile utilizzare il protocollo Negotiate abilitato nel client oppure una smart card.</string>
       <string id="TS_GATEWAY_POLICY_ENABLE">Abilita connessione tramite Gateway Desktop remoto</string>
       <string id="TS_GATEWAY_POLICY_ENABLE_HELP">Se si abilita questa impostazione dei criteri, quando non è possibile connettersi direttamente a un computer remoto (un server Host sessione Desktop remoto o un computer in cui è abilitato Desktop remoto) tramite Connessione desktop remoto, i client tenteranno di connettersi al computer remoto tramite un server Gateway Desktop remoto. In tal caso, i client tenteranno di connettersi al server Gateway Desktop remoto specificato nell'impostazione "Imposta indirizzo server Gateway Desktop remoto".
 
@@ -1008,17 +1019,7 @@ Se si disabilita questa impostazione dei criteri. i programmi RemoteApp pubblica
 
     <!--AVC HW Encode Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">Configura codifica hardware H.264/AVC per le connessioni Desktop remoto</string>
-    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Questa impostazione dei criteri consente di abilitare il supporto per la codifica hardware H.264/AVC per le connessioni Desktop remoto. Quando si abilita la codifica hardware, se si verifica un errore, verrà eseguito un tentativo di usare la codifica software. Se si disabilita o non si configura questa impostazione, verrà sempre usata la codifica software.
-        
-Se si imposta l'opzione di codifica su "Tenta sempre", Desktop remoto tenterà sempre di usare la codifica hardware H.264/AVC, se disponibile. È necessario tenere presente che, per Windows Server che esegue Hyper-V con una vGPU RemoteFX abilitata, il criterio deve essere impostato sul computer host Hyper-V.
-        
-Se si imposta l'opzione di codifica su "Tenta solo per le macchine virtuali con una vGPU RemoteFX", per Windows Server che esegue Hyper-V con una vGPU RemoteFX abilitata, il criterio deve essere impostato sul computer host Hyper-V.
-        
-Se si imposta l'opzione di codifica su "Tenta solo per gli scenari senza vGPU RemoteFX", Desktop remoto tenta di usare la codifica hardware per tutti gli scenari ad eccezione delle vGPU RemoteFX.
-    </string>
-    <string id="TS_AVC_HW_ENCODE_ALWAYS">Tenta sempre</string>
-    <string id="TS_AVC_HW_ENCODE_VGPU">Tenta solo per le macchine virtuali con una vGPU RemoteFX</string>
-    <string id="TS_AVC_HW_ENCODE_NONVGPU">Tenta solo per gli scenari senza vGPU RemoteFX</string>
+    <string id="TS_SERVER_AVC_HW_ENCODE_PREFERRED_EXPLAIN">Questa impostazione dei criteri ti consente di attivare il supporto di codifica hardware H.264/AVC per le connessioni Desktop remoto. Quando abiliti la codifica hardware, se si verifica un errore, verrà eseguito il tentativo di utilizzare software di codifica. Se disabiliti o non configuri questo criterio, verrà sempre utilizzato software di codifica.</string>
         
     <!--AVC444 Preferred Mode; Introduced Win10+-->
     <string id="TS_SERVER_AVC444_MODE_PREFERRED">Assegna priorità alla modalità grafica H.264/AVC 444 per le connessioni Desktop remoto</string>
@@ -1169,16 +1170,16 @@ Se si abilita questa impostazione dei criteri, l'accesso utente viene bloccato p
 
 Se si disabilita o non si configura questa impostazione dei criteri, la schermata Start verrà visualizzata e le app verranno registrate in background.</string>
 
-      <string id="TS_DX_USE_FULL_HWGPU">Usa la scheda grafica predefinita per l'hardware per tutte le sessioni di Servizi Desktop remoto</string>
-      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Questa impostazione dei criteri consente agli amministratori di sistema di modificare il rendering degli elementi grafici per tutte le sessioni di Servizi Desktop remoto.
+      <string id="TS_DX_USE_FULL_HWGPU">Utilizza schede grafiche hardware per tutte le sessioni di Servizi Desktop remoto</string>
+      <string id="TS_DX_USE_FULL_HWGPU_EXPLAIN">Questa impostazione di criteri consente agli amministratori di sistema di modificare il rendering degli elementi grafici per tutte le sessioni di Servizi Desktop remoto.
 
-Se si abilita questa impostazione dei criteri, per tutte le sessioni di Servizi Desktop remoto verrà usato come scheda predefinita il renderer degli elementi grafici hardware anziché il driver rendering base Microsoft.
+Se abiliti questa impostazione di criteri, tutte le sessioni di Servizi Desktop remoto utilizzano il renderer degli elementi grafici hardware anziché il Driver rendering base Microsoft come scheda predefinita.
 
-Se si disabilita questa impostazione dei criteri, per tutte le sessioni di Servizi Desktop remoto verrà usato il driver rendering base Microsoft come scheda predefinita.
+Se disabiliti questa impostazione di criteri, tutte le sessioni di Servizi Desktop remoto utilizzano il Driver rendering base Microsoft come scheda predefinita.
 
-Se non si configura questa impostazione dei criteri, per le sessioni di Servizi Desktop remoto nel server Host sessione Desktop remoto verrà usato il driver rendering base Microsoft come scheda predefinita. In tutti gli altri casi, per le sessioni di Servizi Desktop remoto verrà usato il renderer degli elementi grafici hardware per impostazione predefinita.
+Se non configuri questa impostazione di criteri, le sessioni di Servizi Desktop remoto nel server Host sessione Desktop remoto utilizzano il Driver rendering base Microsoft come scheda predefinita. In tutti gli altri casi, le sessioni di Servizi Desktop remoto utilizzano il renderer degli elementi grafici hardware per impostazione predefinita.
 
-NOTA: questa impostazione dei criteri si applica solo all'unità di elaborazione grafica (GPU) predefinita in un computer in cui sono installate più GPU. Tutte le GPU aggiuntive sono considerate schede secondarie e usate come renderer hardware. La configurazione della GPU della sessione locale non è influenzata da questa impostazione dei criteri.
+NOTA: l'impostazione di criteri consente il bilanciamento del carico delle unità di elaborazione grafica (GPU) in un computer con più di una GPU installata. La configurazione della GPU della sessione locale non sarà interessata da questa impostazione di criteri.
 </string>
       
     </stringTable>
@@ -1328,9 +1329,6 @@ NOTA: questa impostazione dei criteri si applica solo all'unità di elaborazione
       </presentation>
       <presentation id="TS_SERVER_COMPRESSOR">
         <dropdownList refId="TS_COMPRESSOR_LEVELS" noSort="true" defaultItem="0">Algoritmo di compressione RDP:</dropdownList>
-      </presentation>
-      <presentation id="TS_SERVER_AVC_HW_ENCODE_PREFERRED">
-        <dropdownList refId="TS_AVC_HW_ENCODE_ENUM" noSort="true" defaultItem="1">Preferisci codifica hardware AVC:</dropdownList>
       </presentation>
       <presentation id="TS_SERVER_VISEXP">
         <dropdownList refId="TS_VISEXP_SETTINGS" noSort="true" defaultItem="0">Esperienza visiva:</dropdownList>

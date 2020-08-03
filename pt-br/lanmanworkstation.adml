@@ -36,6 +36,28 @@ Se você desabilitar essa configuração de política, o cliente SMB rejeitará 
 
 Logons de convidados não seguros são usados por servidores de arquivos para permitir o acesso não autenticado a pastas compartilhadas. Embora incomum em um ambiente empresarial, os logons de convidados não seguros são frequentemente usados por dispositivos de armazenamento NAS do consumidor que atuam como servidores de arquivos. Os servidores de arquivos do Windows requerem autenticação e não usam logons de convidados não seguros por padrão. Como logons de convidados não seguros não são autenticados, recursos de segurança importantes, como a Assinatura SMB e a Criptografia SMB, estão desativados. Como resultado, os clientes que permitem logons de convidados não seguros são vulneráveis a uma variedade de ataques man-in-the-middle que podem resultar em perda de dados, dados corrompidos e exposição a malware. Além disso, todos os dados gravados em um servidor de arquivos com o uso de um logon de convidado não seguro poderão ser potencialmente acessados por qualquer pessoa na rede. A Microsoft recomenda desabilitar logons de convidados não seguros e configurar os servidores de arquivos para exigir acesso autenticado.
       </string>
+
+      <string id="Pol_EnableCSCforCAShares_Name">Disponibilidade de Arquivos Offline em Compartilhamentos de Disponibilidade Contínua</string>
+      <string id="Pol_EnableCSCforCAShares_Help">
+        Essa configuração de política determina o comportamento de Arquivos Offline em clientes que se conectam a um compartilhamento SMB onde o sinalizador CA (Disponibilidade Contínua) está habilitado.
+
+       Se você habilitar essa configuração de política, a opção "Sempre Disponível Offline" será exibida no menu do Explorador de Arquivos em um computador Windows ao se conectar a um compartilhamento habilitado para CA. A fixação de arquivos em compartilhamentos habilitados para CA usando o cache do lado do cliente também será possível.
+
+        Se você desabilitar ou não definir essa configuração de política, o Windows impedirá o uso de Arquivos Offline com compartilhamentos habilitados para CA.
+
+        Observação: a Microsoft não recomenda habilitar essa política de grupo. O uso de CA com Arquivos Offline causará tempos de transição muito longos entre os estados online e offline.
+      </string>
+
+      <string id="Pol_EnableHandleCachingForCAFiles_Name">Cache de Identificador em Compartilhamentos de Disponibilidade Contínua</string>
+      <string id="Pol_EnableHandleCachingForCAFiles_Help">
+        Essa configuração de política determina o comportamento de cache de identificador SMB para clientes que se conectam a um compartilhamento SMB onde o sinalizador CA (Disponibilidade Contínua) está habilitado.
+
+        Se você habilitar essa configuração de política, o cliente SMB permitirá identificadores armazenados em cache para arquivos em compartilhamentos CA. Isso pode melhorar o desempenho ao acessar repetidamente um grande número de arquivos de dados não estruturados em compartilhamentos CA em execução em Arquivos do Microsoft Azure.
+
+        Se você desabilitar ou não definir essa configuração de política, o Windows impedirá o uso de identificadores armazenados em cache para arquivos abertos por meio de compartilhamentos CA.
+
+        Observação: essa política não tem efeito ao se conectar a compartilhamentos de Servidor de Arquivos de Escalabilidade Horizontal fornecidos por um Windows Server. A Microsoft não recomenda habilitar essa política para clientes que se conectam rotineiramente a arquivos hospedados em um Cluster de Failover do Windows com o Servidor de Arquivos para a função Uso Geral, pois ela pode causar tempos de failover adversos e aumentar o uso de memória e CPU.
+      </string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_CipherSuiteOrder">

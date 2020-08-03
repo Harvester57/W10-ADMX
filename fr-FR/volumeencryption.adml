@@ -42,11 +42,11 @@ Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, l’Ass
 
       <string id="ConfigureAdvancedStartup_Help">Ce paramètre de stratégie vous permet de configurer si BitLocker exige une authentification supplémentaire à chaque démarrage de l’ordinateur et si vous utilisez BitLocker avec ou sans module de plateforme sécurisée. Ce paramètre de stratégie est appliqué lorsque vous activez BitLocker.
 
-Remarque : une seule des options d’authentification supplémentaire peut être exigée au démarrage, sans générer d’erreur de stratégie.
+Remarque : une seule des options d’authentification supplémentaire peut être exigée au démarrage, sans générer d’erreur de stratégie.
 
 Si vous voulez utiliser BitLocker sur un ordinateur sans un module de plateforme sécurisée, activez la case à cocher « Autoriser BitLocker sans un module de plateforme autorisée compatible ». Dans ce mode, un mot de passe ou un lecteur USB est requis pour le démarrage. Si une clé de démarrage est utilisée, les informations de clé utilisées pour chiffrer le lecteur sont stockées sur ce lecteur USB, créant une clé USB. Lorsque la clé USB est insérée, l’accès au lecteur est authentifié et le lecteur est accessible. Si la clé USB est perdue ou non disponible, ou bien encore si vous oubliez le mot de passe, vous devez utiliser l’une des options de récupération BitLocker pour accéder au lecteur.
 
-Sur un ordinateur avec un module de plateforme sécurisée compatible, quatre types de méthode d’authentification peuvent être utilisés au démarrage pour renforcer la protection de l’accès aux données chiffrées. Au démarrage, l’ordinateur ne peut utiliser que le module de plateforme sécurisée pour l’authentification ; ou il peut exiger l’insertion d’un lecteur flash USB contant une clé de démarrage et/ou la saisie d’un code PIN composé de 4 à 20 chiffres.
+Sur un ordinateur avec un module de plateforme sécurisée compatible, quatre types de méthode d’authentification peuvent être utilisés au démarrage pour renforcer la protection de l’accès aux données chiffrées. Au démarrage, l’ordinateur ne peut utiliser que le module de plateforme sécurisée pour l’authentification ; ou il peut exiger l’insertion d’un lecteur flash USB contant une clé de démarrage et/ou la saisie d’un code PIN composé de 6 à 20 chiffres.
 
 Si vous activez ce paramètre de stratégie, les utilisateurs peuvent définir les options de démarrage avancées dans l’Assistant d’installation de BitLocker.
 
@@ -282,16 +282,21 @@ Avertissement : la modification du profil de validation de plateforme par défa
 
       <string id="PlatformValidation_BIOS_Name">Configurer le profil de validation de plateforme du module de plateforme sécurisée pour les configurations de microprogramme BIOS</string>
 
-      <string id="PlatformValidation_UEFI_Help">Ce paramètre de stratégie permet de configurer la façon dont le matériel de sécurité du module de plateforme sécurisée de l’ordinateur sécurise la clé de chiffrement BitLocker. Ce paramètre de stratégie ne s’applique pas si l’ordinateur ne dispose pas d’un module de plateforme sécurisée ou si BitLocker est déjà activé par la protection du module de plateforme sécurisée.
+      <string id="PlatformValidation_UEFI_Help">Ce paramètre de stratégie vous permet de configurer la façon dont le matériel de sécurité du module de plateforme sécurisée (TPM) de l'ordinateur sécurise la clé de chiffrement BitLocker. Ce paramètre de stratégie ne s'applique pas si l'ordinateur ne possède pas de TPM compatible ou si BitLocker a déjà été activé avec la protection TPM.
 
-Important : ce paramètre de stratégie s’applique uniquement aux ordinateurs avec une configuration de microprogramme UEFI native. Les ordinateurs avec un microprogramme BIOS ou UEFI et un module de service de compatibilité stockent des valeurs différentes dans les registres de configuration de plateforme (PCR). Utilisez le paramètre de stratégie de groupe « Configurer le profil de validation de plateforme du module de plateforme sécurisée pour les configurations de microprogramme BIOS » pour configurer le profil PCR du module de plateforme sécurisée pour les ordinateurs avec configurations BIOS ou les ordinateurs avec un module de service de compatibilité activé.
+Important : cette stratégie de groupe s'applique uniquement aux ordinateurs dotés d'une configuration de microprogramme UEFI native. Les ordinateurs dotés d'un BIOS ou d'un microprogramme UEFI avec un module de service de compatibilité (CSM) activé stockent des valeurs différentes dans les registres de configuration de plateforme (PCR). Utilisez le paramètre de stratégie de groupe « Configurer le profil de validation de plateforme du module de plateforme sécurisée pour les configurations de microprogramme BIOS » pour configurer le profil PCR TPM pour les ordinateurs dotés de configurations de BIOS ou les ordinateurs avec un microprogramme UEFI avec un CSM activé.
 
-Si vous activez ce paramètre de stratégie avant d’activer BitLocker, vous pouvez configurer les composants de démarrage que le module de plateforme sécurisée valide avant de déverrouiller l’accès au lecteur du système d’exploitation chiffré par BitLocker. Si l’un de ces composants est modifié alors que la protection BitLocker est activée, le module de plateforme sécurisée ne libère pas la clé de chiffrement pour déverrouiller le lecteur. À la place, l’ordinateur affiche la console Récupération BitLocker et requiert que le mot de passe ou la clé de récupération soit fourni pour déverrouiller le lecteur.
+Si vous activez ce paramètre de stratégie avant d'activer BitLocker, vous pouvez configurer les composants de démarrage que le TPM validera avant de déverrouiller l'accès au lecteur du système d'exploitation chiffré par BitLocker. Si l'un de ces composants change alors que la protection BitLocker est en vigueur, le TPM ne libère pas la clé de chiffrement pour déverrouiller le lecteur et l'ordinateur affiche à la place la console de récupération BitLocker et exige le mot de passe de récupération ou la clé de récupération pour déverrouiller le lecteur.
 
-Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, BitLocker utilise le profil de validation de plateforme par défaut ou le profil de validation de plateforme spécifié par le script d’installation. Un profil de validation de plateforme consiste en un ensemble d’index de registre de configuration de plateforme (PCR), compris entre 0 et 23. Le profil de validation de plateforme par défaut protège la clé de chiffrement contre les modifications du code exécutable du microprogramme du système noyau (PCR 0), le code exécutable étendu ou enfichable (PCR 2), le gestionnaire de démarrage (PCR 4), et le contrôle d’accès BitLocker (PCR 11).
+Si vous désactivez ou ne configurez pas ce paramètre de stratégie, BitLocker utilise le profil de validation de plateforme par défaut pour le matériel disponible ou le profil de validation de plateforme spécifié par le script d'installation. Un profil de validation de plateforme se compose d'un ensemble d'indices de registre de configuration de plateforme (PCR) variant de 0 à 23. 
 
-Avertissement : la modification du profil de validation de plateforme par défaut affecte la sécurité et la facilité de gestion de votre ordinateur. La sensibilité de BitLocker aux modifications de plateforme (autorisées ou malveillantes) augmente ou diminue en fonction de l’inclusion ou de l’exclusion (respectivement) des registres de configuration de plateforme. Plus particulièrement, le fait de configurer cette stratégie en omettant PCR 7 remplace la stratégie de groupe « Autoriser le démarrage sécurisé pour la validation de l’intégrité », empêchant ainsi BitLocker d’utiliser le démarrage sécurisé pour la validation de l’intégrité de la plateforme ou des données de configuration de démarrage. Le fait de configurer cette stratégie peut entraîner une récupération BitLocker lorsque des microprogrammes sont mis à jour. Si vous configurez cette stratégie en incluant PCR 0, suspendez BitLocker avant d’appliquer des mises à jour de microprogrammes.
-      
+Sur les ordinateurs qui n'ont pas de prise en charge de l'état de démarrage sécurisé (PCR 7), le profil de validation de la plateforme par défaut sécurise la clé de chiffrement en fonction des modifications apportées au code exécutable du microprogramme du système de base (PCR 0), au code exécutable étendu ou enfichable (PCR 2), au gestionnaire de démarrage (PCR 4) et au contrôle d'accès BitLocker (PCR 11).
+
+Si la prise en charge de l'état de démarrage sécurisé (PCR 7) est disponible, le profil de validation de la plateforme par défaut sécurise la clé de chiffrement en utilisant l'état de démarrage sécurisé (PCR 7) et le contrôle d'accès BitLocker (PCR 11). 
+
+Avertissement : la modification du profil de validation de plateforme par défaut affecte la sécurité et la gestion de votre ordinateur. La sensibilité de BitLocker aux modifications de plateforme (malveillantes ou autorisées) est augmentée ou diminuée en fonction de l'inclusion ou de l'exclusion (respectivement) des PCR. en particulier, la définition de cette stratégie avec PCR 7 omis remplace la stratégie de groupe « Autoriser le démarrage sécurisé pour la validation de l’intégrité », ce qui empêche BitLocker d'utiliser le démarrage sécurisé pour la plateforme ou la validation d'intégrité Données de configuration de démarrage (BCD). La définition de cette stratégie peut entraîner la récupération de BitLocker lors de la mise à jour du microprogramme. Si vous définissez cette stratégie de manière à inclure PCR 0, suspendez BitLocker avant d'appliquer les mises à jour du microprogramme.
+
+Il est recommandé de ne pas configurer cette stratégie pour permettre à Windows de sélectionner le profil PCR pour la meilleure combinaison de sécurité et d'utilisation basée sur le matériel disponible sur chaque PC.
       </string>
 
       <string id="PlatformValidation_UEFI_Name">Configurer le profil de validation de plateforme du module de plateforme sécurisée pour les configurations avec microprogramme UEFI natif</string>
@@ -306,6 +311,13 @@ Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, les sec
 
       </string>
       <string id="MorBehavior_Name">Empêcher le remplacement des données en mémoire au redémarrage</string>
+
+      <string id="DisableExternalDMAUnderLock_Help">Ce paramètre de stratégie vous permet de bloquer l'accès direct à la mémoire (DMA) pour tous les ports PCI en aval enfichables à chaud Thunderbolt jusqu'à ce qu'un utilisateur se connecte à Windows. Une fois qu'un utilisateur se connecte, Windows énumère les appareils PCI connectés aux ports PCI de l'hôte Thunderbolt. Chaque fois que l'utilisateur verrouille la machine, DMA est bloqué sur les ports PCI enfichables à chaud Thunderbolt sans appareil enfant, jusqu'à ce que l'utilisateur se reconnecte. Les appareils qui ont déjà été énumérés lorsque la machine a été déverrouillée continueront à fonctionner jusqu'à ce qu'ils soient débranchés ou que le système soit redémarré ou mis en veille prolongée. Ce paramètre de stratégie n'est appliqué que lorsque BitLocker ou le chiffrement de l’appareil est activé.
+
+Remarque : certains ordinateurs ne sont peut-être pas compatibles avec cette stratégie si le microprogramme système active DMA pour les appareils Thunderbolt connectés récemment avant d'exposer les nouveaux appareils à Windows.
+
+      </string>
+      <string id="DisableExternalDMAUnderLock_Name">Désactiver les nouveaux périphériques DMA lorsque cet ordinateur est verrouillé</string>
 
       <string id="FVEOSCategory">Lecteurs du système d’exploitation</string>
       <string id="FVEFDVCategory">Lecteurs de données fixes</string>
@@ -368,13 +380,14 @@ Le paramètre qui contrôle le débogage du démarrage (0x16000010) sera toujour
 
 
       <string id="MinimumPINLength_Name">Configurer la longueur minimale du code PIN de démarrage</string>
-      <string id="MinimumPINLength_Help">Ce paramètre de stratégie permet de configurer la longueur minimale du code PIN de démarrage du module de plateforme sécurisée. Ce paramètre est appliqué lorsque vous activez BitLocker. Le code PIN de démarrage doit comporter entre 4 et 20 chiffres.
+      <string id="MinimumPINLength_Help">
+          Ce paramètre de stratégie vous permet de configurer la longueur minimale pour le code PIN de démarrage d'un module de plateforme sécurisée (TPM). Ce paramètre de stratégie est appliqué lorsque vous activez BitLocker. Le code PIN de démarrage doit comporter entre 4 et 20 chiffres.
 
-Si vous activez ce paramètre de stratégie, vous pouvez préciser le nombre minimal de chiffres que l’utilisateur doit entrer lorsqu’il définit le code PIN de démarrage.
+          Si vous activez ce paramètre de stratégie, vous pouvez exiger le nombre minimal de chiffres à entrer pour définir le code PIN de démarrage.
 
-Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, les utilisateurs peuvent définir un code PIN comportant entre 4 et 20 chiffres.
+          Si vous désactivez ce paramètre de stratégie ou ne le configurez pas, les utilisateurs peuvent définir un code PIN comportant entre 6 et 20 chiffres.
 
-
+          REMARQUE : si le code PIN comporte moins de 6 chiffres, Windows tentera de réinitialiser la période de verrouillage du TPM 2.0 de manière à ce qu'elle soit supérieure à la valeur par défaut lorsqu’un code PIN est modifié. Si l'opération réussit, Windows ne réinitialisera la période de verrouillage du TPM à la valeur par défaut que si le TPM est réinitialisé.
 
       </string>
 
@@ -681,6 +694,14 @@ Notez que si vous n’activez pas ce paramètre de stratégie, les options de la
 - Configurer l’utilisation de mots de passe pour les lecteurs du système d’exploitation. 
       </string>
 
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Name">Autoriser les appareils compatibles avec InstantGo ou HSTI à refuser le code PIN préalable au démarrage.</string>
+      <string id="EnablePreBootPinExceptionOnDECapableDevice_Help">Ce paramètre de stratégie permet aux utilisateurs des appareils compatibles avec InstantGo ou HSTI (Microsoft Hardware Security Test Interface) de ne pas avoir de code PIN pour l’authentification préalable au démarrage. Ce paramètre remplace les options Exiger un code PIN de démarrage avec le module de plateforme sécurisée et Exiger une clé et un code PIN de démarrage avec le module de plateforme sécurisée de la stratégie Exiger une authentification supplémentaire au démarrage sur le matériel compatible.
+
+Si vous activez ce paramètre de stratégie, les utilisateurs des appareils compatibles avec InstantGo et HSTI auront la possibilité d’activer BitLocker sans authentification préalable au démarrage.
+
+Si cette stratégie n’est pas activée, les options de la stratégie Exiger une authentification supplémentaire au démarrage s’appliquent.
+      </string>
+
       <string id="AllowSecureBootForIntegrity_Name">Autoriser le démarrage sécurisé pour la validation de l’intégrité</string>
       <string id="AllowSecureBootForIntegrity_Help">Ce paramètre de stratégie permet de configurer si le démarrage sécurisé est autorisé comme fournisseur d’intégrité de plateforme pour les lecteurs du système d’exploitation protégés par BitLocker.
 
@@ -958,7 +979,7 @@ Remarque : tous les caractères et toutes les langues ne sont pas pris en charge
       </presentation>
 
      <presentation id="MinimumPINLength">
-        <decimalTextBox refId="MinPINLength" defaultValue="4">Nombre minimal de caractères :</decimalTextBox>
+        <decimalTextBox refId="MinPINLength" defaultValue="6">Nombre minimal de caractères :</decimalTextBox>
       </presentation>
 
      <presentation id="FDVPassphrase_Name">

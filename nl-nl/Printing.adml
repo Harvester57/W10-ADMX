@@ -33,23 +33,23 @@ Opmerkingen:
       <string id="CplPrinters">Printers</string>
       <string id="CplPrinters_Help">Hiermee kunt u opties voor het configureren en uitgeven van netwerkprinters beheren.</string>
       <string id="CustomizedSupportUrl">Aangepaste ondersteunings-URL in het linkerdeelvenster van de map Printers</string>
-      <string id="CustomizedSupportUrl_Help">Standaard bevat de map Printers een koppeling naar de Microsoft-webpagina voor ondersteuning met de naam Hulp bij afdrukken. De map kan ook een koppeling bevatten naar een webpagina van de fabrikant van de printer die momenteel is geselecteerd.
+      <string id="CustomizedSupportUrl_Help">Standaard bevat de map Printers een koppeling naar de webpagina van Microsoft-ondersteuning met de naam Hulp bij afdrukken. De map kan ook een koppeling bevatten naar een webpagina van de fabrikant van de printer die momenteel is geselecteerd.
 
           Als u deze beleidsinstelling inschakelt, kunt u de standaardkoppeling naar Hulp bij afdrukken vervangen door een koppeling naar een webpagina die is aangepast voor uw onderneming.
 
           Als u deze instelling uitschakelt of niet configureert, of als u geen ander internetadres opgeeft, wordt de standaardkoppeling weergegeven in de map Printers.
 
-          Opmerking: koppelingen naar webpagina's worden alleen in de map Printers weergegeven als de webweergave is ingeschakeld. Als de webweergave is uitgeschakeld, heeft de instelling geen effect. (Als u de webweergave wilt inschakelen, opent u de map Printers, klikt u in het menu Extra op Mapopties, selecteert u het tabblad Algemeen en klikt u vervolgens op Webinhoud in mappen inschakelen.)
+          Opmerking: Koppelingen naar webpagina's worden alleen in de map Printers weergegeven als de webweergave is ingeschakeld. Als de webweergave is uitgeschakeld, heeft de instelling geen effect. (Als u de webweergave wilt inschakelen, opent u de map Printers, klikt u in het menu Extra op Mapopties, selecteert u het tabblad Algemeen en klikt u vervolgens op Webinhoud in mappen inschakelen.)
 
           Zie ook de instellingen Afdrukken via het Internet activeren en Bladeren op een algemene website om printers te zoeken in Gebruikersconfiguratie\Beheersjablonen\Configuratiescherm\Printers.
 
-          De webweergave wordt beïnvloed door de instellingen "Klassieke shell inschakelen" en "Openen van mapopties met de optieknop op het tabblad Beeld op het lint niet toestaan" in Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Windows Verkenner, en door de instelling Active Desktop inschakelen in Gebruikersconfiguratie\Beheersjablonen\Bureaublad\Active Desktop.</string>
-      <string id="DomainDisplayPrinters_Help">Als u deze beleidsinstelling inschakelt, stelt u het maximum aantal printers in (van elk type) dat in de wizard Printer toevoegen wordt weergeven op een computer in een beheerd netwerk (als de computer een domeincontroller kan bereiken, bijvoorbeeld een laptop die lid is van een domein in een bedrijfsnetwerk).
+          De webweergave wordt beïnvloed door de instellingen Klassieke shell inschakelen en 'Openen van mapopties met de optieknop op het tabblad Beeld op het lint niet toestaan' in Gebruikersconfiguratie\Beheersjablonen\Windows-onderdelen\Windows Verkenner, en door de instelling Active Desktop inschakelen in Gebruikersconfiguratie\Beheersjablonen\Bureaublad\Active Desktop.</string>
+      <string id="DomainDisplayPrinters_Help">Als u deze beleidsinstelling inschakelt, stelt u het maximumaantal printers in (van elk type) dat in de wizard Printer toevoegen wordt weergegeven op een computer in een beheerd netwerk (als de computer een domeincontroller kan bereiken, bijvoorbeeld een laptop die lid is van een domein in een bedrijfsnetwerk).
 
           Als u deze beleidsinstelling uitschakelt, wordt de pagina van de netwerkscan niet weergegeven.
 
-          Als deze beleidsinstelling niet is geconfigureerd, wordt het standaard aantal printers van elk type weergegeven in de wizard Printer toevoegen:
-          Active Directory-printers: 20
+          Als deze beleidsinstelling niet is geconfigureerd, wordt het standaardaantal printers van elk type weergegeven in de wizard Printer toevoegen:
+          Directory-printers: 20
           TCP/IP-printers: 0
           Printers van webservices: 0
           Bluetooth printers: 10
@@ -57,7 +57,12 @@ Opmerkingen:
 
           Zorg ervoor dat netwerkdetectie is ingeschakeld om beschikbare Web Services-printers op uw netwerk weer te geven. Klik achtereenvolgens op Start, Configuratiescherm en Netwerk en internet om netwerkdetectie in te schakelen. Klik op de pagina Netwerk en internet op Netwerkcentrum. Klik op de pagina Netwerkcentrum op Geavanceerde instellingen voor delen wijzigen. Klik op de pagina Geavanceerde instellingen voor delen wijzigen op de pijl naast Domein, klik op Netwerkdetectie inschakelen en klik op Wijzigingen opslaan.
 
-          Als u printers van een bepaald type niet wilt weergeven, schakelt u dit beleid in en stelt u het aantal printers dat moet worden weergegeven in op 0.</string>
+          Als u printers van een bepaald type niet wilt weergeven, schakelt u dit beleid in en stelt u het aantal printers dat moet worden weergegeven in op 0.
+
+          In Windows 10 en hoger kunnen alleen TCP/IP-printers worden weergegeven in de wizard. Als u deze beleidsinstelling inschakelt, zijn alleen TCP/IP-printerlimieten van applicatie. Alleen in Windows 10 wordt de standaardlimiet toegepast als u deze beleidsinstelling uitschakelt of niet configureert.
+          
+          In Windows 8 en hoger worden Bluetooth-printers niet weergegeven, waardoor de limiet van de beleidsinstelling niet geldt voor deze Windows-versies.
+      </string>
       <string id="DomainPrinters">Wizard Printer toevoegen - Netwerkscanpagina (beheerd netwerk)</string>
       <string id="DownlevelBrowse">In het netwerk zoeken naar printers</string>
       <string id="DownlevelBrowse_Help">Hiermee stelt u gebruikers in staat de wizard Printer toevoegen te gebruiken om in het netwerk te zoeken naar gedeelde printers.
@@ -129,17 +134,21 @@ Opmerking: als u dit beleid toepast, worden bestaande kernel-modusstuurprogramma
           Met deze instelling kunt u niet voorkomen dat gebruikers andere programma's gebruiken om een printer te verwijderen.
 
           Als dit beleid is uitgeschakeld of niet wordt geconfigureerd, kunnen gebruikers printers verwijderen met de methoden die hiervoor zijn beschreven.</string>
-      <string id="NonDomainDisplayPrinters_Help">Met deze beleidsinstelling stelt u het maximum aantal printers in (van elk type) dat in de wizard Printer toevoegen wordt weergeven op een computer in een niet-beheerd netwerk (als de computer geen domeincontroller kan bereiken, bijvoorbeeld een laptop die lid is van een domein in een thuisnetwerk).
+      <string id="NonDomainDisplayPrinters_Help">Met dit beleid stelt u het maximumaantal printers in (van elk type) dat in de wizard Printer toevoegen wordt weergegeven op een computer in een niet-beheerd netwerk (als de computer geen domeincontroller kan bereiken, bijvoorbeeld een laptop die lid is van een domein in een thuisnetwerk).
 
 Als u deze instelling uitschakelt, wordt de pagina van de netwerkscan niet weergegeven.
 
 Als deze instelling niet is geconfigureerd, wordt in de wizard Printer toevoegen het standaardaantal printers van elk type weergegeven:
 TCP/IP-printers: 50
-printers van webservices: 50
+Printers van webservices: 50
 Bluetooth-printers: 10
-gedeelde printers: 50
+Gedeelde printers: 50
 
-Als u printers van een bepaald type niet wilt weergeven, schakelt u dit beleid in en stelt u het aantal printers dat moet worden weergegeven in op 0.</string>
+Als u printers van een bepaald type niet wilt weergeven, schakelt u dit beleid in en stelt u het aantal printers dat moet worden weergegeven in op 0.
+
+In Windows 10 en hoger kunnen alleen TCP/IP-printers worden weergegeven in de wizard. Als u deze beleidsinstelling inschakelt, zijn alleen TCP/IP-printerlimieten van applicatie. Alleen in Windows 10 wordt de standaardlimiet toegepast als u deze beleidsinstelling uitschakelt of niet configureert.
+          
+In Windows 8 en hoger worden Bluetooth-printers niet weergegeven, waardoor de limiet van de beleidsinstelling niet geldt voor deze Windows-versies.</string>
       <string id="NonDomainPrinters">Wizard Printer toevoegen - Netwerkscanpagina (niet-beheerd netwerk)</string>
       <string id="PackagePointAndPrintOnly">Alleen point-and-print voor pakketten gebruiken</string>
       <string id="PackagePointAndPrintOnly_Help">Met dit beleid kunnen clients alleen point-and-print voor pakketten gebruiken.
@@ -159,7 +168,7 @@ Als deze instelling is ingeschakeld, kunnen gebruikers alleen point-and-print ge
 
 Als deze instelling is uitgeschakeld of niet is geconfigureerd, wordt point-and-print voor pakketten niet beperkt tot bepaalde afdrukservers.</string>
       <string id="PhysicalLocation">Locatie van computer</string>
-      <string id="PhysicalLocation_Help">Als deze beleidsinstelling is ingeschakeld, bepaalt het de standaard locatie-criteria om naar printers te zoeken.
+      <string id="PhysicalLocation_Help">Als deze beleidsinstelling is ingeschakeld, bepaalt het de standaardlocatie-criteria om naar printers te zoeken.
 
           Deze instelling is onderdeel van de locatiezoekfunctie van Windows-printers. Als u deze instelling wilt gebruiken, schakelt u de locatiezoekfunctie in door de instelling Locatietekst voor zoeken van printers vooraf invullen in te schakelen.
 
@@ -269,11 +278,19 @@ De standaardinstelling is dat computers met Windows Ultimate, Professional en Ho
 
         Als u deze beleidsinstelling uitschakelt of niet configureert, mogen alle geïnstalleerde printerextensies uitgevoerd worden.</string>
       <string id="MXDWUseLegacyOutputFormatMSXPS">De standaard Microsoft XPS Document Writer (MXDW) uitvoerindeling wijzigen naar de oude Microsoft XPS-indeling (*.xps)</string>
-      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Met MXDW (Microsoft XPS Document Writer) worden standaard OpenXPS-bestanden (*.OXPS) gegenereerd in Windows 10, Windows 10 en Windows Server 2016 Technical Preview 4.
+      <string id="MXDWUseLegacyOutputFormatMSXPS_Help">Met Microsoft XPS Document Writer (MXDW) worden standaard OpenXPS-bestanden (*.oxps) gegenereerd in Windows 10, Windows 10 en Windows Server 2019.
 
-          Als u deze groepsbeleidsinstelling inschakelt, is de standaard-MXDW-uitvoerindeling de oude Microsoft XPS-indeling (*.XPS).
+          Als u deze groepsbeleidsinstelling inschakelt, wordt de oudere Microsoft XPS-indeling (*.xps) gebruikt als standaard-MXDW-uitvoerindeling.
 
-          Als u deze beleidsinstelling uitschakelt of niet configureert, is de standaard-MXDW-uitvoerindeling de OpenXPS-indeling (*.oxps).</string>
+          Als u deze beleidsinstelling uitschakelt of niet configureert, wordt de OpenXPS-indeling (*.oxps) gebruikt als standaard-MXDW-uitvoerindeling.</string>
+      <string id="SetDefaultPrinterMRUModeOff">Standaardprinterbeheer van Windows uitschakelen</string>
+      <string id="SetDefaultPrinterMRUModeOff_Help">Met deze voorkeur kunt u aanpassen hoe de standaardprinter wordt beheerd.
+
+Als u deze instelling inschakelt, wordt de standaardprinter niet beheerd door Windows.
+ 
+Als u deze instelling uitschakelt, zorgt Windows voor het beheer van de standaardprinter.
+
+Als u deze instelling niet configureert, blijft de instelling voor het standaardprinterbeheer ongewijzigd. </string>
     </stringTable>
     <presentationTable>
       <presentation id="CustomizedSupportUrl">

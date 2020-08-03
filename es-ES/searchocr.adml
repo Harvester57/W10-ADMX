@@ -16,8 +16,14 @@
 
 No se iniciará una reindexación al habilitar esta directiva y seleccionar el idioma de OCR. Esta configuración de directiva solo se aplica a la indexación de archivos nuevos, a menos que se inicie la reindexación de forma manual.
       </string>
+      <string id="SelectOCRLangsCodePage">Seleccionar el idioma de OCR de una página de códigos</string>
+      <string id="ExplainSelectOCRLangsCodePage">Esta configuración de directiva permite la selección de idioma de OCR (reconocimiento óptico de caracteres) que pertenecen a una de las páginas de códigos admitidas. Si habilitas esta configuración de directiva, se usarán los idiomas de OCR seleccionados en el procesamiento de OCR durante la indexación de archivos TIFF. Se ignorará el idioma del sistema predeterminado a menos que se encuentre entre los idiomas de OCR seleccionados. Si deshabilitas o no estableces esta configuración de directiva, solo se usará el idioma predeterminado del sistema.
+
+Todos los idiomas de OCR seleccionados deben pertenecer a la misma página de códigos. Si seleccionas idiomas de más de una página de códigos, se ignorará toda la selección de idiomas de OCR y solo se usará el idioma predeterminado del sistema.
+
+No se iniciará una reindexación al habilitar esta directiva y seleccionar idiomas de OCR. Esta configuración de directiva solo se aplica a la indexación de archivos nuevos, a menos que se inicie la reindexación de forma manual.
+      </string>
       <string id="OCR">OCR</string>
-      <string id="Win7Only">Microsoft Windows 7 o posterior</string>
       <string id="OCREveryPage">Forzar al IFilter TIFF a procesar mediante OCR todas las páginas de un documento TIFF</string>
       <string id="ExplainOCREveryPage">
         
@@ -28,8 +34,12 @@ No se iniciará una reindexación al habilitar esta directiva y seleccionar el i
         Si habilita o no configura esta opción, el IFilter TIFF optimizará su rendimiento omitiendo el contenido que no sea texto durante el procesamiento mediante OCR.
       
       </string>
+      <string id="LangArabic">Árabe</string>
+      <string id="LangBulgarian">Búlgaro</string>
+      <string id="LangBosnianLatin">Bosnio (latino)</string>
       <string id="LangChineseSimplified">Chino (simplificado)</string>
       <string id="LangChineseTraditional">Chino (tradicional)</string>
+      <string id="LangCroatian">Croata</string>
       <string id="LangCzech">Checo</string>
       <string id="LangDanish">Danés</string>
       <string id="LangDutch">Neerlandés</string>
@@ -50,6 +60,7 @@ No se iniciará una reindexación al habilitar esta directiva y seleccionar el i
       <string id="LangSerbianCyrillic">Serbio (cirílico)</string>
       <string id="LangSerbianLatin">Serbio (latino)</string>
       <string id="LangSlovak">Eslovaco</string>
+      <string id="LangSlovenian">Esloveno</string>
       <string id="LangSpanish">Español</string>
       <string id="LangSwedish">Sueco</string>
       <string id="LangTurkish">Turco</string>
@@ -57,6 +68,67 @@ No se iniciará una reindexación al habilitar esta directiva y seleccionar el i
     <presentationTable>
       <presentation id="SelectOCRLangs">
         <dropdownList refId="SelectOcrLanguage" Sort="true" defaultItem="0">Elige uno de los siguientes idiomas de OCR:</dropdownList>
+      </presentation>
+      <presentation id="SelectOCRLangsCodePage">
+        <text>Página de códigos de báltico (1257)</text>
+          <checkBox refId="Estonian" defaultChecked="false">Estonio</checkBox>
+          <checkBox refId="Latvian" defaultChecked="false">Letón</checkBox>
+          <checkBox refId="Lithuanian" defaultChecked="false">Lituano</checkBox>
+        <text/>
+        <text>Página de códigos de centroeuropeo (1250, Latin 2)</text>
+          <checkBox refId="Albanian" defaultChecked="false">Albanés</checkBox>
+          <checkBox refId="Croatian" defaultChecked="false">Croata</checkBox>
+          <checkBox refId="Czech" defaultChecked="false">Checo</checkBox>
+          <checkBox refId="Hungarian" defaultChecked="false">Húngaro</checkBox>
+          <checkBox refId="Polish" defaultChecked="false">Polaco</checkBox>
+          <checkBox refId="Romanian" defaultChecked="false">Rumano</checkBox>
+          <checkBox refId="SerbianLatin" defaultChecked="false">Serbio (latino)</checkBox>
+          <checkBox refId="Slovak" defaultChecked="false">Eslovaco</checkBox>
+          <checkBox refId="Slovenian" defaultChecked="false">Esloveno</checkBox>
+        <text/>
+        <text>Página de códigos de cirílico (1251)</text>
+          <checkBox refId="Bulgarian" defaultChecked="false">Búlgaro</checkBox>
+          <checkBox refId="Byelorussian" defaultChecked="false">Bielorruso</checkBox>
+          <checkBox refId="MacedoniaFYRO" defaultChecked="false">Macedonio (ERY de Macedonia)</checkBox>
+          <checkBox refId="Russian" defaultChecked="false">Ruso</checkBox>
+          <checkBox refId="Serbian" defaultChecked="false">Serbio</checkBox>
+          <checkBox refId="Ukrainian" defaultChecked="false">Ucraniano</checkBox>
+        <text/>
+        <text>Página de códigos de europeo occidental (1252, Latin 1)</text>
+          <checkBox refId="Catalan" defaultChecked="false">Catalán</checkBox>
+          <checkBox refId="Danish" defaultChecked="false">Danés</checkBox> 
+          <checkBox refId="Dutch" defaultChecked="false">Neerlandés</checkBox> 
+          <checkBox refId="English" defaultChecked="false">Inglés</checkBox> 
+          <checkBox refId="Faroese" defaultChecked="false">Feroés</checkBox> 
+          <checkBox refId="Finnish" defaultChecked="false">Finés</checkBox> 
+          <checkBox refId="French" defaultChecked="false">Francés</checkBox> 
+          <checkBox refId="German" defaultChecked="false">Alemán</checkBox> 
+          <checkBox refId="Icelandic" defaultChecked="false">Islandés</checkBox> 
+          <checkBox refId="Indonesian" defaultChecked="false">Indonesio</checkBox> 
+          <checkBox refId="Italian" defaultChecked="false">Italiano</checkBox> 
+          <checkBox refId="Malaysian" defaultChecked="false">Malayo</checkBox> 
+          <checkBox refId="Norwegian" defaultChecked="false">Noruego</checkBox>
+          <checkBox refId="Portuguese" defaultChecked="false">Portugués</checkBox>
+          <checkBox refId="Spanish" defaultChecked="false">Español</checkBox> 
+          <checkBox refId="Swedish" defaultChecked="false">Sueco</checkBox>
+        <text/>
+        <text>Página de códigos de griego (1253)</text>
+          <checkBox refId="Greek" defaultChecked="false">Griego</checkBox>
+        <text/>
+        <text>Página de códigos de turco (1254)</text>
+          <checkBox refId="Turkish" defaultChecked="false">Turco</checkBox>
+        <text/>
+        <text>Página de códigos de chino simplificado (936, GB2312)</text>
+          <checkBox refId="ChineseSimplified" defaultChecked="false">Chino (simplificado)</checkBox>
+        <text/>
+        <text>Página de códigos de chino tradicional (950, Big5)</text>
+          <checkBox refId="ChineseTraditional" defaultChecked="false">Chino (tradicional)</checkBox>
+        <text/>
+        <text>Página de código de japonés (932, Shift-JIS)</text>
+          <checkBox refId="Japanese" defaultChecked="false">Japonés</checkBox>
+        <text/>
+        <text>Página de códigos de coreano (949)</text>
+          <checkBox refId="Korean" defaultChecked="false">Coreano</checkBox>
       </presentation>
     </presentationTable>
   </resources>

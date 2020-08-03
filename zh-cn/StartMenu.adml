@@ -6,6 +6,7 @@
   <resources>
     <stringTable>
       <string id="SUPPORTED_Win7UntilThreshold">至少 Windows Server 2008 R2 或 Windows 7。在 Windows 10 或更高版本上不受支持</string>
+      <string id="SUPPORTED_Win7AndRedstone2">Windows 7 和 Windows 10</string>
       <string id="ClearRecentProgForNewUserInStartMenu">为新用户清除最近的程序列表</string>
       <string id="ClearRecentProgForNewUserInStartMenu_Help">如果启用该策略设置，则“开始”菜单中最近使用的程序列表对每个新用户为空。
 
@@ -75,15 +76,15 @@
 
 将“注销&lt;用户名&gt;”项目添加到“开始”菜单并防止用户将其删除。
 
-如果启用此设置，“注销&lt;用户名&gt;”项目就会出现在“开始”菜单上。此设置还从“开始”菜单选项中删除“显示注销”项目。结果是，用户无法从“开始”菜单删除“注销&lt;用户名&gt;”项目。
+如果启用此设置，“注销&lt;用户名&gt;”项目就会出现在“开始”菜单上。此设置还从“开始”菜单选项中删除“显示注销”项目。结果，用户无法从“开始”菜单删除“注销&lt;用户名&gt;”项目。
 
 如果禁用或不配置此设置，用户可以用“显示注销”项目来添加或删除“注销”项目。
 
-此设置仅影响“开始”菜单。它不影响按 Ctrl+Alt+Del 时出现的“Windows 安全性”对话框上的“注销”项目。
+此设置仅影响“开始”菜单。它不影响按 Ctrl+Alt+Del 时出现的“Windows 安全中心”对话框上的“注销”项目。
 
 注意: 要添加或删除计算机上的“注销”项目，请依次单击“开始”、“设置”、“任务栏和开始菜单”、“开始菜单选项”选项卡，然后在“开始菜单设置”框中，单击“显示注销”。
 
-请参阅“用户配置\管理模板\系统\登录/注销”中的“删除注销”。</string>
+另请参阅“用户配置\管理模板\系统\登录/注销”中的“删除注销”。</string>
       <string id="GreyMSIAds">灰显不可用的 Windows Installer 程序“开始”菜单快捷方式</string>
       <string id="GreyMSIAds_Help">用灰色文字显示安装不完全的程序的“开始”菜单快捷方式。
 
@@ -163,13 +164,19 @@ Windows 可以通过将最近使用的菜单项移至菜单顶部，并且隐藏
 
 如果禁用或未配置此设置，将不会更改“开始”屏幕布局，用户可以对布局进行自定义。</string>
       <string id="NoClose">删除并阻止访问“关机”、“重新启动”、“睡眠”和“休眠”命令</string>
-      <string id="NoClose_Help">该策略设置阻止用户从“开始”菜单或“Windows 安全”屏幕执行以下命令: “关机”、“重新启动”、“睡眠”和“休眠”。该策略设置不会阻止用户运行执行这些功能的基于 Windows 的程序。
+      <string id="NoClose_Help">该策略设置阻止用户从“开始”菜单或“Windows 安全中心”屏幕执行以下命令:“关机”、“重启”、“睡眠”和“休眠”。该策略设置不会阻止用户运行执行这些功能的基于 Windows 的程序。
 
-如果启用该策略设置，电源按钮和“关机”、“重新启动”、“睡眠”和“休眠”命令将从“开始”菜单删除。电源按钮也会从“Windows 安全”屏幕删除，该屏幕在按 CTRL+ALT+DELETE 时出现。
+如果启用该策略设置，电源按钮和“关机”、“重启”、“睡眠”和“休眠”命令将从“开始”菜单删除。电源按钮也会从“Windows 安全中心”屏幕删除，该屏幕在按 CTRL+ALT+DELETE 时出现。
 
-如果禁用或未配置该策略设置，电源按钮和“关机”、“重新启动”、“睡眠”和“休眠”命令在“开始”菜单可用。“Windows 安全”屏幕上的电源按钮也可用。
+如果禁用或未配置该策略设置，电源按钮和“关机”、“重启”、“睡眠”和“休眠”命令在“开始”菜单可用。“Windows 安全中心”屏幕上的电源按钮也可用。
 
 注意: 经过验证与 Microsoft Windows Vista、Windows XP SP2、Windows XP SP1、Windows XP 或 Windows 2000 Professional 兼容的第三方程序也要求支持该策略设置。</string>
+      <string id="HidePowerOptions">删除并阻止访问“关机”、“重新启动”、“睡眠”和“休眠”命令</string>
+      <string id="HidePowerOptions_Help">该策略设置阻止用户从 Windows 安全中心屏幕、登录屏幕和“开始”菜单执行以下命令:“关机”、“重启”、“睡眠”和“休眠”。该策略设置不会阻止用户运行执行这些功能的基于 Windows 的程序。
+
+如果启用该策略设置，“关机”、“重启”、“睡眠”和“休眠”命令将从“开始”菜单删除。电源按钮也会从 Windows 安全中心屏幕(在按 Ctrl+Alt+Delete 时出现)和登录屏幕删除。
+
+如果禁用或未配置该策略设置，电源按钮和“关机”、“重启”、“睡眠”和“休眠”命令在“开始”菜单可用。Windows 安全中心屏幕和登录屏幕上的电源按钮也可用。</string>
       <string id="NoCommonGroups">从“开始”菜单删除公用程序组</string>
       <string id="NoCommonGroups_Help">在“开始”菜单中的“程序”菜单上删除所有用户配置文件中的项目。
 
@@ -222,12 +229,22 @@ Windows 可以通过将最近使用的菜单项移至菜单顶部，并且隐藏
 另外，请参阅以下相关策略设置: “从‘开始’菜单中删除常用程序列表”和“关闭个性化菜单”。
 
 此策略设置不会阻止用户将程序附加到“开始”菜单或“任务栏”。请参阅“从‘开始’菜单中删除附加的程序列表”和“不允许将程序附加到任务栏”策略设置。</string>
+
       <string id="NoMoreProgramsList">从“开始”菜单中删除“所有程序”列表</string>
-      <string id="NoMoreProgramsList_Help">使用此策略设置，可以从“开始”菜单删除“所有程序”列表。
+      <string id="NoMoreProgramsList_Help">如果启用此设置，“开始”菜单会折叠或删除菜单中的“所有应用”列表。
 
-如果启用此策略设置，“所有程序”项目将从简化“开始”菜单中被删除。 “开始”屏幕将显示“所有应用”视图，但不包含固定至“开始”的项目。
+选择“折叠”后，“开始”菜单中的已固定磁贴旁将不会显示应用列表。“开始”菜单中会显示“所有应用”按钮，用于打开“所有应用”列表。这相当于将“设置”中的“在‘开始’菜单中显示应用列表”设置为“关”。
 
-如果禁用或未配置此策略设置，则“所有程序”项目仍保留在简易的“开始”菜单中。</string>
+选择“折叠并禁用设置”相当于选择“折叠”选项，同时禁用“设置”中的“在‘开始’菜单中显示应用列表”，使用户无法将其设置为“开”。
+
+选择“删除并禁用设置”后，“开始”菜单中的“所有应用”列表将被删除，同时禁用“设置”中的“在‘开始’菜单中显示应用列表”，使用户无法将其设置为“开”。选择此选项可实现与 Windows 早期版本的兼容。
+
+如果禁用或不配置此设置，则默认显示“所有应用”列表，且用户可以在“设置”中更改“在‘开始’菜单中显示应用列表”的设置。</string>
+      <string id="APPLIST_NONE">无</string>
+      <string id="APPLIST_COLLAPSE">折叠</string>
+      <string id="APPLIST_COLLAPSESETTING">折叠并禁用设置</string>
+      <string id="APPLIST_REMOVESETTING">删除并禁用设置</string>    
+
       <string id="NoNetAndDialupConnect">从“开始”菜单中删除“网络连接”</string>
       <string id="NoNetAndDialupConnect_Help">使用此策略设置，可以从“开始”菜单删除“网络连接”。
 
@@ -241,11 +258,11 @@ Windows 可以通过将最近使用的菜单项移至菜单顶部，并且隐藏
 
 另请参阅“在‘设置’菜单上禁用程序”和“禁用‘控制面板’”策略设置以及“网络连接”文件夹中的策略设置(“计算机配置\管理模板\网络\网络连接”和“用户配置\管理模板\网络\网络连接”)。</string>
       <string id="NoPinnedPrograms">从“开始”菜单中删除附加的程序列表</string>
-      <string id="NoPinnedPrograms_Help">如果启用此设置，“附加的程序”列表将从“开始”菜单中删除。用户不能将程序附加到“开始”菜单。
+      <string id="NoPinnedPrograms_Help">如果启用此设置，“固定的程序”列表将从“开始”菜单中删除。用户不能将程序固定到“开始”菜单。
 
 在 Windows XP 和 Windows Vista 中，“Internet”复选框和“电子邮件”复选框将从“自定义‘开始’菜单”对话框中删除。
 
-如果禁用或未配置此设置，“附加的程序”列表将保留在“开始”菜单上。用户可以在“开始”菜单中附加和删除程序。</string>
+如果禁用或未配置此设置，“固定的程序”列表将保留在“开始”菜单上。用户可以在“开始”菜单中固定和取消固定程序。</string>
       <string id="NoRecentDocsHistory">不保留最近打开文档的历史</string>
       <string id="NoRecentDocsHistory_Help">阻止操作系统和已安装的程序创建和显示最近打开的文档的快捷方式。
 
@@ -289,7 +306,7 @@ Windows 可以通过将最近使用的菜单项移至菜单顶部，并且隐藏
 
 注意: 此策略设置仅适用于 NTFS 分区上的目标文件。FAT 分区不具有此 ID 跟踪和搜索功能。
 
-请参阅“漫游时不跟踪外壳程序快捷方式”和“解析外壳程序快捷方式时不要使用基于跟踪的方法”策略设置。</string>
+请参阅“漫游时禁止跟踪外壳程序快捷方式”和“解析外壳程序快捷方式时不要使用基于跟踪的方法”策略设置。</string>
       <string id="NoResolveTrack">解析外壳程序快捷方式时不要使用基于跟踪的方法</string>
       <string id="NoResolveTrack_Help">此策略设置阻止系统使用 NTFS 跟踪功能来解析快捷方式。
 
@@ -299,7 +316,7 @@ Windows 可以通过将最近使用的菜单项移至菜单顶部，并且隐藏
 
 注意: 此策略设置仅适用于 NTFS 分区上的目标文件。FAT 分区不具有此 ID 跟踪和搜索功能。
 
-请参阅“漫游时不跟踪外壳程序快捷方式”和“解析外壳程序快捷方式时不要使用基于搜索的方法”策略设置。</string>
+请参阅“漫游时禁止跟踪外壳程序快捷方式”和“解析外壳程序快捷方式时不要使用基于搜索的方法”策略设置。</string>
       <string id="NoRun">从“开始”菜单中删除“运行”菜单</string>
       <string id="NoRun_Help">允许从“开始”菜单、Internet Explorer 和任务管理器中删除“运行”命令。
 
@@ -473,11 +490,11 @@ Windows 更新是 Windows 的联机扩展，提供软件更新以使用户的系
 
 如果禁用或未配置此策略设置，用户可以使用“显示注销”项目来添加或删除“注销”项目。
 
-此策略设置仅影响“开始”菜单。它不影响“Windows 安全性”对话框(按 Ctrl+Alt+Del 可打开)上的“注销”项目，也不会阻止用户使用其他方式注销。
+此策略设置仅影响“开始”菜单。它不影响“Windows 安全中心”对话框(按 Ctrl+Alt+Del 时出现)上的“注销”项目，也不会阻止用户使用其他方式注销。
 
-提示: 要在计算机上添加或删除“注销”项目，请依次单击“开始”、“设置”、“任务栏和“开始”菜单”、“‘开始’菜单选项”选项卡，然后在“‘开始’菜单设置”框中单击“显示注销”。
+提示: 要在计算机上添加或删除“注销”项目，请依次单击“开始”、“设置”、“任务栏和开始菜单”、“‘开始’菜单选项”选项卡，然后在“‘开始’菜单设置”框中单击“显示注销”。
 
-另请参阅: “用户配置\管理模板\系统\登录/注销”中的“删除注销”。</string>
+另请参阅:“用户配置\管理模板\系统\登录/注销”中的“删除注销”策略设置。</string>
         <string id="NoUninstallFromStart">阻止用户从“开始”中卸载应用程序</string>
         <string id="NoUninstallFromStart_Help">如果启用此设置，则用户无法从“开始”中卸载应用程序。
 
@@ -515,6 +532,18 @@ Windows 更新是 Windows 的联机扩展，提供软件更新以使用户的系
 如果启用此策略设置，则“开始”菜单中不会显示指向“下载”文件夹的链接。
 
 如果禁用或未配置此策略设置，则可在“开始”菜单中显示“下载”链接。</string>
+      <string id="NoStartMenuExplorerPlace">从“开始”菜单位置栏中删除“文件资源管理器”链接</string>
+      <string id="NoStartMenuExplorerPlace_Help">使用此策略设置可从“开始”菜单位置栏中删除“文件资源管理器”链接。
+
+如果启用此策略设置，则“开始”菜单位置列表中将不会出现“文件资源管理器”。
+
+如果禁用或未配置此策略设置，则“开始”菜单位置列表中可显示“文件资源管理器”。</string>
+      <string id="NoStartMenuSettingsPlace">从“开始”菜单位置栏中删除“设置”链接</string>
+      <string id="NoStartMenuSettingsPlace_Help">使用此策略设置可从“开始”菜单位置栏中删除“设置”链接。
+
+如果启用此策略设置，则“开始”菜单位置列表中将不会出现“设置”。
+
+如果禁用或未配置此策略设置，则“开始”菜单位置列表中会显示“设置”。</string>
       <string id="NoStartMenuRecordedTV">从“开始”菜单中删除“TV 录像”链接</string>
       <string id="NoStartMenuRecordedTV_Help">使用此策略设置，可以从“开始”菜单删除“TV 录像”链接。
 
@@ -575,8 +604,23 @@ Windows 更新是 Windows 的联机扩展，提供软件更新以使用户的系
 如果你禁用或未配置此策略设置，Windows 将根据硬件外形规格自动选择大小，并且用户可以在“设置”中更改“开始”菜单的大小。</string>
       <string id="ForceLauncherSize_Collapsed">“开始”菜单</string>
       <string id="ForceLauncherSize_Expanded">全屏“开始”菜单</string>
+      <string id="HidePeopleBar_DisplayName">从任务栏中删除"人脉"栏</string>
+      <string id="HidePeopleBar_ExplainText">使用此策略可以从任务栏中删除"人脉"栏并禁用"我的人脉"体验。
+
+如果你禁用此策略，系统将从任务栏中删除"人脉"图标并从任务栏设置页面中删除相应的设置切换，且用户无法再将"人脉"固定到任务栏。</string>
+      <string id="HideRecentlyAddedApps">从“开始”菜单中删除“最近添加”列表</string>
+      <string id="HideRecentlyAddedApps_Help">此策略可防止在“开始”菜单上显示最近安装的应用程序列表。
+
+如果启用此策略，“开始”菜单将不再显示“最近添加”列表。相应设置也会在“设置”中禁用。</string>
+      <string id="DisableContextMenusInStart">在“开始”菜单中禁用上下文菜单</string>
+      <string id="DisableContextMenusInStart_Help">此策略可禁止用户在“开始”菜单中打开上下文菜单。
+
+如果启用此策略，“开始”菜单中的上下文菜单调用将被忽略。</string>
     </stringTable>
     <presentationTable>
+      <presentation id="NoMoreProgramsList">
+        <dropdownList refId="NoMoreProgramsListDropdown" noSort="true" defaultItem="0">请选择下列操作之一</dropdownList>
+      </presentation>
       <presentation id="PowerButtonAction">
         <dropdownList refId="PowerButtonActionDropdown" noSort="true" defaultItem="0">请选择下列操作之一</dropdownList>
       </presentation>

@@ -11,31 +11,31 @@
       <string id="FontMitigation_On">Bloker skrifttyper, der ikke er tillid til, og logfør hændelser</string>
       <string id="FontMitigation_Off">Bloker ikke skrifttyper, der ikke er tillid til</string>
       <string id="FontMitigation_Audit">Logfør hændelser uden at blokere skrifttyper, der ikke er tillid til</string>
-	  
+
 	  <string id="ProcessMitigationOptions_List">Behandle indstillinger for afhjælpning</string>
       <string id="ProcessMitigationOptions_List_Help">
-        Denne sikkerhedsfunktion gør det muligt at tilsidesætte individuelle procesindstillinger for MitigationOptions. Dette kn gøres for at gennemtvinge et antal sikkerhedspolitikker, der er specifikke for applikationer. Applikationsnavnet angives som værdinavnet inklusive filtype. Værdien er angivet som et bitfelt med en serie flag på bestemte positioner. Bits kan angives enten til 0 (indstillingen er tvunget fra), 1 (indstillingen er tvunget til) eller ? (indstillingen bevarer den eksisterende værdi fra før GPO-evaluering). Der er følgende genkendte bitplaceringer:
+        Denne sikkerhedsfunktion giver mulighed for at tilsidesætte de enkelte MitigationOptions-procesindstillinger. Den kan bruges til at gennemtvinge en række sikkerhedspolitikker, der er specifikke for programmer. Programnavnet angives som værdinavnet, herunder filtype. Værdien angives som et bitfelt med en række flag i bestemte positioner. Bit kan indstilles til 0 (indstillingen er tvunget slået fra), 1 (indstilling er tvunget slået til), eller ? (indstillingen beholder dens eksisterende værdi før GPO-evaluering). De anerkendte bit-placeringer er:
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE (0x00000001)
-        Aktiverer Forhindring af datakørsel for den underordnede proces
+        Aktiverer DEP (Data Execution Prevention) for den underordnede proces
 
         PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE (0x00000002)
-        Aktiverer DEP-ATL-thunk-emulering for den underordnede proces. DEP-ATL-thunk-emulering får systemet til at afbryde NX-fejl, der stammer fra ATL-thunk-laget (Active Template Library). 
+        Aktiverer thunk-emulering af DEP-ATL (Data Execution Prevention) for den underordnede proces. Thunk-emulering af DEP-ATL bevirker, at systemet opfanger NX-fejl, der stammer fra thunk-laget i ATL-biblioteket (Active Template Library).
 
-        PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
-        Aktiverer struktureret SEHOP (Structured Exception Handler Overwrite Protection) for den underordnede proces. SEHOP blokerer udnyttelser, der bruger overskrivningsteknikken SEH (Structured Exception Handler).
+PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE (0x00000004)
+        Aktiverer SHEOP (Structured Exception Handler Overwrite Protection) for den underordnede proces. SEHOP blokerer udnyttelser, der bruger SEH-overskrivningsteknikken (Structured Exception Handler).
 
         PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON (0x00000100)
-        ASLR-politikken (Address Space Layout Randomization) tvinger billeder, der ikke er kompatible med dynamiske baser til at være kompatible ved at agere, som om der skete en billedbasekollision på indlæsningstidspunktet. Hvis der kræves flytninger, vil billeder, der ikke har en baserelokeringssektion, ikke blive indlæst.
+        Den gennemtvungne ASLR-politik (Address Space Layout Randomization) rebaserer billeder, der ikke er dynamisk basiskompatible, ved at fungere som om en billedbasiskollision, som skete på indlæsningstidspunktet. Hvis der kræves flytninger, vil billeder, der ikke har et grundlæggende flytningsafsnit, ikke blive indlæst.
 
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_ON (0x00010000)
         PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF (0x00020000)
-        Politikken for randomisering fra bunden og op, som omfatter randomiseringsindstillinger for stakke, gør, at en tilfældig placering bruges som laveste brugeradresse.
+        Bottom-up-tilfældighedspolitikken, som omfatter indstillinger for stablingstilfældighed, medfører, at en tilfældig placering bruges som den laveste brugeradresse.
 
-        Hvis du f.eks. vil aktivere PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE og PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, skal du deaktivere PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF, og hvis du vil lade alle andre indstillinger bevare standardværdierne, skal du angive denne værdi:
-        ???????????????0???????1???????1
+        Hvis du f.eks. vil aktivere PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE og PROCESS_CREATION_MITIGATION_POLICY_FORCE_RELOCATE_IMAGES_ALWAYS_ON, skal du deaktivere PROCESS_CREATION_MITIGATION_POLICY_BOTTOM_UP_ASLR_ALWAYS_OFF og bruge standardværdier for alle andre indstillinger og angive en en værdi for:
+        ??????????????? 0??????? 1??????? 1
 
-        Hvis flag, der ikke er angivet her, til en anden værdi end ?, medfører det en ikke-defineret adfærd.	  
+        Hvis du indstiller flag, der ikke angivet her til nogen anden værdi end ?, resulterer det i en ikke-defineret funktionsmåde.
 </string>
 
       <string id="ResetDfsClientInfoDuringRefreshPolicy">Aktivér synkronisering af AD/DFS-domænecontroller under opdatering af politik</string>
@@ -50,42 +50,60 @@
 
 
 </string>
-      <string id="EnableCDP">Continue experiences on this device</string>
+      <string id="EnableCDP">Fortsæt oplevelser på denne enhed</string>
       <string id="EnableCDP_Help">
-This policy setting determines whether the Windows device is allowed to participate in cross-device experiences (continue experiences).
+Denne politikindstilling bestemmer, om Windows-enheden har tilladelse til at deltage i oplevelser på flere enheder (fortsætte oplevelser).
 
-If you enable this policy setting, the Windows device is discoverable by other Windows devices that belong to the same user, and can participate in cross-device experiences.
+Hvis du aktiverer denne politikindstilling, er Windows-enheden synlig for andre Windows-enheder, der tilhører den samme bruger, og den kan deltage i oplevelser på flere enheder.
 
-If you disable this policy setting, the Windows device is not discoverable by other devices, and cannot participate in cross-device experiences.
+Hvis du deaktiverer denne politikindstilling, er Windows-enheden ikke synlig for andre enheder og ikke deltage i oplevelser på flere enheder.
 
-If you do not configure this policy setting, the default behavior depends on the Windows edition. Changes to this policy take effect on reboot.
+Hvis du ikke konfigurerer denne politikindstilling, afhænger standardfunktionsmåden af udgaven af Windows. Ændringer i denne politik træder i kraft ved genstart.
+      </string>
+      <string id="EnableMMX">Telefon-pc-sammenkædning på denne enhed</string>
+      <string id="EnableMMX_Help">
+Denne politik gør det muligt for it-administratorer at slå muligheden for at sammenkæde en telefon med en pc fra for at fortsætte med at læse, sende mails og andre opgaver, der kræver sammenkædning mellem telefon og pc.
+
+Hvis du aktiverer denne politikindstilling, kan Windows-enheden tilmelde sig telefon-pc-sammenkædningsfunktionen og deltage i Fortsæt på pc-oplevelser.
+
+Hvis du deaktiverer denne politikindstilling, har Windows-enheden ikke tilladelse til at blive sammenkædet med telefoner. Den vil fjerne sig selv fra enhedslisten på alle sammenkædede telefoner og kan ikke deltage i Fortsæt på pc-oplevelser.
+
+Hvis du ikke konfigurerer denne politikindstilling, afhænger standardfunktionsmåden af Windows-udgaven. Ændringer i denne politik træder i kraft ved genstart.
+      </string>
+      <string id="EnableAppUriHandlers">Konfigurer web-til-app-sammenkædning med app-URI-handlere</string>
+      <string id="EnableAppUriHandlers_Help">
+Denne politikindstilling bestemmer, om Windows understøtter web-til-app-sammenkædning med app-URI-handlere.
+
+Hvis du aktiverer politikindstillingen, aktiveres web-til-app-sammenkædning, så apps kan startes med en http(s)-URI.
+
+Hvis du deaktiverer politikken, deaktiveres web-til-app-sammenkædning, og http(s)-URI'er åbnes i standardbrowseren i stedet for at starte den tilknyttede app.
+
+Hvis du undlader at konfigurere indstillingen, afhænger standardfunktionsmåden af udgaven af Windows. Ændringer i denne politik træder i kraft ved genstart.
       </string>
       <string id="Fonts">Skrifttyper</string>
       <string id="EnableFontProviders">Aktivér skrifttypeudbydere</string>
       <string id="EnableFontProviders_Help">
-        Denne politikindstilling bestemmer, om Windows har tilladelse til at downloade skrifttyper og skrifttypekatalogdata fra en onlineudbyder af skrifttyper.
-        
-        Hvis du aktiverer politikindstillingen, foretager Windows jævnligt forespørgsler hos en onlineudbyder af skrifttyper for at afgøre, om der findes et nyt skrifttypekatalog. Windows kan også downloade skrifttypedata, hvis det er nødvendigt, for at formatere eller gengive tekst.
-        
-        Hvis du deaktiverer politikindstillingen, opretter Windows ikke forbindelse til en onlineudbyder af skrifttyper og optæller kun lokalt installerede skrifttyper.
-      
-        Hvis du ikke konfigurerer politikindstillingen, afhænger standardfunktionen af udgaven af Windows. Ændringer i denne politik træder i kraft ved genstart.
+        Denne politikindstilling bestemmer, om Windows har tilladelse til at hente skrifttyper og skrifttypekatalogdata fra en online skrifttypeudbyder.
+
+        Hvis du aktiverer denne politikindstilling, anmoder Windows jævnligt en online skrifttypeudbyder om at finde ud af, om et nyt skrifttypekatalog er tilgængeligt. Windows kan også hente skrifttypedata, hvis det er nødvendigt at formatere eller gengive tekst.
+
+        Hvis du deaktiverer denne politikindstilling, opretter Windows ikke forbindelse til en online skrifttypeudbyder og optæller kun lokalt installerede skrifttyper.
+
+        Hvis du ikke konfigurerer denne politikindstilling, afhænger standardfunktionsmåden af Windows-udgaven. Ændringer i denne politik træder i kraft ved genstart.
       </string>
       <string id="EnableLogonOptimization">Konfigurer cachelagring af gruppepolitik</string>
       <string id="EnableLogonOptimization_Help">
-        
-        Med denne politikindstilling kan du konfigurere funktionsmåden for cachelagring af gruppepolitik.
-        
-        Hvis du aktiverer eller undlader at konfigurere denne politikindstilling, cachelagrer gruppepolitik politikoplysninger efter hver baggrundsbehandlingssession. Denne cache gemmer relevante gruppepolitikobjekter og de indstillinger, der er indeholdt i dem. Når gruppepolitikken kører i synkron forgrundstilstand, refererer den til denne cache og kan dermed køre hurtigere. Når cachen er læst, forsøger gruppepolitikken at kontakte en logondomænecontroller for at bestemme forbindelseshastigheden. Når gruppepolitikken kører i baggrundsstilstand eller asynkron forgrundstilstand, fortsætter den med at hente den seneste version af politikoplysningerne, og den bruger en anslået båndbredde til at fastsætte tærskler for langsomme forbindelser. (Se politikindstillingen "Konfigurer genkendelse af langsom forbindelse for Gruppepolitik" for at konfigurere funktionsmåden for asynkrone forgrunde).
-        
-        Værdien for den langsomme forbindelse, der defineres i denne politikindstilling, bestemmer, hvor længe gruppepolitikken venter på et svar fra domænecontrolleren, før den rapporterer forbindelseshastigheden som langsom. Standardværdien er 500 millisekunder.
-        
-        Den timoutværdi, der defineres i denne politikindstilling, bestemmer, hvor længe gruppepolitikken venter på et svar fra domænecontrolleren, før den fastslår, at der ikke er nogen netværksforbindelse. Dette stopper den igangværende gruppepolitikbehandling. Gruppepolitikken kører i baggrunden, næste gang der oprettes forbindelse til en domænecontroller. Hvis denne værdi indstilles for højt, kan det resultere i længere ventetider for brugeren ved start eller logon. Standardværdien er 5000 millisekunder.
-        
-        Hvis du deaktiverer denne politikindstilling, cachelagrer gruppepolitikklienten ikke relevante gruppepolitikobjekter eller indstillinger, som er indeholdt i gruppepolitikobjekterne. Når gruppepolitikken kører synkront, henter den den seneste version af politikken fra netværket og bruger anslåede båndbredder til at fastsætte tærskler for langsomme forbindelser. (Se politikindstillingen "Konfigurer genkendelse af langsom forbindelse for Gruppepolitik" for at konfigurere funktionsmåden for asynkrone forgrunde).
-      
+        Denne politikindstilling giver dig mulighed for at konfigurere funktionaliteten for cachelagring af gruppepolitik.
+
+        Hvis du aktiverer eller ikke konfigurerer denne politikindstilling, cacher Gruppepolitik politikoplysninger efter hver session med baggrundsbehandling. Denne cache gemmer gældende gruppepolitikobjekter og de indstillinger, der er indeholdt i dem. Når Gruppepolitik kører i synkron forgrundstilstand, henviser den til denne cache, som gør, at den kan køre hurtigere. Når cachen læses, forsøger Gruppepolitik at kontakte en domænecontroller til logon for at bestemme forbindelseshastigheden. Når Gruppepolitik kører i baggrundstilstand eller asynkron forgrundstilstand, fortsætter den med at downloade den nyeste version af politikoplysningerne, og den bruger en beregning for båndbredde til at bestemme langsomme forbindelsestærskler. (Se politikindstillingen "Konfigurer registrering af langsom forbindelse for Gruppepolitik" for at konfigurere den asynkrone forgrundsfunktionsmåde.)
+
+        Den langsomme sammenkædningsværdi, der er defineret i denne politikindstilling, bestemmer, hvor lang tid Gruppepolitik vil vente på et svar fra domænecontrolleren, før sammenkædningshastigheden rapporteres som langsom. Standarden er 500 millisekunder.
+
+        Den timeoutværdi, der er defineret i denne politikindstilling, bestemmer, hvor lang tid Gruppepolitik vil vente på et svar fra domænecontrolleren, før der fastslås, at der ikke er nogen netværksforbindelse. Det stopper den aktuelle behandling af Gruppepolitik. Gruppepolitik kører i baggrunden, næste gang der oprettes forbindelse til en domænecontroller. Hvis du indstiller denne værdi for højt, kan det medføre længere ventetid for brugeren ved start eller logon. Standarden er 5000 millisekunder.
+
+        Hvis du deaktiverer denne politikindstilling, cacher Gruppepolitik-klienten ikke gældende gruppepolitikker eller indstillinger, der er indeholdt i gruppepolitikkerne. Når Gruppepolitik kører synkront, downloader den den seneste version af politikken fra netværket og bruger beregninger af båndbredde til at bestemme langsomme sammenkædningstærskler. (Se politikindstillingen "Konfigurer registrering af langsom forbindelse for Gruppepolitik" for at konfigurere den asynkrone forgrundsfunktionsmåde.)
       </string>
-      
+
       <string id="EnableLogonOptimizationOnServerSKU">Aktivér cachelagring af gruppepolitik for servere</string>
       <string id="EnableLogonOptimizationOnServerSKU_Help">
         
@@ -96,52 +114,48 @@ If you do not configure this policy setting, the default behavior depends on the
         Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, cachelagrer gruppepolitikklienten ikke relevante gruppepolitikobjekter eller indstillinger, som er indeholdt i gruppepolitikobjekterne. Når gruppepolitikken kører synkront, henter den den seneste version af politikken fra netværket og bruger anslåede båndbredder til at fastsætte tærskler for langsomme forbindelser. (Se politikindstillingen "Konfigurer genkendelse af langsom forbindelse for Gruppepolitik" for at konfigurere funktionsmåden for asynkrone forgrunde).
       
       </string>
-      
+
       <string id="LogonScriptDelay">Konfigurer forsinkelse af logonscript</string>
       <string id="LogonScriptDelay_Help">
-        
-        Skriv "0" for at deaktivere forsinkelse af logonscript.
-        
-        Med denne politikindstilling kan du konfigurere, hvor gruppepolitikklienten skal vente efter logon, før der kan køres scripts.
-        
-        Som standard venter gruppepolitikklienten i fem minutter, før der køres logonscripts. Dette er med til at skabe et hurtigt reagerende skrivebordsmiljø ved at forhindre diskkonflikter.
-        
-        Hvis du aktiverer denne politikindstilling, venter gruppepolitikken i det angivne tidsrum, før der køres logonscripts.
-        
-        Hvis du deaktiverer denne politikindstilling, kører gruppepolitikken scripts umiddelbart efter logon.
-        
-        Hvis du undlader at konfigurere denne politikindstilling, venter gruppepolitikken i fem minutter, før der køres logonscripts.
-      
+        Indtast "0" for at deaktivere forsinkelse af logon-script.
+
+        Med denne politikindstilling kan du konfigurere, hvor længe Gruppepolitik-klienten venter efter logon, før der køres scripts.
+
+        Som standard venter Gruppepolitik-klienten fem minutter, før der køres logonscripts. Det hjælper med at oprette et responsivt skrivebordsmiljø ved at forhindre diskkonflikt.
+
+        Hvis du aktiverer denne politikindstilling, vil Gruppepolitik vente i det angivne tidsrum, før der køres logonscripts.
+
+        Hvis du deaktiverer denne politikindstilling, vil Gruppepolitik køre scripts umiddelbart efter logon.
+
+        Hvis du ikke konfigurerer denne politikindstilling, vil Gruppepolitik vente fem minutter, før der køres logonscripts.
       </string>
-      
+
      <string id="SlowLinkDefaultForDirectAccess">Konfigurer Direct Access-forbindelser som en hurtig netværksforbindelse</string>
-      <string id="SlowLinkDefaultForDirectAccess_Help">Denne politikindstilling gør det muligt for en administrator at definere Direct Access-forbindelsen, så den betragtes som en hurtig netværksforbindelse med henblik på at anvende og opdatere gruppepolitik. 
- 
-Når gruppepolitik registrerer båndbreddehastigheden for en Direct Access-forbindelse, hænder det, at oplysningerne om båndbreddehastighed ikke registreres. Hvis gruppepolitik registrerer en båndbreddehastighed, følges de normale regler for vurdering, hvis Direct Access-forbindelsen er en hurtig eller langsom netværksforbindelse. Hvis der ikke registreres nogen båndbreddehastighed, antager gruppepolitik som standard, at der er tale om en langsom netværksforbindelse. Med denne politikindstilling kan administratoren tilsidesætte en langsom netværksforbindelse og i stedet som standard anvende en hurtig netværksforbindelse, hvis der ikke registreres nogen båndbreddehastighed for netværket.
- 
-Bemærk! Når gruppepolitik registrerer en langsom netværksforbindelse, behandles kun de udvidelser på klientsiden, der er konfigureret til behandling på tværs af et langsomt link (langsom netværksforbindelse).  
- 
-Hvis du aktiverer denne politik, og gruppepolitik ikke kan afgøre båndbreddehastigheden på tværs af Direct Access, vurderes netværksforbindelsen som et hurtigt link, og alle udvidelser på klientsiden bliver behandlet.
- 
-Hvis du deaktiverer indstillingen eller undlader at konfigurere den, vurderer gruppepolitik netværksforbindelsen som et langsomt link og nøjes med at behandle de udvidelser på klientsiden, der er konfigureret til behandling over et langsomt link.
-          
-      
-          
+      <string id="SlowLinkDefaultForDirectAccess_Help">Denne politikindstilling gør det muligt for en administrator at definere, at den direkte adgangsforbindelse bliver betragtet som en hurtig netværksforbindelse med henblik på at anvende og opdatere gruppepolitik.
+
+Når Gruppepolitik registrerer båndbreddens hastighed for en direkte adgangsforbindelse, kan registreringen nogle gange undlade at angive oplysninger om båndbreddens hastighed. Hvis Gruppepolitik registrerer en båndbreddes hastighed, følger Gruppepolitikken de normale regler for evaluering, hvis den direkte adgang er en hurtig eller langsom netværksforbindelse. Hvis der ikke registreres en hastighed for båndbredden, vil Gruppepolitik som standard være en langsom netværksforbindelse. Denne politikindstilling giver administratoren mulighed for at tilsidesætte standardindstillingen til langsom netværksforbindelse og i stedet for at bruge en hurtig netværksforbindelse i tilfælde af, at der ikke bestemmes nogen hastighed på netværksbåndbredden.
+
+Bemærk: Når Gruppepolitik registrerer en langsom netværksforbindelse, vil Gruppepolitik kun behandle de klientsideudvidelser, der er konfigureret til behandling på tværs af en langsom forbindelse (langsom netværksforbindelse).
+
+Hvis du aktiverer denne politik, og hvis gruppepolitik ikke kan bestemme båndbreddens hastighed på tværs af direkte adgang, evaluerer Gruppepolitik netværksforbindelsen som en hurtig forbindelse og behandler alle udvidelser af klientsiden.
+
+Hvis du deaktiverer indstillingen eller ikke konfigurerer den, vil Gruppepolitik vurdere netværksforbindelsen som en langsom forbindelse og kun behandle de Klientsideudvidelser, der er konfigureret til at behandle via en langsom forbindelse.
+
       </string>
      <string id="SlowlinkDefaultToAsync">Skift gruppepolitikbehandling til at køre asynkront, når der registreres en langsom netværksforbindelse.</string>
-      <string id="SlowlinkDefaultToAsync_Help">Denne politikindstilling bevirker, at gruppepolitik springer behandling af udvidelser på klientsiden, der kræver synkron behandling, over (dvs. om computere venter på, at netværket bliver fuldt initialiseret under start af computeren og brugerlogon), når der registreres en langsom netværksforbindelse.  
- 
-Hvis du aktiverer denne politikindstilling, kører gruppepolitikbehandling altid asynkront, når der registreres en langsom netværksforbindelse.
-Klientcomputere venter ikke på, at netværket bliver fuldt initialiseret ved start af computeren og logon. Eksisterende brugere logges på med cachelagrede legitimationsoplysninger, hvilket gør det hurtigere at logge på. Gruppepolitik anvendes i baggrunden, når netværket er blevet tilgængeligt.   
-Bemærk, at fordi dette er en baggrundsopdatering, vil udvidelser, der kræver synkron behandling, f.eks. Programinstallation, Omdirigering af mappe og Drevtilknytninger, ikke blive anvendt.
- 
-Bemærk! Der er to betingelser, der medfører, at gruppepolitik behandles synkront, selvom denne politikindstilling er aktiveret:
-1 - Ved den første computerstart, efter at klientcomputeren har oprettet forbindelse til domænet.
-2 - Hvis politikindstillingen "Vent altid på netværket ved start af computeren og logon" er aktiveret.
- 
-Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, og der registreres en langsom netværksforbindelse, påvirker det ikke, om gruppepolitikbehandling foregår synkront eller asynkront.
+      <string id="SlowlinkDefaultToAsync_Help">Denne politik bestemmer behandling af gruppepolitik for at ignorere behandlingen af alle klientsideudvidelser, der kræver synkron behandling (dvs. om computere venter på, at netværket initialiseres fuldstændigt under computerstart og brugerlogon), når der registreres en langsom netværksforbindelse.
 
-      
+Hvis du aktiverer denne politikindstilling, og der registreres en langsom netværksforbindelse, vil behandling af gruppepolitik altid køre på en asynkron måde.
+Klientcomputerne venter ikke på, at netværket initialiseres fuldt ud ved start og logon. Eksisterende brugere vil være logget på med cachelagrede legitimationsoplysninger,
+hvilket vil resultere i kortere logon-tider. Gruppepolitikken anvendes i baggrunden, når netværket bliver tilgængeligt.
+Bemærk, at da dette er en opdatering i baggrunden, der kræver synkron behandling, vil præferenceudvidelser, som f.eks. Programinstallation, Mappeomdirigering
+og Drevtilknytninger, ikke blive anvendt.
+
+Bemærk: Der er to betingelser, som medfører, at Gruppepolitik behandles synkront, selvom denne politikindstilling er aktiveret:
+1 - Ved den første computerstart, efter at klientcomputeren har tilsluttet sig domænet.
+2 - Hvis politikindstillingen "Vent altid på netværket ved computerstart og logon" er aktiveret.
+
+Hvis du deaktiverer eller ikke konfigurerer denne politikindstilling, vil registrering af en langsom netværksforbindelse ikke påvirke, om behandling af gruppepolitik vil være synkron eller asynkron.
 
       </string>
       <string id="DisableLGPOProcessing">Deaktiver behandling af lokale gruppepolitikobjekter</string>
@@ -162,7 +176,7 @@ Bemærk! Når det drejer sig om computere, som er føjet til et domæne, anbefal
 Hvis du aktiverer denne politikindstilling, bruger gruppepolitik denne administrativt konfigurerede maks. ventetid og tilsidesætte alle standardventetider og ventetider, der er beregnet af et system.
 
 Hvis du deaktiverer eller undlader at konfigurere denne politikindstilling, anvender Gruppepolitik standardventetiden på 30 sek. på computere, som kører med operativsystemet Windows Vista. 
- 
+
 </string>
 
       <string id="AllowX-ForestPolicy-and-RUP">Tillad brugerpolitik på tværs af skove og roamingbrugerprofiler</string>

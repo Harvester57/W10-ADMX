@@ -15,23 +15,39 @@ Om du inaktiverar eller låter bli att konfigurera den här principinställninge
       
       </string>
       <string id="Pol_UserEnableWorkFolders">Ange inställningar för arbetsmappar</string>
-      <string id="Pol_UserEnableWorkFolders_Help">Den här principinställningen anger arbetsmappsserver för de användare som påverkas, samt om användarna tillåts ändra inställningar när arbetsmappar installeras på en domänansluten dator.
+      <string id="Pol_UserEnableWorkFolders_Help">Den här principinställningen anger servern för Arbetsmappar för de användare som berörs, samt om användarna tillåts ändra inställningar när Arbetsmappar installeras på en domänansluten dator.
 
-Om du aktiverar den här principinställningen får de användare som påverkas arbetsmappsinställningar när de loggar in på en domänansluten dator. 
+Om du aktiverar den här principinställningen får berörda användare inställningar för Arbetsmappar när de loggar in på en domänansluten dator. Om den här principinställningen inaktiveras eller inte konfigureras anges inga inställningar för Arbetsmappar för berörda användare. Användarna kan dock installera Arbetsmappar via Arbetsmappar på Kontrollpanelen.
 
-"URL för arbetsmappar" kan ange antingen URL:en som används av organisationen för identifiering av arbetsmappar, eller den specifika URL:en till filservern som lagrar data om den användare som påverkas.
+I URL för Arbetsmappar kan du ange antingen URL:en som används av organisationen för identifiering av Arbetsmappar, eller den specifika URL till filservern som lagrar berörda användares data.
 
-Alternativet "Framtvinga automatisk installation" anger att arbetsmappar ska installeras automatiskt utan fråga användarna. Det förhindrar att användare väljer att inte använda arbetsmappar på datorn. Det hindrar dem också att manuellt ange den lokala mapp där arbetsmappar lagrar filer. Som standard lagras arbetsmappar i mappen "%USERPROFILE%\Work Folders". Om alternativet inte har angetts måste användarna använda kontrollpanelobjektet Arbetsmappar på sina datorer för att installera arbetsmappar.
-   
-Om den här principinställningen inaktiveras eller inte konfigureras anges inga inställningar för arbetsmappar för de användare som påverkas. Användarna kan dock installera arbetsmappar genom att använda kontrollpanelobjektet Arbetsmappar.
-      
+I Lokal sökväg till Arbetsmappar anger du den lokala mapp på klientdatorn som används för att synka filer. Den här sökvägen får innehålla miljövariabler. Obs! En giltig URL för Arbetsmappar måste också anges för att den här konfigurationen ska träda i kraft.
+  
+Alternativet "Inställning för filåtkomst på begäran" anger om filåtkomst på begäran är aktiverat eller inte. När det är aktiverat styr användaren över vilka filer i Arbetsmappar som är tillgängliga offline på en given dator. Övriga filer i Arbetsmappar är alltid synliga och tar inte upp något utrymme på datorn, men användaren måste vara ansluten till Internet för att komma åt dem.
+
+Om du aktiverar den här principinställningen aktiveras filåtkomst på begäran.
+Om du inaktiverar principinställningen inaktiveras filåtkomst på begäran vilket innebär att det måste finnas tillräckligt med utrymme för att lagra alla användares filer på deras datorer.
+Om du väljer Användarens val eller låter bli att konfigurera den här principinställningen bestämmer användaren om filåtkomst på begäran ska aktiveras. Om emellertid principinställningen Framtvinga automatisk installation är aktiverad konfigureras Arbetsmappar automatiskt med filåtkomst på begäran aktiverat.
+
+Alternativet Framtvinga automatisk installation anger att Arbetsmappar ska installeras automatiskt utan att fråga användarna. Det gör att användarna inte kan avstå från att använda Arbetsmappar på datorn. Det hindrar dem också att manuellt ange den lokala mapp där Arbetsmappar lagrar filer. Som standard finns Arbetsmappar under "%USERPROFILE%\Arbetsmappar". Om detta alternativ inte anges måste användarna gå till Arbetsmappar på Kontrollpanelen på sina datorer för att installera Arbetsmappar.
       </string>
+      <string id="Pol_UserEnableTokenBroker">Aktiverar Token Broker för AD FS-autentisering</string>
+      <string id="Pol_UserEnableTokenBroker_Help">Den här principen anger om Arbetsmappar ska använda Token Broker för interaktiv AD FS-autentisering i stället för dess egna OAuth2-tokenflöde enligt tidigare versioner.</string>
+      <string id="Pol_GhostingPreference_Enabled">Aktivera (rekommenderas)</string>
+      <string id="Pol_GhostingPreference_Disabled">Inaktivera</string>
+      <string id="Pol_GhostingPreference_UserDefined">Användarens val</string>
     </stringTable>
     <presentationTable>
       <presentation id="Pol_EnableWorkFolders">
         <textBox refId="Lbl_ServerURL_Edit">
           <label>URL för arbetsmappar:  </label>
         </textBox>
+        <text> </text>
+        <textBox refId="Lbl_LocalFolderPath_Edit">
+          <label>Lokal sökväg till Arbetsmappar: </label>
+        </textBox>
+        <text> </text>
+        <dropdownList refId="Lbl_GhostingPreference_Enum" noSort="true" defaultItem="0">Inställning för filåtkomst på begäran:</dropdownList>        
         <text> </text>
         <checkBox refId="Lbl_AutoProvision_Chk" defaultChecked="false">Framtvinga automatisk installation</checkBox>
       </presentation>

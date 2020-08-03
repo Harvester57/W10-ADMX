@@ -48,7 +48,21 @@
 
       Jeśli to ustawienie zasad nie zostanie skonfigurowane lub zostanie wyłączone, funkcje zarządzania energią zostaną włączone po przejściu komputera do trybu wstrzymania przy zachowaniu połączenia.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Zezwalaj systemowi Windows na programowe odłączanie komputera od sieci</string>
+      <string id="WCM_EnableSoftDisconnect_Help">To ustawienie zasad określa, czy system Windows będzie programowo odłączał komputer od sieci.
+
+      Jeśli to ustawienie zasad zostanie włączone lub nie zostanie skonfigurowane, system Windows będzie programowo odłączał komputer od sieci, gdy ustali, że komputer nie powinien być dłużej podłączony do sieci.
+
+      Jeśli to ustawienie zasad zostanie wyłączone, system Windows będzie odłączał komputer od sieci, gdy tylko ustali, że komputer nie powinien być dłużej podłączony do sieci.
+
+      Gdy odłączanie programowe jest włączone:
+      - Gdy system Windows zdecyduje, że komputer nie powinien być już podłączony do sieci, czeka na ustabilizowanie ruchu w tej sieci. Istniejące sesje protokołu TCP będą kontynuowane bez zakłóceń.
+      - Następnie system Windows okresowo sprawdza poziom ruchu w danej sieci. Jeśli poziom ruchu przekracza określony próg, nie jest wykonywana żadna dodatkowa akcja. Komputer pozostaje podłączony do sieci i nadal jej używa. Na przykład, jeśli połączenie sieciowe jest aktualnie używane do pobierania plików z Internetu, pobieranie plików za pośrednictwem tego połączenia sieciowego będzie kontynuowane.
+      - Gdy natężenie ruchu w sieci spadnie poniżej tego progu, komputer zostanie odłączony od sieci. Aplikacje utrzymujące aktywne połączenia sieciowe nawet wtedy, gdy nie używają ich aktywnie (na przykład aplikacje poczty e-mail), mogą utracić swoje połączenia. Jeśli tak się stanie, te aplikacje będą musiały ustanowić ponownie swoje połączenia za pośrednictwem innej sieci. 
+
+      To ustawienie zasad jest zależne do innych ustawień zasad grupy. Na przykład jeśli ustawienie Minimalizuj liczbę jednoczesnych połączeń z Internetem lub z domeną systemu Windows jest wyłączone, system Windows nie będzie odłączał komputera od żadnej sieci.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>

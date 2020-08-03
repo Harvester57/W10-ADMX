@@ -267,14 +267,14 @@ Megjegyzés: Az adott meghajtókat képviselő ikonok ekkor is meg fognak jelenn
  Ez a beállítás abban sem akadályozza meg a felhasználókat, hogy programokkal elérjék a helyi és hálózati meghajtókat. Valamint abban sem akadályozza meg őket, hogy a Lemezkezelés bővítménnyel megtekintsék és módosítsák a meghajtó jellemzőit.
 
 További tájékoztatás található „A megadott meghajtók elrejtése a Sajátgépen” beállításnál.</string>
-      <string id="NoWindowsHotKeys">A Windows+X billentyűparancsok kikapcsolása</string>
-      <string id="NoWindowsHotKeys_Help">A Windows+X billentyűparancsokat kapcsolja ki.
+      <string id="NoWindowsHotKeys">A Windows billentyűt használó billentyűparancsok kikapcsolása</string>
+      <string id="NoWindowsHotKeys_Help">Kikapcsolja a Windows billentyűt használó billentyűparancsokat.
 
-A Windows-billentyűvel rendelkező billentyűzeteken a felhasználók a rendszerhéj gyakran használt szolgáltatásainak elérésére gyorsbillentyűket használhatnak. A Windows+R billentyűkombináció például a Futtatás párbeszédpanelt, a Windows+E billentyűkombináció pedig a Fájlkezelőt nyitja meg. Ezzel a beállítással letilthatja ezeket a Windows+X billentyűparancsokat.
+A Windows billentyűvel rendelkező billentyűzeteken a felhasználók gyorsbillentyűkkel is elérhetik a rendszerhéj gyakran használt szolgáltatásait. A Windows+R billentyűkombináció például a Futtatás párbeszédpanelt, a Windows+E billentyűkombináció pedig a Fájlkezelőt nyitja meg. Ezzel a beállítással letilthatja ezeket a Windows billentyűt használó billentyűparancsokat.
 
-Amennyiben engedélyezi a beállítást, a Windows+X gyorsbillentyűk nem használhatók.
+Ha engedélyezi ezt a beállítást, a Windows billentyűt használó billentyűparancsok nem használhatók.
 
-Ha a beállítás letiltott vagy nem konfigurált, akkor használhatók a Windows+X gyorsbillentyűk.</string>
+Ha letiltja vagy nem konfigurálja ezt a beállítást, a Windows billentyűt használó billentyűparancsok használhatók.</string>
       <string id="NoWorkgroupContents">A hálózati helyek között ne jelenjen meg a „Számítógépek a hálózatban” ikon</string>
       <string id="NoWorkgroupContents_Help">Ez a házirend-beállítás a felhasználó munkacsoportjában vagy tartományában található összes számítógépet eltávolítja a Fájlkezelő és a Hálózati helyek hálózati erőforrásokat tartalmazó listáiból.
 
@@ -458,21 +458,26 @@ Ha engedélyezi ezt a házirend-beállítást, a rendszergazdák megadhatják az
 Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, az alapértelmezett könyvtár-definíciós fájlok helye nem változik.
       
       </string>
-      <string id="EnableSmartScreen">Windows SmartScreen konfigurálása</string>
-      <string id="EnableSmartScreen_Help">Ezzel a házirend-beállítással szabályozható a Windows SmartScreen működése. A Windows SmartScreen figyelmezteti a felhasználókat az internetről letöltött ismeretlen programok futtatása előtt, így segítve a számítógépek biztonságának megőrzését. Ha engedélyezve van ez a funkció, a Windows elküldi a Microsoftnak a számítógépeken futó fájlokkal és programokkal kapcsolatos adatok némelyikét.
+      <string id="EnableSmartScreen">Windows Defender SmartScreen konfigurálása</string>
+      <string id="SmartScreen_PreventBypass">Figyelmeztetés és a megkerülés megakadályozása</string>
+      <string id="SmartScreen_Warn">Figyelmeztetés</string>
+      <string id="EnableSmartScreen_Help">Ezzel a házirend-beállítással szabályozható a Windows Defender SmartScreen működése. A SmartScreen az internetről letöltött, vélhetően rosszindulatú programok futtatása előtt figyelmezteti a felhasználókat, ezáltal segít megőrizni a számítógépek biztonságát. A figyelmeztetés egy közbeszúrt párbeszédpanelen jelenik meg, mielőtt a felhasználó futtatna egy internetről letöltött alkalmazást, amelyet a rendszer nem ismer fel, vagy kártevőként azonosít. Nem jelenik meg párbeszédpanel olyan alkalmazások esetében, amelyek nem tűnnek gyanúsnak.
 
-Ha engedélyezi ezt a házirend-beállítást, a Windows SmartScreen működése az alábbi lehetőségek egyikével szabályozható:
+Ha ez a szolgáltatás engedélyezve van, a rendszer bizonyos adatokat küld a Microsoftnak a számítógépen található fájlokról és alkalmazásokról.
 
-• Felhasználó figyelmeztetése a letöltött ismeretlen szoftverek futtatása előtt
-• A SmartScreen kikapcsolása
+Ha engedélyezi ezt a házirendet, a SmartScreen minden felhasználó számára be lesz kapcsolva, működése pedig a következő lehetőségek kiválasztásával szabályozható:
 
-Ha letiltja vagy nem konfigurálja ezt a házirend-beállítást, a számítógép rendszergazdái a Biztonság és karbantartás eszköz Windows SmartScreen-beállításai között kezelhetik a Windows SmartScreen működését.
+• Figyelmeztetés és a megkerülés megakadályozása
+• Figyelmeztetés
 
-Lehetőségek:
-• Felhasználó figyelmeztetése letöltött ismeretlen szoftverek futtatása előtt
-• A SmartScreen kikapcsolása
+Ha a „Figyelmeztetés és a megkerülés megakadályozása” beállítással engedélyezi a házirendet, a SmartScreen párbeszédpanelein nem jelenik meg a felhasználó számára a figyelmeztetés mellőzésére és az alkalmazás futtatására vonatkozó lehetőség. A SmartScreen folyamatosan megjeleníti a figyelmeztetést, valahányszor kísérlet történik az alkalmazás futtatására.
 
-</string>
+Ha a „Figyelmeztetés” beállítással engedélyezi a házirendet, a SmartScreen párbeszédpanelei figyelmeztetik a felhasználót arra, hogy az alkalmazás gyanúsnak tűnik, azonban lehetővé teszik, hogy a felhasználó mellőzze a figyelmeztetést, és annak ellenére futtassa az alkalmazást.
+
+Ha letiltja a házirendet, a SmartScreen minden felhasználó számára ki lesz kapcsolva. A felhasználók nem kapnak figyelmeztetést, ha az internetről letöltött gyanús alkalmazásokat próbálnak meg futtatni.
+
+Ha nem konfigurálja a házirendet, a SmartScreen alapértelmezés szerint engedélyezve lesz, azonban a felhasználók módosíthatják a beállításokat.
+      </string>
       <string id="ShowLockOption">Zárolás megjelenítése a felhasználó csempemenüjében</string>
       <string id="ShowLockOption_Help">A zárolási lehetőség megjelenítése vagy elrejtése a felhasználó csempemenüjében.
 Ha engedélyezi ezt a házirend-beállítást, a zárolási lehetőség megjelenik a felhasználó csempemenüjében.
@@ -619,6 +624,9 @@ Függetlenül attól, hogy a házirend engedélyezve van, le van tiltva vagy nin
         <textBox refId="DefaultLibrariesLocation">
           <label>Alapértelmezett könyvtár-definíciós hely</label>
         </textBox>
+      </presentation>
+      <presentation id="EnableSmartScreen">
+        <dropdownList refId="EnableSmartScreenDropdown" noSort="true" defaultItem="0">Válasszon egyet a következő beállítások közül:</dropdownList>
       </presentation>
       <presentation id="DefaultAssociationsConfiguration">
         <textBox refId="DefaultAssociationsConfiguration_TextBox">

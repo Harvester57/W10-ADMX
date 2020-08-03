@@ -50,7 +50,21 @@
 
       Si esta configuración de directiva está deshabilitada o no se establece, la administración de energía está habilitada cuando el equipo entra en modo de espera conectado.
       
-      </string>      
+      </string>
+      <string id="WCM_EnableSoftDisconnect">Habilitar Windows para desconectar de forma no forzada un equipo de una red</string>
+      <string id="WCM_EnableSoftDisconnect_Help">Esta configuración de directiva determina si Windows desconectará de forma no forzada un equipo de una red.
+
+      Si esta configuración de directiva está habilitada o no configurada, Windows desconectará de forma no forzada un equipo de una red cuando determine que el equipo ya no debe estar conectado a una red.
+
+      Si esta configuración de directiva está deshabilitada, Windows desconectará un equipo de una red inmediatamente cuando determine que el equipo ya no debe estar conectado a una red.
+
+      Cuando está activada la desconexión no forzada:
+      -Cuando Windows decide que el equipo ya no debe estar conectado a una red, espera que el tráfico se calme en esa red. La sesión TCP existente continuará sin interrupciones.
+      - Windows comprueba periódicamente el nivel de tráfico de la red. Si el nivel de tráfico está por encima de un determinado umbral, no se realizarán más acciones. El equipo permanece conectado a la red y la continua usando. Por ejemplo, si la conexión de red se utiliza actualmente para descargar archivos de Internet, los archivos se continuarán descargando mediante esa conexión de red.
+      - Cuando el tráfico de la red desciende por debajo de este umbral, el equipo se desconectará de la red. Las aplicaciones que mantienen una conexión de red activa, incluso cuando no la están utilizando (por ejemplo, las aplicaciones de correo electrónico), pueden perder su conexión. Si esto sucede, estas aplicaciones deben restablecer la conexión a través de una red diferente.
+
+      Esta configuración de directiva depende de otras opciones de configuración de directiva de grupo. Por ejemplo, si se deshabilita la opción "Minimizar el número de conexiones simultáneas a Internet o a un dominio de Windows", Windows no se desconectará de ninguna red.
+      </string>
     </stringTable>
   </resources>
 </policyDefinitionResources>
